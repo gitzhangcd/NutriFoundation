@@ -1,0 +1,37 @@
+schema: EvidenceUnit
+version: v0.1
+
+fields:
+  evidence_id:
+    type: string
+    required: true
+
+  source_id:
+    type: string
+
+  population:
+    type: object
+
+  intervention:
+    type: object
+
+  comparator:
+    type: object
+
+  outcome:
+    type: object
+
+  effect_measure:
+    type: string
+
+  effect_value:
+    type: string
+
+  certainty:
+    type: string
+
+  source_span:
+    type: string
+
+  verification_status:
+    type: string

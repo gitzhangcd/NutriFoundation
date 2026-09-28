@@ -1,0 +1,37 @@
+schema: DecisionEpisode
+version: v0.1
+
+fields:
+  case_id:
+    type: string
+    required: true
+
+  subject_ref:
+    type: string
+
+  observation_bundle:
+    type: string
+
+  scientific_reference_state:
+    type: string
+
+  semantic_state:
+    type: string
+
+  applicability_assessment:
+    type: string
+
+  decision_question:
+    type: string
+
+  candidate_actions:
+    type: array
+
+  expert_reference:
+    type: string
+
+  safety_context:
+    type: object
+
+  provenance:
+    type: object

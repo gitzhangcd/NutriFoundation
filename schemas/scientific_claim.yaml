@@ -1,0 +1,39 @@
+schema: ScientificClaim
+version: v0.1
+
+fields:
+  claim_id:
+    type: string
+    required: true
+
+  statement:
+    type: string
+
+  claim_type:
+    enum:
+      - descriptive
+      - associative
+      - causal
+      - mechanistic
+      - recommendation_support
+
+  evidence_refs:
+    type: array
+
+  population_scope:
+    type: object
+
+  outcome_scope:
+    type: object
+
+  certainty:
+    type: string
+
+  applicability_boundary:
+    type: object
+
+  limitations:
+    type: array
+
+  provenance:
+    type: object

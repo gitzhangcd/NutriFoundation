@@ -1,0 +1,40 @@
+schema: SourceArtifact
+version: v0.1
+
+fields:
+  source_id:
+    type: string
+    required: true
+
+  source_type:
+    enum:
+      - RCT
+      - Cohort
+      - MetaAnalysis
+      - SystematicReview
+      - Guideline
+      - Consensus
+      - PositionStatement
+      - Database
+
+  title:
+    type: string
+
+  authors:
+    type: array
+
+  publication_date:
+    type: date
+
+  identifiers:
+    doi: string
+    pmid: string
+
+  evidence_domain:
+    type: string
+
+  provenance:
+    type: object
+
+  version:
+    type: string

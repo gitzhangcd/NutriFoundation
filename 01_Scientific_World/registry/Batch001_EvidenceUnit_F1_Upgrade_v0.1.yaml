@@ -1,0 +1,76 @@
+batch_id: B001
+stage: P1.9-E7
+version: v0.1
+status: partial_claim_critical_F1
+
+upgraded_evidence_units:
+  - evidence_id: EU-B001-005
+    source_id: SA-B001-005
+    f1_status: fulltext_verified
+    pmid: "23796131"
+    pmcid: "PMC3791615"
+    critical_fields_verified:
+      - randomized_design
+      - population
+      - intervention
+      - comparator
+      - primary_cardiovascular_endpoint
+      - hazard_ratio_and_p_value
+      - intermediate_risk_factor_improvement
+      - limitations_and_generalizability
+    correction_status: resolved_nonfatal
+
+  - evidence_id: EU-B001-007
+    source_id: SA-B001-007
+    f1_status: fulltext_verified
+    pmid: "19246357"
+    pmcid: "PMC2763382"
+    critical_fields_verified:
+      - factorial_randomized_design
+      - diet_macronutrient_targets
+      - two_year_weight_outcome
+      - adherence_and_weight_regain
+      - risk_factor_outcomes
+      - behavioral_engagement_interpretation
+
+  - evidence_id: EU-B001-012
+    source_id: SA-B001-012
+    f1_status: fulltext_verified
+    pmid: "34796367"
+    pmcid: "PMC8660762"
+    critical_fields_verified:
+      - umbrella_review_scope
+      - weight_loss_diet_comparisons
+      - remission_evidence
+      - DiRECT_inclusion
+      - Look_AHEAD_inclusion
+      - quality_and_certainty_boundaries
+
+supporting_fulltext_records_not_mapped_to_existing_EvidenceUnit:
+  - record_id: F1-DPPOS-15Y
+    pmid: "26377054"
+    pmcid: "PMC4623946"
+    supports_claim: SC-B001-C01
+    role: long_term_same_family_followup
+  - record_id: F1-LOWFAT-META-2015
+    pmid: "26527511"
+    pmcid: "PMC4667723"
+    supports_claim: SC-B001-C02
+    role: derivative_synthesis
+  - record_id: F1-LCD-LFD-META-2022
+    pmid: "36017224"
+    pmcid: "PMC9397119"
+    supports_claim: SC-B001-C02
+    role: derivative_synthesis_and_overlap_resolution
+
+not_upgraded_to_F1:
+  - evidence_id: EU-B001-002
+    reason: primary_fulltext_not_retrieved_in_connector_run
+  - evidence_id: EU-B001-003
+    reason: primary_DPP_fulltext_not_retrievable_by_connector; DPPOS followup fulltext used as supporting F1
+  - evidence_id: EU-B001-008
+    reason: PMC record exists but connector rights did not permit fulltext retrieval
+  - evidence_id: EU-B001-011
+    reason: no rights-eligible fulltext retrieved
+
+rule: F1_upgrade_requires_actual_fulltext_review; abstract_only_records_remain_F0

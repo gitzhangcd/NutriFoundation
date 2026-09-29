@@ -1,29 +1,29 @@
 evidence_id: EU-B001-001
 source_id: SA-B001-001
-status: candidate
+status: verified_candidate
 population:
-  description: "215 overweight individuals with newly diagnosed type 2 diabetes"
+  description: "215 overweight adults with newly diagnosed type 2 diabetes, never treated with antihyperglycemic drugs"
 intervention:
-  description: "Low-carbohydrate Mediterranean-style diet"
+  description: "Low-carbohydrate Mediterranean-style diet (<50% daily calories from carbohydrates)"
 comparator:
-  description: "Low-fat diet"
+  description: "Low-fat diet (<30% daily calories from fat)"
 outcome:
-  primary: "Need for antihyperglycemic drug therapy"
+  primary: "Protocol-defined initiation of antihyperglycemic drug therapy"
   secondary:
     - "Weight change"
     - "Glycemic control"
     - "Coronary risk factors"
 effect:
-  direction: "favorable_for_mediterranean_style_diet"
-  summary: "After 4 years, fewer participants in the Mediterranean-style diet group required antihyperglycemic drug therapy compared with the low-fat diet group."
+  summary: "After 4 years, 44% in the Mediterranean-style diet group vs 70% in the low-fat group required antihyperglycemic therapy; absolute difference -26.0 percentage points; HR 0.63 (95% CI 0.51-0.86)."
 follow_up: "4 years"
 limitations:
-  - "Dietary intake was self-reported"
   - "Investigators responsible for initiating drug therapy were not blinded"
+  - "Dietary intake was self-reported"
 source_span:
-  type: "abstract"
-certainty: "candidate_pending_review"
-extraction_agent:
-  status: "completed"
+  type: PubMed_abstract
+  url: "https://pubmed.ncbi.nlm.nih.gov/19721018/"
+applicability_boundary: "Overweight adults with newly diagnosed, drug-naive type 2 diabetes; should not be generalized to advanced or insulin-treated diabetes without separate evidence."
 verification:
-  human_review_required: true
+  metadata: verified
+  population_intervention_comparator_outcome: verified
+  numeric_effect: verified

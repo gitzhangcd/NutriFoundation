@@ -1,0 +1,96 @@
+{
+  "batch_id": "B001",
+  "stage": "P1.9-E7",
+  "claim_id": "SC-B001-C02",
+  "version": "v0.1",
+  "status": "resolved_at_available_fulltext_level",
+  "principle": "Primary trials and derivative syntheses are one evidence family when the synthesis includes the primary trial. They must not be counted as independent confirmations.",
+  "evidence_families": [
+    {
+      "family_id": "EF-C02-POUNDS",
+      "primary_source": "SA-B001-007 / PMID 19246357 / POUNDS LOST",
+      "derivative_sources": [
+        {
+          "source": "PMID 36017224 / 2022 low-carb vs low-fat meta-analysis",
+          "overlap_status": "confirmed",
+          "fulltext_evidence": "Study table contains Sacks 24-month factorial trial."
+        }
+      ],
+      "independence_rule": "Count primary RCT and meta-analysis as one dependent family for replication counting."
+    },
+    {
+      "family_id": "EF-C02-DIETFITS",
+      "primary_source": "SA-B001-008 / PMID 29466592 / DIETFITS",
+      "derivative_sources": [
+        {
+          "source": "PMID 36017224 / 2022 low-carb vs low-fat meta-analysis",
+          "overlap_status": "confirmed",
+          "fulltext_evidence": "Study table contains Gardner 12-month 609-participant trial."
+        }
+      ],
+      "independence_rule": "Meta-analysis effect is derivative of DIETFITS for the portion attributable to this trial."
+    },
+    {
+      "family_id": "EF-C02-ATOZ",
+      "primary_source": "SA-B001-009 / PMID 17341711 / A TO Z",
+      "derivative_sources": [
+        {
+          "source": "PMID 36017224 / 2022 low-carb vs low-fat meta-analysis",
+          "overlap_status": "confirmed",
+          "fulltext_evidence": "Study table contains Gardner 12-month 153-participant low-carb/low-fat subset, consistent with extraction of A TO Z comparison arms."
+        }
+      ],
+      "independence_rule": "Treat as dependent unless a synthesis estimate excluding A TO Z is explicitly calculated."
+    },
+    {
+      "family_id": "EF-C02-DIRECT",
+      "primary_source": "SA-B001-006 / PMID 18635428 / DIRECT",
+      "derivative_sources": [
+        {
+          "source": "PMID 36017224 / 2022 low-carb vs low-fat meta-analysis",
+          "overlap_status": "confirmed",
+          "fulltext_evidence": "Study table contains Shai 24-month trial."
+        }
+      ],
+      "independence_rule": "Treat as dependent for low-carb/low-fat synthesis."
+    },
+    {
+      "family_id": "EF-C02-T2D-UMBRELLA",
+      "primary_source": "SA-B001-012 / PMID 34796367 / umbrella review",
+      "derivative_sources": [
+        {
+          "source": "DiRECT",
+          "overlap_status": "confirmed",
+          "fulltext_evidence": "Umbrella/remission review explicitly includes DiRECT 2018/2019."
+        },
+        {
+          "source": "Look AHEAD",
+          "overlap_status": "confirmed_contextual",
+          "fulltext_evidence": "Review explicitly includes Look AHEAD remission/weight-management evidence."
+        }
+      ],
+      "independence_rule": "Umbrella-review support is synthesis/translation evidence, not independent replication of included primary trials."
+    }
+  ],
+  "synthesis_level_findings": [
+    {
+      "source": "PMID 26527511 / 2015 meta-analysis",
+      "role": "independent synthesis object but derivative from primary trial literature",
+      "finding": "Low-fat not superior to similarly intensive alternative diets; low-carb had modest long-term advantage over low-fat in weight-loss trials.",
+      "overlap_status": "not fully enumerated in available machine-readable full text",
+      "handling": "Do not count as an independent vote from all included primaries."
+    },
+    {
+      "source": "PMID 39255914 / 2024 network meta-analysis",
+      "role": "scope-limited contrasting synthesis",
+      "finding": "Ranks low-carbohydrate highest within a 7-RCT/9-trial network.",
+      "overlap_status": "full study-level membership not resolved in this run",
+      "handling": "Preserve as contrast and Gold-wording constraint; do not dismiss."
+    }
+  ],
+  "audit_conclusion": "C02 should be supported by evidence families, not raw publication count. The strongest defensible wording is a non-universality claim, not an equivalence claim: diet effects vary by comparator, intensity, adherence, population and time horizon, while some contexts show modest low-carbohydrate advantages.",
+  "remaining_blockers": [
+    "Full trial membership of the 2024 network meta-analysis was not fully machine-resolved.",
+    "Human/expert adjudication is still required for final claim wording."
+  ]
+}

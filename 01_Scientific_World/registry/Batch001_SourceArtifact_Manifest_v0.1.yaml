@@ -1,0 +1,33 @@
+batch_id: SA-B001
+version: v0.1
+status: design_freeze
+
+purpose: |
+  First SourceArtifact construction batch for AI Nutri Scientific Evidence World.
+  This manifest defines the registration contract before evidence extraction.
+
+selection_strategy:
+  target_count: 20
+  evidence_types:
+    guideline: 5
+    meta_analysis: 5
+    systematic_review: 2
+    rct: 5
+    cohort: 3
+
+required_fields:
+  - source_id
+  - source_type
+  - title
+  - identifiers
+  - nutrition_domain
+  - provenance
+  - quality_control
+
+workflow:
+  - acquisition
+  - deduplication
+  - eligibility_check
+  - source_registration
+  - extraction_queue
+  - verification

@@ -1,0 +1,25 @@
+{
+  "source_artifact": {
+    "source_id": "SA-B001-020",
+    "title": "Whole grain and refined grain consumption and the risk of type 2 diabetes: a systematic review and dose-response meta-analysis of cohort studies.",
+    "journal": "European Journal of Epidemiology",
+    "year": 2013,
+    "pmid": "24158434",
+    "doi": "10.1007/s10654-013-9852-5",
+    "source_type": "systematic_review_dose_response_meta_analysis_of_cohorts",
+    "population": "Prospective cohort populations included across 16 studies",
+    "provenance_url": "https://pubmed.ncbi.nlm.nih.gov/24158434/",
+    "verification_status": "verified_pubmed_abstract"
+  },
+  "evidence_unit_candidate": {
+    "evidence_id": "EU-B001-020",
+    "kind": "observational_association_synthesis",
+    "population": "Adults in prospective cohort studies",
+    "exposure": "Whole-grain and refined-grain intake",
+    "outcome": "Incident type 2 diabetes",
+    "effect_summary": "For each 3 servings/day of whole grains, summary RR was 0.68 (95% CI 0.58-0.81; I2=82%); refined grains showed no clear association (RR 0.95, 95% CI 0.88-1.04).",
+    "source_span_type": "PubMed_abstract",
+    "applicability_boundary": "Cohort-based association with substantial heterogeneity for whole grains; specific grain subtype estimates were based on fewer studies.",
+    "status": "verified_candidate"
+  }
+}

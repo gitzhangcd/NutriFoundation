@@ -1,0 +1,26 @@
+{
+  "source_artifact": {
+    "source_id": "SA-B001-011",
+    "title": "Effect of dietary patterns on cardiovascular risk factors in people with type 2 diabetes. A systematic review and network meta-analysis.",
+    "journal": "Diabetes Research and Clinical Practice",
+    "year": 2023,
+    "pmid": "36513271",
+    "doi": "10.1016/j.diabres.2022.110207",
+    "source_type": "systematic_review_network_meta_analysis",
+    "population": "People with type 2 diabetes; synthesis of 73 RCTs across eight dietary patterns",
+    "provenance_url": "https://pubmed.ncbi.nlm.nih.gov/36513271/",
+    "verification_status": "verified_pubmed_abstract"
+  },
+  "evidence_unit_candidate": {
+    "evidence_id": "EU-B001-011",
+    "kind": "synthesis_effect",
+    "population": "People with type 2 diabetes",
+    "intervention": "Eight dietary patterns",
+    "comparator": "Usual diet and other dietary patterns",
+    "outcome": "Body weight, HbA1c, blood pressure, lipids at 6 and 12 months",
+    "effect_summary": "All dietary patterns improved body weight and HbA1c at 6 months versus usual diet; the largest body-weight effect was estimated for low-carbohydrate diet (-4.8 kg) and the largest HbA1c effect for Mediterranean diet (-1.0 percentage point). Twelve-month effects were not statistically significant and evidence was insufficient to identify one optimal dietary pattern.",
+    "source_span_type": "PubMed_abstract",
+    "applicability_boundary": "Applies to people with type 2 diabetes; network estimates synthesize heterogeneous RCTs and do not establish a universally optimal diet.",
+    "status": "verified_candidate"
+  }
+}

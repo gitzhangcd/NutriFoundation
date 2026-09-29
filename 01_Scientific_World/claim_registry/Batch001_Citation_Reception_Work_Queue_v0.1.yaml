@@ -1,21 +1,29 @@
 batch_id: B001
 stage: P1.9-E6.1
 version: v0.1
-status: ready_for_reception_execution
+status: P0_completed_P1_P2_pending
 
 claims:
   - claim_id: SC-B001-C01
     execution_priority: P0
     reason: "Two independent prevention RCTs; strong first-Gold candidate after reception and replication audit."
-    reception_status: pending
+    reception_status: completed
+    reliability_state: robust
+    sidecar_ref: CRS-B001-C01-v0.1
   - claim_id: SC-B001-C05
     execution_priority: P0
     reason: "High-value epistemic guard: surrogate/risk-factor improvement must not be equated with hard cardiovascular benefit."
-    reception_status: pending
+    reception_status: completed_with_escalation
+    reliability_state: convergent
+    sidecar_ref: CRS-B001-C05-v0.1
+    escalation: publisher_correction_impact_check
   - claim_id: SC-B001-C02
     execution_priority: P0
     reason: "Central no-universal-diet-winner claim with primary/synthesis dependencies requiring de-duplication."
-    reception_status: pending
+    reception_status: completed_with_escalation
+    reliability_state: convergent
+    sidecar_ref: CRS-B001-C02-v0.1
+    escalation: recent_scope_limited_contrast_and_overlap_audit
   - claim_id: SC-B001-C03
     execution_priority: P1
     reason: "T2D remission claim with likely DiRECT/synthesis dependency."

@@ -1,0 +1,24 @@
+source_artifact:
+  source_id: SA-B001-008
+  title: "Effect of Low-Fat vs Low-Carbohydrate Diet on 12-Month Weight Loss in Overweight Adults and the Association With Genotype Pattern or Insulin Secretion: The DIETFITS Randomized Clinical Trial."
+  journal: "JAMA"
+  year: 2018
+  pmid: "29466592"
+  pmcid: "PMC5839290"
+  doi: "10.1001/jama.2018.0245"
+  source_type: RCT
+  population: "609 adults aged 18-50 years, BMI 28-40, without diabetes"
+  intervention: "Healthy low-fat diet"
+  comparator: "Healthy low-carbohydrate diet"
+  provenance_url: "https://pubmed.ncbi.nlm.nih.gov/29466592/"
+  verification_status: registered
+evidence_unit_candidate:
+  evidence_id: EU-B001-008
+  population: "Overweight/obese adults without diabetes"
+  intervention: "Healthy low-fat diet"
+  comparator: "Healthy low-carbohydrate diet"
+  outcome: "12-month weight change"
+  effect_summary: "Weight change was -5.3 kg vs -6.0 kg; between-group difference 0.7 kg (95% CI -0.2 to 1.6). No significant diet-genotype or diet-insulin-secretion interaction."
+  source_span_type: abstract
+  limitation: "Does not establish equivalence in people with diabetes; tested specific behavioral interventions."
+  status: candidate

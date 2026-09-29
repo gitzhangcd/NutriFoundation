@@ -1,0 +1,123 @@
+schema: CitationReceptionRecord
+version: v0.1
+stage: P1.9-E6.1
+status: frozen
+
+purpose:
+  - represent_how_a_source_or_claim_is_received_by_later_science
+  - separate_scientific_influence_from_scientific_reliability
+  - preserve_claim_level_citation_context_and_lineage
+
+fields:
+  reception_id:
+    type: string
+    required: true
+
+  target_type:
+    enum:
+      - SourceArtifact
+      - ScientificClaim
+    required: true
+
+  target_id:
+    type: string
+    required: true
+
+  snapshot:
+    type: object
+    fields:
+      retrieval_date: string
+      providers: array
+      coverage_notes: string
+
+  bibliometrics:
+    type: object
+    fields:
+      raw_citation_count: integer
+      field_year_normalized_percentile: number
+      citation_velocity: number
+      journal_metric:
+        type: object
+        fields:
+          metric_name: string
+          value: number
+          metric_year: integer
+          provider: string
+          use_policy: string
+
+  citation_contexts:
+    type: array
+    item_fields:
+      citing_source_id: string
+      citing_identifier: object
+      citing_year: integer
+      citation_span: string
+      claim_alignment:
+        enum: [exact_claim, partial_claim, background_only, unclear]
+      reception_role:
+        enum:
+          - supports
+          - contrasts
+          - contradicts
+          - independent_replication
+          - failed_replication
+          - methodological_use
+          - background_mention
+          - extends_generalizes
+          - critique
+      evidence_type: string
+      independence_group_id: string
+      source_quality_ref: string
+      extraction_confidence: number
+      human_review_required: boolean
+
+  replication_summary:
+    type: object
+    fields:
+      independent_direct_replications: integer
+      independent_supportive_replications: integer
+      independent_null_replications: integer
+      independent_failed_replications: integer
+      conceptual_replications: integer
+      not_comparable_followups: integer
+
+  reception_summary:
+    type: object
+    fields:
+      supporting_claim_aligned_count: integer
+      contradicting_claim_aligned_count: integer
+      critique_count: integer
+      background_mention_count: integer
+      guideline_uptake_count: integer
+      systematic_review_uptake_count: integer
+      consensus_direction:
+        enum: [supportive, mixed, contested, insufficient, not_applicable]
+
+  integrity_events:
+    type: array
+    item_fields:
+      event_type:
+        enum: [correction, erratum, expression_of_concern, retraction, major_methodological_critique]
+      event_date: string
+      source: string
+      impact_on_claim: string
+
+  lineage:
+    type: object
+    fields:
+      independent_citation_families: integer
+      derivative_citation_families: integer
+      probable_duplicate_lineages: array
+
+  provenance:
+    type: object
+    required: true
+
+invariants:
+  - raw_citation_count_is_not_support_count
+  - support_citation_is_not_independent_replication
+  - journal_metric_is_not_article_validity
+  - guideline_citation_is_not_independent_effect_estimate
+  - contradictory_citation_does_not_automatically_invalidate_source
+  - citation_context_must_be_claim_aligned_before_reliability_use
+  - citation_lineage_must_be_deduplicated_before_aggregation

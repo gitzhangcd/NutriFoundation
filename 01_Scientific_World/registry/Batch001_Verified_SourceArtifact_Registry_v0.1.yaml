@@ -1,43 +1,21 @@
-# AI Nutri Data Foundation v0.1
-# P1.7 Batch001 Verified SourceArtifact Registry
-# Status: Bootstrap registry (real records added after screening verification)
-
 batch_id: SA-B001
-version: v0.1
-status: bootstrap
+version: v0.2
+status: verified_001_010
 
 sources:
-  - source_id: SA-B001-001
-    status: registered_pending_verification
-    source_type: null
-    title: null
-    identifiers:
-      doi: null
-      pmid: null
-    nutrition_domain: null
-    provenance: null
-
-  - source_id: SA-B001-002
-    status: registered_pending_verification
-    source_type: null
-    title: null
-    identifiers:
-      doi: null
-      pmid: null
-    nutrition_domain: null
-    provenance: null
-
-  - source_id: SA-B001-003
-    status: registered_pending_verification
-    source_type: null
-    title: null
-    identifiers:
-      doi: null
-      pmid: null
-    nutrition_domain: null
-    provenance: null
+  - {source_id: SA-B001-001, pmid: "19721018", doi: "10.7326/0003-4819-151-5-200909010-00004", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-002, pmid: "11333990", doi: "10.1056/NEJM200105033441801", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-003, pmid: "11832527", doi: "10.1056/NEJMoa012512", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-004, pmid: "29897866", doi: "10.1056/NEJMoa1800389", status: verified_pubmed_abstract, note: "corrected_and_republished_PREDIMED_primary_report"}
+  - {source_id: SA-B001-005, pmid: "23796131", doi: "10.1056/NEJMoa1212914", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-006, pmid: "18635428", doi: "10.1056/NEJMoa0708681", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-007, pmid: "19246357", doi: "10.1056/NEJMoa0804748", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-008, pmid: "29466592", doi: "10.1001/jama.2018.0245", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-009, pmid: "17341711", doi: "10.1001/jama.297.9.969", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-010, pmid: "29221645", doi: "10.1016/S0140-6736(17)33102-1", status: verified_pubmed_abstract}
 
 registration_rule:
-  - No fabricated metadata
-  - Every source requires DOI/PMID or authoritative provenance
-  - Every EvidenceUnit must link to a registered SourceArtifact
+  - no_fabricated_metadata
+  - authoritative_identifier_required
+  - provenance_required
+  - every_EvidenceUnit_links_to_registered_SourceArtifact

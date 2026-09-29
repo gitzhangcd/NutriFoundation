@@ -1,26 +1,46 @@
-# AI Nutri EvidenceUnit Verification Queue
-# P1.8 Bootstrap
-
-version: v0.1
-
+version: v0.2
 queue_status:
   candidate: []
-  verified: []
-  frozen: []
+  verified_candidate: []
+  frozen_F0:
+    - EU-B001-001
+    - EU-B001-002
+    - EU-B001-003
+    - EU-B001-004
+    - EU-B001-005
+    - EU-B001-006
+    - EU-B001-007
+    - EU-B001-008
+    - EU-B001-009
+    - EU-B001-010
+  pending_F1_fulltext:
+    - EU-B001-001
+    - EU-B001-002
+    - EU-B001-003
+    - EU-B001-004
+    - EU-B001-005
+    - EU-B001-006
+    - EU-B001-007
+    - EU-B001-008
+    - EU-B001-009
+    - EU-B001-010
+  expert_gold: []
 
-rules:
+freeze_policy:
+  F0:
+    meaning: "Agent-verified, source-linked factual extraction directly supported by bibliographic metadata and abstract."
+    human_review_required: false
+    may_generate_recommendation: false
+    may_be_treated_as_expert_gold: false
+  F1:
+    meaning: "Full-text anchored scientific evidence object."
+    human_or_expert_review_required_for_critical_fields: true
+  GOLD:
+    meaning: "Claim/DecisionEpisode gold used for publication-level benchmark truth."
+    independent_human_or_expert_review_required: true
+
+requirements:
   required_source_reference: true
   required_source_span: true
-  require_human_review_before_freeze: true
-
-fields:
-  - evidence_id
-  - source_id
-  - population
-  - intervention_or_exposure
-  - comparator
-  - outcome
-  - effect
-  - certainty
-  - limitation
-  - verification_status
+  provenance_required: true
+  applicability_boundary_required: true

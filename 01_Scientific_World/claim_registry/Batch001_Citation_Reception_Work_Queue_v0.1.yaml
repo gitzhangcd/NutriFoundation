@@ -1,0 +1,60 @@
+batch_id: B001
+stage: P1.9-E6.1
+version: v0.1
+status: ready_for_reception_execution
+
+claims:
+  - claim_id: SC-B001-C01
+    execution_priority: P0
+    reason: "Two independent prevention RCTs; strong first-Gold candidate after reception and replication audit."
+    reception_status: pending
+  - claim_id: SC-B001-C05
+    execution_priority: P0
+    reason: "High-value epistemic guard: surrogate/risk-factor improvement must not be equated with hard cardiovascular benefit."
+    reception_status: pending
+  - claim_id: SC-B001-C02
+    execution_priority: P0
+    reason: "Central no-universal-diet-winner claim with primary/synthesis dependencies requiring de-duplication."
+    reception_status: pending
+  - claim_id: SC-B001-C03
+    execution_priority: P1
+    reason: "T2D remission claim with likely DiRECT/synthesis dependency."
+    reception_status: pending
+  - claim_id: SC-B001-C04
+    execution_priority: P1
+    reason: "Mediterranean-diet claim requires reception and scope-preservation audit."
+    reception_status: pending
+  - claim_id: SC-B001-C06
+    execution_priority: P1
+    reason: "Whole-grain/fibre claim has probable cohort overlap across syntheses."
+    reception_status: pending
+  - claim_id: SC-B001-C09
+    execution_priority: P1
+    reason: "Salt/BP synthesis needs replication and strategy-specific reception."
+    reception_status: pending
+  - claim_id: SC-B001-C10
+    execution_priority: P1
+    reason: "Applicability-gate claim depends on guideline uptake and currentness."
+    reception_status: pending
+  - claim_id: SC-B001-C07
+    execution_priority: P2
+    reason: "Single-cohort UPF/T2D association needs external replication before reliability upgrade."
+    reception_status: pending
+  - claim_id: SC-B001-C08
+    execution_priority: P2
+    reason: "Large observational federated meta-analysis; reliability depends more on triangulation than citation volume."
+    reception_status: pending
+  - claim_id: SC-B001-C11
+    execution_priority: P2
+    reason: "Negative precision-nutrition interaction claim needs targeted follow-up literature rather than broad citation counting."
+    reception_status: pending
+
+priority_semantics:
+  P0: "Run before E7 first Claim-Gold selection."
+  P1: "Run during E7 qualification."
+  P2: "Run before the corresponding claim is promoted beyond provisional/convergent."
+
+rules:
+  - execution_priority_is_not_claim_quality_ranking
+  - no_claim_is_gold
+  - bibliometric_popularity_does_not_change_priority_without_scientific_reason

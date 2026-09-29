@@ -1,0 +1,15 @@
+ObservationArtifact:
+  observation_id: string
+  subject_id: string
+  observation_type:
+    enum:
+      - laboratory
+      - dietary_intake
+      - medication
+      - phenotype
+      - lifestyle
+  value: any
+  unit: string
+  timestamp: datetime
+  measurement_method: string
+  source: string

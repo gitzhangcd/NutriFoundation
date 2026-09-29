@@ -1,19 +1,27 @@
 batch_id: B001
-status: first_freeze_released
+status: batch001_complete_F0
 
 source_artifacts:
   target_count: 20
-  registered_count: 10
-  verified_count: 10
+  registered_count: 20
+  verified_count: 20
   pending_count: 0
   flagged_secondary_record_count: 0
 
 evidence_units:
-  candidate_count: 10
-  verified_candidate_count: 10
-  frozen_F0_count: 10
+  candidate_count: 20
+  verified_candidate_count: 20
+  frozen_F0_count: 20
   frozen_F1_fulltext_count: 0
   expert_gold_count: 0
+
+source_type_profile:
+  randomized_or_cluster_trials: 10
+  systematic_meta_or_umbrella_reviews: 5
+  prospective_observational_cohort: 1
+  federated_or_cohort_meta_analysis: 2
+  guideline_or_consensus: 3
+  note: "Categories overlap for some synthesis sources; counts are descriptive rather than mutually exclusive."
 
 registered_ids:
   - SA-B001-001
@@ -26,6 +34,16 @@ registered_ids:
   - SA-B001-008
   - SA-B001-009
   - SA-B001-010
+  - SA-B001-011
+  - SA-B001-012
+  - SA-B001-013
+  - SA-B001-014
+  - SA-B001-015
+  - SA-B001-016
+  - SA-B001-017
+  - SA-B001-018
+  - SA-B001-019
+  - SA-B001-020
 
 repairs:
   SA-B001-004:
@@ -37,10 +55,12 @@ rules:
   - provenance_required
   - evidence_unit_link_required
   - candidate_not_equal_frozen
-  - F0_freeze_is_abstract_anchored_factual_extraction
+  - F0_source_statement_or_fact_freeze_only
+  - observational_association_not_equal_causal_effect
+  - guideline_statement_not_equal_independent_expert_gold
   - F1_or_gold_requires_fulltext_and_or_human_scientific_review
 
 next_action:
-  - perform_F1_fulltext_second_pass_when_source_access_allows
-  - retrieve_and_register_SA-B001-011_to_020
-  - begin_ScientificClaim_construction_only_from_frozen_evidence
+  - Batch001_cross_source_conflict_and_redundancy_audit
+  - selective_F1_fulltext_upgrade
+  - ScientificClaim_construction_from_frozen_evidence

@@ -1,0 +1,23 @@
+{
+  "source_artifact": {
+    "source_id": "SA-B001-017",
+    "title": "ESPEN practical guideline: Clinical nutrition and hydration in geriatrics.",
+    "journal": "Clinical Nutrition",
+    "year": 2022,
+    "pmid": "35306388",
+    "doi": "10.1016/j.clnu.2022.01.024",
+    "source_type": "practice_guideline",
+    "population": "Older adults, including those at risk of malnutrition or dehydration",
+    "provenance_url": "https://pubmed.ncbi.nlm.nih.gov/35306388/",
+    "verification_status": "verified_pubmed_abstract"
+  },
+  "evidence_unit_candidate": {
+    "evidence_id": "EU-B001-017",
+    "kind": "guideline_recommendation",
+    "population": "Older adults",
+    "recommendation_summary": "The guideline recommends routine malnutrition screening in older adults, generally avoiding unnecessary dietary restrictions, considering weight-reducing diets only in obese older persons with weight-related health problems and together with physical exercise, and individualizing nutrition/hydration care within a multimodal multidisciplinary approach.",
+    "source_span_type": "PubMed_abstract",
+    "applicability_boundary": "Guideline statements concern geriatric care and should not be generalized to younger adults without separate evidence.",
+    "status": "verified_candidate"
+  }
+}

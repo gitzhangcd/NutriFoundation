@@ -1,0 +1,348 @@
+{
+  "batch_id": "B001",
+  "stage": "P1.9-E6.2",
+  "version": "v0.1",
+  "snapshot_date": "2026-09-30",
+  "scope": "P0 claims SC-B001-C01, SC-B001-C05, SC-B001-C02",
+  "records": [
+    {
+      "reception_id": "CRR-B001-C01-v0.1",
+      "target_type": "ScientificClaim",
+      "target_id": "SC-B001-C01",
+      "target_statement": "In adults with impaired glucose tolerance or otherwise high-risk dysglycemia, intensive multicomponent lifestyle intervention can reduce or delay incident type 2 diabetes compared with usual/control care.",
+      "snapshot": {
+        "retrieval_date": "2026-09-30",
+        "providers": [
+          "PubMed",
+          "Metascience Observatory web snapshot"
+        ],
+        "coverage_notes": "Stratified high-value reception sample; not exhaustive citation graph."
+      },
+      "citation_contexts": [
+        {
+          "citing_source_id": "PMID:23093136",
+          "title": "Improved lifestyle and decreased diabetes risk over 13 years: long-term follow-up of the randomised Finnish Diabetes Prevention Study (DPS).",
+          "claim_alignment": "exact_claim",
+          "reception_role": "extends_generalizes",
+          "evidence_type": "same-cohort long-term randomized follow-up",
+          "independence_group_id": "DPS_Finland",
+          "assessment": "Sustained lower diabetes incidence after active intervention; total-follow-up HR 0.614 and post-intervention HR 0.672.",
+          "extraction_confidence": 0.99,
+          "human_review_required": false
+        },
+        {
+          "citing_source_id": "PMID:26377054",
+          "title": "Long-term effects of lifestyle intervention or metformin on diabetes development and microvascular complications over 15-year follow-up: DPPOS.",
+          "claim_alignment": "exact_claim",
+          "reception_role": "extends_generalizes",
+          "evidence_type": "same-cohort long-term follow-up",
+          "independence_group_id": "DPP_US",
+          "assessment": "Lifestyle assignment remained associated with 27% lower diabetes incidence over 15 years; effect attenuated over time but persisted.",
+          "extraction_confidence": 0.99,
+          "human_review_required": false
+        },
+        {
+          "citing_source_id": "PMID:16391903",
+          "title": "Indian Diabetes Prevention Programme (IDPP-1).",
+          "claim_alignment": "exact_claim",
+          "reception_role": "independent_replication",
+          "evidence_type": "independent randomized controlled trial",
+          "independence_group_id": "IDPP_India",
+          "assessment": "Lifestyle modification reduced 3-year diabetes incidence in Asian Indian adults with IGT; relative risk reduction 28.5% vs control.",
+          "extraction_confidence": 0.99,
+          "human_review_required": false
+        },
+        {
+          "citing_source_id": "PMID:15649575",
+          "title": "Prevention of type 2 diabetes by lifestyle intervention: a Japanese trial in IGT males.",
+          "claim_alignment": "exact_claim",
+          "reception_role": "independent_replication",
+          "evidence_type": "independent randomized controlled trial",
+          "independence_group_id": "Japanese_IGT_Male_Trial",
+          "assessment": "4-year diabetes incidence 3.0% intensive intervention vs 9.3% control; reported risk reduction 67.4%.",
+          "extraction_confidence": 0.99,
+          "human_review_required": false
+        },
+        {
+          "citing_source_id": "PMID:21824948",
+          "title": "Lifestyle modification and prevention of type 2 diabetes in overweight Japanese with impaired fasting glucose levels.",
+          "claim_alignment": "partial_claim",
+          "reception_role": "extends_generalizes",
+          "evidence_type": "independent multicenter randomized controlled trial",
+          "independence_group_id": "Japanese_IFG_Trial",
+          "assessment": "Overall HR 0.56, but benefit was concentrated in participants with more deteriorated glycemic status; no clear risk reduction in isolated IFG/low HbA1c subgroups.",
+          "extraction_confidence": 0.98,
+          "human_review_required": false
+        },
+        {
+          "citing_source_id": "PMID:23331362",
+          "title": "Lifestyle and medication interventions for prevention or delay of type 2 diabetes mellitus in prediabetes: systematic review of RCTs.",
+          "claim_alignment": "exact_claim",
+          "reception_role": "supports",
+          "evidence_type": "systematic review",
+          "independence_group_id": "DERIVATIVE_SYNTHESIS",
+          "assessment": "Concluded substantial evidence that intensive lifestyle programs delay T2D in IGT, while noting heterogeneity and uncertainty about comparative effectiveness versus medications.",
+          "extraction_confidence": 0.97,
+          "human_review_required": false
+        }
+      ],
+      "replication_summary": {
+        "independent_direct_replications": 2,
+        "independent_supportive_replications": 1,
+        "independent_null_replications": 0,
+        "independent_failed_replications": 0,
+        "conceptual_replications": 1,
+        "not_comparable_followups": 0
+      },
+      "reception_summary": {
+        "supporting_claim_aligned_count": 6,
+        "contradicting_claim_aligned_count": 0,
+        "critique_count": 0,
+        "background_mention_count": null,
+        "guideline_uptake_count": null,
+        "systematic_review_uptake_count": 2,
+        "consensus_direction": "supportive"
+      },
+      "integrity_events": [],
+      "lineage": {
+        "independent_citation_families": 5,
+        "derivative_citation_families": 2,
+        "probable_duplicate_lineages": [
+          "DPS original and 13-year follow-up are one evidence family",
+          "DPP original and DPPOS 15-year follow-up are one evidence family"
+        ]
+      },
+      "provenance": {
+        "source": "PubMed abstracts + public bibliometric web snapshot",
+        "agent_run": "P1.9-E6.2"
+      }
+    },
+    {
+      "reception_id": "CRR-B001-C05-v0.1",
+      "target_type": "ScientificClaim",
+      "target_id": "SC-B001-C05",
+      "target_statement": "Improvement in body weight, HbA1c, fitness, or cardiovascular risk factors is not by itself sufficient evidence that an intervention reduces hard cardiovascular events.",
+      "snapshot": {
+        "retrieval_date": "2026-09-30",
+        "providers": [
+          "PubMed",
+          "NEJM web"
+        ],
+        "coverage_notes": "High-value reception sample around Look AHEAD and hard-outcome interpretation."
+      },
+      "citation_contexts": [
+        {
+          "citing_source_id": "PMID:25729633",
+          "title": "The Look AHEAD Trial: A Review and Discussion Of Its Outcomes.",
+          "claim_alignment": "exact_claim",
+          "reception_role": "supports",
+          "evidence_type": "review",
+          "independence_group_id": "LOOK_AHEAD_REVIEW",
+          "assessment": "Explicitly states weight loss and fitness differed but cardiovascular outcomes did not, while cataloguing multiple non-CV health benefits.",
+          "extraction_confidence": 0.99,
+          "human_review_required": false
+        },
+        {
+          "citing_source_id": "PMID:28554780",
+          "title": "Interventions in type 2 diabetes mellitus and cardiovascular mortality—An overview of clinical trials.",
+          "claim_alignment": "partial_claim",
+          "reception_role": "supports",
+          "evidence_type": "clinical-trial overview",
+          "independence_group_id": "INDEPENDENT_REVIEW",
+          "assessment": "Notes that improving glycemia or traditional risk factors does not consistently translate to cardiovascular benefit and describes classical lifestyle interventions as disappointing for cardiovascular outcomes.",
+          "extraction_confidence": 0.96,
+          "human_review_required": false
+        },
+        {
+          "citing_source_id": "PMID:32333878",
+          "title": "Glucose-lowering drugs or strategies, atherosclerotic cardiovascular events, and heart failure: updated systematic review/meta-analysis.",
+          "claim_alignment": "partial_claim",
+          "reception_role": "contrasts",
+          "evidence_type": "systematic review and meta-analysis",
+          "independence_group_id": "CVOT_META",
+          "assessment": "Across heterogeneous drug classes/strategies, MACE effects varied by intervention type and weight-loss-associated strategies could show cardiovascular benefit. This does not refute the guard, but limits any blanket reading that lifestyle/weight loss never benefits hard outcomes.",
+          "extraction_confidence": 0.93,
+          "human_review_required": true
+        },
+        {
+          "citing_source_id": "PMID:36597380",
+          "title": "Effect of intensive lifestyle intervention on weight variability and MACE in Look AHEAD.",
+          "claim_alignment": "partial_claim",
+          "reception_role": "methodological_use",
+          "evidence_type": "secondary observational analysis within Look AHEAD",
+          "independence_group_id": "LOOK_AHEAD_DATA_REUSE",
+          "assessment": "Uses the same Look AHEAD cohort to study weight variability and argues for ILI, but this is not an independent randomized replication of the original MACE contrast.",
+          "extraction_confidence": 0.96,
+          "human_review_required": false
+        },
+        {
+          "citing_source_id": "PMID:28684083",
+          "title": "The PREDIMED trial, Mediterranean diet and health outcomes: How strong is the evidence?",
+          "claim_alignment": "partial_claim",
+          "reception_role": "supports",
+          "evidence_type": "methodological review",
+          "independence_group_id": "PREDIMED_REVIEW",
+          "assessment": "Emphasizes the value of hard clinical endpoints over intermediate risk markers, supporting the inference guard while discussing limitations of PREDIMED.",
+          "extraction_confidence": 0.94,
+          "human_review_required": false
+        }
+      ],
+      "replication_summary": {
+        "independent_direct_replications": 0,
+        "independent_supportive_replications": 0,
+        "independent_null_replications": 0,
+        "independent_failed_replications": 0,
+        "conceptual_replications": 0,
+        "not_comparable_followups": 2
+      },
+      "reception_summary": {
+        "supporting_claim_aligned_count": 3,
+        "contradicting_claim_aligned_count": 0,
+        "critique_count": 0,
+        "background_mention_count": null,
+        "guideline_uptake_count": 31,
+        "systematic_review_uptake_count": 1,
+        "consensus_direction": "supportive"
+      },
+      "integrity_events": [
+        {
+          "event_type": "correction",
+          "event_date": null,
+          "source": "NEJM publisher page",
+          "impact_on_claim": "Publisher marks the Look AHEAD article as corrected. Correction content was not retrieved in this run; E7 must resolve whether it affects the primary cardiovascular result."
+        }
+      ],
+      "lineage": {
+        "independent_citation_families": 4,
+        "derivative_citation_families": 2,
+        "probable_duplicate_lineages": [
+          "PMID:36597380 reuses Look AHEAD participants and is not independent replication"
+        ]
+      },
+      "provenance": {
+        "source": "PubMed abstracts + NEJM publisher metrics",
+        "agent_run": "P1.9-E6.2"
+      }
+    },
+    {
+      "reception_id": "CRR-B001-C02-v0.1",
+      "target_type": "ScientificClaim",
+      "target_id": "SC-B001-C02",
+      "target_statement": "Across adults with overweight/obesity or type 2 diabetes, current Batch001 evidence does not support a single universally superior macronutrient distribution or named diet for sustained weight loss across populations and time horizons.",
+      "snapshot": {
+        "retrieval_date": "2026-09-30",
+        "providers": [
+          "PubMed",
+          "Metascience Observatory web snapshot",
+          "PMC/JAMA"
+        ],
+        "coverage_notes": "Stratified synthesis/reception sample; primary-study overlap remains to be fully audited at F1."
+      },
+      "citation_contexts": [
+        {
+          "citing_source_id": "PMID:26527511",
+          "title": "Effect of low-fat diet interventions versus other diet interventions on long-term weight change in adults.",
+          "claim_alignment": "exact_claim",
+          "reception_role": "supports",
+          "evidence_type": "systematic review and meta-analysis of 53 studies",
+          "independence_group_id": "LOW_FAT_META_2015",
+          "assessment": "Low-carbohydrate diets had a modest advantage versus low-fat in weight-loss trials, but low-fat was not superior to other equally intensive dietary interventions; comparator intensity materially changed conclusions.",
+          "extraction_confidence": 0.99,
+          "human_review_required": false
+        },
+        {
+          "citing_source_id": "PMID:36017224",
+          "title": "Effects of low-carbohydrate diets versus low-fat diets on metabolic risk factors in overweight and obese adults.",
+          "claim_alignment": "exact_claim",
+          "reception_role": "supports",
+          "evidence_type": "meta-analysis of 33 studies",
+          "independence_group_id": "LCD_LFD_META_2022",
+          "assessment": "Low-carbohydrate showed modest 6–23 month advantages in weight/triglycerides/HDL, but no difference in benefits after 24 months, supporting time-horizon dependence rather than universal superiority.",
+          "extraction_confidence": 0.99,
+          "human_review_required": false
+        },
+        {
+          "citing_source_id": "PMID:34796367",
+          "title": "Diets for weight management in adults with type 2 diabetes: umbrella review.",
+          "claim_alignment": "exact_claim",
+          "reception_role": "supports",
+          "evidence_type": "umbrella review/systematic review",
+          "independence_group_id": "T2D_UMBRELLA_2022",
+          "assessment": "Published meta-analyses did not support a particular macronutrient profile or style over others for weight management in T2D; very-low-energy/TDR approaches performed differently because energy restriction/intensity differed.",
+          "extraction_confidence": 0.98,
+          "human_review_required": false
+        },
+        {
+          "citing_source_id": "PMID:36513271",
+          "title": "Effect of dietary patterns on cardiovascular risk factors in people with type 2 diabetes.",
+          "claim_alignment": "exact_claim",
+          "reception_role": "supports",
+          "evidence_type": "network meta-analysis of 73 RCTs",
+          "independence_group_id": "T2D_NMA_2023",
+          "assessment": "Found short-term differences across patterns but concluded evidence was insufficient to select one optimal dietary pattern.",
+          "extraction_confidence": 0.99,
+          "human_review_required": false
+        },
+        {
+          "citing_source_id": "PMID:39255914",
+          "title": "Comparison of weight loss effects among overweight/obese adults: network meta-analysis of Mediterranean, low-carbohydrate, and low-fat diets.",
+          "claim_alignment": "partial_claim",
+          "reception_role": "contrasts",
+          "evidence_type": "network meta-analysis of 7 RCTs/9 trials",
+          "independence_group_id": "WEIGHT_NMA_2024",
+          "assessment": "Ranked low-carbohydrate as most effective for weight loss/body fat in its network, but also stated efficacy may vary with age, sex, genetics and lifestyle. This is a meaningful scope-limited contrast, not a direct refutation of the universal claim.",
+          "extraction_confidence": 0.98,
+          "human_review_required": true
+        },
+        {
+          "citing_source_id": "PMID:31000505",
+          "title": "Nutrition Therapy for Adults With Diabetes or Prediabetes: A Consensus Report.",
+          "claim_alignment": "exact_claim",
+          "reception_role": "supports",
+          "evidence_type": "consensus report",
+          "independence_group_id": "ADA_CONSENSUS_DERIVATIVE",
+          "assessment": "States no one-size-fits-all eating plan and no ideal macronutrient percentage applies broadly; supports individualization but is derivative guidance, not independent effect evidence.",
+          "extraction_confidence": 0.99,
+          "human_review_required": false
+        }
+      ],
+      "replication_summary": {
+        "independent_direct_replications": 0,
+        "independent_supportive_replications": 3,
+        "independent_null_replications": 0,
+        "independent_failed_replications": 0,
+        "conceptual_replications": 2,
+        "not_comparable_followups": 0
+      },
+      "reception_summary": {
+        "supporting_claim_aligned_count": 5,
+        "contradicting_claim_aligned_count": 0,
+        "critique_count": 0,
+        "background_mention_count": null,
+        "guideline_uptake_count": 1,
+        "systematic_review_uptake_count": 5,
+        "consensus_direction": "mixed"
+      },
+      "integrity_events": [
+        {
+          "event_type": "correction",
+          "event_date": "2018-04",
+          "source": "JAMA/PMC DIETFITS record",
+          "impact_on_claim": "Corrections changed lipid units/conversion instructions and funding description; primary weight-loss and genotype/INS-30 conclusions were not described as changed."
+        }
+      ],
+      "lineage": {
+        "independent_citation_families": 4,
+        "derivative_citation_families": 4,
+        "probable_duplicate_lineages": [
+          "POUNDS LOST, A TO Z, DIETFITS and DIRECT may be included in one or more later meta-analyses",
+          "ADA consensus depends on primary/synthesis evidence and is not independent replication"
+        ]
+      },
+      "provenance": {
+        "source": "PubMed abstracts + public bibliometric/publisher pages",
+        "agent_run": "P1.9-E6.2"
+      }
+    }
+  ]
+}

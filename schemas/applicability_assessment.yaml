@@ -1,0 +1,10 @@
+ApplicabilityAssessment:
+  applicability_id: string
+  evidence_claim_id: string
+  subject_state_id: string
+  matching_features: array
+  mismatch_features: array
+  modifiers: array
+  contraindications: array
+  confidence: float
+  rationale: string

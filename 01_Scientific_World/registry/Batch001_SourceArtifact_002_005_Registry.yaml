@@ -1,0 +1,51 @@
+batch_id: B001
+status: registered
+sources:
+  - source_id: SA-B001-002
+    title: "Prevention of type 2 diabetes mellitus by changes in lifestyle among subjects with impaired glucose tolerance"
+    source_type: RCT
+    pmid: "11333990"
+    doi: "10.1056/NEJM200105033441801"
+    year: 2001
+    journal: "The New England journal of medicine"
+    nutrition_domain:
+      - diabetes_prevention
+      - lifestyle_intervention
+    population: "522 middle-aged, overweight subjects with impaired glucose tolerance"
+    intervention: "Individualized lifestyle counseling including weight reduction, reduced fat and saturated fat intake, increased fiber and physical activity"
+    comparator: "Control group"
+    outcome: "Incidence of type 2 diabetes"
+    provenance: "PubMed PMID:11333990"
+
+  - source_id: SA-B001-003
+    title: "Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin"
+    source_type: RCT
+    pmid: "11832527"
+    doi: "10.1056/NEJMoa012512"
+    year: 2002
+    journal: "The New England journal of medicine"
+    nutrition_domain:
+      - diabetes_prevention
+      - lifestyle_intervention
+    population: "3234 nondiabetic persons with elevated fasting and post-load glucose concentrations"
+    intervention: "Lifestyle modification program targeting weight loss and physical activity"
+    comparator: "Placebo and metformin groups"
+    outcome: "Incidence of diabetes"
+    provenance: "PubMed PMID:11832527"
+
+  - source_id: SA-B001-004
+    title: "Primary cardiovascular prevention by Mediterranean diet - the PREDIMED trial"
+    source_type: Editorial
+    pmid: "23659248"
+    doi: "10.3109/08037051.2013.793882"
+    year: 2013
+    journal: "Blood pressure"
+    nutrition_domain:
+      - mediterranean_diet
+      - cardiovascular_prevention
+    provenance: "PubMed PMID:23659248"
+
+  - source_id: SA-B001-005
+    title: "Placeholder reserved for verified Batch001 source"
+    source_type: pending_verification
+    verification_status: pending

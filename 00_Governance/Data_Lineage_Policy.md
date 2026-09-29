@@ -80,3 +80,35 @@ Expert Reference
 ## Freeze Rule
 
 No object can exist without lineage metadata.
+
+
+## P1.9-E6.1 Claim Qualification Sidecar Lineage
+
+Scientific reception and bibliometric data do not enter the core truth lineage as new EvidenceUnits.
+
+The qualification sidecar lineage is:
+
+```text
+SourceArtifact / EvidenceUnit
+        ↓
+ScientificClaim_candidate
+        +
+CitationReceptionRecord
+        +
+ScientificInfluenceSignal
+        ↓
+ClaimReliabilitySignal
+        ↓
+E7 Human / Expert Adjudication
+        ↓
+ScientificClaim_GOLD
+```
+
+Rules:
+
+- CitationReceptionRecord must preserve citing-source identifiers, citation context, classification confidence, provider and snapshot date.
+- ScientificInfluenceSignal is a visibility/maturity object and cannot directly mutate ScientificClaim truth.
+- ClaimReliabilitySignal must preserve all supporting reception and evidence references.
+- Historical reception snapshots are immutable; later snapshots create new versions.
+- Correction, retraction, failed replication and major critique events require explicit lineage and escalation.
+- E7 Claim-Gold freeze must reference the reliability sidecar used at adjudication time.

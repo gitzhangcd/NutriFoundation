@@ -1,5 +1,5 @@
 batch_id: B001
-status: batch001_E6_1_reliability_contract_frozen
+status: batch001_E6_2_P0_reception_sidecars_generated
 
 source_artifacts:
   target_count: 20
@@ -27,8 +27,10 @@ claim_qualification_sidecars:
   scientific_influence_schema: frozen_v0.1
   claim_reliability_schema: frozen_v0.1
   citation_reception_work_queue: ready_11_claims
-  populated_reception_records: 0
-  populated_reliability_signals: 0
+  populated_reception_records: 3
+  populated_scientific_influence_signals: 3
+  populated_reliability_signals: 3
+  P0_claims_completed: [SC-B001-C01, SC-B001-C05, SC-B001-C02]
 
 source_type_profile:
   randomized_or_cluster_trials: 10
@@ -76,9 +78,8 @@ rules:
   - F1_or_gold_requires_fulltext_and_or_human_scientific_review
 
 next_action:
-  - execute_P0_claim_reception_queue_SC-B001-C01_C05_C02
-  - populate_CitationReceptionRecord_and_ScientificInfluenceSignal
-  - generate_ClaimReliabilitySignal_for_E7_priority_claims
-  - selective_F1_fulltext_upgrade_for_claim_critical_sources
-  - study_level_overlap_audit_for_synthesis_dependencies
+  - resolve_LookAHEAD_correction_impact_for_SC-B001-C05
+  - selective_F1_fulltext_upgrade_for_SC-B001-C01_C05_C02
+  - study_level_overlap_audit_for_SC-B001-C02
   - independent_human_or_expert_adjudication_before_first_Claim_GOLD
+  - execute_P1_reception_queue_after_first_gold_gate

@@ -1,0 +1,147 @@
+{
+  "batch_id": "B001",
+  "stage": "P1.9-E6.2",
+  "version": "v0.1",
+  "generated_at": "2026-09-30",
+  "sidecars": [
+    {
+      "reliability_id": "CRS-B001-C01-v0.1",
+      "claim_id": "SC-B001-C01",
+      "evidence_refs": [
+        "EU-B001-002",
+        "EU-B001-003"
+      ],
+      "citation_reception_refs": [
+        "CRR-B001-C01-v0.1"
+      ],
+      "scientific_influence_refs": [
+        "SIS-B001-C01-v0.1"
+      ],
+      "reliability_vector": {
+        "intrinsic_evidence_validity": "high",
+        "evidence_independence": "high",
+        "direct_replication": "convergent",
+        "citation_reception": "supportive",
+        "integrity_status": "clean",
+        "temporal_maturity": "mature",
+        "applicability_stability": "moderate"
+      },
+      "reliability_state": "robust",
+      "gold_gate": {
+        "eligible_for_expert_gold_review": true,
+        "blockers": [
+          "F1 full-text anchoring of claim-critical original/follow-up studies remains pending",
+          "Independent human/expert adjudication is required before Claim-Gold freeze"
+        ],
+        "escalation_reasons": []
+      },
+      "rationale": [
+        "Two independent landmark randomized prevention trials in Finland and the United States converge on reduced diabetes incidence in high-risk dysglycemia.",
+        "Independent randomized trials in India and Japan replicate the prevention effect in distinct populations, though effect magnitude and eligibility differ.",
+        "Long-term follow-up within DPS and DPPOS shows persistence/attenuation rather than reversal of the prevention signal.",
+        "Systematic-review reception is supportive; no claim-aligned failed replication was identified in this stratified run.",
+        "The claim remains restricted to multicomponent lifestyle intervention in high-risk dysglycemia and does not attribute the effect to diet alone."
+      ],
+      "provenance": {
+        "agent_run": "P1.9-E6.2",
+        "snapshot_date": "2026-09-30",
+        "note": "Robust is a reliability-state label, not ScientificClaim_GOLD."
+      }
+    },
+    {
+      "reliability_id": "CRS-B001-C05-v0.1",
+      "claim_id": "SC-B001-C05",
+      "evidence_refs": [
+        "EU-B001-005"
+      ],
+      "citation_reception_refs": [
+        "CRR-B001-C05-v0.1"
+      ],
+      "scientific_influence_refs": [
+        "SIS-B001-C05-v0.1"
+      ],
+      "reliability_vector": {
+        "intrinsic_evidence_validity": "high",
+        "evidence_independence": "moderate",
+        "direct_replication": "not_applicable",
+        "citation_reception": "supportive",
+        "integrity_status": "unresolved",
+        "temporal_maturity": "mature",
+        "applicability_stability": "moderate"
+      },
+      "reliability_state": "convergent",
+      "gold_gate": {
+        "eligible_for_expert_gold_review": true,
+        "blockers": [
+          "NEJM publisher marks the Look AHEAD article as corrected; correction content/impact must be resolved",
+          "F1 full-text anchor is required for exact wording of the surrogate-to-hard-outcome guard",
+          "Human/expert adjudication must ensure the guard is not over-read as 'lifestyle never improves cardiovascular outcomes'"
+        ],
+        "escalation_reasons": [
+          "publisher_correction_requires_impact_check"
+        ]
+      },
+      "rationale": [
+        "The randomized Look AHEAD trial directly demonstrates that substantial improvements in weight/fitness/risk factors did not, in that intervention/population, produce a significant reduction in the primary cardiovascular endpoint.",
+        "Later reviews explicitly preserve this distinction while recognizing multiple other benefits of intensive lifestyle intervention.",
+        "Later meta-analytic evidence across heterogeneous glucose-lowering strategies shows intervention-specific cardiovascular effects, which reinforces the need for the guard but prevents universalizing the Look AHEAD null result.",
+        "A same-cohort weight-variability analysis is not independent replication of the original randomized cardiovascular contrast."
+      ],
+      "provenance": {
+        "agent_run": "P1.9-E6.2",
+        "snapshot_date": "2026-09-30"
+      }
+    },
+    {
+      "reliability_id": "CRS-B001-C02-v0.1",
+      "claim_id": "SC-B001-C02",
+      "evidence_refs": [
+        "EU-B001-007",
+        "EU-B001-008",
+        "EU-B001-011",
+        "EU-B001-012",
+        "EU-B001-015"
+      ],
+      "citation_reception_refs": [
+        "CRR-B001-C02-v0.1"
+      ],
+      "scientific_influence_refs": [
+        "SIS-B001-C02-v0.1"
+      ],
+      "reliability_vector": {
+        "intrinsic_evidence_validity": "mixed",
+        "evidence_independence": "mixed",
+        "direct_replication": "convergent",
+        "citation_reception": "mixed",
+        "integrity_status": "corrected_nonfatal",
+        "temporal_maturity": "mature",
+        "applicability_stability": "heterogeneous"
+      },
+      "reliability_state": "convergent",
+      "gold_gate": {
+        "eligible_for_expert_gold_review": true,
+        "blockers": [
+          "Study-level overlap among POUNDS LOST/A TO Z/DIETFITS/DIRECT and later meta-analyses must be audited",
+          "2024 network meta-analysis ranking low-carbohydrate first requires scope adjudication rather than dismissal",
+          "F1 full-text anchors are required for synthesis inclusion criteria and duration-specific effects",
+          "Human/expert wording review is required to preserve 'no universal winner' without denying context-specific advantages"
+        ],
+        "escalation_reasons": [
+          "recent_scope_limited_contrasting_network_meta_analysis",
+          "probable_primary_in_synthesis_overlap"
+        ]
+      },
+      "rationale": [
+        "Multiple independent randomized trials and later syntheses show that diet-comparison conclusions vary with comparator, intervention intensity, diet quality, adherence and time horizon.",
+        "Long-term evidence generally does not support one macronutrient distribution as universally superior across populations and durations.",
+        "A 2024 network meta-analysis ranked low-carbohydrate highest within a small specific network, creating a meaningful contrast that narrows confidence in any overly broad wording.",
+        "ADA consensus supports individualization but is derivative guidance and is not counted as independent effect replication.",
+        "DIETFITS corrections concerned lipid units/conversion instructions and funding description, not the primary weight-loss/genotype/INS-30 conclusion as represented in the publisher record."
+      ],
+      "provenance": {
+        "agent_run": "P1.9-E6.2",
+        "snapshot_date": "2026-09-30"
+      }
+    }
+  ]
+}

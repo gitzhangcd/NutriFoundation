@@ -1,0 +1,26 @@
+{
+  "source_artifact": {
+    "source_id": "SA-B001-018",
+    "title": "Effect of salt reduction interventions in lowering blood pressure: A comprehensive systematic review and meta-analysis of controlled clinical trials.",
+    "journal": "PLOS ONE",
+    "year": 2022,
+    "pmid": "36477548",
+    "pmcid": "PMC9728935",
+    "doi": "10.1371/journal.pone.0277929",
+    "source_type": "systematic_review_meta_analysis",
+    "population": "Participants across controlled salt-reduction trials regardless of age, sex or hypertension status",
+    "provenance_url": "https://pubmed.ncbi.nlm.nih.gov/36477548/",
+    "verification_status": "verified_pubmed_abstract"
+  },
+  "evidence_unit_candidate": {
+    "evidence_id": "EU-B001-018",
+    "kind": "synthesis_effect",
+    "population": "Participants in controlled salt-reduction trials",
+    "intervention": "Salt substitution, nutrition education, self-help materials and food reformulation",
+    "outcome": "Systolic and diastolic blood pressure",
+    "effect_summary": "Salt substitution reduced SBP by 7.44 mmHg and DBP by 3.77 mmHg; nutrition education reduced SBP by 2.75 mmHg and DBP by 2.11 mmHg in pooled analyses. Effects of self-help materials varied by subgroup.",
+    "source_span_type": "PubMed_abstract",
+    "applicability_boundary": "Intervention effects differ by strategy and participant subgroup; pooled results should not be treated as a single universal sodium-reduction effect.",
+    "status": "verified_candidate"
+  }
+}

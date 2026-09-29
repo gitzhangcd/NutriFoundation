@@ -1,0 +1,28 @@
+batch_id: B001
+version: v0.1
+status: bootstrap
+
+source_artifacts:
+  # SourceArtifact-001~020 will be populated after literature screening
+  - source_id: SA-B001-001
+    status: pending
+    source_type: null
+    identifiers:
+      doi: null
+      pmid: null
+    provenance:
+      acquisition_method: null
+      retrieval_date: null
+
+  - source_id: SA-B001-002
+    status: pending
+
+  - source_id: SA-B001-003
+    status: pending
+
+# Remaining entries reserved for SourceArtifact-004~020
+
+constraints:
+  require_provenance: true
+  require_source_span: true
+  require_human_verification_before_freeze: true

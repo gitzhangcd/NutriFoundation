@@ -1,0 +1,26 @@
+{
+  "source_artifact": {
+    "source_id": "SA-B001-014",
+    "title": "Ultraprocessed Food Consumption and Risk of Type 2 Diabetes Among Participants of the NutriNet-Santé Prospective Cohort.",
+    "journal": "JAMA Internal Medicine",
+    "year": 2020,
+    "pmid": "31841598",
+    "pmcid": "PMC6990737",
+    "doi": "10.1001/jamainternmed.2019.5942",
+    "source_type": "prospective_cohort",
+    "population": "104707 French adults in the NutriNet-Santé cohort",
+    "provenance_url": "https://pubmed.ncbi.nlm.nih.gov/31841598/",
+    "verification_status": "verified_pubmed_abstract"
+  },
+  "evidence_unit_candidate": {
+    "evidence_id": "EU-B001-014",
+    "kind": "observational_association",
+    "population": "French adults aged 18 years or older",
+    "exposure": "Proportion of ultraprocessed foods in diet by NOVA classification",
+    "outcome": "Incident type 2 diabetes",
+    "effect_summary": "Each absolute 10-percentage-point higher proportion of ultraprocessed food in the diet was associated with higher incident T2D risk (multivariable HR 1.15, 95% CI 1.06-1.25) over median 6.0 years; 821 incident cases occurred.",
+    "source_span_type": "PubMed_abstract",
+    "applicability_boundary": "Prospective observational association, not a randomized causal effect; cohort was predominantly female and French.",
+    "status": "verified_candidate"
+  }
+}

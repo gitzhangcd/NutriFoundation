@@ -10,7 +10,7 @@ source_artifact:
   intervention: "Primary-care weight-management program with total diet replacement, food reintroduction, and maintenance support"
   comparator: "Best-practice guideline care"
   provenance_url: "https://pubmed.ncbi.nlm.nih.gov/29221645/"
-  verification_status: registered
+  verification_status: verified_pubmed_abstract
 evidence_unit_candidate:
   evidence_id: EU-B001-010
   population: "Adults with relatively recent type 2 diabetes, BMI 27-45, not receiving insulin"
@@ -20,4 +20,4 @@ evidence_unit_candidate:
   effect_summary: "At 12 months, >=15 kg weight loss occurred in 24% vs 0%; diabetes remission occurred in 46% vs 4% (OR 19.7, 95% CI 7.8-49.8). Mean bodyweight change was -10.0 kg vs -1.0 kg."
   source_span_type: abstract
   limitation: "Open-label cluster-randomized design; intervention is multicomponent and includes medication withdrawal, so effects cannot be attributed to diet alone."
-  status: candidate
+  status: verified_candidate

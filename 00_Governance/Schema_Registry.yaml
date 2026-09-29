@@ -1,0 +1,43 @@
+schema_version: AI-Nutri-Data-Foundation-v0.1
+status: frozen
+
+objects:
+  SourceArtifact:
+    layer: Scientific_World
+    status: frozen
+  EvidenceUnit:
+    layer: Scientific_World
+    status: frozen
+  ScientificClaim:
+    layer: Scientific_World
+    status: frozen
+  EvidenceSynthesis:
+    layer: Scientific_World
+    status: frozen
+  ObservationArtifact:
+    layer: Individual_World
+    status: frozen
+  ObservationBundle:
+    layer: Individual_World
+    status: frozen
+  SemanticState:
+    layer: Individual_World
+    status: frozen
+  ApplicabilityAssessment:
+    layer: Applicability
+    status: frozen
+  DecisionEpisode:
+    layer: Decision
+    status: frozen
+  ExpertReference:
+    layer: Gold
+    status: frozen
+  ProvenanceRecord:
+    layer: Governance
+    status: frozen
+
+principle:
+  observation_is_not_evidence: true
+  evidence_is_not_claim: true
+  claim_is_not_decision: true
+  decision_requires_applicability: true

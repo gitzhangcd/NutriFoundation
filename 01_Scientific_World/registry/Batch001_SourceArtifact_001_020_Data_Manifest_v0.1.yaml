@@ -1,0 +1,18 @@
+batch_id: B001
+status: bootstrap
+
+source_artifacts:
+  target_count: 20
+  registered_count: 0
+  frozen_count: 0
+
+rules:
+  - no fabricated identifiers
+  - DOI_or_PubMed_or_authoritative_source_required
+  - provenance_required
+  - evidence_unit_link_required
+
+next_action:
+  - populate_verified_sourceartifact_records
+  - run_agent_extraction
+  - create_evidenceunit_candidates

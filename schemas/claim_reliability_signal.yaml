@@ -23,6 +23,9 @@ fields:
   citation_reception_refs:
     type: array
 
+  scientific_influence_refs:
+    type: array
+
   reliability_vector:
     type: object
     fields:
@@ -40,19 +43,6 @@ fields:
         enum: [early, developing, mature, legacy]
       applicability_stability:
         enum: [narrow, moderate, broad, heterogeneous, unresolved]
-
-  scientific_influence:
-    type: object
-    fields:
-      field_normalized_citation_signal:
-        enum: [unknown, low, moderate, high]
-      guideline_or_consensus_uptake:
-        enum: [none, limited, present, broad, unknown]
-      synthesis_uptake:
-        enum: [none, limited, present, broad, unknown]
-      journal_visibility_prior:
-        enum: [unknown, low, moderate, high]
-      note: string
 
   reliability_state:
     enum:

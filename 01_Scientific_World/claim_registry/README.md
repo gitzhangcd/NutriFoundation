@@ -70,3 +70,26 @@ Current state:
 - Populated reception records: 0
 - Populated reliability signals: 0
 - ScientificClaim_GOLD: 0
+
+
+## P1.9-E6.2 — P0 Reliability Sidecars
+
+Completed claims:
+- SC-B001-C01 → robust
+- SC-B001-C05 → convergent; correction-impact escalation required
+- SC-B001-C02 → convergent; mixed reception + evidence-overlap escalation required
+
+Current populated sidecars:
+- CitationReceptionRecord: 3
+- ScientificInfluenceSignal: 3
+- ClaimReliabilitySignal: 3
+
+ScientificClaim_GOLD remains 0.
+
+Key lesson from execution:
+
+```text
+High Influence + Independent Replication -> may strengthen reliability
+High Influence + unresolved correction -> does not remove blocker
+High Influence + mixed claim-level reception -> remains mixed/convergent
+```

@@ -1,0 +1,49 @@
+schema_version: v0.1
+object: SourceArtifact
+purpose: Scientific source registry for AI Nutri Evidence World
+
+fields:
+  source_id:
+    type: string
+    required: true
+    description: Unique identifier
+  source_type:
+    type: enum
+    values:
+      - Guideline
+      - Consensus
+      - RCT
+      - Cohort
+      - MetaAnalysis
+      - SystematicReview
+      - Database
+  title:
+    type: string
+  authors:
+    type: array
+  publication_year:
+    type: integer
+  identifiers:
+    doi: string
+    pmid: string
+    url: string
+  nutrition_domain:
+    type: array
+    examples:
+      - obesity
+      - diabetes
+      - cardiovascular_health
+      - aging
+      - micronutrients
+  evidence_metadata:
+    evidence_level: string
+    population_scope: string
+    intervention_scope: string
+  provenance:
+    source_location: string
+    acquisition_date: string
+    version: string
+  quality_control:
+    extractor: string
+    verifier: string
+    review_status: string

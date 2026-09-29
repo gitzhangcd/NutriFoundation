@@ -1,0 +1,26 @@
+{
+  "source_artifact": {
+    "source_id": "SA-B001-013",
+    "title": "Carbohydrate quality and human health: a series of systematic reviews and meta-analyses.",
+    "journal": "Lancet",
+    "year": 2019,
+    "pmid": "30638909",
+    "doi": "10.1016/S0140-6736(18)31809-9",
+    "source_type": "systematic_review_meta_analysis",
+    "population": "General adult populations in prospective studies and clinical trials; chronic-disease populations excluded",
+    "provenance_url": "https://pubmed.ncbi.nlm.nih.gov/30638909/",
+    "verification_status": "verified_pubmed_abstract"
+  },
+  "evidence_unit_candidate": {
+    "evidence_id": "EU-B001-013",
+    "kind": "synthesis_effect",
+    "population": "General adult population without chronic disease in included analyses",
+    "intervention_or_exposure": "Higher dietary fibre and whole-grain intake",
+    "comparator": "Lower dietary fibre and whole-grain intake",
+    "outcome": "All-cause/CVD mortality, CHD, stroke, type 2 diabetes, colorectal cancer and risk factors",
+    "effect_summary": "Observational comparisons of highest versus lowest fibre intake suggested approximately 15-30% lower risk across several critical outcomes; clinical trials showed lower body weight, systolic blood pressure and total cholesterol with higher fibre intake. Greatest risk reduction was observed around 25-29 g/day of dietary fibre, with dose-response evidence suggesting possible additional benefit at higher intakes.",
+    "source_span_type": "PubMed_abstract",
+    "applicability_boundary": "Evidence was framed for population-level primary prevention and explicitly does not directly establish effects in people with established chronic disease.",
+    "status": "verified_candidate"
+  }
+}

@@ -1,0 +1,23 @@
+source_artifact:
+  source_id: SA-B001-009
+  title: "A TO Z Weight Loss Study: Atkins, Zone, Ornish, and LEARN diets"
+  journal: JAMA
+  year: 2007
+  pmid: "17341711"
+  doi: "10.1001/jama.297.9.969"
+  source_type: RCT
+  population: "311 overweight/obese nondiabetic premenopausal women"
+  intervention: "Atkins diet"
+  comparator: "Zone, LEARN, and Ornish diets"
+  provenance_url: "https://pubmed.ncbi.nlm.nih.gov/17341711/"
+  verification_status: registered
+evidence_unit_candidate:
+  evidence_id: EU-B001-009
+  population: "Overweight/obese nondiabetic premenopausal women"
+  intervention: "Atkins diet"
+  comparator: "Zone, LEARN, and Ornish diets"
+  outcome: "12-month weight loss and metabolic risk factors"
+  effect_summary: "Mean 12-month weight loss was -4.7 kg Atkins, -1.6 kg Zone, -2.6 kg LEARN, -2.2 kg Ornish; Atkins differed significantly from Zone, while other pairwise differences were not significant."
+  source_span_type: abstract
+  limitation: "Population restricted to premenopausal women without diabetes; does not establish long-term safety beyond the trial horizon."
+  status: candidate

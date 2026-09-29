@@ -1,0 +1,29 @@
+evidence_id: EU-B001-001
+source_id: SA-B001-001
+status: candidate
+population:
+  description: "215 overweight individuals with newly diagnosed type 2 diabetes"
+intervention:
+  description: "Low-carbohydrate Mediterranean-style diet"
+comparator:
+  description: "Low-fat diet"
+outcome:
+  primary: "Need for antihyperglycemic drug therapy"
+  secondary:
+    - "Weight change"
+    - "Glycemic control"
+    - "Coronary risk factors"
+effect:
+  direction: "favorable_for_mediterranean_style_diet"
+  summary: "After 4 years, fewer participants in the Mediterranean-style diet group required antihyperglycemic drug therapy compared with the low-fat diet group."
+follow_up: "4 years"
+limitations:
+  - "Dietary intake was self-reported"
+  - "Investigators responsible for initiating drug therapy were not blinded"
+source_span:
+  type: "abstract"
+certainty: "candidate_pending_review"
+extraction_agent:
+  status: "completed"
+verification:
+  human_review_required: true

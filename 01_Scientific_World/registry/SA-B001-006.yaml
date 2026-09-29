@@ -1,0 +1,23 @@
+source_artifact:
+  source_id: SA-B001-006
+  title: "Weight loss with a low-carbohydrate, Mediterranean, or low-fat diet."
+  journal: "N Engl J Med"
+  year: 2008
+  pmid: "18635428"
+  doi: "10.1056/NEJMoa0708681"
+  source_type: RCT
+  population: "322 moderately obese adults; mean age 52; mean BMI 31; 86% male"
+  intervention: "Mediterranean restricted-calorie or low-carbohydrate non-restricted-calorie diet"
+  comparator: "Low-fat restricted-calorie diet"
+  provenance_url: "https://pubmed.ncbi.nlm.nih.gov/18635428/"
+  verification_status: registered
+evidence_unit_candidate:
+  evidence_id: EU-B001-006
+  population: "Moderately obese adults"
+  intervention: "Mediterranean or low-carbohydrate diet"
+  comparator: "Low-fat diet"
+  outcome: "2-year weight change; lipids; fasting glucose/insulin in diabetes subgroup"
+  effect_summary: "Mean weight loss: 4.4 kg Mediterranean, 4.7 kg low-carbohydrate, 2.9 kg low-fat. Lipid ratio improved more with low-carbohydrate; glycemic measures improved more with Mediterranean diet in diabetes subgroup."
+  source_span_type: abstract
+  limitation: "Male-dominant sample; diabetes glycemic findings derive from a small subgroup."
+  status: candidate

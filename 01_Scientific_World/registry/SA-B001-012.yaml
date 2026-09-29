@@ -1,0 +1,27 @@
+{
+  "source_artifact": {
+    "source_id": "SA-B001-012",
+    "title": "Diets for weight management in adults with type 2 diabetes: an umbrella review of published meta-analyses and systematic review of trials of diets for diabetes remission.",
+    "journal": "Diabetologia",
+    "year": 2022,
+    "pmid": "34796367",
+    "pmcid": "PMC8660762",
+    "doi": "10.1007/s00125-021-05577-2",
+    "source_type": "umbrella_review_systematic_review",
+    "population": "Adults with type 2 diabetes",
+    "provenance_url": "https://pubmed.ncbi.nlm.nih.gov/34796367/",
+    "verification_status": "verified_pubmed_abstract"
+  },
+  "evidence_unit_candidate": {
+    "evidence_id": "EU-B001-012",
+    "kind": "synthesis_effect",
+    "population": "Adults with type 2 diabetes",
+    "intervention": "Weight-loss diets, very-low-energy diets, formula meal replacements and other diet styles",
+    "comparator": "Alternative dietary strategies",
+    "outcome": "Weight loss and type 2 diabetes remission",
+    "effect_summary": "Very-low-energy diets and formula meal replacements produced the largest weight-loss effects; low-carbohydrate diets were no better for weight loss than higher-carbohydrate/low-fat diets. In remission studies, programmes with initial low-energy total diet replacement had the strongest evidence, while several other diet approaches had lower-certainty evidence.",
+    "source_span_type": "PubMed_abstract",
+    "applicability_boundary": "Most evidence was limited to one year or less; quality and GRADE certainty varied substantially by diet type.",
+    "status": "verified_candidate"
+  }
+}

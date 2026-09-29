@@ -1,0 +1,43 @@
+# AI Nutri Data Foundation v0.1
+# P1.7 Batch001 Verified SourceArtifact Registry
+# Status: Bootstrap registry (real records added after screening verification)
+
+batch_id: SA-B001
+version: v0.1
+status: bootstrap
+
+sources:
+  - source_id: SA-B001-001
+    status: registered_pending_verification
+    source_type: null
+    title: null
+    identifiers:
+      doi: null
+      pmid: null
+    nutrition_domain: null
+    provenance: null
+
+  - source_id: SA-B001-002
+    status: registered_pending_verification
+    source_type: null
+    title: null
+    identifiers:
+      doi: null
+      pmid: null
+    nutrition_domain: null
+    provenance: null
+
+  - source_id: SA-B001-003
+    status: registered_pending_verification
+    source_type: null
+    title: null
+    identifiers:
+      doi: null
+      pmid: null
+    nutrition_domain: null
+    provenance: null
+
+registration_rule:
+  - No fabricated metadata
+  - Every source requires DOI/PMID or authoritative provenance
+  - Every EvidenceUnit must link to a registered SourceArtifact

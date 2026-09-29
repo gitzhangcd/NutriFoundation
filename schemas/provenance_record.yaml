@@ -1,0 +1,11 @@
+ProvenanceRecord:
+  provenance_id: string
+  created_by: string
+  created_time: datetime
+  source_refs: array
+  transformation: string
+  agent_version: string
+  human_review: object
+  parent_objects: array
+  checksum: string
+  version: string

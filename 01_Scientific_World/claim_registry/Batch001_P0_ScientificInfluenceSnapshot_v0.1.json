@@ -1,0 +1,167 @@
+{
+  "batch_id": "B001",
+  "stage": "P1.9-E6.2",
+  "version": "v0.1",
+  "snapshot_date": "2026-09-30",
+  "provider_caveat": "Citation counts are provider- and snapshot-specific and are not treated as mutually interchangeable. Metascience Observatory pages report data through Jan 2025; NEJM publisher metrics were retrieved in the current run. No proprietary Journal Impact Factor values were guessed or scraped.",
+  "signals": [
+    {
+      "influence_id": "SIS-B001-C01-v0.1",
+      "target_type": "ScientificClaim",
+      "target_id": "SC-B001-C01",
+      "providers": [
+        "Metascience Observatory public web snapshot",
+        "PubMed"
+      ],
+      "citation_metrics": {
+        "anchor_sources": [
+          {
+            "source": "DPP primary, PMID 11832527",
+            "raw_citation_count": 18132,
+            "provider": "Metascience Observatory",
+            "provider_data_cutoff": "2025-01"
+          },
+          {
+            "source": "Finnish DPS primary, PMID 11333990",
+            "raw_citation_count": 11028,
+            "provider": "Metascience Observatory",
+            "provider_data_cutoff": "2025-01"
+          },
+          {
+            "source": "DPPOS 15-year follow-up, PMID 26377054",
+            "raw_citation_count": 850,
+            "provider": "Metascience Observatory",
+            "provider_data_cutoff": "2025-01"
+          },
+          {
+            "source": "Finnish DPS sustained follow-up, DOI 10.1016/S0140-6736(06)69701-8",
+            "raw_citation_count": 1744,
+            "provider": "Metascience Observatory",
+            "provider_data_cutoff": "2025-01"
+          }
+        ],
+        "field_year_normalized_percentile": null,
+        "citation_velocity": null,
+        "note": "Very high raw citation visibility across two landmark independent prevention programs and their long-term follow-ups."
+      },
+      "journal_visibility": {
+        "metric_name": "Journal Impact Factor",
+        "metric_value": null,
+        "metric_year": null,
+        "provider": null,
+        "licensed_or_public": "not_retrieved",
+        "interpretation": "Not used. Journal-level metrics are optional visibility priors only."
+      },
+      "scientific_uptake": {
+        "systematic_review_mentions": "multiple",
+        "meta_analysis_mentions": "multiple",
+        "guideline_mentions": "present",
+        "consensus_mentions": "present",
+        "independent_research_groups": "multiple across US, Finland, India, Japan"
+      },
+      "influence_state": "very_high",
+      "provenance": {
+        "retrieval_date": "2026-09-30",
+        "agent_run": "P1.9-E6.2"
+      }
+    },
+    {
+      "influence_id": "SIS-B001-C05-v0.1",
+      "target_type": "ScientificClaim",
+      "target_id": "SC-B001-C05",
+      "providers": [
+        "NEJM publisher metrics",
+        "PubMed"
+      ],
+      "citation_metrics": {
+        "anchor_sources": [
+          {
+            "source": "Look AHEAD primary CV outcomes, PMID 23796131",
+            "raw_citation_count": 2548,
+            "provider": "NEJM publisher metrics",
+            "provider_data_cutoff": "retrieved 2026-09-30"
+          }
+        ],
+        "field_year_normalized_percentile": null,
+        "citation_velocity": null,
+        "note": "Publisher metrics additionally report 31 clinical-guideline sources and 8 policy sources referencing the Look AHEAD article."
+      },
+      "journal_visibility": {
+        "metric_name": "Journal Impact Factor",
+        "metric_value": null,
+        "metric_year": null,
+        "provider": null,
+        "licensed_or_public": "not_retrieved",
+        "interpretation": "Not used."
+      },
+      "scientific_uptake": {
+        "systematic_review_mentions": "present",
+        "meta_analysis_mentions": "present",
+        "guideline_mentions": 31,
+        "policy_mentions": 8,
+        "consensus_mentions": "present",
+        "independent_research_groups": "multiple"
+      },
+      "influence_state": "high",
+      "provenance": {
+        "retrieval_date": "2026-09-30",
+        "agent_run": "P1.9-E6.2"
+      }
+    },
+    {
+      "influence_id": "SIS-B001-C02-v0.1",
+      "target_type": "ScientificClaim",
+      "target_id": "SC-B001-C02",
+      "providers": [
+        "Metascience Observatory public web snapshot",
+        "PubMed",
+        "JAMA/PMC"
+      ],
+      "citation_metrics": {
+        "anchor_sources": [
+          {
+            "source": "POUNDS LOST, PMID 19246357",
+            "raw_citation_count": 1881,
+            "provider": "Metascience Observatory",
+            "provider_data_cutoff": "2025-01"
+          },
+          {
+            "source": "A TO Z, PMID 17341711",
+            "raw_citation_count": 1030,
+            "provider": "Metascience Observatory",
+            "provider_data_cutoff": "2025-01"
+          },
+          {
+            "source": "DIETFITS, PMID 29466592",
+            "raw_citation_count": 590,
+            "provider": "Metascience Observatory",
+            "provider_data_cutoff": "2025-01"
+          }
+        ],
+        "field_year_normalized_percentile": null,
+        "citation_velocity": null,
+        "note": "High scientific visibility across multiple independent diet-comparison trials. Counts are visibility signals only and do not resolve which diet is best."
+      },
+      "journal_visibility": {
+        "metric_name": "Journal Impact Factor",
+        "metric_value": null,
+        "metric_year": null,
+        "provider": null,
+        "licensed_or_public": "not_retrieved",
+        "interpretation": "Not used."
+      },
+      "scientific_uptake": {
+        "systematic_review_mentions": "broad",
+        "meta_analysis_mentions": "broad",
+        "guideline_mentions": "present",
+        "consensus_mentions": "present",
+        "independent_research_groups": "multiple"
+      },
+      "influence_state": "high",
+      "provenance": {
+        "retrieval_date": "2026-09-30",
+        "agent_run": "P1.9-E6.2"
+      }
+    }
+  ]
+}

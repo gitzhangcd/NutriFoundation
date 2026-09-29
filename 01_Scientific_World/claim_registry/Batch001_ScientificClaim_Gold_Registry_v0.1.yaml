@@ -1,0 +1,29 @@
+batch_id: B001
+stage: P1.9-E7
+version: v0.1
+status: awaiting_independent_human_or_expert_adjudication
+
+frozen_gold_count: 0
+gold_claims: []
+
+ready_candidates:
+  - claim_id: SC-B001-C01
+    reliability_state: robust
+    machine_qualification: passed
+    human_adjudication: pending
+  - claim_id: SC-B001-C05
+    reliability_state: convergent
+    machine_qualification: passed
+    correction_status: resolved_nonfatal
+    human_adjudication: pending
+  - claim_id: SC-B001-C02
+    reliability_state: convergent
+    machine_qualification: passed_with_scope_contrast
+    dependency_resolution: completed_at_available_fulltext_level
+    human_adjudication: pending
+
+freeze_rule:
+  - Gold may only be added after signed adjudication record
+  - approved wording must be copied exactly from adjudication output
+  - Gold object must reference EvidenceUnit F1/F0 lineage, CitationReceptionRecord, ScientificInfluenceSignal, ClaimReliabilitySignal, and adjudication record
+  - Agent-only approval is invalid

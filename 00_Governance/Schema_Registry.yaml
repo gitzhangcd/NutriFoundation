@@ -35,9 +35,26 @@ objects:
   ProvenanceRecord:
     layer: Governance
     status: frozen
+  CitationReceptionRecord:
+    layer: Scientific_World_Claim_Qualification
+    status: frozen
+    introduced_in: P1.9-E6.1
+  ScientificInfluenceSignal:
+    layer: Scientific_World_Claim_Qualification
+    status: frozen
+    introduced_in: P1.9-E6.1
+  ClaimReliabilitySignal:
+    layer: Scientific_World_Claim_Qualification
+    status: frozen
+    introduced_in: P1.9-E6.1
 
 principle:
   observation_is_not_evidence: true
   evidence_is_not_claim: true
   claim_is_not_decision: true
   decision_requires_applicability: true
+  citation_is_not_evidence: true
+  influence_is_not_reliability: true
+  citation_count_is_not_support_count: true
+  support_citation_is_not_independent_replication: true
+  journal_metric_is_not_article_validity: true

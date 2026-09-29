@@ -1,4 +1,4 @@
-version: v0.2
+version: v0.3
 queue_status:
   candidate: []
   verified_candidate: []
@@ -13,6 +13,16 @@ queue_status:
     - EU-B001-008
     - EU-B001-009
     - EU-B001-010
+    - EU-B001-011
+    - EU-B001-012
+    - EU-B001-013
+    - EU-B001-014
+    - EU-B001-015
+    - EU-B001-016
+    - EU-B001-017
+    - EU-B001-018
+    - EU-B001-019
+    - EU-B001-020
   pending_F1_fulltext:
     - EU-B001-001
     - EU-B001-002
@@ -24,19 +34,29 @@ queue_status:
     - EU-B001-008
     - EU-B001-009
     - EU-B001-010
+    - EU-B001-011
+    - EU-B001-012
+    - EU-B001-013
+    - EU-B001-014
+    - EU-B001-015
+    - EU-B001-016
+    - EU-B001-017
+    - EU-B001-018
+    - EU-B001-019
+    - EU-B001-020
   expert_gold: []
 
 freeze_policy:
   F0:
-    meaning: "Agent-verified, source-linked factual extraction directly supported by bibliographic metadata and abstract."
+    meaning: "Agent-verified, source-linked factual extraction or source-stated recommendation directly supported by PubMed abstract/metadata or explicitly retrieved full text."
     human_review_required: false
     may_generate_recommendation: false
     may_be_treated_as_expert_gold: false
   F1:
-    meaning: "Full-text anchored scientific evidence object."
+    meaning: "Full-text anchored scientific evidence object with critical methodological fields checked."
     human_or_expert_review_required_for_critical_fields: true
   GOLD:
-    meaning: "Claim/DecisionEpisode gold used for publication-level benchmark truth."
+    meaning: "ScientificClaim/DecisionEpisode gold used for publication-level benchmark truth."
     independent_human_or_expert_review_required: true
 
 requirements:
@@ -44,3 +64,5 @@ requirements:
   required_source_span: true
   provenance_required: true
   applicability_boundary_required: true
+  observational_causality_guard: true
+  guideline_authority_guard: true

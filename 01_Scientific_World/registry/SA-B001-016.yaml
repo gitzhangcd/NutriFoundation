@@ -1,0 +1,23 @@
+{
+  "source_artifact": {
+    "source_id": "SA-B001-016",
+    "title": "KDOQI Clinical Practice Guideline for Nutrition in CKD: 2020 Update.",
+    "journal": "American Journal of Kidney Diseases",
+    "year": 2020,
+    "pmid": "32829751",
+    "doi": "10.1053/j.ajkd.2020.05.006",
+    "source_type": "practice_guideline",
+    "population": "Adults with CKD stages 1-5, dialysis, and functional kidney transplant populations covered by the guideline",
+    "provenance_url": "https://pubmed.ncbi.nlm.nih.gov/32829751/",
+    "verification_status": "verified_pubmed_abstract"
+  },
+  "evidence_unit_candidate": {
+    "evidence_id": "EU-B001-016",
+    "kind": "guideline_scope_and_recommendation",
+    "population": "People with chronic kidney disease across non-dialysis, dialysis and transplant settings",
+    "recommendation_summary": "The guideline provides GRADE-evaluated recommendations across nutritional assessment, medical nutrition therapy, dietary protein and energy intake, nutritional supplementation, micronutrients and electrolytes, with monitoring and implementation guidance.",
+    "source_span_type": "PubMed_abstract",
+    "applicability_boundary": "The abstract supports scope and methodology but not every numerical nutrient target; specific targets require full guideline text before downstream claim freeze.",
+    "status": "verified_candidate"
+  }
+}

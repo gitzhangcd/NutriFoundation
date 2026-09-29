@@ -1,0 +1,29 @@
+schema_version: v0.1
+batch_id: SA-B001
+status: template
+
+evidence_unit:
+  evidence_id: null
+  source_id: null
+  population:
+    description: null
+  intervention_or_exposure:
+    description: null
+  comparator:
+    description: null
+  outcome:
+    description: null
+  effect:
+    direction: null
+    estimate: null
+    uncertainty: null
+  follow_up: null
+  certainty:
+    level: null
+    rationale: null
+  source_span:
+    location: null
+    quote_reference: null
+  verification:
+    agent_status: pending
+    human_status: pending

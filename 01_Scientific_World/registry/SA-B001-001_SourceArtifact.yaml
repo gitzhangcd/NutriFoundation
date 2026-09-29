@@ -1,0 +1,29 @@
+source_id: SA-B001-001
+source_type: RCT
+title: "Effects of a Mediterranean-style diet on the need for antihyperglycemic drug therapy in patients with newly diagnosed type 2 diabetes: a randomized trial"
+authors:
+  - Katherine Esposito
+  - Maria Ida Maiorino
+  - Miryam Ciotola
+journal: "Annals of Internal Medicine"
+year: 2009
+doi: "10.7326/0003-4819-151-5-200909010-00004"
+pmid: "19721018"
+nutrition_domain:
+  - diabetes
+  - mediterranean_diet
+  - glycemic_control
+population:
+  description: "Overweight people with newly diagnosed type 2 diabetes who had not received antihyperglycemic drugs"
+intervention:
+  description: "Low-carbohydrate Mediterranean-style diet"
+comparator:
+  description: "Low-fat diet"
+outcomes:
+  - antihyperglycemic drug requirement
+  - glycemic control
+  - coronary risk factors
+provenance:
+  source: "PubMed"
+  retrieval_status: "verified"
+verification_status: "registered"

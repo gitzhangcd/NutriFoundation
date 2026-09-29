@@ -1,7 +1,7 @@
 {
   "batch_id": "B001",
-  "stage": "P1.9-E6.2_P0_qualified",
-  "registry_version": "v0.1",
+  "stage": "P1.9-E7_human_gold_gate",
+  "registry_version": "v0.2",
   "status": "candidate_not_gold",
   "authority_boundary": "ScientificClaim candidates are synthesized from F0 EvidenceUnits. They are not expert gold, recommendations, or patient-specific decisions.",
   "certainty_semantics": "candidate_strength is an internal synthesis status, not a formal GRADE rating unless explicitly inherited from a source.",
@@ -45,6 +45,12 @@
         "scientific_influence_ref": "SIS-B001-C01-v0.1",
         "claim_reliability_ref": "CRS-B001-C01-v0.1",
         "reliability_state": "robust"
+      },
+      "gold_qualification": {
+        "machine_gate": "passed",
+        "f1_status": "partial_F1_sufficient_for_human_adjudication",
+        "human_gate": "pending",
+        "proposed_gold_wording": "In adults with impaired glucose tolerance or similarly high-risk dysglycemia represented by prevention trials, intensive multicomponent lifestyle interventions targeting weight reduction, dietary change and physical activity can reduce or delay incident type 2 diabetes compared with usual/control care; effect magnitude varies by population and attenuates over long-term follow-up."
       }
     },
     {
@@ -91,6 +97,12 @@
         "claim_reliability_ref": "CRS-B001-C02-v0.1",
         "reliability_state": "convergent",
         "escalation": "scope_limited_contrast_and_overlap_audit"
+      },
+      "gold_qualification": {
+        "machine_gate": "passed_with_scope_contrast",
+        "f1_status": "F1_ready_with_overlap_resolution",
+        "human_gate": "pending",
+        "proposed_gold_wording": "Across adults with overweight/obesity or type 2 diabetes, current evidence does not support a single diet or macronutrient distribution as universally superior for sustained weight loss across populations and time horizons; modest context- and duration-specific advantages can occur."
       }
     },
     {
@@ -193,6 +205,13 @@
         "claim_reliability_ref": "CRS-B001-C05-v0.1",
         "reliability_state": "convergent",
         "escalation": "publisher_correction_impact_check"
+      },
+      "gold_qualification": {
+        "machine_gate": "passed",
+        "f1_status": "F1_ready_for_human_adjudication",
+        "correction_status": "resolved_nonfatal",
+        "human_gate": "pending",
+        "proposed_gold_wording": "Improvement in body weight, HbA1c, fitness, or cardiovascular risk factors is not, by itself, sufficient evidence that an intervention reduces hard cardiovascular events; hard-outcome benefit requires outcome-specific evidence."
       }
     },
     {

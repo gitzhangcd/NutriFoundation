@@ -1,0 +1,41 @@
+batch_id: B001
+status: candidate
+
+EvidenceUnits:
+  - evidence_id: EU-B001-002
+    source_id: SA-B001-002
+    population: "Overweight adults with impaired glucose tolerance"
+    intervention: "Lifestyle intervention including dietary modification and physical activity"
+    comparator: "Control"
+    outcome: "Development of type 2 diabetes"
+    effect: "Lifestyle intervention reduced cumulative diabetes incidence over follow-up"
+    certainty: "high for trial-specific effect; applicability requires assessment"
+    limitations:
+      - "Population was high-risk individuals with impaired glucose tolerance"
+      - "Intervention was multi-component rather than diet-only"
+
+  - evidence_id: EU-B001-003
+    source_id: SA-B001-003
+    population: "3234 adults at high risk for diabetes"
+    intervention: "Intensive lifestyle modification"
+    comparator: "Placebo"
+    outcome: "Incident type 2 diabetes"
+    effect: "Lifestyle intervention reduced diabetes incidence compared with placebo"
+    certainty: "high"
+    limitations:
+      - "Generalization depends on similarity of risk profile and intervention intensity"
+
+  - evidence_id: EU-B001-004
+    source_id: SA-B001-004
+    population: "High cardiovascular risk individuals in Mediterranean diet trial context"
+    intervention: "Mediterranean diet intervention"
+    comparator: "Control diet"
+    outcome: "Cardiovascular prevention outcomes"
+    effect: "Candidate evidence unit pending full trial source verification"
+    certainty: "pending"
+    limitations:
+      - "Current record is secondary citation-level registration"
+
+  - evidence_id: EU-B001-005
+    source_id: SA-B001-005
+    status: pending

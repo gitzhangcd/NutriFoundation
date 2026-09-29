@@ -41,3 +41,32 @@ Claims are not recommendations.
 Claim strength is evaluated on evidence independence, evidence type, population/outcome alignment, uncertainty, and applicability boundaries — not raw reference count.
 
 Synthesis sources, guidelines, and consensus reports may depend on primary studies already present in the registry and therefore must not be double-counted as independent votes.
+
+
+## P1.9-E6.1 — Citation Reception & Reliability Layer
+
+Before a ScientificClaim candidate can enter E7 Claim-Gold adjudication, high-priority claims must obtain sidecar qualification objects:
+
+- CitationReceptionRecord
+- ScientificInfluenceSignal
+- ClaimReliabilitySignal
+
+Critical separation:
+
+```text
+Scientific Influence != Scientific Reliability
+Citation Count != Support Count
+Supportive Citation != Independent Replication
+Journal Metric != Article Validity
+```
+
+Journal metrics, raw citations and field-normalized citations may describe visibility, maturity and scientific uptake. They cannot independently upgrade a claim's reliability state.
+
+Claim reliability is evaluated as a vector over intrinsic validity, evidence independence, replication, claim-level reception, integrity, temporal maturity and applicability stability.
+
+Current state:
+- ScientificClaim candidates: 11
+- Citation-reception work queue: 11
+- Populated reception records: 0
+- Populated reliability signals: 0
+- ScientificClaim_GOLD: 0

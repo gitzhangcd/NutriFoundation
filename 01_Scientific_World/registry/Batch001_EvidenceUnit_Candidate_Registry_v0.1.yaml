@@ -1,0 +1,27 @@
+# AI Nutri Data Foundation v0.1
+# P1.7 EvidenceUnit Candidate Registry
+
+batch_id: SA-B001
+version: v0.1
+status: candidate_extraction
+
+rules:
+  required_fields:
+    - population
+    - intervention_or_exposure
+    - comparator
+    - outcome
+    - effect
+    - source_span
+
+  freeze_requirements:
+    - source_artifact_verified
+    - agent_extraction_reviewed
+    - provenance_complete
+    - human_audit_completed
+
+candidate_units: []
+
+notes:
+  - Agent generated candidates are not scientific truth.
+  - Candidate EvidenceUnits require verification before freezing.

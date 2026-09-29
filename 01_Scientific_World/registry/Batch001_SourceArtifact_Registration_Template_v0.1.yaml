@@ -1,0 +1,25 @@
+schema_version: v0.1
+batch_id: SA-B001
+status: template
+
+source_artifact:
+  source_id: null
+  source_type: null
+  title: null
+  authors: []
+  publication_year: null
+  identifiers:
+    doi: null
+    pmid: null
+  nutrition_domain: []
+  evidence_metadata:
+    population: null
+    intervention_or_exposure: null
+    comparator: null
+    outcome: null
+  provenance:
+    acquisition_source: null
+    retrieval_date: null
+  quality_control:
+    screening_status: pending
+    reviewer: null

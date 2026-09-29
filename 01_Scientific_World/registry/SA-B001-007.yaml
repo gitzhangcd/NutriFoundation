@@ -11,14 +11,14 @@ source_artifact:
   intervention: "Four reduced-calorie diets varying in fat, protein, and carbohydrate"
   comparator: "Factorial comparisons across macronutrient targets"
   provenance_url: "https://pubmed.ncbi.nlm.nih.gov/19246357/"
-  verification_status: registered
+  verification_status: verified_pubmed_abstract
 evidence_unit_candidate:
   evidence_id: EU-B001-007
   population: "Overweight adults"
   intervention: "Reduced-calorie diets with differing macronutrient composition"
   comparator: "Alternative reduced-calorie macronutrient compositions"
   outcome: "2-year body-weight change"
-  effect_summary: "Weight loss at 2 years was similar across protein, fat, and carbohydrate targets; all diets improved lipid-related risk factors and fasting insulin."
+  effect_summary: "At 2 years, weight loss was 3.0 vs 3.6 kg for 15% vs 25% protein, 3.3 kg for both 20% vs 40% fat, and 2.9 vs 3.4 kg for 65% vs 35% carbohydrate; P>0.20 for all comparisons. Lipid-related risk factors and fasting insulin improved."
   source_span_type: abstract
   limitation: "Adherence declined over time and average weight regain began after 12 months."
-  status: candidate
+  status: verified_candidate

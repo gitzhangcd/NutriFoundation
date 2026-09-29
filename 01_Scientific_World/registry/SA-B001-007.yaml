@@ -1,0 +1,24 @@
+source_artifact:
+  source_id: SA-B001-007
+  title: "Comparison of weight-loss diets with different compositions of fat, protein, and carbohydrates."
+  journal: "N Engl J Med"
+  year: 2009
+  pmid: "19246357"
+  pmcid: "PMC2763382"
+  doi: "10.1056/NEJMoa0804748"
+  source_type: RCT
+  population: "811 overweight adults"
+  intervention: "Four reduced-calorie diets varying in fat, protein, and carbohydrate"
+  comparator: "Factorial comparisons across macronutrient targets"
+  provenance_url: "https://pubmed.ncbi.nlm.nih.gov/19246357/"
+  verification_status: registered
+evidence_unit_candidate:
+  evidence_id: EU-B001-007
+  population: "Overweight adults"
+  intervention: "Reduced-calorie diets with differing macronutrient composition"
+  comparator: "Alternative reduced-calorie macronutrient compositions"
+  outcome: "2-year body-weight change"
+  effect_summary: "Weight loss at 2 years was similar across protein, fat, and carbohydrate targets; all diets improved lipid-related risk factors and fasting insulin."
+  source_span_type: abstract
+  limitation: "Adherence declined over time and average weight regain began after 12 months."
+  status: candidate

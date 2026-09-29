@@ -1,0 +1,25 @@
+source_id: ""
+source_type: ""
+title: ""
+authors: []
+publication_year: null
+identifiers:
+  doi: ""
+  pmid: ""
+
+nutrition_domain: []
+
+evidence_metadata:
+  population: ""
+  intervention: ""
+  outcomes: []
+  evidence_level: ""
+
+provenance:
+  database: ""
+  retrieval_date: ""
+  query_strategy: ""
+
+quality_control:
+  duplicate_checked: false
+  verified: false

@@ -1,41 +1,51 @@
 batch_id: B001
-status: candidate
+status: verified_candidates
 
 EvidenceUnits:
   - evidence_id: EU-B001-002
     source_id: SA-B001-002
-    population: "Overweight adults with impaired glucose tolerance"
-    intervention: "Lifestyle intervention including dietary modification and physical activity"
+    population: "Middle-aged overweight adults with impaired glucose tolerance"
+    intervention: "Individualized multicomponent lifestyle intervention"
     comparator: "Control"
-    outcome: "Development of type 2 diabetes"
-    effect: "Lifestyle intervention reduced cumulative diabetes incidence over follow-up"
-    certainty: "high for trial-specific effect; applicability requires assessment"
-    limitations:
-      - "Population was high-risk individuals with impaired glucose tolerance"
-      - "Intervention was multi-component rather than diet-only"
+    outcome: "Incident type 2 diabetes"
+    effect_summary: "Cumulative diabetes incidence after 4 years was 11% in the intervention group vs 23% in control; risk was reduced by 58% during the trial."
+    follow_up: "Mean 3.2 years; 4-year cumulative incidence reported"
+    source_span_type: PubMed_abstract
+    applicability_boundary: "High-risk impaired-glucose-tolerance population; intervention combined diet and physical activity."
+    status: verified_candidate
 
   - evidence_id: EU-B001-003
     source_id: SA-B001-003
-    population: "3234 adults at high risk for diabetes"
+    population: "Nondiabetic adults at high risk for type 2 diabetes with elevated fasting and post-load glucose"
     intervention: "Intensive lifestyle modification"
     comparator: "Placebo"
     outcome: "Incident type 2 diabetes"
-    effect: "Lifestyle intervention reduced diabetes incidence compared with placebo"
-    certainty: "high"
-    limitations:
-      - "Generalization depends on similarity of risk profile and intervention intensity"
+    effect_summary: "Diabetes incidence was 4.8 vs 11.0 cases per 100 person-years for lifestyle vs placebo; lifestyle reduced incidence by 58% (95% CI 48%-66%)."
+    follow_up: "Mean 2.8 years"
+    source_span_type: PubMed_abstract
+    applicability_boundary: "High-risk dysglycemic population; intervention included weight-loss and physical-activity targets and is not a diet-only effect."
+    status: verified_candidate
 
   - evidence_id: EU-B001-004
     source_id: SA-B001-004
-    population: "High cardiovascular risk individuals in Mediterranean diet trial context"
-    intervention: "Mediterranean diet intervention"
-    comparator: "Control diet"
-    outcome: "Cardiovascular prevention outcomes"
-    effect: "Candidate evidence unit pending full trial source verification"
-    certainty: "pending"
-    limitations:
-      - "Current record is secondary citation-level registration"
+    population: "Adults aged 55-80 at high cardiovascular risk without cardiovascular disease at enrollment"
+    intervention: "Mediterranean diet plus extra-virgin olive oil OR Mediterranean diet plus mixed nuts"
+    comparator: "Advice to reduce dietary fat"
+    outcome: "Major cardiovascular event: myocardial infarction, stroke, or cardiovascular death"
+    effect_summary: "Adjusted hazard ratio was 0.69 (95% CI 0.53-0.91) for Mediterranean diet plus extra-virgin olive oil and 0.72 (95% CI 0.54-0.95) for Mediterranean diet plus nuts vs control."
+    follow_up: "Median 4.8 years"
+    source_span_type: PubMed_abstract
+    applicability_boundary: "Primary prevention in a high-cardiovascular-risk Spanish population; corrected report explicitly accounts for identified randomization/protocol deviations."
+    status: verified_candidate
 
   - evidence_id: EU-B001-005
     source_id: SA-B001-005
-    status: pending
+    population: "Overweight or obese adults with type 2 diabetes"
+    intervention: "Intensive lifestyle intervention for weight loss"
+    comparator: "Diabetes support and education"
+    outcome: "Composite cardiovascular morbidity/mortality"
+    effect_summary: "Despite greater sustained weight loss and risk-factor improvements, the primary cardiovascular outcome was not reduced: HR 0.95 (95% CI 0.83-1.09), P=0.51."
+    follow_up: "Median 9.6 years at early stopping for futility"
+    source_span_type: PubMed_abstract
+    applicability_boundary: "Supports a distinction between weight/risk-factor improvement and proven cardiovascular-event reduction."
+    status: verified_candidate

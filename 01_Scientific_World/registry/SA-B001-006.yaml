@@ -10,7 +10,7 @@ source_artifact:
   intervention: "Mediterranean restricted-calorie or low-carbohydrate non-restricted-calorie diet"
   comparator: "Low-fat restricted-calorie diet"
   provenance_url: "https://pubmed.ncbi.nlm.nih.gov/18635428/"
-  verification_status: registered
+  verification_status: verified_pubmed_abstract
 evidence_unit_candidate:
   evidence_id: EU-B001-006
   population: "Moderately obese adults"
@@ -20,4 +20,4 @@ evidence_unit_candidate:
   effect_summary: "Mean weight loss: 4.4 kg Mediterranean, 4.7 kg low-carbohydrate, 2.9 kg low-fat. Lipid ratio improved more with low-carbohydrate; glycemic measures improved more with Mediterranean diet in diabetes subgroup."
   source_span_type: abstract
   limitation: "Male-dominant sample; diabetes glycemic findings derive from a small subgroup."
-  status: candidate
+  status: verified_candidate

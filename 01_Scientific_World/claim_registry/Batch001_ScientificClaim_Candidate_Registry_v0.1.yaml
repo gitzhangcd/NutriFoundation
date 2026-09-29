@@ -1,0 +1,365 @@
+{
+  "batch_id": "B001",
+  "stage": "P1.9-E6",
+  "registry_version": "v0.1",
+  "status": "candidate_not_gold",
+  "authority_boundary": "ScientificClaim candidates are synthesized from F0 EvidenceUnits. They are not expert gold, recommendations, or patient-specific decisions.",
+  "certainty_semantics": "candidate_strength is an internal synthesis status, not a formal GRADE rating unless explicitly inherited from a source.",
+  "claims": [
+    {
+      "claim_id": "SC-B001-C01",
+      "statement": "In adults with impaired glucose tolerance or otherwise high-risk dysglycemia, intensive multicomponent lifestyle intervention can reduce or delay incident type 2 diabetes compared with usual/control care.",
+      "claim_type": "causal",
+      "evidence_refs": [
+        "EU-B001-002",
+        "EU-B001-003"
+      ],
+      "supporting_context_refs": [
+        "EU-B001-015"
+      ],
+      "population_scope": {
+        "include": "Adults with high-risk dysglycemia / impaired glucose tolerance similar to prevention-trial populations",
+        "exclude": "General low-risk adults; established advanced diabetes"
+      },
+      "outcome_scope": {
+        "primary": "Incident type 2 diabetes"
+      },
+      "candidate_strength": "high_at_F0",
+      "evidence_independence": "Two independent randomized prevention trials; ADA consensus is supportive but derivative.",
+      "applicability_boundary": {
+        "notes": "Interventions were multicomponent and included diet, weight loss and physical activity; do not attribute the full effect to diet alone."
+      },
+      "limitations": [
+        "F0 is abstract-anchored",
+        "Intervention components differ between trials",
+        "Generalizability beyond high-risk dysglycemic populations requires separate evidence"
+      ],
+      "provenance": {
+        "relation_refs": [
+          "REL-001",
+          "REL-002"
+        ]
+      }
+    },
+    {
+      "claim_id": "SC-B001-C02",
+      "statement": "Across adults with overweight/obesity or type 2 diabetes, current Batch001 evidence does not support a single universally superior macronutrient distribution or named diet for sustained weight loss across populations and time horizons.",
+      "claim_type": "descriptive",
+      "evidence_refs": [
+        "EU-B001-007",
+        "EU-B001-008",
+        "EU-B001-011",
+        "EU-B001-012",
+        "EU-B001-015"
+      ],
+      "counterexample_or_context_refs": [
+        "EU-B001-006",
+        "EU-B001-009"
+      ],
+      "population_scope": {
+        "include": "Adults with overweight/obesity and/or type 2 diabetes represented in diet-comparison trials and syntheses"
+      },
+      "outcome_scope": {
+        "primary": "Weight loss",
+        "secondary": "HbA1c and metabolic risk factors where represented"
+      },
+      "candidate_strength": "moderate_high_at_F0",
+      "evidence_independence": "Mixed primary trials plus syntheses/consensus; likely overlap prevents vote-counting.",
+      "applicability_boundary": {
+        "notes": "Context-specific advantages can occur; this claim rejects universal superiority, not local superiority in a defined population/comparator/time horizon."
+      },
+      "limitations": [
+        "Potential primary-study overlap within meta/umbrella reviews",
+        "Diet quality/adherence differ",
+        "Follow-up durations differ"
+      ],
+      "provenance": {
+        "relation_refs": [
+          "REL-003",
+          "REL-004"
+        ]
+      }
+    },
+    {
+      "claim_id": "SC-B001-C03",
+      "statement": "In selected adults with relatively recent type 2 diabetes and overweight/obesity, intensive energy-restriction / total-diet-replacement weight-management programs can produce substantial short-term diabetes remission.",
+      "claim_type": "causal",
+      "evidence_refs": [
+        "EU-B001-010",
+        "EU-B001-012"
+      ],
+      "population_scope": {
+        "include": "Adults similar to DiRECT / remission-study populations",
+        "exclude": "Insulin-treated or long-duration diabetes unless separately supported"
+      },
+      "outcome_scope": {
+        "primary": "Type 2 diabetes remission",
+        "secondary": "Large weight loss"
+      },
+      "candidate_strength": "moderate_at_F0",
+      "evidence_independence": "Primary trial plus synthesis likely containing overlapping remission evidence.",
+      "applicability_boundary": {
+        "notes": "Multicomponent programs include diet replacement, reintroduction, behavioral maintenance and medication management; effect cannot be attributed to a single nutrient or food."
+      },
+      "limitations": [
+        "Likely evidence dependency",
+        "Most synthesized remission evidence is <=1 year",
+        "Durability and broader eligibility require additional evidence"
+      ],
+      "provenance": {
+        "relation_refs": [
+          "REL-005"
+        ]
+      }
+    },
+    {
+      "claim_id": "SC-B001-C04",
+      "statement": "Mediterranean-style dietary interventions show favorable outcomes in several specific contexts, including delayed antihyperglycemic therapy in newly diagnosed type 2 diabetes and reduced major cardiovascular events in a high-risk primary-prevention population, but these effects should remain context-specific rather than treated as one universal Mediterranean-diet effect.",
+      "claim_type": "descriptive",
+      "evidence_refs": [
+        "EU-B001-001",
+        "EU-B001-004",
+        "EU-B001-006",
+        "EU-B001-011"
+      ],
+      "population_scope": {
+        "include": "Context-specific populations represented by each source"
+      },
+      "outcome_scope": {
+        "primary": "Drug initiation, major cardiovascular events, weight/glycemic outcomes"
+      },
+      "candidate_strength": "moderate_at_F0",
+      "evidence_independence": "Multiple distinct sources, but outcomes/populations are heterogeneous and not directly poolable.",
+      "applicability_boundary": {
+        "notes": "Do not transfer CVD-event evidence, weight effects, or glycemic effects across populations without separate applicability assessment."
+      },
+      "limitations": [
+        "Heterogeneous outcomes",
+        "Different comparators",
+        "PREDIMED corrected analysis has documented protocol deviations"
+      ],
+      "provenance": {
+        "relation_refs": [
+          "REL-006"
+        ]
+      }
+    },
+    {
+      "claim_id": "SC-B001-C05",
+      "statement": "Improvement in body weight, HbA1c, fitness, or cardiovascular risk factors is not by itself sufficient evidence that an intervention reduces hard cardiovascular events.",
+      "claim_type": "descriptive",
+      "evidence_refs": [
+        "EU-B001-005"
+      ],
+      "contextual_refs": [
+        "EU-B001-004"
+      ],
+      "population_scope": {
+        "include": "Cardiometabolic interventions where surrogate/risk-factor outcomes are used to infer hard cardiovascular benefit"
+      },
+      "outcome_scope": {
+        "primary": "Major cardiovascular morbidity/mortality versus surrogate or intermediate risk factors"
+      },
+      "candidate_strength": "high_epistemic_guard_at_F0",
+      "evidence_independence": "Directly supported by Look AHEAD; PREDIMED demonstrates that hard-outcome benefit is intervention/population specific rather than implied by surrogate change.",
+      "applicability_boundary": {
+        "notes": "This is an inference guard, not a claim that lifestyle intervention never reduces cardiovascular events."
+      },
+      "limitations": [
+        "One direct null hard-outcome trial anchors the guard",
+        "Different interventions/populations should not be compared as head-to-head evidence"
+      ],
+      "provenance": {
+        "relation_refs": [
+          "REL-007"
+        ]
+      }
+    },
+    {
+      "claim_id": "SC-B001-C06",
+      "statement": "Higher dietary fibre and whole-grain intake is associated with lower type 2 diabetes risk in prospective population evidence, while higher fibre intake also improves some intermediate cardiometabolic risk factors in clinical trials.",
+      "claim_type": "associative",
+      "evidence_refs": [
+        "EU-B001-013",
+        "EU-B001-020"
+      ],
+      "population_scope": {
+        "include": "General adult populations represented in prospective cohorts and prevention-focused trials",
+        "exclude": "Established chronic-disease populations unless separately supported"
+      },
+      "outcome_scope": {
+        "primary": "Incident type 2 diabetes",
+        "secondary": "Body weight, systolic blood pressure, total cholesterol"
+      },
+      "candidate_strength": "moderate_at_F0",
+      "evidence_independence": "Two syntheses with probable cohort overlap.",
+      "applicability_boundary": {
+        "notes": "Disease-incidence portion remains association-level; trial-based intermediate outcomes do not convert cohort incidence associations into causal disease-prevention effects."
+      },
+      "limitations": [
+        "Probable overlapping cohorts",
+        "Substantial heterogeneity in whole-grain meta-analysis",
+        "Broad carbohydrate-quality review excludes chronic-disease populations"
+      ],
+      "provenance": {
+        "relation_refs": [
+          "REL-008",
+          "REL-009"
+        ]
+      }
+    },
+    {
+      "claim_id": "SC-B001-C07",
+      "statement": "In the NutriNet-Sante cohort, a higher proportion of ultraprocessed food in the diet was associated with a higher incidence of type 2 diabetes.",
+      "claim_type": "associative",
+      "evidence_refs": [
+        "EU-B001-014"
+      ],
+      "population_scope": {
+        "include": "Adults represented in the French NutriNet-Sante prospective cohort"
+      },
+      "outcome_scope": {
+        "primary": "Incident type 2 diabetes"
+      },
+      "candidate_strength": "low_moderate_at_F0",
+      "evidence_independence": "Single prospective cohort source in Batch001.",
+      "applicability_boundary": {
+        "notes": "Do not convert this observational association into a randomized causal claim or universal effect size."
+      },
+      "limitations": [
+        "Residual confounding",
+        "Predominantly female French cohort",
+        "Needs external replication/triangulation for stronger generalization"
+      ],
+      "provenance": {
+        "relation_refs": [
+          "REL-009"
+        ]
+      }
+    },
+    {
+      "claim_id": "SC-B001-C08",
+      "statement": "Across 31 international cohorts, greater processed-meat and unprocessed-red-meat consumption was associated with higher incident type 2 diabetes; the poultry association was weaker under alternative modelling assumptions.",
+      "claim_type": "associative",
+      "evidence_refs": [
+        "EU-B001-019"
+      ],
+      "population_scope": {
+        "include": "Adults without diabetes at baseline across represented world regions"
+      },
+      "outcome_scope": {
+        "primary": "Incident type 2 diabetes"
+      },
+      "candidate_strength": "moderate_at_F0",
+      "evidence_independence": "Large federated cohort meta-analysis, but observational.",
+      "applicability_boundary": {
+        "notes": "Association does not equal randomized causal effect; heterogeneity and residual confounding remain."
+      },
+      "limitations": [
+        "Observational design",
+        "Regional precision varies",
+        "Poultry result less robust"
+      ],
+      "provenance": {
+        "relation_refs": [
+          "REL-009"
+        ]
+      }
+    },
+    {
+      "claim_id": "SC-B001-C09",
+      "statement": "Salt-reduction interventions can lower blood pressure, but the magnitude of effect depends materially on the intervention strategy and population subgroup.",
+      "claim_type": "causal",
+      "evidence_refs": [
+        "EU-B001-018"
+      ],
+      "population_scope": {
+        "include": "Participants represented in controlled salt-reduction trials"
+      },
+      "outcome_scope": {
+        "primary": "Systolic and diastolic blood pressure"
+      },
+      "candidate_strength": "moderate_at_F0",
+      "evidence_independence": "Single meta-analysis synthesizing multiple controlled trials and distinct intervention strategies.",
+      "applicability_boundary": {
+        "notes": "Salt substitution, nutrition education and self-help approaches should not be collapsed into one universal effect estimate."
+      },
+      "limitations": [
+        "One synthesis source in Batch001",
+        "Strategy heterogeneity",
+        "Further trials requested by source authors"
+      ],
+      "provenance": {
+        "relation_refs": [
+          "REL-013"
+        ]
+      }
+    },
+    {
+      "claim_id": "SC-B001-C10",
+      "statement": "Nutrition recommendations require explicit disease- and age-specific applicability gates: CKD and geriatric guidance impose constraints that can override generic weight-loss or macronutrient advice.",
+      "claim_type": "recommendation_support",
+      "evidence_refs": [
+        "EU-B001-016",
+        "EU-B001-017"
+      ],
+      "contextual_refs": [
+        "EU-B001-006",
+        "EU-B001-009"
+      ],
+      "population_scope": {
+        "include": "People with CKD and older adults"
+      },
+      "outcome_scope": {
+        "primary": "Appropriate nutrition-management strategy and safety/applicability"
+      },
+      "candidate_strength": "moderate_recommendation_support_at_F0",
+      "evidence_independence": "Two distinct practice guidelines for different special populations.",
+      "applicability_boundary": {
+        "notes": "This is a claim about applicability and guideline constraints, not a universal nutrient target."
+      },
+      "limitations": [
+        "KDOQI numerical targets not extracted at F0",
+        "Guideline recommendations are not independent causal-effect estimates"
+      ],
+      "provenance": {
+        "relation_refs": [
+          "REL-010",
+          "REL-012"
+        ]
+      }
+    },
+    {
+      "claim_id": "SC-B001-C11",
+      "statement": "In DIETFITS, the tested multilocus genotype patterns and baseline insulin-secretion measure did not identify differential 12-month weight-loss response to healthy low-fat versus healthy low-carbohydrate diets.",
+      "claim_type": "descriptive",
+      "evidence_refs": [
+        "EU-B001-008"
+      ],
+      "contextual_refs": [
+        "EU-B001-015"
+      ],
+      "population_scope": {
+        "include": "Adults aged 18-50 with BMI 28-40 without diabetes represented in DIETFITS"
+      },
+      "outcome_scope": {
+        "primary": "Diet-by-genotype and diet-by-insulin-secretion interaction for 12-month weight loss"
+      },
+      "candidate_strength": "moderate_at_F0",
+      "evidence_independence": "Single randomized trial; ADA consensus provides broader personalization context, not replication.",
+      "applicability_boundary": {
+        "notes": "This negative finding applies only to the tested genotype pattern and INS-30 metric; it does not falsify personalization based on preferences, comorbidities, behaviors, or other biomarkers."
+      },
+      "limitations": [
+        "Single trial",
+        "No diabetes population",
+        "Specific biomarker definitions"
+      ],
+      "provenance": {
+        "relation_refs": [
+          "REL-011"
+        ]
+      }
+    }
+  ]
+}

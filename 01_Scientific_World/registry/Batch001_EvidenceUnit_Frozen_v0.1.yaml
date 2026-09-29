@@ -1,0 +1,127 @@
+batch_id: B001
+release: "EvidenceUnit_Frozen_v0.1"
+freeze_level: F0_abstract_anchored
+freeze_date: "2026-09-30"
+scientific_authority_boundary: "F0 freezes source-linked factual extraction supported directly by PubMed metadata/abstract. It is not full-text claim gold, guideline recommendation, or expert decision gold."
+full_text_second_pass_status: "attempted_but_NCBI_rate_limited; required for later F1 upgrade where available"
+
+EvidenceUnits:
+  - evidence_id: EU-B001-001
+    source_id: SA-B001-001
+    status: frozen_F0
+    population: "215 overweight adults with newly diagnosed, drug-naive type 2 diabetes"
+    intervention: "Low-carbohydrate Mediterranean-style diet"
+    comparator: "Low-fat diet"
+    outcome: "Initiation of antihyperglycemic drug therapy"
+    effect: "44% vs 70% required therapy at 4 years; HR 0.63 (95% CI 0.51-0.86)"
+    applicability_boundary: "Newly diagnosed, overweight, drug-naive T2D"
+    anchor: "PubMed abstract PMID 19721018"
+    verification: [metadata, PICO, numeric_effect, limitation_boundary]
+
+  - evidence_id: EU-B001-002
+    source_id: SA-B001-002
+    status: frozen_F0
+    population: "522 middle-aged overweight adults with impaired glucose tolerance"
+    intervention: "Individualized lifestyle counseling targeting weight, fat, saturated fat, fiber, and physical activity"
+    comparator: "Control"
+    outcome: "Incident type 2 diabetes"
+    effect: "4-year cumulative incidence 11% vs 23%; 58% risk reduction during trial"
+    applicability_boundary: "High-risk IGT population; multicomponent lifestyle intervention"
+    anchor: "PubMed abstract PMID 11333990"
+    verification: [metadata, PICO, numeric_effect, limitation_boundary]
+
+  - evidence_id: EU-B001-003
+    source_id: SA-B001-003
+    status: frozen_F0
+    population: "3234 nondiabetic adults with elevated fasting and post-load glucose"
+    intervention: "Intensive lifestyle modification"
+    comparator: "Placebo"
+    outcome: "Incident type 2 diabetes"
+    effect: "4.8 vs 11.0 cases per 100 person-years; 58% reduction (95% CI 48%-66%)"
+    applicability_boundary: "High-risk dysglycemia; lifestyle includes weight-loss and physical-activity targets"
+    anchor: "PubMed abstract PMID 11832527"
+    verification: [metadata, PICO, numeric_effect, limitation_boundary]
+
+  - evidence_id: EU-B001-004
+    source_id: SA-B001-004
+    status: frozen_F0
+    population: "7447 adults aged 55-80 at high cardiovascular risk without cardiovascular disease at enrollment"
+    intervention: "Mediterranean diet + extra-virgin olive oil OR Mediterranean diet + mixed nuts"
+    comparator: "Advice to reduce dietary fat"
+    outcome: "Major cardiovascular event"
+    effect: "Adjusted HR 0.69 (95% CI 0.53-0.91) for EVOO arm and 0.72 (95% CI 0.54-0.95) for nuts arm vs control"
+    applicability_boundary: "High-CV-risk primary-prevention Spanish population; corrected analysis accounts for protocol/randomization deviations"
+    anchor: "PubMed abstract PMID 29897866; corrected and republished primary PREDIMED report"
+    verification: [metadata, primary_source_repair, PICO, numeric_effect, protocol_deviation_boundary]
+
+  - evidence_id: EU-B001-005
+    source_id: SA-B001-005
+    status: frozen_F0
+    population: "5145 overweight or obese adults with type 2 diabetes"
+    intervention: "Intensive lifestyle intervention for weight loss"
+    comparator: "Diabetes support and education"
+    outcome: "Composite cardiovascular morbidity/mortality"
+    effect: "HR 0.95 (95% CI 0.83-1.09), P=0.51 despite greater weight loss and risk-factor improvements"
+    applicability_boundary: "Demonstrates that weight/risk-factor improvement does not itself establish cardiovascular-event reduction"
+    anchor: "PubMed abstract PMID 23796131"
+    verification: [metadata, PICO, numeric_effect, competing_outcome_boundary]
+
+  - evidence_id: EU-B001-006
+    source_id: SA-B001-006
+    status: frozen_F0
+    population: "322 moderately obese adults; 86% male"
+    intervention: "Mediterranean restricted-calorie or low-carbohydrate non-restricted-calorie diet"
+    comparator: "Low-fat restricted-calorie diet"
+    outcome: "2-year weight change; metabolic secondary outcomes"
+    effect: "Mean weight loss 4.4 kg Mediterranean, 4.7 kg low-carbohydrate, 2.9 kg low-fat; lipid ratio favored low-carbohydrate; glycemic subgroup finding favored Mediterranean"
+    applicability_boundary: "Male-dominant sample; glycemic result derives from 36 participants with diabetes"
+    anchor: "PubMed abstract PMID 18635428"
+    verification: [metadata, PICO, numeric_effect, subgroup_boundary]
+
+  - evidence_id: EU-B001-007
+    source_id: SA-B001-007
+    status: frozen_F0
+    population: "811 overweight adults"
+    intervention: "Reduced-calorie diets with differing fat/protein/carbohydrate targets"
+    comparator: "Alternative macronutrient targets"
+    outcome: "2-year body-weight change"
+    effect: "No significant 2-year weight-loss difference across protein, fat, or carbohydrate target comparisons; P>0.20 for all"
+    applicability_boundary: "Tests reduced-calorie behavioral diets; adherence and partial weight regain affect interpretation"
+    anchor: "PubMed abstract PMID 19246357"
+    verification: [metadata, PICO, numeric_effect, adherence_boundary]
+
+  - evidence_id: EU-B001-008
+    source_id: SA-B001-008
+    status: frozen_F0
+    population: "609 adults aged 18-50, BMI 28-40, without diabetes"
+    intervention: "Healthy low-fat diet"
+    comparator: "Healthy low-carbohydrate diet"
+    outcome: "12-month weight change; genotype and insulin-secretion interactions"
+    effect: "-5.3 vs -6.0 kg; between-group difference 0.7 kg (95% CI -0.2 to 1.6); no significant genotype or insulin-secretion interaction"
+    applicability_boundary: "Does not establish effects in diabetes; negative interaction finding applies to the tested genetic pattern and INS-30 measure"
+    anchor: "PubMed abstract PMID 29466592"
+    verification: [metadata, PICO, numeric_effect, precision_nutrition_boundary]
+
+  - evidence_id: EU-B001-009
+    source_id: SA-B001-009
+    status: frozen_F0
+    population: "311 overweight/obese nondiabetic premenopausal women"
+    intervention: "Atkins diet"
+    comparator: "Zone, LEARN, and Ornish diets"
+    outcome: "12-month weight loss"
+    effect: "Mean loss: Atkins 4.7 kg, Zone 1.6 kg, LEARN 2.6 kg, Ornish 2.2 kg; statistically significant difference explicitly reported for Atkins vs Zone"
+    applicability_boundary: "Restricted to nondiabetic premenopausal women; long-term safety beyond 12 months not established by this trial"
+    anchor: "PubMed abstract PMID 17341711"
+    verification: [metadata, PICO, numeric_effect, population_boundary]
+
+  - evidence_id: EU-B001-010
+    source_id: SA-B001-010
+    status: frozen_F0
+    population: "Adults aged 20-65 with T2D diagnosed within 6 years, BMI 27-45, not receiving insulin"
+    intervention: "Primary-care multicomponent weight-management program"
+    comparator: "Best-practice guideline care"
+    outcome: ">=15 kg weight loss and diabetes remission at 12 months"
+    effect: ">=15 kg loss 24% vs 0%; remission 46% vs 4%, OR 19.7 (95% CI 7.8-49.8)"
+    applicability_boundary: "Multicomponent program includes total diet replacement, food reintroduction, maintenance support, and medication withdrawal; cannot attribute effect to diet alone"
+    anchor: "PubMed abstract PMID 29221645"
+    verification: [metadata, PICO, numeric_effect, multicomponent_boundary]

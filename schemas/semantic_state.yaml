@@ -1,0 +1,11 @@
+SemanticState:
+  state_id: string
+  subject_id: string
+  metabolic_state: object
+  nutrition_state: object
+  disease_risk: object
+  dietary_pattern: object
+  constraints: array
+  uncertainty: object
+  missing_information: array
+  inference_source: array

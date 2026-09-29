@@ -1,0 +1,25 @@
+{
+  "source_artifact": {
+    "source_id": "SA-B001-019",
+    "title": "Meat consumption and incident type 2 diabetes: an individual-participant federated meta-analysis of 1·97 million adults with 100 000 incident cases from 31 cohorts in 20 countries.",
+    "journal": "The Lancet Diabetes & Endocrinology",
+    "year": 2024,
+    "pmid": "39174161",
+    "doi": "10.1016/S2213-8587(24)00179-7",
+    "source_type": "individual_participant_federated_meta_analysis_of_cohorts",
+    "population": "1,966,444 adults from 31 cohorts in 20 countries; 107,271 incident T2D cases",
+    "provenance_url": "https://pubmed.ncbi.nlm.nih.gov/39174161/",
+    "verification_status": "verified_pubmed_abstract"
+  },
+  "evidence_unit_candidate": {
+    "evidence_id": "EU-B001-019",
+    "kind": "observational_association_synthesis",
+    "population": "Adults without diabetes at baseline across multiple world regions",
+    "exposure": "Unprocessed red meat, processed meat and poultry consumption",
+    "outcome": "Incident type 2 diabetes",
+    "effect_summary": "Pooled HRs were 1.10 per 100 g/day unprocessed red meat, 1.15 per 50 g/day processed meat, and 1.08 per 100 g/day poultry. Poultry associations were less robust under alternative modelling assumptions.",
+    "source_span_type": "PubMed_abstract",
+    "applicability_boundary": "Observational cohort synthesis with residual-confounding risk and substantial heterogeneity; poultry result is explicitly less robust.",
+    "status": "verified_candidate"
+  }
+}

@@ -1,5 +1,5 @@
 batch_id: B001
-status: batch001_E6_claim_candidates_constructed
+status: batch001_E6_1_reliability_contract_frozen
 
 source_artifacts:
   target_count: 20
@@ -21,6 +21,14 @@ scientific_claims:
   frozen_gold_count: 0
   cross_source_audit_status: completed_v0.1
   relation_map_status: completed_v0.1
+
+claim_qualification_sidecars:
+  citation_reception_schema: frozen_v0.1
+  scientific_influence_schema: frozen_v0.1
+  claim_reliability_schema: frozen_v0.1
+  citation_reception_work_queue: ready_11_claims
+  populated_reception_records: 0
+  populated_reliability_signals: 0
 
 source_type_profile:
   randomized_or_cluster_trials: 10
@@ -68,7 +76,9 @@ rules:
   - F1_or_gold_requires_fulltext_and_or_human_scientific_review
 
 next_action:
+  - execute_P0_claim_reception_queue_SC-B001-C01_C05_C02
+  - populate_CitationReceptionRecord_and_ScientificInfluenceSignal
+  - generate_ClaimReliabilitySignal_for_E7_priority_claims
   - selective_F1_fulltext_upgrade_for_claim_critical_sources
   - study_level_overlap_audit_for_synthesis_dependencies
-  - independent_human_or_expert_adjudication_of_high_impact_claims
-  - freeze_first_ScientificClaim_gold_only_after_non_regression_checks
+  - independent_human_or_expert_adjudication_before_first_Claim_GOLD

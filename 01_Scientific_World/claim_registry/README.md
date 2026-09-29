@@ -93,3 +93,24 @@ High Influence + Independent Replication -> may strengthen reliability
 High Influence + unresolved correction -> does not remove blocker
 High Influence + mixed claim-level reception -> remains mixed/convergent
 ```
+
+
+## P1.9-E7 — First Claim-Gold Gate
+
+Machine qualification has been completed for SC-B001-C01, SC-B001-C05 and SC-B001-C02.
+
+F1/full-text status:
+- EU-B001-005: full-text verified
+- EU-B001-007: full-text verified
+- EU-B001-012: full-text verified
+- DPPOS 15-year, 2015 low-fat meta-analysis and 2022 low-carb/low-fat meta-analysis: full-text claim-support records
+
+Resolved:
+- Look AHEAD correction → corrected_nonfatal for the primary cardiovascular claim
+- C02 study-level overlap → primary RCTs are de-duplicated from derivative synthesis support at available full-text level
+
+Gold state:
+- ready for independent human/expert adjudication: 3
+- ScientificClaim_GOLD frozen: 0
+
+This is a mandatory governance gate. Agent-only approval cannot create GOLD.

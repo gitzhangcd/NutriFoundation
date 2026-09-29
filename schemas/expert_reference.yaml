@@ -1,0 +1,12 @@
+ExpertReference:
+  reference_id: string
+  case_id: string
+  acceptable_decisions: array
+  unsafe_decisions: array
+  defer_allowed: boolean
+  request_information_allowed: boolean
+  required_information: array
+  safety_boundary: array
+  expert_notes: string
+  confidence: float
+  adjudication_status: string

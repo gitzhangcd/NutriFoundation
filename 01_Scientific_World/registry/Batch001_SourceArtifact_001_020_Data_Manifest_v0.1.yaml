@@ -1,5 +1,5 @@
 batch_id: B001
-status: batch001_E6_2_P0_reception_sidecars_generated
+status: batch001_E7_machine_qualification_complete_human_gold_gate_pending
 
 source_artifacts:
   target_count: 20
@@ -12,15 +12,23 @@ evidence_units:
   candidate_count: 20
   verified_candidate_count: 20
   frozen_F0_count: 20
-  frozen_F1_fulltext_count: 0
+  frozen_F1_fulltext_count: 3
   expert_gold_count: 0
 
 scientific_claims:
   candidate_count: 11
   verified_candidate_count: 0
   frozen_gold_count: 0
+  gold_ready_for_human_adjudication_count: 3
   cross_source_audit_status: completed_v0.1
   relation_map_status: completed_v0.1
+
+e7_status:
+  F1_claim_qualification_records: 3
+  look_ahead_correction_resolution: completed_nonfatal
+  C02_study_overlap_audit: completed_at_available_fulltext_level
+  human_adjudication_pack: ready
+  scientificclaim_gold_registry: initialized_pending_human
 
 claim_qualification_sidecars:
   citation_reception_schema: frozen_v0.1
@@ -78,8 +86,6 @@ rules:
   - F1_or_gold_requires_fulltext_and_or_human_scientific_review
 
 next_action:
-  - resolve_LookAHEAD_correction_impact_for_SC-B001-C05
-  - selective_F1_fulltext_upgrade_for_SC-B001-C01_C05_C02
-  - study_level_overlap_audit_for_SC-B001-C02
-  - independent_human_or_expert_adjudication_before_first_Claim_GOLD
+  - independent_human_or_expert_adjudication_of_SC-B001-C01_C05_C02
+  - freeze_first_ScientificClaim_GOLD_only_from_signed_adjudication
   - execute_P1_reception_queue_after_first_gold_gate

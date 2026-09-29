@@ -11,7 +11,7 @@ source_artifact:
   intervention: "Healthy low-fat diet"
   comparator: "Healthy low-carbohydrate diet"
   provenance_url: "https://pubmed.ncbi.nlm.nih.gov/29466592/"
-  verification_status: registered
+  verification_status: verified_pubmed_abstract
 evidence_unit_candidate:
   evidence_id: EU-B001-008
   population: "Overweight/obese adults without diabetes"
@@ -21,4 +21,4 @@ evidence_unit_candidate:
   effect_summary: "Weight change was -5.3 kg vs -6.0 kg; between-group difference 0.7 kg (95% CI -0.2 to 1.6). No significant diet-genotype or diet-insulin-secretion interaction."
   source_span_type: abstract
   limitation: "Does not establish equivalence in people with diabetes; tested specific behavioral interventions."
-  status: candidate
+  status: verified_candidate

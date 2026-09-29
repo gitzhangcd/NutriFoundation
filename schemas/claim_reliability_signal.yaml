@@ -1,0 +1,90 @@
+schema: ClaimReliabilitySignal
+version: v0.1
+stage: P1.9-E6.1
+status: frozen
+
+purpose:
+  - synthesize_intrinsic_validity_independence_replication_reception_integrity_and_maturity
+  - provide_a_claim_qualification_signal_without_replacing_expert_adjudication
+
+fields:
+  reliability_id:
+    type: string
+    required: true
+
+  claim_id:
+    type: string
+    required: true
+
+  evidence_refs:
+    type: array
+    required: true
+
+  citation_reception_refs:
+    type: array
+
+  reliability_vector:
+    type: object
+    fields:
+      intrinsic_evidence_validity:
+        enum: [low, moderate, high, mixed, insufficient]
+      evidence_independence:
+        enum: [low, moderate, high, mixed, unresolved]
+      direct_replication:
+        enum: [none, limited, convergent, mixed, failed, not_applicable]
+      citation_reception:
+        enum: [insufficient, supportive, mixed, contested, adverse, not_applicable]
+      integrity_status:
+        enum: [clean, corrected_nonfatal, concern, retracted, unresolved]
+      temporal_maturity:
+        enum: [early, developing, mature, legacy]
+      applicability_stability:
+        enum: [narrow, moderate, broad, heterogeneous, unresolved]
+
+  scientific_influence:
+    type: object
+    fields:
+      field_normalized_citation_signal:
+        enum: [unknown, low, moderate, high]
+      guideline_or_consensus_uptake:
+        enum: [none, limited, present, broad, unknown]
+      synthesis_uptake:
+        enum: [none, limited, present, broad, unknown]
+      journal_visibility_prior:
+        enum: [unknown, low, moderate, high]
+      note: string
+
+  reliability_state:
+    enum:
+      - insufficient
+      - provisional
+      - convergent
+      - robust
+      - contested
+      - degraded
+      - invalidated
+
+  gold_gate:
+    type: object
+    fields:
+      eligible_for_expert_gold_review: boolean
+      blockers: array
+      escalation_reasons: array
+
+  rationale:
+    type: array
+
+  provenance:
+    type: object
+    required: true
+
+decision_rules:
+  - scientific_influence_cannot_by_itself_upgrade_reliability_state
+  - journal_visibility_cannot_override_methodological_or_integrity_failures
+  - raw_or_normalized_citations_cannot_substitute_for_replication
+  - independent_direct_replication_can_upgrade_reliability
+  - failed_replication_or_claim_aligned_contradiction_requires_escalation
+  - correction_expression_of_concern_or_retraction_overrides_positive_reception
+  - observational_evidence_cannot_be_upgraded_to_causal_by_citation_reception
+  - guideline_uptake_increases_translation_signal_not_independent_causal_support
+  - gold_requires_human_or_expert_adjudication

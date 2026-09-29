@@ -1,5 +1,5 @@
 batch_id: B001
-status: batch001_complete_F0
+status: batch001_E6_claim_candidates_constructed
 
 source_artifacts:
   target_count: 20
@@ -14,6 +14,13 @@ evidence_units:
   frozen_F0_count: 20
   frozen_F1_fulltext_count: 0
   expert_gold_count: 0
+
+scientific_claims:
+  candidate_count: 11
+  verified_candidate_count: 0
+  frozen_gold_count: 0
+  cross_source_audit_status: completed_v0.1
+  relation_map_status: completed_v0.1
 
 source_type_profile:
   randomized_or_cluster_trials: 10
@@ -61,6 +68,7 @@ rules:
   - F1_or_gold_requires_fulltext_and_or_human_scientific_review
 
 next_action:
-  - Batch001_cross_source_conflict_and_redundancy_audit
-  - selective_F1_fulltext_upgrade
-  - ScientificClaim_construction_from_frozen_evidence
+  - selective_F1_fulltext_upgrade_for_claim_critical_sources
+  - study_level_overlap_audit_for_synthesis_dependencies
+  - independent_human_or_expert_adjudication_of_high_impact_claims
+  - freeze_first_ScientificClaim_gold_only_after_non_regression_checks

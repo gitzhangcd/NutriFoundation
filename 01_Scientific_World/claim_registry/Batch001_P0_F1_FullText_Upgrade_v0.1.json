@@ -1,0 +1,128 @@
+{
+  "batch_id": "B001",
+  "stage": "P1.9-E7",
+  "version": "v0.1",
+  "generated_at": "2026-09-30",
+  "claims": [
+    {
+      "claim_id": "SC-B001-C01",
+      "f1_status": "partial_F1_sufficient_for_human_adjudication",
+      "anchors": [
+        {
+          "source_id": "SA-B001-003",
+          "pmid": "11832527",
+          "access": "primary DPP full text not retrievable by connector in this run; abstract retained as F0"
+        },
+        {
+          "source_id": "FOLLOWUP-DPPOS-15Y",
+          "pmid": "26377054",
+          "pmcid": "PMC4623946",
+          "access": "PMC full text retrieved",
+          "method_anchor": "DPP randomized 27-center trial; lifestyle target 7% weight loss + 150 min/week moderate activity; diabetes diagnosed by annual OGTT and semiannual fasting glucose with confirmation.",
+          "result_anchor": "At ~15 years, lifestyle HR 0.73 (95% CI 0.65-0.83) vs placebo; effect smaller than initial DPP but persisted.",
+          "limitation_anchor": "Group lifestyle was later offered to all participants; between-group differences attenuated over time; aggregate microvascular outcome was not reduced in the total cohort."
+        },
+        {
+          "source_id": "SA-B001-002",
+          "pmid": "11333990",
+          "access": "publisher HTML + PubMed abstract",
+          "method_anchor": "522 middle-aged overweight adults with IGT randomized to individualized lifestyle intervention vs control.",
+          "result_anchor": "4-year cumulative diabetes incidence 11% vs 23%; trial risk reduction 58%.",
+          "limitation_anchor": "Population restricted to high-risk IGT; multicomponent intervention."
+        },
+        {
+          "source_id": "FOLLOWUP-DPS-13Y",
+          "pmid": "23093136",
+          "access": "PubMed/publisher abstract",
+          "result_anchor": "Total follow-up adjusted HR 0.614; post-intervention HR 0.672."
+        }
+      ],
+      "f1_conclusion": "Core prevention effect is anchored by randomized primary evidence plus long-term continuation data. Full-text coverage is strongest for DPPOS; Finnish primary/follow-up remains publisher/abstract-level in this run.",
+      "unresolved": [
+        "Human/expert wording adjudication required before GOLD."
+      ]
+    },
+    {
+      "claim_id": "SC-B001-C05",
+      "f1_status": "F1_ready_for_human_adjudication",
+      "anchors": [
+        {
+          "source_id": "SA-B001-005",
+          "pmid": "23796131",
+          "pmcid": "PMC3791615",
+          "access": "PMC full text retrieved",
+          "method_anchor": "5145 overweight/obese adults with T2D randomized to intensive lifestyle intervention vs diabetes support/education; endpoint adjudicators masked; median follow-up 9.6 years.",
+          "result_anchor": "ILI improved weight, fitness, HbA1c and several risk factors, but primary CV outcome HR 0.95 (95% CI 0.83-1.09), p=0.505.",
+          "interpretation_anchor": "Authors explicitly discuss that improved intermediate outcomes did not yield lower CV morbidity/mortality in this specific intervention/population.",
+          "limitation_anchor": "Specific multicomponent lifestyle intervention; cannot generalize to all dietary patterns or all weight-loss modalities."
+        },
+        {
+          "source_id": "ERRATUM-LOOKAHEAD",
+          "doi": "10.1056/NEJMx140022",
+          "access": "NEJM publisher correction page",
+          "correction_scope": "Table 2 stub under secondary outcomes corrected to include hospitalization for angina.",
+          "correction_impact": "Does not change the primary endpoint, primary hazard ratio, or overall cardiovascular conclusion."
+        }
+      ],
+      "f1_conclusion": "Correction risk resolved as nonfatal for SC-C05. The guard remains supported if worded as an inference rule, not as a universal null claim about lifestyle/weight loss.",
+      "unresolved": [
+        "Human/expert adjudication of guard wording required before GOLD."
+      ]
+    },
+    {
+      "claim_id": "SC-B001-C02",
+      "f1_status": "F1_ready_with_overlap_resolution_and_scope_contrast",
+      "anchors": [
+        {
+          "source_id": "SA-B001-007",
+          "pmid": "19246357",
+          "pmcid": "PMC2763382",
+          "access": "PMC full text retrieved",
+          "result_anchor": "At 2 years, weight loss did not significantly differ by protein, fat or carbohydrate target; adherence waned and weight regain occurred after initial loss.",
+          "interpretation_anchor": "Authors emphasize behavioral engagement/adherence and conclude effective diets can span a range of macronutrient compositions."
+        },
+        {
+          "source_id": "SYNTHESIS-LOWFAT-2015",
+          "pmid": "26527511",
+          "pmcid": "PMC4667723",
+          "access": "PMC full text retrieved",
+          "result_anchor": "Low-fat was not superior to higher-fat diets of similar intensity; low-carb showed a modest long-term advantage over low-fat in weight-loss trials.",
+          "limitation_anchor": "Substantial heterogeneity; intervention intensity and comparator choice materially influence estimates."
+        },
+        {
+          "source_id": "SYNTHESIS-LCD-LFD-2022",
+          "pmid": "36017224",
+          "pmcid": "PMC9397119",
+          "access": "PMC full text retrieved",
+          "result_anchor": "Low-carb had modest 6-23 month advantages for weight/TG/HDL; after 24 months benefits were at least similar.",
+          "included_primary_overlap": [
+            "Shai/DIRECT-like low-carb vs low-fat arm",
+            "Sacks/POUNDS LOST",
+            "Gardner/DIETFITS (609 participants)",
+            "Gardner/A TO Z low-carb vs low-fat subset"
+          ]
+        },
+        {
+          "source_id": "SA-B001-012",
+          "pmid": "34796367",
+          "pmcid": "PMC8660762",
+          "access": "PMC full text retrieved",
+          "result_anchor": "Umbrella review states published evidence does not show a generally superior macronutrient profile for T2D weight management; TDR/VLED effects depend on energy restriction/program intensity.",
+          "overlap_anchor": "Review directly includes DiRECT and Look AHEAD remission/weight-management evidence and synthesizes derivative meta-analytic evidence."
+        },
+        {
+          "source_id": "CONTRAST-NMA-2024",
+          "pmid": "39255914",
+          "access": "publisher/PubMed abstract",
+          "result_anchor": "Network meta-analysis of 7 RCTs/9 trials ranked low-carbohydrate highest for weight/body-fat reduction in its network.",
+          "limitation_anchor": "Small network, indirect comparisons, and authors explicitly note effect may vary by age, sex, genetics and lifestyle."
+        }
+      ],
+      "f1_conclusion": "The evidence supports a scope-bounded claim: no diet/macronutrient pattern is universally superior across all populations and time horizons. It does not support saying all diets are equivalent. Short-/medium-term context-specific advantages, including low-carb advantages in some syntheses, must be preserved.",
+      "unresolved": [
+        "Exact study-level overlap for every synthesis is not fully enumerated because not all supplements/full texts were available.",
+        "Human/expert wording adjudication required before GOLD."
+      ]
+    }
+  ]
+}

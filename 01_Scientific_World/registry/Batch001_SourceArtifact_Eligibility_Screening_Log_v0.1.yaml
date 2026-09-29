@@ -1,0 +1,25 @@
+batch_id: SA-B001
+version: v0.1
+status: screening_ready
+
+screening_fields:
+  - candidate_id
+  - title
+  - source_type
+  - nutrition_domain
+  - inclusion_decision
+  - exclusion_reason
+  - reviewer
+  - provenance
+
+candidates:
+  - candidate_id: SA-B001-001
+    status: pending
+  - candidate_id: SA-B001-002
+    status: pending
+  - candidate_id: SA-B001-003
+    status: pending
+  - candidate_id: SA-B001-004
+    status: pending
+  - candidate_id: SA-B001-005
+    status: pending

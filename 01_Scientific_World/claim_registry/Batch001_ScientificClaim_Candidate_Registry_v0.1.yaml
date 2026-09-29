@@ -1,6 +1,6 @@
 {
   "batch_id": "B001",
-  "stage": "P1.9-E6",
+  "stage": "P1.9-E6.2_P0_qualified",
   "registry_version": "v0.1",
   "status": "candidate_not_gold",
   "authority_boundary": "ScientificClaim candidates are synthesized from F0 EvidenceUnits. They are not expert gold, recommendations, or patient-specific decisions.",
@@ -39,6 +39,12 @@
           "REL-001",
           "REL-002"
         ]
+      },
+      "qualification_sidecars": {
+        "citation_reception_ref": "CRR-B001-C01-v0.1",
+        "scientific_influence_ref": "SIS-B001-C01-v0.1",
+        "claim_reliability_ref": "CRS-B001-C01-v0.1",
+        "reliability_state": "robust"
       }
     },
     {
@@ -78,6 +84,13 @@
           "REL-003",
           "REL-004"
         ]
+      },
+      "qualification_sidecars": {
+        "citation_reception_ref": "CRR-B001-C02-v0.1",
+        "scientific_influence_ref": "SIS-B001-C02-v0.1",
+        "claim_reliability_ref": "CRS-B001-C02-v0.1",
+        "reliability_state": "convergent",
+        "escalation": "scope_limited_contrast_and_overlap_audit"
       }
     },
     {
@@ -173,6 +186,13 @@
         "relation_refs": [
           "REL-007"
         ]
+      },
+      "qualification_sidecars": {
+        "citation_reception_ref": "CRR-B001-C05-v0.1",
+        "scientific_influence_ref": "SIS-B001-C05-v0.1",
+        "claim_reliability_ref": "CRS-B001-C05-v0.1",
+        "reliability_state": "convergent",
+        "escalation": "publisher_correction_impact_check"
       }
     },
     {

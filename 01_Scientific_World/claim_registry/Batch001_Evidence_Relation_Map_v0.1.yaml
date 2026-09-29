@@ -1,0 +1,204 @@
+{
+  "batch_id": "B001",
+  "stage": "P1.9-E6",
+  "version": "v0.1",
+  "relation_types": [
+    "independent_convergence",
+    "probable_evidence_dependency",
+    "possible_primary_in_synthesis_overlap",
+    "apparent_conflict_resolved_by_scope",
+    "outcome_level_non_equivalence",
+    "observational_causality_guard",
+    "guideline_authority_dependency",
+    "complementary_scope",
+    "true_unresolved_conflict"
+  ],
+  "relations": [
+    {
+      "relation_id": "REL-001",
+      "evidence_refs": [
+        "EU-B001-002",
+        "EU-B001-003"
+      ],
+      "type": "independent_convergence",
+      "topic": "High-risk dysglycemia -> multicomponent lifestyle intervention -> lower T2D incidence",
+      "assessment": "Two distinct randomized prevention trials converge on a large reduction in incident diabetes in high-risk populations.",
+      "claim_impact": "strengthen"
+    },
+    {
+      "relation_id": "REL-002",
+      "evidence_refs": [
+        "EU-B001-002",
+        "EU-B001-003",
+        "EU-B001-015"
+      ],
+      "type": "guideline_authority_dependency",
+      "topic": "Diabetes prevention lifestyle evidence",
+      "assessment": "ADA consensus endorses DPP-like/intensive lifestyle approaches but should not be counted as statistically independent evidence from the underlying trials.",
+      "claim_impact": "support_context_do_not_double_count"
+    },
+    {
+      "relation_id": "REL-003",
+      "evidence_refs": [
+        "EU-B001-006",
+        "EU-B001-007",
+        "EU-B001-008",
+        "EU-B001-009",
+        "EU-B001-011",
+        "EU-B001-012",
+        "EU-B001-015"
+      ],
+      "type": "apparent_conflict_resolved_by_scope",
+      "topic": "Is one macronutrient/diet pattern universally superior for weight loss?",
+      "assessment": "Some single trials show context-specific advantages, while larger trials/syntheses and consensus do not support one universally optimal pattern. Differences in population, comparator, intervention quality, adherence, and follow-up explain much of the apparent conflict.",
+      "claim_impact": "supports_scope_bounded_no_universal_winner_claim"
+    },
+    {
+      "relation_id": "REL-004",
+      "evidence_refs": [
+        "EU-B001-007",
+        "EU-B001-008",
+        "EU-B001-009",
+        "EU-B001-011",
+        "EU-B001-012"
+      ],
+      "type": "possible_primary_in_synthesis_overlap",
+      "topic": "Weight-loss diet evidence duplication",
+      "assessment": "Primary trials may be included within later meta-analyses/umbrella reviews. Until citation-set de-duplication is performed from full text, these should not be treated as five independent evidence streams.",
+      "claim_impact": "downweight_independence"
+    },
+    {
+      "relation_id": "REL-005",
+      "evidence_refs": [
+        "EU-B001-010",
+        "EU-B001-012"
+      ],
+      "type": "probable_evidence_dependency",
+      "topic": "T2D remission via intensive weight loss / total diet replacement",
+      "assessment": "The umbrella/systematic review summarizes remission studies and is likely to include DiRECT or closely related total-diet-replacement evidence; treat as synthesis-plus-primary, not independent replication.",
+      "claim_impact": "supports_claim_with_dependency_flag"
+    },
+    {
+      "relation_id": "REL-006",
+      "evidence_refs": [
+        "EU-B001-001",
+        "EU-B001-004",
+        "EU-B001-006",
+        "EU-B001-011"
+      ],
+      "type": "complementary_scope",
+      "topic": "Mediterranean-style dietary interventions",
+      "assessment": "Evidence is favorable in several contexts, but outcomes and populations differ: drug initiation in newly diagnosed T2D, major CVD events in high-risk primary prevention, weight/metabolic outcomes in obesity, and synthesized risk factors in T2D. These cannot be collapsed into one effect size.",
+      "claim_impact": "supports_context_specific_claim_only"
+    },
+    {
+      "relation_id": "REL-007",
+      "evidence_refs": [
+        "EU-B001-004",
+        "EU-B001-005"
+      ],
+      "type": "outcome_level_non_equivalence",
+      "topic": "Cardiovascular outcomes and lifestyle/nutrition intervention",
+      "assessment": "PREDIMED shows fewer major cardiovascular events in a specific high-risk primary-prevention Mediterranean-diet setting, whereas Look AHEAD shows that intensive weight-loss lifestyle intervention in T2D did not reduce CVD events despite weight/risk-factor improvement. This is not a direct contradiction; it demonstrates intervention- and population-specific hard-outcome evidence.",
+      "claim_impact": "supports_surrogate_not_equal_hard_outcome_guard"
+    },
+    {
+      "relation_id": "REL-008",
+      "evidence_refs": [
+        "EU-B001-013",
+        "EU-B001-020"
+      ],
+      "type": "probable_evidence_dependency",
+      "topic": "Whole grains/fibre and T2D risk",
+      "assessment": "Both support favorable associations, but the broad carbohydrate-quality meta-analysis may contain cohorts also represented in the earlier whole-grain meta-analysis. Do not double-count until study-level overlap is audited.",
+      "claim_impact": "supports_associative_claim_with_overlap_flag"
+    },
+    {
+      "relation_id": "REL-009",
+      "evidence_refs": [
+        "EU-B001-014",
+        "EU-B001-019",
+        "EU-B001-020"
+      ],
+      "type": "observational_causality_guard",
+      "topic": "Dietary exposures and incident T2D",
+      "assessment": "UPF, meat, and whole-grain records are observational prospective evidence or syntheses of cohorts. They support association claims, not randomized causal-effect claims.",
+      "claim_impact": "restrict_claim_type_to_associative"
+    },
+    {
+      "relation_id": "REL-010",
+      "evidence_refs": [
+        "EU-B001-015",
+        "EU-B001-016",
+        "EU-B001-017"
+      ],
+      "type": "guideline_authority_dependency",
+      "topic": "Consensus/guideline statements",
+      "assessment": "Guideline and consensus statements are authoritative source artifacts for what those organizations recommend, but are not independent effect estimates and may depend on evidence already represented elsewhere.",
+      "claim_impact": "claim_type_recommendation_support_only"
+    },
+    {
+      "relation_id": "REL-011",
+      "evidence_refs": [
+        "EU-B001-008",
+        "EU-B001-015"
+      ],
+      "type": "complementary_scope",
+      "topic": "Precision nutrition personalization",
+      "assessment": "DIETFITS found no useful interaction for the tested genotype pattern or INS-30 measure, while ADA consensus supports broader individualization based on preferences, eating patterns and metabolic goals. These are compatible because personalization is broader than those two tested biomarkers.",
+      "claim_impact": "prevents_overgeneralizing_negative_precision_result"
+    },
+    {
+      "relation_id": "REL-012",
+      "evidence_refs": [
+        "EU-B001-016",
+        "EU-B001-017",
+        "EU-B001-006",
+        "EU-B001-009"
+      ],
+      "type": "apparent_conflict_resolved_by_scope",
+      "topic": "Weight-loss/high-protein style advice across CKD and older adults",
+      "assessment": "General-population weight-loss diet evidence cannot be transferred directly into CKD or geriatric populations; disease/age-specific guideline constraints take precedence at applicability assessment.",
+      "claim_impact": "strong_applicability_gate"
+    },
+    {
+      "relation_id": "REL-013",
+      "evidence_refs": [
+        "EU-B001-018"
+      ],
+      "type": "complementary_scope",
+      "topic": "Salt-reduction strategies and blood pressure",
+      "assessment": "Single synthesis source contains multiple controlled-trial strategies with materially different pooled effects; strategy identity must remain part of the claim.",
+      "claim_impact": "do_not_collapse_interventions"
+    },
+    {
+      "relation_id": "REL-014",
+      "evidence_refs": [
+        "EU-B001-001",
+        "EU-B001-002",
+        "EU-B001-003",
+        "EU-B001-004",
+        "EU-B001-005",
+        "EU-B001-006",
+        "EU-B001-007",
+        "EU-B001-008",
+        "EU-B001-009",
+        "EU-B001-010",
+        "EU-B001-011",
+        "EU-B001-012",
+        "EU-B001-013",
+        "EU-B001-014",
+        "EU-B001-015",
+        "EU-B001-016",
+        "EU-B001-017",
+        "EU-B001-018",
+        "EU-B001-019",
+        "EU-B001-020"
+      ],
+      "type": "true_unresolved_conflict",
+      "topic": "Batch-level unresolved conflicts",
+      "assessment": "No direct same-PICO contradiction requiring forced reconciliation was identified at F0. Remaining tensions are primarily explained by population, intervention, outcome, follow-up, evidence type, or source dependency. Full-text F1 may reveal additional conflicts.",
+      "claim_impact": "none_at_F0"
+    }
+  ]
+}

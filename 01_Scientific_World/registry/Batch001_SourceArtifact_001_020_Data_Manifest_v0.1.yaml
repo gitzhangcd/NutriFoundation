@@ -1,18 +1,38 @@
 batch_id: B001
-status: bootstrap
+status: active_execution
 
 source_artifacts:
   target_count: 20
-  registered_count: 0
+  registered_count: 9
   frozen_count: 0
+  pending_count: 1
+  flagged_secondary_record_count: 1
+
+registered_ids:
+  - SA-B001-001
+  - SA-B001-002
+  - SA-B001-003
+  - SA-B001-004
+  - SA-B001-006
+  - SA-B001-007
+  - SA-B001-008
+  - SA-B001-009
+  - SA-B001-010
+
+pending_ids:
+  - SA-B001-005
+
+flags:
+  SA-B001-004: secondary_record_not_primary_trial
 
 rules:
   - no fabricated identifiers
   - DOI_or_PubMed_or_authoritative_source_required
   - provenance_required
   - evidence_unit_link_required
+  - candidate_not_equal_frozen
 
 next_action:
-  - populate_verified_sourceartifact_records
-  - run_agent_extraction
-  - create_evidenceunit_candidates
+  - replace_or_reclassify_SA-B001-004_with_primary_trial
+  - fill_SA-B001-005
+  - human_or_independent_verification_of_EU001_to_EU010

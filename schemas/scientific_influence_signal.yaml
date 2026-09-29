@@ -1,0 +1,72 @@
+schema: ScientificInfluenceSignal
+version: v0.1
+stage: P1.9-E6.1
+status: frozen
+
+purpose:
+  - represent_scientific_visibility_uptake_and_maturity
+  - keep_bibliometric_influence_separate_from_claim_reliability
+
+fields:
+  influence_id:
+    type: string
+    required: true
+
+  target_type:
+    enum: [SourceArtifact, ScientificClaim]
+    required: true
+
+  target_id:
+    type: string
+    required: true
+
+  snapshot_date:
+    type: string
+    required: true
+
+  providers:
+    type: array
+
+  citation_metrics:
+    type: object
+    fields:
+      raw_citation_count: integer
+      field_year_normalized_percentile: number
+      citation_velocity: number
+      citing_article_count: integer
+      note: string
+
+  journal_visibility:
+    type: object
+    fields:
+      metric_name: string
+      metric_value: number
+      metric_year: integer
+      provider: string
+      licensed_or_public: string
+      interpretation: string
+
+  scientific_uptake:
+    type: object
+    fields:
+      systematic_review_mentions: integer
+      meta_analysis_mentions: integer
+      guideline_mentions: integer
+      consensus_mentions: integer
+      independent_research_groups: integer
+
+  influence_state:
+    enum: [unknown, low, moderate, high, very_high]
+
+  provenance:
+    type: object
+    required: true
+
+use_restrictions:
+  - influence_is_not_reliability
+  - journal_metric_is_only_a_visibility_prior
+  - raw_citation_count_is_not_evidence_strength
+  - field_normalization_is_preferred_over_raw_counts
+  - no_missing_metric_may_be_imputed
+  - no_proprietary_metric_may_be_scraped_or_guessed
+  - influence_cannot_override_retraction_correction_or_methodological_failure

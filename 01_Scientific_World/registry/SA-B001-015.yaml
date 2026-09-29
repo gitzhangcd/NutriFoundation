@@ -1,0 +1,24 @@
+{
+  "source_artifact": {
+    "source_id": "SA-B001-015",
+    "title": "Nutrition Therapy for Adults With Diabetes or Prediabetes: A Consensus Report.",
+    "journal": "Diabetes Care",
+    "year": 2019,
+    "pmid": "31000505",
+    "pmcid": "PMC7011201",
+    "doi": "10.2337/dci19-0014",
+    "source_type": "consensus_report",
+    "population": "Adults with diabetes or prediabetes",
+    "provenance_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7011201/",
+    "verification_status": "verified_PMC_fulltext_partial"
+  },
+  "evidence_unit_candidate": {
+    "evidence_id": "EU-B001-015",
+    "kind": "consensus_recommendation",
+    "population": "Adults with type 1 diabetes, type 2 diabetes or prediabetes",
+    "recommendation_summary": "The report recommends individualized diabetes-focused medical nutrition therapy and explicitly states that no one-size-fits-all eating plan or ideal macronutrient percentage applies to all people with or at risk for diabetes. Macronutrient distribution should be individualized according to eating patterns, preferences and metabolic goals.",
+    "source_span_type": "PMC_fulltext",
+    "applicability_boundary": "Consensus guidance, not a single causal-effect estimate; pediatric diabetes and gestational diabetes are outside this report's scope.",
+    "status": "verified_candidate"
+  }
+}

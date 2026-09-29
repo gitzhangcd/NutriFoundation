@@ -1,7 +1,7 @@
 {
   "batch_id": "B001",
-  "stage": "P1.9-E6.2",
-  "version": "v0.1",
+  "stage": "P1.9-E7_F1_qualified",
+  "version": "v0.2",
   "generated_at": "2026-09-30",
   "sidecars": [
     {
@@ -30,7 +30,6 @@
       "gold_gate": {
         "eligible_for_expert_gold_review": true,
         "blockers": [
-          "F1 full-text anchoring of claim-critical original/follow-up studies remains pending",
           "Independent human/expert adjudication is required before Claim-Gold freeze"
         ],
         "escalation_reasons": []
@@ -45,7 +44,8 @@
       "provenance": {
         "agent_run": "P1.9-E6.2",
         "snapshot_date": "2026-09-30",
-        "note": "Robust is a reliability-state label, not ScientificClaim_GOLD."
+        "note": "Robust is a reliability-state label, not ScientificClaim_GOLD.",
+        "f1_ref": "Batch001_P0_F1_FullText_Upgrade_v0.1.json"
       }
     },
     {
@@ -65,7 +65,7 @@
         "evidence_independence": "moderate",
         "direct_replication": "not_applicable",
         "citation_reception": "supportive",
-        "integrity_status": "unresolved",
+        "integrity_status": "corrected_nonfatal",
         "temporal_maturity": "mature",
         "applicability_stability": "moderate"
       },
@@ -73,23 +73,22 @@
       "gold_gate": {
         "eligible_for_expert_gold_review": true,
         "blockers": [
-          "NEJM publisher marks the Look AHEAD article as corrected; correction content/impact must be resolved",
-          "F1 full-text anchor is required for exact wording of the surrogate-to-hard-outcome guard",
           "Human/expert adjudication must ensure the guard is not over-read as 'lifestyle never improves cardiovascular outcomes'"
         ],
-        "escalation_reasons": [
-          "publisher_correction_requires_impact_check"
-        ]
+        "escalation_reasons": []
       },
       "rationale": [
         "The randomized Look AHEAD trial directly demonstrates that substantial improvements in weight/fitness/risk factors did not, in that intervention/population, produce a significant reduction in the primary cardiovascular endpoint.",
         "Later reviews explicitly preserve this distinction while recognizing multiple other benefits of intensive lifestyle intervention.",
         "Later meta-analytic evidence across heterogeneous glucose-lowering strategies shows intervention-specific cardiovascular effects, which reinforces the need for the guard but prevents universalizing the Look AHEAD null result.",
-        "A same-cohort weight-variability analysis is not independent replication of the original randomized cardiovascular contrast."
+        "A same-cohort weight-variability analysis is not independent replication of the original randomized cardiovascular contrast.",
+        "NEJM correction resolved: Table 2 secondary-outcome stub was corrected to include hospitalization for angina; primary cardiovascular endpoint/result was unchanged."
       ],
       "provenance": {
         "agent_run": "P1.9-E6.2",
-        "snapshot_date": "2026-09-30"
+        "snapshot_date": "2026-09-30",
+        "f1_ref": "Batch001_P0_F1_FullText_Upgrade_v0.1.json",
+        "correction_ref": "NEJMx140022"
       }
     },
     {
@@ -121,14 +120,11 @@
       "gold_gate": {
         "eligible_for_expert_gold_review": true,
         "blockers": [
-          "Study-level overlap among POUNDS LOST/A TO Z/DIETFITS/DIRECT and later meta-analyses must be audited",
-          "2024 network meta-analysis ranking low-carbohydrate first requires scope adjudication rather than dismissal",
-          "F1 full-text anchors are required for synthesis inclusion criteria and duration-specific effects",
+          "2024 network meta-analysis ranking low-carbohydrate first requires human scope adjudication",
           "Human/expert wording review is required to preserve 'no universal winner' without denying context-specific advantages"
         ],
         "escalation_reasons": [
-          "recent_scope_limited_contrasting_network_meta_analysis",
-          "probable_primary_in_synthesis_overlap"
+          "recent_scope_limited_contrasting_network_meta_analysis"
         ]
       },
       "rationale": [
@@ -136,11 +132,14 @@
         "Long-term evidence generally does not support one macronutrient distribution as universally superior across populations and durations.",
         "A 2024 network meta-analysis ranked low-carbohydrate highest within a small specific network, creating a meaningful contrast that narrows confidence in any overly broad wording.",
         "ADA consensus supports individualization but is derivative guidance and is not counted as independent effect replication.",
-        "DIETFITS corrections concerned lipid units/conversion instructions and funding description, not the primary weight-loss/genotype/INS-30 conclusion as represented in the publisher record."
+        "DIETFITS corrections concerned lipid units/conversion instructions and funding description, not the primary weight-loss/genotype/INS-30 conclusion as represented in the publisher record.",
+        "Study-level dependency audit confirmed that the 2022 meta-analysis includes POUNDS LOST, DIETFITS, A TO Z low-carb/low-fat subset, and DIRECT-like comparisons; these are not counted as independent replications."
       ],
       "provenance": {
         "agent_run": "P1.9-E6.2",
-        "snapshot_date": "2026-09-30"
+        "snapshot_date": "2026-09-30",
+        "f1_ref": "Batch001_P0_F1_FullText_Upgrade_v0.1.json",
+        "overlap_ref": "SC-B001-C02_StudyLevel_Evidence_Dependency_Audit_v0.1.json"
       }
     }
   ]

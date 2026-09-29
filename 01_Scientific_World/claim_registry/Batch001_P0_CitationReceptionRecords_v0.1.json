@@ -1,7 +1,7 @@
 {
   "batch_id": "B001",
-  "stage": "P1.9-E6.2",
-  "version": "v0.1",
+  "stage": "P1.9-E7_F1_qualified",
+  "version": "v0.2",
   "snapshot_date": "2026-09-30",
   "scope": "P0 claims SC-B001-C01, SC-B001-C05, SC-B001-C02",
   "records": [
@@ -207,9 +207,9 @@
       "integrity_events": [
         {
           "event_type": "correction",
-          "event_date": null,
-          "source": "NEJM publisher page",
-          "impact_on_claim": "Publisher marks the Look AHEAD article as corrected. Correction content was not retrieved in this run; E7 must resolve whether it affects the primary cardiovascular result."
+          "event_date": "2014-05-08",
+          "source": "NEJM correction DOI 10.1056/NEJMx140022",
+          "impact_on_claim": "Nonfatal. Corrects the wording of a Table 2 secondary-outcome stub to include hospitalization for angina; does not change the primary endpoint, HR 0.95 result, or overall cardiovascular conclusion."
         }
       ],
       "lineage": {

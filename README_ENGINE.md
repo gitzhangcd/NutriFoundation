@@ -1,4 +1,4 @@
-# NutriFoundation Engine v0.4.1
+# NutriFoundation Engine v0.4.2a0
 
 Executable reference implementation for the AI Nutri Data Foundation scientific evidence pipeline.
 
@@ -207,3 +207,53 @@ See:
 - `docs/E0.4.1_Executable_Contract.md`
 - `docs/E0.4.1_Execution_Report.md`
 - `docs/E0.4.1_Strict_Blind_Handoff.md`
+
+
+## E0.4.2-A0 strict-blind handoff freeze
+
+E0.4.2-A0 freezes the source-only input package for execution in a genuinely fresh chat/model context.
+
+```text
+Frozen Batch001 source-only task definition
+        ↓
+StrictBlindTaskPackManifest
+        ↓
+BlindWallAudit
+        ↓
+Fresh-context Semantic Worker
+        ↓
+ResponseEnvelope freeze
+        ↓
+StrictBlindAttestation
+        ↓
+hidden reference / scoring
+```
+
+Frozen facts:
+
+```text
+tasks = 20
+task contract = E0.4-v0.1
+strict-blind protocol = E0.4.2-A0-v0.1
+taskpack SHA-256 = c4f6be434169f7fc5713d6d7ebb6a8793b50cdcd6611c4ce6902171a13edcdc2
+task hashes reused from E0.4 = yes
+hidden reference in handoff = no
+prior response in handoff = no
+scoring before response freeze = prohibited
+```
+
+Commands:
+
+```bash
+nutri prepare-strict-blind-taskpack
+nutri audit-strict-blind-taskpack
+```
+
+Fresh-context execution itself is intentionally not performed in the current conversation.
+
+See:
+
+- `docs/E0.4.2-A0_Executable_Contract.md`
+- `docs/E0.4.2-A0_Execution_Report.md`
+- `runs/E0.4.2/A0/Handoff_Manifest_v1.0.yaml`
+- `runs/E0.4.2/A0/Fresh_Context_Startup_Prompt_v1.0.md`

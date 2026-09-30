@@ -17,6 +17,7 @@ on:
       - 'tests/**'
       - 'fixtures/**'
       - 'schemas/**'
+      - 'runs/E0.4.2/C/**'
       - 'pyproject.toml'
 
 jobs:
@@ -59,6 +60,7 @@ jobs:
             --batch-id B001
       - run: nutri validate-strict-blind runs/E0.4/Batch001/responses
       - run: nutri audit-strict-blind-taskpack
+      - run: nutri validate-strict-blind-response-set
       - run: |
           rm -rf /tmp/e042c_strict_responses
           rm -f /tmp/E0.4.2-C_Response_Freeze_Receipt.json

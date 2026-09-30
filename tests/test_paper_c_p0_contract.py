@@ -76,3 +76,17 @@ def test_confirmatory_blindness_and_no_posthoc_adaptation_are_frozen():
     by_id = {x["id"]: x for x in kills["kill_tests"]}
     assert "invalidate_confirmatory_model_accuracy_claim" in by_id["K12"]["consequence"]
     assert "invalidate_confirmatory_claim" in by_id["K14"]["consequence"]
+
+
+def test_paper_c_p0_execution_pack_is_complete():
+    required = [
+        "P0_Execution_Report.md",
+        "Paper_C_P0_Scientific_Evidence_Production_Study_v0.1.md",
+        "Literature_Positioning_v0.1.md",
+        "AB0_AB6_Baseline_Contract_v0.1.yaml",
+        "Gold100_Corpus_Contract_v0.1.yaml",
+        "Gold100_Source_Slot_Manifest_v0.1.json",
+        "Endpoint_Statistical_Contract_v0.1.yaml",
+        "Publication_Kill_Test_Registry_v0.1.yaml",
+    ]
+    assert all((P0 / name).exists() for name in required)

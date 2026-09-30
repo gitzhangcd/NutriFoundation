@@ -1,0 +1,55 @@
+{
+  "response_id": "RESP-STRICT-B001-010",
+  "task_id": "TASK-BLIND-B001-010",
+  "task_sha256": "72e59a8bc2da33f45f4b87a57d2ffef9632e457e64517358d0ff9b97122310be",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "c209d39eb8a07ee4db2e5fa17821de56e9828d0de259f4aca1cfa7000c01c2df",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "RCT",
+    "population": "Adults aged 20-65 years with type 2 diabetes diagnosed within 6 years, BMI 27-45 kg/m2, not receiving insulin, recruited from 49 primary-care practices in Scotland and Tyneside.",
+    "intervention": "Primary-care weight-management program including withdrawal of antidiabetic and antihypertensive drugs, total diet replacement (825-853 kcal/day for 3-5 months), stepped food reintroduction, and structured weight-maintenance support.",
+    "exposure": null,
+    "intervention_or_exposure": "Intensive primary-care weight-management program.",
+    "comparator": "Best-practice care by guidelines.",
+    "outcome": "Co-primary outcomes at 12 months: weight loss >=15 kg and diabetes remission defined as HbA1c <6.5% after at least 2 months off all antidiabetic medications.",
+    "effect": "At 12 months, >=15 kg weight loss occurred in 24% of intervention participants and 0% of controls. Diabetes remission occurred in 46% versus 4% (odds ratio 19.7, 95% CI 7.8 to 49.8; P<0.0001). Mean body weight fell by 10.0 kg versus 1.0 kg; adjusted difference -8.8 kg (95% CI -10.3 to -7.3).",
+    "recommendation": null,
+    "applicability_boundary": "Applies to adults with relatively recent type 2 diabetes (within 6 years), BMI 27-45, and no insulin therapy, treated in UK primary care under this structured program.",
+    "anchor": "METHODS / FINDINGS / INTERPRETATION",
+    "source_span": "Diabetes remission was achieved in 68 (46%) participants in the intervention group and six (4%) participants in the control group."
+  },
+  "confidence": null,
+  "uncertainties": [
+    "The trial was open-label and participants, carers, and outcome-data collectors were aware of allocation."
+  ],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-010"
+    ],
+    "metadata": {}
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "response_id": "RESP-BLIND-B001-017",
+  "task_id": "TASK-BLIND-B001-017",
+  "task_sha256": "cbefdca98d102e23ee5bcda2caa2aba81804f18fece501bb3f20666ba35f8710",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "e4fb6930d31c6266d5945e7d7b84f04d796ac898f9e53e4f5980fd853263c5be",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-017"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "guideline_recommendation",
+    "population": "Older persons",
+    "recommendation": "All older persons should routinely be screened for malnutrition; dietary restrictions should generally be avoided; weight-reducing diets should only be considered in obese older persons with weight-related health problems and combined with physical exercise; interventions should be individualized, comprehensive, multimodal, and multidisciplinary.",
+    "applicability_boundary": "Geriatric guideline; recommendations should not be generalized to younger adults without separate evidence.",
+    "anchor": "PubMed abstract PMID 35306388"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

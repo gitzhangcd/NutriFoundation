@@ -47,11 +47,12 @@ Scientific data construction has progressed through Batch001 P1.9-E7 machine qua
 Engineering reference implementation:
 
 - E0.1 NutriFoundation Engine: executable contract frozen
-- E0.2 Persistence + PubMed/PMC + RunManifest + Batch001 replay: implemented
+- E0.2 Persistence + PubMed/PMC + RunManifest + Batch001 SourceArtifact replay: implemented
+- E0.3 Evidence Extraction + Independent Verification + F0 Freeze + Batch001 Evidence replay: **PASS (remote CI verified)**
 - Python package: `src/nutrifoundation/`
 - Domain models: Pydantic v2 immutable types
 - Workflow state machine: retrieval → F0/F1 → claim → reception → reliability → human gate → GOLD
-- CLI: `nutri contract-check`, `nutri validate-gold-gate`, `nutri init-db`, `nutri ingest-pmid`, `nutri fetch-pmc`, `nutri replay-batch001`
+- CLI: `nutri contract-check`, `nutri validate-gold-gate`, `nutri init-db`, `nutri ingest-pmid`, `nutri fetch-pmc`, `nutri replay-batch001`, `nutri produce-evidence`, `nutri replay-evidence-batch001`
 - Regression fixture: Batch001 Gold gate
 - CI: GitHub Actions
 
@@ -69,7 +70,7 @@ Current Batch001 state:
 human/expert adjudication pending
 ```
 
-E0.2 deterministic replay result:
+E0.2 deterministic SourceArtifact replay result:
 
 ```text
 20 expected SourceArtifacts
@@ -79,8 +80,38 @@ E0.2 deterministic replay result:
 0 mismatch
 ```
 
+E0.3 deterministic EvidenceUnit replay result:
+
+```text
+20 expected EvidenceUnits
+20 frozen F0 EvidenceUnits
+20/20 scientific payload match
+0 mismatch
+27 remote tests passed
+15 executable invariants passed
+```
+
+E0.3 production path:
+
+```text
+SourceArtifact
++ SourceTextSnapshot
+      ↓
+EvidenceExtractionCandidate
+      ↓
+Independent EvidenceVerificationRecord
+      ↓
+F0FreezeRecord
+      ↓
+EvidenceUnit_F0
+```
+
+The Batch001 evidence fixture is a regression fixture, not a new independent scientific re-extraction.
+
 See:
 
 - `docs/E0.1_Executable_Contract.md`
 - `docs/E0.2_Executable_Contract.md`
 - `docs/E0.2_Execution_Report.md`
+- `docs/E0.3_Executable_Contract.md`
+- `docs/E0.3_Execution_Report.md`

@@ -1,0 +1,46 @@
+{
+  "response_id": "RESP-BLIND-B001-004",
+  "task_id": "TASK-BLIND-B001-004",
+  "task_sha256": "89c70506966c7dba717220d7ef749262d491dc649bdea95cf08ce8720ea089f1",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "9a798e2818c7813b0393720a1d6d6693fe67f52555933efecfb9c21a2bea9cae",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-004"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "intervention_effect",
+    "population": "7447 adults aged 55 to 80 years at high cardiovascular risk without cardiovascular disease at enrollment",
+    "intervention": "Mediterranean diet supplemented with extra-virgin olive oil or Mediterranean diet supplemented with mixed nuts",
+    "comparator": "Control diet with advice to reduce dietary fat",
+    "outcome": "Major cardiovascular event",
+    "effect": "Hazard ratio 0.69 (95% CI 0.53 to 0.91) for extra-virgin olive oil and 0.72 (95% CI 0.54 to 0.95) for nuts versus control.",
+    "applicability_boundary": "High-cardiovascular-risk primary-prevention population in Spain; corrected and republished analysis addresses protocol and randomization deviations.",
+    "anchor": "PubMed abstract PMID 29897866"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

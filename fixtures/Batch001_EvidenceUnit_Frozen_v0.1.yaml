@@ -1,0 +1,245 @@
+batch_id: B001
+release: "EvidenceUnit_Frozen_v0.1"
+freeze_level: F0_abstract_anchored
+freeze_date: "2026-09-30"
+scientific_authority_boundary: "F0 freezes source-linked factual extraction supported directly by PubMed metadata/abstract or explicitly retrieved rights-eligible full text. For guideline/consensus sources, F0 freezes what the source states; it does not convert that statement into independent expert gold."
+full_text_second_pass_status: "Selective full text retrieved where available (including SA015); broader F1 full-text audit remains pending."
+
+EvidenceUnits:
+  - evidence_id: EU-B001-001
+    source_id: SA-B001-001
+    status: frozen_F0
+    population: "215 overweight adults with newly diagnosed, drug-naive type 2 diabetes"
+    intervention: "Low-carbohydrate Mediterranean-style diet"
+    comparator: "Low-fat diet"
+    outcome: "Initiation of antihyperglycemic drug therapy"
+    effect: "44% vs 70% required therapy at 4 years; HR 0.63 (95% CI 0.51-0.86)"
+    applicability_boundary: "Newly diagnosed, overweight, drug-naive T2D"
+    anchor: "PubMed abstract PMID 19721018"
+    verification: [metadata, PICO, numeric_effect, limitation_boundary]
+
+  - evidence_id: EU-B001-002
+    source_id: SA-B001-002
+    status: frozen_F0
+    population: "522 middle-aged overweight adults with impaired glucose tolerance"
+    intervention: "Individualized lifestyle counseling targeting weight, fat, saturated fat, fiber, and physical activity"
+    comparator: "Control"
+    outcome: "Incident type 2 diabetes"
+    effect: "4-year cumulative incidence 11% vs 23%; 58% risk reduction during trial"
+    applicability_boundary: "High-risk IGT population; multicomponent lifestyle intervention"
+    anchor: "PubMed abstract PMID 11333990"
+    verification: [metadata, PICO, numeric_effect, limitation_boundary]
+
+  - evidence_id: EU-B001-003
+    source_id: SA-B001-003
+    status: frozen_F0
+    population: "3234 nondiabetic adults with elevated fasting and post-load glucose"
+    intervention: "Intensive lifestyle modification"
+    comparator: "Placebo"
+    outcome: "Incident type 2 diabetes"
+    effect: "4.8 vs 11.0 cases per 100 person-years; 58% reduction (95% CI 48%-66%)"
+    applicability_boundary: "High-risk dysglycemia; lifestyle includes weight-loss and physical-activity targets"
+    anchor: "PubMed abstract PMID 11832527"
+    verification: [metadata, PICO, numeric_effect, limitation_boundary]
+
+  - evidence_id: EU-B001-004
+    source_id: SA-B001-004
+    status: frozen_F0
+    population: "7447 adults aged 55-80 at high cardiovascular risk without cardiovascular disease at enrollment"
+    intervention: "Mediterranean diet + extra-virgin olive oil OR Mediterranean diet + mixed nuts"
+    comparator: "Advice to reduce dietary fat"
+    outcome: "Major cardiovascular event"
+    effect: "Adjusted HR 0.69 (95% CI 0.53-0.91) for EVOO arm and 0.72 (95% CI 0.54-0.95) for nuts arm vs control"
+    applicability_boundary: "High-CV-risk primary-prevention Spanish population; corrected analysis accounts for protocol/randomization deviations"
+    anchor: "PubMed abstract PMID 29897866; corrected and republished primary PREDIMED report"
+    verification: [metadata, primary_source_repair, PICO, numeric_effect, protocol_deviation_boundary]
+
+  - evidence_id: EU-B001-005
+    source_id: SA-B001-005
+    status: frozen_F0
+    population: "5145 overweight or obese adults with type 2 diabetes"
+    intervention: "Intensive lifestyle intervention for weight loss"
+    comparator: "Diabetes support and education"
+    outcome: "Composite cardiovascular morbidity/mortality"
+    effect: "HR 0.95 (95% CI 0.83-1.09), P=0.51 despite greater weight loss and risk-factor improvements"
+    applicability_boundary: "Demonstrates that weight/risk-factor improvement does not itself establish cardiovascular-event reduction"
+    anchor: "PubMed abstract PMID 23796131"
+    verification: [metadata, PICO, numeric_effect, competing_outcome_boundary]
+
+  - evidence_id: EU-B001-006
+    source_id: SA-B001-006
+    status: frozen_F0
+    population: "322 moderately obese adults; 86% male"
+    intervention: "Mediterranean restricted-calorie or low-carbohydrate non-restricted-calorie diet"
+    comparator: "Low-fat restricted-calorie diet"
+    outcome: "2-year weight change; metabolic secondary outcomes"
+    effect: "Mean weight loss 4.4 kg Mediterranean, 4.7 kg low-carbohydrate, 2.9 kg low-fat; lipid ratio favored low-carbohydrate; glycemic subgroup finding favored Mediterranean"
+    applicability_boundary: "Male-dominant sample; glycemic result derives from 36 participants with diabetes"
+    anchor: "PubMed abstract PMID 18635428"
+    verification: [metadata, PICO, numeric_effect, subgroup_boundary]
+
+  - evidence_id: EU-B001-007
+    source_id: SA-B001-007
+    status: frozen_F0
+    population: "811 overweight adults"
+    intervention: "Reduced-calorie diets with differing fat/protein/carbohydrate targets"
+    comparator: "Alternative macronutrient targets"
+    outcome: "2-year body-weight change"
+    effect: "No significant 2-year weight-loss difference across protein, fat, or carbohydrate target comparisons; P>0.20 for all"
+    applicability_boundary: "Tests reduced-calorie behavioral diets; adherence and partial weight regain affect interpretation"
+    anchor: "PubMed abstract PMID 19246357"
+    verification: [metadata, PICO, numeric_effect, adherence_boundary]
+
+  - evidence_id: EU-B001-008
+    source_id: SA-B001-008
+    status: frozen_F0
+    population: "609 adults aged 18-50, BMI 28-40, without diabetes"
+    intervention: "Healthy low-fat diet"
+    comparator: "Healthy low-carbohydrate diet"
+    outcome: "12-month weight change; genotype and insulin-secretion interactions"
+    effect: "-5.3 vs -6.0 kg; between-group difference 0.7 kg (95% CI -0.2 to 1.6); no significant genotype or insulin-secretion interaction"
+    applicability_boundary: "Does not establish effects in diabetes; negative interaction finding applies to the tested genetic pattern and INS-30 measure"
+    anchor: "PubMed abstract PMID 29466592"
+    verification: [metadata, PICO, numeric_effect, precision_nutrition_boundary]
+
+  - evidence_id: EU-B001-009
+    source_id: SA-B001-009
+    status: frozen_F0
+    population: "311 overweight/obese nondiabetic premenopausal women"
+    intervention: "Atkins diet"
+    comparator: "Zone, LEARN, and Ornish diets"
+    outcome: "12-month weight loss"
+    effect: "Mean loss: Atkins 4.7 kg, Zone 1.6 kg, LEARN 2.6 kg, Ornish 2.2 kg; statistically significant difference explicitly reported for Atkins vs Zone"
+    applicability_boundary: "Restricted to nondiabetic premenopausal women; long-term safety beyond 12 months not established by this trial"
+    anchor: "PubMed abstract PMID 17341711"
+    verification: [metadata, PICO, numeric_effect, population_boundary]
+
+  - evidence_id: EU-B001-010
+    source_id: SA-B001-010
+    status: frozen_F0
+    population: "Adults aged 20-65 with T2D diagnosed within 6 years, BMI 27-45, not receiving insulin"
+    intervention: "Primary-care multicomponent weight-management program"
+    comparator: "Best-practice guideline care"
+    outcome: ">=15 kg weight loss and diabetes remission at 12 months"
+    effect: ">=15 kg loss 24% vs 0%; remission 46% vs 4%, OR 19.7 (95% CI 7.8-49.8)"
+    applicability_boundary: "Multicomponent program includes total diet replacement, food reintroduction, maintenance support, and medication withdrawal; cannot attribute effect to diet alone"
+    anchor: "PubMed abstract PMID 29221645"
+    verification: [metadata, PICO, numeric_effect, multicomponent_boundary]
+
+
+  - evidence_id: EU-B001-011
+    source_id: SA-B001-011
+    status: frozen_F0
+    kind: synthesis_effect
+    population: "People with type 2 diabetes; synthesis of 73 RCTs across eight dietary patterns"
+    intervention: "Alternative dietary patterns"
+    comparator: "Usual diet and other dietary patterns"
+    outcome: "Body weight, HbA1c, blood pressure and lipids at 6 and 12 months"
+    effect: "All dietary patterns improved body weight and HbA1c at 6 months versus usual diet; largest estimated body-weight effect was low-carbohydrate (-4.8 kg) and largest HbA1c point estimate Mediterranean (-1.0 percentage point). Evidence was insufficient to identify one optimal dietary pattern."
+    applicability_boundary: "Network meta-analysis of heterogeneous RCTs in T2D; 12-month effects were not statistically significant."
+    anchor: "PubMed abstract PMID 36513271"
+    verification: [metadata, synthesis_design, numeric_effect, uncertainty_boundary]
+
+  - evidence_id: EU-B001-012
+    source_id: SA-B001-012
+    status: frozen_F0
+    kind: synthesis_effect
+    population: "Adults with type 2 diabetes"
+    intervention: "Weight-loss diets including very-low-energy diets and formula meal replacements"
+    comparator: "Alternative dietary strategies"
+    outcome: "Weight loss and diabetes remission"
+    effect: "Very-low-energy diets and formula meal replacements produced the largest weight-loss effects; low-carbohydrate diets were no better for weight loss than higher-carbohydrate/low-fat diets. Total-diet-replacement programmes had the strongest remission evidence."
+    applicability_boundary: "Most evidence was <=1 year; review quality and GRADE certainty varied substantially."
+    anchor: "PubMed abstract PMID 34796367"
+    verification: [metadata, umbrella_review_design, effect_direction, certainty_boundary]
+
+  - evidence_id: EU-B001-013
+    source_id: SA-B001-013
+    status: frozen_F0
+    kind: synthesis_effect
+    population: "General adult populations without chronic disease in included analyses"
+    intervention_or_exposure: "Higher dietary fibre and whole-grain intake"
+    comparator: "Lower fibre and whole-grain intake"
+    outcome: "Mortality, cardiovascular outcomes, type 2 diabetes, cancer and cardiometabolic risk factors"
+    effect: "Highest versus lowest fibre intake was associated with approximately 15-30% lower risk across several critical outcomes; clinical trials showed lower body weight, systolic blood pressure and total cholesterol with higher fibre intake. Greatest observed risk reduction was around 25-29 g/day fibre."
+    applicability_boundary: "Population-level primary-prevention evidence; not directly established for people with existing chronic disease."
+    anchor: "PubMed abstract PMID 30638909"
+    verification: [metadata, meta_analysis_design, dose_response, population_boundary]
+
+  - evidence_id: EU-B001-014
+    source_id: SA-B001-014
+    status: frozen_F0
+    kind: observational_association
+    population: "104707 adults in the French NutriNet-Sante cohort"
+    exposure: "Higher ultraprocessed-food share of the diet"
+    outcome: "Incident type 2 diabetes"
+    effect: "Each absolute 10-percentage-point higher UPF share was associated with HR 1.15 (95% CI 1.06-1.25) for incident T2D over median 6.0 years."
+    applicability_boundary: "Prospective observational association, not randomized causal evidence; cohort was predominantly female and French."
+    anchor: "PubMed abstract PMID 31841598"
+    verification: [metadata, cohort_design, numeric_association, causality_boundary]
+
+  - evidence_id: EU-B001-015
+    source_id: SA-B001-015
+    status: frozen_F0
+    kind: consensus_recommendation
+    population: "Adults with diabetes or prediabetes"
+    recommendation: "Individualized diabetes-focused medical nutrition therapy is recommended; the report states that no one-size-fits-all eating plan or ideal macronutrient percentage applies to all people with or at risk for diabetes."
+    applicability_boundary: "Consensus guidance rather than a single causal-effect estimate; pediatric and gestational diabetes are outside scope."
+    anchor: "PMC full text PMCID PMC7011201 / PMID 31000505"
+    verification: [metadata, fulltext_source_statement, scope_boundary]
+
+  - evidence_id: EU-B001-016
+    source_id: SA-B001-016
+    status: frozen_F0
+    kind: guideline_scope_and_recommendation
+    population: "People with CKD across non-dialysis, dialysis and transplant settings"
+    recommendation: "The KDOQI guideline addresses nutritional assessment, medical nutrition therapy, dietary protein and energy intake, supplementation, micronutrients and electrolytes using GRADE-evaluated statements."
+    applicability_boundary: "Abstract supports scope and methodology, not every numerical nutrient target; specific targets require full guideline text before F1/claim-gold use."
+    anchor: "PubMed abstract PMID 32829751"
+    verification: [metadata, guideline_scope, methodology, no_unverified_numeric_target]
+
+  - evidence_id: EU-B001-017
+    source_id: SA-B001-017
+    status: frozen_F0
+    kind: guideline_recommendation
+    population: "Older adults"
+    recommendation: "Routine malnutrition screening is recommended; unnecessary dietary restrictions should generally be avoided; weight-reducing diets should be considered only in obese older persons with weight-related health problems and combined with physical exercise; care should be individualized and multidisciplinary."
+    applicability_boundary: "Geriatric guideline; should not be generalized to younger adults without separate evidence."
+    anchor: "PubMed abstract PMID 35306388"
+    verification: [metadata, guideline_recommendation, age_boundary]
+
+  - evidence_id: EU-B001-018
+    source_id: SA-B001-018
+    status: frozen_F0
+    kind: synthesis_effect
+    population: "Participants in controlled salt-reduction trials"
+    intervention: "Salt substitution or nutrition education"
+    outcome: "Systolic and diastolic blood pressure"
+    effect: "Salt substitution reduced SBP by 7.44 mmHg and DBP by 3.77 mmHg; nutrition education reduced SBP by 2.75 mmHg and DBP by 2.11 mmHg in pooled analyses."
+    applicability_boundary: "Effects differ by intervention strategy and subgroup; not a single universal sodium-reduction effect."
+    anchor: "PubMed abstract PMID 36477548"
+    verification: [metadata, meta_analysis_design, numeric_effect, strategy_boundary]
+
+  - evidence_id: EU-B001-019
+    source_id: SA-B001-019
+    status: frozen_F0
+    kind: observational_association_synthesis
+    population: "1.97 million adults from 31 cohorts in 20 countries without diabetes at baseline"
+    exposure: "Unprocessed red meat, processed meat and poultry"
+    outcome: "Incident type 2 diabetes"
+    effect: "HR 1.10 per 100 g/day unprocessed red meat, 1.15 per 50 g/day processed meat and 1.08 per 100 g/day poultry; poultry finding was less robust under alternative modelling assumptions."
+    applicability_boundary: "Observational cohort synthesis with residual-confounding risk and substantial heterogeneity."
+    anchor: "PubMed abstract PMID 39174161"
+    verification: [metadata, federated_meta_analysis, numeric_association, robustness_boundary]
+
+  - evidence_id: EU-B001-020
+    source_id: SA-B001-020
+    status: frozen_F0
+    kind: observational_association_synthesis
+    population: "Prospective cohort populations across 16 studies"
+    exposure: "Whole-grain and refined-grain intake"
+    outcome: "Incident type 2 diabetes"
+    effect: "Per 3 servings/day of whole grains, summary RR 0.68 (95% CI 0.58-0.81; I2=82%); refined grains RR 0.95 (95% CI 0.88-1.04)."
+    applicability_boundary: "Cohort-based association with substantial heterogeneity for whole grains; grain subtype estimates were based on fewer studies."
+    anchor: "PubMed abstract PMID 24158434"
+    verification: [metadata, dose_response_meta_analysis, numeric_association, heterogeneity_boundary]

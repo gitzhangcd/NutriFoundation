@@ -1,0 +1,23 @@
+schema: EvidenceExtractionCandidate
+version: v0.1
+introduced_in: E0.3
+status: frozen
+
+purpose:
+  - represent_agent_generated_EvidenceUnit_candidate_before_verification
+  - preserve_extractor_identity_method_confidence_and_source_text_hash
+
+fields:
+  candidate_id: {type: string, required: true}
+  evidence: {type: EvidenceUnit, required: true}
+  extractor_id: {type: string, required: true}
+  extraction_method: {type: string, required: true}
+  extraction_confidence: {type: number, min: 0, max: 1, required: true}
+  source_text_sha256: {type: string, required: true}
+  created_at: {type: datetime, required: true}
+  provenance: {type: ProvenanceRecord, required: true}
+
+invariants:
+  - candidate_is_not_frozen_evidence
+  - candidate_verification_status_must_be_candidate
+  - candidate_must_preserve_source_text_hash

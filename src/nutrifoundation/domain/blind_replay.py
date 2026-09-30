@@ -62,6 +62,8 @@ class CaseScore:
     comparable_field_count: int
     human_escalation_required: bool
     escalation_reasons: tuple[str, ...]
+    verifier_errors: tuple[str, ...] = ()
+    response_uncertainties: tuple[str, ...] = ()
 
     def as_dict(self):
         data = asdict(self)

@@ -49,9 +49,21 @@ E04_INVARIANTS = (
     ContractInvariant("benchmark_not_operational_escalation", "BenchmarkAdjudication != OperationalEscalation"),
 )
 
+E041_INVARIANTS = (
+    ContractInvariant("semantic_not_lexical", "SemanticEquivalence != LexicalExactMatch"),
+    ContractInvariant("canonicalization_not_gold", "Canonicalization != ScientificGold"),
+    ContractInvariant("development_not_publication_validation", "DevelopmentCalibration != PublicationValidation"),
+    ContractInvariant("calibration_reference_class_required", "PrecisionRecall -> ReferenceClassRequired"),
+    ContractInvariant("equivalence_not_f0_mutation", "EquivalenceScoring !-> F0Mutation"),
+    ContractInvariant("strict_blind_requires_fresh_context", "StrictBlind -> FreshContextRequired"),
+    ContractInvariant("strict_blind_rejects_prior_exposure", "PriorBatchExposure -> NotStrictBlind"),
+    ContractInvariant("verifier_and_equivalence_calibration_separate", "VerifierCalibration != EquivalenceCalibration"),
+)
+
 EXECUTABLE_INVARIANTS = (
     E01_INVARIANTS
     + E03_INVARIANTS
     + E031_INVARIANTS
     + E04_INVARIANTS
+    + E041_INVARIANTS
 )

@@ -1,0 +1,56 @@
+{
+  "response_id": "RESP-STRICT-B001-014",
+  "task_id": "TASK-BLIND-B001-014",
+  "task_sha256": "f5ca60885fdd391dcdacdc7900255823d1a0e82c971d950dfa1a289a9468dd3f",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "8362506e8622b0775be3fe5698ac1e6d565a615a4d38b5c82f642e246963a883",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "Cohort",
+    "population": "104,707 adults aged 18 years or older in the French NutriNet-Sante prospective cohort (2009-2019), free of the outcome at baseline as analyzed.",
+    "intervention": null,
+    "exposure": "Ultraprocessed food consumption measured by repeated 24-hour dietary records and classified with NOVA.",
+    "intervention_or_exposure": "Higher ultraprocessed food consumption.",
+    "comparator": "Lower ultraprocessed food consumption; models estimated risk per incremental UPF exposure.",
+    "outcome": "Incident type 2 diabetes.",
+    "effect": "Absolute T2D rates were 113 and 166 per 100,000 person-years in the lowest and highest UPF consumers. Each absolute 10-percentage-point increase in UPF share of the diet was associated with HR 1.15 (95% CI 1.06 to 1.25); estimates remained significant after additional adjustments. A 100 g/day increase was associated with HR 1.05 (95% CI 1.02 to 1.08).",
+    "recommendation": "The source states that these observational findings support public-health efforts to recommend limiting ultraprocessed food consumption, while noting that confirmation in other populations and settings is needed.",
+    "applicability_boundary": "Observational association in a French adult cohort; it does not establish causation and requires confirmation in other populations and settings.",
+    "anchor": "RESULTS / CONCLUSIONS AND RELEVANCE",
+    "source_span": "Consumption of UPF was associated with a higher risk of T2D"
+  },
+  "confidence": null,
+  "uncertainties": [
+    "Observational cohort design leaves potential residual confounding.",
+    "The authors state that results need confirmation in other populations and settings."
+  ],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-014"
+    ],
+    "metadata": {}
+  }
+}

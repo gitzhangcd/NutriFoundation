@@ -52,7 +52,7 @@ def _build_evidence(case: dict[str, Any]) -> EvidenceUnit:
     payload.update(
         {
             "evidence_id": case["evidence_id"],
-            "source_id": case["source_id"],
+            "source_id": case.get("evidence_source_id", case["source_id"]),
             "verification_status": "candidate",
             "status": "candidate",
             "provenance": Provenance(source="contract-generated verifier calibration"),

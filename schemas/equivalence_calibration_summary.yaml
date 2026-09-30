@@ -1,0 +1,18 @@
+schema: EquivalenceCalibrationSummary
+version: v0.1
+introduced_in: E0.4.1
+status: frozen
+fields:
+  reference_class:
+    enum: [contract_generated, model_assisted_development, human_independent]
+    required: true
+  case_count: {type: integer, required: true}
+  overall: {type: CalibrationConfusionMatrix, required: true}
+  by_field: {type: object, required: true}
+  false_positive_ids: {type: array, required: true}
+  false_negative_ids: {type: array, required: true}
+  publication_grade: {type: boolean, required: true}
+invariants:
+  - precision_and_recall_require_reference_class
+  - only_human_independent_reference_may_be_publication_grade
+  - development_calibration_must_not_be_reported_as_independent_validation

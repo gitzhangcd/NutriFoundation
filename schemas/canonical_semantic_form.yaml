@@ -1,0 +1,15 @@
+schema: CanonicalSemanticForm
+version: v0.1
+introduced_in: E0.4.1
+status: frozen
+fields:
+  field: {type: string, required: true}
+  concepts: {type: array, required: true}
+  numbers: {type: array, required: true}
+  semantic_tags: {type: array, required: true}
+  identifiers: {type: array, required: true}
+  normalized_text: {type: string, required: true}
+invariants:
+  - canonicalization_is_deterministic
+  - canonicalization_is_not_scientific_gold
+  - canonical_form_does_not_mutate_source_or_F0

@@ -1,0 +1,2098 @@
+{
+  "summary": {
+    "reference_class": "model_assisted_development",
+    "case_count": 43,
+    "overall": {
+      "true_positive": 22,
+      "false_positive": 0,
+      "true_negative": 21,
+      "false_negative": 0,
+      "precision": 1,
+      "recall": 1,
+      "specificity": 1,
+      "f1": 1
+    },
+    "by_field": {
+      "anchor": {
+        "true_positive": 1,
+        "false_positive": 0,
+        "true_negative": 1,
+        "false_negative": 0,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "f1": 1
+      },
+      "applicability_boundary": {
+        "true_positive": 2,
+        "false_positive": 0,
+        "true_negative": 2,
+        "false_negative": 0,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "f1": 1
+      },
+      "comparator": {
+        "true_positive": 1,
+        "false_positive": 0,
+        "true_negative": 1,
+        "false_negative": 0,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "f1": 1
+      },
+      "effect": {
+        "true_positive": 4,
+        "false_positive": 0,
+        "true_negative": 2,
+        "false_negative": 0,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "f1": 1
+      },
+      "exposure": {
+        "true_positive": 2,
+        "false_positive": 0,
+        "true_negative": 2,
+        "false_negative": 0,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "f1": 1
+      },
+      "intervention": {
+        "true_positive": 3,
+        "false_positive": 0,
+        "true_negative": 3,
+        "false_negative": 0,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "f1": 1
+      },
+      "intervention_or_exposure": {
+        "true_positive": 1,
+        "false_positive": 0,
+        "true_negative": 1,
+        "false_negative": 0,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "f1": 1
+      },
+      "kind": {
+        "true_positive": 1,
+        "false_positive": 0,
+        "true_negative": 2,
+        "false_negative": 0,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "f1": 1
+      },
+      "outcome": {
+        "true_positive": 2,
+        "false_positive": 0,
+        "true_negative": 2,
+        "false_negative": 0,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "f1": 1
+      },
+      "population": {
+        "true_positive": 3,
+        "false_positive": 0,
+        "true_negative": 3,
+        "false_negative": 0,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "f1": 1
+      },
+      "recommendation": {
+        "true_positive": 2,
+        "false_positive": 0,
+        "true_negative": 2,
+        "false_negative": 0,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "f1": 1
+      }
+    },
+    "false_positive_ids": [],
+    "false_negative_ids": [],
+    "publication_grade": false
+  },
+  "details": [
+    {
+      "case_id": "EQ01",
+      "field": "population",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "population",
+        "relation": "equivalent",
+        "equivalent": true,
+        "concept_overlap": 1,
+        "numeric_recall": 1,
+        "conflict_tags": [],
+        "reference": {
+          "field": "population",
+          "concepts": [
+            "adults",
+            "t2d"
+          ],
+          "numbers": [
+            "2"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "adults with t2d"
+        },
+        "candidate": {
+          "field": "population",
+          "concepts": [
+            "adults",
+            "t2d"
+          ],
+          "numbers": [
+            "2"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "adults with t2d"
+        },
+        "rationale": [
+          "canonical_concepts_equivalent"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ02",
+      "field": "population",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "population",
+        "relation": "equivalent",
+        "equivalent": true,
+        "concept_overlap": 1,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "population",
+          "concepts": [
+            "older_adult"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "older_adult_scope"
+          ],
+          "identifiers": [],
+          "normalized_text": "older_adult"
+        },
+        "candidate": {
+          "field": "population",
+          "concepts": [
+            "older_adult"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "older_adult_scope"
+          ],
+          "identifiers": [],
+          "normalized_text": "older_adult"
+        },
+        "rationale": [
+          "canonical_concepts_equivalent"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ03",
+      "field": "population",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "population",
+        "relation": "compatible_superset",
+        "equivalent": true,
+        "concept_overlap": 0.6666666666666666,
+        "numeric_recall": 1,
+        "conflict_tags": [],
+        "reference": {
+          "field": "population",
+          "concepts": [
+            "adults",
+            "cohort",
+            "french",
+            "nutrinet",
+            "sante"
+          ],
+          "numbers": [
+            "104707"
+          ],
+          "semantic_tags": [
+            "association_level",
+            "french_population"
+          ],
+          "identifiers": [],
+          "normalized_text": "adults in the french nutrinet sante cohort"
+        },
+        "candidate": {
+          "field": "population",
+          "concepts": [
+            "adults",
+            "cohort",
+            "french",
+            "nutrinet",
+            "sant"
+          ],
+          "numbers": [
+            "104707"
+          ],
+          "semantic_tags": [
+            "association_level",
+            "french_population"
+          ],
+          "identifiers": [],
+          "normalized_text": "adults from the french nutrinet sant cohort"
+        },
+        "rationale": [
+          "canonical_concepts_compatible"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ04",
+      "field": "intervention",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "intervention",
+        "relation": "compatible_superset",
+        "equivalent": true,
+        "concept_overlap": 0.6666666666666666,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "intervention",
+          "concepts": [
+            "evoo",
+            "mediterranean",
+            "supplemented"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "mediterranean supplemented with evoo"
+        },
+        "candidate": {
+          "field": "intervention",
+          "concepts": [
+            "diet",
+            "evoo",
+            "mediterranean",
+            "plus"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "mediterranean diet plus evoo"
+        },
+        "rationale": [
+          "canonical_concepts_compatible"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ05",
+      "field": "intervention",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "intervention",
+        "relation": "equivalent",
+        "equivalent": true,
+        "concept_overlap": 1,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "intervention",
+          "concepts": [
+            "diet",
+            "low_carb"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "low_carb diet"
+        },
+        "candidate": {
+          "field": "intervention",
+          "concepts": [
+            "dietary",
+            "low_carb",
+            "pattern"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "low_carb dietary pattern"
+        },
+        "rationale": [
+          "canonical_concepts_equivalent"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ06",
+      "field": "intervention",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "intervention",
+        "relation": "compatible_superset",
+        "equivalent": true,
+        "concept_overlap": 0.5,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "intervention",
+          "concepts": [
+            "programme",
+            "total_diet_replacement"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "total_diet_replacement programme"
+        },
+        "candidate": {
+          "field": "intervention",
+          "concepts": [
+            "program",
+            "total_diet_replacement"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "total_diet_replacement program"
+        },
+        "rationale": [
+          "canonical_concepts_compatible"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ07",
+      "field": "exposure",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "exposure",
+        "relation": "equivalent",
+        "equivalent": true,
+        "concept_overlap": 1,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "exposure",
+          "concepts": [
+            "diet",
+            "higher",
+            "share",
+            "ultraprocessed_food"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "higher ultraprocessed_food share of the diet"
+        },
+        "candidate": {
+          "field": "exposure",
+          "concepts": [
+            "dietary",
+            "higher",
+            "intake",
+            "share",
+            "ultraprocessed_food"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "higher ultraprocessed_food share of dietary intake"
+        },
+        "rationale": [
+          "canonical_concepts_equivalent"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ08",
+      "field": "exposure",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "exposure",
+        "relation": "equivalent",
+        "equivalent": true,
+        "concept_overlap": 1,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "exposure",
+          "concepts": [
+            "higher",
+            "intake",
+            "whole_grain"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "higher whole_grain intake"
+        },
+        "candidate": {
+          "field": "exposure",
+          "concepts": [
+            "higher",
+            "intake",
+            "whole_grain"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "higher whole_grain intake"
+        },
+        "rationale": [
+          "canonical_concepts_equivalent"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ09",
+      "field": "outcome",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "outcome",
+        "relation": "equivalent",
+        "equivalent": true,
+        "concept_overlap": 1,
+        "numeric_recall": 1,
+        "conflict_tags": [],
+        "reference": {
+          "field": "outcome",
+          "concepts": [
+            "incident_t2d"
+          ],
+          "numbers": [
+            "2"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "incident_t2d"
+        },
+        "candidate": {
+          "field": "outcome",
+          "concepts": [
+            "incident_t2d"
+          ],
+          "numbers": [
+            "2"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "incident_t2d"
+        },
+        "rationale": [
+          "canonical_concepts_equivalent"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ10",
+      "field": "outcome",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "outcome",
+        "relation": "equivalent",
+        "equivalent": true,
+        "concept_overlap": 1,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "outcome",
+          "concepts": [
+            "dbp",
+            "sbp"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "sbp dbp"
+        },
+        "candidate": {
+          "field": "outcome",
+          "concepts": [
+            "dbp",
+            "sbp"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "sbp and dbp"
+        },
+        "rationale": [
+          "canonical_concepts_equivalent"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ11",
+      "field": "effect",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "effect",
+        "relation": "equivalent",
+        "equivalent": true,
+        "concept_overlap": 1,
+        "numeric_recall": 1,
+        "conflict_tags": [],
+        "reference": {
+          "field": "effect",
+          "concepts": [
+            "confidence_interval",
+            "hazard_ratio"
+          ],
+          "numbers": [
+            "1.06",
+            "1.15",
+            "1.25"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "hazard_ratio confidence_interval to"
+        },
+        "candidate": {
+          "field": "effect",
+          "concepts": [
+            "confidence_interval",
+            "hazard_ratio",
+            "percent"
+          ],
+          "numbers": [
+            "1.06",
+            "1.15",
+            "1.25"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "hazard_ratio percent confidence_interval to"
+        },
+        "rationale": [
+          "canonical_concepts_equivalent"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ12",
+      "field": "effect",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "effect",
+        "relation": "equivalent",
+        "equivalent": true,
+        "concept_overlap": 1,
+        "numeric_recall": 1,
+        "conflict_tags": [],
+        "reference": {
+          "field": "effect",
+          "concepts": [
+            "confidence_interval",
+            "odds_ratio"
+          ],
+          "numbers": [
+            "19.7",
+            "49.8",
+            "7.8"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "odds_ratio confidence_interval to"
+        },
+        "candidate": {
+          "field": "effect",
+          "concepts": [
+            "confidence_interval",
+            "odds_ratio"
+          ],
+          "numbers": [
+            "19.7",
+            "49.8",
+            "7.8"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "odds_ratio with confidence_interval to"
+        },
+        "rationale": [
+          "canonical_concepts_equivalent"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ13",
+      "field": "effect",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "effect",
+        "relation": "compatible_superset",
+        "equivalent": true,
+        "concept_overlap": 0.5,
+        "numeric_recall": 1,
+        "conflict_tags": [],
+        "reference": {
+          "field": "effect",
+          "concepts": [
+            "reduction",
+            "risk"
+          ],
+          "numbers": [
+            "11",
+            "23",
+            "58"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "vs risk reduction"
+        },
+        "candidate": {
+          "field": "effect",
+          "concepts": [
+            "percent",
+            "reduced",
+            "risk"
+          ],
+          "numbers": [
+            "11",
+            "23",
+            "58"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "percent versus percent risk reduced by percent"
+        },
+        "rationale": [
+          "canonical_concepts_compatible"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ14",
+      "field": "effect",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "effect",
+        "relation": "equivalent",
+        "equivalent": true,
+        "concept_overlap": 1,
+        "numeric_recall": 1,
+        "conflict_tags": [],
+        "reference": {
+          "field": "effect",
+          "concepts": [
+            "confidence_interval",
+            "risk_ratio"
+          ],
+          "numbers": [
+            "0.58",
+            "0.68",
+            "0.81"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "risk_ratio confidence_interval to"
+        },
+        "candidate": {
+          "field": "effect",
+          "concepts": [
+            "confidence_interval",
+            "risk_ratio"
+          ],
+          "numbers": [
+            "0.58",
+            "0.68",
+            "0.81"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "risk_ratio confidence_interval to"
+        },
+        "rationale": [
+          "canonical_concepts_equivalent"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ15",
+      "field": "recommendation",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "recommendation",
+        "relation": "compatible_superset",
+        "equivalent": true,
+        "concept_overlap": 0.6666666666666666,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "recommendation",
+          "concepts": [
+            "malnutrition_screening",
+            "recommendation",
+            "routine"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "routine malnutrition_screening is recommendation"
+        },
+        "candidate": {
+          "field": "recommendation",
+          "concepts": [
+            "malnutrition_screening",
+            "older_adult",
+            "recommendation",
+            "routinely"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "older_adult_scope"
+          ],
+          "identifiers": [],
+          "normalized_text": "older_adult recommendation routinely be malnutrition_screening"
+        },
+        "rationale": [
+          "canonical_concepts_compatible"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ16",
+      "field": "recommendation",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "recommendation",
+        "relation": "equivalent",
+        "equivalent": true,
+        "concept_overlap": 1,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "recommendation",
+          "concepts": [
+            "individualized",
+            "medical_nutrition_therapy",
+            "recommendation"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "individualized medical_nutrition_therapy is recommendation"
+        },
+        "candidate": {
+          "field": "recommendation",
+          "concepts": [
+            "individualized",
+            "medical_nutrition_therapy",
+            "recommendation"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "recommendation individualized medical_nutrition_therapy"
+        },
+        "rationale": [
+          "canonical_concepts_equivalent"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ17",
+      "field": "applicability_boundary",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "applicability_boundary",
+        "relation": "equivalent",
+        "equivalent": true,
+        "concept_overlap": 0.8571428571428571,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "applicability_boundary",
+          "concepts": [
+            "adults",
+            "evidence",
+            "generalized",
+            "guideline",
+            "not",
+            "older_adult",
+            "recommendation",
+            "separate",
+            "younger"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "excludes_younger",
+            "guideline_authority",
+            "older_adult_scope",
+            "younger_adult_scope"
+          ],
+          "identifiers": [],
+          "normalized_text": "older_adult guideline recommendation not be generalized to younger adults without separate evidence"
+        },
+        "candidate": {
+          "field": "applicability_boundary",
+          "concepts": [
+            "adults",
+            "applies",
+            "evidence",
+            "generalized",
+            "not",
+            "older_adult",
+            "recommendation",
+            "separate",
+            "younger"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "excludes_younger",
+            "older_adult_scope",
+            "younger_adult_scope"
+          ],
+          "identifiers": [],
+          "normalized_text": "applies to older_adult and recommendation not be generalized to younger adults without separate evidence"
+        },
+        "rationale": [
+          "canonical_concepts_equivalent"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ18",
+      "field": "applicability_boundary",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "applicability_boundary",
+        "relation": "compatible_superset",
+        "equivalent": true,
+        "concept_overlap": 0.6666666666666666,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "applicability_boundary",
+          "concepts": [
+            "association",
+            "causal",
+            "evidence",
+            "not",
+            "observational",
+            "prospective",
+            "randomized"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "association_level",
+            "not_causal",
+            "randomized_evidence"
+          ],
+          "identifiers": [],
+          "normalized_text": "prospective observational association not randomized causal evidence"
+        },
+        "candidate": {
+          "field": "applicability_boundary",
+          "concepts": [
+            "association",
+            "causal",
+            "cohort",
+            "evidence",
+            "observational",
+            "randomized",
+            "rather"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "association_level",
+            "not_causal",
+            "randomized_evidence"
+          ],
+          "identifiers": [],
+          "normalized_text": "observational cohort association rather than randomized causal evidence"
+        },
+        "rationale": [
+          "canonical_concepts_compatible"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ19",
+      "field": "anchor",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "anchor",
+        "relation": "equivalent",
+        "equivalent": true,
+        "concept_overlap": 1,
+        "numeric_recall": 1,
+        "conflict_tags": [],
+        "reference": {
+          "field": "anchor",
+          "concepts": [
+            "abstract",
+            "pmid",
+            "pubmed"
+          ],
+          "numbers": [
+            "31841598"
+          ],
+          "semantic_tags": [],
+          "identifiers": [
+            "pmid:31841598"
+          ],
+          "normalized_text": "pubmed abstract pmid"
+        },
+        "candidate": {
+          "field": "anchor",
+          "concepts": [
+            "abstract",
+            "pmid",
+            "pubmed"
+          ],
+          "numbers": [
+            "31841598"
+          ],
+          "semantic_tags": [],
+          "identifiers": [
+            "pmid:31841598"
+          ],
+          "normalized_text": "pmid pubmed abstract"
+        },
+        "rationale": [
+          "shared_source_identifier"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ20",
+      "field": "kind",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "kind",
+        "relation": "equivalent",
+        "equivalent": true,
+        "concept_overlap": 1,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "kind",
+          "concepts": [
+            "association_level",
+            "observational_association"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "association_level",
+            "observational_association"
+          ],
+          "identifiers": [],
+          "normalized_text": "observational_association"
+        },
+        "candidate": {
+          "field": "kind",
+          "concepts": [
+            "association_level",
+            "observational_association"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "association_level",
+            "observational_association"
+          ],
+          "identifiers": [],
+          "normalized_text": "observational_association"
+        },
+        "rationale": [
+          "shared_kind_family"
+        ]
+      }
+    },
+    {
+      "case_id": "NE01",
+      "field": "population",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "population",
+        "relation": "mismatch",
+        "equivalent": false,
+        "concept_overlap": 0,
+        "numeric_recall": 0,
+        "conflict_tags": [
+          "without_diabetes!=t2d"
+        ],
+        "reference": {
+          "field": "population",
+          "concepts": [
+            "adults",
+            "t2d"
+          ],
+          "numbers": [
+            "2"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "adults with t2d"
+        },
+        "candidate": {
+          "field": "population",
+          "concepts": [
+            "adults",
+            "diabetes"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "without_diabetes"
+          ],
+          "identifiers": [],
+          "normalized_text": "adults without diabetes"
+        },
+        "rationale": [
+          "semantic_conflict",
+          "insufficient_canonical_overlap"
+        ]
+      }
+    },
+    {
+      "case_id": "NE02",
+      "field": "population",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "population",
+        "relation": "mismatch",
+        "equivalent": false,
+        "concept_overlap": 0,
+        "numeric_recall": null,
+        "conflict_tags": [
+          "older_adult_scope!=younger_adult_scope"
+        ],
+        "reference": {
+          "field": "population",
+          "concepts": [
+            "older_adult"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "older_adult_scope"
+          ],
+          "identifiers": [],
+          "normalized_text": "older_adult"
+        },
+        "candidate": {
+          "field": "population",
+          "concepts": [
+            "adults",
+            "younger"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "younger_adult_scope",
+            "younger_scope_positive"
+          ],
+          "identifiers": [],
+          "normalized_text": "younger adults"
+        },
+        "rationale": [
+          "semantic_conflict",
+          "insufficient_canonical_overlap"
+        ]
+      }
+    },
+    {
+      "case_id": "NE03",
+      "field": "intervention",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "intervention",
+        "relation": "mismatch",
+        "equivalent": false,
+        "concept_overlap": 0,
+        "numeric_recall": null,
+        "conflict_tags": [
+          "low_fat!=low_carb"
+        ],
+        "reference": {
+          "field": "intervention",
+          "concepts": [
+            "diet",
+            "low_fat"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "low_fat diet"
+        },
+        "candidate": {
+          "field": "intervention",
+          "concepts": [
+            "diet",
+            "low_carb"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "low_carb diet"
+        },
+        "rationale": [
+          "semantic_conflict",
+          "insufficient_canonical_overlap"
+        ]
+      }
+    },
+    {
+      "case_id": "NE04",
+      "field": "intervention",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "intervention",
+        "relation": "mismatch",
+        "equivalent": false,
+        "concept_overlap": 0,
+        "numeric_recall": null,
+        "conflict_tags": [
+          "mediterranean!=low_fat"
+        ],
+        "reference": {
+          "field": "intervention",
+          "concepts": [
+            "mediterranean"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "mediterranean"
+        },
+        "candidate": {
+          "field": "intervention",
+          "concepts": [
+            "diet",
+            "low_fat"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "low_fat diet"
+        },
+        "rationale": [
+          "semantic_conflict",
+          "insufficient_canonical_overlap"
+        ]
+      }
+    },
+    {
+      "case_id": "NE05",
+      "field": "exposure",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "exposure",
+        "relation": "mismatch",
+        "equivalent": false,
+        "concept_overlap": 0,
+        "numeric_recall": null,
+        "conflict_tags": [
+          "whole_grain!=refined_grain"
+        ],
+        "reference": {
+          "field": "exposure",
+          "concepts": [
+            "intake",
+            "whole_grain"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "whole_grain intake"
+        },
+        "candidate": {
+          "field": "exposure",
+          "concepts": [
+            "intake",
+            "refined_grain"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "refined_grain intake"
+        },
+        "rationale": [
+          "semantic_conflict",
+          "insufficient_canonical_overlap"
+        ]
+      }
+    },
+    {
+      "case_id": "NE06",
+      "field": "outcome",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "outcome",
+        "relation": "mismatch",
+        "equivalent": false,
+        "concept_overlap": 0,
+        "numeric_recall": 0,
+        "conflict_tags": [],
+        "reference": {
+          "field": "outcome",
+          "concepts": [
+            "incident_t2d"
+          ],
+          "numbers": [
+            "2"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "incident_t2d"
+        },
+        "candidate": {
+          "field": "outcome",
+          "concepts": [
+            "weight"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "weight"
+        },
+        "rationale": [
+          "insufficient_canonical_overlap"
+        ]
+      }
+    },
+    {
+      "case_id": "NE07",
+      "field": "effect",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "effect",
+        "relation": "partial",
+        "equivalent": false,
+        "concept_overlap": 1,
+        "numeric_recall": 0,
+        "conflict_tags": [],
+        "reference": {
+          "field": "effect",
+          "concepts": [
+            "confidence_interval",
+            "hazard_ratio"
+          ],
+          "numbers": [
+            "1.06",
+            "1.15",
+            "1.25"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "hazard_ratio confidence_interval to"
+        },
+        "candidate": {
+          "field": "effect",
+          "concepts": [
+            "confidence_interval",
+            "hazard_ratio"
+          ],
+          "numbers": [
+            "0.75",
+            "0.85",
+            "0.95"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "hazard_ratio confidence_interval to"
+        },
+        "rationale": [
+          "partial_canonical_overlap",
+          "insufficient_numeric_coverage"
+        ]
+      }
+    },
+    {
+      "case_id": "NE08",
+      "field": "effect",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "effect",
+        "relation": "partial",
+        "equivalent": false,
+        "concept_overlap": 1,
+        "numeric_recall": 0.6666666666666666,
+        "conflict_tags": [],
+        "reference": {
+          "field": "effect",
+          "concepts": [
+            "hazard_ratio"
+          ],
+          "numbers": [
+            "0.63",
+            "44",
+            "70"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "vs hazard_ratio"
+        },
+        "candidate": {
+          "field": "effect",
+          "concepts": [
+            "hazard_ratio"
+          ],
+          "numbers": [
+            "1.63",
+            "44",
+            "70"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "vs hazard_ratio"
+        },
+        "rationale": [
+          "partial_canonical_overlap",
+          "insufficient_numeric_coverage"
+        ]
+      }
+    },
+    {
+      "case_id": "NE09",
+      "field": "recommendation",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "recommendation",
+        "relation": "partial",
+        "equivalent": false,
+        "concept_overlap": 0.3333333333333333,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "recommendation",
+          "concepts": [
+            "malnutrition_screening",
+            "recommendation",
+            "routine"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "routine malnutrition_screening is recommendation"
+        },
+        "candidate": {
+          "field": "recommendation",
+          "concepts": [
+            "diets",
+            "prescribed",
+            "recommendation",
+            "reducing",
+            "routinely",
+            "weight"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "weight reducing diets recommendation be prescribed routinely"
+        },
+        "rationale": [
+          "partial_canonical_overlap"
+        ]
+      }
+    },
+    {
+      "case_id": "NE10",
+      "field": "recommendation",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "recommendation",
+        "relation": "missing",
+        "equivalent": false,
+        "concept_overlap": 0,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "recommendation",
+          "concepts": [
+            "individualized",
+            "medical_nutrition_therapy",
+            "recommendation"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "individualized medical_nutrition_therapy is recommendation"
+        },
+        "candidate": {
+          "field": "recommendation",
+          "concepts": [],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": ""
+        },
+        "rationale": [
+          "candidate_missing"
+        ]
+      }
+    },
+    {
+      "case_id": "NE11",
+      "field": "applicability_boundary",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "applicability_boundary",
+        "relation": "mismatch",
+        "equivalent": false,
+        "concept_overlap": 1,
+        "numeric_recall": null,
+        "conflict_tags": [
+          "not_causal!=causal_assertion"
+        ],
+        "reference": {
+          "field": "applicability_boundary",
+          "concepts": [
+            "association",
+            "causal",
+            "evidence",
+            "not",
+            "observational",
+            "randomized"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "association_level",
+            "not_causal",
+            "randomized_evidence"
+          ],
+          "identifiers": [],
+          "normalized_text": "observational association not randomized causal evidence"
+        },
+        "candidate": {
+          "field": "applicability_boundary",
+          "concepts": [
+            "causal",
+            "evidence",
+            "randomized"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "causal_assertion",
+            "randomized_evidence"
+          ],
+          "identifiers": [],
+          "normalized_text": "randomized causal evidence"
+        },
+        "rationale": [
+          "semantic_conflict",
+          "insufficient_canonical_overlap"
+        ]
+      }
+    },
+    {
+      "case_id": "NE12",
+      "field": "applicability_boundary",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "applicability_boundary",
+        "relation": "mismatch",
+        "equivalent": false,
+        "concept_overlap": 0.5,
+        "numeric_recall": null,
+        "conflict_tags": [
+          "excludes_younger!=younger_scope_positive"
+        ],
+        "reference": {
+          "field": "applicability_boundary",
+          "concepts": [
+            "adults",
+            "guideline",
+            "not",
+            "older_adult",
+            "younger"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "excludes_younger",
+            "guideline_authority",
+            "older_adult_scope",
+            "younger_adult_scope"
+          ],
+          "identifiers": [],
+          "normalized_text": "older_adult guideline not for younger adults"
+        },
+        "candidate": {
+          "field": "applicability_boundary",
+          "concepts": [
+            "adults",
+            "guidance",
+            "younger"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "younger_adult_scope",
+            "younger_scope_positive"
+          ],
+          "identifiers": [],
+          "normalized_text": "guidance for younger adults"
+        },
+        "rationale": [
+          "semantic_conflict",
+          "insufficient_canonical_overlap"
+        ]
+      }
+    },
+    {
+      "case_id": "NE13",
+      "field": "anchor",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "anchor",
+        "relation": "mismatch",
+        "equivalent": false,
+        "concept_overlap": 1,
+        "numeric_recall": 0,
+        "conflict_tags": [],
+        "reference": {
+          "field": "anchor",
+          "concepts": [
+            "abstract",
+            "pmid",
+            "pubmed"
+          ],
+          "numbers": [
+            "31841598"
+          ],
+          "semantic_tags": [],
+          "identifiers": [
+            "pmid:31841598"
+          ],
+          "normalized_text": "pubmed abstract pmid"
+        },
+        "candidate": {
+          "field": "anchor",
+          "concepts": [
+            "abstract",
+            "pmid",
+            "pubmed"
+          ],
+          "numbers": [
+            "39174161"
+          ],
+          "semantic_tags": [],
+          "identifiers": [
+            "pmid:39174161"
+          ],
+          "normalized_text": "pubmed abstract pmid"
+        },
+        "rationale": [
+          "different_source_identifier"
+        ]
+      }
+    },
+    {
+      "case_id": "NE14",
+      "field": "kind",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "kind",
+        "relation": "mismatch",
+        "equivalent": false,
+        "concept_overlap": 0,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "kind",
+          "concepts": [
+            "association_level",
+            "observational_association"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "association_level",
+            "observational_association"
+          ],
+          "identifiers": [],
+          "normalized_text": "observational_association"
+        },
+        "candidate": {
+          "field": "kind",
+          "concepts": [
+            "causal_intervention",
+            "intervention_effect"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "causal_intervention",
+            "intervention_effect"
+          ],
+          "identifiers": [],
+          "normalized_text": "intervention_effect"
+        },
+        "rationale": [
+          "different_kind_family"
+        ]
+      }
+    },
+    {
+      "case_id": "NE15",
+      "field": "kind",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "kind",
+        "relation": "mismatch",
+        "equivalent": false,
+        "concept_overlap": 0,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "kind",
+          "concepts": [
+            "guideline_authority",
+            "guideline_recommendation"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "guideline_authority",
+            "guideline_recommendation"
+          ],
+          "identifiers": [],
+          "normalized_text": "guideline_recommendation"
+        },
+        "candidate": {
+          "field": "kind",
+          "concepts": [
+            "evidence_synthesis",
+            "synthesis_effect"
+          ],
+          "numbers": [],
+          "semantic_tags": [
+            "evidence_synthesis",
+            "synthesis_effect"
+          ],
+          "identifiers": [],
+          "normalized_text": "synthesis_effect"
+        },
+        "rationale": [
+          "different_kind_family"
+        ]
+      }
+    },
+    {
+      "case_id": "NE16",
+      "field": "population",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "population",
+        "relation": "mismatch",
+        "equivalent": false,
+        "concept_overlap": 0,
+        "numeric_recall": null,
+        "conflict_tags": [
+          "impaired_glucose_tolerance!=t2d"
+        ],
+        "reference": {
+          "field": "population",
+          "concepts": [
+            "adults",
+            "impaired_glucose_tolerance"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "adults with impaired_glucose_tolerance"
+        },
+        "candidate": {
+          "field": "population",
+          "concepts": [
+            "adults",
+            "established",
+            "t2d"
+          ],
+          "numbers": [
+            "2"
+          ],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "adults with established t2d"
+        },
+        "rationale": [
+          "semantic_conflict",
+          "insufficient_canonical_overlap"
+        ]
+      }
+    },
+    {
+      "case_id": "NE17",
+      "field": "intervention",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "intervention",
+        "relation": "mismatch",
+        "equivalent": false,
+        "concept_overlap": 0,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "intervention",
+          "concepts": [
+            "salt",
+            "substitution"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "salt substitution"
+        },
+        "candidate": {
+          "field": "intervention",
+          "concepts": [
+            "education",
+            "nutrition"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "nutrition education"
+        },
+        "rationale": [
+          "insufficient_canonical_overlap"
+        ]
+      }
+    },
+    {
+      "case_id": "NE18",
+      "field": "comparator",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "comparator",
+        "relation": "mismatch",
+        "equivalent": false,
+        "concept_overlap": 0,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "comparator",
+          "concepts": [
+            "diet",
+            "low_fat"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "low_fat diet"
+        },
+        "candidate": {
+          "field": "comparator",
+          "concepts": [
+            "placebo"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "placebo"
+        },
+        "rationale": [
+          "insufficient_canonical_overlap"
+        ]
+      }
+    },
+    {
+      "case_id": "NE19",
+      "field": "outcome",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "outcome",
+        "relation": "mismatch",
+        "equivalent": false,
+        "concept_overlap": 0,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "outcome",
+          "concepts": [
+            "diabetes_remission"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "diabetes_remission"
+        },
+        "candidate": {
+          "field": "outcome",
+          "concepts": [
+            "major_cardiovascular_event"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "major_cardiovascular_event"
+        },
+        "rationale": [
+          "insufficient_canonical_overlap"
+        ]
+      }
+    },
+    {
+      "case_id": "NE20",
+      "field": "exposure",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "exposure",
+        "relation": "mismatch",
+        "equivalent": false,
+        "concept_overlap": 0,
+        "numeric_recall": null,
+        "conflict_tags": [
+          "red_meat!=poultry"
+        ],
+        "reference": {
+          "field": "exposure",
+          "concepts": [
+            "intake",
+            "red_meat"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "red_meat intake"
+        },
+        "candidate": {
+          "field": "exposure",
+          "concepts": [
+            "intake",
+            "poultry"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "poultry intake"
+        },
+        "rationale": [
+          "semantic_conflict",
+          "insufficient_canonical_overlap"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ21",
+      "field": "comparator",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "comparator",
+        "relation": "equivalent",
+        "equivalent": true,
+        "concept_overlap": 1,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "comparator",
+          "concepts": [
+            "usual_care"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "usual_care"
+        },
+        "candidate": {
+          "field": "comparator",
+          "concepts": [
+            "best",
+            "practice",
+            "usual_care"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "best practice usual_care"
+        },
+        "rationale": [
+          "canonical_concepts_equivalent"
+        ]
+      }
+    },
+    {
+      "case_id": "EQ22",
+      "field": "intervention_or_exposure",
+      "expected_equivalent": true,
+      "predicted_equivalent": true,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "intervention_or_exposure",
+        "relation": "equivalent",
+        "equivalent": true,
+        "concept_overlap": 1,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "intervention_or_exposure",
+          "concepts": [
+            "dietary_fibre",
+            "higher",
+            "intake",
+            "whole_grain"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "higher dietary_fibre and whole_grain intake"
+        },
+        "candidate": {
+          "field": "intervention_or_exposure",
+          "concepts": [
+            "dietary_fibre",
+            "higher",
+            "intake",
+            "whole_grain"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "higher dietary_fibre and whole_grain intake"
+        },
+        "rationale": [
+          "canonical_concepts_equivalent"
+        ]
+      }
+    },
+    {
+      "case_id": "NE21",
+      "field": "intervention_or_exposure",
+      "expected_equivalent": false,
+      "predicted_equivalent": false,
+      "label_provenance": "model_assisted_development_label",
+      "result": {
+        "field": "intervention_or_exposure",
+        "relation": "mismatch",
+        "equivalent": false,
+        "concept_overlap": 0,
+        "numeric_recall": null,
+        "conflict_tags": [],
+        "reference": {
+          "field": "intervention_or_exposure",
+          "concepts": [
+            "dietary_fibre",
+            "higher",
+            "intake",
+            "whole_grain"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "higher dietary_fibre and whole_grain intake"
+        },
+        "candidate": {
+          "field": "intervention_or_exposure",
+          "concepts": [
+            "intake",
+            "red_meat"
+          ],
+          "numbers": [],
+          "semantic_tags": [],
+          "identifiers": [],
+          "normalized_text": "red_meat intake"
+        },
+        "rationale": [
+          "insufficient_canonical_overlap"
+        ]
+      }
+    }
+  ],
+  "remote_validation": {
+    "workflow_run_id": 36699092903,
+    "workflow_job_id": 109834018107,
+    "conclusion": "success",
+    "pytest": "64 passed in 1.46s",
+    "executable_invariants": 38
+  }
+}

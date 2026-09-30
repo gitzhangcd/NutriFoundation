@@ -1,0 +1,352 @@
+{
+  "fixture_id": "E0.4.1-Semantic-Equivalence-Development-Calibration-v0.1",
+  "reference_class": "model_assisted_development",
+  "publication_grade": false,
+  "purpose": "Development-only calibration of canonical critical-field equivalence. Labels were created in the current model-assisted development context and are not independent expert gold.",
+  "cases": [
+    {
+      "case_id": "EQ01",
+      "field": "population",
+      "reference": "Adults with type 2 diabetes",
+      "candidate": "Adults with T2D",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ02",
+      "field": "population",
+      "reference": "Older adults",
+      "candidate": "Older persons",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ03",
+      "field": "population",
+      "reference": "104707 adults in the French NutriNet-Sante cohort",
+      "candidate": "104707 adults from the French NutriNet-Santé cohort",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ04",
+      "field": "intervention",
+      "reference": "Mediterranean diet supplemented with extra-virgin olive oil",
+      "candidate": "Mediterranean-style diet plus EVOO",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ05",
+      "field": "intervention",
+      "reference": "Low-carbohydrate diet",
+      "candidate": "Low carb dietary pattern",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ06",
+      "field": "intervention",
+      "reference": "Total diet replacement programme",
+      "candidate": "TDR program",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ07",
+      "field": "exposure",
+      "reference": "Higher ultraprocessed-food share of the diet",
+      "candidate": "Greater UPF share of dietary intake",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ08",
+      "field": "exposure",
+      "reference": "Higher whole-grain intake",
+      "candidate": "Greater whole grain consumption",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ09",
+      "field": "outcome",
+      "reference": "Incident type 2 diabetes",
+      "candidate": "Incident T2D",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ10",
+      "field": "outcome",
+      "reference": "Systolic and diastolic blood pressure",
+      "candidate": "SBP and DBP",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ11",
+      "field": "effect",
+      "reference": "HR 1.15 (95% CI 1.06-1.25)",
+      "candidate": "Hazard ratio 1.15, 95 percent confidence interval 1.06 to 1.25",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ12",
+      "field": "effect",
+      "reference": "OR 19.7 (95% CI 7.8-49.8)",
+      "candidate": "Odds ratio 19.7 with 95% confidence interval 7.8 to 49.8",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ13",
+      "field": "effect",
+      "reference": "11% vs 23%; 58% risk reduction",
+      "candidate": "11 percent versus 23 percent; risk reduced by 58 percent",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ14",
+      "field": "effect",
+      "reference": "RR 0.68 (95% CI 0.58-0.81)",
+      "candidate": "Risk ratio 0.68, confidence interval 0.58 to 0.81",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ15",
+      "field": "recommendation",
+      "reference": "Routine malnutrition screening is recommended",
+      "candidate": "Older persons should routinely be screened for malnutrition",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ16",
+      "field": "recommendation",
+      "reference": "Individualized medical nutrition therapy is recommended",
+      "candidate": "Recommend individualized MNT",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ17",
+      "field": "applicability_boundary",
+      "reference": "Geriatric guideline; should not be generalized to younger adults without separate evidence",
+      "candidate": "Applies to older adults and should not be extrapolated to younger adults without separate evidence",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ18",
+      "field": "applicability_boundary",
+      "reference": "Prospective observational association, not randomized causal evidence",
+      "candidate": "Observational cohort association rather than randomized causal evidence",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ19",
+      "field": "anchor",
+      "reference": "PubMed abstract PMID 31841598",
+      "candidate": "PMID: 31841598 PubMed abstract",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ20",
+      "field": "kind",
+      "reference": "observational_association",
+      "candidate": "observational_association",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE01",
+      "field": "population",
+      "reference": "Adults with type 2 diabetes",
+      "candidate": "Adults without diabetes",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE02",
+      "field": "population",
+      "reference": "Older adults",
+      "candidate": "Younger adults",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE03",
+      "field": "intervention",
+      "reference": "Low-fat diet",
+      "candidate": "Low-carbohydrate diet",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE04",
+      "field": "intervention",
+      "reference": "Mediterranean diet",
+      "candidate": "Low-fat diet",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE05",
+      "field": "exposure",
+      "reference": "Whole-grain intake",
+      "candidate": "Refined-grain intake",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE06",
+      "field": "outcome",
+      "reference": "Incident type 2 diabetes",
+      "candidate": "Body weight",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE07",
+      "field": "effect",
+      "reference": "HR 1.15 (95% CI 1.06-1.25)",
+      "candidate": "HR 0.85 (95% CI 0.75-0.95)",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE08",
+      "field": "effect",
+      "reference": "44% vs 70%; HR 0.63",
+      "candidate": "44% vs 70%; HR 1.63",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE09",
+      "field": "recommendation",
+      "reference": "Routine malnutrition screening is recommended",
+      "candidate": "Weight-reducing diets should be prescribed routinely",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE10",
+      "field": "recommendation",
+      "reference": "Individualized medical nutrition therapy is recommended",
+      "candidate": null,
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE11",
+      "field": "applicability_boundary",
+      "reference": "Observational association, not randomized causal evidence",
+      "candidate": "Randomized causal evidence",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE12",
+      "field": "applicability_boundary",
+      "reference": "Geriatric guideline; not for younger adults",
+      "candidate": "Guidance for younger adults",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE13",
+      "field": "anchor",
+      "reference": "PubMed abstract PMID 31841598",
+      "candidate": "PubMed abstract PMID 39174161",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE14",
+      "field": "kind",
+      "reference": "observational_association",
+      "candidate": "intervention_effect",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE15",
+      "field": "kind",
+      "reference": "guideline_recommendation",
+      "candidate": "synthesis_effect",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE16",
+      "field": "population",
+      "reference": "Adults with impaired glucose tolerance",
+      "candidate": "Adults with established type 2 diabetes",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE17",
+      "field": "intervention",
+      "reference": "Salt substitution",
+      "candidate": "Nutrition education",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE18",
+      "field": "comparator",
+      "reference": "Low-fat diet",
+      "candidate": "Placebo",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE19",
+      "field": "outcome",
+      "reference": "Diabetes remission",
+      "candidate": "Major cardiovascular event",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE20",
+      "field": "exposure",
+      "reference": "Processed red meat consumption",
+      "candidate": "Poultry consumption",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ21",
+      "field": "comparator",
+      "reference": "Usual care",
+      "candidate": "Best-practice usual care",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ22",
+      "field": "intervention_or_exposure",
+      "reference": "Higher dietary fibre and whole-grain intake",
+      "candidate": "Greater fiber and whole grain consumption",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE21",
+      "field": "intervention_or_exposure",
+      "reference": "Higher dietary fibre and whole-grain intake",
+      "candidate": "Processed red meat consumption",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
+    }
+  ]
+}

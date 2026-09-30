@@ -44,6 +44,7 @@ from nutrifoundation.services.strict_blind import (
     validate_strict_blind_responses,
 )
 from nutrifoundation.services.strict_blind_runner import score_strict_blind_batch
+from nutrifoundation.services.strict_blind_response_bundle import materialize_bundle
 from nutrifoundation.services.strict_blind_taskpack import (
     audit_taskpack,
     build_taskpack_manifest,
@@ -455,6 +456,7 @@ def score_strict_blind_batch_cmd(
         "fixtures/Batch001_EvidenceUnit_Frozen_v0.1.yaml"
     ),
     db: Path = Path("batch001_strict_blind_replay.db"),
+    report: Path | None = None,
 ) -> None:
     """Require fresh-context attestation, then run operational + canonical scoring."""
     result = score_strict_blind_batch(
@@ -464,7 +466,39 @@ def score_strict_blind_batch_cmd(
         db_path=db,
         batch_id="B001",
     )
-    typer.echo(json.dumps(result, indent=2, ensure_ascii=False))
+    payload = json.dumps(result, indent=2, ensure_ascii=False) + "\n"
+    if report is not None:
+        report.parent.mkdir(parents=True, exist_ok=True)
+        report.write_text(payload, encoding="utf-8")
+    typer.echo(payload)
+
+
+@app.command("materialize-strict-blind-response-bundle")
+def materialize_strict_blind_response_bundle(
+    bundle: Path = Path(
+        "runs/E0.4.2/C/StrictBlind_ResponseSet_FROZEN_v1.0.json"
+    ),
+    taskpack: Path = Path(
+        "runs/E0.4.2/A0/StrictBlind_TaskPack_Manifest_v1.0.json"
+    ),
+    out_dir: Path = Path("runs/E0.4.2/C/responses"),
+    expected_bundle_sha256: str = (
+        "f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7"
+    ),
+    receipt: Path | None = None,
+) -> None:
+    """Validate/freeze one response bundle and materialize immutable envelopes."""
+    result = materialize_bundle(
+        bundle_path=bundle,
+        taskpack_manifest_path=taskpack,
+        out_dir=out_dir,
+        expected_bundle_sha256=expected_bundle_sha256,
+    )
+    payload = json.dumps(result.as_dict(), indent=2, ensure_ascii=False) + "\n"
+    if receipt is not None:
+        receipt.parent.mkdir(parents=True, exist_ok=True)
+        receipt.write_text(payload, encoding="utf-8")
+    typer.echo(payload)
 
 
 @app.command("prepare-strict-blind-taskpack")

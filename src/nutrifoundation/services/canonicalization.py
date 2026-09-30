@@ -35,6 +35,10 @@ PHRASE_ALIASES = (
     (r"diastolic blood pressure|\bdbp\b", "dbp"),
     (r"glycated hemoglobin|haemoglobin a1c|hemoglobin a1c|\bhba1c\b", "hba1c"),
     (r"impaired glucose tolerance|\bigt\b", "impaired_glucose_tolerance"),
+    (r"hazard ratio|\bhr\b", "hazard_ratio"),
+    (r"risk ratio|relative risk|\brr\b", "risk_ratio"),
+    (r"odds ratio|\bor\b", "odds_ratio"),
+    (r"confidence interval|\bci\b", "confidence_interval"),
 )
 
 STOPWORDS = {
@@ -73,6 +77,10 @@ CONFLICT_TAG_PAIRS = {
     ("not_causal", "randomized_evidence"),
     ("older_adult_scope", "younger_adult_scope"),
     ("without_diabetes", "t2d"),
+    ("low_fat", "low_carb"),
+    ("mediterranean", "low_fat"),
+    ("mediterranean", "low_carb"),
+    ("whole_grain", "refined_grain"),
 }
 
 

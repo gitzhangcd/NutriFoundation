@@ -1,0 +1,33 @@
+stage: E0.4.1
+artifact: FreshContextStrictBlindHandoff
+version: v0.1
+status: READY_NOT_EXECUTED
+
+reason_not_executed_here:
+  - current_conversation_has_prior_Batch001_exposure
+  - current_context_is_disqualified_by_StrictBlindAttestation
+
+source_fixture: fixtures/Batch001_Blind_SourceText_v0.1.json
+task_generation_command: nutri prepare-blind-batch --out-dir runs/E0.4.1/StrictBlind/tasks
+response_output_dir: runs/E0.4.1/StrictBlind/responses
+
+required_worker_metadata:
+  fresh_context_attestation: true
+  prior_batch_exposure: false
+  hidden_reference_available_to_worker: false
+  independent_worker_session: true
+  strict_blind_protocol_version: E0.4.1-v0.1
+
+forbidden_in_fresh_context:
+  - Batch001_EvidenceUnit_Frozen_v0.1.yaml
+  - prior_Batch001_response_artifacts
+  - prior_Batch001_gold_or_reference_wording
+  - scoring_outputs_before_response_freeze
+
+validation_command: nutri validate-strict-blind runs/E0.4.1/StrictBlind/responses --require
+scoring_command: nutri score-strict-blind-batch runs/E0.4.1/StrictBlind/responses
+
+interpretation:
+  - attestation_is_protocol_evidence_not_cryptographic_proof
+  - strict_blind_scoring_must_not_start_until_attestation_passes
+  - hidden_reference_is_loaded_only_after_response_set_is_frozen

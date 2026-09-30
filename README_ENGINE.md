@@ -1,4 +1,4 @@
-# NutriFoundation Engine v0.4.0
+# NutriFoundation Engine v0.4.1
 
 Executable reference implementation for the AI Nutri Data Foundation scientific evidence pipeline.
 
@@ -143,3 +143,67 @@ See:
 - `docs/E0.4_Execution_Report.md`
 - `runs/E0.4/Batch001/Blind_Replay_Report_v0.1.json`
 - `runs/E0.4/Batch001/Run_Metadata_v0.1.yaml`
+
+
+## E0.4.1 canonical semantic evaluation
+
+E0.4.1 replaces surface-string agreement with deterministic critical-field semantic normalization.
+
+```text
+Reference / Candidate
+        ↓
+CanonicalSemanticForm
+        ↓
+EquivalenceResult
+        ↓
+CanonicalBatchSummary
+```
+
+Development calibration:
+
+```text
+Semantic equivalence: 43 cases
+precision = 1.00
+recall = 1.00
+publication_grade = false
+
+F0 verifier: 20 cases
+precision = 1.00
+recall = 1.00
+publication_grade = false
+```
+
+Batch001 re-scoring of the unchanged E0.4 responses:
+
+```text
+128 / 137 critical fields canonically equivalent
+field equivalence rate = 93.43%
+15 / 20 cases fully equivalent across all reference critical fields
+complete-case rate = 75%
+```
+
+The reference is frozen F0, not independent expert Gold; these are development/benchmark-side metrics, not publication-grade accuracy.
+
+Current E0.4 responses fail strict-blind qualification because the conversation had prior Batch001 exposure.
+
+Fresh-context execution is prepared under:
+
+```text
+runs/E0.4.1/StrictBlind/
+```
+
+Commands:
+
+```bash
+nutri calibrate-semantic-equivalence
+nutri calibrate-verifier
+nutri score-canonical-batch
+nutri validate-strict-blind <response_dir> --require
+nutri score-strict-blind-batch <response_dir>
+```
+
+See:
+
+- `docs/E0.4.1_Executable_Contract.md`
+- `docs/E0.4.1_Execution_Report.md`
+- `docs/E0.4.1_Strict_Blind_Handoff.md`

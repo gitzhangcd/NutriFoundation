@@ -25,10 +25,10 @@ source_text_policy:
   missing_abstract_action: defer
   SA-B001-015_abstract_available: false
 remote_validation:
-  workflow_run_id: 36663159995
-  workflow_job_id: 109722096671
+  workflow_run_id: 36663521361
+  workflow_job_id: 109723200625
   conclusion: success
-  pytest: 42_passed
+  pytest: 44_passed
   executable_invariants: 30_passed
 final_metrics:
   case_count: 20

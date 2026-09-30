@@ -28,6 +28,7 @@ jobs:
       - run: python -m pip install -e '.[dev]'
       - run: pytest -q
       - run: nutri contract-check
+      - run: nutri blind-task-manifest
       - run: nutri validate-gold-gate fixtures/Batch001_ScientificClaim_Gold_Registry_v0.1.yaml
       - run: |
           rm -f /tmp/batch001_replay.db

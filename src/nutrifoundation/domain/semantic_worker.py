@@ -27,6 +27,7 @@ class SemanticTaskState(StrEnum):
     EXPORTED = "exported"
     RESPONDED = "responded"
     INGESTED = "ingested"
+    DEFERRED = "deferred"
     REJECTED = "rejected"
     F0_FROZEN = "f0_frozen"
 
@@ -125,12 +126,14 @@ TASK_STATE_TRANSITIONS: dict[SemanticTaskState, set[SemanticTaskState]] = {
     },
     SemanticTaskState.RESPONDED: {
         SemanticTaskState.INGESTED,
+        SemanticTaskState.DEFERRED,
         SemanticTaskState.REJECTED,
     },
     SemanticTaskState.INGESTED: {
         SemanticTaskState.F0_FROZEN,
         SemanticTaskState.REJECTED,
     },
+    SemanticTaskState.DEFERRED: set(),
     SemanticTaskState.REJECTED: set(),
     SemanticTaskState.F0_FROZEN: set(),
 }

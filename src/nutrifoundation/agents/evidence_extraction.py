@@ -46,7 +46,7 @@ def _fixture_item_to_evidence(
         exposure=item.get("exposure"),
         intervention_or_exposure=item.get("intervention_or_exposure"),
         comparator=item.get("comparator"),
-        outcome=item["outcome"],
+        outcome=item.get("outcome"),
         effect=item.get("effect"),
         recommendation=item.get("recommendation"),
         applicability_boundary=item.get("applicability_boundary"),

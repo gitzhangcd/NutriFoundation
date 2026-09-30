@@ -325,5 +325,39 @@ def score_blind_batch(
     typer.echo(json.dumps(result.as_dict(), indent=2, ensure_ascii=False))
 
 
+@app.command("blind-task-manifest")
+def blind_task_manifest(
+    source_fixture: Path = Path("fixtures/Batch001_Blind_SourceText_v0.1.json"),
+    batch_id: str = "B001",
+    run_id: str = "RUN-BLIND-B001-E04-v01",
+) -> None:
+    """Print compact deterministic task/hash manifest without loading Gold."""
+    records = load_source_fixture(source_fixture)
+    tasks = prepare_blind_tasks(
+        records,
+        batch_id=batch_id,
+        run_id=run_id,
+        created_at=fixed_e04_time(),
+    )
+    typer.echo(
+        json.dumps(
+            [
+                {
+                    "task_id": task.task_id,
+                    "source_id": task.source_id,
+                    "evidence_id": task.evidence_id,
+                    "task_sha256": task.task_sha256,
+                    "source_text_sha256": task.source_text_sha256,
+                    "contract_version": task.contract_version,
+                    "response_schema_version": task.response_schema_version,
+                }
+                for task in tasks
+            ],
+            indent=2,
+            ensure_ascii=False,
+        )
+    )
+
+
 if __name__ == "__main__":
     app()

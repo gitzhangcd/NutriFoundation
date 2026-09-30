@@ -48,7 +48,7 @@ class EvidenceUnit(FrozenModel):
     exposure: dict[str, Any] | str | None = None
     intervention_or_exposure: dict[str, Any] | str | None = None
     comparator: dict[str, Any] | str | None = None
-    outcome: dict[str, Any] | str
+    outcome: dict[str, Any] | str | None = None
     follow_up: str | None = None
     estimand: str | None = None
     effect_measure: str | None = None
@@ -81,6 +81,8 @@ class EvidenceUnit(FrozenModel):
             )
         if self.effect is None and self.effect_value is None and self.recommendation is None:
             raise ValueError("EvidenceUnit requires effect/effect_value or recommendation")
+        if self.recommendation is None and self.outcome is None:
+            raise ValueError("Effect-based EvidenceUnit requires outcome")
         if not (self.source_span or self.anchor):
             raise ValueError("EvidenceUnit requires source_span or anchor")
         return self

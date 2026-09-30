@@ -46,3 +46,11 @@ interpretation:
   - new_chat_changes_context_blindness_not_task_definition
   - attestation_is_protocol_evidence_not_cryptographic_proof
   - scoring_is_forbidden_before_response_freeze
+
+remote_validation:
+  workflow_run_id: 36747029678
+  workflow_job_id: 109995702237
+  conclusion: success
+  pytest: 71_passed
+  executable_invariants: 47_passed
+  blind_wall_audit: PASS

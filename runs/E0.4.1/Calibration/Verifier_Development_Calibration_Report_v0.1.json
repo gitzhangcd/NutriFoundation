@@ -1,0 +1,491 @@
+{
+  "summary": {
+    "reference_class": "contract_generated",
+    "case_count": 20,
+    "overall": {
+      "true_positive": 10,
+      "false_positive": 0,
+      "true_negative": 10,
+      "false_negative": 0,
+      "precision": 1,
+      "recall": 1,
+      "specificity": 1,
+      "f1": 1
+    },
+    "by_field": {
+      "applicability_boundary_present": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "true_negative": 1,
+        "false_negative": 0,
+        "precision": 0,
+        "recall": 0,
+        "specificity": 1,
+        "f1": 0
+      },
+      "guideline_authority_guard": {
+        "true_positive": 2,
+        "false_positive": 0,
+        "true_negative": 2,
+        "false_negative": 0,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "f1": 1
+      },
+      "independence": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "true_negative": 1,
+        "false_negative": 0,
+        "precision": 0,
+        "recall": 0,
+        "specificity": 1,
+        "f1": 0
+      },
+      "numeric_support": {
+        "true_positive": 4,
+        "false_positive": 0,
+        "true_negative": 2,
+        "false_negative": 0,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "f1": 1
+      },
+      "observational_causality_guard": {
+        "true_positive": 1,
+        "false_positive": 0,
+        "true_negative": 2,
+        "false_negative": 0,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "f1": 1
+      },
+      "overall": {
+        "true_positive": 1,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 0,
+        "f1": 1
+      },
+      "required_fields": {
+        "true_positive": 2,
+        "false_positive": 0,
+        "true_negative": 1,
+        "false_negative": 0,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "f1": 1
+      },
+      "source_linkage": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "true_negative": 1,
+        "false_negative": 0,
+        "precision": 0,
+        "recall": 0,
+        "specificity": 1,
+        "f1": 0
+      }
+    },
+    "false_positive_ids": [],
+    "false_negative_ids": [],
+    "publication_grade": false
+  },
+  "details": [
+    {
+      "case_id": "V01",
+      "target_check": "overall",
+      "expected_verified": true,
+      "predicted_verified": true,
+      "status": "verified",
+      "errors": [],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": true,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "V02",
+      "target_check": "numeric_support",
+      "expected_verified": true,
+      "predicted_verified": true,
+      "status": "verified",
+      "errors": [],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": true,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "V03",
+      "target_check": "numeric_support",
+      "expected_verified": true,
+      "predicted_verified": true,
+      "status": "verified",
+      "errors": [],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": true,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "V04",
+      "target_check": "observational_causality_guard",
+      "expected_verified": true,
+      "predicted_verified": true,
+      "status": "verified",
+      "errors": [],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": true,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "V05",
+      "target_check": "guideline_authority_guard",
+      "expected_verified": true,
+      "predicted_verified": true,
+      "status": "verified",
+      "errors": [],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": true,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "V06",
+      "target_check": "guideline_authority_guard",
+      "expected_verified": true,
+      "predicted_verified": true,
+      "status": "verified",
+      "errors": [],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": true,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "V07",
+      "target_check": "numeric_support",
+      "expected_verified": true,
+      "predicted_verified": true,
+      "status": "verified",
+      "errors": [],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": true,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "V08",
+      "target_check": "required_fields",
+      "expected_verified": true,
+      "predicted_verified": true,
+      "status": "verified",
+      "errors": [],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": true,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "V09",
+      "target_check": "required_fields",
+      "expected_verified": true,
+      "predicted_verified": true,
+      "status": "verified",
+      "errors": [],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": true,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "V10",
+      "target_check": "numeric_support",
+      "expected_verified": true,
+      "predicted_verified": true,
+      "status": "verified",
+      "errors": [],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": true,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "I01",
+      "target_check": "numeric_support",
+      "expected_verified": false,
+      "predicted_verified": false,
+      "status": "rejected",
+      "errors": [
+        "numeric tokens not found in source text: -9.9"
+      ],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": false,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "I02",
+      "target_check": "observational_causality_guard",
+      "expected_verified": false,
+      "predicted_verified": false,
+      "status": "rejected",
+      "errors": [
+        "observational source is not explicitly encoded as association-level evidence"
+      ],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": true,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": false,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "I03",
+      "target_check": "guideline_authority_guard",
+      "expected_verified": false,
+      "predicted_verified": false,
+      "status": "rejected",
+      "errors": [
+        "numeric tokens not found in source text: 0.80",
+        "guideline/consensus source must remain a source-stated recommendation"
+      ],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": false,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": false
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "I04",
+      "target_check": "applicability_boundary_present",
+      "expected_verified": false,
+      "predicted_verified": false,
+      "status": "rejected",
+      "errors": [
+        "applicability boundary missing"
+      ],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": true,
+        "applicability_boundary_present": false,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "I05",
+      "target_check": "required_fields",
+      "expected_verified": false,
+      "predicted_verified": false,
+      "status": "rejected",
+      "errors": [
+        "required scientific fields missing"
+      ],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": false,
+        "source_anchor_present": true,
+        "numeric_support": true,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "I06",
+      "target_check": "source_linkage",
+      "expected_verified": false,
+      "predicted_verified": false,
+      "status": "rejected",
+      "errors": [
+        "source linkage or source-text hash mismatch"
+      ],
+      "checks": {
+        "source_linkage": false,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": true,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "I07",
+      "target_check": "independence",
+      "expected_verified": false,
+      "predicted_verified": false,
+      "status": "rejected",
+      "errors": [
+        "verifier must be independent from extractor"
+      ],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": true,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "I08",
+      "target_check": "numeric_support",
+      "expected_verified": false,
+      "predicted_verified": false,
+      "status": "rejected",
+      "errors": [
+        "numeric tokens not found in source text: 30"
+      ],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": false,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "I09",
+      "target_check": "observational_causality_guard",
+      "expected_verified": false,
+      "predicted_verified": false,
+      "status": "rejected",
+      "errors": [
+        "observational source is not explicitly encoded as association-level evidence"
+      ],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": true,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": false,
+        "guideline_authority_guard": true
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    },
+    {
+      "case_id": "I10",
+      "target_check": "guideline_authority_guard",
+      "expected_verified": false,
+      "predicted_verified": false,
+      "status": "rejected",
+      "errors": [
+        "guideline/consensus source must remain a source-stated recommendation"
+      ],
+      "checks": {
+        "source_linkage": true,
+        "required_fields": true,
+        "source_anchor_present": true,
+        "numeric_support": true,
+        "applicability_boundary_present": true,
+        "observational_causality_guard": true,
+        "guideline_authority_guard": false
+      },
+      "label_provenance": "contract_generated_from_frozen_E0.3_verifier_invariants"
+    }
+  ],
+  "remote_validation": {
+    "workflow_run_id": 36699092903,
+    "workflow_job_id": 109834018107,
+    "conclusion": "success",
+    "pytest": "64 passed in 1.46s",
+    "executable_invariants": 38
+  }
+}

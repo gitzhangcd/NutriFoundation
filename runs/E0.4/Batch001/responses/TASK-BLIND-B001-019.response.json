@@ -1,0 +1,45 @@
+{
+  "response_id": "RESP-BLIND-B001-019",
+  "task_id": "TASK-BLIND-B001-019",
+  "task_sha256": "78ed0056601d07519de038542c63c7ce5b8f2f40934a1eaf4a49ec049afe6d97",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "820e6a07c5e8c73752b77f4f8c6a73d49bab3843dd9e3a21e0f3003de4ecf08c",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-019"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "observational_association_synthesis",
+    "population": "1966444 adults from 31 cohorts in 20 countries without diabetes at baseline",
+    "exposure": "Unprocessed red meat, processed meat, and poultry consumption",
+    "outcome": "Incident type 2 diabetes",
+    "effect": "HR 1.10 per 100 g/day unprocessed red meat, 1.15 per 50 g/day processed meat, and 1.08 per 100 g/day poultry; the poultry association was weaker under alternative modelling assumptions.",
+    "applicability_boundary": "Observational cohort synthesis with between-cohort heterogeneity and potential residual confounding; associations varied in precision across regions.",
+    "anchor": "PubMed abstract PMID 39174161"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

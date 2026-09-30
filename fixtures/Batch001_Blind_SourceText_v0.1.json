@@ -1,0 +1,457 @@
+[
+  {
+    "source_id": "SA-B001-001",
+    "evidence_id": "EU-B001-001",
+    "pmid": "19721018",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/19721018/",
+    "source_snapshot": {
+      "source_id": "SA-B001-001",
+      "source_type": "RCT",
+      "title": "Effects of a Mediterranean-style diet on the need for antihyperglycemic drug therapy in patients with newly diagnosed type 2 diabetes: a randomized trial.",
+      "identifiers": {
+        "doi": "10.7326/0003-4819-151-5-200909010-00004",
+        "pmid": "19721018",
+        "pmcid": null
+      },
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ]
+    },
+    "source_text": "BACKGROUND: Low-carbohydrate and low-fat calorie-restricted diets are recommended for weight loss in overweight and obese people with type 2 diabetes.\nOBJECTIVE: To compare the effects of a low-carbohydrate Mediterranean-style or a low-fat diet on the need for antihyperglycemic drug therapy in patients with newly diagnosed type 2 diabetes.\nDESIGN: Single-center, randomized trial. Randomization was computer-generated and unstratified. Allocation was concealed in sealed study folders held in a central, secure location until participants gave informed consent. Participants and investigators were aware of treatment assignment, and assessors of the primary outcome were blinded.\nSETTING: Teaching hospital in Naples, Italy.\nPATIENTS: 215 overweight people with newly diagnosed type 2 diabetes who were never treated with antihyperglycemic drugs and had hemoglobin A(1c) (HbA(1c)) levels less than 11%.\nINTERVENTION: Mediterranean-style diet (<50% of daily calories from carbohydrates) (n = 108) or a low-fat diet (<30% of daily calories from fat) (n = 107).\nMEASUREMENTS: Start of antihyperglycemic drug therapy, defined by protocol as indicated for follow-up HbA(1c) level greater than 7% (primary outcome), and changes in weight, glycemic control, and coronary risk factors (secondary outcomes).\nRESULTS: After 4 years, 44% of patients in the Mediterranean-style diet group and 70% in the low-fat diet group required treatment (absolute difference, -26.0 percentage points [95% CI, -31.1 to -20.1 percentage points]; hazard ratio, 0.63 [CI, 0.51 to 0.86]; hazard ratio adjusted for weight change, 0.70 [CI, 0.59 to 0.90]; P < 0.001). Participants assigned to the Mediterranean-style diet lost more weight and experienced greater improvements in some glycemic control and coronary risk measures than did those assigned to the low-fat diet.\nLIMITATIONS: Investigators responsible for initiating drug therapy were not blinded to treatment assignment. Dietary intake was self-reported.\nCONCLUSION: Compared with a low-fat diet, a low-carbohydrate, Mediterranean-style diet led to more favorable changes in glycemic control and coronary risk factors and delayed the need for antihyperglycemic drug therapy in overweight patients with newly diagnosed type 2 diabetes.\nPRIMARY FUNDING SOURCE: Second University of Naples."
+  },
+  {
+    "source_id": "SA-B001-002",
+    "evidence_id": "EU-B001-002",
+    "pmid": "11333990",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/11333990/",
+    "source_snapshot": {
+      "source_id": "SA-B001-002",
+      "source_type": "RCT",
+      "title": "Prevention of type 2 diabetes mellitus by changes in lifestyle among subjects with impaired glucose tolerance.",
+      "identifiers": {
+        "doi": "10.1056/NEJM200105033441801",
+        "pmid": "11333990",
+        "pmcid": null
+      },
+      "publication_types": [
+        "Clinical Trial",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ]
+    },
+    "source_text": "BACKGROUND: Type 2 diabetes mellitus is increasingly common, primarily because of increases in the prevalence of a sedentary lifestyle and obesity. Whether type 2 diabetes can be prevented by interventions that affect the lifestyles of subjects at high risk for the disease is not known.\nMETHODS: We randomly assigned 522 middle-aged, overweight subjects (172 men and 350 women; mean age, 55 years; mean body-mass index [weight in kilograms divided by the square of the height in meters], 31) with impaired glucose tolerance to either the intervention group or the control group. Each subject in the intervention group received individualized counseling aimed at reducing weight, total intake of fat, and intake of saturated fat and increasing intake of fiber and physical activity. An oral glucose-tolerance test was performed annually; the diagnosis of diabetes was confirmed by a second test. The mean duration of follow-up was 3.2 years.\nRESULTS: The mean (+/-SD) amount of weight lost between base line and the end of year 1 was 4.2+/-5.1 kg in the intervention group and 0.8+/-3.7 kg in the control group; the net loss by the end of year 2 was 3.5+/-5.5 kg in the intervention group and 0.8+/-4.4 kg in the control group (P<0.001 for both comparisons between the groups). The cumulative incidence of diabetes after four years was 11 percent (95 percent confidence interval, 6 to 15 percent) in the intervention group and 23 percent (95 percent confidence interval, 17 to 29 percent) in the control group. During the trial, the risk of diabetes was reduced by 58 percent (P<0.001) in the intervention group. The reduction in the incidence of diabetes was directly associated with changes in lifestyle.\nCONCLUSIONS: Type 2 diabetes can be prevented by changes in the lifestyles of high-risk subjects."
+  },
+  {
+    "source_id": "SA-B001-003",
+    "evidence_id": "EU-B001-003",
+    "pmid": "11832527",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/11832527/",
+    "source_snapshot": {
+      "source_id": "SA-B001-003",
+      "source_type": "RCT",
+      "title": "Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin.",
+      "identifiers": {
+        "doi": "10.1056/NEJMoa012512",
+        "pmid": "11832527",
+        "pmcid": "PMC1370926"
+      },
+      "publication_types": [
+        "Clinical Trial",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't",
+        "Research Support, U.S. Gov't, P.H.S."
+      ]
+    },
+    "source_text": "BACKGROUND: Type 2 diabetes affects approximately 8 percent of adults in the United States. Some risk factors--elevated plasma glucose concentrations in the fasting state and after an oral glucose load, overweight, and a sedentary lifestyle--are potentially reversible. We hypothesized that modifying these factors with a lifestyle-intervention program or the administration of metformin would prevent or delay the development of diabetes.\nMETHODS: We randomly assigned 3234 nondiabetic persons with elevated fasting and post-load plasma glucose concentrations to placebo, metformin (850 mg twice daily), or a lifestyle-modification program with the goals of at least a 7 percent weight loss and at least 150 minutes of physical activity per week. The mean age of the participants was 51 years, and the mean body-mass index (the weight in kilograms divided by the square of the height in meters) was 34.0; 68 percent were women, and 45 percent were members of minority groups.\nRESULTS: The average follow-up was 2.8 years. The incidence of diabetes was 11.0, 7.8, and 4.8 cases per 100 person-years in the placebo, metformin, and lifestyle groups, respectively. The lifestyle intervention reduced the incidence by 58 percent (95 percent confidence interval, 48 to 66 percent) and metformin by 31 percent (95 percent confidence interval, 17 to 43 percent), as compared with placebo; the lifestyle intervention was significantly more effective than metformin. To prevent one case of diabetes during a period of three years, 6.9 persons would have to participate in the lifestyle-intervention program, and 13.9 would have to receive metformin.\nCONCLUSIONS: Lifestyle changes and treatment with metformin both reduced the incidence of diabetes in persons at high risk. The lifestyle intervention was more effective than metformin."
+  },
+  {
+    "source_id": "SA-B001-004",
+    "evidence_id": "EU-B001-004",
+    "pmid": "29897866",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/29897866/",
+    "source_snapshot": {
+      "source_id": "SA-B001-004",
+      "source_type": "RCT",
+      "title": "Primary Prevention of Cardiovascular Disease with a Mediterranean Diet Supplemented with Extra-Virgin Olive Oil or Nuts.",
+      "identifiers": {
+        "doi": "10.1056/NEJMoa1800389",
+        "pmid": "29897866",
+        "pmcid": null
+      },
+      "publication_types": [
+        "Journal Article",
+        "Corrected and Republished Article"
+      ]
+    },
+    "source_text": "BACKGROUND: Observational cohort studies and a secondary prevention trial have shown inverse associations between adherence to the Mediterranean diet and cardiovascular risk.\nMETHODS: In a multicenter trial in Spain, we assigned 7447 participants (55 to 80 years of age, 57% women) who were at high cardiovascular risk, but with no cardiovascular disease at enrollment, to one of three diets: a Mediterranean diet supplemented with extra-virgin olive oil, a Mediterranean diet supplemented with mixed nuts, or a control diet (advice to reduce dietary fat). Participants received quarterly educational sessions and, depending on group assignment, free provision of extra-virgin olive oil, mixed nuts, or small nonfood gifts. The primary end point was a major cardiovascular event (myocardial infarction, stroke, or death from cardiovascular causes). After a median follow-up of 4.8 years, the trial was stopped on the basis of a prespecified interim analysis. In 2013, we reported the results for the primary end point in the Journal. We subsequently identified protocol deviations, including enrollment of household members without randomization, assignment to a study group without randomization of some participants at 1 of 11 study sites, and apparent inconsistent use of randomization tables at another site. We have withdrawn our previously published report and now report revised effect estimates based on analyses that do not rely exclusively on the assumption that all the participants were randomly assigned.\nRESULTS: A primary end-point event occurred in 288 participants; there were 96 events in the group assigned to a Mediterranean diet with extra-virgin olive oil (3.8%), 83 in the group assigned to a Mediterranean diet with nuts (3.4%), and 109 in the control group (4.4%). In the intention-to-treat analysis including all the participants and adjusting for baseline characteristics and propensity scores, the hazard ratio was 0.69 (95% confidence interval [CI], 0.53 to 0.91) for a Mediterranean diet with extra-virgin olive oil and 0.72 (95% CI, 0.54 to 0.95) for a Mediterranean diet with nuts, as compared with the control diet. Results were similar after the omission of 1588 participants whose study-group assignments were known or suspected to have departed from the protocol.\nCONCLUSIONS: In this study involving persons at high cardiovascular risk, the incidence of major cardiovascular events was lower among those assigned to a Mediterranean diet supplemented with extra-virgin olive oil or nuts than among those assigned to a reduced-fat diet. (Funded by Instituto de Salud Carlos III, Spanish Ministry of Health, and others; Current Controlled Trials number, ISRCTN35739639 .)."
+  },
+  {
+    "source_id": "SA-B001-005",
+    "evidence_id": "EU-B001-005",
+    "pmid": "23796131",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/23796131/",
+    "source_snapshot": {
+      "source_id": "SA-B001-005",
+      "source_type": "RCT",
+      "title": "Cardiovascular effects of intensive lifestyle intervention in type 2 diabetes.",
+      "identifiers": {
+        "doi": "10.1056/NEJMoa1212914",
+        "pmid": "23796131",
+        "pmcid": "PMC3791615"
+      },
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, N.I.H., Intramural",
+        "Research Support, Non-U.S. Gov't",
+        "Research Support, U.S. Gov't, Non-P.H.S.",
+        "Research Support, U.S. Gov't, P.H.S."
+      ]
+    },
+    "source_text": "BACKGROUND: Weight loss is recommended for overweight or obese patients with type 2 diabetes on the basis of short-term studies, but long-term effects on cardiovascular disease remain unknown. We examined whether an intensive lifestyle intervention for weight loss would decrease cardiovascular morbidity and mortality among such patients.\nMETHODS: In 16 study centers in the United States, we randomly assigned 5145 overweight or obese patients with type 2 diabetes to participate in an intensive lifestyle intervention that promoted weight loss through decreased caloric intake and increased physical activity (intervention group) or to receive diabetes support and education (control group). The primary outcome was a composite of death from cardiovascular causes, nonfatal myocardial infarction, nonfatal stroke, or hospitalization for angina during a maximum follow-up of 13.5 years.\nRESULTS: The trial was stopped early on the basis of a futility analysis when the median follow-up was 9.6 years. Weight loss was greater in the intervention group than in the control group throughout the study (8.6% vs. 0.7% at 1 year; 6.0% vs. 3.5% at study end). The intensive lifestyle intervention also produced greater reductions in glycated hemoglobin and greater initial improvements in fitness and all cardiovascular risk factors, except for low-density-lipoprotein cholesterol levels. The primary outcome occurred in 403 patients in the intervention group and in 418 in the control group (1.83 and 1.92 events per 100 person-years, respectively; hazard ratio in the intervention group, 0.95; 95% confidence interval, 0.83 to 1.09; P=0.51).\nCONCLUSIONS: An intensive lifestyle intervention focusing on weight loss did not reduce the rate of cardiovascular events in overweight or obese adults with type 2 diabetes. (Funded by the National Institutes of Health and others; Look AHEAD ClinicalTrials.gov number, NCT00017953.)."
+  },
+  {
+    "source_id": "SA-B001-006",
+    "evidence_id": "EU-B001-006",
+    "pmid": "18635428",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/18635428/",
+    "source_snapshot": {
+      "source_id": "SA-B001-006",
+      "source_type": "RCT",
+      "title": "Weight loss with a low-carbohydrate, Mediterranean, or low-fat diet.",
+      "identifiers": {
+        "doi": "10.1056/NEJMoa0708681",
+        "pmid": "18635428",
+        "pmcid": null
+      },
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ]
+    },
+    "source_text": "BACKGROUND: Trials comparing the effectiveness and safety of weight-loss diets are frequently limited by short follow-up times and high dropout rates.\nMETHODS: In this 2-year trial, we randomly assigned 322 moderately obese subjects (mean age, 52 years; mean body-mass index [the weight in kilograms divided by the square of the height in meters], 31; male sex, 86%) to one of three diets: low-fat, restricted-calorie; Mediterranean, restricted-calorie; or low-carbohydrate, non-restricted-calorie.\nRESULTS: The rate of adherence to a study diet was 95.4% at 1 year and 84.6% at 2 years. The Mediterranean-diet group consumed the largest amounts of dietary fiber and had the highest ratio of monounsaturated to saturated fat (P<0.05 for all comparisons among treatment groups). The low-carbohydrate group consumed the smallest amount of carbohydrates and the largest amounts of fat, protein, and cholesterol and had the highest percentage of participants with detectable urinary ketones (P<0.05 for all comparisons among treatment groups). The mean weight loss was 2.9 kg for the low-fat group, 4.4 kg for the Mediterranean-diet group, and 4.7 kg for the low-carbohydrate group (P<0.001 for the interaction between diet group and time); among the 272 participants who completed the intervention, the mean weight losses were 3.3 kg, 4.6 kg, and 5.5 kg, respectively. The relative reduction in the ratio of total cholesterol to high-density lipoprotein cholesterol was 20% in the low-carbohydrate group and 12% in the low-fat group (P=0.01). Among the 36 subjects with diabetes, changes in fasting plasma glucose and insulin levels were more favorable among those assigned to the Mediterranean diet than among those assigned to the low-fat diet (P<0.001 for the interaction among diabetes and Mediterranean diet and time with respect to fasting glucose levels).\nCONCLUSIONS: Mediterranean and low-carbohydrate diets may be effective alternatives to low-fat diets. The more favorable effects on lipids (with the low-carbohydrate diet) and on glycemic control (with the Mediterranean diet) suggest that personal preferences and metabolic considerations might inform individualized tailoring of dietary interventions. (ClinicalTrials.gov number, NCT00160108.)"
+  },
+  {
+    "source_id": "SA-B001-007",
+    "evidence_id": "EU-B001-007",
+    "pmid": "19246357",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/19246357/",
+    "source_snapshot": {
+      "source_id": "SA-B001-007",
+      "source_type": "RCT",
+      "title": "Comparison of weight-loss diets with different compositions of fat, protein, and carbohydrates.",
+      "identifiers": {
+        "doi": "10.1056/NEJMoa0804748",
+        "pmid": "19246357",
+        "pmcid": "PMC2763382"
+      },
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, N.I.H., Extramural"
+      ]
+    },
+    "source_text": "BACKGROUND: The possible advantage for weight loss of a diet that emphasizes protein, fat, or carbohydrates has not been established, and there are few studies that extend beyond 1 year.\nMETHODS: We randomly assigned 811 overweight adults to one of four diets; the targeted percentages of energy derived from fat, protein, and carbohydrates in the four diets were 20, 15, and 65%; 20, 25, and 55%; 40, 15, and 45%; and 40, 25, and 35%. The diets consisted of similar foods and met guidelines for cardiovascular health. The participants were offered group and individual instructional sessions for 2 years. The primary outcome was the change in body weight after 2 years in two-by-two factorial comparisons of low fat versus high fat and average protein versus high protein and in the comparison of highest and lowest carbohydrate content.\nRESULTS: At 6 months, participants assigned to each diet had lost an average of 6 kg, which represented 7% of their initial weight; they began to regain weight after 12 months. By 2 years, weight loss remained similar in those who were assigned to a diet with 15% protein and those assigned to a diet with 25% protein (3.0 and 3.6 kg, respectively); in those assigned to a diet with 20% fat and those assigned to a diet with 40% fat (3.3 kg for both groups); and in those assigned to a diet with 65% carbohydrates and those assigned to a diet with 35% carbohydrates (2.9 and 3.4 kg, respectively) (P>0.20 for all comparisons). Among the 80% of participants who completed the trial, the average weight loss was 4 kg; 14 to 15% of the participants had a reduction of at least 10% of their initial body weight. Satiety, hunger, satisfaction with the diet, and attendance at group sessions were similar for all diets; attendance was strongly associated with weight loss (0.2 kg per session attended). The diets improved lipid-related risk factors and fasting insulin levels.\nCONCLUSIONS: Reduced-calorie diets result in clinically meaningful weight loss regardless of which macronutrients they emphasize. (ClinicalTrials.gov number, NCT00072995.)"
+  },
+  {
+    "source_id": "SA-B001-008",
+    "evidence_id": "EU-B001-008",
+    "pmid": "29466592",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/29466592/",
+    "source_snapshot": {
+      "source_id": "SA-B001-008",
+      "source_type": "RCT",
+      "title": "Effect of Low-Fat vs Low-Carbohydrate Diet on 12-Month Weight Loss in Overweight Adults and the Association With Genotype Pattern or Insulin Secretion: The DIETFITS Randomized Clinical Trial.",
+      "identifiers": {
+        "doi": "10.1001/jama.2018.0245",
+        "pmid": "29466592",
+        "pmcid": "PMC5839290"
+      },
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, N.I.H., Extramural"
+      ]
+    },
+    "source_text": "IMPORTANCE: Dietary modification remains key to successful weight loss. Yet, no one dietary strategy is consistently superior to others for the general population. Previous research suggests genotype or insulin-glucose dynamics may modify the effects of diets.\nOBJECTIVE: To determine the effect of a healthy low-fat (HLF) diet vs a healthy low-carbohydrate (HLC) diet on weight change and if genotype pattern or insulin secretion are related to the dietary effects on weight loss.\nDESIGN, SETTING, AND PARTICIPANTS: The Diet Intervention Examining The Factors Interacting with Treatment Success (DIETFITS) randomized clinical trial included 609 adults aged 18 to 50 years without diabetes with a body mass index between 28 and 40. The trial enrollment was from January 29, 2013, through April 14, 2015; the date of final follow-up was May 16, 2016. Participants were randomized to the 12-month HLF or HLC diet. The study also tested whether 3 single-nucleotide polymorphism multilocus genotype responsiveness patterns or insulin secretion (INS-30; blood concentration of insulin 30 minutes after a glucose challenge) were associated with weight loss.\nINTERVENTIONS: Health educators delivered the behavior modification intervention to HLF (n = 305) and HLC (n = 304) participants via 22 diet-specific small group sessions administered over 12 months. The sessions focused on ways to achieve the lowest fat or carbohydrate intake that could be maintained long-term and emphasized diet quality.\nMAIN OUTCOMES AND MEASURES: Primary outcome was 12-month weight change and determination of whether there were significant interactions among diet type and genotype pattern, diet and insulin secretion, and diet and weight loss.\nRESULTS: Among 609 participants randomized (mean age, 40 [SD, 7] years; 57% women; mean body mass index, 33 [SD, 3]; 244 [40%] had a low-fat genotype; 180 [30%] had a low-carbohydrate genotype; mean baseline INS-30, 93 μIU/mL), 481 (79%) completed the trial. In the HLF vs HLC diets, respectively, the mean 12-month macronutrient distributions were 48% vs 30% for carbohydrates, 29% vs 45% for fat, and 21% vs 23% for protein. Weight change at 12 months was -5.3 kg for the HLF diet vs -6.0 kg for the HLC diet (mean between-group difference, 0.7 kg [95% CI, -0.2 to 1.6 kg]). There was no significant diet-genotype pattern interaction (P = .20) or diet-insulin secretion (INS-30) interaction (P = .47) with 12-month weight loss. There were 18 adverse events or serious adverse events that were evenly distributed across the 2 diet groups.\nCONCLUSIONS AND RELEVANCE: In this 12-month weight loss diet study, there was no significant difference in weight change between a healthy low-fat diet vs a healthy low-carbohydrate diet, and neither genotype pattern nor baseline insulin secretion was associated with the dietary effects on weight loss. In the context of these 2 common weight loss diet approaches, neither of the 2 hypothesized predisposing factors was helpful in identifying which diet was better for whom.\nTRIAL REGISTRATION: clinicaltrials.gov Identifier: NCT01826591."
+  },
+  {
+    "source_id": "SA-B001-009",
+    "evidence_id": "EU-B001-009",
+    "pmid": "17341711",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17341711/",
+    "source_snapshot": {
+      "source_id": "SA-B001-009",
+      "source_type": "RCT",
+      "title": "Comparison of the Atkins, Zone, Ornish, and LEARN diets for change in weight and related risk factors among overweight premenopausal women: the A TO Z Weight Loss Study: a randomized trial.",
+      "identifiers": {
+        "doi": "10.1001/jama.297.9.969",
+        "pmid": "17341711",
+        "pmcid": null
+      },
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, Non-U.S. Gov't"
+      ]
+    },
+    "source_text": "CONTEXT: Popular diets, particularly those low in carbohydrates, have challenged current recommendations advising a low-fat, high-carbohydrate diet for weight loss. Potential benefits and risks have not been tested adequately.\nOBJECTIVE: To compare 4 weight-loss diets representing a spectrum of low to high carbohydrate intake for effects on weight loss and related metabolic variables.\nDESIGN, SETTING, AND PARTICIPANTS: Twelve-month randomized trial conducted in the United States from February 2003 to October 2005 among 311 free-living, overweight/obese (body mass index, 27-40) nondiabetic, premenopausal women.\nINTERVENTION: Participants were randomly assigned to follow the Atkins (n = 77), Zone (n = 79), LEARN (n = 79), or Ornish (n = 76) diets and received weekly instruction for 2 months, then an additional 10-month follow-up.\nMAIN OUTCOME MEASURES: Weight loss at 12 months was the primary outcome. Secondary outcomes included lipid profile (low-density lipoprotein, high-density lipoprotein, and non-high-density lipoprotein cholesterol, and triglyceride levels), percentage of body fat, waist-hip ratio, fasting insulin and glucose levels, and blood pressure. Outcomes were assessed at months 0, 2, 6, and 12. The Tukey studentized range test was used to adjust for multiple testing.\nRESULTS: Weight loss was greater for women in the Atkins diet group compared with the other diet groups at 12 months, and mean 12-month weight loss was significantly different between the Atkins and Zone diets (P<.05). Mean 12-month weight loss was as follows: Atkins, -4.7 kg (95% confidence interval [CI], -6.3 to -3.1 kg), Zone, -1.6 kg (95% CI, -2.8 to -0.4 kg), LEARN, -2.6 kg (-3.8 to -1.3 kg), and Ornish, -2.2 kg (-3.6 to -0.8 kg). Weight loss was not statistically different among the Zone, LEARN, and Ornish groups. At 12 months, secondary outcomes for the Atkins group were comparable with or more favorable than the other diet groups.\nCONCLUSIONS: In this study, premenopausal overweight and obese women assigned to follow the Atkins diet, which had the lowest carbohydrate intake, lost more weight at 12 months than women assigned to follow the Zone diet, and had experienced comparable or more favorable metabolic effects than those assigned to the Zone, Ornish, or LEARN diets [corrected] While questions remain about long-term effects and mechanisms, a low-carbohydrate, high-protein, high-fat diet may be considered a feasible alternative recommendation for weight loss.\nTRIAL REGISTRATION: clinicaltrials.gov Identifier: NCT00079573."
+  },
+  {
+    "source_id": "SA-B001-010",
+    "evidence_id": "EU-B001-010",
+    "pmid": "29221645",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/29221645/",
+    "source_snapshot": {
+      "source_id": "SA-B001-010",
+      "source_type": "RCT",
+      "title": "Primary care-led weight management for remission of type 2 diabetes (DiRECT): an open-label, cluster-randomised trial.",
+      "identifiers": {
+        "doi": "10.1016/S0140-6736(17)33102-1",
+        "pmid": "29221645",
+        "pmcid": null
+      },
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ]
+    },
+    "source_text": "BACKGROUND: Type 2 diabetes is a chronic disorder that requires lifelong treatment. We aimed to assess whether intensive weight management within routine primary care would achieve remission of type 2 diabetes.\nMETHODS: We did this open-label, cluster-randomised trial (DiRECT) at 49 primary care practices in Scotland and the Tyneside region of England. Practices were randomly assigned (1:1), via a computer-generated list, to provide either a weight management programme (intervention) or best-practice care by guidelines (control), with stratification for study site (Tyneside or Scotland) and practice list size (>5700 or ≤5700). Participants, carers, and research assistants who collected outcome data were aware of group allocation; however, allocation was concealed from the study statistician. We recruited individuals aged 20-65 years who had been diagnosed with type 2 diabetes within the past 6 years, had a body-mass index of 27-45 kg/m2, and were not receiving insulin. The intervention comprised withdrawal of antidiabetic and antihypertensive drugs, total diet replacement (825-853 kcal/day formula diet for 3-5 months), stepped food reintroduction (2-8 weeks), and structured support for long-term weight loss maintenance. Co-primary outcomes were weight loss of 15 kg or more, and remission of diabetes, defined as glycated haemoglobin (HbA1c) of less than 6·5% (<48 mmol/mol) after at least 2 months off all antidiabetic medications, from baseline to 12 months. These outcomes were analysed hierarchically. This trial is registered with the ISRCTN registry, number 03267836.\nFINDINGS: Between July 25, 2014, and Aug 5, 2017, we recruited 306 individuals from 49 intervention (n=23) and control (n=26) general practices; 149 participants per group comprised the intention-to-treat population. At 12 months, we recorded weight loss of 15 kg or more in 36 (24%) participants in the intervention group and no participants in the control group (p<0·0001). Diabetes remission was achieved in 68 (46%) participants in the intervention group and six (4%) participants in the control group (odds ratio 19·7, 95% CI 7·8-49·8; p<0·0001). Remission varied with weight loss in the whole study population, with achievement in none of 76 participants who gained weight, six (7%) of 89 participants who maintained 0-5 kg weight loss, 19 (34%) of 56 participants with 5-10 kg loss, 16 (57%) of 28 participants with 10-15 kg loss, and 31 (86%) of 36 participants who lost 15 kg or more. Mean bodyweight fell by 10·0 kg (SD 8·0) in the intervention group and 1·0 kg (3·7) in the control group (adjusted difference -8·8 kg, 95% CI -10·3 to -7·3; p<0·0001). Quality of life, as measured by the EuroQol 5 Dimensions visual analogue scale, improved by 7·2 points (SD 21·3) in the intervention group, and decreased by 2·9 points (15·5) in the control group (adjusted difference 6·4 points, 95% CI 2·5-10·3; p=0·0012). Nine serious adverse events were reported by seven (4%) of 157 participants in the intervention group and two were reported by two (1%) participants in the control group. Two serious adverse events (biliary colic and abdominal pain), occurring in the same participant, were deemed potentially related to the intervention. No serious adverse events led to withdrawal from the study.\nINTERPRETATION: Our findings show that, at 12 months, almost half of participants achieved remission to a non-diabetic state and off antidiabetic drugs. Remission of type 2 diabetes is a practical target for primary care.\nFUNDING: Diabetes UK."
+  },
+  {
+    "source_id": "SA-B001-011",
+    "evidence_id": "EU-B001-011",
+    "pmid": "36513271",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/36513271/",
+    "source_snapshot": {
+      "source_id": "SA-B001-011",
+      "source_type": "MetaAnalysis",
+      "title": "Effect of dietary patterns on cardiovascular risk factors in people with type 2 diabetes. A systematic review and network meta-analysis.",
+      "identifiers": {
+        "doi": "10.1016/j.diabres.2022.110207",
+        "pmid": "36513271",
+        "pmcid": null
+      },
+      "publication_types": [
+        "Systematic Review",
+        "Journal Article",
+        "Network Meta-Analysis"
+      ]
+    },
+    "source_text": "AIMS: To identify the most effective dietary pattern for improving cardiovascular risk factors in people with type 2 diabetes.\nMETHODS: PubMed, Embase, the Cochrane library, SCOPUS and Web of Science were systematically searched for randomized controlled trials comparing the effects of dietary patterns on body weight, blood pressure, HbA1c and lipids after 6 and 12 months. Treatment effects were synthesized using Bayesian network meta-analysis. Six-month changes in HbA1c, SBP and LDL-C were used to estimate relative risk reductions (RRR) for cardiovascular events.\nRESULTS: Seventy-three RCTs on eight different dietary patterns were included. All reduced body weight and HbA1c after 6 months, with the largest effects from the low carbohydrate (body weight -4.8 kg, 95 %credibility interval (95 %CrI) -6.5;-3.2 kg) and Mediterranean diet (HbA1c -1.0 %, 95 %CrI -15;-0.4 % vs usual diet). There were no significant 6-month blood pressure or lipid effects. Dietary patterns had non-statistically significant 12-months effects. The Mediterranean diet resulted in the largest expected RRR for cardiovascular events: -16 % (95 %CI -31;3.0) vs usual diet.\nCONCLUSIONS: In patients with type 2 diabetes, all dietary patterns outperformed usual diet in improving body weight and HbA1c after 6 months and clinically relevant cardiovascular risk reduction could be achieved. There was insufficient evidence to select one optimal dietary pattern."
+  },
+  {
+    "source_id": "SA-B001-012",
+    "evidence_id": "EU-B001-012",
+    "pmid": "34796367",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/34796367/",
+    "source_snapshot": {
+      "source_id": "SA-B001-012",
+      "source_type": "SystematicReview",
+      "title": "Diets for weight management in adults with type 2 diabetes: an umbrella review of published meta-analyses and systematic review of trials of diets for diabetes remission.",
+      "identifiers": {
+        "doi": "10.1007/s00125-021-05577-2",
+        "pmid": "34796367",
+        "pmcid": "PMC8660762"
+      },
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ]
+    },
+    "source_text": "AIMS/HYPOTHESIS: Weight reduction is fundamental for type 2 diabetes management and remission, but uncertainty exists over which diet type is best to achieve and maintain weight loss. We evaluated dietary approaches for weight loss, and remission, in people with type 2 diabetes to inform practice and clinical guidelines.\nMETHODS: First, we conducted a systematic review of published meta-analyses of RCTs of weight-loss diets. We searched MEDLINE (Ovid), PubMed, Web of Science and Cochrane Database of Systematic Reviews, up to 7 May 2021. We synthesised weight loss findings stratified by diet types and assessed meta-analyses quality with A Measurement Tool to Assess Systematic Reviews (AMSTAR) 2. We assessed certainty of pooled results of each meta-analysis using Grading of Recommendations, Assessment, Development and Evaluations (GRADE) (PROSPERO CRD42020169258). Second, we conducted a systematic review of any intervention studies reporting type 2 diabetes remission with weight-loss diets, in MEDLINE (via PubMed), Embase and Cochrane Central Register of Controlled Trials, up to 10 May 2021. Findings were synthesised by diet type and study quality (Cochrane Risk of Bias tool 2.0 and Risk Of Bias In Non-randomised Studies - of Interventions [ROBINS-I]), with GRADE applied (PROSPERO CRD42020208878).\nRESULTS: We identified 19 meta-analyses of weight-loss diets, involving 2-23 primary trials (n = 100-1587), published 2013-2021. Twelve were 'critically low' or 'low' AMSTAR 2 quality, with seven 'high' quality. Greatest weight loss was reported with very low energy diets, 1.7-2.1 MJ/day (400-500 kcal) for 8-12 weeks (high-quality meta-analysis, GRADE low), achieving 6.6 kg (95% CI -9.5, -3.7) greater weight loss than low-energy diets (4.2-6.3 MJ/day [1000-1500 kcal]). Formula meal replacements (high quality, GRADE moderate) achieved 2.4 kg (95% CI -3.3, -1.4) greater weight loss over 12-52 weeks. Low-carbohydrate diets were no better for weight loss than higher-carbohydrate/low-fat diets (high quality, GRADE high). High-protein, Mediterranean, high-monounsaturated-fatty-acid, vegetarian and low-glycaemic-index diets all achieved minimal (0.3-2 kg) or no difference from control diets (low to critically low quality, GRADE very low/moderate). For type 2 diabetes remission, of 373 records, 16 met inclusion criteria. Remissions at 1 year were reported for a median 54% of participants in RCTs including initial low-energy total diet replacement (low-risk-of-bias study, GRADE high), and 11% and 15% for meal replacements and Mediterranean diets, respectively (some concerns for risk of bias in studies, GRADE moderate/low). For ketogenic/very low-carbohydrate and very low-energy food-based diets, the evidence for remission (20% and 22%, respectively) has serious and critical risk of bias, and GRADE certainty is very low.\nCONCLUSIONS/INTERPRETATION: Published meta-analyses of hypocaloric diets for weight management in people with type 2 diabetes do not support any particular macronutrient profile or style over others. Very low energy diets and formula meal replacement appear the most effective approaches, generally providing less energy than self-administered food-based diets. Programmes including a hypocaloric formula 'total diet replacement' induction phase were most effective for type 2 diabetes remission. Most of the evidence is restricted to 1 year or less. Well-conducted research is needed to assess longer-term impacts on weight, glycaemic control, clinical outcomes and diabetes complications."
+  },
+  {
+    "source_id": "SA-B001-013",
+    "evidence_id": "EU-B001-013",
+    "pmid": "30638909",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/30638909/",
+    "source_snapshot": {
+      "source_id": "SA-B001-013",
+      "source_type": "MetaAnalysis",
+      "title": "Carbohydrate quality and human health: a series of systematic reviews and meta-analyses.",
+      "identifiers": {
+        "doi": "10.1016/S0140-6736(18)31809-9",
+        "pmid": "30638909",
+        "pmcid": null
+      },
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ]
+    },
+    "source_text": "BACKGROUND: Previous systematic reviews and meta-analyses explaining the relationship between carbohydrate quality and health have usually examined a single marker and a limited number of clinical outcomes. We aimed to more precisely quantify the predictive potential of several markers, to determine which markers are most useful, and to establish an evidence base for quantitative recommendations for intakes of dietary fibre.\nMETHODS: We did a series of systematic reviews and meta-analyses of prospective studies published from database inception to April 30, 2017, and randomised controlled trials published from database inception to Feb 28, 2018, which reported on indicators of carbohydrate quality and non-communicable disease incidence, mortality, and risk factors. Studies were identified by searches in PubMed, Ovid MEDLINE, Embase, and the Cochrane Central Register of Controlled Trials, and by hand searching of previous publications. We excluded prospective studies and trials reporting on participants with a chronic disease, and weight loss trials or trials involving supplements. Searches, data extraction, and bias assessment were duplicated independently. Robustness of pooled estimates from random-effects models was considered with sensitivity analyses, meta-regression, dose-response testing, and subgroup analyses. The GRADE approach was used to assess quality of evidence.\nFINDINGS: Just under 135 million person-years of data from 185 prospective studies and 58 clinical trials with 4635 adult participants were included in the analyses. Observational data suggest a 15-30% decrease in all-cause and cardiovascular related mortality, and incidence of coronary heart disease, stroke incidence and mortality, type 2 diabetes, and colorectal cancer when comparing the highest dietary fibre consumers with the lowest consumers Clinical trials show significantly lower bodyweight, systolic blood pressure, and total cholesterol when comparing higher with lower intakes of dietary fibre. Risk reduction associated with a range of critical outcomes was greatest when daily intake of dietary fibre was between 25 g and 29 g. Dose-response curves suggested that higher intakes of dietary fibre could confer even greater benefit to protect against cardiovascular diseases, type 2 diabetes, and colorectal and breast cancer. Similar findings for whole grain intake were observed. Smaller or no risk reductions were found with the observational data when comparing the effects of diets characterised by low rather than higher glycaemic index or load. The certainty of evidence for relationships between carbohydrate quality and critical outcomes was graded as moderate for dietary fibre, low to moderate for whole grains, and low to very low for dietary glycaemic index and glycaemic load. Data relating to other dietary exposures are scarce.\nINTERPRETATION: Findings from prospective studies and clinical trials associated with relatively high intakes of dietary fibre and whole grains were complementary, and striking dose-response evidence indicates that the relationships to several non-communicable diseases could be causal. Implementation of recommendations to increase dietary fibre intake and to replace refined grains with whole grains is expected to benefit human health. A major strength of the study was the ability to examine key indicators of carbohydrate quality in relation to a range of non-communicable disease outcomes from cohort studies and randomised trials in a single study. Our findings are limited to risk reduction in the population at large rather than those with chronic disease.\nFUNDING: Health Research Council of New Zealand, WHO, Riddet Centre of Research Excellence, Healthier Lives National Science Challenge, University of Otago, and the Otago Southland Diabetes Research Trust."
+  },
+  {
+    "source_id": "SA-B001-014",
+    "evidence_id": "EU-B001-014",
+    "pmid": "31841598",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/31841598/",
+    "source_snapshot": {
+      "source_id": "SA-B001-014",
+      "source_type": "Cohort",
+      "title": "Ultraprocessed Food Consumption and Risk of Type 2 Diabetes Among Participants of the NutriNet-Santé Prospective Cohort.",
+      "identifiers": {
+        "doi": "10.1001/jamainternmed.2019.5942",
+        "pmid": "31841598",
+        "pmcid": "PMC6990737"
+      },
+      "publication_types": [
+        "Journal Article",
+        "Observational Study",
+        "Research Support, Non-U.S. Gov't"
+      ]
+    },
+    "source_text": "IMPORTANCE: Ultraprocessed foods (UPF) are widespread in Western diets. Their consumption has been associated in recent prospective studies with increased risks of all-cause mortality and chronic diseases such as cancer, cardiovascular diseases, hypertension, and dyslipidemia; however, data regarding diabetes are lacking.\nOBJECTIVE: To assess the associations between consumption of UPF and risk of type 2 diabetes (T2D).\nDESIGN, SETTING, AND PARTICIPANTS: In this population-based prospective cohort study, 104 707 participants aged 18 years or older from the French NutriNet-Santé cohort (2009-2019) were included. Dietary intake data were collected using repeated 24-hour dietary records (5.7 per participant on average), designed to register participants' usual consumption for more than 3500 different food items. These were categorized according to their degree of processing by the NOVA classification system.\nMAIN OUTCOMES AND MEASURES: Associations between UPF consumption and risk of T2D were assessed using cause-specific multivariable Cox proportional hazard models adjusted for known risk factors (sociodemographic, anthropometric, lifestyle, medical history, and nutritional factors).\nRESULTS: A total of 104 707 participants (21 800 [20.8%] men and 82 907 [79.2%] women) were included. Mean (SD) baseline age of participants was 42.7 (14.5) years. Absolute T2D rates in the lowest and highest UPF consumers were 113 and 166 per 100 000 person-years, respectively. Consumption of UPF was associated with a higher risk of T2D (multi-adjusted hazard ratio [HR] for an absolute increment of 10 in the percentage of UPF in the diet, 1.15; 95% CI, 1.06-1.25; median follow-up, 6.0 years; 582 252 person-years; 821 incident cases). These results remained statistically significant after adjustment for several markers of the nutritional quality of the diet, for other metabolic comorbidities (HR, 1.13; 95% CI, 1.03-1.23), and for weight change (HR, 1.13; 95% CI, 1.01-1.27). The absolute amount of UPF consumption (grams per day) was consistently associated with T2D risk, even when adjusting for unprocessed or minimally processed food intake (HR for a 100 g/d increase, 1.05; 95% CI, 1.02-1.08).\nCONCLUSIONS AND RELEVANCE: In this large observational prospective study, a higher proportion of UPF in the diet was associated with a higher risk of T2D. Even though these results need to be confirmed in other populations and settings, they provide evidence to support efforts by public health authorities to recommend limiting UPF consumption.\nTRIAL REGISTRATION: ClinicalTrials.gov Identifier: NCT03335644."
+  },
+  {
+    "source_id": "SA-B001-015",
+    "evidence_id": "EU-B001-015",
+    "pmid": "31000505",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/31000505/",
+    "source_snapshot": {
+      "source_id": "SA-B001-015",
+      "source_type": "Consensus",
+      "title": "Nutrition Therapy for Adults With Diabetes or Prediabetes: A Consensus Report.",
+      "identifiers": {
+        "doi": "10.2337/dci19-0014",
+        "pmid": "31000505",
+        "pmcid": "PMC7011201"
+      },
+      "publication_types": [
+        "Journal Article",
+        "Review"
+      ]
+    },
+    "source_text": "TITLE: Nutrition Therapy for Adults With Diabetes or Prediabetes: A Consensus Report.\nPUBMED ABSTRACT: unavailable"
+  },
+  {
+    "source_id": "SA-B001-016",
+    "evidence_id": "EU-B001-016",
+    "pmid": "32829751",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/32829751/",
+    "source_snapshot": {
+      "source_id": "SA-B001-016",
+      "source_type": "Guideline",
+      "title": "KDOQI Clinical Practice Guideline for Nutrition in CKD: 2020 Update.",
+      "identifiers": {
+        "doi": "10.1053/j.ajkd.2020.05.006",
+        "pmid": "32829751",
+        "pmcid": null
+      },
+      "publication_types": [
+        "Practice Guideline",
+        "Journal Article"
+      ]
+    },
+    "source_text": "The National Kidney Foundation's Kidney Disease Outcomes Quality Initiative (KDOQI) has provided evidence-based guidelines for nutrition in kidney diseases since 1999. Since the publication of the first KDOQI nutrition guideline, there has been a great accumulation of new evidence regarding the management of nutritional aspects of kidney disease and sophistication in the guidelines process. The 2020 update to the KDOQI Clinical Practice Guideline for Nutrition in CKD was developed as a joint effort with the Academy of Nutrition and Dietetics (Academy). It provides comprehensive up-to-date information on the understanding and care of patients with chronic kidney disease (CKD), especially in terms of their metabolic and nutritional milieu for the practicing clinician and allied health care workers. The guideline was expanded to include not only patients with end-stage kidney disease or advanced CKD, but also patients with stages 1-5 CKD who are not receiving dialysis and patients with a functional kidney transplant. The updated guideline statements focus on 6 primary areas: nutritional assessment, medical nutrition therapy (MNT), dietary protein and energy intake, nutritional supplementation, micronutrients, and electrolytes. The guidelines primarily cover dietary management rather than all possible nutritional interventions. The evidence data and guideline statements were evaluated using Grading of Recommendations, Assessment, Development and Evaluation (GRADE) criteria. As applicable, each guideline statement is accompanied by rationale/background information, a detailed justification, monitoring and evaluation guidance, implementation considerations, special discussions, and recommendations for future research."
+  },
+  {
+    "source_id": "SA-B001-017",
+    "evidence_id": "EU-B001-017",
+    "pmid": "35306388",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/35306388/",
+    "source_snapshot": {
+      "source_id": "SA-B001-017",
+      "source_type": "Guideline",
+      "title": "ESPEN practical guideline: Clinical nutrition and hydration in geriatrics.",
+      "identifiers": {
+        "doi": "10.1016/j.clnu.2022.01.024",
+        "pmid": "35306388",
+        "pmcid": null
+      },
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
+      ]
+    },
+    "source_text": "BACKGROUND: Malnutrition and dehydration are widespread in older people, and obesity is an increasing problem. In clinical practice, it is often unclear which strategies are suitable and effective in counteracting these key health threats.\nAIM: To provide evidence-based recommendations for clinical nutrition and hydration in older persons in order to prevent and/or treat malnutrition and dehydration. Further, to address whether weight-reducing interventions are appropriate for overweight or obese older persons.\nMETHODS: This guideline was developed according to the standard operating procedure for ESPEN guidelines and consensus papers. A systematic literature search for systematic reviews and primary studies was performed based on 33 clinical questions in PICO format. Existing evidence was graded according to the SIGN grading system. Recommendations were developed and agreed in a multistage consensus process.\nRESULTS: We provide eighty-two evidence-based recommendations for nutritional care in older persons, covering four main topics: Basic questions and general principles, recommendations for older persons with malnutrition or at risk of malnutrition, recommendations for older patients with specific diseases, and recommendations to prevent, identify and treat dehydration. Overall, we recommend that all older persons shall routinely be screened for malnutrition in order to identify an existing risk early. Oral nutrition can be supported by nursing interventions, education, nutritional counselling, food modification and oral nutritional supplements. Enteral nutrition should be initiated if oral, and parenteral if enteral nutrition is insufficient or impossible and the general prognosis is altogether favorable. Dietary restrictions should generally be avoided, and weight-reducing diets shall only be considered in obese older persons with weight-related health problems and combined with physical exercise. All older persons should be considered to be at risk of low-intake dehydration and encouraged to consume adequate amounts of drinks. Generally, interventions shall be individualized, comprehensive and part of a multimodal and multidisciplinary team approach.\nCONCLUSION: A range of effective interventions is available to support adequate nutrition and hydration in older persons in order to maintain or improve nutritional status and improve clinical course and quality of life. These interventions should be implemented in clinical practice and routinely used."
+  },
+  {
+    "source_id": "SA-B001-018",
+    "evidence_id": "EU-B001-018",
+    "pmid": "36477548",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/36477548/",
+    "source_snapshot": {
+      "source_id": "SA-B001-018",
+      "source_type": "MetaAnalysis",
+      "title": "Effect of salt reduction interventions in lowering blood pressure: A comprehensive systematic review and meta-analysis of controlled clinical trials.",
+      "identifiers": {
+        "doi": "10.1371/journal.pone.0277929",
+        "pmid": "36477548",
+        "pmcid": "PMC9728935"
+      },
+      "publication_types": [
+        "Meta-Analysis",
+        "Systematic Review",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ]
+    },
+    "source_text": "BACKGROUND: Excessive salt intake results in hypertension (HTN), which is a major risk factor for cardiovascular disease (CVD). This review and meta-analysis aimed to evaluate the effect of salt reduction interventions on systolic blood pressure (SBP) and diastolic blood pressure (DBP).\nMETHODS: Studies were identified via systematic searches of the databases, including PubMed, Embase, Scopus, and Web of Science. All the studies examining the effectiveness of salt reduction interventions on blood pressure (BP), regardless of age, sex, and HTN status, were included in the systematic review, and eligible studies were used in the meta-analysis. A random-effect model was applied for quantitative data synthesis.\nRESULTS: A total of 50 trials extracted from 40 articles (21 trials on nutrition education,10 on self-help materials,17 on salt substitutes, and 2 on food reformulation) were included in the systematic review. The pooled results of 44 eligible trials showed that salt substitution and nutrition education interventions had significant effects on both SBP (WMD: -7.44 mmHg, P<0.001 and WMD: -2.75 mmHg, P<0.001, respectively), and DBP (WMD: -3.77 mmHg, P<0.001 and WMD: -2.11 mmHg, P<0.001, respectively). Furthermore, using self-help materials led to a significant reduction in SBP among subjects aged 25-60 years (WMD: -2.60 mmHg, P = 0.008); it also decreased both SBP and DBP among those who were hypertensive (WMD: -3.87 mmHg, P = 0.003 and WMD: -2.91 mmHg, P<0.001, respectively).\nCONCLUSION: Our results supported that salt substitution and nutrition education are effective nutrition strategies to lower BP. It seems that multi-component approaches could be more effective in improving BP status. However, further trials are required."
+  },
+  {
+    "source_id": "SA-B001-019",
+    "evidence_id": "EU-B001-019",
+    "pmid": "39174161",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/39174161/",
+    "source_snapshot": {
+      "source_id": "SA-B001-019",
+      "source_type": "MetaAnalysis",
+      "title": "Meat consumption and incident type 2 diabetes: an individual-participant federated meta-analysis of 1·97 million adults with 100 000 incident cases from 31 cohorts in 20 countries.",
+      "identifiers": {
+        "doi": "10.1016/S2213-8587(24)00179-7",
+        "pmid": "39174161",
+        "pmcid": null
+      },
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't"
+      ]
+    },
+    "source_text": "BACKGROUND: Meat consumption could increase the risk of type 2 diabetes. However, evidence is largely based on studies of European and North American populations, with heterogeneous analysis strategies and a greater focus on red meat than on poultry. We aimed to investigate the associations of unprocessed red meat, processed meat, and poultry consumption with type 2 diabetes using data from worldwide cohorts and harmonised analytical approaches.\nMETHODS: This individual-participant federated meta-analysis involved data from 31 cohorts participating in the InterConnect project. Cohorts were from the region of the Americas (n=12) and the Eastern Mediterranean (n=2), European (n=9), South-East Asia (n=1), and Western Pacific (n=7) regions. Access to individual-participant data was provided by each cohort; participants were eligible for inclusion if they were aged 18 years or older and had available data on dietary consumption and incident type 2 diabetes and were excluded if they had a diagnosis of any type of diabetes at baseline or missing data. Cohort-specific hazard ratios (HRs) and 95% CIs were estimated for each meat type, adjusted for potential confounders (including BMI), and pooled using a random-effects meta-analysis, with meta-regression to investigate potential sources of heterogeneity.\nFINDINGS: Among 1 966 444 adults eligible for participation, 107 271 incident cases of type 2 diabetes were identified during a median follow-up of 10 (IQR 7-15) years. Median meat consumption across cohorts was 0-110 g/day for unprocessed red meat, 0-49 g/day for processed meat, and 0-72 g/day for poultry. Greater consumption of each of the three types of meat was associated with increased incidence of type 2 diabetes, with HRs of 1·10 (95% CI 1·06-1·15) per 100 g/day of unprocessed red meat (I2=61%), 1·15 (1·11-1·20) per 50 g/day of processed meat (I2=59%), and 1·08 (1·02-1·14) per 100 g/day of poultry (I2=68%). Positive associations between meat consumption and type 2 diabetes were observed in North America and in the European and Western Pacific regions; the CIs were wide in other regions. We found no evidence that the heterogeneity was explained by age, sex, or BMI. The findings for poultry consumption were weaker under alternative modelling assumptions. Replacing processed meat with unprocessed red meat or poultry was associated with a lower incidence of type 2 diabetes.\nINTERPRETATION: The consumption of meat, particularly processed meat and unprocessed red meat, is a risk factor for developing type 2 diabetes across populations. These findings highlight the importance of reducing meat consumption for public health and should inform dietary guidelines.\nFUNDING: The EU, the Medical Research Council, and the National Institute of Health Research Cambridge Biomedical Research Centre."
+  },
+  {
+    "source_id": "SA-B001-020",
+    "evidence_id": "EU-B001-020",
+    "pmid": "24158434",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/24158434/",
+    "source_snapshot": {
+      "source_id": "SA-B001-020",
+      "source_type": "MetaAnalysis",
+      "title": "Whole grain and refined grain consumption and the risk of type 2 diabetes: a systematic review and dose-response meta-analysis of cohort studies.",
+      "identifiers": {
+        "doi": "10.1007/s10654-013-9852-5",
+        "pmid": "24158434",
+        "pmcid": null
+      },
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ]
+    },
+    "source_text": "Several studies have suggested a protective effect of intake of whole grains, but not refined grains on type 2 diabetes risk, but the dose-response relationship between different types of grains and type 2 diabetes has not been established. We conducted a systematic review and meta-analysis of prospective studies of grain intake and type 2 diabetes. We searched the PubMed database for studies of grain intake and risk of type 2 diabetes, up to June 5th, 2013. Summary relative risks were calculated using a random effects model. Sixteen cohort studies were included in the analyses. The summary relative risk per 3 servings per day was 0.68 (95% CI 0.58-0.81, I(2) = 82%, n = 10) for whole grains and 0.95 (95% CI 0.88-1.04, I(2) = 53%, n = 6) for refined grains. A nonlinear association was observed for whole grains, p nonlinearity < 0.0001, but not for refined grains, p nonlinearity = 0.10. Inverse associations were observed for subtypes of whole grains including whole grain bread, whole grain cereals, wheat bran and brown rice, but these results were based on few studies, while white rice was associated with increased risk. Our meta-analysis suggests that a high whole grain intake, but not refined grains, is associated with reduced type 2 diabetes risk. However, a positive association with intake of white rice and inverse associations between several specific types of whole grains and type 2 diabetes warrant further investigations. Our results support public health recommendations to replace refined grains with whole grains and suggest that at least two servings of whole grains per day should be consumed to reduce type 2 diabetes risk."
+  }
+]

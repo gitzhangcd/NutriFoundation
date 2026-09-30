@@ -1,0 +1,46 @@
+{
+  "response_id": "RESP-BLIND-B001-010",
+  "task_id": "TASK-BLIND-B001-010",
+  "task_sha256": "72e59a8bc2da33f45f4b87a57d2ffef9632e457e64517358d0ff9b97122310be",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "c209d39eb8a07ee4db2e5fa17821de56e9828d0de259f4aca1cfa7000c01c2df",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-010"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "intervention_effect",
+    "population": "Adults aged 20 to 65 years with type 2 diabetes diagnosed within 6 years, BMI 27 to 45, and not receiving insulin",
+    "intervention": "Primary-care weight-management program including medication withdrawal, total diet replacement, food reintroduction, and structured weight-maintenance support",
+    "comparator": "Best-practice care by guidelines",
+    "outcome": "At least 15 kg weight loss and diabetes remission at 12 months",
+    "effect": "At least 15 kg weight loss occurred in 24% versus 0%; diabetes remission occurred in 46% versus 4%, odds ratio 19.7 (95% CI 7.8 to 49.8).",
+    "applicability_boundary": "Multicomponent primary-care program; effects cannot be attributed to diet alone.",
+    "anchor": "PubMed abstract PMID 29221645"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

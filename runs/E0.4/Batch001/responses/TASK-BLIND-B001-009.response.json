@@ -1,0 +1,46 @@
+{
+  "response_id": "RESP-BLIND-B001-009",
+  "task_id": "TASK-BLIND-B001-009",
+  "task_sha256": "6d39534844298baf5e5a23dee0925c2a0ecffe9d08b107f8add60ca92c47b425",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "98286dba5f663a8ee330c82cbbede1bf9d2ec27b700594e9be5f87edaa24a161",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-009"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "intervention_effect",
+    "population": "311 free-living overweight or obese nondiabetic premenopausal women",
+    "intervention": "Atkins diet",
+    "comparator": "Zone, LEARN, and Ornish diets",
+    "outcome": "Twelve-month weight loss",
+    "effect": "Mean 12-month weight loss was -4.7 kg Atkins, -1.6 kg Zone, -2.6 kg LEARN, and -2.2 kg Ornish; Atkins versus Zone was statistically significant (P<.05).",
+    "applicability_boundary": "Nondiabetic premenopausal women; trial duration was 12 months and longer-term effects remain uncertain.",
+    "anchor": "PubMed abstract PMID 17341711"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

@@ -1,0 +1,46 @@
+{
+  "response_id": "RESP-BLIND-B001-007",
+  "task_id": "TASK-BLIND-B001-007",
+  "task_sha256": "3f7a3c9cb71886160f0578bc4903d6bbfb4447f26928798d07c3f9ab010b0208",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "9e99087ccc231573f2a6084e5a5ca4eef87de09021fae1eeae930ca4e3ad4493",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-007"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "intervention_effect",
+    "population": "811 overweight adults",
+    "intervention": "Four reduced-calorie diets with different fat, protein and carbohydrate targets",
+    "comparator": "Alternative macronutrient targets",
+    "outcome": "Two-year change in body weight",
+    "effect": "At 2 years, weight loss remained similar across protein (3.0 vs 3.6 kg), fat (3.3 vs 3.3 kg), and carbohydrate (2.9 vs 3.4 kg) comparisons; P>0.20 for all comparisons.",
+    "applicability_boundary": "Reduced-calorie behavioral diets; participants began regaining weight after 12 months and session attendance was strongly associated with weight loss.",
+    "anchor": "PubMed abstract PMID 19246357"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

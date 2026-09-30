@@ -1,0 +1,41 @@
+taxonomy: E0.4_Semantic_Error_Taxonomy
+version: v0.1
+status: frozen
+
+errors:
+  - evidence_kind_mismatch
+  - population_scope_mismatch
+  - intervention_exposure_mismatch
+  - comparator_mismatch
+  - outcome_mismatch
+  - numeric_effect_mismatch
+  - effect_semantic_mismatch
+  - recommendation_mismatch
+  - applicability_boundary_mismatch
+  - source_anchor_mismatch
+  - causality_level_mismatch
+  - missing_critical_field
+  - verifier_rejection
+  - semantic_defer
+
+operational_escalation_policy:
+  observable_without_hidden_reference: true
+  mandatory_if:
+    - semantic_defer
+    - verifier_rejection
+    - no_F0_freeze
+    - semantic_uncertainty
+
+benchmark_adjudication_policy:
+  hidden_reference_required: true
+  flag_if:
+    - operational_escalation
+    - high_risk_hidden_reference_mismatch
+    - numeric_effect_mismatch
+    - causality_level_mismatch
+
+notes:
+  - deterministic lexical scoring is a benchmark triage signal, not final semantic truth
+  - operational escalation must never depend on hidden reference data
+  - benchmark adjudication rate is not the production human escalation rate
+  - human/expert adjudication is required for publication-level interpretation of benchmark-flagged cases

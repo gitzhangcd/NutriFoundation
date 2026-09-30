@@ -1,0 +1,46 @@
+{
+  "response_id": "RESP-BLIND-B001-005",
+  "task_id": "TASK-BLIND-B001-005",
+  "task_sha256": "d0e3750429ef1b9fefcc114c40364427357a8fcf7d4965e9596e5b35ed26ed58",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "a0669af99e8dd3f2c51642b68c2dc621a56ec3718552ec9d6cae548e3396efba",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-005"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "intervention_effect",
+    "population": "5145 overweight or obese adults with type 2 diabetes",
+    "intervention": "Intensive lifestyle intervention promoting weight loss through reduced caloric intake and increased physical activity",
+    "comparator": "Diabetes support and education",
+    "outcome": "Composite cardiovascular morbidity and mortality",
+    "effect": "Primary cardiovascular outcome hazard ratio was 0.95 (95% CI 0.83 to 1.09), P=0.51, despite greater weight loss and risk-factor improvements.",
+    "applicability_boundary": "Overweight or obese adults with type 2 diabetes; improvements in weight and risk factors did not establish cardiovascular-event reduction in this trial.",
+    "anchor": "PubMed abstract PMID 23796131"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

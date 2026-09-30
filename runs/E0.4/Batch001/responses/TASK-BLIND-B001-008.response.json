@@ -1,0 +1,46 @@
+{
+  "response_id": "RESP-BLIND-B001-008",
+  "task_id": "TASK-BLIND-B001-008",
+  "task_sha256": "76dfc8c1803782b57d497c9f42b4e6f73a5249bba22bec9f3077d74ce615750e",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "c4172dfed6159f2aa9fb3ebab3c5e6bf853d1c8ab0cf1e3c275478373d10a789",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-008"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "intervention_effect",
+    "population": "609 adults aged 18 to 50 years without diabetes and with BMI 28 to 40",
+    "intervention": "Healthy low-fat diet",
+    "comparator": "Healthy low-carbohydrate diet",
+    "outcome": "Twelve-month weight change and diet interactions with genotype pattern or insulin secretion",
+    "effect": "Weight change was -5.3 kg versus -6.0 kg, between-group difference 0.7 kg (95% CI -0.2 to 1.6); no significant diet-genotype interaction (P=.20) or diet-insulin secretion interaction (P=.47).",
+    "applicability_boundary": "Adults without diabetes; negative personalization results apply to the tested genotype patterns and INS-30 measure.",
+    "anchor": "PubMed abstract PMID 29466592"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

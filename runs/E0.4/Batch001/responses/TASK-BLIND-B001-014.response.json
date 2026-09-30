@@ -1,0 +1,45 @@
+{
+  "response_id": "RESP-BLIND-B001-014",
+  "task_id": "TASK-BLIND-B001-014",
+  "task_sha256": "f5ca60885fdd391dcdacdc7900255823d1a0e82c971d950dfa1a289a9468dd3f",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "8362506e8622b0775be3fe5698ac1e6d565a615a4d38b5c82f642e246963a883",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-014"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "observational_association",
+    "population": "104707 adults in the French NutriNet-Santé prospective cohort",
+    "exposure": "Higher ultraprocessed-food share of the diet",
+    "outcome": "Incident type 2 diabetes",
+    "effect": "Each absolute 10-percentage-point higher ultraprocessed-food share was associated with HR 1.15 (95% CI 1.06 to 1.25) over median follow-up of 6.0 years.",
+    "applicability_boundary": "Prospective observational association rather than randomized causal evidence; cohort was French and predominantly women.",
+    "anchor": "PubMed abstract PMID 31841598"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

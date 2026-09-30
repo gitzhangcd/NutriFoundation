@@ -1,0 +1,45 @@
+{
+  "response_id": "RESP-BLIND-B001-020",
+  "task_id": "TASK-BLIND-B001-020",
+  "task_sha256": "773827e1b4d70d7176bb960265ff39443ddc53b79530916280b2bbca353a4ca5",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "e6d6734be08ba8cd73331a24a1f61c44cb20c3ebd96cce0da36748457b550931",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-020"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "observational_association_synthesis",
+    "population": "Prospective cohort populations across 16 studies",
+    "exposure": "Whole-grain and refined-grain intake",
+    "outcome": "Incident type 2 diabetes",
+    "effect": "Per 3 servings/day, whole grains had summary RR 0.68 (95% CI 0.58 to 0.81; I2=82%) and refined grains RR 0.95 (95% CI 0.88 to 1.04; I2=53%).",
+    "applicability_boundary": "Cohort-based association; substantial heterogeneity for whole-grain estimates and grain-subtype results were based on fewer studies.",
+    "anchor": "PubMed abstract PMID 24158434"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

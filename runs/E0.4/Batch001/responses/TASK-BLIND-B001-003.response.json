@@ -1,0 +1,46 @@
+{
+  "response_id": "RESP-BLIND-B001-003",
+  "task_id": "TASK-BLIND-B001-003",
+  "task_sha256": "28058bd71b6d7ae5a6b9be84ca0c0016b897c3e16c2a0c2ce64cf67c938259a2",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "bc25b1546245af7c469401a8a5e57a1613a4d95c1840a4edf58543992d3d7d5a",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-003"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "intervention_effect",
+    "population": "3234 nondiabetic adults with elevated fasting and post-load plasma glucose",
+    "intervention": "Lifestyle-modification program targeting at least 7% weight loss and at least 150 minutes of physical activity per week",
+    "comparator": "Placebo",
+    "outcome": "Incident type 2 diabetes",
+    "effect": "Diabetes incidence was 4.8 versus 11.0 cases per 100 person-years; lifestyle intervention reduced incidence by 58% (95% CI 48 to 66%) versus placebo.",
+    "applicability_boundary": "Adults at high risk for diabetes with dysglycemia; intervention combines weight-loss and physical-activity targets.",
+    "anchor": "PubMed abstract PMID 11832527"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

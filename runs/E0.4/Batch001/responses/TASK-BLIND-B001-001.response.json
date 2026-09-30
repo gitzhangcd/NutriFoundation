@@ -1,0 +1,46 @@
+{
+  "response_id": "RESP-BLIND-B001-001",
+  "task_id": "TASK-BLIND-B001-001",
+  "task_sha256": "d44cb4f3baa4908bb9b42c234cd84ba0207874b86d6b18e2a3022eecf0320541",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "475eeb6c60ae0842e5427723703168f147f3d75b2021adda33edf5bc54725786",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-001"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "intervention_effect",
+    "population": "215 overweight adults with newly diagnosed type 2 diabetes who had never received antihyperglycemic drugs",
+    "intervention": "Low-carbohydrate Mediterranean-style diet",
+    "comparator": "Low-fat diet",
+    "outcome": "Initiation of antihyperglycemic drug therapy",
+    "effect": "After 4 years, 44% versus 70% required treatment; hazard ratio 0.63 (95% CI 0.51 to 0.86).",
+    "applicability_boundary": "Overweight adults with newly diagnosed, drug-naive type 2 diabetes; single-center trial with unblinded treatment-initiation investigators and self-reported diet.",
+    "anchor": "PubMed abstract PMID 19721018"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

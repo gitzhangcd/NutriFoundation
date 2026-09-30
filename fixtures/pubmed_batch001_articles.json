@@ -1,0 +1,113 @@
+[
+  {
+    "pmid": "19721018",
+    "title": "Mediterranean-style diet and antihyperglycemic therapy trial",
+    "journal": "Annals of internal medicine",
+    "publication_date": "2009-09-01",
+    "doi": "10.7326/0003-4819-151-5-200909010-00004",
+    "pmcid": null,
+    "publication_types": [
+      "Randomized Controlled Trial"
+    ]
+  },
+  {
+    "pmid": "11333990",
+    "title": "Finnish Diabetes Prevention Study",
+    "journal": "The New England journal of medicine",
+    "publication_date": "2001-05-03",
+    "doi": "10.1056/NEJM200105033441801",
+    "pmcid": null,
+    "publication_types": [
+      "Randomized Controlled Trial"
+    ]
+  },
+  {
+    "pmid": "11832527",
+    "title": "Diabetes Prevention Program lifestyle or metformin trial",
+    "journal": "The New England journal of medicine",
+    "publication_date": "2002-02-07",
+    "doi": "10.1056/NEJMoa012512",
+    "pmcid": "PMC1370926",
+    "publication_types": [
+      "Randomized Controlled Trial"
+    ]
+  },
+  {
+    "pmid": "29897866",
+    "title": "Corrected PREDIMED primary prevention trial",
+    "journal": "The New England journal of medicine",
+    "publication_date": "2018-06-21",
+    "doi": "10.1056/NEJMoa1800389",
+    "pmcid": null,
+    "publication_types": [
+      "Corrected and Republished Article"
+    ],
+    "abstract": "Participants were randomly assigned to dietary intervention groups."
+  },
+  {
+    "pmid": "23796131",
+    "title": "Look AHEAD cardiovascular outcomes trial",
+    "journal": "The New England journal of medicine",
+    "publication_date": "2013-07-11",
+    "doi": "10.1056/NEJMoa1212914",
+    "pmcid": "PMC3791615",
+    "publication_types": [
+      "Randomized Controlled Trial"
+    ]
+  },
+  {
+    "pmid": "18635428",
+    "title": "DIRECT low-carbohydrate Mediterranean low-fat diet trial",
+    "journal": "The New England journal of medicine",
+    "publication_date": "2008-07-17",
+    "doi": "10.1056/NEJMoa0708681",
+    "pmcid": null,
+    "publication_types": [
+      "Randomized Controlled Trial"
+    ]
+  },
+  {
+    "pmid": "19246357",
+    "title": "POUNDS LOST macronutrient trial",
+    "journal": "The New England journal of medicine",
+    "publication_date": "2009-02-26",
+    "doi": "10.1056/NEJMoa0804748",
+    "pmcid": "PMC2763382",
+    "publication_types": [
+      "Randomized Controlled Trial"
+    ]
+  },
+  {
+    "pmid": "29466592",
+    "title": "DIETFITS randomized clinical trial",
+    "journal": "JAMA",
+    "publication_date": "2018-02-20",
+    "doi": "10.1001/jama.2018.0245",
+    "pmcid": "PMC5839290",
+    "publication_types": [
+      "Randomized Controlled Trial"
+    ]
+  },
+  {
+    "pmid": "17341711",
+    "title": "A TO Z Weight Loss Study randomized trial",
+    "journal": "JAMA",
+    "publication_date": "2007-03-07",
+    "doi": "10.1001/jama.297.9.969",
+    "pmcid": null,
+    "publication_types": [
+      "Randomized Controlled Trial"
+    ]
+  },
+  {
+    "pmid": "29221645",
+    "title": "DiRECT type 2 diabetes remission trial",
+    "journal": "Lancet",
+    "publication_date": "2018-02-10",
+    "doi": "10.1016/S0140-6736(17)33102-1",
+    "pmcid": null,
+    "publication_types": [
+      "Randomized Controlled Trial"
+    ]
+  }
+]

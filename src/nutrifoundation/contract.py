@@ -28,4 +28,19 @@ E03_INVARIANTS = (
     ContractInvariant("f0_payload_immutable", "FrozenF0Payload == Immutable"),
 )
 
-EXECUTABLE_INVARIANTS = E01_INVARIANTS + E03_INVARIANTS
+E031_INVARIANTS = (
+    ContractInvariant("provider_logic_adapter_only", "ProviderLogic -> AdapterOnly"),
+    ContractInvariant("core_pipeline_provider_agnostic", "CorePipeline != ProviderSpecific"),
+    ContractInvariant("task_hash_binding", "ResponseTaskHash == TaskBundleHash"),
+    ContractInvariant("source_text_hash_binding", "ResponseSourceTextHash == TaskSourceTextHash"),
+    ContractInvariant("contract_version_binding", "ResponseContractVersion == TaskContractVersion"),
+    ContractInvariant("response_not_f0", "ResponseEnvelope != EvidenceUnit_F0"),
+    ContractInvariant("unknown_response_fields_rejected", "UnknownProviderField -> Reject"),
+    ContractInvariant("defer_without_guessing", "SemanticUncertainty -> DeferAllowed"),
+)
+
+EXECUTABLE_INVARIANTS = (
+    E01_INVARIANTS
+    + E03_INVARIANTS
+    + E031_INVARIANTS
+)

@@ -44,6 +44,9 @@ from nutrifoundation.services.strict_blind import (
     validate_strict_blind_responses,
 )
 from nutrifoundation.services.strict_blind_runner import score_strict_blind_batch
+from nutrifoundation.services.strict_blind_response_set import (
+    validate_strict_blind_response_set,
+)
 from nutrifoundation.services.strict_blind_response_bundle import materialize_bundle
 from nutrifoundation.services.strict_blind_taskpack import (
     audit_taskpack,
@@ -534,6 +537,30 @@ def audit_strict_blind_taskpack(
         report.parent.mkdir(parents=True, exist_ok=True)
         report.write_text(payload, encoding="utf-8")
     typer.echo(payload)
+    if result.status != "PASS":
+        raise typer.Exit(1)
+
+
+@app.command("validate-strict-blind-response-set")
+def validate_strict_blind_response_set_cmd(
+    bundle: Path = Path(
+        "runs/E0.4.2/C/StrictBlind_ResponseSet_FROZEN_v1.0.json"
+    ),
+    taskpack_manifest: Path = Path(
+        "runs/E0.4.2/A0/StrictBlind_TaskPack_Manifest_v1.0.json"
+    ),
+    expected_sha256: str = typer.Option(
+        "f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7",
+        "--expected-sha256",
+    ),
+) -> None:
+    """Validate the frozen strict-blind response bundle before any scoring."""
+    result = validate_strict_blind_response_set(
+        bundle_path=bundle,
+        taskpack_manifest_path=taskpack_manifest,
+        expected_bundle_sha256=expected_sha256,
+    )
+    typer.echo(json.dumps(result.as_dict(), indent=2, ensure_ascii=False))
     if result.status != "PASS":
         raise typer.Exit(1)
 

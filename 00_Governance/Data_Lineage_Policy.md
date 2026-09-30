@@ -211,3 +211,38 @@ Rules:
 - Chat-window execution uses file-based request/response transport but the same TaskBundle/ResponseEnvelope contract as future API/local-model adapters.
 - A new provider is admissible only after adapter conformance tests pass.
 - Downstream verifier, persistence, F0 freeze and GOLD governance must remain provider-unaware.
+
+
+## E0.4 Blind Evaluation Lineage
+
+Blind semantic evaluation uses a sidecar lineage that is explicitly separated from production truth construction:
+
+```text
+SourceArtifact / PubMed SourceText
+        ↓
+Source-only TaskBundle
+        ↓
+Frozen ResponseEnvelope
+        ↓
+IndependentEvidenceVerifier
+        ↓
+EvidenceUnit_F0 OR OperationalEscalation
+        ↓
+[only after response freeze]
+Hidden Frozen F0 Reference
+        ↓
+BlindReplaySummary / SemanticErrorTaxonomy
+        ↓
+Benchmark Adjudication Flags
+```
+
+Requirements:
+
+- Hidden reference data is forbidden from TaskBundle construction and semantic-worker input.
+- ResponseEnvelope artifacts must be frozen before hidden-reference scoring.
+- Operational escalation is computed only from deployment-observable signals: defer/failure/missing response, verifier rejection, no F0 freeze, or explicit semantic uncertainty.
+- Benchmark adjudication may use hidden-reference mismatches, but cannot mutate the already frozen semantic response or F0 object.
+- Benchmark adjudication rate must not be reported as production human-escalation rate.
+- Every run records a `BlindnessClass`.
+- `engineering_blind_current_context_prior_exposure` must not be described as strict cognitive blind.
+- Lexical/structural hidden-reference scores are evaluation sidecars and are not new EvidenceUnits.

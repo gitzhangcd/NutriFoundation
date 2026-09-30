@@ -74,7 +74,7 @@ E042A0_INVARIANTS = (
 
 E042C_INVARIANTS = (
     ContractInvariant("frozen_response_bundle_immutable", "StrictBlindResponseBundle == Frozen"),
-    ContractInvariant("response_bundle_hash_bound", "ResponseBundleSHA256 == FrozenSHA256"),
+    ContractInvariant("response_bundle_hash_bound", "CanonicalResponseBundleSHA256 == FrozenCanonicalSHA256"),\n    ContractInvariant("transport_hash_is_provenance", "UploadByteSHA256 -> ProvenanceOnly"),
     ContractInvariant("response_task_binding_complete", "StrictBlindResponseTaskBinding == 20/20"),
     ContractInvariant("response_source_binding_complete", "StrictBlindResponseSourceHashBinding == 20/20"),
     ContractInvariant("strict_attestation_precedes_scoring", "StrictBlindAttestationPASS -> HiddenReferenceScoringAllowed"),

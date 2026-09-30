@@ -71,7 +71,7 @@ def numeric_tokens(value: Any) -> set[str]:
     if value is None:
         return set()
     return {
-        x.replace("−", "-").replace("·", ".").replace(",", "")
+        x.replace("−", "-").replace("·", ".").replace(",", "").replace("%", "")
         for x in NUM_RE.findall(str(value))
     }
 
@@ -102,7 +102,7 @@ def score_field(field: str, gold: Any, observed: Any) -> FieldScore:
     if field in {"effect", "recommendation"} and gold is not None and observed is not None:
         gold_nums = numeric_tokens(gold)
         obs_nums = numeric_tokens(observed)
-        if gold_nums and gold_nums != obs_nums:
+        if gold_nums and not gold_nums.issubset(obs_nums):
             errors.append(SemanticErrorType.NUMERIC_EFFECT_MISMATCH.value)
 
     if match in {FieldMatch.MISMATCH, FieldMatch.MISSING} and field in ERROR_BY_FIELD:

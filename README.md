@@ -177,3 +177,27 @@ See:
 - `docs/E0.4_Executable_Contract.md`
 - `docs/E0.4_Execution_Report.md`
 - `runs/E0.4/Batch001/Blind_Replay_Report_v0.1.json`
+
+
+## Paper C｜Scientific Evidence Production
+
+Paper C P0 is now frozen as a publication-level methodology study.
+
+```text
+AB0–AB6 workflow comparison
++
+new Gold100 confirmatory corpus
++
+Critical Scientific Error Rate
++
+expert-burden endpoints
++
+publication-level kill tests
+```
+
+Batch001/E0.1–E0.4 remain development evidence and are excluded from confirmatory Gold100 claims.
+
+See:
+
+- `paper_c/README.md`
+- `paper_c/P0/Paper_C_P0_Scientific_Evidence_Production_Study_v0.1.md`

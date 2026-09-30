@@ -1,0 +1,53 @@
+{
+  "response_id": "RESP-STRICT-B001-007",
+  "task_id": "TASK-BLIND-B001-007",
+  "task_sha256": "3f7a3c9cb71886160f0578bc4903d6bbfb4447f26928798d07c3f9ab010b0208",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "9e99087ccc231573f2a6084e5a5ca4eef87de09021fae1eeae930ca4e3ad4493",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "RCT",
+    "population": "811 overweight adults assigned to four reduced-calorie diets for 2 years.",
+    "intervention": "Four diets varying in targeted fat, protein, and carbohydrate percentages.",
+    "exposure": null,
+    "intervention_or_exposure": "Reduced-calorie diets with different macronutrient compositions.",
+    "comparator": "Factorial comparisons of lower versus higher fat, average versus higher protein, and highest versus lowest carbohydrate content.",
+    "outcome": "Change in body weight at 2 years; satiety, attendance, lipid-related risk factors, and fasting insulin were also assessed.",
+    "effect": "At 2 years, weight loss was similar for 15% versus 25% protein (3.0 vs 3.6 kg), 20% versus 40% fat (3.3 vs 3.3 kg), and 65% versus 35% carbohydrate (2.9 vs 3.4 kg); P>0.20 for all comparisons.",
+    "recommendation": null,
+    "applicability_boundary": "Applies to overweight adults receiving structured diet instruction over 2 years; the study tested reduced-calorie diets meeting cardiovascular-health guidelines rather than unrestricted versions of these macronutrient patterns.",
+    "anchor": "RESULTS / CONCLUSIONS",
+    "source_span": "By 2 years, weight loss remained similar in those who were assigned to a diet with 15% protein and those assigned to 25% protein."
+  },
+  "confidence": null,
+  "uncertainties": [],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-007"
+    ],
+    "metadata": {}
+  }
+}

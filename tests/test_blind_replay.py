@@ -191,3 +191,14 @@ def test_source_only_task_generation_does_not_accept_hidden_gold(tmp_path):
     )
     assert len(tasks) == 2
     assert all(task.contract_version == "E0.4-v0.1" for task in tasks)
+
+
+def test_hidden_gold_numeric_scoring_allows_source_supported_superset():
+    from nutrifoundation.services.blind_scoring import score_field
+
+    score = score_field(
+        "effect",
+        "44% vs 70%; HR 0.63",
+        "After 4 years, 44% vs 70%; HR 0.63 and adjusted HR 0.70",
+    )
+    assert "numeric_effect_mismatch" not in score.errors

@@ -45,3 +45,36 @@ def test_run_manifest_persists(tmp_path):
     connection.close()
 
     assert row == ("RUN-1", "running")
+
+
+def test_completed_run_manifest_is_immutable(tmp_path):
+    import pytest
+
+    store = SQLiteStore(tmp_path / "x.db")
+    store.initialize()
+
+    started = datetime.now(timezone.utc)
+    running = RunManifest(
+        run_id="RUN-X",
+        pipeline_name="test",
+        pipeline_version="E0.2",
+        mode="test",
+        started_at=started,
+    )
+    completed = running.model_copy(
+        update={
+            "status": "completed",
+            "finished_at": datetime.now(timezone.utc),
+            "outputs": {"count": 1},
+        }
+    )
+
+    store.save_run_manifest(running)
+    store.save_run_manifest(completed)
+
+    changed = completed.model_copy(
+        update={"outputs": {"count": 2}}
+    )
+
+    with pytest.raises(ValueError):
+        store.save_run_manifest(changed)

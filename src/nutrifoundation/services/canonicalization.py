@@ -22,7 +22,7 @@ PHRASE_ALIASES = (
     (r"mediterranean[- ]style|mediterranean diet", "mediterranean"),
     (r"total diet replacement|\btdr\b", "total_diet_replacement"),
     (r"formula meal replacement(?:s)?", "meal_replacement"),
-    (r"ultra[- ]?processed food(?:s)?|\bupf\b", "ultraprocessed_food"),
+    (r"ultra[- ]?processed[- ]?food(?:s)?|\bupf\b", "ultraprocessed_food"),
     (r"whole[- ]grain(?:s)?", "whole_grain"),
     (r"refined[- ]grain(?:s)?", "refined_grain"),
     (r"medical nutrition therapy|\bmnt\b", "medical_nutrition_therapy"),
@@ -45,6 +45,8 @@ PHRASE_ALIASES = (
     (r"risk ratio|relative risk|\brr\b", "risk_ratio"),
     (r"odds ratio|\bor(?=\s+\d)", "odds_ratio"),
     (r"confidence interval|\bci\b", "confidence_interval"),
+    (r"\bgreater\b|\bhigher\b", "higher"),
+    (r"\bconsumption\b|\bintake\b", "intake"),
 )
 
 STOPWORDS = {
@@ -68,8 +70,8 @@ SEMANTIC_TAG_PATTERNS = (
     (r"subgroup|\b36 participants with diabetes\b", "subgroup"),
     (r"male[- ]dominant|86% male", "male_dominant"),
     (r"without diabetes|nondiabetic|non-diabetic", "without_diabetes"),
-    (r"older adult|older person|geriatric", "older_adult_scope"),
-    (r"younger adult", "younger_adult_scope"),
+    (r"older_adult|older adult|older person|geriatric", "older_adult_scope"),
+    (r"younger_adult|younger adult", "younger_adult_scope"),
     (r"french", "french_population"),
     (r"predominantly female|79\.2% women", "female_dominant"),
     (r"heterogeneity|heterogeneous", "heterogeneity"),
@@ -87,6 +89,8 @@ CONFLICT_TAG_PAIRS = {
     ("mediterranean", "low_fat"),
     ("mediterranean", "low_carb"),
     ("whole_grain", "refined_grain"),
+    ("red_meat", "poultry"),
+    ("impaired_glucose_tolerance", "t2d"),
 }
 
 
@@ -161,6 +165,9 @@ def canonicalize(field: str, value: Any) -> CanonicalSemanticForm:
         concepts = set(kind_aliases.get(compact, {compact} if compact else set()))
         semantic_tags |= concepts
 
+    if field == "effect" and "confidence_interval" in concepts:
+        numbers = tuple(number for number in numbers if number != "95")
+
     return CanonicalSemanticForm(
         field=field,
         concepts=tuple(sorted(concepts)),
@@ -179,6 +186,8 @@ def conflict_tags(
     cand = set(candidate.semantic_tags) | set(candidate.concepts)
     conflicts: list[str] = []
     for a, b in CONFLICT_TAG_PAIRS:
-        if (a in ref and b in cand) or (b in ref and a in cand):
+        forward = a in ref and b in cand and b not in ref and a not in cand
+        reverse = b in ref and a in cand and a not in ref and b not in cand
+        if forward or reverse:
             conflicts.append(f"{a}!={b}")
     return tuple(sorted(conflicts))

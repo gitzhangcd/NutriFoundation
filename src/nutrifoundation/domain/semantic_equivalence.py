@@ -214,3 +214,63 @@ class CanonicalBatchSummary:
             "complete_case_equivalence_rate": self.complete_case_equivalence_rate,
             "cases": [case.as_dict() for case in self.cases],
         }
+
+
+@dataclass(frozen=True)
+class SemanticBatchCase:
+    evidence_id: str
+    source_id: str
+    response_status: str
+    comparable_field_count: int
+    equivalent_field_count: int
+    all_critical_fields_equivalent: bool
+    non_equivalent_fields: tuple[str, ...]
+    field_results: tuple[EquivalenceResult, ...]
+
+    def as_dict(self) -> dict[str, Any]:
+        return {
+            "evidence_id": self.evidence_id,
+            "source_id": self.source_id,
+            "response_status": self.response_status,
+            "comparable_field_count": self.comparable_field_count,
+            "equivalent_field_count": self.equivalent_field_count,
+            "all_critical_fields_equivalent": self.all_critical_fields_equivalent,
+            "non_equivalent_fields": list(self.non_equivalent_fields),
+            "field_results": [item.as_dict() for item in self.field_results],
+        }
+
+
+@dataclass(frozen=True)
+class SemanticBatchSummary:
+    batch_id: str
+    reference_authority: str
+    publication_grade: bool
+    case_count: int
+    completed_response_count: int
+    deferred_count: int
+    comparable_field_count: int
+    equivalent_field_count: int
+    critical_field_equivalence_rate: float
+    all_critical_fields_equivalent_count: int
+    all_critical_fields_equivalent_rate: float
+    benchmark_adjudication_count: int
+    benchmark_adjudication_rate: float
+    cases: tuple[SemanticBatchCase, ...]
+
+    def as_dict(self) -> dict[str, Any]:
+        return {
+            "batch_id": self.batch_id,
+            "reference_authority": self.reference_authority,
+            "publication_grade": self.publication_grade,
+            "case_count": self.case_count,
+            "completed_response_count": self.completed_response_count,
+            "deferred_count": self.deferred_count,
+            "comparable_field_count": self.comparable_field_count,
+            "equivalent_field_count": self.equivalent_field_count,
+            "critical_field_equivalence_rate": self.critical_field_equivalence_rate,
+            "all_critical_fields_equivalent_count": self.all_critical_fields_equivalent_count,
+            "all_critical_fields_equivalent_rate": self.all_critical_fields_equivalent_rate,
+            "benchmark_adjudication_count": self.benchmark_adjudication_count,
+            "benchmark_adjudication_rate": self.benchmark_adjudication_rate,
+            "cases": [case.as_dict() for case in self.cases],
+        }

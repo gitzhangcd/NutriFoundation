@@ -171,6 +171,8 @@ class CanonicalCaseResult:
 @dataclass(frozen=True)
 class CanonicalBatchSummary:
     batch_id: str
+    reference_authority: str
+    publication_grade: bool
     case_count: int
     completed_response_count: int
     deferred_count: int
@@ -201,6 +203,8 @@ class CanonicalBatchSummary:
     def as_dict(self) -> dict[str, Any]:
         return {
             "batch_id": self.batch_id,
+            "reference_authority": self.reference_authority,
+            "publication_grade": self.publication_grade,
             "case_count": self.case_count,
             "completed_response_count": self.completed_response_count,
             "deferred_count": self.deferred_count,

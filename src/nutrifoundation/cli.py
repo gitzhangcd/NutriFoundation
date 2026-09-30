@@ -1,13 +1,21 @@
 from pathlib import Path
 import json
+import shlex
 
 import typer
 
+from nutrifoundation.agents.evidence_extraction import (
+    EvidenceExtractionAgent,
+    SubprocessEvidenceExtractionProvider,
+)
+from nutrifoundation.agents.evidence_verification import IndependentEvidenceVerifier
 from nutrifoundation.contract import E01_INVARIANTS
 from nutrifoundation.connectors.fixture import FixturePubMedConnector
 from nutrifoundation.connectors.ncbi import PMCConnector, PubMedConnector
 from nutrifoundation.io.loaders import load_structured
 from nutrifoundation.persistence.sqlite import SQLiteStore
+from nutrifoundation.services.evidence_pipeline import EvidenceProductionService
+from nutrifoundation.services.evidence_replay import replay_batch001_evidence
 from nutrifoundation.services.ingestion import SourceArtifactIngestionService
 from nutrifoundation.services.replay import replay_batch001
 
@@ -119,6 +127,63 @@ def replay_batch001_cmd(
         )
     )
 
+    if report.status != "PASS":
+        raise typer.Exit(1)
+
+
+@app.command("produce-evidence")
+def produce_evidence(
+    source_id: str,
+    evidence_id: str,
+    extractor_command: str = typer.Option(
+        ...,
+        help="External JSON extraction command, e.g. 'python my_extractor.py'",
+    ),
+    db: Path = Path("nutrifoundation.db"),
+) -> None:
+    """Run extraction -> independent verification -> F0 freeze for one source."""
+    provider = SubprocessEvidenceExtractionProvider(
+        shlex.split(extractor_command)
+    )
+    service = EvidenceProductionService(
+        EvidenceExtractionAgent(provider),
+        IndependentEvidenceVerifier(),
+        SQLiteStore(db),
+        mode="live",
+    )
+    manifest = service.produce([(source_id, evidence_id)])
+    typer.echo(manifest.model_dump_json(indent=2))
+    if manifest.status != "completed":
+        raise typer.Exit(1)
+
+
+@app.command("replay-evidence-batch001")
+def replay_evidence_batch001_cmd(
+    source_registry: Path = Path(
+        "fixtures/Batch001_Verified_SourceArtifact_Registry_v0.1.yaml"
+    ),
+    evidence_registry: Path = Path(
+        "fixtures/Batch001_EvidenceUnit_Frozen_v0.1.yaml"
+    ),
+    pubmed_fixture: Path = Path(
+        "fixtures/pubmed_batch001_articles.json"
+    ),
+    db: Path = Path("batch001_evidence_replay.db"),
+) -> None:
+    """Replay SourceArtifact -> EvidenceUnit candidate -> verification -> F0 for Batch001."""
+    report = replay_batch001_evidence(
+        source_registry,
+        pubmed_fixture,
+        evidence_registry,
+        SQLiteStore(db),
+    )
+    typer.echo(
+        json.dumps(
+            report.as_dict(),
+            indent=2,
+            ensure_ascii=False,
+        )
+    )
     if report.status != "PASS":
         raise typer.Exit(1)
 

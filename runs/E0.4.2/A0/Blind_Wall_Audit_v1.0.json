@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "task_count": 20,
+  "unique_task_ids": 20,
+  "unique_source_ids": 20,
+  "unique_evidence_ids": 20,
+  "task_hash_match_count": 20,
+  "source_hash_match_count": 20,
+  "forbidden_token_hits": [],
+  "forbidden_key_hits": [],
+  "reference_answer_visibility_violations": [],
+  "prior_response_artifacts_included": false,
+  "hidden_reference_artifacts_included": false,
+  "scoring_artifacts_included": false
+}

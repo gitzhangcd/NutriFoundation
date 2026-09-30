@@ -1,0 +1,55 @@
+{
+  "response_id": "RESP-STRICT-B001-016",
+  "task_id": "TASK-BLIND-B001-016",
+  "task_sha256": "a32556940b0ef4cbaf5365f1e92b390fc94960e3a340a48041b7d8421db1f9e8",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "5f71261a89b1721b00fca550faa4f0623533ed0ae5ff648bcd06776b1cac7bf3",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "Guideline",
+    "population": "Patients with chronic kidney disease, including stages 1-5 CKD not receiving dialysis, end-stage/advanced CKD, and patients with a functional kidney transplant.",
+    "intervention": "Dietary management and medical nutrition therapy across nutritional assessment, protein and energy intake, supplementation, micronutrients, and electrolytes.",
+    "exposure": null,
+    "intervention_or_exposure": "Evidence-based nutrition care and dietary management for CKD.",
+    "comparator": null,
+    "outcome": "The supplied excerpt describes guideline scope and development rather than a specific quantitative clinical outcome.",
+    "effect": null,
+    "recommendation": "The source establishes an evidence-based guideline covering six primary nutrition areas and indicates that statements were evaluated with GRADE; no specific numeric prescription is supplied in the excerpt.",
+    "applicability_boundary": "Applies to CKD populations explicitly included by the 2020 KDOQI update; specific recommendation strength, dose, or nutrient target must not be inferred from this overview excerpt.",
+    "anchor": "GUIDELINE SCOPE / DEVELOPMENT",
+    "source_span": "The updated guideline statements focus on 6 primary areas"
+  },
+  "confidence": null,
+  "uncertainties": [
+    "The excerpt does not contain individual guideline statements, recommendation grades, or numeric nutrient targets."
+  ],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-016"
+    ],
+    "metadata": {}
+  }
+}

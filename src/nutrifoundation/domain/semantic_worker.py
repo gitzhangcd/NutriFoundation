@@ -3,12 +3,22 @@ from __future__ import annotations
 import hashlib
 import json
 from datetime import datetime
-from enum import StrEnum
+from enum import Enum, StrEnum
 from typing import Any, Literal
 
 from pydantic import Field, model_validator
 
 from .models import FrozenModel, Provenance
+
+
+def _json_default(value: Any) -> Any:
+    if hasattr(value, "model_dump"):
+        return value.model_dump(mode="json")
+    if isinstance(value, datetime):
+        return value.isoformat()
+    if isinstance(value, Enum):
+        return value.value
+    raise TypeError(f"Not JSON serializable: {type(value)!r}")
 
 
 def canonical_sha256(payload: dict[str, Any]) -> str:
@@ -17,7 +27,7 @@ def canonical_sha256(payload: dict[str, Any]) -> str:
         ensure_ascii=False,
         sort_keys=True,
         separators=(",", ":"),
-        default=str,
+        default=_json_default,
     ).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
 

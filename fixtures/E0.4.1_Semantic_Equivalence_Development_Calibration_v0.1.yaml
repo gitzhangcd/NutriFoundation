@@ -323,6 +323,30 @@
       "candidate": "Poultry consumption",
       "expected_equivalent": false,
       "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ21",
+      "field": "comparator",
+      "reference": "Usual care",
+      "candidate": "Best-practice usual care",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "EQ22",
+      "field": "intervention_or_exposure",
+      "reference": "Higher dietary fibre and whole-grain intake",
+      "candidate": "Greater fiber and whole grain consumption",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label"
+    },
+    {
+      "case_id": "NE21",
+      "field": "intervention_or_exposure",
+      "reference": "Higher dietary fibre and whole-grain intake",
+      "candidate": "Processed red meat consumption",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label"
     }
   ]
 }

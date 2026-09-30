@@ -1,0 +1,56 @@
+{
+  "response_id": "RESP-STRICT-B001-012",
+  "task_id": "TASK-BLIND-B001-012",
+  "task_sha256": "d58f8727e78b9839fff182879a600b22a59e2d82a428a0b40f0579477ea1c440",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "03237c49adf21e888ca3521fbaa811c7e60dbbca4a02e9137f6b4c8bb2eb52cb",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "SystematicReview",
+    "population": "Adults with type 2 diabetes in meta-analyses of randomized weight-loss diet trials and intervention studies reporting diabetes remission.",
+    "intervention": "Weight-loss approaches including very-low-energy diets, formula meal replacement, low-carbohydrate, high-protein, Mediterranean, high-MUFA, vegetarian, low-GI and other diets.",
+    "exposure": null,
+    "intervention_or_exposure": "Weight-loss dietary approaches for people with type 2 diabetes.",
+    "comparator": "Various control or comparator diets across included reviews and trials.",
+    "outcome": "Weight loss and type 2 diabetes remission, largely within 1 year.",
+    "effect": "Very-low-energy diets (400-500 kcal/day for 8-12 weeks) achieved 6.6 kg greater weight loss than low-energy diets (95% CI -9.5 to -3.7; GRADE low). Formula meal replacements achieved 2.4 kg greater weight loss over 12-52 weeks (95% CI -3.3 to -1.4; GRADE moderate). Low-carbohydrate diets were no better for weight loss than higher-carbohydrate/low-fat diets (GRADE high). For remission at 1 year, RCTs with initial low-energy total diet replacement reported a median 54% remission; evidence for ketogenic/very-low-carbohydrate and very-low-energy food-based diets was very low certainty.",
+    "recommendation": null,
+    "applicability_boundary": "Applies to adults with type 2 diabetes and mainly short-term evidence of 1 year or less; long-term effects on weight, glycemic control, clinical outcomes, and complications remain uncertain.",
+    "anchor": "RESULTS / CONCLUSIONS",
+    "source_span": "Very low energy diets and formula meal replacement appear the most effective approaches, generally providing less energy than self-administered food-based diets."
+  },
+  "confidence": null,
+  "uncertainties": [
+    "Most evidence was restricted to 1 year or less.",
+    "Quality and certainty varied substantially across diet types and reviews."
+  ],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-012"
+    ],
+    "metadata": {}
+  }
+}

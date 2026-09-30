@@ -51,8 +51,9 @@ Engineering reference implementation:
 - E0.3 Evidence Extraction + Independent Verification + F0 Freeze + Batch001 Evidence replay: **PASS (remote CI verified)**
 - E0.3.1 Chat-Window Semantic Worker Bridge + Provider Portability: **PASS (remote CI verified)**
 - E0.4 Batch001 Blind Semantic Replay + Verifier / Escalation Audit: **PASS (engineering-blind, remote CI verified)**
-- E0.4.1 Canonical Semantic Normalization + Calibration + Strict-Blind Gate: **development calibration frozen; strict fresh-context execution pending**
-- E0.4.2-A0 Strict-Blind TaskPack + Blind-Wall Audit + Fresh-Context Handoff: **PASS (71 tests / 47 invariants; fresh-context semantic execution pending)**
+- E0.4.1 Canonical Semantic Normalization + Calibration + Strict-Blind Gate: **development calibration frozen**
+- E0.4.2-A0 Strict-Blind TaskPack + Blind-Wall Audit + Fresh-Context Handoff: **PASS**
+- E0.4.2-C Fresh-Context Strict-Blind Semantic Execution + Response Freeze + Attestation Gate: **PASS (strict attestation qualified; RAW scoring frozen)**
 - Python package: `src/nutrifoundation/`
 - Domain models: Pydantic v2 immutable types
 - Workflow state machine: retrieval → F0/F1 → claim → reception → reliability → human gate → GOLD
@@ -252,3 +253,32 @@ See:
 - `runs/E0.4.2/A0/Blind_Wall_Audit_v1.0.json`
 - `runs/E0.4.2/A0/Fresh_Context_Startup_Prompt_v1.0.md`
 - `docs/E0.4.2-A0_Executable_Contract.md`
+
+
+## E0.4.2-C strict-blind execution
+
+```text
+20 source-only tasks
+19 completed responses
+1 safe defer
+20/20 task/source bindings
+strict-blind attestation = PASS
+80 remote tests passed
+56 executable invariants passed
+```
+
+RAW post-freeze diagnostics:
+
+```text
+verifier / F0 yield = 75%
+canonical field equivalence = 67.88%
+complete-case equivalence = 0%
+```
+
+These are development diagnostics against the frozen Batch001 F0 reference, not human-independent publication-grade accuracy. The run exposed verifier formatting sensitivity and an A0 `kind`-ontology ambiguity; raw results are preserved and must not be overwritten by post-hoc repairs.
+
+See:
+
+- `docs/E0.4.2-C_Execution_Report.md`
+- `runs/E0.4.2/C/StrictBlind_ResponseSet_FROZEN_v1.0.json`
+- `runs/E0.4.2/C/StrictBlind_Scoring_Report_RAW_v1.0.json`

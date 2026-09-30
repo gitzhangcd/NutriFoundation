@@ -1,0 +1,46 @@
+{
+  "response_id": "RESP-BLIND-B001-013",
+  "task_id": "TASK-BLIND-B001-013",
+  "task_sha256": "e93774298da9a3ff5f659ceebac45bada36cc87950e9da5ef336e98b090818a0",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "5b17f89580b582888c81d3373ed0c120cfa29e91a8f586ed7ed6ca6ba0faa901",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-013"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "synthesis_effect",
+    "population": "General adult populations in prospective studies and clinical trials, excluding participants with chronic disease in the included analyses",
+    "intervention_or_exposure": "Higher dietary fibre and whole-grain intake",
+    "comparator": "Lower dietary fibre and whole-grain intake",
+    "outcome": "Mortality, cardiovascular outcomes, type 2 diabetes, cancer, and cardiometabolic risk factors",
+    "effect": "Observational data suggested 15-30% lower risk across several critical outcomes for higher fibre intake; clinical trials showed lower bodyweight, systolic blood pressure and total cholesterol, with greatest observed risk reduction around 25-29 g/day of fibre.",
+    "applicability_boundary": "Population-level evidence for people without chronic disease in included analyses; mixes prospective observational outcomes with randomized risk-factor trials.",
+    "anchor": "PubMed abstract PMID 30638909"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

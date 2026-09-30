@@ -39,8 +39,18 @@ E031_INVARIANTS = (
     ContractInvariant("defer_without_guessing", "SemanticUncertainty -> DeferAllowed"),
 )
 
+E04_INVARIANTS = (
+    ContractInvariant("blind_task_has_no_gold_input", "BlindTaskFactory !<- HiddenGold"),
+    ContractInvariant("gold_loaded_post_response", "HiddenGold -> ScoringOnly"),
+    ContractInvariant("engineering_blind_not_cognitive_blind", "EngineeringBlind != CognitiveBlind"),
+    ContractInvariant("verifier_yield_not_accuracy", "VerifierYield != SemanticAccuracy"),
+    ContractInvariant("defer_requires_escalation", "BlindDefer -> HumanEscalation"),
+    ContractInvariant("blind_context_recorded", "BlindnessClass -> Required"),
+)
+
 EXECUTABLE_INVARIANTS = (
     E01_INVARIANTS
     + E03_INVARIANTS
     + E031_INVARIANTS
+    + E04_INVARIANTS
 )

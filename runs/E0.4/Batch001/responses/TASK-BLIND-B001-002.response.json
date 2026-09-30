@@ -1,0 +1,46 @@
+{
+  "response_id": "RESP-BLIND-B001-002",
+  "task_id": "TASK-BLIND-B001-002",
+  "task_sha256": "c0fd259521bc29a9afd4091b5003b97ec4fa9cb7ecc7af157f3e8fda073d43b5",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "c0ac3392e4c84630c4e2abf296cee41f433a332366cfb0dd1f96ced1f951b8b0",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-002"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "intervention_effect",
+    "population": "522 middle-aged overweight adults with impaired glucose tolerance",
+    "intervention": "Individualized lifestyle counseling to reduce weight, total and saturated fat and increase fiber and physical activity",
+    "comparator": "Control group",
+    "outcome": "Incident type 2 diabetes",
+    "effect": "Four-year cumulative diabetes incidence was 11% versus 23%; diabetes risk was reduced by 58% during the trial.",
+    "applicability_boundary": "High-risk adults with impaired glucose tolerance receiving a multicomponent lifestyle intervention.",
+    "anchor": "PubMed abstract PMID 11333990"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

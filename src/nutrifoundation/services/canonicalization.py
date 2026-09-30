@@ -91,6 +91,8 @@ CONFLICT_TAG_PAIRS = {
     ("whole_grain", "refined_grain"),
     ("red_meat", "poultry"),
     ("impaired_glucose_tolerance", "t2d"),
+    ("not_causal", "causal_assertion"),
+    ("excludes_younger", "younger_scope_positive"),
 }
 
 
@@ -134,6 +136,26 @@ def canonicalize(field: str, value: Any) -> CanonicalSemanticForm:
         for pattern, tag in SEMANTIC_TAG_PATTERNS
         if re.search(pattern, text, flags=re.I)
     }
+
+    if re.search(r"randomized causal evidence", text, flags=re.I):
+        if re.search(
+            r"(?:not|rather than)\s+randomized causal evidence",
+            text,
+            flags=re.I,
+        ):
+            semantic_tags.add("not_causal")
+        else:
+            semantic_tags.add("causal_assertion")
+
+    younger_exclusion = re.search(
+        r"(?:not for|should not|do not|not .*generaliz|not .*extrapolat).*younger",
+        text,
+        flags=re.I,
+    )
+    if younger_exclusion:
+        semantic_tags.add("excludes_younger")
+    elif re.search(r"younger[_ ]adult", text, flags=re.I):
+        semantic_tags.add("younger_scope_positive")
 
     words = re.findall(r"[a-z_][a-z0-9_]*", text)
     concepts = {

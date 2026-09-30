@@ -549,16 +549,16 @@ def validate_strict_blind_response_set_cmd(
     taskpack_manifest: Path = Path(
         "runs/E0.4.2/A0/StrictBlind_TaskPack_Manifest_v1.0.json"
     ),
-    expected_sha256: str = typer.Option(
-        "f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7",
-        "--expected-sha256",
+    expected_canonical_sha256: str = typer.Option(
+        "513e9d3c09326b7ae715d6cc5b834d7f31decdc1162298190e3708bb31b7beca",
+        "--expected-canonical-sha256",
     ),
 ) -> None:
     """Validate the frozen strict-blind response bundle before any scoring."""
     result = validate_strict_blind_response_set(
         bundle_path=bundle,
         taskpack_manifest_path=taskpack_manifest,
-        expected_bundle_sha256=expected_sha256,
+        expected_canonical_sha256=expected_canonical_sha256,
     )
     typer.echo(json.dumps(result.as_dict(), indent=2, ensure_ascii=False))
     if result.status != "PASS":

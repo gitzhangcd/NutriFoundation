@@ -1,0 +1,27 @@
+schema: SemanticWorkerAdapterContract
+version: v0.1
+introduced_in: E0.3.1
+status: frozen
+
+interface:
+  input: TaskBundle
+  output: ResponseEnvelope
+
+required_behavior:
+  - expose_adapter_type
+  - preserve_task_id
+  - preserve_task_sha256
+  - preserve_source_text_sha256
+  - preserve_contract_version
+  - identify_worker_in_ResponseEnvelope
+  - return_only_ResponseEnvelope_contract
+
+portability_rule:
+  provider_specific_logic_location: adapter_only
+  downstream_provider_awareness: forbidden
+
+conformance:
+  - response_binding_check
+  - adapter_type_match
+  - ResponseEnvelope_schema_validation
+  - same_downstream_verifier_and_F0_pipeline

@@ -70,9 +70,12 @@ def test_equivalence_development_fixture_is_not_publication_grade():
     summary, _ = calibrate_fixture(
         ROOT / "fixtures/E0.4.1_Semantic_Equivalence_Development_Calibration_v0.1.yaml"
     )
-    assert summary.case_count == 40
+    assert summary.case_count == 43
     assert summary.reference_class == CalibrationReferenceClass.MODEL_ASSISTED_DEVELOPMENT.value
     assert summary.publication_grade is False
+    assert summary.overall.precision == 1.0
+    assert summary.overall.recall == 1.0
+    assert summary.overall.specificity == 1.0
 
 
 def test_verifier_contract_calibration_is_not_publication_grade():
@@ -142,3 +145,16 @@ def test_e041_contract_separates_development_from_publication_validation():
     assert "DevelopmentCalibration != PublicationValidation" in statements
     assert "StrictBlind -> FreshContextRequired" in statements
     assert "VerifierCalibration != EquivalenceCalibration" in statements
+
+
+def test_current_context_is_rejected_by_strict_blind_scoring(tmp_path):
+    from nutrifoundation.services.strict_blind_runner import score_strict_blind_batch
+
+    with pytest.raises(ValueError, match="does not qualify"):
+        score_strict_blind_batch(
+            source_fixture_path=ROOT / "fixtures/Batch001_Blind_SourceText_v0.1.json",
+            response_dir=ROOT / "runs/E0.4/Batch001/responses",
+            hidden_reference_path=ROOT / "fixtures/Batch001_EvidenceUnit_Frozen_v0.1.yaml",
+            db_path=tmp_path / "strict.db",
+            batch_id="B001",
+        )

@@ -51,6 +51,7 @@ Engineering reference implementation:
 - E0.3 Evidence Extraction + Independent Verification + F0 Freeze + Batch001 Evidence replay: **PASS (remote CI verified)**
 - E0.3.1 Chat-Window Semantic Worker Bridge + Provider Portability: **PASS (remote CI verified)**
 - E0.4 Batch001 Blind Semantic Replay + Verifier / Escalation Audit: **PASS (engineering-blind, remote CI verified)**
+- E0.4.1 Canonical Semantic Normalization + Calibration: **IMPLEMENTATION PASS; fresh-context strict-blind replay READY / pending new context**
 - Python package: `src/nutrifoundation/`
 - Domain models: Pydantic v2 immutable types
 - Workflow state machine: retrieval → F0/F1 → claim → reception → reliability → human gate → GOLD
@@ -177,3 +178,22 @@ See:
 - `docs/E0.4_Executable_Contract.md`
 - `docs/E0.4_Execution_Report.md`
 - `runs/E0.4/Batch001/Blind_Replay_Report_v0.1.json`
+
+
+## E0.4.1 canonical semantic calibration
+
+```text
+semantic-equivalence development calibration:
+43 cases, precision 1.00, recall 1.00
+
+verifier contract calibration:
+20 cases, precision 1.00, recall 1.00
+
+Batch001 unchanged responses:
+128/137 critical fields equivalent = 93.43%
+15/20 complete canonical cases = 75%
+```
+
+These calibration sets are not independent expert Gold and are explicitly non-publication-grade.
+
+The current conversation is disqualified from fresh-context strict-blind evaluation. The handoff package is frozen under `runs/E0.4.1/StrictBlind/`.

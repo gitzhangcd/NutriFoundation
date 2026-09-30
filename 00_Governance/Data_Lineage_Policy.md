@@ -141,3 +141,35 @@ Requirements:
 - PMC XML is stored byte-faithfully as retrieved, with SHA-256 and retrieval timestamp.
 - Offline replay fixtures are regression inputs only and are not scientific authority.
 - Live PubMed/PMC provider records remain the authoritative retrieval source for new scientific ingestion.
+
+
+## E0.3 Evidence Production Lineage
+
+Executable EvidenceUnit production follows:
+
+```text
+RunManifest
+    ↓
+SourceArtifact
+    +
+SourceTextSnapshot
+    ↓
+EvidenceExtractionCandidate
+    ↓
+EvidenceVerificationRecord
+    ↓
+F0FreezeRecord
+    ↓
+EvidenceUnit_F0
+```
+
+Requirements:
+
+- Extraction candidate preserves extractor identity, method, confidence and exact source-text SHA-256.
+- Independent verifier identity must differ from extractor identity for any `verified` result.
+- Verification must explicitly record source linkage, required-field presence, source anchor, numeric support, applicability boundary, observational-causality guard and guideline-authority guard.
+- A rejected verification record is retained for audit; rejection must not be silently discarded.
+- F0 freeze requires a `verified` EvidenceVerificationRecord and matching candidate/verification source-text hash.
+- Frozen F0 payloads are immutable. New evidence or corrected extraction requires a new version/object rather than silent mutation.
+- F0 is source-linked factual/source-stated evidence only. It is not F1 methodological qualification and not ScientificClaim/Decision GOLD.
+- Batch001 deterministic evidence replay is a regression test of pipeline/state/payload preservation. The frozen fixture is not a new independent scientific source.

@@ -1,0 +1,2205 @@
+{
+  "batch_id": "B001",
+  "blindness_class": "engineering_blind_current_context_prior_exposure",
+  "case_count": 20,
+  "completed_response_count": 19,
+  "deferred_count": 1,
+  "verifier_pass_count": 19,
+  "f0_freeze_count": 19,
+  "human_escalation_count": 14,
+  "critical_error_count": 27,
+  "exact_field_count": 59,
+  "near_or_exact_field_count": 80,
+  "comparable_field_count": 137,
+  "exact_field_rate": 0.4306569343065693,
+  "near_or_exact_field_rate": 0.583941605839416,
+  "verifier_yield": 0.95,
+  "f0_yield": 0.95,
+  "human_escalation_rate": 0.7,
+  "error_counts": {
+    "applicability_boundary_mismatch": 8,
+    "numeric_effect_mismatch": 5,
+    "intervention_exposure_mismatch": 3,
+    "semantic_defer": 1,
+    "missing_critical_field": 1,
+    "verifier_rejection": 1,
+    "population_scope_mismatch": 3,
+    "evidence_kind_mismatch": 1,
+    "recommendation_mismatch": 1,
+    "source_anchor_mismatch": 1
+  },
+  "cases": [
+    {
+      "evidence_id": "EU-B001-001",
+      "source_id": "SA-B001-001",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": "intervention_effect",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "partial",
+          "lexical_similarity": 0.5294117647058824,
+          "gold_value": "215 overweight adults with newly diagnosed, drug-naive type 2 diabetes",
+          "observed_value": "215 overweight adults with newly diagnosed type 2 diabetes who had never received antihyperglycemic drugs",
+          "errors": []
+        },
+        {
+          "field": "intervention",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Low-carbohydrate Mediterranean-style diet",
+          "observed_value": "Low-carbohydrate Mediterranean-style diet",
+          "errors": []
+        },
+        {
+          "field": "exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Low-fat diet",
+          "observed_value": "Low-fat diet",
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Initiation of antihyperglycemic drug therapy",
+          "observed_value": "Initiation of antihyperglycemic drug therapy",
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "partial",
+          "lexical_similarity": 0.5,
+          "gold_value": "44% vs 70% required therapy at 4 years; HR 0.63 (95% CI 0.51-0.86)",
+          "observed_value": "After 4 years, 44% versus 70% required treatment; hazard ratio 0.63 (95% CI 0.51 to 0.86).",
+          "errors": []
+        },
+        {
+          "field": "recommendation",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "mismatch",
+          "lexical_similarity": 0.22727272727272727,
+          "gold_value": "Newly diagnosed, overweight, drug-naive T2D",
+          "observed_value": "Overweight adults with newly diagnosed, drug-naive type 2 diabetes; single-center trial with unblinded treatment-initiation investigators and self-reported diet.",
+          "errors": [
+            "applicability_boundary_mismatch"
+          ]
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 19721018",
+          "observed_value": "PubMed abstract PMID 19721018",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 1,
+      "exact_field_count": 4,
+      "comparable_field_count": 7,
+      "human_escalation_required": true,
+      "escalation_reasons": [
+        "applicability_boundary_mismatch"
+      ],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-002",
+      "source_id": "SA-B001-002",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": "intervention_effect",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "522 middle-aged overweight adults with impaired glucose tolerance",
+          "observed_value": "522 middle-aged overweight adults with impaired glucose tolerance",
+          "errors": []
+        },
+        {
+          "field": "intervention",
+          "match": "partial",
+          "lexical_similarity": 0.6666666666666666,
+          "gold_value": "Individualized lifestyle counseling targeting weight, fat, saturated fat, fiber, and physical activity",
+          "observed_value": "Individualized lifestyle counseling to reduce weight, total and saturated fat and increase fiber and physical activity",
+          "errors": []
+        },
+        {
+          "field": "exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "partial",
+          "lexical_similarity": 0.5,
+          "gold_value": "Control",
+          "observed_value": "Control group",
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Incident type 2 diabetes",
+          "observed_value": "Incident type 2 diabetes",
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "partial",
+          "lexical_similarity": 0.47368421052631576,
+          "gold_value": "4-year cumulative incidence 11% vs 23%; 58% risk reduction during trial",
+          "observed_value": "Four-year cumulative diabetes incidence was 11% versus 23%; diabetes risk was reduced by 58% during the trial.",
+          "errors": [
+            "numeric_effect_mismatch"
+          ]
+        },
+        {
+          "field": "recommendation",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "partial",
+          "lexical_similarity": 0.35714285714285715,
+          "gold_value": "High-risk IGT population; multicomponent lifestyle intervention",
+          "observed_value": "High-risk adults with impaired glucose tolerance receiving a multicomponent lifestyle intervention.",
+          "errors": []
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 11333990",
+          "observed_value": "PubMed abstract PMID 11333990",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 1,
+      "exact_field_count": 3,
+      "comparable_field_count": 7,
+      "human_escalation_required": true,
+      "escalation_reasons": [
+        "numeric_effect_mismatch"
+      ],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-003",
+      "source_id": "SA-B001-003",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": "intervention_effect",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "near",
+          "lexical_similarity": 0.9090909090909091,
+          "gold_value": "3234 nondiabetic adults with elevated fasting and post-load glucose",
+          "observed_value": "3234 nondiabetic adults with elevated fasting and post-load plasma glucose",
+          "errors": []
+        },
+        {
+          "field": "intervention",
+          "match": "mismatch",
+          "lexical_similarity": 0.1111111111111111,
+          "gold_value": "Intensive lifestyle modification",
+          "observed_value": "Lifestyle-modification program targeting at least 7% weight loss and at least 150 minutes of physical activity per week",
+          "errors": [
+            "intervention_exposure_mismatch"
+          ]
+        },
+        {
+          "field": "exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Placebo",
+          "observed_value": "Placebo",
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Incident type 2 diabetes",
+          "observed_value": "Incident type 2 diabetes",
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "partial",
+          "lexical_similarity": 0.44,
+          "gold_value": "4.8 vs 11.0 cases per 100 person-years; 58% reduction (95% CI 48%-66%)",
+          "observed_value": "Diabetes incidence was 4.8 versus 11.0 cases per 100 person-years; lifestyle intervention reduced incidence by 58% (95% CI 48 to 66%) versus placebo.",
+          "errors": [
+            "numeric_effect_mismatch"
+          ]
+        },
+        {
+          "field": "recommendation",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "partial",
+          "lexical_similarity": 0.5,
+          "gold_value": "High-risk dysglycemia; lifestyle includes weight-loss and physical-activity targets",
+          "observed_value": "Adults at high risk for diabetes with dysglycemia; intervention combines weight-loss and physical-activity targets.",
+          "errors": []
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 11832527",
+          "observed_value": "PubMed abstract PMID 11832527",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 2,
+      "exact_field_count": 3,
+      "comparable_field_count": 7,
+      "human_escalation_required": true,
+      "escalation_reasons": [
+        "intervention_exposure_mismatch",
+        "numeric_effect_mismatch"
+      ],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-004",
+      "source_id": "SA-B001-004",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": "intervention_effect",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "near",
+          "lexical_similarity": 0.8571428571428571,
+          "gold_value": "7447 adults aged 55-80 at high cardiovascular risk without cardiovascular disease at enrollment",
+          "observed_value": "7447 adults aged 55 to 80 years at high cardiovascular risk without cardiovascular disease at enrollment",
+          "errors": []
+        },
+        {
+          "field": "intervention",
+          "match": "near",
+          "lexical_similarity": 0.8181818181818182,
+          "gold_value": "Mediterranean diet + extra-virgin olive oil OR Mediterranean diet + mixed nuts",
+          "observed_value": "Mediterranean diet supplemented with extra-virgin olive oil or Mediterranean diet supplemented with mixed nuts",
+          "errors": []
+        },
+        {
+          "field": "exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "partial",
+          "lexical_similarity": 0.625,
+          "gold_value": "Advice to reduce dietary fat",
+          "observed_value": "Control diet with advice to reduce dietary fat",
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Major cardiovascular event",
+          "observed_value": "Major cardiovascular event",
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "partial",
+          "lexical_similarity": 0.48,
+          "gold_value": "Adjusted HR 0.69 (95% CI 0.53-0.91) for EVOO arm and 0.72 (95% CI 0.54-0.95) for nuts arm vs control",
+          "observed_value": "Hazard ratio 0.69 (95% CI 0.53 to 0.91) for extra-virgin olive oil and 0.72 (95% CI 0.54 to 0.95) for nuts versus control.",
+          "errors": []
+        },
+        {
+          "field": "recommendation",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "partial",
+          "lexical_similarity": 0.5,
+          "gold_value": "High-CV-risk primary-prevention Spanish population; corrected analysis accounts for protocol/randomization deviations",
+          "observed_value": "High-cardiovascular-risk primary-prevention population in Spain; corrected and republished analysis addresses protocol and randomization deviations.",
+          "errors": []
+        },
+        {
+          "field": "anchor",
+          "match": "partial",
+          "lexical_similarity": 0.4,
+          "gold_value": "PubMed abstract PMID 29897866; corrected and republished primary PREDIMED report",
+          "observed_value": "PubMed abstract PMID 29897866",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 0,
+      "exact_field_count": 1,
+      "comparable_field_count": 7,
+      "human_escalation_required": false,
+      "escalation_reasons": [],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-005",
+      "source_id": "SA-B001-005",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": "intervention_effect",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "5145 overweight or obese adults with type 2 diabetes",
+          "observed_value": "5145 overweight or obese adults with type 2 diabetes",
+          "errors": []
+        },
+        {
+          "field": "intervention",
+          "match": "mismatch",
+          "lexical_similarity": 0.3333333333333333,
+          "gold_value": "Intensive lifestyle intervention for weight loss",
+          "observed_value": "Intensive lifestyle intervention promoting weight loss through reduced caloric intake and increased physical activity",
+          "errors": [
+            "intervention_exposure_mismatch"
+          ]
+        },
+        {
+          "field": "exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Diabetes support and education",
+          "observed_value": "Diabetes support and education",
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "near",
+          "lexical_similarity": 0.8,
+          "gold_value": "Composite cardiovascular morbidity/mortality",
+          "observed_value": "Composite cardiovascular morbidity and mortality",
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "partial",
+          "lexical_similarity": 0.6521739130434783,
+          "gold_value": "HR 0.95 (95% CI 0.83-1.09), P=0.51 despite greater weight loss and risk-factor improvements",
+          "observed_value": "Primary cardiovascular outcome hazard ratio was 0.95 (95% CI 0.83 to 1.09), P=0.51, despite greater weight loss and risk-factor improvements.",
+          "errors": []
+        },
+        {
+          "field": "recommendation",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "mismatch",
+          "lexical_similarity": 0.25,
+          "gold_value": "Demonstrates that weight/risk-factor improvement does not itself establish cardiovascular-event reduction",
+          "observed_value": "Overweight or obese adults with type 2 diabetes; improvements in weight and risk factors did not establish cardiovascular-event reduction in this trial.",
+          "errors": [
+            "applicability_boundary_mismatch"
+          ]
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 23796131",
+          "observed_value": "PubMed abstract PMID 23796131",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 2,
+      "exact_field_count": 3,
+      "comparable_field_count": 7,
+      "human_escalation_required": true,
+      "escalation_reasons": [
+        "intervention_exposure_mismatch",
+        "applicability_boundary_mismatch"
+      ],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-006",
+      "source_id": "SA-B001-006",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": "intervention_effect",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "partial",
+          "lexical_similarity": 0.4166666666666667,
+          "gold_value": "322 moderately obese adults; 86% male",
+          "observed_value": "322 moderately obese adults, mean age 52 years, with 86% men",
+          "errors": []
+        },
+        {
+          "field": "intervention",
+          "match": "near",
+          "lexical_similarity": 1,
+          "gold_value": "Mediterranean restricted-calorie or low-carbohydrate non-restricted-calorie diet",
+          "observed_value": "Mediterranean restricted-calorie diet or low-carbohydrate non-restricted-calorie diet",
+          "errors": []
+        },
+        {
+          "field": "exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Low-fat restricted-calorie diet",
+          "observed_value": "Low-fat restricted-calorie diet",
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "partial",
+          "lexical_similarity": 0.5555555555555556,
+          "gold_value": "2-year weight change; metabolic secondary outcomes",
+          "observed_value": "Two-year weight change and metabolic outcomes",
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "partial",
+          "lexical_similarity": 0.4,
+          "gold_value": "Mean weight loss 4.4 kg Mediterranean, 4.7 kg low-carbohydrate, 2.9 kg low-fat; lipid ratio favored low-carbohydrate; glycemic subgroup finding favored Mediterranean",
+          "observed_value": "Mean weight loss was 2.9 kg with low-fat, 4.4 kg with Mediterranean, and 4.7 kg with low-carbohydrate diets; total-to-HDL cholesterol ratio fell 20% with low-carbohydrate versus 12% with low-fat, and glycemic measures favored Mediterranean diet among 36 participants with diabetes.",
+          "errors": []
+        },
+        {
+          "field": "recommendation",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "partial",
+          "lexical_similarity": 0.6,
+          "gold_value": "Male-dominant sample; glycemic result derives from 36 participants with diabetes",
+          "observed_value": "Male-dominant sample; glycemic subgroup result was based on 36 participants with diabetes.",
+          "errors": []
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 18635428",
+          "observed_value": "PubMed abstract PMID 18635428",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 0,
+      "exact_field_count": 2,
+      "comparable_field_count": 7,
+      "human_escalation_required": false,
+      "escalation_reasons": [],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-007",
+      "source_id": "SA-B001-007",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": "intervention_effect",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "811 overweight adults",
+          "observed_value": "811 overweight adults",
+          "errors": []
+        },
+        {
+          "field": "intervention",
+          "match": "partial",
+          "lexical_similarity": 0.6666666666666666,
+          "gold_value": "Reduced-calorie diets with differing fat/protein/carbohydrate targets",
+          "observed_value": "Four reduced-calorie diets with different fat, protein and carbohydrate targets",
+          "errors": []
+        },
+        {
+          "field": "exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Alternative macronutrient targets",
+          "observed_value": "Alternative macronutrient targets",
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "partial",
+          "lexical_similarity": 0.5714285714285714,
+          "gold_value": "2-year body-weight change",
+          "observed_value": "Two-year change in body weight",
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "partial",
+          "lexical_similarity": 0.4,
+          "gold_value": "No significant 2-year weight-loss difference across protein, fat, or carbohydrate target comparisons; P>0.20 for all",
+          "observed_value": "At 2 years, weight loss remained similar across protein (3.0 vs 3.6 kg), fat (3.3 vs 3.3 kg), and carbohydrate (2.9 vs 3.4 kg) comparisons; P>0.20 for all comparisons.",
+          "errors": []
+        },
+        {
+          "field": "recommendation",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "mismatch",
+          "lexical_similarity": 0.24,
+          "gold_value": "Tests reduced-calorie behavioral diets; adherence and partial weight regain affect interpretation",
+          "observed_value": "Reduced-calorie behavioral diets; participants began regaining weight after 12 months and session attendance was strongly associated with weight loss.",
+          "errors": [
+            "applicability_boundary_mismatch"
+          ]
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 19246357",
+          "observed_value": "PubMed abstract PMID 19246357",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 1,
+      "exact_field_count": 3,
+      "comparable_field_count": 7,
+      "human_escalation_required": true,
+      "escalation_reasons": [
+        "applicability_boundary_mismatch"
+      ],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-008",
+      "source_id": "SA-B001-008",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": "intervention_effect",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "near",
+          "lexical_similarity": 0.7142857142857143,
+          "gold_value": "609 adults aged 18-50, BMI 28-40, without diabetes",
+          "observed_value": "609 adults aged 18 to 50 years without diabetes and with BMI 28 to 40",
+          "errors": []
+        },
+        {
+          "field": "intervention",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Healthy low-fat diet",
+          "observed_value": "Healthy low-fat diet",
+          "errors": []
+        },
+        {
+          "field": "exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Healthy low-carbohydrate diet",
+          "observed_value": "Healthy low-carbohydrate diet",
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "partial",
+          "lexical_similarity": 0.5714285714285714,
+          "gold_value": "12-month weight change; genotype and insulin-secretion interactions",
+          "observed_value": "Twelve-month weight change and diet interactions with genotype pattern or insulin secretion",
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "partial",
+          "lexical_similarity": 0.6785714285714286,
+          "gold_value": "-5.3 vs -6.0 kg; between-group difference 0.7 kg (95% CI -0.2 to 1.6); no significant genotype or insulin-secretion interaction",
+          "observed_value": "Weight change was -5.3 kg versus -6.0 kg, between-group difference 0.7 kg (95% CI -0.2 to 1.6); no significant diet-genotype interaction (P=.20) or diet-insulin secretion interaction (P=.47).",
+          "errors": []
+        },
+        {
+          "field": "recommendation",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "mismatch",
+          "lexical_similarity": 0.34615384615384615,
+          "gold_value": "Does not establish effects in diabetes; negative interaction finding applies to the tested genetic pattern and INS-30 measure",
+          "observed_value": "Adults without diabetes; negative personalization results apply to the tested genotype patterns and INS-30 measure.",
+          "errors": [
+            "applicability_boundary_mismatch"
+          ]
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 29466592",
+          "observed_value": "PubMed abstract PMID 29466592",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 1,
+      "exact_field_count": 3,
+      "comparable_field_count": 7,
+      "human_escalation_required": true,
+      "escalation_reasons": [
+        "applicability_boundary_mismatch"
+      ],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-009",
+      "source_id": "SA-B001-009",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": "intervention_effect",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "partial",
+          "lexical_similarity": 0.6666666666666666,
+          "gold_value": "311 overweight/obese nondiabetic premenopausal women",
+          "observed_value": "311 free-living overweight or obese nondiabetic premenopausal women",
+          "errors": []
+        },
+        {
+          "field": "intervention",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Atkins diet",
+          "observed_value": "Atkins diet",
+          "errors": []
+        },
+        {
+          "field": "exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Zone, LEARN, and Ornish diets",
+          "observed_value": "Zone, LEARN, and Ornish diets",
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "partial",
+          "lexical_similarity": 0.6,
+          "gold_value": "12-month weight loss",
+          "observed_value": "Twelve-month weight loss",
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "partial",
+          "lexical_similarity": 0.5,
+          "gold_value": "Mean loss: Atkins 4.7 kg, Zone 1.6 kg, LEARN 2.6 kg, Ornish 2.2 kg; statistically significant difference explicitly reported for Atkins vs Zone",
+          "observed_value": "Mean 12-month weight loss was -4.7 kg Atkins, -1.6 kg Zone, -2.6 kg LEARN, and -2.2 kg Ornish; Atkins versus Zone was statistically significant (P<.05).",
+          "errors": [
+            "numeric_effect_mismatch"
+          ]
+        },
+        {
+          "field": "recommendation",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "mismatch",
+          "lexical_similarity": 0.30434782608695654,
+          "gold_value": "Restricted to nondiabetic premenopausal women; long-term safety beyond 12 months not established by this trial",
+          "observed_value": "Nondiabetic premenopausal women; trial duration was 12 months and longer-term effects remain uncertain.",
+          "errors": [
+            "applicability_boundary_mismatch"
+          ]
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 17341711",
+          "observed_value": "PubMed abstract PMID 17341711",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 2,
+      "exact_field_count": 3,
+      "comparable_field_count": 7,
+      "human_escalation_required": true,
+      "escalation_reasons": [
+        "numeric_effect_mismatch",
+        "applicability_boundary_mismatch"
+      ],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-010",
+      "source_id": "SA-B001-010",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": "intervention_effect",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "near",
+          "lexical_similarity": 0.7142857142857143,
+          "gold_value": "Adults aged 20-65 with T2D diagnosed within 6 years, BMI 27-45, not receiving insulin",
+          "observed_value": "Adults aged 20 to 65 years with type 2 diabetes diagnosed within 6 years, BMI 27 to 45, and not receiving insulin",
+          "errors": []
+        },
+        {
+          "field": "intervention",
+          "match": "mismatch",
+          "lexical_similarity": 0.2777777777777778,
+          "gold_value": "Primary-care multicomponent weight-management program",
+          "observed_value": "Primary-care weight-management program including medication withdrawal, total diet replacement, food reintroduction, and structured weight-maintenance support",
+          "errors": [
+            "intervention_exposure_mismatch"
+          ]
+        },
+        {
+          "field": "exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "partial",
+          "lexical_similarity": 0.5,
+          "gold_value": "Best-practice guideline care",
+          "observed_value": "Best-practice care by guidelines",
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "near",
+          "lexical_similarity": 0.9090909090909091,
+          "gold_value": ">=15 kg weight loss and diabetes remission at 12 months",
+          "observed_value": "At least 15 kg weight loss and diabetes remission at 12 months",
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "partial",
+          "lexical_similarity": 0.52,
+          "gold_value": ">=15 kg loss 24% vs 0%; remission 46% vs 4%, OR 19.7 (95% CI 7.8-49.8)",
+          "observed_value": "At least 15 kg weight loss occurred in 24% versus 0%; diabetes remission occurred in 46% versus 4%, odds ratio 19.7 (95% CI 7.8 to 49.8).",
+          "errors": []
+        },
+        {
+          "field": "recommendation",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "mismatch",
+          "lexical_similarity": 0.2608695652173913,
+          "gold_value": "Multicomponent program includes total diet replacement, food reintroduction, maintenance support, and medication withdrawal; cannot attribute effect to diet alone",
+          "observed_value": "Multicomponent primary-care program; effects cannot be attributed to diet alone.",
+          "errors": [
+            "applicability_boundary_mismatch"
+          ]
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 29221645",
+          "observed_value": "PubMed abstract PMID 29221645",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 2,
+      "exact_field_count": 1,
+      "comparable_field_count": 7,
+      "human_escalation_required": true,
+      "escalation_reasons": [
+        "intervention_exposure_mismatch",
+        "applicability_boundary_mismatch"
+      ],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-011",
+      "source_id": "SA-B001-011",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "synthesis_effect",
+          "observed_value": "synthesis_effect",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "partial",
+          "lexical_similarity": 0.5882352941176471,
+          "gold_value": "People with type 2 diabetes; synthesis of 73 RCTs across eight dietary patterns",
+          "observed_value": "People with type 2 diabetes in 73 randomized controlled trials across eight dietary patterns",
+          "errors": []
+        },
+        {
+          "field": "intervention",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Alternative dietary patterns",
+          "observed_value": "Alternative dietary patterns",
+          "errors": []
+        },
+        {
+          "field": "exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Usual diet and other dietary patterns",
+          "observed_value": "Usual diet and other dietary patterns",
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Body weight, HbA1c, blood pressure and lipids at 6 and 12 months",
+          "observed_value": "Body weight, HbA1c, blood pressure, and lipids at 6 and 12 months",
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "partial",
+          "lexical_similarity": 0.6,
+          "gold_value": "All dietary patterns improved body weight and HbA1c at 6 months versus usual diet; largest estimated body-weight effect was low-carbohydrate (-4.8 kg) and largest HbA1c point estimate Mediterranean (-1.0 percentage point). Evidence was insufficient to identify one optimal dietary pattern.",
+          "observed_value": "All dietary patterns reduced body weight and HbA1c after 6 months versus usual diet; largest body-weight effect was low-carbohydrate at -4.8 kg and largest HbA1c effect was Mediterranean at -1.0%; 12-month effects were not statistically significant and evidence was insufficient to select one optimal pattern.",
+          "errors": []
+        },
+        {
+          "field": "recommendation",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "partial",
+          "lexical_similarity": 0.5909090909090909,
+          "gold_value": "Network meta-analysis of heterogeneous RCTs in T2D; 12-month effects were not statistically significant.",
+          "observed_value": "Network meta-analysis of heterogeneous randomized trials in type 2 diabetes; longer-term 12-month effects were not statistically significant.",
+          "errors": []
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 36513271",
+          "observed_value": "PubMed abstract PMID 36513271",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 0,
+      "exact_field_count": 5,
+      "comparable_field_count": 8,
+      "human_escalation_required": false,
+      "escalation_reasons": [],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-012",
+      "source_id": "SA-B001-012",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "synthesis_effect",
+          "observed_value": "synthesis_effect",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Adults with type 2 diabetes",
+          "observed_value": "Adults with type 2 diabetes",
+          "errors": []
+        },
+        {
+          "field": "intervention",
+          "match": "partial",
+          "lexical_similarity": 0.6875,
+          "gold_value": "Weight-loss diets including very-low-energy diets and formula meal replacements",
+          "observed_value": "Weight-loss diets including very-low-energy diets, formula meal replacements, low-carbohydrate diets, and total diet replacement programs",
+          "errors": []
+        },
+        {
+          "field": "exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Alternative dietary strategies",
+          "observed_value": "Alternative dietary strategies",
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "near",
+          "lexical_similarity": 0.7142857142857143,
+          "gold_value": "Weight loss and diabetes remission",
+          "observed_value": "Weight loss and type 2 diabetes remission",
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "partial",
+          "lexical_similarity": 0.46296296296296297,
+          "gold_value": "Very-low-energy diets and formula meal replacements produced the largest weight-loss effects; low-carbohydrate diets were no better for weight loss than higher-carbohydrate/low-fat diets. Total-diet-replacement programmes had the strongest remission evidence.",
+          "observed_value": "Very-low-energy diets of 400-500 kcal for 8-12 weeks achieved 6.6 kg greater weight loss than low-energy diets; formula meal replacements achieved 2.4 kg greater weight loss; low-carbohydrate diets were no better than higher-carbohydrate or low-fat diets; total diet replacement programs had the strongest remission evidence, with median 54% remission at 1 year in relevant randomized trials.",
+          "errors": []
+        },
+        {
+          "field": "recommendation",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "near",
+          "lexical_similarity": 0.75,
+          "gold_value": "Most evidence was <=1 year; review quality and GRADE certainty varied substantially.",
+          "observed_value": "Most evidence was limited to 1 year or less and review quality and GRADE certainty varied substantially.",
+          "errors": []
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 34796367",
+          "observed_value": "PubMed abstract PMID 34796367",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 0,
+      "exact_field_count": 4,
+      "comparable_field_count": 8,
+      "human_escalation_required": false,
+      "escalation_reasons": [],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-013",
+      "source_id": "SA-B001-013",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "synthesis_effect",
+          "observed_value": "synthesis_effect",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "partial",
+          "lexical_similarity": 0.4444444444444444,
+          "gold_value": "General adult populations without chronic disease in included analyses",
+          "observed_value": "General adult populations in prospective studies and clinical trials, excluding participants with chronic disease in the included analyses",
+          "errors": []
+        },
+        {
+          "field": "intervention",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Higher dietary fibre and whole-grain intake",
+          "observed_value": "Higher dietary fibre and whole-grain intake",
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "near",
+          "lexical_similarity": 0.8571428571428571,
+          "gold_value": "Lower fibre and whole-grain intake",
+          "observed_value": "Lower dietary fibre and whole-grain intake",
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Mortality, cardiovascular outcomes, type 2 diabetes, cancer and cardiometabolic risk factors",
+          "observed_value": "Mortality, cardiovascular outcomes, type 2 diabetes, cancer, and cardiometabolic risk factors",
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "partial",
+          "lexical_similarity": 0.6744186046511628,
+          "gold_value": "Highest versus lowest fibre intake was associated with approximately 15-30% lower risk across several critical outcomes; clinical trials showed lower body weight, systolic blood pressure and total cholesterol with higher fibre intake. Greatest observed risk reduction was around 25-29 g/day fibre.",
+          "observed_value": "Observational data suggested 15-30% lower risk across several critical outcomes for higher fibre intake; clinical trials showed lower bodyweight, systolic blood pressure and total cholesterol, with greatest observed risk reduction around 25-29 g/day of fibre.",
+          "errors": []
+        },
+        {
+          "field": "recommendation",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "mismatch",
+          "lexical_similarity": 0.3076923076923077,
+          "gold_value": "Population-level primary-prevention evidence; not directly established for people with existing chronic disease.",
+          "observed_value": "Population-level evidence for people without chronic disease in included analyses; mixes prospective observational outcomes with randomized risk-factor trials.",
+          "errors": [
+            "applicability_boundary_mismatch"
+          ]
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 30638909",
+          "observed_value": "PubMed abstract PMID 30638909",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 1,
+      "exact_field_count": 4,
+      "comparable_field_count": 8,
+      "human_escalation_required": true,
+      "escalation_reasons": [
+        "applicability_boundary_mismatch"
+      ],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-014",
+      "source_id": "SA-B001-014",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "observational_association",
+          "observed_value": "observational_association",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "near",
+          "lexical_similarity": 0.7,
+          "gold_value": "104707 adults in the French NutriNet-Sante cohort",
+          "observed_value": "104707 adults in the French NutriNet-Santé prospective cohort",
+          "errors": []
+        },
+        {
+          "field": "intervention",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "exposure",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Higher ultraprocessed-food share of the diet",
+          "observed_value": "Higher ultraprocessed-food share of the diet",
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Incident type 2 diabetes",
+          "observed_value": "Incident type 2 diabetes",
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "partial",
+          "lexical_similarity": 0.6666666666666666,
+          "gold_value": "Each absolute 10-percentage-point higher UPF share was associated with HR 1.15 (95% CI 1.06-1.25) for incident T2D over median 6.0 years.",
+          "observed_value": "Each absolute 10-percentage-point higher ultraprocessed-food share was associated with HR 1.15 (95% CI 1.06 to 1.25) over median follow-up of 6.0 years.",
+          "errors": [
+            "numeric_effect_mismatch"
+          ]
+        },
+        {
+          "field": "recommendation",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "partial",
+          "lexical_similarity": 0.6875,
+          "gold_value": "Prospective observational association, not randomized causal evidence; cohort was predominantly female and French.",
+          "observed_value": "Prospective observational association rather than randomized causal evidence; cohort was French and predominantly women.",
+          "errors": []
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 31841598",
+          "observed_value": "PubMed abstract PMID 31841598",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 1,
+      "exact_field_count": 4,
+      "comparable_field_count": 7,
+      "human_escalation_required": true,
+      "escalation_reasons": [
+        "numeric_effect_mismatch"
+      ],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-015",
+      "source_id": "SA-B001-015",
+      "response_status": "defer",
+      "verifier_status": "not_run",
+      "f0_frozen": false,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "missing",
+          "lexical_similarity": 0,
+          "gold_value": "consensus_recommendation",
+          "observed_value": null,
+          "errors": [
+            "missing_critical_field",
+            "evidence_kind_mismatch"
+          ]
+        },
+        {
+          "field": "population",
+          "match": "missing",
+          "lexical_similarity": 0,
+          "gold_value": "Adults with diabetes or prediabetes",
+          "observed_value": null,
+          "errors": [
+            "missing_critical_field",
+            "population_scope_mismatch"
+          ]
+        },
+        {
+          "field": "intervention",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "recommendation",
+          "match": "missing",
+          "lexical_similarity": 0,
+          "gold_value": "Individualized diabetes-focused medical nutrition therapy is recommended; the report states that no one-size-fits-all eating plan or ideal macronutrient percentage applies to all people with or at risk for diabetes.",
+          "observed_value": null,
+          "errors": [
+            "missing_critical_field",
+            "recommendation_mismatch"
+          ]
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "missing",
+          "lexical_similarity": 0,
+          "gold_value": "Consensus guidance rather than a single causal-effect estimate; pediatric and gestational diabetes are outside scope.",
+          "observed_value": null,
+          "errors": [
+            "missing_critical_field",
+            "applicability_boundary_mismatch"
+          ]
+        },
+        {
+          "field": "anchor",
+          "match": "missing",
+          "lexical_similarity": 0,
+          "gold_value": "PMC full text PMCID PMC7011201 / PMID 31000505",
+          "observed_value": null,
+          "errors": [
+            "missing_critical_field",
+            "source_anchor_mismatch"
+          ]
+        }
+      ],
+      "critical_error_count": 10,
+      "exact_field_count": 0,
+      "comparable_field_count": 5,
+      "human_escalation_required": true,
+      "escalation_reasons": [
+        "semantic_defer",
+        "verifier_rejection",
+        "missing_critical_field",
+        "evidence_kind_mismatch",
+        "population_scope_mismatch",
+        "recommendation_mismatch",
+        "applicability_boundary_mismatch",
+        "source_anchor_mismatch"
+      ],
+      "verifier_errors": [
+        "PubMed abstract is unavailable; title alone does not support reliable extraction of the consensus recommendations."
+      ],
+      "response_uncertainties": [
+        "PubMed abstract is unavailable; title alone does not support reliable extraction of the consensus recommendations."
+      ]
+    },
+    {
+      "evidence_id": "EU-B001-016",
+      "source_id": "SA-B001-016",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "guideline_scope_and_recommendation",
+          "observed_value": "guideline_scope_and_recommendation",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "mismatch",
+          "lexical_similarity": 0.21739130434782608,
+          "gold_value": "People with CKD across non-dialysis, dialysis and transplant settings",
+          "observed_value": "People with chronic kidney disease, including stages 1-5 not receiving dialysis, advanced or end-stage kidney disease, and kidney transplant recipients",
+          "errors": [
+            "population_scope_mismatch"
+          ]
+        },
+        {
+          "field": "intervention",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "recommendation",
+          "match": "near",
+          "lexical_similarity": 0.8695652173913043,
+          "gold_value": "The KDOQI guideline addresses nutritional assessment, medical nutrition therapy, dietary protein and energy intake, supplementation, micronutrients and electrolytes using GRADE-evaluated statements.",
+          "observed_value": "The guideline addresses nutritional assessment, medical nutrition therapy, dietary protein and energy intake, nutritional supplementation, micronutrients, and electrolytes, with evidence and guideline statements evaluated using GRADE.",
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "partial",
+          "lexical_similarity": 0.5238095238095238,
+          "gold_value": "Abstract supports scope and methodology, not every numerical nutrient target; specific targets require full guideline text before F1/claim-gold use.",
+          "observed_value": "Abstract supports guideline scope and methodology, not specific numerical nutrient targets.",
+          "errors": []
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 32829751",
+          "observed_value": "PubMed abstract PMID 32829751",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 1,
+      "exact_field_count": 2,
+      "comparable_field_count": 5,
+      "human_escalation_required": true,
+      "escalation_reasons": [
+        "population_scope_mismatch"
+      ],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-017",
+      "source_id": "SA-B001-017",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "guideline_recommendation",
+          "observed_value": "guideline_recommendation",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "mismatch",
+          "lexical_similarity": 0.3333333333333333,
+          "gold_value": "Older adults",
+          "observed_value": "Older persons",
+          "errors": [
+            "population_scope_mismatch"
+          ]
+        },
+        {
+          "field": "intervention",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "recommendation",
+          "match": "partial",
+          "lexical_similarity": 0.6666666666666666,
+          "gold_value": "Routine malnutrition screening is recommended; unnecessary dietary restrictions should generally be avoided; weight-reducing diets should be considered only in obese older persons with weight-related health problems and combined with physical exercise; care should be individualized and multidisciplinary.",
+          "observed_value": "All older persons should routinely be screened for malnutrition; dietary restrictions should generally be avoided; weight-reducing diets should only be considered in obese older persons with weight-related health problems and combined with physical exercise; interventions should be individualized, comprehensive, multimodal, and multidisciplinary.",
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "near",
+          "lexical_similarity": 0.9230769230769231,
+          "gold_value": "Geriatric guideline; should not be generalized to younger adults without separate evidence.",
+          "observed_value": "Geriatric guideline; recommendations should not be generalized to younger adults without separate evidence.",
+          "errors": []
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 35306388",
+          "observed_value": "PubMed abstract PMID 35306388",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 1,
+      "exact_field_count": 2,
+      "comparable_field_count": 5,
+      "human_escalation_required": true,
+      "escalation_reasons": [
+        "population_scope_mismatch"
+      ],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-018",
+      "source_id": "SA-B001-018",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "synthesis_effect",
+          "observed_value": "synthesis_effect",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "partial",
+          "lexical_similarity": 0.6666666666666666,
+          "gold_value": "Participants in controlled salt-reduction trials",
+          "observed_value": "Participants in controlled clinical trials of salt-reduction interventions",
+          "errors": []
+        },
+        {
+          "field": "intervention",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Salt substitution or nutrition education",
+          "observed_value": "Salt substitution or nutrition education",
+          "errors": []
+        },
+        {
+          "field": "exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Systolic and diastolic blood pressure",
+          "observed_value": "Systolic and diastolic blood pressure",
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "near",
+          "lexical_similarity": 0.8235294117647058,
+          "gold_value": "Salt substitution reduced SBP by 7.44 mmHg and DBP by 3.77 mmHg; nutrition education reduced SBP by 2.75 mmHg and DBP by 2.11 mmHg in pooled analyses.",
+          "observed_value": "Salt substitution reduced SBP by -7.44 mmHg and DBP by -3.77 mmHg; nutrition education reduced SBP by -2.75 mmHg and DBP by -2.11 mmHg.",
+          "errors": [
+            "numeric_effect_mismatch"
+          ]
+        },
+        {
+          "field": "recommendation",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "near",
+          "lexical_similarity": 0.7647058823529411,
+          "gold_value": "Effects differ by intervention strategy and subgroup; not a single universal sodium-reduction effect.",
+          "observed_value": "Pooled effects differ by salt-reduction strategy and participant subgroup; not a single universal sodium-reduction effect.",
+          "errors": []
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 36477548",
+          "observed_value": "PubMed abstract PMID 36477548",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 1,
+      "exact_field_count": 4,
+      "comparable_field_count": 7,
+      "human_escalation_required": true,
+      "escalation_reasons": [
+        "numeric_effect_mismatch"
+      ],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-019",
+      "source_id": "SA-B001-019",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "observational_association_synthesis",
+          "observed_value": "observational_association_synthesis",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "near",
+          "lexical_similarity": 0.7857142857142857,
+          "gold_value": "1.97 million adults from 31 cohorts in 20 countries without diabetes at baseline",
+          "observed_value": "1966444 adults from 31 cohorts in 20 countries without diabetes at baseline",
+          "errors": []
+        },
+        {
+          "field": "intervention",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "exposure",
+          "match": "near",
+          "lexical_similarity": 0.8571428571428571,
+          "gold_value": "Unprocessed red meat, processed meat and poultry",
+          "observed_value": "Unprocessed red meat, processed meat, and poultry consumption",
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Incident type 2 diabetes",
+          "observed_value": "Incident type 2 diabetes",
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "near",
+          "lexical_similarity": 0.7692307692307693,
+          "gold_value": "HR 1.10 per 100 g/day unprocessed red meat, 1.15 per 50 g/day processed meat and 1.08 per 100 g/day poultry; poultry finding was less robust under alternative modelling assumptions.",
+          "observed_value": "HR 1.10 per 100 g/day unprocessed red meat, 1.15 per 50 g/day processed meat, and 1.08 per 100 g/day poultry; the poultry association was weaker under alternative modelling assumptions.",
+          "errors": []
+        },
+        {
+          "field": "recommendation",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "partial",
+          "lexical_similarity": 0.4444444444444444,
+          "gold_value": "Observational cohort synthesis with residual-confounding risk and substantial heterogeneity.",
+          "observed_value": "Observational cohort synthesis with between-cohort heterogeneity and potential residual confounding; associations varied in precision across regions.",
+          "errors": []
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 39174161",
+          "observed_value": "PubMed abstract PMID 39174161",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 0,
+      "exact_field_count": 3,
+      "comparable_field_count": 7,
+      "human_escalation_required": false,
+      "escalation_reasons": [],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    },
+    {
+      "evidence_id": "EU-B001-020",
+      "source_id": "SA-B001-020",
+      "response_status": "completed",
+      "verifier_status": "verified",
+      "f0_frozen": true,
+      "field_scores": [
+        {
+          "field": "kind",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "observational_association_synthesis",
+          "observed_value": "observational_association_synthesis",
+          "errors": []
+        },
+        {
+          "field": "population",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Prospective cohort populations across 16 studies",
+          "observed_value": "Prospective cohort populations across 16 studies",
+          "errors": []
+        },
+        {
+          "field": "intervention",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "exposure",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Whole-grain and refined-grain intake",
+          "observed_value": "Whole-grain and refined-grain intake",
+          "errors": []
+        },
+        {
+          "field": "intervention_or_exposure",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "comparator",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "outcome",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "Incident type 2 diabetes",
+          "observed_value": "Incident type 2 diabetes",
+          "errors": []
+        },
+        {
+          "field": "effect",
+          "match": "near",
+          "lexical_similarity": 0.7916666666666666,
+          "gold_value": "Per 3 servings/day of whole grains, summary RR 0.68 (95% CI 0.58-0.81; I2=82%); refined grains RR 0.95 (95% CI 0.88-1.04).",
+          "observed_value": "Per 3 servings/day, whole grains had summary RR 0.68 (95% CI 0.58 to 0.81; I2=82%) and refined grains RR 0.95 (95% CI 0.88 to 1.04; I2=53%).",
+          "errors": []
+        },
+        {
+          "field": "recommendation",
+          "match": "not_applicable",
+          "lexical_similarity": null,
+          "gold_value": null,
+          "observed_value": null,
+          "errors": []
+        },
+        {
+          "field": "applicability_boundary",
+          "match": "near",
+          "lexical_similarity": 0.7777777777777778,
+          "gold_value": "Cohort-based association with substantial heterogeneity for whole grains; grain subtype estimates were based on fewer studies.",
+          "observed_value": "Cohort-based association; substantial heterogeneity for whole-grain estimates and grain-subtype results were based on fewer studies.",
+          "errors": []
+        },
+        {
+          "field": "anchor",
+          "match": "exact",
+          "lexical_similarity": 1,
+          "gold_value": "PubMed abstract PMID 24158434",
+          "observed_value": "PubMed abstract PMID 24158434",
+          "errors": []
+        }
+      ],
+      "critical_error_count": 0,
+      "exact_field_count": 5,
+      "comparable_field_count": 7,
+      "human_escalation_required": false,
+      "escalation_reasons": [],
+      "verifier_errors": [],
+      "response_uncertainties": []
+    }
+  ]
+}

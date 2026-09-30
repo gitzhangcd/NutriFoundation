@@ -1,1 +1,1 @@
-"""Semantic worker transport adapters."""\n
+"""Semantic worker transport adapters."""

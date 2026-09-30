@@ -246,3 +246,34 @@ Requirements:
 - Every run records a `BlindnessClass`.
 - `engineering_blind_current_context_prior_exposure` must not be described as strict cognitive blind.
 - Lexical/structural hidden-reference scores are evaluation sidecars and are not new EvidenceUnits.
+
+
+## E0.4.1 Canonical Semantic Evaluation Lineage
+
+Canonical semantic evaluation remains outside the production truth lineage:
+
+```text
+Frozen ResponseEnvelope
+        +
+Frozen F0 Reference
+        ↓
+CanonicalSemanticForm
+        ↓
+EquivalenceResult
+        ↓
+CanonicalBatchSummary
+        ↓
+Development / Benchmark Evaluation
+```
+
+Rules:
+
+- Canonicalization is deterministic evaluation logic and cannot mutate SourceArtifact, EvidenceUnit_F0, ScientificClaim or GOLD.
+- Equivalence scoring may use a hidden reference only after semantic responses are frozen.
+- Every precision/recall result must record a reference class: contract-generated, model-assisted development, or human-independent.
+- Contract-generated and model-assisted development calibration are non-regression evidence only and are never publication-grade validation.
+- Human-independent labels must be produced without visibility into model equivalence predictions and frozen before publication-grade scoring.
+- Verifier calibration and semantic-equivalence calibration are separate measurement problems.
+- Strict-blind scoring is blocked until fresh-context attestation passes.
+- Prior Batch001 exposure disqualifies a response set from strict-blind status.
+- StrictBlindAttestation is protocol evidence and not cryptographic proof of absence of prior exposure.

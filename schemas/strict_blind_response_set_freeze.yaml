@@ -1,0 +1,57 @@
+schema: StrictBlindResponseSetFreezeReceipt
+version: v1.0
+introduced_in: E0.4.2-C
+status: frozen
+
+required:
+  - status
+  - repository_bytes_sha256
+  - canonical_bundle_sha256
+  - response_count
+  - completed_count
+  - defer_count
+  - failed_count
+  - unique_response_ids
+  - unique_task_ids
+  - task_binding_match_count
+  - source_hash_match_count
+  - contract_version_match_count
+  - response_schema_match_count
+  - strict_metadata_match_count
+  - protocol_version_match_count
+  - blindness_class_match_count
+
+authoritative_hash:
+  type: repository_bytes_sha256
+  frozen_value: f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7
+
+diagnostic_hash:
+  type: canonical_bundle_sha256
+  value: 513e9d3c09326b7ae715d6cc5b834d7f31decdc1162298190e3708bb31b7beca
+
+pass_condition:
+  status: PASS
+  response_count: 20
+  unique_response_ids: 20
+  unique_task_ids: 20
+  task_binding_match_count: 20
+  source_hash_match_count: 20
+  contract_version_match_count: 20
+  response_schema_match_count: 20
+  strict_metadata_match_count: 20
+  protocol_version_match_count: 20
+  blindness_class_match_count: 20
+
+ordering:
+  - response_bundle_freeze
+  - bundle_hash_and_task_binding_validation
+  - materialization
+  - strict_blind_attestation
+  - hidden_reference_load
+  - verifier_and_canonical_scoring
+
+invariants:
+  - repository_byte_hash_is_authoritative_for_freeze
+  - canonical_hash_is_diagnostic_not_substitute_for_raw_freeze_hash
+  - response_set_is_not_scientific_gold
+  - hidden_reference_scoring_is_forbidden_before_attestation_pass

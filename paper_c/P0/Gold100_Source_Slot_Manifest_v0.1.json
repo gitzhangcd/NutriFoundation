@@ -1,0 +1,1008 @@
+{
+  "corpus": "Paper_C_Gold100",
+  "version": "v0.1",
+  "status": "slot_manifest_frozen_source_selection_pending",
+  "confirmatory_source_count": 100,
+  "slots": [
+    {
+      "slot_id": "G100-001",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-002",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-003",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-004",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-005",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-006",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-007",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-008",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-009",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-010",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-011",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-012",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-013",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-014",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-015",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-016",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-017",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-018",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-019",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-020",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-021",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-022",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-023",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-024",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-025",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-026",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-027",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-028",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-029",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-030",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-031",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-032",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-033",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-034",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-035",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-036",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-037",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-038",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-039",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-040",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-041",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-042",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-043",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-044",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-045",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-046",
+      "block": "core",
+      "sampling_stratum": "primary_observational",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-047",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-048",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-049",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-050",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-051",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-052",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-053",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-054",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-055",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-056",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-057",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-058",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-059",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-060",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-061",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-062",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-063",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-064",
+      "block": "core",
+      "sampling_stratum": "evidence_synthesis",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-065",
+      "block": "core",
+      "sampling_stratum": "guideline_or_consensus",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-066",
+      "block": "core",
+      "sampling_stratum": "guideline_or_consensus",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-067",
+      "block": "core",
+      "sampling_stratum": "guideline_or_consensus",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-068",
+      "block": "core",
+      "sampling_stratum": "guideline_or_consensus",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-069",
+      "block": "core",
+      "sampling_stratum": "guideline_or_consensus",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-070",
+      "block": "core",
+      "sampling_stratum": "guideline_or_consensus",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-071",
+      "block": "core",
+      "sampling_stratum": "guideline_or_consensus",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-072",
+      "block": "core",
+      "sampling_stratum": "guideline_or_consensus",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-073",
+      "block": "core",
+      "sampling_stratum": "guideline_or_consensus",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-074",
+      "block": "core",
+      "sampling_stratum": "guideline_or_consensus",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-075",
+      "block": "core",
+      "sampling_stratum": "guideline_or_consensus",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-076",
+      "block": "core",
+      "sampling_stratum": "guideline_or_consensus",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-077",
+      "block": "core",
+      "sampling_stratum": "companion_or_secondary",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-078",
+      "block": "core",
+      "sampling_stratum": "companion_or_secondary",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-079",
+      "block": "core",
+      "sampling_stratum": "companion_or_secondary",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-080",
+      "block": "core",
+      "sampling_stratum": "companion_or_secondary",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-081",
+      "block": "stress",
+      "sampling_stratum": "correction_republication_retraction_or_living_version",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-082",
+      "block": "stress",
+      "sampling_stratum": "correction_republication_retraction_or_living_version",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-083",
+      "block": "stress",
+      "sampling_stratum": "correction_republication_retraction_or_living_version",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-084",
+      "block": "stress",
+      "sampling_stratum": "correction_republication_retraction_or_living_version",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-085",
+      "block": "stress",
+      "sampling_stratum": "correction_republication_retraction_or_living_version",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-086",
+      "block": "stress",
+      "sampling_stratum": "correction_republication_retraction_or_living_version",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-087",
+      "block": "stress",
+      "sampling_stratum": "study_identity_or_companion_dependency",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-088",
+      "block": "stress",
+      "sampling_stratum": "study_identity_or_companion_dependency",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-089",
+      "block": "stress",
+      "sampling_stratum": "study_identity_or_companion_dependency",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-090",
+      "block": "stress",
+      "sampling_stratum": "study_identity_or_companion_dependency",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-091",
+      "block": "stress",
+      "sampling_stratum": "conflicting_evidence",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-092",
+      "block": "stress",
+      "sampling_stratum": "conflicting_evidence",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-093",
+      "block": "stress",
+      "sampling_stratum": "conflicting_evidence",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-094",
+      "block": "stress",
+      "sampling_stratum": "conflicting_evidence",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-095",
+      "block": "stress",
+      "sampling_stratum": "recommendation_exception_or_normative_boundary",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-096",
+      "block": "stress",
+      "sampling_stratum": "recommendation_exception_or_normative_boundary",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-097",
+      "block": "stress",
+      "sampling_stratum": "temporal_cutoff_sensitive",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-098",
+      "block": "stress",
+      "sampling_stratum": "temporal_cutoff_sensitive",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-099",
+      "block": "stress",
+      "sampling_stratum": "incomplete_or_missing_source_text",
+      "domain_target": "nutrition_metabolic_cardiometabolic",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    },
+    {
+      "slot_id": "G100-100",
+      "block": "stress",
+      "sampling_stratum": "incomplete_or_missing_source_text",
+      "domain_target": "external_biomedical_or_public_health",
+      "source_ref": null,
+      "source_identity_status": "unfilled",
+      "eligibility_status": "pending",
+      "gold_annotation_status": "not_started"
+    }
+  ]
+}

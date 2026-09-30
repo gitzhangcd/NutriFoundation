@@ -1,0 +1,328 @@
+{
+  "fixture_id": "E0.4.1-Semantic-Equivalence-Development-Calibration-v0.1",
+  "reference_class": "model_assisted_development",
+  "publication_grade": false,
+  "purpose": "Development-only calibration of canonical critical-field equivalence. Labels were authored during system development and are not independent expert gold.",
+  "cases": [
+    {
+      "case_id": "EQ01",
+      "field": "population",
+      "reference": "overweight adults with type 2 diabetes",
+      "candidate": "adults with T2D who are overweight",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ02",
+      "field": "population",
+      "reference": "middle-aged overweight adults with impaired glucose tolerance",
+      "candidate": "overweight middle-aged adults with IGT",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ03",
+      "field": "population",
+      "reference": "older adults",
+      "candidate": "younger adults",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ04",
+      "field": "population",
+      "reference": "adults without diabetes",
+      "candidate": "adults with type 2 diabetes",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ05",
+      "field": "intervention",
+      "reference": "Mediterranean diet supplemented with extra-virgin olive oil",
+      "candidate": "EVOO-supplemented Mediterranean diet",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ06",
+      "field": "intervention",
+      "reference": "healthy low-fat diet",
+      "candidate": "healthy low-carbohydrate diet",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ07",
+      "field": "intervention",
+      "reference": "total diet replacement program",
+      "candidate": "TDR program",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ08",
+      "field": "exposure",
+      "reference": "higher ultraprocessed food intake",
+      "candidate": "greater UPF intake",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ09",
+      "field": "exposure",
+      "reference": "higher whole-grain intake",
+      "candidate": "higher refined-grain intake",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ10",
+      "field": "outcome",
+      "reference": "incident type 2 diabetes",
+      "candidate": "diabetes incidence",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ11",
+      "field": "outcome",
+      "reference": "major cardiovascular events",
+      "candidate": "body weight change",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ12",
+      "field": "outcome",
+      "reference": "systolic blood pressure",
+      "candidate": "SBP",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ13",
+      "field": "effect",
+      "reference": "HR 0.69 (95% CI 0.53-0.91)",
+      "candidate": "hazard ratio 0.69, 95% confidence interval 0.53 to 0.91",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ14",
+      "field": "effect",
+      "reference": "11% versus 23%; 58% risk reduction",
+      "candidate": "11 percent vs 23 percent; relative risk reduction 58 percent",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ15",
+      "field": "effect",
+      "reference": "HR 1.15 (95% CI 1.06-1.25)",
+      "candidate": "HR 0.85 (95% CI 0.75-0.96)",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ16",
+      "field": "effect",
+      "reference": "mean weight loss 4.4 kg",
+      "candidate": "mean weight loss 4.4 kg with an additional unsupported 20 kg",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ17",
+      "field": "recommendation",
+      "reference": "routine malnutrition screening is recommended for older adults",
+      "candidate": "older adults should routinely be screened for malnutrition",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ18",
+      "field": "recommendation",
+      "reference": "individualize macronutrient distribution according to eating patterns and metabolic goals",
+      "candidate": "use the same fixed macronutrient distribution for all patients",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ19",
+      "field": "applicability_boundary",
+      "reference": "observational cohort association rather than randomized causal evidence",
+      "candidate": "cohort association; not randomized causal evidence",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ20",
+      "field": "applicability_boundary",
+      "reference": "geriatric guideline; do not generalize to younger adults",
+      "candidate": "applies to older adults and should not be generalized to younger adults",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ21",
+      "field": "applicability_boundary",
+      "reference": "high cardiovascular-risk primary-prevention population in Spain",
+      "candidate": "general healthy young adults worldwide",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ22",
+      "field": "applicability_boundary",
+      "reference": "male-dominant sample; diabetes result based on a subgroup",
+      "candidate": "86% male sample with a diabetes subgroup",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ23",
+      "field": "anchor",
+      "reference": "PubMed abstract PMID 29897866",
+      "candidate": "PMID: 29897866 abstract",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ24",
+      "field": "anchor",
+      "reference": "PubMed abstract PMID 29897866",
+      "candidate": "PubMed abstract PMID 23796131",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ25",
+      "field": "kind",
+      "reference": "observational_association",
+      "candidate": "observational_association",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ26",
+      "field": "kind",
+      "reference": "observational_association_synthesis",
+      "candidate": "observational_association",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ27",
+      "field": "kind",
+      "reference": "guideline_recommendation",
+      "candidate": "intervention_effect",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ28",
+      "field": "kind",
+      "reference": "synthesis_effect",
+      "candidate": "synthesis_effect",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ29",
+      "field": "comparator",
+      "reference": "low-fat diet",
+      "candidate": "low carbohydrate diet",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ30",
+      "field": "comparator",
+      "reference": "usual care",
+      "candidate": "best-practice usual care",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ31",
+      "field": "intervention_or_exposure",
+      "reference": "higher dietary fibre and whole-grain intake",
+      "candidate": "greater fibre and whole-grain consumption",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ32",
+      "field": "intervention_or_exposure",
+      "reference": "higher dietary fibre and whole-grain intake",
+      "candidate": "processed meat consumption",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ33",
+      "field": "population",
+      "reference": "French adults, predominantly women",
+      "candidate": "French adult cohort with a female majority",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ34",
+      "field": "population",
+      "reference": "311 nondiabetic premenopausal women",
+      "candidate": "311 women with established type 2 diabetes",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ35",
+      "field": "effect",
+      "reference": "RR 0.68 (95% CI 0.58-0.81)",
+      "candidate": "relative risk 0.68, CI 0.58 to 0.81",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ36",
+      "field": "effect",
+      "reference": "SBP -7.44 mmHg and DBP -3.77 mmHg",
+      "candidate": "SBP -7.44 mmHg and DBP -3.77 mmHg",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ37",
+      "field": "effect",
+      "reference": "SBP -7.44 mmHg and DBP -3.77 mmHg",
+      "candidate": "SBP -2.75 mmHg and DBP -2.11 mmHg",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ38",
+      "field": "applicability_boundary",
+      "reference": "most evidence limited to 1 year or less",
+      "candidate": "evidence was predominantly short-term, no longer than about one year",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ39",
+      "field": "recommendation",
+      "reference": "avoid unnecessary dietary restrictions in older persons",
+      "candidate": "impose broad dietary restrictions on all older persons",
+      "expected_equivalent": false,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    },
+    {
+      "case_id": "EQ40",
+      "field": "population",
+      "reference": "people with chronic kidney disease stages 1-5, dialysis and transplant recipients",
+      "candidate": "people with CKD including nondialysis, dialysis and kidney transplant populations",
+      "expected_equivalent": true,
+      "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
+    }
+  ]
+}

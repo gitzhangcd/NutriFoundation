@@ -1,0 +1,31 @@
+batch_id: SA-B001
+version: v0.3
+status: verified_001_020
+
+sources:
+  - {source_id: SA-B001-001, pmid: "19721018", doi: "10.7326/0003-4819-151-5-200909010-00004", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-002, pmid: "11333990", doi: "10.1056/NEJM200105033441801", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-003, pmid: "11832527", doi: "10.1056/NEJMoa012512", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-004, pmid: "29897866", doi: "10.1056/NEJMoa1800389", status: verified_pubmed_abstract, note: "corrected_and_republished_PREDIMED_primary_report"}
+  - {source_id: SA-B001-005, pmid: "23796131", doi: "10.1056/NEJMoa1212914", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-006, pmid: "18635428", doi: "10.1056/NEJMoa0708681", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-007, pmid: "19246357", doi: "10.1056/NEJMoa0804748", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-008, pmid: "29466592", doi: "10.1001/jama.2018.0245", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-009, pmid: "17341711", doi: "10.1001/jama.297.9.969", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-010, pmid: "29221645", doi: "10.1016/S0140-6736(17)33102-1", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-011, pmid: "36513271", doi: "10.1016/j.diabres.2022.110207", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-012, pmid: "34796367", doi: "10.1007/s00125-021-05577-2", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-013, pmid: "30638909", doi: "10.1016/S0140-6736(18)31809-9", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-014, pmid: "31841598", doi: "10.1001/jamainternmed.2019.5942", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-015, pmid: "31000505", doi: "10.2337/dci19-0014", status: verified_PMC_fulltext_partial}
+  - {source_id: SA-B001-016, pmid: "32829751", doi: "10.1053/j.ajkd.2020.05.006", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-017, pmid: "35306388", doi: "10.1016/j.clnu.2022.01.024", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-018, pmid: "36477548", doi: "10.1371/journal.pone.0277929", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-019, pmid: "39174161", doi: "10.1016/S2213-8587(24)00179-7", status: verified_pubmed_abstract}
+  - {source_id: SA-B001-020, pmid: "24158434", doi: "10.1007/s10654-013-9852-5", status: verified_pubmed_abstract}
+
+registration_rule:
+  - no_fabricated_metadata
+  - authoritative_identifier_required
+  - provenance_required
+  - every_EvidenceUnit_links_to_registered_SourceArtifact

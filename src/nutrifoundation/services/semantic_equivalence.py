@@ -9,6 +9,19 @@ from nutrifoundation.domain.semantic_equivalence import (
 from nutrifoundation.services.canonicalization import canonicalize, conflict_tags
 
 
+FIELD_GENERIC_CONCEPTS = {
+    "population": {"adults", "people", "participants", "patients", "cohort"},
+    "intervention": {"diet", "dietary", "pattern", "intake", "higher"},
+    "exposure": {"diet", "dietary", "pattern", "intake", "higher", "share"},
+    "intervention_or_exposure": {
+        "diet", "dietary", "pattern", "intake", "higher", "share"
+    },
+    "comparator": {"diet", "dietary", "pattern"},
+    "outcome": {"outcome", "risk", "change"},
+    "applicability_boundary": {"evidence", "population", "adults"},
+}
+
+
 FIELD_THRESHOLDS = {
     "kind": 0.80,
     "population": 0.45,
@@ -30,6 +43,12 @@ def overlap_coefficient(a: set[str], b: set[str]) -> float:
     if not a or not b:
         return 0.0
     return len(a & b) / min(len(a), len(b))
+
+
+def _informative_concepts(field: str, concepts: set[str]) -> set[str]:
+    generic = FIELD_GENERIC_CONCEPTS.get(field, set())
+    filtered = concepts - generic
+    return filtered or concepts
 
 
 def _numeric_recall(reference_numbers: set[str], candidate_numbers: set[str]) -> float | None:
@@ -70,8 +89,8 @@ def compare_field(field: str, reference_value: Any, candidate_value: Any) -> Equ
             rationale=("candidate_missing",),
         )
 
-    ref_concepts = set(reference.concepts)
-    cand_concepts = set(candidate.concepts)
+    ref_concepts = _informative_concepts(field, set(reference.concepts))
+    cand_concepts = _informative_concepts(field, set(candidate.concepts))
     overlap = overlap_coefficient(ref_concepts, cand_concepts)
     num_recall = _numeric_recall(set(reference.numbers), set(candidate.numbers))
     conflicts = conflict_tags(reference, candidate)

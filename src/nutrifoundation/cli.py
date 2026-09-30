@@ -30,10 +30,7 @@ from nutrifoundation.services.canonical_batch_scoring import (
     write_canonical_batch_report,
 )
 from nutrifoundation.services.equivalence_calibration import calibrate_fixture
-from nutrifoundation.services.equivalence_calibration import calibrate_fixture
 from nutrifoundation.services.verifier_calibration import calibrate_verifier_fixture
-from nutrifoundation.services.semantic_batch_scoring import score_semantic_batch
-from nutrifoundation.services.strict_blind import require_strict_blind, validate_strict_blind_responses
 from nutrifoundation.services.evidence_pipeline import EvidenceProductionService
 from nutrifoundation.services.evidence_replay import replay_batch001_evidence
 from nutrifoundation.services.ingestion import SourceArtifactIngestionService
@@ -46,7 +43,6 @@ from nutrifoundation.services.strict_blind import (
     require_strict_blind,
     validate_strict_blind_responses,
 )
-from nutrifoundation.services.verifier_calibration import calibrate_verifier_fixture
 
 app = typer.Typer(help="NutriFoundation Engine reference CLI")
 
@@ -441,74 +437,6 @@ def validate_strict_blind(
         attestation = require_strict_blind(response_dir)
     else:
         attestation = validate_strict_blind_responses(response_dir)
-    typer.echo(json.dumps(attestation.as_dict(), indent=2, ensure_ascii=False))
-
-
-@app.command("calibrate-semantic-equivalence")
-def calibrate_semantic_equivalence(
-    fixture: Path = Path(
-        "fixtures/E0.4.1_Semantic_Equivalence_Development_Calibration_v0.1.json"
-    ),
-) -> None:
-    """Measure development precision/recall of canonical field equivalence."""
-    summary, details = calibrate_fixture(fixture)
-    typer.echo(
-        json.dumps(
-            {"summary": summary.as_dict(), "details": details},
-            indent=2,
-            ensure_ascii=False,
-        )
-    )
-
-
-@app.command("calibrate-verifier")
-def calibrate_verifier(
-    fixture: Path = Path(
-        "fixtures/E0.4.1_Verifier_Development_Calibration_v0.1.json"
-    ),
-) -> None:
-    """Measure contract-generated precision/recall of the F0 verifier."""
-    summary, details = calibrate_verifier_fixture(fixture)
-    typer.echo(
-        json.dumps(
-            {"summary": summary.as_dict(), "details": details},
-            indent=2,
-            ensure_ascii=False,
-        )
-    )
-
-
-@app.command("score-semantic-batch")
-def score_semantic_batch_cmd(
-    hidden_reference: Path = Path(
-        "fixtures/Batch001_EvidenceUnit_Frozen_v0.1.yaml"
-    ),
-    response_dir: Path = Path("runs/E0.4/Batch001/responses"),
-) -> None:
-    """Score Batch001 responses with canonical critical-field equivalence."""
-    summary = score_semantic_batch(
-        hidden_reference_path=hidden_reference,
-        response_dir=response_dir,
-        batch_id="B001",
-    )
-    typer.echo(json.dumps(summary.as_dict(), indent=2, ensure_ascii=False))
-
-
-@app.command("strict-blind-check")
-def strict_blind_check(
-    response_dir: Path,
-    require: bool = typer.Option(
-        False,
-        "--require",
-        help="Exit non-zero unless strict_blind_fresh_context attestation qualifies.",
-    ),
-) -> None:
-    """Validate response metadata for fresh-context strict-blind attestation."""
-    attestation = (
-        require_strict_blind(response_dir)
-        if require
-        else validate_strict_blind_responses(response_dir)
-    )
     typer.echo(json.dumps(attestation.as_dict(), indent=2, ensure_ascii=False))
 
 

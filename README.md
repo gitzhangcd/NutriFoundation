@@ -52,7 +52,7 @@ Engineering reference implementation:
 - E0.3.1 Chat-Window Semantic Worker Bridge + Provider Portability: **PASS (remote CI verified)**
 - E0.4 Batch001 Blind Semantic Replay + Verifier / Escalation Audit: **PASS (engineering-blind, remote CI verified)**
 - E0.4.1 Canonical Semantic Normalization + Calibration + Strict-Blind Gate: **development calibration frozen; strict fresh-context execution pending**
-- E0.4.2-A0 Strict-Blind TaskPack + Blind-Wall Audit + Fresh-Context Handoff: **freeze candidate; fresh-context execution pending**
+- E0.4.2-A0 Strict-Blind TaskPack + Blind-Wall Audit + Fresh-Context Handoff: **PASS (71 tests / 47 invariants; fresh-context semantic execution pending)**
 - Python package: `src/nutrifoundation/`
 - Domain models: Pydantic v2 immutable types
 - Workflow state machine: retrieval → F0/F1 → claim → reception → reliability → human gate → GOLD

@@ -60,8 +60,10 @@ class CaseScore:
     critical_error_count: int
     exact_field_count: int
     comparable_field_count: int
-    human_escalation_required: bool
-    escalation_reasons: tuple[str, ...]
+    operational_escalation_required: bool
+    operational_escalation_reasons: tuple[str, ...]
+    benchmark_adjudication_required: bool
+    benchmark_adjudication_reasons: tuple[str, ...]
     verifier_errors: tuple[str, ...] = ()
     response_uncertainties: tuple[str, ...] = ()
 
@@ -80,7 +82,8 @@ class BlindReplaySummary:
     deferred_count: int
     verifier_pass_count: int
     f0_freeze_count: int
-    human_escalation_count: int
+    operational_escalation_count: int
+    benchmark_adjudication_count: int
     critical_error_count: int
     exact_field_count: int
     near_or_exact_field_count: int
@@ -89,7 +92,8 @@ class BlindReplaySummary:
     near_or_exact_field_rate: float
     verifier_yield: float
     f0_yield: float
-    human_escalation_rate: float
+    operational_escalation_rate: float
+    benchmark_adjudication_rate: float
     error_counts: dict[str, int]
     cases: tuple[CaseScore, ...]
 

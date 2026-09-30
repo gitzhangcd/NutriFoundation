@@ -1,0 +1,53 @@
+{
+  "response_id": "RESP-STRICT-B001-002",
+  "task_id": "TASK-BLIND-B001-002",
+  "task_sha256": "c0fd259521bc29a9afd4091b5003b97ec4fa9cb7ecc7af157f3e8fda073d43b5",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "c0ac3392e4c84630c4e2abf296cee41f433a332366cfb0dd1f96ced1f951b8b0",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "RCT",
+    "population": "522 middle-aged, overweight subjects with impaired glucose tolerance (mean age 55 years; mean BMI 31).",
+    "intervention": "Individualized lifestyle counseling to reduce weight, total fat and saturated fat intake and increase fiber intake and physical activity.",
+    "exposure": null,
+    "intervention_or_exposure": "Individualized lifestyle intervention.",
+    "comparator": "Control group.",
+    "outcome": "Incident type 2 diabetes confirmed by a second oral glucose-tolerance test; body-weight change was also measured.",
+    "effect": "Cumulative diabetes incidence after 4 years was 11% (95% CI 6% to 15%) in the intervention group versus 23% (95% CI 17% to 29%) in controls; diabetes risk was reduced by 58% during the trial (P<0.001). Mean follow-up was 3.2 years.",
+    "recommendation": null,
+    "applicability_boundary": "Applies to middle-aged, overweight people with impaired glucose tolerance at high risk for type 2 diabetes; the source does not establish effects in normoglycemic or already diabetic populations.",
+    "anchor": "METHODS / RESULTS / CONCLUSIONS",
+    "source_span": "The cumulative incidence of diabetes after four years was 11 percent in the intervention group and 23 percent in the control group."
+  },
+  "confidence": null,
+  "uncertainties": [],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-002"
+    ],
+    "metadata": {}
+  }
+}

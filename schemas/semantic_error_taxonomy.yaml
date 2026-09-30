@@ -18,15 +18,24 @@ errors:
   - verifier_rejection
   - semantic_defer
 
-escalation_policy:
+operational_escalation_policy:
+  observable_without_hidden_reference: true
   mandatory_if:
     - semantic_defer
     - verifier_rejection
     - no_F0_freeze
-    - high_risk_field_missing_or_mismatch
+    - semantic_uncertainty
+
+benchmark_adjudication_policy:
+  hidden_reference_required: true
+  flag_if:
+    - operational_escalation
+    - high_risk_hidden_reference_mismatch
     - numeric_effect_mismatch
     - causality_level_mismatch
 
 notes:
-  - deterministic lexical scoring is a triage signal, not final semantic truth
-  - human/expert adjudication is required for publication-level interpretation of flagged cases
+  - deterministic lexical scoring is a benchmark triage signal, not final semantic truth
+  - operational escalation must never depend on hidden reference data
+  - benchmark adjudication rate is not the production human escalation rate
+  - human/expert adjudication is required for publication-level interpretation of benchmark-flagged cases

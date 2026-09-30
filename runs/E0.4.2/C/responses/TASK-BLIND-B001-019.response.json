@@ -1,0 +1,57 @@
+{
+  "response_id": "RESP-STRICT-B001-019",
+  "task_id": "TASK-BLIND-B001-019",
+  "task_sha256": "78ed0056601d07519de038542c63c7ce5b8f2f40934a1eaf4a49ec049afe6d97",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "820e6a07c5e8c73752b77f4f8c6a73d49bab3843dd9e3a21e0f3003de4ecf08c",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "MetaAnalysis",
+    "population": "1,966,444 adults aged 18 years or older across 31 cohorts in 20 countries, excluding people with diabetes at baseline; 107,271 incident T2D cases.",
+    "intervention": null,
+    "exposure": "Consumption of unprocessed red meat, processed meat, and poultry.",
+    "intervention_or_exposure": "Higher meat consumption.",
+    "comparator": "Lower consumption, modeled continuously within cohorts and pooled by random-effects meta-analysis.",
+    "outcome": "Incident type 2 diabetes.",
+    "effect": "Higher consumption was associated with HR 1.10 (95% CI 1.06 to 1.15) per 100 g/day unprocessed red meat, HR 1.15 (1.11 to 1.20) per 50 g/day processed meat, and HR 1.08 (1.02 to 1.14) per 100 g/day poultry. Poultry findings were weaker under alternative modeling assumptions. Replacing processed meat with unprocessed red meat or poultry was associated with lower T2D incidence.",
+    "recommendation": "The source interpretation highlights reducing meat consumption for public health and informing dietary guidelines; because the evidence derives from cohorts, these are association-based public-health implications rather than randomized causal effects.",
+    "applicability_boundary": "Observational associations across multinational cohorts of adults without diabetes at baseline; confidence intervals were wide in some regions and poultry results were less robust to alternative modeling.",
+    "anchor": "FINDINGS / INTERPRETATION",
+    "source_span": "Greater consumption of each of the three types of meat was associated with increased incidence of type 2 diabetes"
+  },
+  "confidence": null,
+  "uncertainties": [
+    "Observational cohort evidence cannot by itself establish causation.",
+    "Poultry associations were weaker under alternative modeling assumptions.",
+    "Confidence intervals were wide in regions outside North America, Europe, and the Western Pacific."
+  ],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-019"
+    ],
+    "metadata": {}
+  }
+}

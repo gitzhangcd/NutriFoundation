@@ -1,0 +1,23 @@
+schema: EquivalenceResult
+version: v0.1
+introduced_in: E0.4.1
+status: frozen
+
+fields:
+  field: {type: string, required: true}
+  relation:
+    enum: [equivalent, compatible_superset, partial, mismatch, missing, not_applicable]
+    required: true
+  equivalent: {type: boolean, required: true}
+  concept_overlap: {type: number, required: true}
+  numeric_recall: {type: number, nullable: true}
+  conflict_tags: {type: array, required: true}
+  reference: {type: CanonicalSemanticForm, required: true}
+  candidate: {type: CanonicalSemanticForm, required: true}
+  rationale: {type: array, required: true}
+
+invariants:
+  - equivalence_is_deterministic_given_frozen_rules
+  - equivalence_is_not_expert_gold
+  - source_identifier_conflict_blocks_anchor_equivalence
+  - semantic_conflict_blocks_equivalence

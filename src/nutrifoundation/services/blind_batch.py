@@ -72,7 +72,7 @@ def prepare_blind_tasks(
                 lineage_refs=(source_id,),
                 metadata={
                     "batch_id": batch_id,
-                    "gold_visible_to_task_factory": False,
+                    "reference_answer_visible": False,
                     "blind_contract": "source_only",
                 },
             ),

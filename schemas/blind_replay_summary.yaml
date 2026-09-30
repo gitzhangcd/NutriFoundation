@@ -20,7 +20,8 @@ fields:
   deferred_count: {type: integer, required: true}
   verifier_pass_count: {type: integer, required: true}
   f0_freeze_count: {type: integer, required: true}
-  human_escalation_count: {type: integer, required: true}
+  operational_escalation_count: {type: integer, required: true}
+  benchmark_adjudication_count: {type: integer, required: true}
   critical_error_count: {type: integer, required: true}
   exact_field_count: {type: integer, required: true}
   near_or_exact_field_count: {type: integer, required: true}
@@ -29,7 +30,8 @@ fields:
   near_or_exact_field_rate: {type: number, required: true}
   verifier_yield: {type: number, required: true}
   f0_yield: {type: number, required: true}
-  human_escalation_rate: {type: number, required: true}
+  operational_escalation_rate: {type: number, required: true}
+  benchmark_adjudication_rate: {type: number, required: true}
   error_counts: {type: object, required: true}
   cases: {type: array, required: true}
 
@@ -38,4 +40,6 @@ invariants:
   - blindness_class_is_mandatory
   - verifier_yield_is_not_semantic_accuracy
   - lexical_similarity_is_not_human_semantic_adjudication
-  - defer_and_verifier_rejection_trigger_escalation
+  - defer_and_verifier_rejection_trigger_operational_escalation
+  - hidden_reference_mismatch_can_trigger_benchmark_adjudication_only
+  - benchmark_adjudication_rate_is_not_production_human_escalation_rate

@@ -178,7 +178,8 @@ def test_hidden_gold_is_loaded_only_by_scoring_stage(tmp_path):
     assert report.case_count == 2
     assert report.f0_freeze_count == 1
     assert report.deferred_count == 1
-    assert report.human_escalation_count >= 1
+    assert report.operational_escalation_count == 1
+    assert report.benchmark_adjudication_count >= 1
 
 
 def test_source_only_task_generation_does_not_accept_hidden_gold(tmp_path):

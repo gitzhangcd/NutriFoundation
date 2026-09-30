@@ -68,7 +68,7 @@ SEMANTIC_TAG_PATTERNS = (
     (r"predominantly female|79\.2% women", "female_dominant"),
     (r"heterogeneity|heterogeneous", "heterogeneity"),
     (r"less robust|weaker under alternative", "robustness_caution"),
-    (r"less than or equal to 1 year|<=\s*1 year|1 year or less", "short_followup"),
+    (r"less than or equal to 1 year|<=\s*1 year|1 year or less|no longer than about one year|short[- ]term", "short_followup"),
     (r"full guideline|numerical nutrient target|specific targets require", "fulltext_needed_for_targets"),
 )
 

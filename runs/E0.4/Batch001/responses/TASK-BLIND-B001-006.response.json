@@ -1,0 +1,46 @@
+{
+  "response_id": "RESP-BLIND-B001-006",
+  "task_id": "TASK-BLIND-B001-006",
+  "task_sha256": "bdf5606d011cc158f2ea0548a899ea1fdbad2215ed6c859f1c0d03106beaa55d",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "a0a512484427b3ad90e7f6de2ed61faa30693743a24385795d9b2d4786c746f1",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-006"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "intervention_effect",
+    "population": "322 moderately obese adults, mean age 52 years, with 86% men",
+    "intervention": "Mediterranean restricted-calorie diet or low-carbohydrate non-restricted-calorie diet",
+    "comparator": "Low-fat restricted-calorie diet",
+    "outcome": "Two-year weight change and metabolic outcomes",
+    "effect": "Mean weight loss was 2.9 kg with low-fat, 4.4 kg with Mediterranean, and 4.7 kg with low-carbohydrate diets; total-to-HDL cholesterol ratio fell 20% with low-carbohydrate versus 12% with low-fat, and glycemic measures favored Mediterranean diet among 36 participants with diabetes.",
+    "applicability_boundary": "Male-dominant sample; glycemic subgroup result was based on 36 participants with diabetes.",
+    "anchor": "PubMed abstract PMID 18635428"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

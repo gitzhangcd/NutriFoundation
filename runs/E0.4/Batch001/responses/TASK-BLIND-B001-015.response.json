@@ -1,0 +1,39 @@
+{
+  "response_id": "RESP-BLIND-B001-015",
+  "task_id": "TASK-BLIND-B001-015",
+  "task_sha256": "d20548a4b68a1cf2cc6f717352f1712673065fcc2468158f7710b4d9b0b7fa4f",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "3bccd0032fca3ebb1b21c92f9404f1d6590711694907d8823b48cf4e0b43c54f",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-015"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "defer",
+  "output": {},
+  "confidence": null,
+  "uncertainties": [
+    "PubMed abstract is unavailable; title alone does not support reliable extraction of the consensus recommendations."
+  ],
+  "error": null
+}

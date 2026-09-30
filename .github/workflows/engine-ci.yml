@@ -6,6 +6,7 @@ on:
       - 'src/**'
       - 'tests/**'
       - 'fixtures/**'
+      - 'schemas/**'
       - 'pyproject.toml'
       - '.github/workflows/engine-ci.yml'
   pull_request:
@@ -13,6 +14,7 @@ on:
       - 'src/**'
       - 'tests/**'
       - 'fixtures/**'
+      - 'schemas/**'
       - 'pyproject.toml'
 
 jobs:
@@ -27,3 +29,6 @@ jobs:
       - run: pytest -q
       - run: nutri contract-check
       - run: nutri validate-gold-gate fixtures/Batch001_ScientificClaim_Gold_Registry_v0.1.yaml
+      - run: |
+          rm -f /tmp/batch001_replay.db
+          nutri replay-batch001             fixtures/Batch001_Verified_SourceArtifact_Registry_v0.1.yaml             --fixture fixtures/pubmed_batch001_articles.json             --db /tmp/batch001_replay.db

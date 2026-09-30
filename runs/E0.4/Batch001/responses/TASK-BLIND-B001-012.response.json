@@ -1,0 +1,46 @@
+{
+  "response_id": "RESP-BLIND-B001-012",
+  "task_id": "TASK-BLIND-B001-012",
+  "task_sha256": "d58f8727e78b9839fff182879a600b22a59e2d82a428a0b40f0579477ea1c440",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "03237c49adf21e888ca3521fbaa811c7e60dbbca4a02e9137f6b4c8bb2eb52cb",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-012"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "synthesis_effect",
+    "population": "Adults with type 2 diabetes",
+    "intervention": "Weight-loss diets including very-low-energy diets, formula meal replacements, low-carbohydrate diets, and total diet replacement programs",
+    "comparator": "Alternative dietary strategies",
+    "outcome": "Weight loss and type 2 diabetes remission",
+    "effect": "Very-low-energy diets of 400-500 kcal for 8-12 weeks achieved 6.6 kg greater weight loss than low-energy diets; formula meal replacements achieved 2.4 kg greater weight loss; low-carbohydrate diets were no better than higher-carbohydrate or low-fat diets; total diet replacement programs had the strongest remission evidence, with median 54% remission at 1 year in relevant randomized trials.",
+    "applicability_boundary": "Most evidence was limited to 1 year or less and review quality and GRADE certainty varied substantially.",
+    "anchor": "PubMed abstract PMID 34796367"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

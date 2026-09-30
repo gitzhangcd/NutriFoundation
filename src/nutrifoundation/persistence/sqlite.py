@@ -253,6 +253,7 @@ class SQLiteStore:
         source_id: str | None = None,
     ) -> None:
         digest = hashlib.sha256(content_xml.encode("utf-8")).hexdigest()
+        retrieved_at = datetime.now(timezone.utc).isoformat()
         with self.connect() as connection:
             connection.execute(
                 """INSERT INTO source_full_text
@@ -270,9 +271,16 @@ class SQLiteStore:
                     source_id,
                     content_xml,
                     digest,
-                    datetime.now(timezone.utc).isoformat(),
+                    retrieved_at,
                     provider,
                 ),
+            )
+        if source_id:
+            self.save_source_text(
+                source_id,
+                "pmc_fulltext",
+                content_xml,
+                provider,
             )
 
     def save_source_text(

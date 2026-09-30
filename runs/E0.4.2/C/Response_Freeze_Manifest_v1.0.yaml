@@ -1,7 +1,7 @@
 stage: E0.4.2-C
 artifact: StrictBlindResponseFreeze
 version: v1.0
-status: FROZEN_PENDING_REMOTE_VALIDATION
+status: PASS_REMOTE_CI_VALIDATED_STRICT_BLIND_FROZEN
 
 bundle:
   path: runs/E0.4.2/C/StrictBlind_ResponseSet_FROZEN_v1.0.json
@@ -50,3 +50,41 @@ hash_semantics:
   upload_transport_sha256: provenance_of_original_user_uploaded_bytes
   canonical_json_sha256: cross_storage_frozen_content_identity
   repository_byte_hash: storage_specific_not_cross_platform_authority
+
+strict_blind_raw_result:
+  case_count: 20
+  completed_count: 19
+  defer_count: 1
+  verifier_pass_count: 15
+  f0_freeze_count: 15
+  verifier_yield: 0.75
+  f0_yield: 0.75
+  raw_operational_escalation_rate: 0.85
+  raw_benchmark_adjudication_rate: 1.0
+  canonical_comparable_fields: 137
+  canonical_equivalent_fields: 93
+  canonical_field_equivalence_rate: 0.6788321167883211
+  complete_case_equivalence_rate: 0.0
+  reference_authority: Batch001_F0_reference_not_independent_expert_gold
+  publication_grade: false
+
+interpretation_guards:
+  - verifier_yield_is_not_semantic_accuracy
+  - raw_operational_escalation_is_not_validated_human_workload
+  - benchmark_adjudication_is_not_error_rate
+  - critical_error_count_is_deterministic_triage_not_human_adjudicated_error_count
+  - anchor_and_kind_contract_mismatch_materially_affect_raw_canonical_rate
+  - frozen_response_set_must_not_be_mutated_during_error_attribution
+
+remote_validation:
+  workflow_run_id: 36791871325
+  workflow_job_id: 110146379516
+  conclusion: success
+  pytest: 80_passed
+  executable_invariants: 56_passed
+  gold_gate: PASS
+  frozen_gold_count: 0
+  ready_candidates: 3
+  strict_response_set_validation: PASS
+  strict_attestation_gate: PASS
+  strict_blind_scoring: PASS

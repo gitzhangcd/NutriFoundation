@@ -225,8 +225,22 @@ def summarize_cases(
     escalated = sum(c.human_escalation_required for c in cases)
     critical = sum(c.critical_error_count for c in cases)
     exact = sum(c.exact_field_count for c in cases)
+    near_or_exact = sum(
+        1
+        for case in cases
+        for score in case.field_scores
+        if score.match in {FieldMatch.EXACT.value, FieldMatch.NEAR.value}
+    )
     comparable = sum(c.comparable_field_count for c in cases)
     n = len(cases)
+
+    error_counts: dict[str, int] = {}
+    for case in cases:
+        for reason in case.escalation_reasons:
+            error_counts[reason] = error_counts.get(reason, 0) + 1
+        for score in case.field_scores:
+            for error in score.errors:
+                error_counts[error] = error_counts.get(error, 0) + 1
 
     return BlindReplaySummary(
         batch_id=batch_id,
@@ -239,10 +253,15 @@ def summarize_cases(
         human_escalation_count=escalated,
         critical_error_count=critical,
         exact_field_count=exact,
+        near_or_exact_field_count=near_or_exact,
         comparable_field_count=comparable,
         exact_field_rate=(exact / comparable if comparable else 0.0),
+        near_or_exact_field_rate=(
+            near_or_exact / comparable if comparable else 0.0
+        ),
         verifier_yield=(verifier_pass / n if n else 0.0),
         f0_yield=(frozen / n if n else 0.0),
         human_escalation_rate=(escalated / n if n else 0.0),
+        error_counts=error_counts,
         cases=tuple(cases),
     )

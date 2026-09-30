@@ -33,3 +33,17 @@ def assert_response_binding(
             "ResponseEnvelope does not bind to TaskBundle: "
             + ", ".join(mismatches)
         )
+
+
+def run_adapter_conformance(
+    adapter: SemanticWorkerAdapter,
+    task: TaskBundle,
+) -> ResponseEnvelope:
+    """Execute one portable adapter and enforce the provider-neutral contract."""
+    response = adapter.execute(task)
+    if response.worker.adapter_type != adapter.adapter_type:
+        raise ValueError(
+            "Adapter type mismatch between adapter and ResponseEnvelope worker descriptor"
+        )
+    assert_response_binding(task, response)
+    return response

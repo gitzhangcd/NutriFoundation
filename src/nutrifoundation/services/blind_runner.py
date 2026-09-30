@@ -47,7 +47,7 @@ def seed_blind_store(
     store: SQLiteStore,
     *,
     batch_id: str,
-    run_id: str = "RUN-BLIND-B001-E04-v01",
+    run_id: str | None = None,
 ) -> dict[str, dict[str, Any]]:
     source_records = json.loads(Path(source_fixture_path).read_text(encoding="utf-8"))
     source_by_id = {record["source_id"]: record for record in source_records}
@@ -63,10 +63,11 @@ def seed_blind_store(
             "Batch001BlindSourceFixture-v0.1",
         )
 
+    resolved_run_id = run_id or f"RUN-BLIND-{batch_id}-E04-v01"
     tasks = prepare_blind_tasks(
         source_records,
         batch_id=batch_id,
-        run_id=run_id,
+        run_id=resolved_run_id,
         created_at=fixed_e04_time(),
     )
     for task in tasks:

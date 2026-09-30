@@ -5,7 +5,8 @@ status: FROZEN_PENDING_REMOTE_VALIDATION
 
 bundle:
   path: runs/E0.4.2/C/StrictBlind_ResponseSet_FROZEN_v1.0.json
-  sha256: f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7
+  upload_transport_sha256: f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7
+  canonical_json_sha256: 513e9d3c09326b7ae715d6cc5b834d7f31decdc1162298190e3708bb31b7beca
   response_count: 20
   completed_count: 19
   defer_count: 1
@@ -44,3 +45,8 @@ protocol_notes:
   - response_set_frozen_before_hidden_reference_scoring
   - handoff_manifest_not_read_by_worker_and_not_required_for_semantic_execution
   - attestation_is_protocol_evidence_not_cryptographic_proof
+
+hash_semantics:
+  upload_transport_sha256: provenance_of_original_user_uploaded_bytes
+  canonical_json_sha256: cross_storage_frozen_content_identity
+  repository_byte_hash: storage_specific_not_cross_platform_authority

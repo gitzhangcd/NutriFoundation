@@ -169,7 +169,6 @@ def test_hidden_gold_is_loaded_only_by_scoring_stage(tmp_path):
 
     report = score_blind_artifact_run(
         source_fixture_path=source_path,
-        task_dir=task_dir,
         response_dir=responses,
         hidden_gold_path=gold_path,
         db_path=tmp_path / "blind.db",

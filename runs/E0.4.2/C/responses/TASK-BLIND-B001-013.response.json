@@ -1,0 +1,55 @@
+{
+  "response_id": "RESP-STRICT-B001-013",
+  "task_id": "TASK-BLIND-B001-013",
+  "task_sha256": "e93774298da9a3ff5f659ceebac45bada36cc87950e9da5ef336e98b090818a0",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "5b17f89580b582888c81d3373ed0c120cfa29e91a8f586ed7ed6ca6ba0faa901",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "MetaAnalysis",
+    "population": "Population-level evidence from 185 prospective studies and 58 randomized clinical trials; prospective studies and trials involving participants with chronic disease were excluded.",
+    "intervention": "Higher dietary fibre and whole-grain intake in trials and prospective studies.",
+    "exposure": "Dietary fibre, whole grains, glycaemic index, and glycaemic load as markers of carbohydrate quality.",
+    "intervention_or_exposure": "Higher dietary fibre and whole-grain intake and other carbohydrate-quality markers.",
+    "comparator": "Lower fibre/whole-grain intake or higher glycaemic index/load, depending on analysis.",
+    "outcome": "All-cause and cardiovascular mortality, coronary heart disease, stroke, type 2 diabetes, colorectal cancer, and trial risk factors including body weight, systolic blood pressure, and total cholesterol.",
+    "effect": "Observational data suggested 15-30% lower all-cause/cardiovascular mortality and several non-communicable disease outcomes when highest versus lowest fibre consumers were compared. Clinical trials showed significantly lower body weight, systolic blood pressure, and total cholesterol with higher fibre intake. Risk reduction was greatest at 25-29 g/day of fibre; certainty was moderate for fibre, low-to-moderate for whole grains, and low-to-very-low for glycaemic index/load.",
+    "recommendation": "The source supports increasing dietary fibre intake and replacing refined grains with whole grains.",
+    "applicability_boundary": "The review explicitly states findings are limited to risk reduction in the population at large rather than people with chronic disease; observational associations must not be treated as independent randomized causal effects.",
+    "anchor": "FINDINGS / INTERPRETATION",
+    "source_span": "Risk reduction associated with a range of critical outcomes was greatest when daily intake of dietary fibre was between 25 g and 29 g."
+  },
+  "confidence": null,
+  "uncertainties": [
+    "The evidence combines observational prospective studies with randomized trials of risk factors; causal interpretation differs by evidence type."
+  ],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-013"
+    ],
+    "metadata": {}
+  }
+}

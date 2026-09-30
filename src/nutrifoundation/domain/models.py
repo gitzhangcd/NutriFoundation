@@ -42,24 +42,47 @@ class SourceArtifact(FrozenModel):
 class EvidenceUnit(FrozenModel):
     evidence_id: str
     source_id: str
-    population: dict[str, Any]
-    intervention: dict[str, Any] | None = None
-    exposure: dict[str, Any] | None = None
-    comparator: dict[str, Any] | None = None
-    outcome: dict[str, Any]
+    kind: str | None = None
+    population: dict[str, Any] | str
+    intervention: dict[str, Any] | str | None = None
+    exposure: dict[str, Any] | str | None = None
+    intervention_or_exposure: dict[str, Any] | str | None = None
+    comparator: dict[str, Any] | str | None = None
+    outcome: dict[str, Any] | str
     follow_up: str | None = None
     estimand: str | None = None
     effect_measure: str | None = None
     effect_value: str | None = None
+    effect: str | None = None
+    recommendation: str | None = None
     certainty: str | None = None
     source_span: str | None = None
+    anchor: str | None = None
+    applicability_boundary: dict[str, Any] | str | None = None
     verification_status: str
+    status: str | None = None
+    verification: tuple[str, ...] = ()
     provenance: Provenance
 
     @model_validator(mode="after")
-    def require_intervention_or_exposure(self) -> "EvidenceUnit":
-        if self.intervention is None and self.exposure is None:
-            raise ValueError("EvidenceUnit requires intervention or exposure")
+    def validate_scientific_payload(self) -> "EvidenceUnit":
+        has_exposure = any(
+            value is not None
+            for value in (
+                self.intervention,
+                self.exposure,
+                self.intervention_or_exposure,
+            )
+        )
+        is_source_statement = self.recommendation is not None
+        if not has_exposure and not is_source_statement:
+            raise ValueError(
+                "EvidenceUnit requires intervention/exposure or a source-stated recommendation"
+            )
+        if self.effect is None and self.effect_value is None and self.recommendation is None:
+            raise ValueError("EvidenceUnit requires effect/effect_value or recommendation")
+        if not (self.source_span or self.anchor):
+            raise ValueError("EvidenceUnit requires source_span or anchor")
         return self
 
 

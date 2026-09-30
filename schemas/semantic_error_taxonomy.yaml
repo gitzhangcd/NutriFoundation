@@ -1,0 +1,32 @@
+taxonomy: E0.4_Semantic_Error_Taxonomy
+version: v0.1
+status: frozen
+
+errors:
+  - evidence_kind_mismatch
+  - population_scope_mismatch
+  - intervention_exposure_mismatch
+  - comparator_mismatch
+  - outcome_mismatch
+  - numeric_effect_mismatch
+  - effect_semantic_mismatch
+  - recommendation_mismatch
+  - applicability_boundary_mismatch
+  - source_anchor_mismatch
+  - causality_level_mismatch
+  - missing_critical_field
+  - verifier_rejection
+  - semantic_defer
+
+escalation_policy:
+  mandatory_if:
+    - semantic_defer
+    - verifier_rejection
+    - no_F0_freeze
+    - high_risk_field_missing_or_mismatch
+    - numeric_effect_mismatch
+    - causality_level_mismatch
+
+notes:
+  - deterministic lexical scoring is a triage signal, not final semantic truth
+  - human/expert adjudication is required for publication-level interpretation of flagged cases

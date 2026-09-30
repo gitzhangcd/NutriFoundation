@@ -124,3 +124,14 @@ def test_percent_word_and_symbol_are_numeric_equivalents():
     )
     assert record.status == "verified"
     assert record.checks.numeric_support is True
+
+
+def test_range_separator_is_not_parsed_as_negative_sign():
+    ev = evidence(effect="OR 19.7 (95% CI 7.8 to 49.8)")
+    text = "The odds ratio was 19·7, 95% CI 7·8-49·8."
+    cand = candidate(ev, text)
+    record = IndependentEvidenceVerifier(verifier_id="verifier").verify(
+        cand, source(), text, run_id="RUN-1"
+    )
+    assert record.status == "verified"
+    assert record.checks.numeric_support is True

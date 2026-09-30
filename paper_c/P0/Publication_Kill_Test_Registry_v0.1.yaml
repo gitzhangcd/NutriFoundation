@@ -1,0 +1,74 @@
+study: Paper_C_Scientific_Evidence_Production
+version: v0.1
+status: frozen
+
+kill_tests:
+  - id: K01
+    name: Gold unreliability
+    condition: critical_field_agreement_below_prespecified_gate_after_calibration
+    consequence: stop_confirmatory_runs_and_repair_gold_protocol
+
+  - id: K02
+    name: Verifier has no incremental value
+    condition: AB4_fails_to_reduce_CSER_vs_AB2_by_at_least_20_percent_relative_and_no_unique_critical_error_capture
+    consequence: remove_or_reduce_independent_verifier_claim
+
+  - id: K03
+    name: Auditor redundancy
+    condition: AB5_reduces_CSER_vs_AB4_by_less_than_0_005_absolute_and_catches_fewer_than_5_percent_unique_critical_errors
+    consequence: do_not_claim_auditor_is_required
+
+  - id: K04
+    name: HITL burden failure
+    condition: AB6_HBR_below_0_30_or_time_reduction_CI_includes_no_benefit
+    consequence: kill_human_burden_advantage_claim
+
+  - id: K05
+    name: HITL safety failure
+    condition: AB6_fails_CSER_noninferiority_or_exceeds_absolute_CSER_0_05
+    consequence: kill_production_ready_HITL_claim
+
+  - id: K06
+    name: Unsafe silent failure
+    condition: any_source_with_critical_missing_or_unsupported_evidence_is_auto_frozen_without_escalation
+    consequence: hard_kill_current_escalation_policy
+
+  - id: K07
+    name: Held-out source-type collapse
+    condition: held_out_source_type_CSER_more_than_2x_core_or_absolute_increase_over_0_05
+    consequence: restrict_claim_to_supported_source_types
+
+  - id: K08
+    name: External-domain collapse
+    condition: external_domain_CSER_more_than_2x_in_domain_or_absolute_increase_over_0_05
+    consequence: remove_domain_general_claim
+
+  - id: K09
+    name: Provenance has no measurable benefit
+    condition: source_span_validity_gain_vs_AB2_below_0_20_absolute
+    consequence: reduce_provenance_incremental_value_claim
+
+  - id: K10
+    name: Temporal/version failure
+    condition: temporal_or_version_critical_error_rate_above_0_05_in_stress_cases
+    consequence: no_living_evidence_or_temporal_correctness_claim
+
+  - id: K11
+    name: Complexity not justified
+    condition: AB5_or_AB6_CSER_gain_below_0_01_absolute_while_compute_or_latency_exceeds_AB4_by_more_than_2x_without_human_burden_gain
+    consequence: prefer_minimum_sufficient_architecture
+
+  - id: K12
+    name: Strict-blindness violation
+    condition: Gold100_semantic_worker_or_prompt_engineering_context_has_seen_hidden_reference_outputs
+    consequence: invalidate_confirmatory_model_accuracy_claim_and_rerun_in_fresh_context
+
+  - id: K13
+    name: Baseline unfairness
+    condition: model_source_cutoff_schema_or_task_identity_differs_across_AB1_AB6_without_prespecified_reason
+    consequence: invalidate_architecture_superiority_comparison
+
+  - id: K14
+    name: Post-hoc benchmark adaptation
+    condition: prompt_code_gold_or_threshold_changed_after_confirmatory_results_to_improve_performance
+    consequence: invalidate_confirmatory_claim_and_version_new_study

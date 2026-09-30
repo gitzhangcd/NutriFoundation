@@ -1,0 +1,96 @@
+corpus: Paper_C_Gold100
+version: v0.1
+status: sampling_contract_frozen
+development_exclusion:
+  corpus: Batch001
+  source_count: 20
+  use: engineering_and_calibration_only
+  confirmatory_use: prohibited
+  reason: prior_model_and_conversation_exposure
+
+confirmatory_corpus:
+  source_count: 100
+  blocks:
+    core:
+      count: 80
+      source_role_quotas:
+        primary_interventional: 28
+        primary_observational: 18
+        evidence_synthesis: 18
+        guideline_or_consensus: 12
+        companion_or_secondary: 4
+    stress:
+      count: 20
+      challenge_quotas:
+        correction_republication_retraction_or_living_version: 6
+        study_identity_or_companion_dependency: 4
+        conflicting_evidence: 4
+        recommendation_exception_or_normative_boundary: 2
+        temporal_cutoff_sensitive: 2
+        incomplete_or_missing_source_text: 2
+
+  domain_quotas:
+    nutrition_metabolic_cardiometabolic: 80
+    external_biomedical_or_public_health: 20
+
+  orthogonal_minimum_challenge_tags:
+    numeric_complexity: 20
+    causal_language_risk: 15
+    study_identity_or_dependency: 15
+    correction_retraction_or_living_version: 10
+    conflicting_evidence: 15
+    recommendation_exception: 10
+    temporal_cutoff_sensitive: 10
+    incomplete_source_text: 5
+
+eligibility:
+  include:
+    - publicly_identifiable_source
+    - sufficient_metadata_to_establish_source_identity
+    - source_type_assignable_under_current_schema
+    - supports_at_least_one_prespecified_scientific_extraction_task
+  exclude:
+    - duplicate_source_artifact
+    - training_or_prompt_engineering_source
+    - source_with_unresolvable_identity
+    - source_selected_after_baseline_results_are_inspected
+
+sampling:
+  eligible_pool_frozen_before_sampling: true
+  eligible_pool_hash_required: true
+  core_sampling: stratified_deterministic_random
+  stress_sampling: rule_based_eligibility_then_deterministic_random_within_challenge_stratum
+  random_seed: 20260930
+  no_manual_cherry_pick_after_pool_freeze: true
+
+gold_annotation:
+  model_output_visible_to_annotators: false
+  independent_annotation_count: 2
+  adjudication: required_for_disagreement_on_critical_fields
+  gold_is_best_available_adjudicated_reference_not_infallible_truth: true
+  required_objects:
+    - SourceArtifact
+    - StudyIdentity_where_applicable
+    - EvidenceUnit
+    - source_span
+    - provenance
+    - version_status
+    - critical_error_opportunities
+  agreement_gates:
+    categorical_critical_fields_gwet_AC1_min: 0.80
+    ordinal_fields_weighted_agreement_min: 0.80
+    numeric_exact_or_predeclared_tolerance_min: 0.95
+    source_span_token_F1_min: 0.85
+  below_gate_action: revise_codebook_and_recalibrate_before_gold_freeze
+  post_freeze_change_policy:
+    baseline_result_driven_change: prohibited
+    documented_source_error_correction: allowed_with_versioned_change_log
+
+freeze_order:
+  - source_selection
+  - independent_annotation
+  - adjudication
+  - gold_freeze
+  - prompt_and_code_freeze
+  - baseline_runs
+  - scoring

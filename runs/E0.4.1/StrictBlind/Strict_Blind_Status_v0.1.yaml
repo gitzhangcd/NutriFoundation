@@ -1,0 +1,18 @@
+stage: E0.4.1
+status: READY_NOT_EXECUTED_IN_CURRENT_CONTEXT
+fresh_context_required: true
+current_context_qualifies: false
+current_attestation:
+  fresh_context: false
+  prior_batch_exposure: true
+  hidden_reference_available_to_worker: false
+  independent_worker_session: false
+reason:
+  - current_chat_context_contains_prior_Batch001_exposure
+  - executing_again_here_would_not_be_cognitive_blind
+gate:
+  validation_command: nutri validate-strict-blind runs/E0.4.1/StrictBlind/responses --require
+  scoring_command: nutri score-strict-blind-batch runs/E0.4.1/StrictBlind/responses
+interpretation:
+  - attestation_is_protocol_evidence_not_cryptographic_proof
+  - hidden_reference_must_remain_unavailable_until_response_freeze

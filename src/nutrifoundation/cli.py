@@ -15,6 +15,16 @@ from nutrifoundation.connectors.fixture import FixturePubMedConnector
 from nutrifoundation.connectors.ncbi import PMCConnector, PubMedConnector
 from nutrifoundation.io.loaders import load_structured
 from nutrifoundation.persistence.sqlite import SQLiteStore
+from nutrifoundation.services.blind_batch import (
+    fixed_e04_time,
+    load_source_fixture,
+    prepare_blind_tasks,
+    write_blind_tasks,
+)
+from nutrifoundation.services.blind_runner import (
+    score_blind_artifact_run,
+    write_blind_report,
+)
 from nutrifoundation.services.evidence_pipeline import EvidenceProductionService
 from nutrifoundation.services.evidence_replay import replay_batch001_evidence
 from nutrifoundation.services.ingestion import SourceArtifactIngestionService
@@ -257,6 +267,62 @@ def list_semantic_tasks(
         for task, task_state in items
     ]
     typer.echo(json.dumps(payload, indent=2, ensure_ascii=False))
+
+
+@app.command("prepare-blind-batch")
+def prepare_blind_batch(
+    source_fixture: Path = Path("fixtures/Batch001_Blind_SourceText_v0.1.json"),
+    out_dir: Path = Path("runs/E0.4/Batch001/tasks"),
+    batch_id: str = "B001",
+    run_id: str = "RUN-BLIND-B001-E04-v01",
+) -> None:
+    """Generate deterministic source-only TaskBundles. Hidden Gold is not accepted."""
+    records = load_source_fixture(source_fixture)
+    tasks = prepare_blind_tasks(
+        records,
+        batch_id=batch_id,
+        run_id=run_id,
+        created_at=fixed_e04_time(),
+    )
+    write_blind_tasks(tasks, out_dir)
+    typer.echo(
+        json.dumps(
+            {
+                "batch_id": batch_id,
+                "task_count": len(tasks),
+                "out_dir": str(out_dir),
+                "gold_input_parameter": False,
+            },
+            indent=2,
+        )
+    )
+
+
+@app.command("score-blind-batch")
+def score_blind_batch(
+    source_fixture: Path = Path("fixtures/Batch001_Blind_SourceText_v0.1.json"),
+    task_dir: Path = Path("runs/E0.4/Batch001/tasks"),
+    response_dir: Path = Path("runs/E0.4/Batch001/responses"),
+    hidden_gold: Path = Path("fixtures/Batch001_EvidenceUnit_Frozen_v0.1.yaml"),
+    db: Path = Path("batch001_blind_replay.db"),
+    report: Path = Path("runs/E0.4/Batch001/Blind_Replay_Report.json"),
+    blindness_class: str = "engineering_blind_current_context_prior_exposure",
+) -> None:
+    """Ingest semantic responses, run verifier/F0, then load hidden Gold for scoring."""
+    from nutrifoundation.domain.blind_replay import BlindnessClass
+
+    result = score_blind_artifact_run(
+        source_fixture_path=source_fixture,
+        task_dir=task_dir,
+        response_dir=response_dir,
+        hidden_gold_path=hidden_gold,
+        db_path=db,
+        batch_id="B001",
+        blindness_class=BlindnessClass(blindness_class),
+    )
+    report.parent.mkdir(parents=True, exist_ok=True)
+    write_blind_report(result, report)
+    typer.echo(json.dumps(result.as_dict(), indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

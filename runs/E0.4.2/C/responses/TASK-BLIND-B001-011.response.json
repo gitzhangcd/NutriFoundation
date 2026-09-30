@@ -1,0 +1,56 @@
+{
+  "response_id": "RESP-STRICT-B001-011",
+  "task_id": "TASK-BLIND-B001-011",
+  "task_sha256": "660f21a97d7397c83af2b43ff6d1ba84b50d974fa47641dc8fdeea322385eaa1",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "fc8295f808af817928b09fb87512221d590e2c378ab0b69a30a9308d4a338d7c",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "MetaAnalysis",
+    "population": "People with type 2 diabetes represented in 73 randomized controlled trials of eight dietary patterns.",
+    "intervention": "Eight dietary patterns, including low-carbohydrate and Mediterranean patterns.",
+    "exposure": null,
+    "intervention_or_exposure": "Dietary-pattern interventions.",
+    "comparator": "Usual diet and other dietary patterns within a Bayesian network meta-analysis.",
+    "outcome": "Body weight, blood pressure, HbA1c, lipids at 6 and 12 months; modeled relative risk reduction for cardiovascular events based on 6-month risk-factor changes.",
+    "effect": "At 6 months, all dietary patterns reduced body weight and HbA1c versus usual diet. Largest reported effects were low-carbohydrate for body weight (-4.8 kg, 95% CrI -6.5 to -3.2) and Mediterranean for HbA1c (-1.0%, 95% CrI -15 to -0.4 vs usual diet, copied exactly from source). There were no significant 6-month blood-pressure or lipid effects and 12-month effects were not statistically significant. Mediterranean diet had the largest expected cardiovascular-event RRR, -16% (95% CI -31 to 3.0), which was not statistically significant.",
+    "recommendation": null,
+    "applicability_boundary": "Applies to people with type 2 diabetes in the included RCT evidence; evidence was insufficient to select a single optimal dietary pattern, especially given non-significant 12-month effects.",
+    "anchor": "RESULTS / CONCLUSIONS",
+    "source_span": "There was insufficient evidence to select one optimal dietary pattern."
+  },
+  "confidence": null,
+  "uncertainties": [
+    "The source reports the Mediterranean HbA1c 95% credibility interval as '-15;-0.4 %'; this value is preserved exactly rather than corrected.",
+    "The cardiovascular risk-reduction estimate was modeled from risk-factor changes rather than directly observed cardiovascular events."
+  ],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-011"
+    ],
+    "metadata": {}
+  }
+}

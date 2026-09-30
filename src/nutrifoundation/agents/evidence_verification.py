@@ -13,7 +13,7 @@ from nutrifoundation.domain.evidence_pipeline import (
 from nutrifoundation.domain.models import Provenance, SourceArtifact
 
 
-_NUMERIC = re.compile(r"(?<![A-Za-z])[-+−]?\d+(?:[\.,·]\d+)?%?")
+_NUMERIC = re.compile(r"(?<![\d.])[-+−]?\d+(?:[\.,·]\d+)?%?")
 
 
 def _normalize_numeric(token: str) -> str:

@@ -107,6 +107,8 @@ def score_canonical_batch(
 
     return CanonicalBatchSummary(
         batch_id=batch_id,
+        reference_authority="Batch001_F0_reference_not_independent_expert_gold",
+        publication_grade=False,
         case_count=len(cases),
         completed_response_count=sum(
             case.response_status == "completed"

@@ -11,6 +11,10 @@ from nutrifoundation.domain.models import Provenance, SourceArtifact, SourceIden
 from nutrifoundation.domain.semantic_worker import SemanticTaskState, TaskBundle
 from nutrifoundation.io.loaders import load_structured
 from nutrifoundation.persistence.sqlite import SQLiteStore
+from nutrifoundation.services.blind_batch import (
+    fixed_e04_time,
+    prepare_blind_tasks,
+)
 from nutrifoundation.services.blind_scoring import score_case, summarize_cases
 from nutrifoundation.services.semantic_bridge import SemanticResponseIngestionService
 
@@ -40,8 +44,10 @@ def _source_from_fixture(record: dict[str, Any]) -> SourceArtifact:
 
 def seed_blind_store(
     source_fixture_path: str | Path,
-    task_dir: str | Path,
     store: SQLiteStore,
+    *,
+    batch_id: str,
+    run_id: str = "RUN-BLIND-B001-E04-v01",
 ) -> dict[str, dict[str, Any]]:
     source_records = json.loads(Path(source_fixture_path).read_text(encoding="utf-8"))
     source_by_id = {record["source_id"]: record for record in source_records}
@@ -57,8 +63,13 @@ def seed_blind_store(
             "Batch001BlindSourceFixture-v0.1",
         )
 
-    for path in sorted(Path(task_dir).glob("*.request.json")):
-        task = TaskBundle.model_validate_json(path.read_text(encoding="utf-8"))
+    tasks = prepare_blind_tasks(
+        source_records,
+        batch_id=batch_id,
+        run_id=run_id,
+        created_at=fixed_e04_time(),
+    )
+    for task in tasks:
         store.save_semantic_task(task, SemanticTaskState.PENDING)
         store.transition_semantic_task(task.task_id, SemanticTaskState.EXPORTED)
 
@@ -68,7 +79,6 @@ def seed_blind_store(
 def score_blind_artifact_run(
     *,
     source_fixture_path: str | Path,
-    task_dir: str | Path,
     response_dir: str | Path,
     hidden_gold_path: str | Path,
     db_path: str | Path,
@@ -76,7 +86,11 @@ def score_blind_artifact_run(
     blindness_class: BlindnessClass,
 ):
     store = SQLiteStore(db_path)
-    seed_blind_store(source_fixture_path, task_dir, store)
+    seed_blind_store(
+        source_fixture_path,
+        store,
+        batch_id=batch_id,
+    )
 
     gold_registry = load_structured(hidden_gold_path)
     gold_by_id = {

@@ -6,7 +6,8 @@
   "deferred_count": 1,
   "verifier_pass_count": 19,
   "f0_freeze_count": 19,
-  "human_escalation_count": 14,
+  "operational_escalation_count": 1,
+  "benchmark_adjudication_count": 14,
   "critical_error_count": 27,
   "exact_field_count": 59,
   "near_or_exact_field_count": 80,
@@ -15,17 +16,19 @@
   "near_or_exact_field_rate": 0.583941605839416,
   "verifier_yield": 0.95,
   "f0_yield": 0.95,
-  "human_escalation_rate": 0.7,
+  "operational_escalation_rate": 0.05,
+  "benchmark_adjudication_rate": 0.7,
   "error_counts": {
     "applicability_boundary_mismatch": 8,
+    "high_risk_hidden_reference_mismatch": 11,
     "numeric_effect_mismatch": 5,
     "intervention_exposure_mismatch": 3,
-    "semantic_defer": 1,
-    "missing_critical_field": 1,
+    "recommendation_mismatch": 1,
+    "evidence_kind_mismatch": 1,
     "verifier_rejection": 1,
     "population_scope_mismatch": 3,
-    "evidence_kind_mismatch": 1,
-    "recommendation_mismatch": 1,
+    "semantic_defer": 1,
+    "missing_critical_field": 1,
     "source_anchor_mismatch": 1
   },
   "cases": [
@@ -130,9 +133,12 @@
       "critical_error_count": 1,
       "exact_field_count": 4,
       "comparable_field_count": 7,
-      "human_escalation_required": true,
-      "escalation_reasons": [
-        "applicability_boundary_mismatch"
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": true,
+      "benchmark_adjudication_reasons": [
+        "applicability_boundary_mismatch",
+        "high_risk_hidden_reference_mismatch"
       ],
       "verifier_errors": [],
       "response_uncertainties": []
@@ -238,8 +244,10 @@
       "critical_error_count": 1,
       "exact_field_count": 3,
       "comparable_field_count": 7,
-      "human_escalation_required": true,
-      "escalation_reasons": [
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": true,
+      "benchmark_adjudication_reasons": [
         "numeric_effect_mismatch"
       ],
       "verifier_errors": [],
@@ -348,10 +356,13 @@
       "critical_error_count": 2,
       "exact_field_count": 3,
       "comparable_field_count": 7,
-      "human_escalation_required": true,
-      "escalation_reasons": [
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": true,
+      "benchmark_adjudication_reasons": [
         "intervention_exposure_mismatch",
-        "numeric_effect_mismatch"
+        "numeric_effect_mismatch",
+        "high_risk_hidden_reference_mismatch"
       ],
       "verifier_errors": [],
       "response_uncertainties": []
@@ -455,8 +466,10 @@
       "critical_error_count": 0,
       "exact_field_count": 1,
       "comparable_field_count": 7,
-      "human_escalation_required": false,
-      "escalation_reasons": [],
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": false,
+      "benchmark_adjudication_reasons": [],
       "verifier_errors": [],
       "response_uncertainties": []
     },
@@ -563,10 +576,13 @@
       "critical_error_count": 2,
       "exact_field_count": 3,
       "comparable_field_count": 7,
-      "human_escalation_required": true,
-      "escalation_reasons": [
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": true,
+      "benchmark_adjudication_reasons": [
         "intervention_exposure_mismatch",
-        "applicability_boundary_mismatch"
+        "applicability_boundary_mismatch",
+        "high_risk_hidden_reference_mismatch"
       ],
       "verifier_errors": [],
       "response_uncertainties": []
@@ -670,8 +686,10 @@
       "critical_error_count": 0,
       "exact_field_count": 2,
       "comparable_field_count": 7,
-      "human_escalation_required": false,
-      "escalation_reasons": [],
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": false,
+      "benchmark_adjudication_reasons": [],
       "verifier_errors": [],
       "response_uncertainties": []
     },
@@ -776,9 +794,12 @@
       "critical_error_count": 1,
       "exact_field_count": 3,
       "comparable_field_count": 7,
-      "human_escalation_required": true,
-      "escalation_reasons": [
-        "applicability_boundary_mismatch"
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": true,
+      "benchmark_adjudication_reasons": [
+        "applicability_boundary_mismatch",
+        "high_risk_hidden_reference_mismatch"
       ],
       "verifier_errors": [],
       "response_uncertainties": []
@@ -884,9 +905,12 @@
       "critical_error_count": 1,
       "exact_field_count": 3,
       "comparable_field_count": 7,
-      "human_escalation_required": true,
-      "escalation_reasons": [
-        "applicability_boundary_mismatch"
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": true,
+      "benchmark_adjudication_reasons": [
+        "applicability_boundary_mismatch",
+        "high_risk_hidden_reference_mismatch"
       ],
       "verifier_errors": [],
       "response_uncertainties": []
@@ -994,10 +1018,13 @@
       "critical_error_count": 2,
       "exact_field_count": 3,
       "comparable_field_count": 7,
-      "human_escalation_required": true,
-      "escalation_reasons": [
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": true,
+      "benchmark_adjudication_reasons": [
         "numeric_effect_mismatch",
-        "applicability_boundary_mismatch"
+        "applicability_boundary_mismatch",
+        "high_risk_hidden_reference_mismatch"
       ],
       "verifier_errors": [],
       "response_uncertainties": []
@@ -1105,10 +1132,13 @@
       "critical_error_count": 2,
       "exact_field_count": 1,
       "comparable_field_count": 7,
-      "human_escalation_required": true,
-      "escalation_reasons": [
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": true,
+      "benchmark_adjudication_reasons": [
         "intervention_exposure_mismatch",
-        "applicability_boundary_mismatch"
+        "applicability_boundary_mismatch",
+        "high_risk_hidden_reference_mismatch"
       ],
       "verifier_errors": [],
       "response_uncertainties": []
@@ -1212,8 +1242,10 @@
       "critical_error_count": 0,
       "exact_field_count": 5,
       "comparable_field_count": 8,
-      "human_escalation_required": false,
-      "escalation_reasons": [],
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": false,
+      "benchmark_adjudication_reasons": [],
       "verifier_errors": [],
       "response_uncertainties": []
     },
@@ -1316,8 +1348,10 @@
       "critical_error_count": 0,
       "exact_field_count": 4,
       "comparable_field_count": 8,
-      "human_escalation_required": false,
-      "escalation_reasons": [],
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": false,
+      "benchmark_adjudication_reasons": [],
       "verifier_errors": [],
       "response_uncertainties": []
     },
@@ -1422,9 +1456,12 @@
       "critical_error_count": 1,
       "exact_field_count": 4,
       "comparable_field_count": 8,
-      "human_escalation_required": true,
-      "escalation_reasons": [
-        "applicability_boundary_mismatch"
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": true,
+      "benchmark_adjudication_reasons": [
+        "applicability_boundary_mismatch",
+        "high_risk_hidden_reference_mismatch"
       ],
       "verifier_errors": [],
       "response_uncertainties": []
@@ -1530,8 +1567,10 @@
       "critical_error_count": 1,
       "exact_field_count": 4,
       "comparable_field_count": 7,
-      "human_escalation_required": true,
-      "escalation_reasons": [
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": true,
+      "benchmark_adjudication_reasons": [
         "numeric_effect_mismatch"
       ],
       "verifier_errors": [],
@@ -1651,8 +1690,15 @@
       "critical_error_count": 10,
       "exact_field_count": 0,
       "comparable_field_count": 5,
-      "human_escalation_required": true,
-      "escalation_reasons": [
+      "operational_escalation_required": true,
+      "operational_escalation_reasons": [
+        "semantic_defer",
+        "verifier_rejection",
+        "f0_not_frozen",
+        "semantic_uncertainty"
+      ],
+      "benchmark_adjudication_required": true,
+      "benchmark_adjudication_reasons": [
         "semantic_defer",
         "verifier_rejection",
         "missing_critical_field",
@@ -1660,7 +1706,8 @@
         "population_scope_mismatch",
         "recommendation_mismatch",
         "applicability_boundary_mismatch",
-        "source_anchor_mismatch"
+        "source_anchor_mismatch",
+        "high_risk_hidden_reference_mismatch"
       ],
       "verifier_errors": [
         "PubMed abstract is unavailable; title alone does not support reliable extraction of the consensus recommendations."
@@ -1770,9 +1817,12 @@
       "critical_error_count": 1,
       "exact_field_count": 2,
       "comparable_field_count": 5,
-      "human_escalation_required": true,
-      "escalation_reasons": [
-        "population_scope_mismatch"
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": true,
+      "benchmark_adjudication_reasons": [
+        "population_scope_mismatch",
+        "high_risk_hidden_reference_mismatch"
       ],
       "verifier_errors": [],
       "response_uncertainties": []
@@ -1878,9 +1928,12 @@
       "critical_error_count": 1,
       "exact_field_count": 2,
       "comparable_field_count": 5,
-      "human_escalation_required": true,
-      "escalation_reasons": [
-        "population_scope_mismatch"
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": true,
+      "benchmark_adjudication_reasons": [
+        "population_scope_mismatch",
+        "high_risk_hidden_reference_mismatch"
       ],
       "verifier_errors": [],
       "response_uncertainties": []
@@ -1986,8 +2039,10 @@
       "critical_error_count": 1,
       "exact_field_count": 4,
       "comparable_field_count": 7,
-      "human_escalation_required": true,
-      "escalation_reasons": [
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": true,
+      "benchmark_adjudication_reasons": [
         "numeric_effect_mismatch"
       ],
       "verifier_errors": [],
@@ -2092,8 +2147,10 @@
       "critical_error_count": 0,
       "exact_field_count": 3,
       "comparable_field_count": 7,
-      "human_escalation_required": false,
-      "escalation_reasons": [],
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": false,
+      "benchmark_adjudication_reasons": [],
       "verifier_errors": [],
       "response_uncertainties": []
     },
@@ -2196,8 +2253,10 @@
       "critical_error_count": 0,
       "exact_field_count": 5,
       "comparable_field_count": 7,
-      "human_escalation_required": false,
-      "escalation_reasons": [],
+      "operational_escalation_required": false,
+      "operational_escalation_reasons": [],
+      "benchmark_adjudication_required": false,
+      "benchmark_adjudication_reasons": [],
       "verifier_errors": [],
       "response_uncertainties": []
     }

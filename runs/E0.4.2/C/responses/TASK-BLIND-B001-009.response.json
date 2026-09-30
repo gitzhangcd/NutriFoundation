@@ -1,0 +1,55 @@
+{
+  "response_id": "RESP-STRICT-B001-009",
+  "task_id": "TASK-BLIND-B001-009",
+  "task_sha256": "6d39534844298baf5e5a23dee0925c2a0ecffe9d08b107f8add60ca92c47b425",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "98286dba5f663a8ee330c82cbbede1bf9d2ec27b700594e9be5f87edaa24a161",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "RCT",
+    "population": "311 free-living, overweight or obese, nondiabetic, premenopausal women in the United States.",
+    "intervention": "Atkins, Zone, LEARN, or Ornish diet with weekly instruction for 2 months and 10 additional months of follow-up.",
+    "exposure": null,
+    "intervention_or_exposure": "Four named weight-loss diets spanning low to high carbohydrate intake.",
+    "comparator": "Between-diet comparison among Atkins, Zone, LEARN, and Ornish.",
+    "outcome": "Weight loss at 12 months; metabolic risk factors were secondary outcomes.",
+    "effect": "Mean 12-month weight loss was Atkins -4.7 kg (95% CI -6.3 to -3.1), Zone -1.6 kg (95% CI -2.8 to -0.4), LEARN -2.6 kg (-3.8 to -1.3), and Ornish -2.2 kg (-3.6 to -0.8). Atkins differed significantly from Zone (P<0.05); Zone, LEARN, and Ornish did not differ significantly from each other.",
+    "recommendation": "The source concludes that a low-carbohydrate, high-protein, high-fat diet may be considered a feasible alternative recommendation for weight loss, while noting remaining questions about long-term effects and mechanisms.",
+    "applicability_boundary": "Applies to overweight/obese nondiabetic premenopausal women; it does not establish the same comparative effects in men, postmenopausal women, or people with diabetes.",
+    "anchor": "RESULTS / CONCLUSIONS",
+    "source_span": "Mean 12-month weight loss was as follows: Atkins, -4.7 kg, Zone, -1.6 kg, LEARN, -2.6 kg, and Ornish, -2.2 kg."
+  },
+  "confidence": null,
+  "uncertainties": [
+    "The source explicitly notes questions remain about long-term effects and mechanisms."
+  ],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-009"
+    ],
+    "metadata": {}
+  }
+}

@@ -21,6 +21,7 @@ def _normalize_numeric(token: str) -> str:
         token.replace("−", "-")
         .replace("·", ".")
         .replace(",", "")
+        .replace("%", "")
         .strip()
     )
 

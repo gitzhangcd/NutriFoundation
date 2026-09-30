@@ -1,0 +1,30 @@
+{
+  "stage": "E0.4.2-C",
+  "artifact": "StrictBlindResponseSetFreezeReceipt",
+  "version": "v1.0",
+  "status": "FROZEN_PRE_SCORING",
+  "canonical_bundle": "runs/E0.4.2/C/StrictBlind_ResponseSet_FROZEN_v1.0.json",
+  "original_uploaded_filename": "NutriFoundation_E0.4.2_A0_StrictBlind_ResponseSet_FROZEN_v1.0-1.json",
+  "original_uploaded_sha256": "f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7",
+  "uploaded_vs_repository_text_match": true,
+  "response_count": 20,
+  "completed_count": 19,
+  "defer_count": 1,
+  "task_hash_match_count": 20,
+  "source_text_hash_match_count": 20,
+  "strict_blind_metadata_match_count": 20,
+  "taskpack_sha256": "c4f6be434169f7fc5713d6d7ebb6a8793b50cdcd6611c4ce6902171a13edcdc2",
+  "response_materialization": "runs/E0.4.2/C/responses/*.response.json",
+  "authority_rule": "canonical bundle bytes are frozen before hidden-reference scoring; split files are derived materializations without semantic mutation",
+  "hidden_reference_loaded_before_freeze": false,
+  "scoring_performed_before_freeze": false,
+  "attestation": {
+    "fresh_context_attestation": true,
+    "prior_batch_exposure": false,
+    "hidden_reference_available_to_worker": false,
+    "independent_worker_session": true,
+    "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+    "blindness_class": "strict_blind_fresh_context"
+  },
+  "protocol_note": "Handoff_Manifest_v1.0.yaml was not read by the semantic worker according to the fresh-context attestation; this is protocol evidence, not cryptographic proof."
+}

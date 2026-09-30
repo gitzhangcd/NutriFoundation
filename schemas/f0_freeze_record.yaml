@@ -1,0 +1,26 @@
+schema: F0FreezeRecord
+version: v0.1
+introduced_in: E0.3
+status: frozen
+
+purpose:
+  - record_the_irreversible_transition_from_verified_candidate_to_F0
+
+fields:
+  freeze_id: {type: string, required: true}
+  evidence_id: {type: string, required: true}
+  source_id: {type: string, required: true}
+  candidate_ref: {type: string, required: true}
+  verification_ref: {type: string, required: true}
+  freeze_level: {enum: [F0], required: true}
+  source_text_sha256: {type: string, required: true}
+  frozen_at: {type: datetime, required: true}
+  provenance: {type: ProvenanceRecord, required: true}
+
+invariants:
+  - F0_requires_verified_EvidenceVerificationRecord
+  - candidate_and_verification_must_reference_same_EvidenceUnit
+  - source_text_hash_must_match_between_candidate_and_verification
+  - frozen_F0_payload_is_immutable
+  - F0_is_not_F1
+  - F0_is_not_expert_gold

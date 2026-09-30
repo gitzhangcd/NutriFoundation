@@ -2,20 +2,32 @@
   "stage": "E0.4.2-C",
   "artifact": "StrictBlindResponseSetFreezeReceipt",
   "version": "v1.0",
-  "status": "FROZEN_PRE_SCORING",
+  "status": "FROZEN_AND_REMOTE_VALIDATED",
   "canonical_bundle": "runs/E0.4.2/C/StrictBlind_ResponseSet_FROZEN_v1.0.json",
   "original_uploaded_filename": "NutriFoundation_E0.4.2_A0_StrictBlind_ResponseSet_FROZEN_v1.0-1.json",
-  "original_uploaded_sha256": "f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7",
+  "hash_lineage": {
+    "source_upload_transport_sha256": "f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7",
+    "repository_bytes_sha256": "8e44cf089cd9a7af75dbf8e2f2d64306ef164efdf775b739f19d3a9bd01f05e1",
+    "canonical_bundle_sha256": "513e9d3c09326b7ae715d6cc5b834d7f31decdc1162298190e3708bb31b7beca"
+  },
+  "hash_semantics": {
+    "source_upload_transport_sha256": "provenance_only",
+    "repository_bytes_sha256": "repository_materialization_diagnostic",
+    "canonical_bundle_sha256": "cross_transport_freeze_identity"
+  },
   "uploaded_vs_repository_text_match": true,
+  "source_upload_sha256_independently_verified_by_controller": true,
   "response_count": 20,
   "completed_count": 19,
   "defer_count": 1,
   "task_hash_match_count": 20,
   "source_text_hash_match_count": 20,
+  "contract_version_match_count": 20,
+  "response_schema_match_count": 20,
   "strict_blind_metadata_match_count": 20,
   "taskpack_sha256": "c4f6be434169f7fc5713d6d7ebb6a8793b50cdcd6611c4ce6902171a13edcdc2",
   "response_materialization": "runs/E0.4.2/C/responses/*.response.json",
-  "authority_rule": "canonical bundle bytes are frozen before hidden-reference scoring; split files are derived materializations without semantic mutation",
+  "authority_rule": "canonical JSON SHA-256 is the cross-transport frozen response identity; upload byte SHA is immutable provenance and repository byte SHA is a materialization diagnostic",
   "hidden_reference_loaded_before_freeze": false,
   "scoring_performed_before_freeze": false,
   "attestation": {
@@ -24,7 +36,16 @@
     "hidden_reference_available_to_worker": false,
     "independent_worker_session": true,
     "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
-    "blindness_class": "strict_blind_fresh_context"
+    "blindness_class": "strict_blind_fresh_context",
+    "qualifies": true
   },
-  "protocol_note": "Handoff_Manifest_v1.0.yaml was not read by the semantic worker according to the fresh-context attestation; this is protocol evidence, not cryptographic proof."
+  "protocol_note": "Handoff_Manifest_v1.0.yaml was not read by the semantic worker according to the fresh-context attestation; this is protocol evidence, not cryptographic proof.",
+  "remote_validation": {
+    "workflow_run_id": 36791503243,
+    "workflow_job_id": 110145211924,
+    "conclusion": "success",
+    "pytest": "80_passed",
+    "executable_invariants": "56_passed",
+    "strict_blind_attestation": "PASS"
+  }
 }

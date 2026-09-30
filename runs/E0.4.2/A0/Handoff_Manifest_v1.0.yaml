@@ -1,0 +1,48 @@
+stage: E0.4.2-A0
+artifact: FreshContextStrictBlindHandoff
+version: v1.0
+status: FROZEN_READY_FOR_FRESH_CONTEXT
+
+taskpack:
+  source_fixture: fixtures/Batch001_Blind_SourceText_v0.1.json
+  task_manifest: runs/E0.4.2/A0/StrictBlind_TaskPack_Manifest_v1.0.json
+  worker_contract: runs/E0.4.2/A0/Fresh_Context_Worker_Contract_v1.0.md
+  response_template: runs/E0.4.2/A0/ResponseEnvelope_Template_v1.0.json
+  task_count: 20
+  taskpack_sha256: c4f6be434169f7fc5713d6d7ebb6a8793b50cdcd6611c4ce6902171a13edcdc2
+
+fresh_context_requirements:
+  open_outside_current_chat: true
+  prior_batch_exposure: false
+  hidden_reference_visible: false
+  prior_response_visible: false
+  prior_scoring_visible: false
+  independent_worker_session: true
+
+required_worker_metadata:
+  fresh_context_attestation: true
+  prior_batch_exposure: false
+  hidden_reference_available_to_worker: false
+  independent_worker_session: true
+  strict_blind_protocol_version: E0.4.2-A0-v0.1
+  blindness_class: strict_blind_fresh_context
+
+forbidden_artifacts:
+  - fixtures/Batch001_EvidenceUnit_Frozen_v0.1.yaml
+  - runs/E0.4/Batch001/responses/
+  - runs/E0.4/Batch001/Blind_Replay_Report_v0.1.json
+  - runs/E0.4.1/Batch001/Canonical_Equivalence_Report_v0.1.json
+  - fixtures/E0.4.1_Semantic_Equivalence_Development_Calibration_v0.1.yaml
+  - fixtures/E0.4.1_Verifier_Development_Calibration_v0.1.yaml
+  - fixtures/Batch001_ScientificClaim_Gold_Registry_v0.1.yaml
+
+controller_commands:
+  audit_before_handoff: nutri audit-strict-blind-taskpack
+  validate_responses: nutri validate-strict-blind <response_dir> --require
+  score_after_freeze: nutri score-strict-blind-batch <response_dir>
+
+interpretation:
+  - taskpack_reuses_frozen_E0.4_task_hashes_for_comparability
+  - new_chat_changes_context_blindness_not_task_definition
+  - attestation_is_protocol_evidence_not_cryptographic_proof
+  - scoring_is_forbidden_before_response_freeze

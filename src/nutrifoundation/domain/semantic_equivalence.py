@@ -129,3 +129,88 @@ class StrictBlindAttestation:
 
     def as_dict(self) -> dict[str, Any]:
         return {**asdict(self), "qualifies": self.qualifies}
+
+
+@dataclass(frozen=True)
+class CanonicalCaseResult:
+    evidence_id: str
+    source_id: str
+    response_status: str
+    comparable_field_count: int
+    equivalent_field_count: int
+    partial_field_count: int
+    mismatch_field_count: int
+    missing_field_count: int
+    all_critical_fields_equivalent: bool
+    field_results: tuple[EquivalenceResult, ...]
+
+    @property
+    def field_equivalence_rate(self) -> float:
+        return (
+            self.equivalent_field_count / self.comparable_field_count
+            if self.comparable_field_count
+            else 0.0
+        )
+
+    def as_dict(self) -> dict[str, Any]:
+        return {
+            "evidence_id": self.evidence_id,
+            "source_id": self.source_id,
+            "response_status": self.response_status,
+            "comparable_field_count": self.comparable_field_count,
+            "equivalent_field_count": self.equivalent_field_count,
+            "partial_field_count": self.partial_field_count,
+            "mismatch_field_count": self.mismatch_field_count,
+            "missing_field_count": self.missing_field_count,
+            "all_critical_fields_equivalent": self.all_critical_fields_equivalent,
+            "field_equivalence_rate": self.field_equivalence_rate,
+            "field_results": [item.as_dict() for item in self.field_results],
+        }
+
+
+@dataclass(frozen=True)
+class CanonicalBatchSummary:
+    batch_id: str
+    case_count: int
+    completed_response_count: int
+    deferred_count: int
+    comparable_field_count: int
+    equivalent_field_count: int
+    partial_field_count: int
+    mismatch_field_count: int
+    missing_field_count: int
+    all_critical_equivalent_case_count: int
+    cases: tuple[CanonicalCaseResult, ...]
+
+    @property
+    def field_equivalence_rate(self) -> float:
+        return (
+            self.equivalent_field_count / self.comparable_field_count
+            if self.comparable_field_count
+            else 0.0
+        )
+
+    @property
+    def complete_case_equivalence_rate(self) -> float:
+        return (
+            self.all_critical_equivalent_case_count / self.case_count
+            if self.case_count
+            else 0.0
+        )
+
+    def as_dict(self) -> dict[str, Any]:
+        return {
+            "batch_id": self.batch_id,
+            "case_count": self.case_count,
+            "completed_response_count": self.completed_response_count,
+            "deferred_count": self.deferred_count,
+            "comparable_field_count": self.comparable_field_count,
+            "equivalent_field_count": self.equivalent_field_count,
+            "partial_field_count": self.partial_field_count,
+            "mismatch_field_count": self.mismatch_field_count,
+            "missing_field_count": self.missing_field_count,
+            "all_critical_equivalent_case_count": self.all_critical_equivalent_case_count,
+            "field_equivalence_rate": self.field_equivalence_rate,
+            "complete_case_equivalence_rate": self.complete_case_equivalence_rate,
+            "cases": [case.as_dict() for case in self.cases],
+        }

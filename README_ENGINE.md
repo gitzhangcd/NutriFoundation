@@ -1,4 +1,4 @@
-# NutriFoundation Engine v0.4.2a0
+# NutriFoundation Engine v0.4.2c0
 
 Executable reference implementation for the AI Nutri Data Foundation scientific evidence pipeline.
 
@@ -257,3 +257,47 @@ See:
 - `docs/E0.4.2-A0_Execution_Report.md`
 - `runs/E0.4.2/A0/Handoff_Manifest_v1.0.yaml`
 - `runs/E0.4.2/A0/Fresh_Context_Startup_Prompt_v1.0.md`
+
+
+## E0.4.2-C fresh-context strict-blind execution
+
+The frozen A0 TaskPack was executed in a fresh independent chat context and returned a frozen 20-response bundle.
+
+```text
+20 responses
+19 completed
+1 safe defer
+20/20 task binding
+20/20 source-text hash binding
+strict-blind attestation = PASS
+```
+
+Cross-transport freeze identity:
+
+```text
+canonical JSON SHA-256
+513e9d3c09326b7ae715d6cc5b834d7f31decdc1162298190e3708bb31b7beca
+```
+
+The original upload transport SHA-256 is preserved as provenance:
+
+```text
+f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7
+```
+
+First-pass post-freeze diagnostics:
+
+```text
+verifier/F0 yield = 75%
+canonical field equivalence = 67.88%
+complete-case equivalence = 0%
+```
+
+These RAW scores are not publication-grade accuracy. Post-run audit identified verifier numeric surface-form false rejects and an under-specified `kind` ontology in the A0 handoff contract. The original response bundle and RAW scoring report remain immutable; any system repair must be separately versioned.
+
+See:
+
+- `docs/E0.4.2-C_Executable_Contract.md`
+- `docs/E0.4.2-C_Execution_Report.md`
+- `runs/E0.4.2/C/ResponseSet_Freeze_Receipt_v1.0.json`
+- `runs/E0.4.2/C/StrictBlind_Scoring_Report_RAW_v1.0.json`

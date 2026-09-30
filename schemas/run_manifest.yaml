@@ -1,0 +1,47 @@
+schema: RunManifest
+version: v0.1
+introduced_in: E0.2
+status: frozen
+
+purpose:
+  - make_every_pipeline_run_reproducible
+  - bind_inputs_providers_code_version_outputs_and_failures
+  - provide_execution_lineage_for_replay_and_audit
+
+fields:
+  run_id:
+    type: string
+    required: true
+  pipeline_name:
+    type: string
+    required: true
+  pipeline_version:
+    type: string
+    required: true
+  mode:
+    enum: [live, offline_replay, test]
+    required: true
+  started_at:
+    type: datetime
+    required: true
+  finished_at:
+    type: datetime
+  status:
+    enum: [running, completed, failed]
+    required: true
+  inputs:
+    type: object
+  providers:
+    type: array
+  code_version:
+    type: string
+  outputs:
+    type: object
+  errors:
+    type: array
+
+invariants:
+  - every_ingestion_run_has_manifest
+  - provider_and_mode_are_explicit
+  - historical_completed_manifest_is_not_silently_mutated
+  - replay_output_must_reference_run_id

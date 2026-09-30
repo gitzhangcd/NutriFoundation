@@ -1,0 +1,29 @@
+schema: BlindWallAudit
+version: v1.0
+introduced_in: E0.4.2-A0
+status: frozen
+
+required_checks:
+  - task_count
+  - unique_task_ids
+  - unique_source_ids
+  - unique_evidence_ids
+  - task_hash_match_count
+  - source_hash_match_count
+  - forbidden_token_hits
+  - forbidden_key_hits
+  - reference_answer_visibility_violations
+  - prior_response_artifacts_included
+  - hidden_reference_artifacts_included
+  - scoring_artifacts_included
+
+pass_condition:
+  task_count_matches: true
+  all_task_hashes_match: true
+  all_source_hashes_match: true
+  forbidden_token_hits: []
+  forbidden_key_hits: []
+  reference_answer_visibility_violations: []
+  prior_response_artifacts_included: false
+  hidden_reference_artifacts_included: false
+  scoring_artifacts_included: false

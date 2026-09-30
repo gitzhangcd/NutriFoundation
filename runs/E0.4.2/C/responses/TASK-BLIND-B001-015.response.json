@@ -1,0 +1,55 @@
+{
+  "response_id": "RESP-STRICT-B001-015",
+  "task_id": "TASK-BLIND-B001-015",
+  "task_sha256": "d20548a4b68a1cf2cc6f717352f1712673065fcc2468158f7710b4d9b0b7fa4f",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "3bccd0032fca3ebb1b21c92f9404f1d6590711694907d8823b48cf4e0b43c54f",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "defer",
+  "output": {
+    "kind": "Consensus",
+    "population": "Adults with diabetes or prediabetes, as stated in the title.",
+    "intervention": null,
+    "exposure": null,
+    "intervention_or_exposure": "Nutrition therapy, as stated in the title.",
+    "comparator": null,
+    "outcome": null,
+    "effect": null,
+    "recommendation": null,
+    "applicability_boundary": "Only the title-level population and topic are available; no specific consensus recommendation, effect estimate, or applicability qualifier can be safely recovered from the supplied source text.",
+    "anchor": "TITLE / PUBMED ABSTRACT STATUS",
+    "source_span": "PUBMED ABSTRACT: unavailable"
+  },
+  "confidence": null,
+  "uncertainties": [
+    "The supplied source text contains only the title and states that the PubMed abstract is unavailable; specific recommendations cannot be extracted without guessing."
+  ],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-015"
+    ],
+    "metadata": {}
+  }
+}

@@ -83,6 +83,26 @@ objects:
     layer: Evaluation_Governance
     status: frozen
     introduced_in: E0.4
+  CanonicalSemanticForm:
+    layer: Evaluation_Governance
+    status: frozen
+    introduced_in: E0.4.1
+  EquivalenceResult:
+    layer: Evaluation_Governance
+    status: frozen
+    introduced_in: E0.4.1
+  EquivalenceCalibrationSummary:
+    layer: Evaluation_Governance
+    status: frozen
+    introduced_in: E0.4.1
+  StrictBlindAttestation:
+    layer: Evaluation_Governance
+    status: frozen
+    introduced_in: E0.4.1
+  CanonicalBatchSummary:
+    layer: Evaluation_Governance
+    status: frozen
+    introduced_in: E0.4.1
 
 principle:
   observation_is_not_evidence: true
@@ -115,3 +135,12 @@ principle:
   verifier_yield_is_not_semantic_accuracy: true
   blind_defer_requires_escalation: true
   benchmark_adjudication_is_not_operational_escalation: true
+  semantic_equivalence_is_not_lexical_exact_match: true
+  canonicalization_is_not_scientific_gold: true
+  development_calibration_is_not_publication_validation: true
+  precision_recall_requires_reference_class: true
+  strict_blind_requires_fresh_context: true
+  prior_batch_exposure_disqualifies_strict_blind: true
+  equivalence_scoring_cannot_mutate_F0: true
+  verifier_calibration_is_not_equivalence_calibration: true
+  strict_blind_attestation_is_not_cryptographic_proof: true

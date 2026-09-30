@@ -103,6 +103,18 @@ objects:
     layer: Evaluation_Governance
     status: frozen
     introduced_in: E0.4.1
+  StrictBlindTaskPackManifest:
+    layer: Evaluation_Governance
+    status: frozen
+    introduced_in: E0.4.2-A0
+  BlindWallAudit:
+    layer: Evaluation_Governance
+    status: frozen
+    introduced_in: E0.4.2-A0
+  FreshContextHandoff:
+    layer: Evaluation_Governance
+    status: frozen
+    introduced_in: E0.4.2-A0
 
 principle:
   observation_is_not_evidence: true
@@ -144,3 +156,10 @@ principle:
   equivalence_scoring_cannot_mutate_F0: true
   verifier_calibration_is_not_equivalence_calibration: true
   strict_blind_attestation_is_not_cryptographic_proof: true
+  strict_blind_taskpack_is_source_only: true
+  strict_blind_taskpack_excludes_hidden_reference: true
+  strict_blind_taskpack_excludes_prior_response: true
+  strict_blind_task_hashes_reuse_frozen_E0_4_tasks: true
+  strict_blind_scoring_requires_response_freeze: true
+  calibration_labels_are_forbidden_worker_input: true
+  blind_wall_audit_required_before_handoff: true

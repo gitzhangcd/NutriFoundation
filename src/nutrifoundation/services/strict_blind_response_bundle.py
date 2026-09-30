@@ -14,7 +14,8 @@ from nutrifoundation.services.strict_blind_taskpack import REQUIRED_WORKER_METAD
 @dataclass(frozen=True)
 class ResponseFreezeReceipt:
     status: str
-    bundle_sha256: str
+    repository_bytes_sha256: str
+    canonical_bundle_sha256: str
     response_count: int
     completed_count: int
     defer_count: int
@@ -33,8 +34,19 @@ class ResponseFreezeReceipt:
         return asdict(self)
 
 
-def bundle_sha256(path: str | Path) -> str:
+def repository_bytes_sha256(path: str | Path) -> str:
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def canonical_bundle_sha256(path: str | Path) -> str:
+    raw = json.loads(Path(path).read_text(encoding="utf-8"))
+    encoded = json.dumps(
+        raw,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
 
 
 def load_bundle(path: str | Path) -> list[ResponseEnvelope]:
@@ -48,17 +60,18 @@ def validate_response_bundle(
     *,
     bundle_path: str | Path,
     taskpack_manifest_path: str | Path,
-    expected_bundle_sha256: str | None = None,
+    expected_canonical_sha256: str | None = None,
 ) -> ResponseFreezeReceipt:
     responses = load_bundle(bundle_path)
     taskpack = json.loads(Path(taskpack_manifest_path).read_text(encoding="utf-8"))
     expected = {item["task_id"]: item for item in taskpack["tasks"]}
 
-    actual_sha = bundle_sha256(bundle_path)
-    if expected_bundle_sha256 is not None and actual_sha != expected_bundle_sha256:
+    byte_sha = repository_bytes_sha256(bundle_path)
+    canonical_sha = canonical_bundle_sha256(bundle_path)
+    if expected_canonical_sha256 is not None and canonical_sha != expected_canonical_sha256:
         raise ValueError(
-            f"Frozen response bundle SHA-256 mismatch: {actual_sha} != "
-            f"{expected_bundle_sha256}"
+            f"Frozen response canonical SHA-256 mismatch: {canonical_sha} != "
+            f"{expected_canonical_sha256}"
         )
 
     response_ids = [item.response_id for item in responses]
@@ -123,7 +136,8 @@ def validate_response_bundle(
 
     return ResponseFreezeReceipt(
         status=status,
-        bundle_sha256=actual_sha,
+        repository_bytes_sha256=byte_sha,
+        canonical_bundle_sha256=canonical_sha,
         response_count=n,
         completed_count=counts.get("completed", 0),
         defer_count=counts.get("defer", 0),
@@ -145,12 +159,12 @@ def materialize_bundle(
     bundle_path: str | Path,
     taskpack_manifest_path: str | Path,
     out_dir: str | Path,
-    expected_bundle_sha256: str | None = None,
+    expected_canonical_sha256: str | None = None,
 ) -> ResponseFreezeReceipt:
     receipt = validate_response_bundle(
         bundle_path=bundle_path,
         taskpack_manifest_path=taskpack_manifest_path,
-        expected_bundle_sha256=expected_bundle_sha256,
+        expected_canonical_sha256=expected_canonical_sha256,
     )
     if receipt.status != "PASS":
         raise ValueError(f"Frozen response bundle validation failed: {receipt}")

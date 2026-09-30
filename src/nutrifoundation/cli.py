@@ -301,7 +301,6 @@ def prepare_blind_batch(
 @app.command("score-blind-batch")
 def score_blind_batch(
     source_fixture: Path = Path("fixtures/Batch001_Blind_SourceText_v0.1.json"),
-    task_dir: Path = Path("runs/E0.4/Batch001/tasks"),
     response_dir: Path = Path("runs/E0.4/Batch001/responses"),
     hidden_gold: Path = Path("fixtures/Batch001_EvidenceUnit_Frozen_v0.1.yaml"),
     db: Path = Path("batch001_blind_replay.db"),
@@ -313,7 +312,6 @@ def score_blind_batch(
 
     result = score_blind_artifact_run(
         source_fixture_path=source_fixture,
-        task_dir=task_dir,
         response_dir=response_dir,
         hidden_gold_path=hidden_gold,
         db_path=db,

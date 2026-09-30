@@ -109,5 +109,119 @@
     "publication_types": [
       "Randomized Controlled Trial"
     ]
+  },
+  {
+    "pmid": "36513271",
+    "title": "Dietary patterns in type 2 diabetes network meta-analysis",
+    "journal": "Diabetes research and clinical practice",
+    "publication_date": "2023-01-01",
+    "doi": "10.1016/j.diabres.2022.110207",
+    "pmcid": null,
+    "publication_types": [
+      "Systematic Review",
+      "Network Meta-Analysis"
+    ]
+  },
+  {
+    "pmid": "34796367",
+    "title": "Diets for weight management in type 2 diabetes umbrella review",
+    "journal": "Diabetologia",
+    "publication_date": "2022-01-01",
+    "doi": "10.1007/s00125-021-05577-2",
+    "pmcid": "PMC8660762",
+    "publication_types": [
+      "Systematic Review"
+    ]
+  },
+  {
+    "pmid": "30638909",
+    "title": "Carbohydrate quality and human health meta-analyses",
+    "journal": "Lancet",
+    "publication_date": "2019-02-02",
+    "doi": "10.1016/S0140-6736(18)31809-9",
+    "pmcid": null,
+    "publication_types": [
+      "Meta-Analysis",
+      "Systematic Review"
+    ]
+  },
+  {
+    "pmid": "31841598",
+    "title": "NutriNet-Sante ultraprocessed food and type 2 diabetes cohort",
+    "journal": "JAMA internal medicine",
+    "publication_date": "2020-02-01",
+    "doi": "10.1001/jamainternmed.2019.5942",
+    "pmcid": "PMC6990737",
+    "publication_types": [
+      "Observational Study"
+    ]
+  },
+  {
+    "pmid": "31000505",
+    "title": "Nutrition Therapy for Adults With Diabetes or Prediabetes Consensus Report",
+    "journal": "Diabetes care",
+    "publication_date": "2019-05-01",
+    "doi": "10.2337/dci19-0014",
+    "pmcid": "PMC7011201",
+    "publication_types": [
+      "Review"
+    ]
+  },
+  {
+    "pmid": "32829751",
+    "title": "KDOQI Clinical Practice Guideline for Nutrition in CKD 2020 Update",
+    "journal": "American journal of kidney diseases",
+    "publication_date": "2020-09-01",
+    "doi": "10.1053/j.ajkd.2020.05.006",
+    "pmcid": null,
+    "publication_types": [
+      "Practice Guideline"
+    ]
+  },
+  {
+    "pmid": "35306388",
+    "title": "ESPEN practical guideline clinical nutrition and hydration in geriatrics",
+    "journal": "Clinical nutrition",
+    "publication_date": "2022-04-01",
+    "doi": "10.1016/j.clnu.2022.01.024",
+    "pmcid": null,
+    "publication_types": [
+      "Practice Guideline"
+    ]
+  },
+  {
+    "pmid": "36477548",
+    "title": "Salt reduction interventions and blood pressure meta-analysis",
+    "journal": "PLOS ONE",
+    "publication_date": "2022-01-01",
+    "doi": "10.1371/journal.pone.0277929",
+    "pmcid": "PMC9728935",
+    "publication_types": [
+      "Meta-Analysis",
+      "Systematic Review"
+    ]
+  },
+  {
+    "pmid": "39174161",
+    "title": "Meat consumption and incident type 2 diabetes federated meta-analysis",
+    "journal": "The Lancet Diabetes & Endocrinology",
+    "publication_date": "2024-09-01",
+    "doi": "10.1016/S2213-8587(24)00179-7",
+    "pmcid": null,
+    "publication_types": [
+      "Meta-Analysis"
+    ]
+  },
+  {
+    "pmid": "24158434",
+    "title": "Whole grain refined grain and type 2 diabetes dose-response meta-analysis",
+    "journal": "European journal of epidemiology",
+    "publication_date": "2013-11-01",
+    "doi": "10.1007/s10654-013-9852-5",
+    "pmcid": null,
+    "publication_types": [
+      "Meta-Analysis",
+      "Systematic Review"
+    ]
   }
 ]

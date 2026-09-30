@@ -81,11 +81,14 @@ class BlindReplaySummary:
     human_escalation_count: int
     critical_error_count: int
     exact_field_count: int
+    near_or_exact_field_count: int
     comparable_field_count: int
     exact_field_rate: float
+    near_or_exact_field_rate: float
     verifier_yield: float
     f0_yield: float
     human_escalation_rate: float
+    error_counts: dict[str, int]
     cases: tuple[CaseScore, ...]
 
     def as_dict(self):

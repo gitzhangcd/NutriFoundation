@@ -49,10 +49,11 @@ Engineering reference implementation:
 - E0.1 NutriFoundation Engine: executable contract frozen
 - E0.2 Persistence + PubMed/PMC + RunManifest + Batch001 SourceArtifact replay: implemented
 - E0.3 Evidence Extraction + Independent Verification + F0 Freeze + Batch001 Evidence replay: **PASS (remote CI verified)**
+- E0.3.1 Chat-Window Semantic Worker Bridge + Provider Portability: **PASS (remote CI verified)**
 - Python package: `src/nutrifoundation/`
 - Domain models: Pydantic v2 immutable types
 - Workflow state machine: retrieval → F0/F1 → claim → reception → reliability → human gate → GOLD
-- CLI: `nutri contract-check`, `nutri validate-gold-gate`, `nutri init-db`, `nutri ingest-pmid`, `nutri fetch-pmc`, `nutri replay-batch001`, `nutri produce-evidence`, `nutri replay-evidence-batch001`
+- CLI: `nutri contract-check`, `nutri validate-gold-gate`, `nutri init-db`, `nutri ingest-pmid`, `nutri fetch-pmc`, `nutri replay-batch001`, `nutri produce-evidence`, `nutri replay-evidence-batch001`, `nutri prepare-chat-task`, `nutri ingest-chat-response`, `nutri list-semantic-tasks`
 - Regression fixture: Batch001 Gold gate
 - CI: GitHub Actions
 
@@ -115,3 +116,37 @@ See:
 - `docs/E0.2_Execution_Report.md`
 - `docs/E0.3_Executable_Contract.md`
 - `docs/E0.3_Execution_Report.md`
+
+
+## E0.3.1 provider-portability result
+
+```text
+TaskBundle
+    ↓
+Chat Window / Future Provider Adapter
+    ↓
+ResponseEnvelope
+    ↓
+Deterministic binding
+    ↓
+Independent verifier
+    ↓
+F0
+```
+
+Remote CI:
+
+```text
+35 tests passed
+23 executable invariants passed
+20/20 SourceArtifact replay
+20/20 EvidenceUnit F0 replay
+Gold remains 0
+```
+
+Provider-specific logic is frozen to the adapter boundary. Chat-window execution can later be replaced by API/local-model adapters without changing the scientific pipeline.
+
+See:
+
+- `docs/E0.3.1_Executable_Contract.md`
+- `docs/E0.3.1_Execution_Report.md`

@@ -125,7 +125,7 @@ def canonicalize(field: str, value: Any) -> CanonicalSemanticForm:
         if re.search(pattern, text, flags=re.I)
     }
 
-    words = re.findall(r"[a-z_]+(?:\d+)?", text)
+    words = re.findall(r"[a-z_][a-z0-9_]*", text)
     concepts = {
         word
         for word in words

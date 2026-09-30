@@ -1,0 +1,33 @@
+schema: TaskBundle
+version: v0.1
+introduced_in: E0.3.1
+status: frozen
+
+purpose:
+  - provider_neutral_semantic_work_request
+  - make_chat_window_and_future_API_workers_consume_the_same_contract
+  - bind_source_snapshot_text_and_execution_contract_immutably
+
+fields:
+  task_id: {type: string, required: true}
+  task_type: {enum: [extract_evidence_unit], required: true}
+  contract_version: {type: string, required: true}
+  run_id: {type: string, required: true}
+  source_id: {type: string, required: true}
+  evidence_id: {type: string, required: true}
+  source_snapshot: {type: object, required: true}
+  source_text: {type: string, required: true}
+  source_text_sha256: {type: string, required: true}
+  requested_fields: {type: array, required: true}
+  rules: {type: array, required: true}
+  response_schema_version: {type: string, required: true}
+  created_at: {type: datetime, required: true}
+  task_sha256: {type: string, required: true}
+  provenance: {type: ProvenanceRecord, required: true}
+
+invariants:
+  - provider_specific_credentials_are_forbidden
+  - source_text_hash_must_match_payload
+  - task_hash_must_match_canonical_payload
+  - task_payload_is_immutable
+  - scientific_rules_are_code_generated_not_provider_generated

@@ -1,4 +1,4 @@
-# NutriFoundation Engine v0.3
+# NutriFoundation Engine v0.3.1
 
 Executable reference implementation for the AI Nutri Data Foundation scientific evidence pipeline.
 
@@ -21,13 +21,97 @@ Executable reference implementation for the AI Nutri Data Foundation scientific 
 ## E0.3 additions
 
 - Provider-agnostic Evidence Extraction Agent.
-- External subprocess JSON adapter for any LLM/agent implementation.
 - Independent deterministic Evidence Verifier.
-- Numeric support, source linkage, applicability, observational-causality and guideline-authority guards.
+- Numeric/source/applicability/causality/guideline guards.
 - EvidenceExtractionCandidate / EvidenceVerificationRecord / F0FreezeRecord.
 - Persistence for source text snapshots, candidates, verification and immutable F0 EvidenceUnits.
 - Batch001 20-EvidenceUnit deterministic replay.
-- F0 freeze remains distinct from F1 and expert GOLD.
+
+## E0.3.1 additions
+
+- Provider-neutral `TaskBundle v0.1`.
+- Provider-neutral `ResponseEnvelope v0.1`.
+- File-based `ChatWindowFileBridge`.
+- Deterministic semantic task state machine.
+- Response-to-candidate ingestion with strict field allowlist.
+- Task/source/contract hash binding.
+- Semantic `defer` without forced guessing.
+- `SemanticWorkerAdapter` protocol and conformance harness for future API/local-model migration.
+- Downstream verifier/F0 pipeline remains provider-unaware.
+
+## Core architecture
+
+```text
+Code
+  ├─ retrieval
+  ├─ task construction
+  ├─ schema/rules
+  ├─ hashes/provenance
+  ├─ persistence/state
+  ├─ deterministic verification
+  └─ F0 freeze
+
+Semantic Worker
+  └─ source text -> structured semantic response
+```
+
+Provider-specific logic is restricted to adapters.
+
+## Chat-window workflow
+
+Prepare a task:
+
+```bash
+nutri prepare-chat-task   SA-B001-001   EU-B001-001   --db nutrifoundation.db   --outbox semantic_rpc/outbox
+```
+
+The command writes an immutable:
+
+```text
+TASK-....request.json
+```
+
+The chat model reads the TaskBundle and returns a `ResponseEnvelope` JSON file.
+
+Ingest the response:
+
+```bash
+nutri ingest-chat-response   semantic_rpc/inbox/TASK-....response.json   --db nutrifoundation.db
+```
+
+The engine then executes:
+
+```text
+ResponseEnvelope
+  ↓ task/source/contract binding
+EvidenceExtractionCandidate
+  ↓
+IndependentEvidenceVerifier
+  ↓
+F0FreezeEngine
+```
+
+The semantic worker cannot directly create F0.
+
+## Provider migration
+
+A future provider implements only:
+
+```python
+class MyProviderAdapter:
+    adapter_type = "my_provider"
+
+    def execute(self, task: TaskBundle) -> ResponseEnvelope:
+        ...
+```
+
+Then it must pass:
+
+```python
+run_adapter_conformance(adapter, task)
+```
+
+No provider-specific code is allowed in the verifier, persistence layer, F0 freeze engine, ScientificClaim pipeline, or GOLD governance.
 
 ## Install
 
@@ -35,70 +119,12 @@ Executable reference implementation for the AI Nutri Data Foundation scientific 
 python -m pip install -e '.[dev]'
 ```
 
-## Core commands
+## Important boundary
 
-```bash
-nutri contract-check
-nutri init-db --db nutrifoundation.db
-
-# SourceArtifact ingestion
-nutri ingest-pmid 19721018 SA-B001-001 --db nutrifoundation.db
-
-# PMC full text
-nutri fetch-pmc PMC3791615 --source-id SA-B001-005 --db nutrifoundation.db
-
-# SourceArtifact replay
-nutri replay-batch001   fixtures/Batch001_Verified_SourceArtifact_Registry_v0.1.yaml   --fixture fixtures/pubmed_batch001_articles.json   --db batch001_replay.db
-
-# Live EvidenceUnit production through an external structured extractor
-nutri produce-evidence   SA-B001-001   EU-B001-001   --extractor-command "python my_extractor.py"   --db nutrifoundation.db
-
-# deterministic EvidenceUnit replay
-nutri replay-evidence-batch001   --source-registry fixtures/Batch001_Verified_SourceArtifact_Registry_v0.1.yaml   --evidence-registry fixtures/Batch001_EvidenceUnit_Frozen_v0.1.yaml   --pubmed-fixture fixtures/pubmed_batch001_articles.json   --db batch001_evidence_replay.db
-```
-
-## External extractor contract
-
-The subprocess receives one JSON document on stdin with:
-
-- source metadata,
-- source text,
-- evidence_id,
-- frozen E0.3 extraction rules.
-
-It must emit:
-
-```json
-{
-  "evidence": {
-    "population": "...",
-    "intervention": "...",
-    "comparator": "...",
-    "outcome": "...",
-    "effect": "...",
-    "applicability_boundary": "...",
-    "anchor": "..."
-  },
-  "confidence": 0.95
-}
-```
-
-The engine injects source/evidence IDs and provenance, validates the EvidenceUnit schema, then runs a separate verifier before F0 freeze.
-
-## F0 authority boundary
+The chat-window bridge is an execution transport, not scientific authority.
 
 ```text
-Agent candidate
-    ↓
-Independent machine verification
-    ↓
-F0 frozen factual/source-stated EvidenceUnit
+ResponseEnvelope != EvidenceUnit_F0
 ```
 
-F0 does **not** authorize:
-
-- ScientificClaim GOLD,
-- individualized recommendation,
-- observational-to-causal promotion,
-- guideline statement as independent causal effect,
-- F1 full-text methodological qualification.
+All scientific guards from E0.3 remain mandatory.

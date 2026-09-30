@@ -14,6 +14,12 @@ from nutrifoundation.domain.evidence_pipeline import (
 )
 from nutrifoundation.domain.models import EvidenceUnit, SourceArtifact
 from nutrifoundation.domain.run_manifest import RunManifest
+from nutrifoundation.domain.semantic_worker import (
+    ResponseEnvelope,
+    SemanticTaskState,
+    TaskBundle,
+    assert_task_state_transition,
+)
 
 
 SCHEMA = """
@@ -134,6 +140,46 @@ CREATE TABLE IF NOT EXISTS evidence_event (
   detail TEXT,
   created_at TEXT NOT NULL,
   FOREIGN KEY(run_id) REFERENCES run_manifest(run_id)
+);
+
+CREATE TABLE IF NOT EXISTS semantic_task (
+  task_id TEXT PRIMARY KEY,
+  run_id TEXT NOT NULL,
+  source_id TEXT NOT NULL,
+  evidence_id TEXT NOT NULL,
+  status TEXT NOT NULL,
+  task_sha256 TEXT NOT NULL,
+  payload_json TEXT NOT NULL,
+  payload_sha256 TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  updated_at TEXT NOT NULL,
+  FOREIGN KEY(run_id) REFERENCES run_manifest(run_id),
+  FOREIGN KEY(source_id) REFERENCES source_artifact(source_id)
+);
+
+CREATE TABLE IF NOT EXISTS semantic_response (
+  response_id TEXT PRIMARY KEY,
+  task_id TEXT NOT NULL,
+  worker_id TEXT NOT NULL,
+  adapter_type TEXT NOT NULL,
+  status TEXT NOT NULL,
+  payload_json TEXT NOT NULL,
+  payload_sha256 TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  FOREIGN KEY(task_id) REFERENCES semantic_task(task_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_semantic_response_task
+ON semantic_response(task_id);
+
+CREATE TABLE IF NOT EXISTS semantic_event (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  task_id TEXT NOT NULL,
+  action TEXT NOT NULL,
+  status TEXT NOT NULL,
+  detail TEXT,
+  created_at TEXT NOT NULL,
+  FOREIGN KEY(task_id) REFERENCES semantic_task(task_id)
 );
 """
 
@@ -447,6 +493,157 @@ class SQLiteStore:
                 "SELECT evidence_payload_json FROM evidence_unit_f0 ORDER BY evidence_id"
             ).fetchall()
         return [EvidenceUnit.model_validate_json(row[0]) for row in rows]
+
+    def save_semantic_task(
+        self,
+        task: TaskBundle,
+        state: SemanticTaskState = SemanticTaskState.PENDING,
+    ) -> None:
+        payload = task.model_dump_json()
+        digest = hashlib.sha256(payload.encode("utf-8")).hexdigest()
+        now = datetime.now(timezone.utc).isoformat()
+        with self.connect() as connection:
+            existing = connection.execute(
+                "SELECT payload_json FROM semantic_task WHERE task_id=?",
+                (task.task_id,),
+            ).fetchone()
+            if existing and existing["payload_json"] != payload:
+                raise ValueError(f"TaskBundle is immutable: {task.task_id}")
+            connection.execute(
+                """INSERT OR IGNORE INTO semantic_task
+                (task_id,run_id,source_id,evidence_id,status,task_sha256,payload_json,payload_sha256,created_at,updated_at)
+                VALUES(?,?,?,?,?,?,?,?,?,?)""",
+                (
+                    task.task_id,
+                    task.run_id,
+                    task.source_id,
+                    task.evidence_id,
+                    state.value,
+                    task.task_sha256,
+                    payload,
+                    digest,
+                    task.created_at.isoformat(),
+                    now,
+                ),
+            )
+
+    def get_semantic_task(
+        self,
+        task_id: str,
+    ) -> tuple[TaskBundle, SemanticTaskState] | None:
+        with self.connect() as connection:
+            row = connection.execute(
+                "SELECT payload_json,status FROM semantic_task WHERE task_id=?",
+                (task_id,),
+            ).fetchone()
+        if not row:
+            return None
+        return (
+            TaskBundle.model_validate_json(row["payload_json"]),
+            SemanticTaskState(row["status"]),
+        )
+
+    def list_semantic_tasks(
+        self,
+        state: SemanticTaskState | None = None,
+    ) -> list[tuple[TaskBundle, SemanticTaskState]]:
+        with self.connect() as connection:
+            if state is None:
+                rows = connection.execute(
+                    "SELECT payload_json,status FROM semantic_task ORDER BY created_at"
+                ).fetchall()
+            else:
+                rows = connection.execute(
+                    """SELECT payload_json,status FROM semantic_task
+                    WHERE status=? ORDER BY created_at""",
+                    (state.value,),
+                ).fetchall()
+        return [
+            (
+                TaskBundle.model_validate_json(row["payload_json"]),
+                SemanticTaskState(row["status"]),
+            )
+            for row in rows
+        ]
+
+    def transition_semantic_task(
+        self,
+        task_id: str,
+        target: SemanticTaskState,
+    ) -> None:
+        with self.connect() as connection:
+            row = connection.execute(
+                "SELECT status FROM semantic_task WHERE task_id=?",
+                (task_id,),
+            ).fetchone()
+            if row is None:
+                raise ValueError(f"Unknown semantic task: {task_id}")
+            current = SemanticTaskState(row["status"])
+            if current == target:
+                return
+            assert_task_state_transition(current, target)
+            connection.execute(
+                """UPDATE semantic_task
+                SET status=?,updated_at=?
+                WHERE task_id=?""",
+                (
+                    target.value,
+                    datetime.now(timezone.utc).isoformat(),
+                    task_id,
+                ),
+            )
+
+    def save_semantic_response(
+        self,
+        response: ResponseEnvelope,
+    ) -> None:
+        payload = response.model_dump_json()
+        digest = hashlib.sha256(payload.encode("utf-8")).hexdigest()
+        with self.connect() as connection:
+            existing = connection.execute(
+                "SELECT payload_json FROM semantic_response WHERE response_id=?",
+                (response.response_id,),
+            ).fetchone()
+            if existing and existing["payload_json"] != payload:
+                raise ValueError(
+                    f"ResponseEnvelope is immutable: {response.response_id}"
+                )
+            connection.execute(
+                """INSERT OR IGNORE INTO semantic_response
+                (response_id,task_id,worker_id,adapter_type,status,payload_json,payload_sha256,created_at)
+                VALUES(?,?,?,?,?,?,?,?)""",
+                (
+                    response.response_id,
+                    response.task_id,
+                    response.worker.worker_id,
+                    response.worker.adapter_type,
+                    response.status,
+                    payload,
+                    digest,
+                    response.created_at.isoformat(),
+                ),
+            )
+
+    def log_semantic_event(
+        self,
+        task_id: str,
+        action: str,
+        status: str,
+        detail: str | None = None,
+    ) -> None:
+        with self.connect() as connection:
+            connection.execute(
+                """INSERT INTO semantic_event
+                (task_id,action,status,detail,created_at)
+                VALUES(?,?,?,?,?)""",
+                (
+                    task_id,
+                    action,
+                    status,
+                    detail,
+                    datetime.now(timezone.utc).isoformat(),
+                ),
+            )
 
     def log_evidence_event(
         self,

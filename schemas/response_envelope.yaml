@@ -1,0 +1,45 @@
+schema: ResponseEnvelope
+version: v0.1
+introduced_in: E0.3.1
+status: frozen
+
+purpose:
+  - provider_neutral_semantic_worker_response
+  - separate_model_semantics_from_deterministic_scientific_control
+
+fields:
+  response_id: {type: string, required: true}
+  task_id: {type: string, required: true}
+  task_sha256: {type: string, required: true}
+  contract_version: {type: string, required: true}
+  response_schema_version: {type: string, required: true}
+  source_text_sha256: {type: string, required: true}
+  worker:
+    type: object
+    required: true
+    fields:
+      worker_id: string
+      adapter_type: string
+      provider: string
+      model: string
+      model_version: string
+      prompt_version: string
+      metadata: object
+  status:
+    enum: [completed, defer, failed]
+    required: true
+  output: {type: object}
+  confidence: {type: number, min: 0, max: 1}
+  uncertainties: {type: array}
+  error: {type: string}
+  created_at: {type: datetime, required: true}
+  provenance: {type: ProvenanceRecord, required: true}
+
+invariants:
+  - response_must_echo_task_hash
+  - response_must_echo_source_text_hash
+  - response_contract_version_must_match_task
+  - completed_response_requires_output
+  - defer_must_not_force_semantic_guessing
+  - worker_metadata_is_execution_provenance_not_scientific_evidence
+  - response_cannot_directly_freeze_F0

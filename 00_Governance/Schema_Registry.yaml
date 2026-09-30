@@ -63,6 +63,18 @@ objects:
     layer: Scientific_World_Production
     status: frozen
     introduced_in: E0.3
+  TaskBundle:
+    layer: Execution_Governance
+    status: frozen
+    introduced_in: E0.3.1
+  ResponseEnvelope:
+    layer: Execution_Governance
+    status: frozen
+    introduced_in: E0.3.1
+  SemanticWorkerAdapterContract:
+    layer: Execution_Governance
+    status: frozen
+    introduced_in: E0.3.1
 
 principle:
   observation_is_not_evidence: true
@@ -81,3 +93,11 @@ principle:
   observational_association_cannot_become_causal: true
   guideline_statement_cannot_become_independent_effect: true
   frozen_F0_payload_is_immutable: true
+  provider_logic_adapter_only: true
+  core_pipeline_provider_agnostic: true
+  response_task_hash_must_match: true
+  response_source_text_hash_must_match: true
+  response_contract_version_must_match: true
+  response_envelope_is_not_F0: true
+  unknown_provider_fields_are_rejected: true
+  semantic_defer_is_allowed: true

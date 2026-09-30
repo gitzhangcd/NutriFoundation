@@ -135,3 +135,14 @@ def test_range_separator_is_not_parsed_as_negative_sign():
     )
     assert record.status == "verified"
     assert record.checks.numeric_support is True
+
+
+def test_textual_reduction_supports_negative_signed_effect():
+    ev = evidence(effect="-7.44 mmHg")
+    text = "Salt substitution reduced systolic blood pressure by 7.44 mmHg."
+    cand = candidate(ev, text)
+    record = IndependentEvidenceVerifier(verifier_id="verifier").verify(
+        cand, source(), text, run_id="RUN-1"
+    )
+    assert record.status == "verified"
+    assert record.checks.numeric_support is True

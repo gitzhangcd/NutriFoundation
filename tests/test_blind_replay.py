@@ -202,3 +202,14 @@ def test_hidden_gold_numeric_scoring_allows_source_supported_superset():
         "After 4 years, 44% vs 70%; HR 0.63 and adjusted HR 0.70",
     )
     assert "numeric_effect_mismatch" not in score.errors
+
+
+def test_hidden_gold_range_endpoints_match_hyphenated_source_style():
+    from nutrifoundation.services.blind_scoring import score_field
+
+    score = score_field(
+        "effect",
+        "OR 19.7 (95% CI 7.8-49.8)",
+        "OR 19.7 (95% CI 7.8 to 49.8)",
+    )
+    assert "numeric_effect_mismatch" not in score.errors

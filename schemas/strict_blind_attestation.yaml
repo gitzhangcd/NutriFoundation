@@ -17,3 +17,5 @@ qualification:
 invariants:
   - current_exposed_context_cannot_self_attest_strict_blind
   - strict_blind_status_is_execution_provenance
+
+  - attestation_is_not_cryptographic_proof

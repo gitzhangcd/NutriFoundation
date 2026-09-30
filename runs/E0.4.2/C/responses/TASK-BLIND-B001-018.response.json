@@ -1,0 +1,55 @@
+{
+  "response_id": "RESP-STRICT-B001-018",
+  "task_id": "TASK-BLIND-B001-018",
+  "task_sha256": "a710492cded0a55ab4696416bf73b11e66040b21279efec8ce58a83279d6df64",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "a80acc40bebd5758dcc3bc6067829b52cebcbd3e6b41730e8b1c9772c6a32616",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "MetaAnalysis",
+    "population": "Participants in 50 controlled trials of salt-reduction interventions, with no restriction by age, sex, or hypertension status in the systematic review.",
+    "intervention": "Salt substitution, nutrition education, self-help materials, or food reformulation.",
+    "exposure": null,
+    "intervention_or_exposure": "Salt-reduction interventions.",
+    "comparator": "Control/comparator conditions within included controlled trials.",
+    "outcome": "Systolic and diastolic blood pressure.",
+    "effect": "Pooled eligible trials showed salt substitution reduced SBP by WMD -7.44 mmHg and DBP by -3.77 mmHg (both P<0.001), while nutrition education reduced SBP by -2.75 mmHg and DBP by -2.11 mmHg (both P<0.001). Self-help materials reduced SBP by -2.60 mmHg in ages 25-60 (P=0.008) and, among hypertensive participants, SBP by -3.87 mmHg (P=0.003) and DBP by -2.91 mmHg (P<0.001).",
+    "recommendation": null,
+    "applicability_boundary": "Applies to the controlled trials included in the review; effects differ by intervention type and subgroup, and the authors state further trials are required.",
+    "anchor": "RESULTS / CONCLUSION",
+    "source_span": "salt substitution and nutrition education interventions had significant effects on both SBP"
+  },
+  "confidence": null,
+  "uncertainties": [
+    "The source notes that further trials are required."
+  ],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-018"
+    ],
+    "metadata": {}
+  }
+}

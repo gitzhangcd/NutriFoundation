@@ -32,3 +32,6 @@ jobs:
       - run: |
           rm -f /tmp/batch001_replay.db
           nutri replay-batch001             fixtures/Batch001_Verified_SourceArtifact_Registry_v0.1.yaml             --fixture fixtures/pubmed_batch001_articles.json             --db /tmp/batch001_replay.db
+      - run: |
+          rm -f /tmp/batch001_evidence_replay.db
+          nutri replay-evidence-batch001             --source-registry fixtures/Batch001_Verified_SourceArtifact_Registry_v0.1.yaml             --evidence-registry fixtures/Batch001_EvidenceUnit_Frozen_v0.1.yaml             --pubmed-fixture fixtures/pubmed_batch001_articles.json             --db /tmp/batch001_evidence_replay.db

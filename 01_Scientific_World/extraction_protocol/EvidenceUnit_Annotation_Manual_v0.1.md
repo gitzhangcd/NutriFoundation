@@ -1,5 +1,7 @@
 # EvidenceUnit Annotation Manual v0.1
 
+> **Authority update — P1.9-E4 / E0.3:** The original workflow below required Human Audit before any EvidenceUnit freeze. That rule is superseded for **F0 only** by `Batch001_EvidenceUnit_Verification_Queue_v0.1.yaml v0.3`: F0 may be frozen after independent Agent verification when source linkage, source anchor, numeric support, applicability boundary, observational-causality guard and guideline-authority guard all pass. F1 critical fields and ScientificClaim/Decision GOLD still require human/expert review. F0 is never expert gold.
+
 ## Purpose
 
 Define how AI Nutri converts scientific publications into verifiable EvidenceUnit objects.

@@ -136,6 +136,13 @@ class SourceArtifactIngestionService:
                     run_id=run_id,
                 )
                 self.store.upsert_source(source)
+                if by_pmid[pmid].abstract:
+                    self.store.save_source_text(
+                        source_id,
+                        "pubmed_abstract",
+                        by_pmid[pmid].abstract,
+                        self.connector.__class__.__name__,
+                    )
                 saved.append(source_id)
                 self.store.log_ingestion_event(
                     run_id,

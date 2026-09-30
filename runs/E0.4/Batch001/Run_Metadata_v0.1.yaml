@@ -29,7 +29,7 @@ remote_validation:
   workflow_job_id: 109722096671
   conclusion: success
   pytest: 42_passed
-  executable_invariants: 31_passed
+  executable_invariants: 30_passed
 final_metrics:
   case_count: 20
   completed_response_count: 19

@@ -16,7 +16,7 @@ from nutrifoundation.io.loaders import load_structured
 
 
 WORD_RE = re.compile(r"[a-z0-9]+(?:\.[0-9]+)?%?", re.I)
-NUM_RE = re.compile(r"[-+−]?\d+(?:[\.,·]\d+)?%?")
+NUM_RE = re.compile(r"(?<![\d.])[-+−]?\d+(?:[\.,·]\d+)?%?")
 
 CRITICAL_FIELDS = (
     "population",

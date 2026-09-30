@@ -112,3 +112,32 @@ Rules:
 - Historical reception snapshots are immutable; later snapshots create new versions.
 - Correction, retraction, failed replication and major critique events require explicit lineage and escalation.
 - E7 Claim-Gold freeze must reference the reliability sidecar used at adjudication time.
+
+
+## E0.2 Execution Lineage
+
+Every SourceArtifact ingestion/replay operation is now bound to an immutable execution record:
+
+```text
+RunManifest
+    ↓
+PubMed / PMC retrieval
+    ↓
+SourceArtifact
+    ↓
+ingestion_event
+    ↓
+persistent registry
+```
+
+Requirements:
+
+- RunManifest is created before retrieval begins.
+- RunManifest records execution mode, provider, code version, inputs, outputs and failures.
+- Completed RunManifest records are immutable.
+- SourceArtifact provenance metadata carries the originating `run_id`.
+- Database `ingestion_event` independently links each SourceArtifact write to the same run.
+- Replay output exposes its `run_id`.
+- PMC XML is stored byte-faithfully as retrieved, with SHA-256 and retrieval timestamp.
+- Offline replay fixtures are regression inputs only and are not scientific authority.
+- Live PubMed/PMC provider records remain the authoritative retrieval source for new scientific ingestion.

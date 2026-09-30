@@ -110,3 +110,17 @@ def test_same_extractor_and_verifier_identity_cannot_verify():
     )
     assert record.status == "rejected"
     assert record.independent_from_extractor is False
+
+
+def test_percent_word_and_symbol_are_numeric_equivalents():
+    ev = evidence(effect="11% vs 23%; 58% risk reduction")
+    text = (
+        "The cumulative incidence was 11 percent versus 23 percent. "
+        "Risk was reduced by 58 percent."
+    )
+    cand = candidate(ev, text)
+    record = IndependentEvidenceVerifier(verifier_id="verifier").verify(
+        cand, source(), text, run_id="RUN-1"
+    )
+    assert record.status == "verified"
+    assert record.checks.numeric_support is True

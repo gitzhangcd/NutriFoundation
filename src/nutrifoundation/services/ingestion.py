@@ -45,6 +45,7 @@ def article_to_source(
     source_id: str,
     *,
     provider: str = "PubMed",
+    run_id: str | None = None,
 ) -> SourceArtifact:
     return SourceArtifact(
         source_id=source_id,
@@ -64,6 +65,7 @@ def article_to_source(
             metadata={
                 "publication_types": list(article.publication_types),
                 "journal": article.journal,
+                "run_id": run_id,
             },
         ),
     )
@@ -131,6 +133,7 @@ class SourceArtifactIngestionService:
                     by_pmid[pmid],
                     source_id,
                     provider=self.connector.__class__.__name__,
+                    run_id=run_id,
                 )
                 self.store.upsert_source(source)
                 saved.append(source_id)

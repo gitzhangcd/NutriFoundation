@@ -45,6 +45,8 @@ PHRASE_ALIASES = (
     (r"risk ratio|relative risk|\brr\b", "risk_ratio"),
     (r"odds ratio|\bor(?=\s+\d)", "odds_ratio"),
     (r"confidence interval|\bci\b", "confidence_interval"),
+    (r"dietary fibre|dietary fiber|\bfibre\b|\bfiber\b", "dietary_fibre"),
+    (r"usual care|best[- ]practice care", "usual_care"),
     (r"\bgreater\b|\bhigher\b", "higher"),
     (r"\bconsumption\b|\bintake\b", "intake"),
 )

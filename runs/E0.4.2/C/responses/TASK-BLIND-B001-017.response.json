@@ -1,0 +1,53 @@
+{
+  "response_id": "RESP-STRICT-B001-017",
+  "task_id": "TASK-BLIND-B001-017",
+  "task_sha256": "cbefdca98d102e23ee5bcda2caa2aba81804f18fece501bb3f20666ba35f8710",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "e4fb6930d31c6266d5945e7d7b84f04d796ac898f9e53e4f5980fd853263c5be",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "Guideline",
+    "population": "Older persons, including those with malnutrition or risk of malnutrition, specific diseases, dehydration risk, and obese older persons with weight-related health problems.",
+    "intervention": "Individualized nutrition and hydration care including screening, nursing support, education, counseling, food modification, oral supplements, and enteral/parenteral nutrition when indicated.",
+    "exposure": null,
+    "intervention_or_exposure": "Clinical nutrition and hydration interventions for older persons.",
+    "comparator": null,
+    "outcome": "Prevention/treatment of malnutrition and dehydration and support of nutritional status, clinical course, and quality of life.",
+    "effect": null,
+    "recommendation": "Routinely screen all older persons for malnutrition; support oral nutrition as needed; use enteral nutrition when oral intake is insufficient or impossible and parenteral nutrition when enteral intake is insufficient or impossible if prognosis is favorable; generally avoid dietary restrictions; consider weight-reducing diets only in obese older persons with weight-related health problems and combine with physical exercise; encourage adequate fluid intake; individualize care within a multimodal multidisciplinary approach.",
+    "applicability_boundary": "Applies to older persons under the ESPEN geriatric nutrition and hydration guideline; weight-reduction advice is specifically limited to obese older persons with weight-related health problems and combined exercise.",
+    "anchor": "RESULTS / CONCLUSION",
+    "source_span": "all older persons shall routinely be screened for malnutrition in order to identify an existing risk early"
+  },
+  "confidence": null,
+  "uncertainties": [],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-017"
+    ],
+    "metadata": {}
+  }
+}

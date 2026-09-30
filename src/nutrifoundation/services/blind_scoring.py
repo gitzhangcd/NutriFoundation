@@ -236,11 +236,11 @@ def summarize_cases(
 
     error_counts: dict[str, int] = {}
     for case in cases:
-        for reason in case.escalation_reasons:
-            error_counts[reason] = error_counts.get(reason, 0) + 1
+        seen = set(case.escalation_reasons)
         for score in case.field_scores:
-            for error in score.errors:
-                error_counts[error] = error_counts.get(error, 0) + 1
+            seen.update(score.errors)
+        for error in seen:
+            error_counts[error] = error_counts.get(error, 0) + 1
 
     return BlindReplaySummary(
         batch_id=batch_id,

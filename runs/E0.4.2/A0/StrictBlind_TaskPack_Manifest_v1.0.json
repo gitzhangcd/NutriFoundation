@@ -1,0 +1,206 @@
+{
+  "artifact": "StrictBlindTaskPackManifest",
+  "stage": "E0.4.2-A0",
+  "version": "v1.0",
+  "status": "FROZEN_SOURCE_ONLY",
+  "blindness_class": "strict_blind_fresh_context",
+  "batch_id": "B001",
+  "task_count": 20,
+  "task_contract_version": "E0.4-v0.1",
+  "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+  "source_fixture": "fixtures/Batch001_Blind_SourceText_v0.1.json",
+  "source_fixture_git_blob_sha": "fefa632f26cb490a3d7bebb6f251b4c7741e3178",
+  "tasks": [
+    {
+      "task_id": "TASK-BLIND-B001-001",
+      "source_id": "SA-B001-001",
+      "evidence_id": "EU-B001-001",
+      "task_sha256": "d44cb4f3baa4908bb9b42c234cd84ba0207874b86d6b18e2a3022eecf0320541",
+      "source_text_sha256": "475eeb6c60ae0842e5427723703168f147f3d75b2021adda33edf5bc54725786",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-002",
+      "source_id": "SA-B001-002",
+      "evidence_id": "EU-B001-002",
+      "task_sha256": "c0fd259521bc29a9afd4091b5003b97ec4fa9cb7ecc7af157f3e8fda073d43b5",
+      "source_text_sha256": "c0ac3392e4c84630c4e2abf296cee41f433a332366cfb0dd1f96ced1f951b8b0",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-003",
+      "source_id": "SA-B001-003",
+      "evidence_id": "EU-B001-003",
+      "task_sha256": "28058bd71b6d7ae5a6b9be84ca0c0016b897c3e16c2a0c2ce64cf67c938259a2",
+      "source_text_sha256": "bc25b1546245af7c469401a8a5e57a1613a4d95c1840a4edf58543992d3d7d5a",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-004",
+      "source_id": "SA-B001-004",
+      "evidence_id": "EU-B001-004",
+      "task_sha256": "89c70506966c7dba717220d7ef749262d491dc649bdea95cf08ce8720ea089f1",
+      "source_text_sha256": "9a798e2818c7813b0393720a1d6d6693fe67f52555933efecfb9c21a2bea9cae",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-005",
+      "source_id": "SA-B001-005",
+      "evidence_id": "EU-B001-005",
+      "task_sha256": "d0e3750429ef1b9fefcc114c40364427357a8fcf7d4965e9596e5b35ed26ed58",
+      "source_text_sha256": "a0669af99e8dd3f2c51642b68c2dc621a56ec3718552ec9d6cae548e3396efba",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-006",
+      "source_id": "SA-B001-006",
+      "evidence_id": "EU-B001-006",
+      "task_sha256": "bdf5606d011cc158f2ea0548a899ea1fdbad2215ed6c859f1c0d03106beaa55d",
+      "source_text_sha256": "a0a512484427b3ad90e7f6de2ed61faa30693743a24385795d9b2d4786c746f1",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-007",
+      "source_id": "SA-B001-007",
+      "evidence_id": "EU-B001-007",
+      "task_sha256": "3f7a3c9cb71886160f0578bc4903d6bbfb4447f26928798d07c3f9ab010b0208",
+      "source_text_sha256": "9e99087ccc231573f2a6084e5a5ca4eef87de09021fae1eeae930ca4e3ad4493",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-008",
+      "source_id": "SA-B001-008",
+      "evidence_id": "EU-B001-008",
+      "task_sha256": "76dfc8c1803782b57d497c9f42b4e6f73a5249bba22bec9f3077d74ce615750e",
+      "source_text_sha256": "c4172dfed6159f2aa9fb3ebab3c5e6bf853d1c8ab0cf1e3c275478373d10a789",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-009",
+      "source_id": "SA-B001-009",
+      "evidence_id": "EU-B001-009",
+      "task_sha256": "6d39534844298baf5e5a23dee0925c2a0ecffe9d08b107f8add60ca92c47b425",
+      "source_text_sha256": "98286dba5f663a8ee330c82cbbede1bf9d2ec27b700594e9be5f87edaa24a161",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-010",
+      "source_id": "SA-B001-010",
+      "evidence_id": "EU-B001-010",
+      "task_sha256": "72e59a8bc2da33f45f4b87a57d2ffef9632e457e64517358d0ff9b97122310be",
+      "source_text_sha256": "c209d39eb8a07ee4db2e5fa17821de56e9828d0de259f4aca1cfa7000c01c2df",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-011",
+      "source_id": "SA-B001-011",
+      "evidence_id": "EU-B001-011",
+      "task_sha256": "660f21a97d7397c83af2b43ff6d1ba84b50d974fa47641dc8fdeea322385eaa1",
+      "source_text_sha256": "fc8295f808af817928b09fb87512221d590e2c378ab0b69a30a9308d4a338d7c",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-012",
+      "source_id": "SA-B001-012",
+      "evidence_id": "EU-B001-012",
+      "task_sha256": "d58f8727e78b9839fff182879a600b22a59e2d82a428a0b40f0579477ea1c440",
+      "source_text_sha256": "03237c49adf21e888ca3521fbaa811c7e60dbbca4a02e9137f6b4c8bb2eb52cb",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-013",
+      "source_id": "SA-B001-013",
+      "evidence_id": "EU-B001-013",
+      "task_sha256": "e93774298da9a3ff5f659ceebac45bada36cc87950e9da5ef336e98b090818a0",
+      "source_text_sha256": "5b17f89580b582888c81d3373ed0c120cfa29e91a8f586ed7ed6ca6ba0faa901",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-014",
+      "source_id": "SA-B001-014",
+      "evidence_id": "EU-B001-014",
+      "task_sha256": "f5ca60885fdd391dcdacdc7900255823d1a0e82c971d950dfa1a289a9468dd3f",
+      "source_text_sha256": "8362506e8622b0775be3fe5698ac1e6d565a615a4d38b5c82f642e246963a883",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-015",
+      "source_id": "SA-B001-015",
+      "evidence_id": "EU-B001-015",
+      "task_sha256": "d20548a4b68a1cf2cc6f717352f1712673065fcc2468158f7710b4d9b0b7fa4f",
+      "source_text_sha256": "3bccd0032fca3ebb1b21c92f9404f1d6590711694907d8823b48cf4e0b43c54f",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-016",
+      "source_id": "SA-B001-016",
+      "evidence_id": "EU-B001-016",
+      "task_sha256": "a32556940b0ef4cbaf5365f1e92b390fc94960e3a340a48041b7d8421db1f9e8",
+      "source_text_sha256": "5f71261a89b1721b00fca550faa4f0623533ed0ae5ff648bcd06776b1cac7bf3",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-017",
+      "source_id": "SA-B001-017",
+      "evidence_id": "EU-B001-017",
+      "task_sha256": "cbefdca98d102e23ee5bcda2caa2aba81804f18fece501bb3f20666ba35f8710",
+      "source_text_sha256": "e4fb6930d31c6266d5945e7d7b84f04d796ac898f9e53e4f5980fd853263c5be",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-018",
+      "source_id": "SA-B001-018",
+      "evidence_id": "EU-B001-018",
+      "task_sha256": "a710492cded0a55ab4696416bf73b11e66040b21279efec8ce58a83279d6df64",
+      "source_text_sha256": "a80acc40bebd5758dcc3bc6067829b52cebcbd3e6b41730e8b1c9772c6a32616",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-019",
+      "source_id": "SA-B001-019",
+      "evidence_id": "EU-B001-019",
+      "task_sha256": "78ed0056601d07519de038542c63c7ce5b8f2f40934a1eaf4a49ec049afe6d97",
+      "source_text_sha256": "820e6a07c5e8c73752b77f4f8c6a73d49bab3843dd9e3a21e0f3003de4ecf08c",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    },
+    {
+      "task_id": "TASK-BLIND-B001-020",
+      "source_id": "SA-B001-020",
+      "evidence_id": "EU-B001-020",
+      "task_sha256": "773827e1b4d70d7176bb960265ff39443ddc53b79530916280b2bbca353a4ca5",
+      "source_text_sha256": "e6d6734be08ba8cd73331a24a1f61c44cb20c3ebd96cce0da36748457b550931",
+      "contract_version": "E0.4-v0.1",
+      "response_schema_version": "ResponseEnvelope-v0.1"
+    }
+  ],
+  "taskpack_sha256": "c4f6be434169f7fc5713d6d7ebb6a8793b50cdcd6611c4ce6902171a13edcdc2",
+  "required_worker_metadata": {
+    "fresh_context_attestation": true,
+    "prior_batch_exposure": false,
+    "hidden_reference_available_to_worker": false,
+    "independent_worker_session": true,
+    "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+    "blindness_class": "strict_blind_fresh_context"
+  },
+  "hidden_reference_in_task_factory": false,
+  "scoring_permitted_before_response_freeze": false
+}

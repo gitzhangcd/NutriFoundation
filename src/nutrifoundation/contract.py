@@ -61,10 +61,22 @@ E041_INVARIANTS = (
     ContractInvariant("strict_blind_attestation_not_proof", "StrictBlindAttestation != CryptographicProof"),
 )
 
+E042A0_INVARIANTS = (
+    ContractInvariant("strict_taskpack_source_only", "StrictBlindTaskPack <- SourceOnly"),
+    ContractInvariant("strict_taskpack_excludes_hidden_reference", "HiddenReference !in StrictBlindTaskPack"),
+    ContractInvariant("strict_taskpack_excludes_prior_response", "PriorResponse !in StrictBlindTaskPack"),
+    ContractInvariant("strict_task_hashes_frozen", "StrictBlindTaskHash == FrozenE0.4TaskHash"),
+    ContractInvariant("strict_scoring_after_response_freeze", "StrictBlindScoring -> AfterResponseFreeze"),
+    ContractInvariant("fresh_worker_attestation_required", "FreshContextWorker -> StrictBlindAttestationRequired"),
+    ContractInvariant("calibration_labels_not_worker_input", "CalibrationLabels !-> FreshContextWorker"),
+    ContractInvariant("blind_wall_must_pass", "FreshContextHandoff -> BlindWallAuditPASS"),
+)
+
 EXECUTABLE_INVARIANTS = (
     E01_INVARIANTS
     + E03_INVARIANTS
     + E031_INVARIANTS
     + E04_INVARIANTS
     + E041_INVARIANTS
+    + E042A0_INVARIANTS
 )

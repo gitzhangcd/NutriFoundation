@@ -1,0 +1,53 @@
+{
+  "response_id": "RESP-STRICT-B001-XXX",
+  "task_id": "COPY_FROM_TASK_MANIFEST",
+  "task_sha256": "COPY_FROM_TASK_MANIFEST",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "COPY_FROM_TASK_MANIFEST",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_ID",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": null,
+    "population": null,
+    "intervention": null,
+    "exposure": null,
+    "intervention_or_exposure": null,
+    "comparator": null,
+    "outcome": null,
+    "effect": null,
+    "recommendation": null,
+    "applicability_boundary": null,
+    "anchor": null,
+    "source_span": null
+  },
+  "confidence": null,
+  "uncertainties": [],
+  "error": null,
+  "created_at": "SET_BY_FRESH_CONTEXT_WORKER",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "SET_BY_FRESH_CONTEXT_WORKER",
+    "version": "v1.0",
+    "lineage_refs": [
+      "COPY_TASK_ID"
+    ],
+    "metadata": {}
+  }
+}

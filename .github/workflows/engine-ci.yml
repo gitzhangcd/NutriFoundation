@@ -57,3 +57,4 @@ jobs:
             --report /tmp/Canonical_Equivalence_Report_v0.1.json \
             --batch-id B001
       - run: nutri validate-strict-blind runs/E0.4/Batch001/responses
+      - run: nutri audit-strict-blind-taskpack

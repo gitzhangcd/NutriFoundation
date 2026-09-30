@@ -1,0 +1,129 @@
+study: Paper_C_Scientific_Evidence_Production
+stage: P0
+version: v0.1
+status: frozen
+fairness_contract:
+  same_foundation_model_AB1_AB6: true
+  same_source_text_per_case: true
+  same_evidence_cutoff_per_case: true
+  same_schema_version_where_applicable: true
+  same_task_identity_per_case: true
+  temperature_policy: deterministic_or_fixed
+  provider_specific_logic_adapter_only: true
+  hidden_gold_visible_during_run: false
+  prompt_and_code_versions_frozen_before_Gold100_run: true
+  baseline_order_randomized_for_human_scoring: true
+  cost_and_latency_reported_for_each_baseline: true
+
+baselines:
+  - id: AB0
+    name: Human-only reference workflow
+    semantic_worker: human
+    workflow:
+      - trained_reviewer_extracts
+      - independent_human_verifier_checks_all_critical_fields
+      - disagreement_resolved_without_gold_visibility
+    automation: none
+    human_review_scope: full
+    purpose: strong operational human comparator
+
+  - id: AB1
+    name: One-pass LLM
+    semantic_worker: same_frozen_model_as_AB2_AB6
+    workflow:
+      - one_source_conditioned_generation
+      - no_structured_scientific_schema_enforcement_beyond_minimal_JSON_transport
+    independent_verifier: false
+    self_consistency: false
+    human_review_scope: none
+
+  - id: AB2
+    name: Structured-output LLM
+    semantic_worker: same_frozen_model_as_AB1_AB6
+    workflow:
+      - one_source_conditioned_generation
+      - exact_EvidenceUnit_schema
+      - source_span_requested
+    independent_verifier: false
+    self_consistency: false
+    human_review_scope: none
+
+  - id: AB3
+    name: Self-consistency
+    semantic_worker: same_frozen_model_as_AB1_AB6
+    workflow:
+      - three_independent_structured_extractions
+      - deterministic_field_consensus
+      - unresolved_disagreement_becomes_defer
+    replicate_count: 3
+    independent_verifier: false
+    human_review_scope: none
+
+  - id: AB4
+    name: Extractor + independent verifier
+    semantic_worker: same_frozen_model_as_AB1_AB6
+    workflow:
+      - structured_extraction
+      - deterministic_source_linked_verification
+    verifier:
+      source_hash_binding: true
+      numeric_support: true
+      source_anchor: true
+      applicability_boundary: true
+      observational_causality_guard: true
+      guideline_authority_guard: true
+      study_identity_checks_where_applicable: true
+      version_checks_where_applicable: true
+    human_review_scope: none
+
+  - id: AB5
+    name: Extractor + verifier + adversarial auditor
+    semantic_worker: same_frozen_model_as_AB1_AB6
+    workflow:
+      - AB4
+      - independent_adversarial_auditor
+      - one_bounded_repair_pass_if_flagged
+      - unresolved_critical_flag_becomes_defer
+    auditor_focus:
+      - omission
+      - scope_corruption
+      - causal_upgrade
+      - numeric_mismatch
+      - recommendation_exception_loss
+      - provenance_or_version_failure
+      - study_identity_dependency
+    repair_pass_limit: 1
+    human_review_scope: none
+
+  - id: AB6
+    name: Risk-based HITL
+    semantic_worker: same_frozen_model_as_AB1_AB6
+    workflow:
+      - AB5
+      - deterministic_risk_gate
+      - human_review_only_for_escalated_objects
+    hard_escalation_triggers:
+      - semantic_defer_or_failed_response
+      - verifier_rejection
+      - unsupported_numeric_effect
+      - missing_critical_source_span
+      - ambiguous_StudyIdentity
+      - correction_retraction_or_version_chain
+      - causal_level_conflict
+      - normative_recommendation_with_exception_risk
+      - unresolved_adversarial_auditor_critical_flag
+      - critical_field_missing
+    soft_escalation_triggers:
+      - complex_multiarm_or_multitimepoint_result
+      - evidence_conflict_or_dependency_flag
+      - incomplete_source_text
+      - high_numeric_density
+    soft_trigger_rule: escalate_if_at_least_2
+    human_review_scope: risk_based
+
+prohibited_shortcuts:
+  - using_model_confidence_as_truth
+  - using_hidden_gold_to_route_or_repair
+  - changing_prompts_after_Gold100_results_are_seen
+  - changing_gold_to_match_model_output
+  - comparing_different_source_text_across_baselines

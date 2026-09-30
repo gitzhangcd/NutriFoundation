@@ -486,6 +486,7 @@ def audit_strict_blind_taskpack(
     manifest: Path = Path(
         "runs/E0.4.2/A0/StrictBlind_TaskPack_Manifest_v1.0.json"
     ),
+    report: Path | None = None,
 ) -> None:
     """Fail unless the frozen fresh-context handoff pack passes the blind wall."""
     frozen = load_taskpack_manifest(manifest)
@@ -494,7 +495,11 @@ def audit_strict_blind_taskpack(
         frozen_manifest=frozen,
         batch_id="B001",
     )
-    typer.echo(json.dumps(result.as_dict(), indent=2, ensure_ascii=False))
+    payload = json.dumps(result.as_dict(), indent=2, ensure_ascii=False) + "\n"
+    if report is not None:
+        report.parent.mkdir(parents=True, exist_ok=True)
+        report.write_text(payload, encoding="utf-8")
+    typer.echo(payload)
     if result.status != "PASS":
         raise typer.Exit(1)
 

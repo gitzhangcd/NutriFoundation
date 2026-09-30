@@ -8,7 +8,7 @@ from nutrifoundation.domain.semantic_worker import (
     WorkerDescriptor,
 )
 from nutrifoundation.domain.models import Provenance
-from nutrifoundation.services.blind_batch import prepare_blind_tasks
+from nutrifoundation.services.blind_batch import fixed_e04_time, prepare_blind_tasks
 from nutrifoundation.services.blind_runner import score_blind_artifact_run
 
 
@@ -85,8 +85,8 @@ def write_tasks(tmp_path, records):
     tasks = prepare_blind_tasks(
         records,
         batch_id="X",
-        run_id="RUN-X",
-        created_at=datetime(2026, 9, 30, tzinfo=timezone.utc),
+        run_id="RUN-BLIND-X-E04-v01",
+        created_at=fixed_e04_time(),
     )
     out = tmp_path / "tasks"
     out.mkdir()
@@ -186,8 +186,8 @@ def test_source_only_task_generation_does_not_accept_hidden_gold(tmp_path):
     tasks = prepare_blind_tasks(
         records,
         batch_id="X",
-        run_id="RUN-X",
-        created_at=datetime(2026, 9, 30, tzinfo=timezone.utc),
+        run_id="RUN-BLIND-X-E04-v01",
+        created_at=fixed_e04_time(),
     )
     assert len(tasks) == 2
     assert all(task.contract_version == "E0.4-v0.1" for task in tasks)

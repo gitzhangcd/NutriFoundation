@@ -214,3 +214,37 @@ def test_hidden_gold_range_endpoints_match_hyphenated_source_style():
         "OR 19.7 (95% CI 7.8 to 49.8)",
     )
     assert "numeric_effect_mismatch" not in score.errors
+
+
+def test_hidden_reference_mismatch_never_triggers_operational_escalation():
+    from nutrifoundation.services.blind_scoring import score_case
+
+    gold = {
+        "evidence_id": "EU-X-003",
+        "source_id": "SA-X-003",
+        "population": "Adults with condition X",
+        "intervention": "Diet A",
+        "outcome": "Outcome Y",
+        "effect": "HR 0.80",
+        "applicability_boundary": "Narrow trial population",
+        "anchor": "Abstract",
+    }
+    observed = {
+        "population": "Adults with condition X",
+        "intervention": "Diet A",
+        "outcome": "Outcome Y",
+        "effect": "HR 0.80",
+        "applicability_boundary": "Broader wording that differs from reference",
+        "anchor": "Abstract",
+    }
+
+    case = score_case(
+        gold,
+        observed,
+        response_status="completed",
+        verifier_status="verified",
+        f0_frozen=True,
+    )
+
+    assert case.operational_escalation_required is False
+    assert case.benchmark_adjudication_required is True

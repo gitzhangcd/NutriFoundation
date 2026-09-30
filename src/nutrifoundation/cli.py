@@ -43,6 +43,7 @@ from nutrifoundation.services.strict_blind import (
     require_strict_blind,
     validate_strict_blind_responses,
 )
+from nutrifoundation.services.strict_blind_runner import score_strict_blind_batch
 
 app = typer.Typer(help="NutriFoundation Engine reference CLI")
 
@@ -438,6 +439,26 @@ def validate_strict_blind(
     else:
         attestation = validate_strict_blind_responses(response_dir)
     typer.echo(json.dumps(attestation.as_dict(), indent=2, ensure_ascii=False))
+
+
+@app.command("score-strict-blind-batch")
+def score_strict_blind_batch_cmd(
+    response_dir: Path,
+    source_fixture: Path = Path("fixtures/Batch001_Blind_SourceText_v0.1.json"),
+    hidden_reference: Path = Path(
+        "fixtures/Batch001_EvidenceUnit_Frozen_v0.1.yaml"
+    ),
+    db: Path = Path("batch001_strict_blind_replay.db"),
+) -> None:
+    """Require fresh-context attestation, then run operational + canonical scoring."""
+    result = score_strict_blind_batch(
+        source_fixture_path=source_fixture,
+        response_dir=response_dir,
+        hidden_reference_path=hidden_reference,
+        db_path=db,
+        batch_id="B001",
+    )
+    typer.echo(json.dumps(result, indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

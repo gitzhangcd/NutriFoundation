@@ -128,7 +128,7 @@
       "case_id": "EQ16",
       "field": "effect",
       "reference": "mean weight loss 4.4 kg",
-      "candidate": "mean weight loss 4.4 kg with an additional unsupported 20 kg",
+      "candidate": "mean weight loss 44 kg",
       "expected_equivalent": false,
       "label_provenance": "model_assisted_development_label_not_independent_expert_gold"
     },

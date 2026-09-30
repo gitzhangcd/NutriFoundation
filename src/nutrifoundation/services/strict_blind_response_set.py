@@ -21,7 +21,8 @@ REQUIRED_STRICT_BLIND_METADATA = {
 @dataclass(frozen=True)
 class StrictBlindResponseSetValidation:
     status: str
-    bundle_sha256: str
+    repository_bytes_sha256: str
+    canonical_bundle_sha256: str
     response_count: int
     unique_response_ids: int
     unique_task_ids: int
@@ -44,6 +45,16 @@ def _sha256_bytes(payload: bytes) -> str:
     return hashlib.sha256(payload).hexdigest()
 
 
+def _canonical_json_sha256(payload: Any) -> str:
+    encoded = json.dumps(
+        payload,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
+
+
 def _load_json(path: str | Path) -> Any:
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
@@ -52,12 +63,13 @@ def validate_strict_blind_response_set(
     *,
     bundle_path: str | Path,
     taskpack_manifest_path: str | Path,
-    expected_bundle_sha256: str | None = None,
+    expected_canonical_sha256: str | None = None,
 ) -> StrictBlindResponseSetValidation:
     bundle_path = Path(bundle_path)
     raw = bundle_path.read_bytes()
-    bundle_sha256 = _sha256_bytes(raw)
+    repository_bytes_sha256 = _sha256_bytes(raw)
     responses = json.loads(raw.decode("utf-8"))
+    canonical_bundle_sha256 = _canonical_json_sha256(responses)
     manifest = _load_json(taskpack_manifest_path)
 
     violations: list[str] = []
@@ -138,10 +150,14 @@ def validate_strict_blind_response_set(
         else:
             violations.append(f"{task_id}: provenance lineage mismatch")
 
-    if expected_bundle_sha256 and bundle_sha256 != expected_bundle_sha256:
+    if (
+        expected_canonical_sha256
+        and canonical_bundle_sha256 != expected_canonical_sha256
+    ):
         violations.append(
-            "bundle_sha256 mismatch: "
-            f"expected={expected_bundle_sha256} observed={bundle_sha256}"
+            "canonical_bundle_sha256 mismatch: "
+            f"expected={expected_canonical_sha256} "
+            f"observed={canonical_bundle_sha256}"
         )
 
     if len(response_ids) != len(set(response_ids)):
@@ -161,7 +177,8 @@ def validate_strict_blind_response_set(
 
     return StrictBlindResponseSetValidation(
         status=status,
-        bundle_sha256=bundle_sha256,
+        repository_bytes_sha256=repository_bytes_sha256,
+        canonical_bundle_sha256=canonical_bundle_sha256,
         response_count=len(responses),
         unique_response_ids=len(set(response_ids)),
         unique_task_ids=len(observed_task_ids),

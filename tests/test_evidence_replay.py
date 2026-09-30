@@ -16,6 +16,7 @@ def test_batch001_evidence_replay_freezes_all_20(tmp_path):
         store,
     )
 
+    print(report.as_dict())
     assert report.status == "PASS", report.as_dict()
     assert report.expected_count == 20
     assert report.stored_f0_count == 20

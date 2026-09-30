@@ -117,10 +117,14 @@ def score_blind_artifact_run(
             response_status = "missing"
             verifier_status = "not_run"
             f0_frozen = False
+            verifier_errors = ("missing_response",)
+            response_uncertainties = ()
         else:
             result = ingestion.ingest(response)
             response_status = response.status
             f0_frozen = result.f0_frozen
+            verifier_errors = tuple(result.errors)
+            response_uncertainties = tuple(response.uncertainties)
             verifier_status = (
                 "verified"
                 if result.f0_frozen
@@ -145,6 +149,8 @@ def score_blind_artifact_run(
                 response_status=response_status,
                 verifier_status=verifier_status,
                 f0_frozen=f0_frozen,
+                verifier_errors=verifier_errors,
+                response_uncertainties=response_uncertainties,
             )
         )
 

@@ -1,0 +1,108 @@
+study: Paper_C_Scientific_Evidence_Production
+version: v0.1
+status: frozen
+
+primary_scientific_question: >
+  Which evidence-production architecture minimizes critical scientific error
+  while reducing expert burden under a fixed source universe and model family?
+
+critical_scientific_error_opportunities:
+  - effect_direction
+  - critical_numeric_result
+  - StudyIdentity_or_dependency
+  - causal_level
+  - recommendation_normativity_and_exception
+  - provenance_and_source_span
+  - version_retraction_temporal_status
+  - critical_population_intervention_comparator_outcome_scope
+
+critical_error_definition:
+  severity: critical
+  criterion: >
+    An error that can materially change the scientific interpretation,
+    duplicate or misattribute evidence, upgrade causality, create a false
+    recommendation, erase a material exception, use an invalid version,
+    or make a scientific assertion unsupported by its cited source span.
+
+primary_endpoint:
+  id: CSER
+  name: Critical Scientific Error Rate
+  formula: critical_error_events / applicable_critical_error_opportunities
+  clustering_unit: source
+  note: N_A opportunities_are_excluded_from_denominator
+
+key_secondary_endpoints:
+  - id: SCFR
+    name: Source Critical Failure Rate
+    formula: sources_with_at_least_one_critical_error / evaluated_sources
+  - id: ExpertMinutesPerSource
+    unit: active_minutes
+  - id: HBR
+    name: Human Burden Reduction
+    formula: 1 - ExpertTime_workflow / ExpertTime_AB0
+  - id: OperationalEscalationRate
+    formula: escalated_sources / evaluated_sources
+  - id: SourceSpanValidity
+    formula: supported_source_spans / asserted_source_spans
+  - id: StudyIdentity_F1
+  - id: NumericErrorRate
+  - id: CausalUpgradeRate
+  - id: RecommendationExceptionPreservation
+  - id: TemporalVersionCorrectness
+  - id: DeferPrecision
+  - id: DeferRecall
+  - id: Throughput
+    unit: sources_per_hour
+  - id: ComputeCostPerSource
+  - id: EndToEndLatency
+
+co_primary_publication_gate_for_AB6:
+  safety_noninferiority:
+    comparison: AB6_minus_AB0_CSER
+    absolute_margin: 0.02
+    decision_rule: upper_one_sided_95CI_below_margin
+  absolute_safety_ceiling:
+    CSER_max_point_estimate: 0.05
+  human_burden_superiority:
+    HBR_min_point_estimate: 0.30
+    decision_rule: paired_95CI_for_time_reduction_excludes_zero
+  success_requires_all: true
+
+mechanistic_hypotheses:
+  H1:
+    comparison: AB4_vs_AB2
+    claim: independent_verification_reduces_CSER
+  H2:
+    comparison: AB5_vs_AB4
+    claim: adversarial_auditor_catches_unique_critical_errors
+  H3:
+    comparison: AB6_vs_AB0
+    claim: risk_based_HITL_preserves_scientific_safety_with_lower_human_burden
+  H4:
+    comparison: held_out_source_types_and_external_domain
+    claim: gains_do_not_collapse_outside_development_distribution
+  H5:
+    comparison: provenance_enabled_vs_flat_extraction
+    claim: explicit_source_span_and_provenance_improve_traceability
+
+statistics:
+  design: paired_within_source
+  primary_CI: source_cluster_bootstrap
+  bootstrap_resamples: 10000
+  source_level_binary_test: exact_McNemar_where_applicable
+  time_comparison: paired_bootstrap_and_Wilcoxon_sensitivity
+  multiple_testing: Holm_for_secondary_pairwise_claims
+  report_effect_sizes_and_CI: required
+  random_seed: 20260930
+  gold100_expansion_rule: >
+    Corpus may expand before any confirmatory baseline output is unblinded
+    if fewer than 600 applicable critical-error opportunities are present
+    or a frozen stratum cannot be filled. Expansion after unblinding is prohibited.
+
+human_time_measurement:
+  capture: application_event_log
+  active_time_only: true
+  idle_threshold_minutes: 5
+  adjudication_time_reported_separately: true
+  AB0_full_review_time_included: true
+  AB6_only_escalated_review_time_included: true

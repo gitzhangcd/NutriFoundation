@@ -191,13 +191,31 @@ def score_case(
         for score in scores
     )
 
-    escalate = (
-        response_status != "completed"
-        or verifier_status != "verified"
-        or not f0_frozen
+    operational_reasons: list[str] = []
+    if response_status != "completed":
+        operational_reasons.append(
+            SemanticErrorType.SEMANTIC_DEFER.value
+            if response_status == "defer"
+            else "semantic_response_not_completed"
+        )
+    if verifier_status != "verified":
+        operational_reasons.append(SemanticErrorType.VERIFIER_REJECTION.value)
+    if not f0_frozen:
+        operational_reasons.append("f0_not_frozen")
+    if response_uncertainties:
+        operational_reasons.append("semantic_uncertainty")
+    operational_reasons = list(dict.fromkeys(operational_reasons))
+    operational_escalate = bool(operational_reasons)
+
+    benchmark_reasons = list(reasons)
+    if high_risk_mismatch:
+        benchmark_reasons.append("high_risk_hidden_reference_mismatch")
+    benchmark_reasons = list(dict.fromkeys(benchmark_reasons))
+    benchmark_adjudicate = (
+        operational_escalate
         or high_risk_mismatch
-        or SemanticErrorType.NUMERIC_EFFECT_MISMATCH.value in reasons
-        or SemanticErrorType.CAUSALITY_LEVEL_MISMATCH.value in reasons
+        or SemanticErrorType.NUMERIC_EFFECT_MISMATCH.value in benchmark_reasons
+        or SemanticErrorType.CAUSALITY_LEVEL_MISMATCH.value in benchmark_reasons
     )
 
     return CaseScore(
@@ -210,8 +228,12 @@ def score_case(
         critical_error_count=critical_errors,
         exact_field_count=exact,
         comparable_field_count=comparable,
-        human_escalation_required=escalate,
-        escalation_reasons=tuple(reasons if escalate else ()),
+        operational_escalation_required=operational_escalate,
+        operational_escalation_reasons=tuple(operational_reasons),
+        benchmark_adjudication_required=benchmark_adjudicate,
+        benchmark_adjudication_reasons=tuple(
+            benchmark_reasons if benchmark_adjudicate else ()
+        ),
         verifier_errors=verifier_errors,
         response_uncertainties=response_uncertainties,
     )
@@ -226,7 +248,8 @@ def summarize_cases(
     deferred = sum(c.response_status == "defer" for c in cases)
     verifier_pass = sum(c.verifier_status == "verified" for c in cases)
     frozen = sum(c.f0_frozen for c in cases)
-    escalated = sum(c.human_escalation_required for c in cases)
+    operational_escalated = sum(c.operational_escalation_required for c in cases)
+    benchmark_adjudicated = sum(c.benchmark_adjudication_required for c in cases)
     critical = sum(c.critical_error_count for c in cases)
     exact = sum(c.exact_field_count for c in cases)
     near_or_exact = sum(
@@ -240,7 +263,7 @@ def summarize_cases(
 
     error_counts: dict[str, int] = {}
     for case in cases:
-        seen = set(case.escalation_reasons)
+        seen = set(case.benchmark_adjudication_reasons)
         for score in case.field_scores:
             seen.update(score.errors)
         for error in seen:
@@ -254,7 +277,8 @@ def summarize_cases(
         deferred_count=deferred,
         verifier_pass_count=verifier_pass,
         f0_freeze_count=frozen,
-        human_escalation_count=escalated,
+        operational_escalation_count=operational_escalated,
+        benchmark_adjudication_count=benchmark_adjudicated,
         critical_error_count=critical,
         exact_field_count=exact,
         near_or_exact_field_count=near_or_exact,
@@ -265,7 +289,12 @@ def summarize_cases(
         ),
         verifier_yield=(verifier_pass / n if n else 0.0),
         f0_yield=(frozen / n if n else 0.0),
-        human_escalation_rate=(escalated / n if n else 0.0),
+        operational_escalation_rate=(
+            operational_escalated / n if n else 0.0
+        ),
+        benchmark_adjudication_rate=(
+            benchmark_adjudicated / n if n else 0.0
+        ),
         error_counts=error_counts,
         cases=tuple(cases),
     )

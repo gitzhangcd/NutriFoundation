@@ -1,0 +1,53 @@
+{
+  "response_id": "RESP-STRICT-B001-003",
+  "task_id": "TASK-BLIND-B001-003",
+  "task_sha256": "28058bd71b6d7ae5a6b9be84ca0c0016b897c3e16c2a0c2ce64cf67c938259a2",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "bc25b1546245af7c469401a8a5e57a1613a4d95c1840a4edf58543992d3d7d5a",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "RCT",
+    "population": "3234 nondiabetic persons with elevated fasting and post-load plasma glucose concentrations (mean age 51 years; mean BMI 34.0).",
+    "intervention": "Lifestyle-modification program targeting at least 7% weight loss and at least 150 minutes of physical activity per week, or metformin 850 mg twice daily.",
+    "exposure": null,
+    "intervention_or_exposure": "Lifestyle modification or metformin.",
+    "comparator": "Placebo.",
+    "outcome": "Incidence of diabetes during an average follow-up of 2.8 years.",
+    "effect": "Diabetes incidence was 11.0, 7.8, and 4.8 cases per 100 person-years in placebo, metformin, and lifestyle groups, respectively. Versus placebo, lifestyle reduced incidence by 58% (95% CI 48% to 66%) and metformin by 31% (95% CI 17% to 43%); lifestyle was significantly more effective than metformin. Three-year numbers needed to treat were 6.9 for lifestyle and 13.9 for metformin.",
+    "recommendation": null,
+    "applicability_boundary": "Applies to nondiabetic adults at high risk because of elevated fasting and post-load glucose; it does not directly address treatment of established diabetes.",
+    "anchor": "METHODS / RESULTS / CONCLUSIONS",
+    "source_span": "The lifestyle intervention reduced the incidence by 58 percent and metformin by 31 percent, as compared with placebo."
+  },
+  "confidence": null,
+  "uncertainties": [],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-003"
+    ],
+    "metadata": {}
+  }
+}

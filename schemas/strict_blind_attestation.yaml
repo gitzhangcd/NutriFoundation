@@ -1,0 +1,19 @@
+schema: StrictBlindAttestation
+version: v0.1
+introduced_in: E0.4.1
+status: frozen
+fields:
+  fresh_context: {type: boolean, required: true}
+  prior_batch_exposure: {type: boolean, required: true}
+  hidden_reference_available_to_worker: {type: boolean, required: true}
+  independent_worker_session: {type: boolean, required: true}
+  qualifies: {type: boolean, derived: true}
+qualification:
+  all:
+    - fresh_context == true
+    - prior_batch_exposure == false
+    - hidden_reference_available_to_worker == false
+    - independent_worker_session == true
+invariants:
+  - current_exposed_context_cannot_self_attest_strict_blind
+  - strict_blind_status_is_execution_provenance

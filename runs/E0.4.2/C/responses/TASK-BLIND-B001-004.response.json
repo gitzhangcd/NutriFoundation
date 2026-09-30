@@ -1,0 +1,55 @@
+{
+  "response_id": "RESP-STRICT-B001-004",
+  "task_id": "TASK-BLIND-B001-004",
+  "task_sha256": "89c70506966c7dba717220d7ef749262d491dc649bdea95cf08ce8720ea089f1",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "9a798e2818c7813b0393720a1d6d6693fe67f52555933efecfb9c21a2bea9cae",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "RCT",
+    "population": "7447 adults aged 55-80 years in Spain who were at high cardiovascular risk but had no cardiovascular disease at enrollment.",
+    "intervention": "Mediterranean diet supplemented with extra-virgin olive oil or Mediterranean diet supplemented with mixed nuts.",
+    "exposure": null,
+    "intervention_or_exposure": "Mediterranean diet supplemented with extra-virgin olive oil or mixed nuts.",
+    "comparator": "Control diet with advice to reduce dietary fat.",
+    "outcome": "Major cardiovascular event: myocardial infarction, stroke, or death from cardiovascular causes.",
+    "effect": "In adjusted intention-to-treat analyses, hazard ratio versus control was 0.69 (95% CI 0.53 to 0.91) for Mediterranean diet plus extra-virgin olive oil and 0.72 (95% CI 0.54 to 0.95) for Mediterranean diet plus nuts. Primary events occurred in 3.8%, 3.4%, and 4.4% of the olive-oil, nuts, and control groups, respectively.",
+    "recommendation": null,
+    "applicability_boundary": "Applies to older adults at high cardiovascular risk without cardiovascular disease at enrollment in this Spanish trial; protocol deviations affected randomization for some participants, and revised analyses adjusted for these issues.",
+    "anchor": "METHODS / RESULTS / CONCLUSIONS",
+    "source_span": "the hazard ratio was 0.69 for a Mediterranean diet with extra-virgin olive oil and 0.72 for a Mediterranean diet with nuts"
+  },
+  "confidence": null,
+  "uncertainties": [
+    "The revised report identified protocol deviations affecting randomization in some participants and used analyses not relying exclusively on full random assignment."
+  ],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-004"
+    ],
+    "metadata": {}
+  }
+}

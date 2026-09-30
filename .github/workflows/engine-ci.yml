@@ -46,3 +46,13 @@ jobs:
             --db /tmp/batch001_blind_replay.db \
             --report /tmp/Batch001_Blind_Replay_Report.json \
             --blindness-class engineering_blind_current_context_prior_exposure
+      - run: nutri calibrate-semantic-equivalence
+      - run: nutri calibrate-verifier
+      - run: |
+          rm -f /tmp/Canonical_Equivalence_Report_v0.1.json
+          nutri score-canonical-batch \
+            --response-dir runs/E0.4/Batch001/responses \
+            --hidden-reference fixtures/Batch001_EvidenceUnit_Frozen_v0.1.yaml \
+            --report /tmp/Canonical_Equivalence_Report_v0.1.json \
+            --batch-id B001
+      - run: nutri validate-strict-blind runs/E0.4/Batch001/responses

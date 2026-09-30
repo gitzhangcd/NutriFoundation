@@ -173,3 +173,41 @@ Requirements:
 - Frozen F0 payloads are immutable. New evidence or corrected extraction requires a new version/object rather than silent mutation.
 - F0 is source-linked factual/source-stated evidence only. It is not F1 methodological qualification and not ScientificClaim/Decision GOLD.
 - Batch001 deterministic evidence replay is a regression test of pipeline/state/payload preservation. The frozen fixture is not a new independent scientific source.
+
+
+## E0.3.1 Semantic Worker Bridge Lineage
+
+Provider-neutral semantic execution follows:
+
+```text
+RunManifest
+    ↓
+SourceArtifact + SourceTextSnapshot
+    ↓
+TaskBundle
+    ↓
+SemanticWorkerAdapter
+    ↓
+ResponseEnvelope
+    ↓
+Deterministic Binding / Allowlist Validation
+    ↓
+EvidenceExtractionCandidate
+    ↓
+IndependentEvidenceVerifier
+    ↓
+F0FreezeRecord
+    ↓
+EvidenceUnit_F0
+```
+
+Rules:
+
+- `TaskBundle` is immutable and binds source text with SHA-256.
+- `ResponseEnvelope` must echo task hash, source-text hash, contract version and response schema version.
+- Provider/model identity is execution provenance only; it is not an EvidenceUnit scientific field.
+- Unknown provider output fields are rejected by the core engine.
+- `defer` is an allowed semantic outcome and must not be converted into a guessed EvidenceUnit.
+- Chat-window execution uses file-based request/response transport but the same TaskBundle/ResponseEnvelope contract as future API/local-model adapters.
+- A new provider is admissible only after adapter conformance tests pass.
+- Downstream verifier, persistence, F0 freeze and GOLD governance must remain provider-unaware.

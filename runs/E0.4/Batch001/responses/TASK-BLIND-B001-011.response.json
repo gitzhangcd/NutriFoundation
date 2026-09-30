@@ -1,0 +1,46 @@
+{
+  "response_id": "RESP-BLIND-B001-011",
+  "task_id": "TASK-BLIND-B001-011",
+  "task_sha256": "660f21a97d7397c83af2b43ff6d1ba84b50d974fa47641dc8fdeea322385eaa1",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "fc8295f808af817928b09fb87512221d590e2c378ab0b69a30a9308d4a338d7c",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-011"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "synthesis_effect",
+    "population": "People with type 2 diabetes in 73 randomized controlled trials across eight dietary patterns",
+    "intervention": "Alternative dietary patterns",
+    "comparator": "Usual diet and other dietary patterns",
+    "outcome": "Body weight, HbA1c, blood pressure, and lipids at 6 and 12 months",
+    "effect": "All dietary patterns reduced body weight and HbA1c after 6 months versus usual diet; largest body-weight effect was low-carbohydrate at -4.8 kg and largest HbA1c effect was Mediterranean at -1.0%; 12-month effects were not statistically significant and evidence was insufficient to select one optimal pattern.",
+    "applicability_boundary": "Network meta-analysis of heterogeneous randomized trials in type 2 diabetes; longer-term 12-month effects were not statistically significant.",
+    "anchor": "PubMed abstract PMID 36513271"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

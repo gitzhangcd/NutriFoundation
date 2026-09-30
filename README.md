@@ -50,10 +50,11 @@ Engineering reference implementation:
 - E0.2 Persistence + PubMed/PMC + RunManifest + Batch001 SourceArtifact replay: implemented
 - E0.3 Evidence Extraction + Independent Verification + F0 Freeze + Batch001 Evidence replay: **PASS (remote CI verified)**
 - E0.3.1 Chat-Window Semantic Worker Bridge + Provider Portability: **PASS (remote CI verified)**
+- E0.4 Batch001 Blind Semantic Replay + Verifier / Escalation Audit: **PASS (engineering-blind, remote CI verified)**
 - Python package: `src/nutrifoundation/`
 - Domain models: Pydantic v2 immutable types
 - Workflow state machine: retrieval → F0/F1 → claim → reception → reliability → human gate → GOLD
-- CLI: `nutri contract-check`, `nutri validate-gold-gate`, `nutri init-db`, `nutri ingest-pmid`, `nutri fetch-pmc`, `nutri replay-batch001`, `nutri produce-evidence`, `nutri replay-evidence-batch001`, `nutri prepare-chat-task`, `nutri ingest-chat-response`, `nutri list-semantic-tasks`
+- CLI: `nutri contract-check`, `nutri validate-gold-gate`, `nutri init-db`, `nutri ingest-pmid`, `nutri fetch-pmc`, `nutri replay-batch001`, `nutri produce-evidence`, `nutri replay-evidence-batch001`, `nutri prepare-chat-task`, `nutri ingest-chat-response`, `nutri list-semantic-tasks`, `nutri prepare-blind-batch`, `nutri blind-task-manifest`, `nutri score-blind-batch`
 - Regression fixture: Batch001 Gold gate
 - CI: GitHub Actions
 
@@ -150,3 +151,29 @@ See:
 
 - `docs/E0.3.1_Executable_Contract.md`
 - `docs/E0.3.1_Execution_Report.md`
+
+
+## E0.4 engineering-blind semantic replay
+
+```text
+20 source-only cases
+19 completed responses
+1 safe defer
+
+19/20 verifier pass
+19/20 F0 freeze
+95% verifier/F0 yield
+
+1/20 operational escalation = 5%
+14/20 hidden-reference benchmark adjudication = 70%
+```
+
+The operational escalation and benchmark adjudication metrics are deliberately separate. Hidden-reference differences cannot trigger production escalation.
+
+This run is **engineering blind**, not strict cognitive blind, because the current conversation had prior Batch001 exposure.
+
+See:
+
+- `docs/E0.4_Executable_Contract.md`
+- `docs/E0.4_Execution_Report.md`
+- `runs/E0.4/Batch001/Blind_Replay_Report_v0.1.json`

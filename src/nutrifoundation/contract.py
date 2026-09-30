@@ -58,6 +58,7 @@ E041_INVARIANTS = (
     ContractInvariant("strict_blind_requires_fresh_context", "StrictBlind -> FreshContextRequired"),
     ContractInvariant("strict_blind_rejects_prior_exposure", "PriorBatchExposure -> NotStrictBlind"),
     ContractInvariant("verifier_and_equivalence_calibration_separate", "VerifierCalibration != EquivalenceCalibration"),
+    ContractInvariant("strict_blind_attestation_not_proof", "StrictBlindAttestation != CryptographicProof"),
 )
 
 EXECUTABLE_INVARIANTS = (

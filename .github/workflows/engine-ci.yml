@@ -66,7 +66,7 @@ jobs:
             --bundle runs/E0.4.2/C/StrictBlind_ResponseSet_FROZEN_v1.0.json \
             --taskpack runs/E0.4.2/A0/StrictBlind_TaskPack_Manifest_v1.0.json \
             --out-dir /tmp/e042c_strict_responses \
-            --expected-bundle-sha256 f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7 \
+            --expected-canonical-sha256 513e9d3c09326b7ae715d6cc5b834d7f31decdc1162298190e3708bb31b7beca \
             --receipt /tmp/E0.4.2-C_Response_Freeze_Receipt.json
       - run: nutri validate-strict-blind /tmp/e042c_strict_responses --require
       - run: |

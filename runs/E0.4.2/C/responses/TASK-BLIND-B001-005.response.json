@@ -1,0 +1,55 @@
+{
+  "response_id": "RESP-STRICT-B001-005",
+  "task_id": "TASK-BLIND-B001-005",
+  "task_sha256": "d0e3750429ef1b9fefcc114c40364427357a8fcf7d4965e9596e5b35ed26ed58",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "a0669af99e8dd3f2c51642b68c2dc621a56ec3718552ec9d6cae548e3396efba",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "RCT",
+    "population": "5145 overweight or obese adults with type 2 diabetes across 16 U.S. study centers.",
+    "intervention": "Intensive lifestyle intervention promoting weight loss through decreased caloric intake and increased physical activity.",
+    "exposure": null,
+    "intervention_or_exposure": "Intensive lifestyle intervention for weight loss.",
+    "comparator": "Diabetes support and education.",
+    "outcome": "Composite cardiovascular outcome of cardiovascular death, nonfatal myocardial infarction, nonfatal stroke, or hospitalization for angina.",
+    "effect": "At median 9.6 years, the primary outcome rate was 1.83 versus 1.92 events per 100 person-years; hazard ratio 0.95 (95% CI 0.83 to 1.09), P=0.51. The intervention produced greater weight loss and improvements in several risk factors but did not reduce cardiovascular event rates.",
+    "recommendation": null,
+    "applicability_boundary": "Applies to overweight or obese adults with established type 2 diabetes enrolled in this long-term U.S. trial; the trial was stopped early for futility.",
+    "anchor": "RESULTS / CONCLUSIONS",
+    "source_span": "hazard ratio in the intervention group, 0.95; 95% confidence interval, 0.83 to 1.09; P=0.51"
+  },
+  "confidence": null,
+  "uncertainties": [
+    "The trial was stopped early on the basis of a futility analysis."
+  ],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-005"
+    ],
+    "metadata": {}
+  }
+}

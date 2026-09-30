@@ -28,7 +28,7 @@ PHRASE_ALIASES = (
     (r"medical nutrition therapy|\bmnt\b", "medical_nutrition_therapy"),
     (r"older persons?|older adults?|geriatric", "older_adult"),
     (r"malnutrition screening|screened for malnutrition", "malnutrition_screening"),
-    (r"incident type 2 diabetes|diabetes incidence|incident diabetes", "incident_t2d"),
+    (r"incident type 2 diabetes|incident t2d|diabetes incidence|incident diabetes", "incident_t2d"),
     (r"major cardiovascular event(?:s)?", "major_cardiovascular_event"),
     (r"diabetes remission|remission of diabetes", "diabetes_remission"),
     (r"systolic blood pressure|\bsbp\b", "sbp"),

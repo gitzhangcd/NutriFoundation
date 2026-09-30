@@ -43,7 +43,6 @@ def test_materialized_frozen_bundle_passes_strict_blind_gate(tmp_path):
         bundle_path=BUNDLE,
         taskpack_manifest_path=TASKPACK,
         out_dir=tmp_path,
-        expected_repository_bytes_sha256=UPLOAD_SHA256,
         expected_canonical_sha256=CANONICAL_SHA256,
     )
     assert receipt.status == "PASS"

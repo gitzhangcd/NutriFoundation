@@ -1,0 +1,41 @@
+schema: BlindReplaySummary
+version: v0.1
+introduced_in: E0.4
+status: frozen
+
+purpose:
+  - score_source_only_semantic_reextraction_against_hidden_frozen_F0
+  - separate_model_response_quality_verifier_yield_and_human_escalation
+  - preserve_blindness_class_and_context_contamination_status
+
+fields:
+  batch_id: {type: string, required: true}
+  blindness_class:
+    enum:
+      - strict_blind_fresh_context
+      - engineering_blind_current_context_prior_exposure
+    required: true
+  case_count: {type: integer, required: true}
+  completed_response_count: {type: integer, required: true}
+  deferred_count: {type: integer, required: true}
+  verifier_pass_count: {type: integer, required: true}
+  f0_freeze_count: {type: integer, required: true}
+  human_escalation_count: {type: integer, required: true}
+  critical_error_count: {type: integer, required: true}
+  exact_field_count: {type: integer, required: true}
+  near_or_exact_field_count: {type: integer, required: true}
+  comparable_field_count: {type: integer, required: true}
+  exact_field_rate: {type: number, required: true}
+  near_or_exact_field_rate: {type: number, required: true}
+  verifier_yield: {type: number, required: true}
+  f0_yield: {type: number, required: true}
+  human_escalation_rate: {type: number, required: true}
+  error_counts: {type: object, required: true}
+  cases: {type: array, required: true}
+
+invariants:
+  - hidden_gold_is_loaded_only_after_response_generation
+  - blindness_class_is_mandatory
+  - verifier_yield_is_not_semantic_accuracy
+  - lexical_similarity_is_not_human_semantic_adjudication
+  - defer_and_verifier_rejection_trigger_escalation

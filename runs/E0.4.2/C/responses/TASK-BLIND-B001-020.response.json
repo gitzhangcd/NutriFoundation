@@ -1,0 +1,56 @@
+{
+  "response_id": "RESP-STRICT-B001-020",
+  "task_id": "TASK-BLIND-B001-020",
+  "task_sha256": "773827e1b4d70d7176bb960265ff39443ddc53b79530916280b2bbca353a4ca5",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "e6d6734be08ba8cd73331a24a1f61c44cb20c3ebd96cce0da36748457b550931",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "MetaAnalysis",
+    "population": "Participants in 16 prospective cohort studies of grain intake and incident type 2 diabetes.",
+    "intervention": null,
+    "exposure": "Whole-grain and refined-grain intake.",
+    "intervention_or_exposure": "Higher whole-grain or refined-grain consumption.",
+    "comparator": "Lower intake, with dose-response estimates per 3 servings/day.",
+    "outcome": "Incident type 2 diabetes.",
+    "effect": "Summary relative risk per 3 servings/day was 0.68 (95% CI 0.58 to 0.81; I2=82%; n=10) for whole grains and 0.95 (95% CI 0.88 to 1.04; I2=53%; n=6) for refined grains. Whole grains showed a nonlinear association (P nonlinearity <0.0001), whereas refined grains did not (P=0.10).",
+    "recommendation": "The source supports replacing refined grains with whole grains and suggests at least two servings of whole grains per day to reduce type 2 diabetes risk.",
+    "applicability_boundary": "Based on prospective cohort evidence; subtype findings were based on few studies and warrant further investigation, so causal certainty and specific food-subtype generalization are limited.",
+    "anchor": "META-ANALYSIS RESULTS / CONCLUSION",
+    "source_span": "The summary relative risk per 3 servings per day was 0.68 for whole grains and 0.95 for refined grains."
+  },
+  "confidence": null,
+  "uncertainties": [
+    "Between-study heterogeneity was high for whole grains (I2=82%).",
+    "Specific whole-grain subtype findings were based on few studies."
+  ],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-020"
+    ],
+    "metadata": {}
+  }
+}

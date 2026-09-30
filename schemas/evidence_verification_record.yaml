@@ -1,0 +1,44 @@
+schema: EvidenceVerificationRecord
+version: v0.1
+introduced_in: E0.3
+status: frozen
+
+purpose:
+  - record_independent_machine_verification_before_F0_freeze
+  - make_verification_checks_explicit_and_auditable
+
+fields:
+  verification_id: {type: string, required: true}
+  candidate_id: {type: string, required: true}
+  evidence_id: {type: string, required: true}
+  source_id: {type: string, required: true}
+  verifier_id: {type: string, required: true}
+  extractor_id: {type: string, required: true}
+  independent_from_extractor: {type: boolean, required: true}
+  source_text_sha256: {type: string, required: true}
+  checks:
+    type: object
+    required: true
+    fields:
+      source_linkage: boolean
+      required_fields: boolean
+      source_anchor_present: boolean
+      numeric_support: boolean
+      applicability_boundary_present: boolean
+      observational_causality_guard: boolean
+      guideline_authority_guard: boolean
+  status:
+    enum: [verified, rejected, escalate]
+    required: true
+  errors: {type: array}
+  warnings: {type: array}
+  verified_at: {type: datetime, required: true}
+  provenance: {type: ProvenanceRecord, required: true}
+
+invariants:
+  - verifier_identity_must_differ_from_extractor
+  - verified_requires_all_checks_true
+  - verified_requires_zero_errors
+  - failed_numeric_support_blocks_F0
+  - failed_causality_guard_blocks_F0
+  - failed_guideline_guard_blocks_F0

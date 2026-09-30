@@ -1,0 +1,27 @@
+template_id: E0.4.1-Human-Independent-Equivalence-Calibration-v0.1
+reference_class: human_independent
+publication_grade: true
+status: EMPTY_TEMPLATE_REQUIRES_INDEPENDENT_HUMAN_LABELS
+
+instructions:
+  - reviewers_must_not_see_model_equivalence_predictions
+  - each_pair_requires_independent_label_before_adjudication
+  - disagreements_require_adjudication_record
+  - labels_must_be_frozen_before_publication_grade_precision_recall
+  - current_chat_model_must_not_create_or_adjudicate_these_labels
+
+required_case_fields:
+  - case_id
+  - field
+  - reference
+  - candidate
+  - expected_equivalent
+  - reviewer_1_id
+  - reviewer_1_label
+  - reviewer_2_id
+  - reviewer_2_label
+  - adjudicated_label
+  - adjudication_ref
+  - label_provenance
+
+cases: []

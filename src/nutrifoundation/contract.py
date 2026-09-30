@@ -72,6 +72,17 @@ E042A0_INVARIANTS = (
     ContractInvariant("blind_wall_must_pass", "FreshContextHandoff -> BlindWallAuditPASS"),
 )
 
+E042C_INVARIANTS = (
+    ContractInvariant("frozen_response_bundle_immutable", "StrictBlindResponseBundle == Frozen"),
+    ContractInvariant("response_bundle_hash_bound", "ResponseBundleSHA256 == FrozenSHA256"),
+    ContractInvariant("response_task_binding_complete", "StrictBlindResponseTaskBinding == 20/20"),
+    ContractInvariant("response_source_binding_complete", "StrictBlindResponseSourceHashBinding == 20/20"),
+    ContractInvariant("strict_attestation_precedes_scoring", "StrictBlindAttestationPASS -> HiddenReferenceScoringAllowed"),
+    ContractInvariant("defer_preserved_without_guessing", "SourceInsufficiency -> DeferPreserved"),
+    ContractInvariant("response_freeze_precedes_hidden_reference", "ResponseFreeze -> BeforeHiddenReferenceLoad"),
+    ContractInvariant("strict_response_set_not_gold", "StrictBlindResponseSet != ScientificGold"),
+)
+
 EXECUTABLE_INVARIANTS = (
     E01_INVARIANTS
     + E03_INVARIANTS
@@ -79,4 +90,5 @@ EXECUTABLE_INVARIANTS = (
     + E04_INVARIANTS
     + E041_INVARIANTS
     + E042A0_INVARIANTS
+    + E042C_INVARIANTS
 )

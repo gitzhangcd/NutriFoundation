@@ -1,0 +1,56 @@
+{
+  "response_id": "RESP-STRICT-B001-006",
+  "task_id": "TASK-BLIND-B001-006",
+  "task_sha256": "bdf5606d011cc158f2ea0548a899ea1fdbad2215ed6c859f1c0d03106beaa55d",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "a0a512484427b3ad90e7f6de2ed61faa30693743a24385795d9b2d4786c746f1",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "RCT",
+    "population": "322 moderately obese adults (mean age 52 years; mean BMI 31; 86% male) followed for 2 years.",
+    "intervention": "Mediterranean restricted-calorie diet or low-carbohydrate non-restricted-calorie diet.",
+    "exposure": null,
+    "intervention_or_exposure": "Mediterranean restricted-calorie or low-carbohydrate non-restricted-calorie diet.",
+    "comparator": "Low-fat restricted-calorie diet; the trial compared all three diets.",
+    "outcome": "Body-weight change at 2 years; lipid measures and glycemic measures were secondary outcomes.",
+    "effect": "Mean weight loss was 2.9 kg with low-fat, 4.4 kg with Mediterranean, and 4.7 kg with low-carbohydrate diets (P<0.001 for diet-by-time interaction). Among 36 participants with diabetes, fasting glucose and insulin changes were more favorable with Mediterranean than low-fat diet (P<0.001 for the fasting-glucose interaction).",
+    "recommendation": null,
+    "applicability_boundary": "Applies to moderately obese adults in this 2-year trial, predominantly men; diabetes-specific glycemic findings were based on only 36 participants with diabetes.",
+    "anchor": "RESULTS / CONCLUSIONS",
+    "source_span": "The mean weight loss was 2.9 kg for the low-fat group, 4.4 kg for the Mediterranean-diet group, and 4.7 kg"
+  },
+  "confidence": null,
+  "uncertainties": [
+    "The enrolled population was 86% male.",
+    "Diabetes-specific glycemic findings were based on 36 subjects with diabetes."
+  ],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-006"
+    ],
+    "metadata": {}
+  }
+}

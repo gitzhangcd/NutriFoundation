@@ -9,17 +9,19 @@ from nutrifoundation.services.strict_blind_response_set import (
 ROOT = Path(__file__).resolve().parents[1]
 BUNDLE = ROOT / "runs" / "E0.4.2" / "C" / "StrictBlind_ResponseSet_FROZEN_v1.0.json"
 TASKPACK = ROOT / "runs" / "E0.4.2" / "A0" / "StrictBlind_TaskPack_Manifest_v1.0.json"
-EXPECTED_CANONICAL_SHA = "513e9d3c09326b7ae715d6cc5b834d7f31decdc1162298190e3708bb31b7beca"
+REPOSITORY_SHA = "8e44cf089cd9a7af75dbf8e2f2d64306ef164efdf775b739f19d3a9bd01f05e1"
+CANONICAL_SHA = "513e9d3c09326b7ae715d6cc5b834d7f31decdc1162298190e3708bb31b7beca"
 
 
 def test_frozen_strict_blind_response_set_passes_pre_scoring_validation():
     result = validate_strict_blind_response_set(
         bundle_path=BUNDLE,
         taskpack_manifest_path=TASKPACK,
-        expected_canonical_sha256=EXPECTED_CANONICAL_SHA,
+        expected_canonical_sha256=CANONICAL_SHA,
     )
     assert result.status == "PASS"
-    assert result.canonical_bundle_sha256 == EXPECTED_CANONICAL_SHA
+    assert result.repository_bytes_sha256 == REPOSITORY_SHA
+    assert result.canonical_bundle_sha256 == CANONICAL_SHA
     assert result.response_count == 20
     assert result.unique_response_ids == 20
     assert result.unique_task_ids == 20
@@ -77,11 +79,14 @@ def test_response_set_missing_task_fails(tmp_path):
     assert result.task_id_set_match is False
 
 
-def test_response_set_wrong_bundle_sha_fails():
+def test_response_set_wrong_canonical_sha_fails():
     result = validate_strict_blind_response_set(
         bundle_path=BUNDLE,
         taskpack_manifest_path=TASKPACK,
         expected_canonical_sha256="0" * 64,
     )
     assert result.status == "FAIL"
-    assert any("canonical_bundle_sha256 mismatch" in item for item in result.violations)
+    assert any(
+        "canonical_bundle_sha256 mismatch" in item
+        for item in result.violations
+    )

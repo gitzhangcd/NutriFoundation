@@ -29,6 +29,7 @@ def test_single_ingestion(tmp_path):
     source = store.get_source("SA-B001-001")
     assert source.identifiers.pmid == "19721018"
     assert source.identifiers.doi.startswith("10.7326/")
+    assert source.provenance.metadata["run_id"] == manifest.run_id
 
 
 def test_batch001_replay_matches_all_identifiers(tmp_path):

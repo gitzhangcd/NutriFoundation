@@ -47,6 +47,10 @@ objects:
     layer: Scientific_World_Claim_Qualification
     status: frozen
     introduced_in: P1.9-E6.1
+  RunManifest:
+    layer: Execution_Governance
+    status: frozen
+    introduced_in: E0.2
 
 principle:
   observation_is_not_evidence: true
@@ -58,3 +62,5 @@ principle:
   citation_count_is_not_support_count: true
   support_citation_is_not_independent_replication: true
   journal_metric_is_not_article_validity: true
+  every_ingestion_run_has_run_manifest: true
+  replay_must_preserve_source_identity: true

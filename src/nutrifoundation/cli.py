@@ -485,8 +485,8 @@ def materialize_strict_blind_response_bundle(
         "runs/E0.4.2/A0/StrictBlind_TaskPack_Manifest_v1.0.json"
     ),
     out_dir: Path = Path("runs/E0.4.2/C/responses"),
-    expected_bundle_sha256: str = (
-        "f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7"
+    expected_canonical_sha256: str = (
+        "513e9d3c09326b7ae715d6cc5b834d7f31decdc1162298190e3708bb31b7beca"
     ),
     receipt: Path | None = None,
 ) -> None:
@@ -495,7 +495,7 @@ def materialize_strict_blind_response_bundle(
         bundle_path=bundle,
         taskpack_manifest_path=taskpack,
         out_dir=out_dir,
-        expected_bundle_sha256=expected_bundle_sha256,
+        expected_canonical_sha256=expected_canonical_sha256,
     )
     payload = json.dumps(result.as_dict(), indent=2, ensure_ascii=False) + "\n"
     if receipt is not None:

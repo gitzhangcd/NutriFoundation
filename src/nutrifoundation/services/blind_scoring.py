@@ -139,6 +139,8 @@ def score_case(
     response_status: str,
     verifier_status: str,
     f0_frozen: bool,
+    verifier_errors: tuple[str, ...] = (),
+    response_uncertainties: tuple[str, ...] = (),
 ) -> CaseScore:
     fields = ("kind",) + CRITICAL_FIELDS
     scores = tuple(
@@ -210,6 +212,8 @@ def score_case(
         comparable_field_count=comparable,
         human_escalation_required=escalate,
         escalation_reasons=tuple(reasons if escalate else ()),
+        verifier_errors=verifier_errors,
+        response_uncertainties=response_uncertainties,
     )
 
 

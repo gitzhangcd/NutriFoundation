@@ -1,0 +1,49 @@
+stage: E0.4
+batch_id: B001
+version: v0.1
+status: executed_remote_ci
+blindness_class: engineering_blind_current_context_prior_exposure
+strict_cognitive_blind: false
+strict_blindness_blocker: prior_conversation_context_contains_Batch001_answers
+task_contract: E0.4-v0.1
+response_contract: ResponseEnvelope-v0.1
+source_fixture: fixtures/Batch001_Blind_SourceText_v0.1.json
+response_dir: runs/E0.4/Batch001/responses
+hidden_reference: fixtures/Batch001_EvidenceUnit_Frozen_v0.1.yaml
+hidden_reference_visibility:
+  task_factory: forbidden
+  semantic_worker_input: forbidden
+  scoring_stage_only: true
+worker:
+  worker_id: chatgpt-gpt5.6-sol-e04-current-context
+  adapter_type: chat_window_file_bridge
+  provider: OpenAI ChatGPT
+  model: GPT-5.6 Sol
+  prompt_version: E0.4-v0.1
+source_text_policy:
+  primary: PubMed abstract
+  missing_abstract_action: defer
+  SA-B001-015_abstract_available: false
+remote_validation:
+  workflow_run_id: 36662902683
+  workflow_job_id: 109721295760
+  conclusion: success
+  pytest: 42_passed
+final_metrics:
+  case_count: 20
+  completed_response_count: 19
+  deferred_count: 1
+  verifier_pass_count: 19
+  f0_freeze_count: 19
+  verifier_yield: 0.95
+  f0_yield: 0.95
+  human_escalation_count: 14
+  human_escalation_rate: 0.7
+  exact_field_rate: 0.4306569343065693
+  near_or_exact_field_rate: 0.583941605839416
+interpretation_guards:
+  - verifier_yield_is_not_semantic_accuracy
+  - lexical_field_match_is_not_human_semantic_adjudication
+  - human_escalation_rate_is_conservative_triage_not_model_failure_rate
+  - current_run_is_not_strict_cognitive_blind
+  - no_hidden_reference_was_used_to_generate_or_edit_response_artifacts

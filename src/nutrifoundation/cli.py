@@ -25,6 +25,12 @@ from nutrifoundation.services.blind_runner import (
     score_blind_artifact_run,
     write_blind_report,
 )
+from nutrifoundation.services.canonical_batch_scoring import (
+    score_canonical_batch,
+    write_canonical_batch_report,
+)
+from nutrifoundation.services.equivalence_calibration import calibrate_fixture
+from nutrifoundation.services.verifier_calibration import calibrate_verifier_fixture
 from nutrifoundation.services.evidence_pipeline import EvidenceProductionService
 from nutrifoundation.services.evidence_replay import replay_batch001_evidence
 from nutrifoundation.services.ingestion import SourceArtifactIngestionService
@@ -33,6 +39,11 @@ from nutrifoundation.services.semantic_bridge import (
     SemanticResponseIngestionService,
     SemanticTaskOrchestrator,
 )
+from nutrifoundation.services.strict_blind import (
+    require_strict_blind,
+    validate_strict_blind_responses,
+)
+from nutrifoundation.services.strict_blind_runner import score_strict_blind_batch
 
 app = typer.Typer(help="NutriFoundation Engine reference CLI")
 
@@ -355,6 +366,99 @@ def blind_task_manifest(
             ensure_ascii=False,
         )
     )
+
+
+@app.command("calibrate-semantic-equivalence")
+def calibrate_semantic_equivalence(
+    fixture: Path = Path(
+        "fixtures/E0.4.1_Semantic_Equivalence_Development_Calibration_v0.1.yaml"
+    ),
+) -> None:
+    """Development calibration for canonical critical-field equivalence."""
+    summary, details = calibrate_fixture(fixture)
+    typer.echo(
+        json.dumps(
+            {"summary": summary.as_dict(), "details": details},
+            indent=2,
+            ensure_ascii=False,
+        )
+    )
+
+
+@app.command("calibrate-verifier")
+def calibrate_verifier(
+    fixture: Path = Path(
+        "fixtures/E0.4.1_Verifier_Development_Calibration_v0.1.yaml"
+    ),
+) -> None:
+    """Development precision/recall calibration for IndependentEvidenceVerifier."""
+    summary, details = calibrate_verifier_fixture(fixture)
+    typer.echo(
+        json.dumps(
+            {"summary": summary.as_dict(), "details": details},
+            indent=2,
+            ensure_ascii=False,
+        )
+    )
+
+
+@app.command("score-canonical-batch")
+def score_canonical_batch_cmd(
+    response_dir: Path = Path("runs/E0.4/Batch001/responses"),
+    hidden_reference: Path = Path(
+        "fixtures/Batch001_EvidenceUnit_Frozen_v0.1.yaml"
+    ),
+    report: Path = Path(
+        "runs/E0.4.1/Batch001/Canonical_Equivalence_Report_v0.1.json"
+    ),
+    batch_id: str = "B001",
+) -> None:
+    """Post-response canonical semantic comparison against hidden reference."""
+    result = score_canonical_batch(
+        response_dir=response_dir,
+        hidden_reference_path=hidden_reference,
+        batch_id=batch_id,
+    )
+    report.parent.mkdir(parents=True, exist_ok=True)
+    write_canonical_batch_report(result, report)
+    typer.echo(json.dumps(result.as_dict(), indent=2, ensure_ascii=False))
+
+
+@app.command("validate-strict-blind")
+def validate_strict_blind(
+    response_dir: Path,
+    require: bool = typer.Option(
+        False,
+        "--require",
+        help="Exit non-zero unless the response set qualifies as strict blind.",
+    ),
+) -> None:
+    """Validate fresh-context strict-blind attestation from response metadata."""
+    if require:
+        attestation = require_strict_blind(response_dir)
+    else:
+        attestation = validate_strict_blind_responses(response_dir)
+    typer.echo(json.dumps(attestation.as_dict(), indent=2, ensure_ascii=False))
+
+
+@app.command("score-strict-blind-batch")
+def score_strict_blind_batch_cmd(
+    response_dir: Path,
+    source_fixture: Path = Path("fixtures/Batch001_Blind_SourceText_v0.1.json"),
+    hidden_reference: Path = Path(
+        "fixtures/Batch001_EvidenceUnit_Frozen_v0.1.yaml"
+    ),
+    db: Path = Path("batch001_strict_blind_replay.db"),
+) -> None:
+    """Require fresh-context attestation, then run operational + canonical scoring."""
+    result = score_strict_blind_batch(
+        source_fixture_path=source_fixture,
+        response_dir=response_dir,
+        hidden_reference_path=hidden_reference,
+        db_path=db,
+        batch_id="B001",
+    )
+    typer.echo(json.dumps(result, indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

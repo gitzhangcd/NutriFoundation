@@ -114,3 +114,4 @@ principle:
   blindness_class_is_required: true
   verifier_yield_is_not_semantic_accuracy: true
   blind_defer_requires_escalation: true
+  benchmark_adjudication_is_not_operational_escalation: true

@@ -248,3 +248,11 @@ def test_hidden_reference_mismatch_never_triggers_operational_escalation():
 
     assert case.operational_escalation_required is False
     assert case.benchmark_adjudication_required is True
+
+
+def test_e04_executable_contract_freezes_escalation_separation():
+    from nutrifoundation.contract import E04_INVARIANTS
+
+    assert len(E04_INVARIANTS) == 7
+    statements = {item.statement for item in E04_INVARIANTS}
+    assert "BenchmarkAdjudication != OperationalEscalation" in statements

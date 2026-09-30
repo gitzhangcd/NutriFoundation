@@ -83,6 +83,20 @@ class SQLiteStore:
     def save_run_manifest(self, manifest: RunManifest) -> None:
         payload = manifest.model_dump_json()
         with self.connect() as connection:
+            existing = connection.execute(
+                "SELECT status,payload_json FROM run_manifest WHERE run_id=?",
+                (manifest.run_id,),
+            ).fetchone()
+
+            if (
+                existing
+                and existing["status"] == "completed"
+                and existing["payload_json"] != payload
+            ):
+                raise ValueError(
+                    f"Completed RunManifest is immutable: {manifest.run_id}"
+                )
+
             connection.execute(
                 """INSERT INTO run_manifest
                 (run_id,pipeline_name,pipeline_version,mode,status,started_at,finished_at,payload_json)

@@ -41,7 +41,16 @@ def _candidate_numeric_tokens(candidate: EvidenceExtractionCandidate) -> set[str
 
 
 def _source_numeric_tokens(source_text: str) -> set[str]:
-    return {_normalize_numeric(x) for x in _NUMERIC.findall(source_text)}
+    tokens: set[str] = set()
+    decrease = re.compile(r"reduc|decreas|lower|fell|declin", re.I)
+    for match in _NUMERIC.finditer(source_text):
+        token = _normalize_numeric(match.group(0))
+        tokens.add(token)
+        if not token.startswith("-"):
+            context = source_text[max(0, match.start() - 48):match.start()]
+            if decrease.search(context):
+                tokens.add("-" + token)
+    return tokens
 
 
 class IndependentEvidenceVerifier:

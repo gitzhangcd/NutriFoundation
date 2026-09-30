@@ -78,7 +78,17 @@ class TaskBundle(FrozenModel):
     @classmethod
     def build(cls, **data: Any) -> "TaskBundle":
         payload = dict(data)
-        payload["task_sha256"] = cls.digest_payload(payload)
+        payload.pop("task_sha256", None)
+
+        # Hash the same normalized JSON representation that will later be
+        # validated after Pydantic coercion. This prevents Python-object
+        # representation details (datetime/model/tuple) from changing hashes.
+        normalized_model = cls.model_construct(
+            **payload,
+            task_sha256="",
+        )
+        normalized_payload = normalized_model.model_dump(mode="json")
+        payload["task_sha256"] = cls.digest_payload(normalized_payload)
         return cls(**payload)
 
     @model_validator(mode="after")

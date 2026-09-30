@@ -1,0 +1,56 @@
+{
+  "response_id": "RESP-STRICT-B001-001",
+  "task_id": "TASK-BLIND-B001-001",
+  "task_sha256": "d44cb4f3baa4908bb9b42c234cd84ba0207874b86d6b18e2a3022eecf0320541",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "475eeb6c60ae0842e5427723703168f147f3d75b2021adda33edf5bc54725786",
+  "worker": {
+    "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "prompt_version": "E0.4.2-A0-v0.1",
+    "metadata": {
+      "fresh_context_attestation": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+      "blindness_class": "strict_blind_fresh_context"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "RCT",
+    "population": "215 overweight people with newly diagnosed type 2 diabetes, never treated with antihyperglycemic drugs, HbA1c <11%, at a teaching hospital in Naples, Italy.",
+    "intervention": "Low-carbohydrate Mediterranean-style diet (<50% of daily calories from carbohydrates), n=108.",
+    "exposure": null,
+    "intervention_or_exposure": "Low-carbohydrate Mediterranean-style diet (<50% of daily calories from carbohydrates).",
+    "comparator": "Low-fat diet (<30% of daily calories from fat), n=107.",
+    "outcome": "Initiation of antihyperglycemic drug therapy when follow-up HbA1c was >7% (primary outcome); secondary outcomes included weight, glycemic control, and coronary risk factors.",
+    "effect": "After 4 years, 44% in the Mediterranean-style group versus 70% in the low-fat group required drug therapy; absolute difference -26.0 percentage points (95% CI -31.1 to -20.1); hazard ratio 0.63 (CI 0.51 to 0.86); weight-change-adjusted hazard ratio 0.70 (CI 0.59 to 0.90); P<0.001.",
+    "recommendation": null,
+    "applicability_boundary": "Applies to overweight, drug-naive patients with newly diagnosed type 2 diabetes and HbA1c <11% in this single-center trial; drug-initiation investigators were unblinded and dietary intake was self-reported.",
+    "anchor": "RESULTS / CONCLUSION / LIMITATIONS",
+    "source_span": "After 4 years, 44% of patients in the Mediterranean-style diet group and 70% in the low-fat diet group required treatment."
+  },
+  "confidence": null,
+  "uncertainties": [
+    "Investigators responsible for initiating drug therapy were not blinded to treatment assignment.",
+    "Dietary intake was self-reported."
+  ],
+  "error": null,
+  "created_at": "2026-10-01T01:08:00+08:00",
+  "provenance": {
+    "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-10-01T01:08:00+08:00",
+    "version": "v1.0",
+    "lineage_refs": [
+      "TASK-BLIND-B001-001"
+    ],
+    "metadata": {}
+  }
+}

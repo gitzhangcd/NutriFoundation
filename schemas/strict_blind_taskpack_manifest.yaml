@@ -1,0 +1,31 @@
+schema: StrictBlindTaskPackManifest
+version: v1.0
+introduced_in: E0.4.2-A0
+status: frozen
+
+required:
+  - artifact
+  - stage
+  - version
+  - status
+  - blindness_class
+  - batch_id
+  - task_count
+  - task_contract_version
+  - strict_blind_protocol_version
+  - source_fixture
+  - tasks
+  - taskpack_sha256
+  - required_worker_metadata
+  - hidden_reference_in_task_factory
+  - scoring_permitted_before_response_freeze
+
+invariants:
+  - source_only
+  - hidden_reference_absent
+  - prior_response_absent
+  - prior_scoring_absent
+  - frozen_task_hashes_match_E0.4
+  - source_text_hashes_match
+  - fresh_context_worker_metadata_required
+  - scoring_forbidden_before_response_freeze

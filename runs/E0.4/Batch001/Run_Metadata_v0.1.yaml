@@ -1,7 +1,7 @@
 stage: E0.4
 batch_id: B001
 version: v0.1
-status: executed_remote_ci
+status: executed_remote_ci_final
 blindness_class: engineering_blind_current_context_prior_exposure
 strict_cognitive_blind: false
 strict_blindness_blocker: prior_conversation_context_contains_Batch001_answers
@@ -25,10 +25,11 @@ source_text_policy:
   missing_abstract_action: defer
   SA-B001-015_abstract_available: false
 remote_validation:
-  workflow_run_id: 36662902683
-  workflow_job_id: 109721295760
+  workflow_run_id: 36663159995
+  workflow_job_id: 109722096671
   conclusion: success
   pytest: 42_passed
+  executable_invariants: 31_passed
 final_metrics:
   case_count: 20
   completed_response_count: 19
@@ -37,13 +38,17 @@ final_metrics:
   f0_freeze_count: 19
   verifier_yield: 0.95
   f0_yield: 0.95
-  human_escalation_count: 14
-  human_escalation_rate: 0.7
+  operational_escalation_count: 1
+  operational_escalation_rate: 0.05
+  benchmark_adjudication_count: 14
+  benchmark_adjudication_rate: 0.7
   exact_field_rate: 0.4306569343065693
   near_or_exact_field_rate: 0.583941605839416
 interpretation_guards:
   - verifier_yield_is_not_semantic_accuracy
   - lexical_field_match_is_not_human_semantic_adjudication
-  - human_escalation_rate_is_conservative_triage_not_model_failure_rate
+  - operational_escalation_must_not_use_hidden_reference
+  - benchmark_adjudication_rate_is_not_production_human_escalation_rate
   - current_run_is_not_strict_cognitive_blind
   - no_hidden_reference_was_used_to_generate_or_edit_response_artifacts
+  - SA015_defer_is_a_safe_behavior_not_a_model_failure

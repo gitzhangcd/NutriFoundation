@@ -51,6 +51,18 @@ objects:
     layer: Execution_Governance
     status: frozen
     introduced_in: E0.2
+  EvidenceExtractionCandidate:
+    layer: Scientific_World_Production
+    status: frozen
+    introduced_in: E0.3
+  EvidenceVerificationRecord:
+    layer: Scientific_World_Production
+    status: frozen
+    introduced_in: E0.3
+  F0FreezeRecord:
+    layer: Scientific_World_Production
+    status: frozen
+    introduced_in: E0.3
 
 principle:
   observation_is_not_evidence: true
@@ -64,3 +76,8 @@ principle:
   journal_metric_is_not_article_validity: true
   every_ingestion_run_has_run_manifest: true
   replay_must_preserve_source_identity: true
+  extractor_and_verifier_must_be_independent: true
+  numeric_support_required_for_F0: true
+  observational_association_cannot_become_causal: true
+  guideline_statement_cannot_become_independent_effect: true
+  frozen_F0_payload_is_immutable: true

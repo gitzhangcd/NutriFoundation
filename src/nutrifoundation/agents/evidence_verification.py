@@ -68,11 +68,17 @@ class IndependentEvidenceVerifier:
         if not source_linkage:
             errors.append("source linkage or source-text hash mismatch")
 
-        required_fields = bool(
-            evidence.population
-            and evidence.outcome
-            and (evidence.effect or evidence.effect_value or evidence.recommendation)
-        )
+        if evidence.recommendation is not None:
+            required_fields = bool(
+                evidence.population
+                and evidence.recommendation
+            )
+        else:
+            required_fields = bool(
+                evidence.population
+                and evidence.outcome
+                and (evidence.effect or evidence.effect_value)
+            )
         if not required_fields:
             errors.append("required scientific fields missing")
 

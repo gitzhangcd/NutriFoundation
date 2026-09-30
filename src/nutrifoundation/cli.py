@@ -9,7 +9,7 @@ from nutrifoundation.agents.evidence_extraction import (
     SubprocessEvidenceExtractionProvider,
 )
 from nutrifoundation.agents.evidence_verification import IndependentEvidenceVerifier
-from nutrifoundation.contract import E01_INVARIANTS
+from nutrifoundation.contract import EXECUTABLE_INVARIANTS
 from nutrifoundation.connectors.fixture import FixturePubMedConnector
 from nutrifoundation.connectors.ncbi import PMCConnector, PubMedConnector
 from nutrifoundation.io.loaders import load_structured
@@ -25,7 +25,7 @@ app = typer.Typer(help="NutriFoundation Engine reference CLI")
 @app.command("contract-check")
 def contract_check() -> None:
     """Print the frozen executable invariants."""
-    for invariant in E01_INVARIANTS:
+    for invariant in EXECUTABLE_INVARIANTS:
         typer.echo(f"PASS  {invariant.key}: {invariant.statement}")
 
 

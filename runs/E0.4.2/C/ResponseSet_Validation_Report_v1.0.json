@@ -1,0 +1,36 @@
+{
+  "stage": "E0.4.2-C",
+  "artifact": "StrictBlindResponseSetValidationReport",
+  "version": "v1.0",
+  "status": "PASS",
+  "source_upload_sha256": "f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7",
+  "repository_bytes_sha256": "8e44cf089cd9a7af75dbf8e2f2d64306ef164efdf775b739f19d3a9bd01f05e1",
+  "canonical_bundle_sha256": "513e9d3c09326b7ae715d6cc5b834d7f31decdc1162298190e3708bb31b7beca",
+  "response_count": 20,
+  "completed_count": 19,
+  "defer_count": 1,
+  "unique_response_ids": 20,
+  "unique_task_ids": 20,
+  "task_binding_match_count": 20,
+  "source_hash_match_count": 20,
+  "contract_version_match_count": 20,
+  "response_schema_match_count": 20,
+  "strict_metadata_match_count": 20,
+  "protocol_version_match_count": 20,
+  "blindness_class_match_count": 20,
+  "strict_blind_attestation": {
+    "fresh_context": true,
+    "prior_batch_exposure": false,
+    "hidden_reference_available_to_worker": false,
+    "independent_worker_session": true,
+    "qualifies": true
+  },
+  "workflow_run_id": 36791503243,
+  "workflow_job_id": 110145211924,
+  "interpretation": [
+    "source_upload_sha256 is transport provenance only",
+    "repository_bytes_sha256 is repository materialization diagnostic",
+    "canonical_bundle_sha256 is cross-transport freeze identity",
+    "attestation is protocol evidence, not cryptographic proof of model memory state"
+  ]
+}

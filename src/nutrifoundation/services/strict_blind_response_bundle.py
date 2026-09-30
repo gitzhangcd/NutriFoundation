@@ -60,6 +60,7 @@ def validate_response_bundle(
     *,
     bundle_path: str | Path,
     taskpack_manifest_path: str | Path,
+    expected_repository_bytes_sha256: str | None = None,
     expected_canonical_sha256: str | None = None,
 ) -> ResponseFreezeReceipt:
     responses = load_bundle(bundle_path)
@@ -68,6 +69,14 @@ def validate_response_bundle(
 
     byte_sha = repository_bytes_sha256(bundle_path)
     canonical_sha = canonical_bundle_sha256(bundle_path)
+    if (
+        expected_repository_bytes_sha256 is not None
+        and byte_sha != expected_repository_bytes_sha256
+    ):
+        raise ValueError(
+            f"Frozen response repository-byte SHA-256 mismatch: {byte_sha} != "
+            f"{expected_repository_bytes_sha256}"
+        )
     if expected_canonical_sha256 is not None and canonical_sha != expected_canonical_sha256:
         raise ValueError(
             f"Frozen response canonical SHA-256 mismatch: {canonical_sha} != "
@@ -159,11 +168,13 @@ def materialize_bundle(
     bundle_path: str | Path,
     taskpack_manifest_path: str | Path,
     out_dir: str | Path,
+    expected_repository_bytes_sha256: str | None = None,
     expected_canonical_sha256: str | None = None,
 ) -> ResponseFreezeReceipt:
     receipt = validate_response_bundle(
         bundle_path=bundle_path,
         taskpack_manifest_path=taskpack_manifest_path,
+        expected_repository_bytes_sha256=expected_repository_bytes_sha256,
         expected_canonical_sha256=expected_canonical_sha256,
     )
     if receipt.status != "PASS":

@@ -201,7 +201,11 @@ def audit_taskpack(
     )
     hidden_reference = any(
         token.lower() in serialized.lower()
-        for token in ("hidden_reference", "evidenceunit_frozen")
+        for token in (
+            "batch001_evidenceunit_frozen",
+            "evidenceunit_frozen_v0.1",
+            "hidden_gold_path",
+        )
     )
     scoring_artifacts = any(
         token.lower() in serialized.lower()

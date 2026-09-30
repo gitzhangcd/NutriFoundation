@@ -44,6 +44,12 @@ from nutrifoundation.services.strict_blind import (
     validate_strict_blind_responses,
 )
 from nutrifoundation.services.strict_blind_runner import score_strict_blind_batch
+from nutrifoundation.services.strict_blind_taskpack import (
+    audit_taskpack,
+    build_taskpack_manifest,
+    load_manifest as load_taskpack_manifest,
+    write_manifest as write_taskpack_manifest,
+)
 
 app = typer.Typer(help="NutriFoundation Engine reference CLI")
 
@@ -459,6 +465,38 @@ def score_strict_blind_batch_cmd(
         batch_id="B001",
     )
     typer.echo(json.dumps(result, indent=2, ensure_ascii=False))
+
+
+@app.command("prepare-strict-blind-taskpack")
+def prepare_strict_blind_taskpack(
+    source_fixture: Path = Path("fixtures/Batch001_Blind_SourceText_v0.1.json"),
+    manifest: Path = Path(
+        "runs/E0.4.2/A0/StrictBlind_TaskPack_Manifest_v1.0.json"
+    ),
+) -> None:
+    """Build the deterministic source-only strict-blind TaskPack manifest."""
+    payload = build_taskpack_manifest(source_fixture, batch_id="B001")
+    write_taskpack_manifest(payload, manifest)
+    typer.echo(json.dumps(payload, indent=2, ensure_ascii=False))
+
+
+@app.command("audit-strict-blind-taskpack")
+def audit_strict_blind_taskpack(
+    source_fixture: Path = Path("fixtures/Batch001_Blind_SourceText_v0.1.json"),
+    manifest: Path = Path(
+        "runs/E0.4.2/A0/StrictBlind_TaskPack_Manifest_v1.0.json"
+    ),
+) -> None:
+    """Fail unless the frozen fresh-context handoff pack passes the blind wall."""
+    frozen = load_taskpack_manifest(manifest)
+    result = audit_taskpack(
+        source_fixture_path=source_fixture,
+        frozen_manifest=frozen,
+        batch_id="B001",
+    )
+    typer.echo(json.dumps(result.as_dict(), indent=2, ensure_ascii=False))
+    if result.status != "PASS":
+        raise typer.Exit(1)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,43 @@
+{
+  "response_id": "RESP-BLIND-B001-016",
+  "task_id": "TASK-BLIND-B001-016",
+  "task_sha256": "a32556940b0ef4cbaf5365f1e92b390fc94960e3a340a48041b7d8421db1f9e8",
+  "contract_version": "E0.4-v0.1",
+  "response_schema_version": "ResponseEnvelope-v0.1",
+  "source_text_sha256": "5f71261a89b1721b00fca550faa4f0623533ed0ae5ff648bcd06776b1cac7bf3",
+  "worker": {
+    "worker_id": "chatgpt-gpt5.6-sol-e04-current-context",
+    "adapter_type": "chat_window_file_bridge",
+    "provider": "OpenAI ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "model_version": "2026-09-30-session",
+    "prompt_version": "E0.4-v0.1",
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "created_at": "2026-09-30T02:56:00Z",
+  "provenance": {
+    "source": "E0.4 chat-window semantic replay",
+    "provider": "ChatWindowFileBridge",
+    "retrieved_at": "2026-09-30T02:56:00Z",
+    "version": "v0.1",
+    "lineage_refs": [
+      "TASK-BLIND-B001-016"
+    ],
+    "metadata": {
+      "blindness_class": "engineering_blind_current_context_prior_exposure"
+    }
+  },
+  "status": "completed",
+  "output": {
+    "kind": "guideline_scope_and_recommendation",
+    "population": "People with chronic kidney disease, including stages 1-5 not receiving dialysis, advanced or end-stage kidney disease, and kidney transplant recipients",
+    "recommendation": "The guideline addresses nutritional assessment, medical nutrition therapy, dietary protein and energy intake, nutritional supplementation, micronutrients, and electrolytes, with evidence and guideline statements evaluated using GRADE.",
+    "applicability_boundary": "Abstract supports guideline scope and methodology, not specific numerical nutrient targets.",
+    "anchor": "PubMed abstract PMID 32829751"
+  },
+  "confidence": 0.92,
+  "uncertainties": [],
+  "error": null
+}

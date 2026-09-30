@@ -115,6 +115,10 @@ objects:
     layer: Evaluation_Governance
     status: frozen
     introduced_in: E0.4.2-A0
+  StrictBlindResponseSetFreezeReceipt:
+    layer: Evaluation_Governance
+    status: frozen
+    introduced_in: E0.4.2-C
 
 principle:
   observation_is_not_evidence: true
@@ -163,3 +167,9 @@ principle:
   strict_blind_scoring_requires_response_freeze: true
   calibration_labels_are_forbidden_worker_input: true
   blind_wall_audit_required_before_handoff: true
+  strict_blind_response_bundle_is_frozen: true
+  strict_blind_response_bundle_sha_is_bound: true
+  strict_blind_response_task_binding_complete: true
+  strict_blind_response_source_binding_complete: true
+  strict_blind_attestation_precedes_hidden_reference_scoring: true
+  response_freeze_precedes_hidden_reference_load: true

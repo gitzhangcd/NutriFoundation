@@ -80,6 +80,18 @@ def compare_field(field: str, reference_value: Any, candidate_value: Any) -> Equ
     if field == "anchor":
         ref_ids, cand_ids = set(reference.identifiers), set(candidate.identifiers)
         same_identifier = bool(ref_ids & cand_ids) if ref_ids else False
+        if ref_ids and cand_ids and not same_identifier:
+            return EquivalenceResult(
+                field=field,
+                relation=EquivalenceRelation.MISMATCH.value,
+                equivalent=False,
+                concept_overlap=overlap,
+                numeric_recall=num_recall,
+                conflict_tags=conflicts,
+                reference=reference,
+                candidate=candidate,
+                rationale=("different_source_identifier",),
+            )
         if same_identifier:
             return EquivalenceResult(
                 field=field,

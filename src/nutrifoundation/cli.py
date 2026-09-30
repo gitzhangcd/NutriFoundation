@@ -9,6 +9,7 @@ from nutrifoundation.agents.evidence_extraction import (
     SubprocessEvidenceExtractionProvider,
 )
 from nutrifoundation.agents.evidence_verification import IndependentEvidenceVerifier
+from nutrifoundation.adapters.chat_window import ChatWindowFileBridge
 from nutrifoundation.contract import EXECUTABLE_INVARIANTS
 from nutrifoundation.connectors.fixture import FixturePubMedConnector
 from nutrifoundation.connectors.ncbi import PMCConnector, PubMedConnector
@@ -18,6 +19,10 @@ from nutrifoundation.services.evidence_pipeline import EvidenceProductionService
 from nutrifoundation.services.evidence_replay import replay_batch001_evidence
 from nutrifoundation.services.ingestion import SourceArtifactIngestionService
 from nutrifoundation.services.replay import replay_batch001
+from nutrifoundation.services.semantic_bridge import (
+    SemanticResponseIngestionService,
+    SemanticTaskOrchestrator,
+)
 
 app = typer.Typer(help="NutriFoundation Engine reference CLI")
 
@@ -186,6 +191,72 @@ def replay_evidence_batch001_cmd(
     )
     if report.status != "PASS":
         raise typer.Exit(1)
+
+
+@app.command("prepare-chat-task")
+def prepare_chat_task(
+    source_id: str,
+    evidence_id: str,
+    db: Path = Path("nutrifoundation.db"),
+    outbox: Path = Path("semantic_rpc/outbox"),
+) -> None:
+    """Prepare and export one provider-neutral TaskBundle for chat-window execution."""
+    store = SQLiteStore(db)
+    task = SemanticTaskOrchestrator(store).prepare_evidence_task(
+        source_id,
+        evidence_id,
+    )
+    receipt = ChatWindowFileBridge().export_task(task, outbox)
+    SemanticTaskOrchestrator(store).mark_exported(
+        task.task_id,
+        receipt.location,
+    )
+    typer.echo(receipt.model_dump_json(indent=2))
+
+
+@app.command("ingest-chat-response")
+def ingest_chat_response(
+    response_path: Path,
+    db: Path = Path("nutrifoundation.db"),
+) -> None:
+    """Validate a chat-window ResponseEnvelope and continue verifier -> F0."""
+    bridge = ChatWindowFileBridge()
+    response = bridge.load_response(response_path)
+    result = SemanticResponseIngestionService(
+        SQLiteStore(db)
+    ).ingest(response)
+    typer.echo(
+        json.dumps(
+            result.as_dict(),
+            indent=2,
+            ensure_ascii=False,
+        )
+    )
+    if result.task_state == "rejected":
+        raise typer.Exit(1)
+
+
+@app.command("list-semantic-tasks")
+def list_semantic_tasks(
+    db: Path = Path("nutrifoundation.db"),
+    state: str | None = None,
+) -> None:
+    """List semantic worker tasks without invoking any provider."""
+    from nutrifoundation.domain.semantic_worker import SemanticTaskState
+
+    parsed_state = SemanticTaskState(state) if state else None
+    items = SQLiteStore(db).list_semantic_tasks(parsed_state)
+    payload = [
+        {
+            "task_id": task.task_id,
+            "source_id": task.source_id,
+            "evidence_id": task.evidence_id,
+            "state": task_state.value,
+            "task_sha256": task.task_sha256,
+        }
+        for task, task_state in items
+    ]
+    typer.echo(json.dumps(payload, indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

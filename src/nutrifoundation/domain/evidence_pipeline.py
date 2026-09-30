@@ -55,9 +55,9 @@ class EvidenceVerificationRecord(FrozenModel):
 
     @model_validator(mode="after")
     def verified_record_must_be_independent_and_clean(self) -> "EvidenceVerificationRecord":
-        if self.verifier_id == self.extractor_id:
-            raise ValueError("Verifier identity must differ from extractor identity")
         if self.status == "verified":
+            if self.verifier_id == self.extractor_id:
+                raise ValueError("Verified EvidenceUnit requires a different verifier identity")
             if not self.independent_from_extractor:
                 raise ValueError("Verified EvidenceUnit requires independent verification")
             if self.errors:

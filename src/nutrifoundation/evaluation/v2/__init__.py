@@ -1,3 +1,15 @@
+from .compatibility import (
+    CanonicalAbstentionInput,
+    CanonicalArtifactV2,
+    CanonicalNumericPayload,
+    CanonicalOntology,
+    CanonicalProvenance,
+    CanonicalScientificPayload,
+    CompatibilityCaseV2,
+    CompatibilityMetadata,
+    map_frozen_v1_batch,
+    map_v1_case,
+)
 from .schema import (
     AbstentionResult,
     EvaluationMetadata,
@@ -10,10 +22,20 @@ from .schema import (
 
 __all__ = [
     "AbstentionResult",
+    "CanonicalAbstentionInput",
+    "CanonicalArtifactV2",
+    "CanonicalNumericPayload",
+    "CanonicalOntology",
+    "CanonicalProvenance",
+    "CanonicalScientificPayload",
+    "CompatibilityCaseV2",
+    "CompatibilityMetadata",
     "EvaluationMetadata",
     "EvaluationResultV2",
     "NumericFidelityResult",
     "OntologyAlignmentResult",
     "ProvenanceResult",
     "ScientificCoreResult",
+    "map_frozen_v1_batch",
+    "map_v1_case",
 ]

@@ -1,0 +1,716 @@
+{
+  "artifact": "V1 ↔ V2 Discrepancy Attribution Report",
+  "report_version": "E0.4.2-E3-A2.7-v1.0",
+  "status": "PASS",
+  "batch_id": "B001",
+  "reference_authority": "Batch001_F0_reference_not_independent_expert_gold",
+  "publication_grade": false,
+  "v1_controller_report": {
+    "path": "runs/E0.4.2/A0/PostFreeze_Controller_Report_v1.0.json",
+    "sha256": "8f5e342dabe31ed93f7d7efd6035dc0b9d7d4a5a714caf4fd93b0c203576c2e1"
+  },
+  "v2_batch_report": {
+    "path": "runs/E0.4.2/E3/A2.6/Evaluator_V2_Batch_Report_v1.0.json",
+    "sha256": "f90f0e612afedba64fe76e31c344699290246a8b5f0875cc9574abb5abcb13ad"
+  },
+  "v1_canonical_summary": {
+    "comparable_field_count": 137,
+    "equivalent_field_count": 93,
+    "partial_field_count": 8,
+    "mismatch_field_count": 35,
+    "missing_field_count": 1,
+    "field_equivalence_rate": 0.6788321167883211,
+    "complete_case_equivalence_rate": 0.0
+  },
+  "v2_dimension_summary": [
+    {
+      "dimension": "scientific_semantic_recovery",
+      "eligible_case_count": 19,
+      "scored_case_count": 19,
+      "mean_score": 0.9473684210526315,
+      "min_score": 0.8,
+      "max_score": 1.0
+    },
+    {
+      "dimension": "ontology_alignment",
+      "eligible_case_count": 19,
+      "scored_case_count": 19,
+      "mean_score": 0.8596491228070173,
+      "min_score": 0.6666666666666666,
+      "max_score": 1.0
+    },
+    {
+      "dimension": "provenance_recovery",
+      "eligible_case_count": 20,
+      "scored_case_count": 20,
+      "mean_score": 1.0,
+      "min_score": 1.0,
+      "max_score": 1.0
+    },
+    {
+      "dimension": "numeric_fidelity",
+      "eligible_case_count": 17,
+      "scored_case_count": 17,
+      "mean_score": 0.8088235294117647,
+      "min_score": 0.0,
+      "max_score": 1.0
+    },
+    {
+      "dimension": "safe_abstention_quality",
+      "eligible_case_count": 1,
+      "scored_case_count": 1,
+      "mean_score": 1.0,
+      "min_score": 1.0,
+      "max_score": 1.0
+    }
+  ],
+  "canonical_attribution": {
+    "v1_canonical_non_equivalent_event_count": 44,
+    "category_counts": {
+      "confirmed_evaluator_artifact": 21,
+      "non_isomorphic_unresolved": 9,
+      "ontology_contract_ambiguity": 6,
+      "preserved_scientific_residual": 8
+    },
+    "category_rates": {
+      "confirmed_evaluator_artifact": 0.4772727272727273,
+      "non_isomorphic_unresolved": 0.20454545454545456,
+      "ontology_contract_ambiguity": 0.13636363636363635,
+      "preserved_scientific_residual": 0.18181818181818182
+    },
+    "mechanism_counts": {
+      "kind_conflates_study_design_and_claim_type": 6,
+      "numeric_residual_reclassified": 2,
+      "provenance_representation_mismatch": 20,
+      "safe_abstention_misclassification": 1,
+      "semantic_boundary_not_scored_in_v2_core": 9,
+      "semantic_residual": 6
+    }
+  },
+  "canonical_events": [
+    {
+      "evidence_id": "EU-B001-001",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-002",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-003",
+      "v1_field": "outcome",
+      "v1_relation": "mismatch",
+      "category": "preserved_scientific_residual",
+      "mechanism": "semantic_residual",
+      "v2_dimension": "scientific_core",
+      "v2_field": "outcome",
+      "v2_relation": "mismatch",
+      "v2_score": 0.0,
+      "interpretation": "The discrepancy persists after canonical V2 semantic mapping and remains a scientific semantic residual."
+    },
+    {
+      "evidence_id": "EU-B001-003",
+      "v1_field": "applicability_boundary",
+      "v1_relation": "partial",
+      "category": "non_isomorphic_unresolved",
+      "mechanism": "semantic_boundary_not_scored_in_v2_core",
+      "v2_dimension": null,
+      "v2_field": null,
+      "v2_relation": null,
+      "v2_score": null,
+      "interpretation": "V2 does not carry semantic applicability-boundary recovery as a Scientific Core dimension. This V1 event therefore cannot be labeled either model error or evaluator artifact from the V1↔V2 comparison alone."
+    },
+    {
+      "evidence_id": "EU-B001-003",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-004",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-005",
+      "v1_field": "applicability_boundary",
+      "v1_relation": "mismatch",
+      "category": "non_isomorphic_unresolved",
+      "mechanism": "semantic_boundary_not_scored_in_v2_core",
+      "v2_dimension": null,
+      "v2_field": null,
+      "v2_relation": null,
+      "v2_score": null,
+      "interpretation": "V2 does not carry semantic applicability-boundary recovery as a Scientific Core dimension. This V1 event therefore cannot be labeled either model error or evaluator artifact from the V1↔V2 comparison alone."
+    },
+    {
+      "evidence_id": "EU-B001-005",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-006",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-007",
+      "v1_field": "comparator",
+      "v1_relation": "mismatch",
+      "category": "preserved_scientific_residual",
+      "mechanism": "semantic_residual",
+      "v2_dimension": "scientific_core",
+      "v2_field": "comparator",
+      "v2_relation": "mismatch",
+      "v2_score": 0.0,
+      "interpretation": "The discrepancy persists after canonical V2 semantic mapping and remains a scientific semantic residual."
+    },
+    {
+      "evidence_id": "EU-B001-007",
+      "v1_field": "applicability_boundary",
+      "v1_relation": "partial",
+      "category": "non_isomorphic_unresolved",
+      "mechanism": "semantic_boundary_not_scored_in_v2_core",
+      "v2_dimension": null,
+      "v2_field": null,
+      "v2_relation": null,
+      "v2_score": null,
+      "interpretation": "V2 does not carry semantic applicability-boundary recovery as a Scientific Core dimension. This V1 event therefore cannot be labeled either model error or evaluator artifact from the V1↔V2 comparison alone."
+    },
+    {
+      "evidence_id": "EU-B001-007",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-008",
+      "v1_field": "applicability_boundary",
+      "v1_relation": "mismatch",
+      "category": "non_isomorphic_unresolved",
+      "mechanism": "semantic_boundary_not_scored_in_v2_core",
+      "v2_dimension": null,
+      "v2_field": null,
+      "v2_relation": null,
+      "v2_score": null,
+      "interpretation": "V2 does not carry semantic applicability-boundary recovery as a Scientific Core dimension. This V1 event therefore cannot be labeled either model error or evaluator artifact from the V1↔V2 comparison alone."
+    },
+    {
+      "evidence_id": "EU-B001-008",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-009",
+      "v1_field": "effect",
+      "v1_relation": "partial",
+      "category": "preserved_scientific_residual",
+      "mechanism": "numeric_residual_reclassified",
+      "v2_dimension": "numeric",
+      "v2_field": "effect",
+      "v2_relation": "missing",
+      "v2_score": 0.0,
+      "interpretation": "V1 mixed semantic and numeric disagreement. V2 recovers the semantics but preserves the remaining quantitative fidelity deficit in the Numeric dimension."
+    },
+    {
+      "evidence_id": "EU-B001-009",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-010",
+      "v1_field": "comparator",
+      "v1_relation": "mismatch",
+      "category": "preserved_scientific_residual",
+      "mechanism": "semantic_residual",
+      "v2_dimension": "scientific_core",
+      "v2_field": "comparator",
+      "v2_relation": "mismatch",
+      "v2_score": 0.0,
+      "interpretation": "The discrepancy persists after canonical V2 semantic mapping and remains a scientific semantic residual."
+    },
+    {
+      "evidence_id": "EU-B001-010",
+      "v1_field": "applicability_boundary",
+      "v1_relation": "mismatch",
+      "category": "non_isomorphic_unresolved",
+      "mechanism": "semantic_boundary_not_scored_in_v2_core",
+      "v2_dimension": null,
+      "v2_field": null,
+      "v2_relation": null,
+      "v2_score": null,
+      "interpretation": "V2 does not carry semantic applicability-boundary recovery as a Scientific Core dimension. This V1 event therefore cannot be labeled either model error or evaluator artifact from the V1↔V2 comparison alone."
+    },
+    {
+      "evidence_id": "EU-B001-010",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-011",
+      "v1_field": "kind",
+      "v1_relation": "mismatch",
+      "category": "ontology_contract_ambiguity",
+      "mechanism": "kind_conflates_study_design_and_claim_type",
+      "v2_dimension": "ontology",
+      "v2_field": "claim_type",
+      "v2_relation": "mismatch",
+      "v2_score": 0.0,
+      "interpretation": "V2 localizes the disagreement to claim_type while study_design=1.0 and evidence_role=1.0. Because the strict-blind worker contract did not define a closed vocabulary for legacy kind, this is frozen as a contract/ontology ambiguity rather than a pure model error."
+    },
+    {
+      "evidence_id": "EU-B001-011",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-012",
+      "v1_field": "kind",
+      "v1_relation": "mismatch",
+      "category": "ontology_contract_ambiguity",
+      "mechanism": "kind_conflates_study_design_and_claim_type",
+      "v2_dimension": "ontology",
+      "v2_field": "claim_type",
+      "v2_relation": "mismatch",
+      "v2_score": 0.0,
+      "interpretation": "V2 localizes the disagreement to claim_type while study_design=1.0 and evidence_role=1.0. Because the strict-blind worker contract did not define a closed vocabulary for legacy kind, this is frozen as a contract/ontology ambiguity rather than a pure model error."
+    },
+    {
+      "evidence_id": "EU-B001-012",
+      "v1_field": "comparator",
+      "v1_relation": "mismatch",
+      "category": "preserved_scientific_residual",
+      "mechanism": "semantic_residual",
+      "v2_dimension": "scientific_core",
+      "v2_field": "comparator",
+      "v2_relation": "mismatch",
+      "v2_score": 0.0,
+      "interpretation": "The discrepancy persists after canonical V2 semantic mapping and remains a scientific semantic residual."
+    },
+    {
+      "evidence_id": "EU-B001-012",
+      "v1_field": "applicability_boundary",
+      "v1_relation": "mismatch",
+      "category": "non_isomorphic_unresolved",
+      "mechanism": "semantic_boundary_not_scored_in_v2_core",
+      "v2_dimension": null,
+      "v2_field": null,
+      "v2_relation": null,
+      "v2_score": null,
+      "interpretation": "V2 does not carry semantic applicability-boundary recovery as a Scientific Core dimension. This V1 event therefore cannot be labeled either model error or evaluator artifact from the V1↔V2 comparison alone."
+    },
+    {
+      "evidence_id": "EU-B001-012",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-013",
+      "v1_field": "kind",
+      "v1_relation": "mismatch",
+      "category": "ontology_contract_ambiguity",
+      "mechanism": "kind_conflates_study_design_and_claim_type",
+      "v2_dimension": "ontology",
+      "v2_field": "claim_type",
+      "v2_relation": "mismatch",
+      "v2_score": 0.0,
+      "interpretation": "V2 localizes the disagreement to claim_type while study_design=1.0 and evidence_role=1.0. Because the strict-blind worker contract did not define a closed vocabulary for legacy kind, this is frozen as a contract/ontology ambiguity rather than a pure model error."
+    },
+    {
+      "evidence_id": "EU-B001-013",
+      "v1_field": "population",
+      "v1_relation": "partial",
+      "category": "preserved_scientific_residual",
+      "mechanism": "semantic_residual",
+      "v2_dimension": "scientific_core",
+      "v2_field": "population",
+      "v2_relation": "partial",
+      "v2_score": 0.5,
+      "interpretation": "The discrepancy persists after canonical V2 semantic mapping and remains a scientific semantic residual."
+    },
+    {
+      "evidence_id": "EU-B001-013",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-014",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-015",
+      "v1_field": "recommendation",
+      "v1_relation": "missing",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "safe_abstention_misclassification",
+      "v2_dimension": "abstention",
+      "v2_field": "safe_abstention",
+      "v2_relation": "correct_safe_abstention",
+      "v2_score": 1.0,
+      "interpretation": "V1 counted the intentionally absent recommendation as missing; V2 recognizes the source-insufficient defer as correct safe abstention."
+    },
+    {
+      "evidence_id": "EU-B001-015",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-016",
+      "v1_field": "recommendation",
+      "v1_relation": "partial",
+      "category": "preserved_scientific_residual",
+      "mechanism": "semantic_residual",
+      "v2_dimension": "scientific_core",
+      "v2_field": "effect",
+      "v2_relation": "partial",
+      "v2_score": 0.5,
+      "interpretation": "The discrepancy persists after canonical V2 semantic mapping and remains a scientific semantic residual."
+    },
+    {
+      "evidence_id": "EU-B001-016",
+      "v1_field": "applicability_boundary",
+      "v1_relation": "partial",
+      "category": "non_isomorphic_unresolved",
+      "mechanism": "semantic_boundary_not_scored_in_v2_core",
+      "v2_dimension": null,
+      "v2_field": null,
+      "v2_relation": null,
+      "v2_score": null,
+      "interpretation": "V2 does not carry semantic applicability-boundary recovery as a Scientific Core dimension. This V1 event therefore cannot be labeled either model error or evaluator artifact from the V1↔V2 comparison alone."
+    },
+    {
+      "evidence_id": "EU-B001-016",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-017",
+      "v1_field": "applicability_boundary",
+      "v1_relation": "partial",
+      "category": "non_isomorphic_unresolved",
+      "mechanism": "semantic_boundary_not_scored_in_v2_core",
+      "v2_dimension": null,
+      "v2_field": null,
+      "v2_relation": null,
+      "v2_score": null,
+      "interpretation": "V2 does not carry semantic applicability-boundary recovery as a Scientific Core dimension. This V1 event therefore cannot be labeled either model error or evaluator artifact from the V1↔V2 comparison alone."
+    },
+    {
+      "evidence_id": "EU-B001-017",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-018",
+      "v1_field": "kind",
+      "v1_relation": "mismatch",
+      "category": "ontology_contract_ambiguity",
+      "mechanism": "kind_conflates_study_design_and_claim_type",
+      "v2_dimension": "ontology",
+      "v2_field": "claim_type",
+      "v2_relation": "mismatch",
+      "v2_score": 0.0,
+      "interpretation": "V2 localizes the disagreement to claim_type while study_design=1.0 and evidence_role=1.0. Because the strict-blind worker contract did not define a closed vocabulary for legacy kind, this is frozen as a contract/ontology ambiguity rather than a pure model error."
+    },
+    {
+      "evidence_id": "EU-B001-018",
+      "v1_field": "effect",
+      "v1_relation": "partial",
+      "category": "preserved_scientific_residual",
+      "mechanism": "numeric_residual_reclassified",
+      "v2_dimension": "numeric",
+      "v2_field": "effect",
+      "v2_relation": "missing",
+      "v2_score": 0.0,
+      "interpretation": "V1 mixed semantic and numeric disagreement. V2 recovers the semantics but preserves the remaining quantitative fidelity deficit in the Numeric dimension."
+    },
+    {
+      "evidence_id": "EU-B001-018",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-019",
+      "v1_field": "kind",
+      "v1_relation": "mismatch",
+      "category": "ontology_contract_ambiguity",
+      "mechanism": "kind_conflates_study_design_and_claim_type",
+      "v2_dimension": "ontology",
+      "v2_field": "claim_type",
+      "v2_relation": "mismatch",
+      "v2_score": 0.0,
+      "interpretation": "V2 localizes the disagreement to claim_type while study_design=1.0 and evidence_role=1.0. Because the strict-blind worker contract did not define a closed vocabulary for legacy kind, this is frozen as a contract/ontology ambiguity rather than a pure model error."
+    },
+    {
+      "evidence_id": "EU-B001-019",
+      "v1_field": "applicability_boundary",
+      "v1_relation": "mismatch",
+      "category": "non_isomorphic_unresolved",
+      "mechanism": "semantic_boundary_not_scored_in_v2_core",
+      "v2_dimension": null,
+      "v2_field": null,
+      "v2_relation": null,
+      "v2_score": null,
+      "interpretation": "V2 does not carry semantic applicability-boundary recovery as a Scientific Core dimension. This V1 event therefore cannot be labeled either model error or evaluator artifact from the V1↔V2 comparison alone."
+    },
+    {
+      "evidence_id": "EU-B001-019",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    },
+    {
+      "evidence_id": "EU-B001-020",
+      "v1_field": "kind",
+      "v1_relation": "mismatch",
+      "category": "ontology_contract_ambiguity",
+      "mechanism": "kind_conflates_study_design_and_claim_type",
+      "v2_dimension": "ontology",
+      "v2_field": "claim_type",
+      "v2_relation": "mismatch",
+      "v2_score": 0.0,
+      "interpretation": "V2 localizes the disagreement to claim_type while study_design=1.0 and evidence_role=1.0. Because the strict-blind worker contract did not define a closed vocabulary for legacy kind, this is frozen as a contract/ontology ambiguity rather than a pure model error."
+    },
+    {
+      "evidence_id": "EU-B001-020",
+      "v1_field": "anchor",
+      "v1_relation": "mismatch",
+      "category": "confirmed_evaluator_artifact",
+      "mechanism": "provenance_representation_mismatch",
+      "v2_dimension": "provenance",
+      "v2_field": "visible_anchor",
+      "v2_relation": "source_span_supported",
+      "v2_score": 1.0,
+      "interpretation": "V1 required a reference-style anchor representation; V2 verifies the worker-provided source_span against worker-visible source text."
+    }
+  ],
+  "v2_newly_localized_residuals": [
+    {
+      "evidence_id": "EU-B001-003",
+      "dimension": "numeric",
+      "field": "effect",
+      "relation": "partial",
+      "score": 0.8333333333333334,
+      "interpretation": "V2 orthogonalization exposes a residual that was not represented as a non-equivalent field in the V1 canonical case summary."
+    },
+    {
+      "evidence_id": "EU-B001-009",
+      "dimension": "ontology",
+      "field": "claim_type",
+      "relation": "mismatch",
+      "score": 0.0,
+      "interpretation": "V2 orthogonalization exposes a residual that was not represented as a non-equivalent field in the V1 canonical case summary."
+    },
+    {
+      "evidence_id": "EU-B001-009",
+      "dimension": "numeric",
+      "field": "applicability_boundary",
+      "relation": "missing",
+      "score": 0.0,
+      "interpretation": "V2 orthogonalization exposes a residual that was not represented as a non-equivalent field in the V1 canonical case summary."
+    },
+    {
+      "evidence_id": "EU-B001-014",
+      "dimension": "ontology",
+      "field": "claim_type",
+      "relation": "mismatch",
+      "score": 0.0,
+      "interpretation": "V2 orthogonalization exposes a residual that was not represented as a non-equivalent field in the V1 canonical case summary."
+    },
+    {
+      "evidence_id": "EU-B001-014",
+      "dimension": "numeric",
+      "field": "effect",
+      "relation": "partial",
+      "score": 0.8,
+      "interpretation": "V2 orthogonalization exposes a residual that was not represented as a non-equivalent field in the V1 canonical case summary."
+    },
+    {
+      "evidence_id": "EU-B001-019",
+      "dimension": "numeric",
+      "field": "population",
+      "relation": "partial",
+      "score": 0.6666666666666666,
+      "interpretation": "V2 orthogonalization exposes a residual that was not represented as a non-equivalent field in the V1 canonical case summary."
+    }
+  ],
+  "operational_audit": {
+    "critical_error_count": 97,
+    "error_flag_incidence_count": 123,
+    "operational_escalation_count": 17,
+    "benchmark_adjudication_count": 20,
+    "error_counts": {
+      "effect_semantic_mismatch": 12,
+      "comparator_mismatch": 3,
+      "applicability_boundary_mismatch": 20,
+      "source_anchor_mismatch": 20,
+      "high_risk_hidden_reference_mismatch": 20,
+      "population_scope_mismatch": 10,
+      "outcome_mismatch": 9,
+      "verifier_rejection": 5,
+      "numeric_effect_mismatch": 4,
+      "intervention_exposure_mismatch": 7,
+      "evidence_kind_mismatch": 8,
+      "semantic_defer": 1,
+      "missing_critical_field": 1,
+      "recommendation_mismatch": 3
+    },
+    "non_additive_flags": [
+      "high_risk_hidden_reference_mismatch",
+      "verifier_rejection",
+      "semantic_defer",
+      "missing_critical_field"
+    ],
+    "interpretation": "Operational flags are overlapping governance and diagnostic signals. Their incidence sum is not an independent-error denominator and is not used for the primary attribution rate."
+  },
+  "interpretation_freeze": {
+    "supported": [
+      "The same frozen strict-blind ResponseSet is compared under V1 and V2 evaluation contracts.",
+      "Among V1 canonical non-equivalent field events, confirmed evaluator artifacts may be counted only where V2 supplies positive counter-evidence under the frozen rules.",
+      "Residual semantic/numeric discrepancies that persist in V2 remain scientific residuals under the current F0 reference.",
+      "Legacy kind disagreements are not interpreted as pure model error because the strict-blind worker contract did not define a closed legacy-kind vocabulary.",
+      "V1 applicability-boundary discrepancies remain unresolved where V2 has no isomorphic semantic core dimension.",
+      "V2 newly localized residuals are reported separately rather than treated as regressions."
+    ],
+    "prohibited": [
+      "Do not subtract V1 field-equivalence rate from V2 Scientific Semantic Recovery and call the difference an accuracy gain.",
+      "Do not interpret the V2 Scientific Semantic Recovery mean as publication-grade model accuracy.",
+      "Do not interpret 123 V1 error-flag incidences as 123 independent model errors.",
+      "Do not generalize the Batch001 evaluator-artifact fraction beyond this frozen batch and F0 reference.",
+      "Do not convert unresolved non-isomorphic applicability-boundary events into either evaluator artifacts or model errors without a dedicated boundary evaluator."
+    ]
+  }
+}

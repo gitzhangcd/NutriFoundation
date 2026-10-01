@@ -1,3 +1,4 @@
+import hashlib
 from pathlib import Path
 
 from nutrifoundation.evaluation.v2.discrepancy import (
@@ -12,6 +13,10 @@ from nutrifoundation.evaluation.v2.discrepancy import (
 ROOT = Path(__file__).resolve().parents[2]
 V1 = ROOT / "runs/E0.4.2/A0/PostFreeze_Controller_Report_v1.0.json"
 V2 = ROOT / "runs/E0.4.2/E3/A2.6/Evaluator_V2_Batch_Report_v1.0.json"
+FROZEN_A27 = (
+    ROOT / "runs/E0.4.2/E3/A2.7/V1_V2_Discrepancy_Attribution_v1.0.json"
+)
+FROZEN_A27_SHA = FROZEN_A27.with_suffix(FROZEN_A27.suffix + ".sha256")
 
 
 def _report():
@@ -132,3 +137,16 @@ def test_scalar_accuracy_subtraction_is_explicitly_prohibited():
     prohibited = " ".join(report.interpretation_freeze["prohibited"])
     assert "Do not subtract V1 field-equivalence rate" in prohibited
     assert "publication-grade model accuracy" in prohibited
+
+
+def test_committed_a27_report_is_exact_deterministic_output():
+    expected = _report().model_dump_json(indent=2) + "\n"
+    assert FROZEN_A27.read_text(encoding="utf-8") == expected
+
+
+def test_committed_a27_checksum_matches_report_bytes():
+    digest = hashlib.sha256(FROZEN_A27.read_bytes()).hexdigest()
+    assert digest == "1452d2f5fc9c227ca9e9a3bb25e1fd1c285cb77ba39f0743ae3afffb6210de2c"
+    assert FROZEN_A27_SHA.read_text(encoding="utf-8").strip() == (
+        f"{digest}  {FROZEN_A27.name}"
+    )

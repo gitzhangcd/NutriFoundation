@@ -1,0 +1,66 @@
+{
+  "artifact": "E0.4.2-E3-A2.7 Freeze Manifest",
+  "version": "v1.0",
+  "status": "PASS",
+  "repository": "gitzhangcd/NutriFoundation",
+  "stage": "E0.4.2-E3-A2.7",
+  "code_lineage": {
+    "a2_6_freeze_head": "0ddfe2c06f9dd2782cec7ab18e328bcefb6e9c60",
+    "a2_7_ci_validated_head": "8d1692bc59fd2dcfae3fc9a9b8fb3e68639bc58b"
+  },
+  "ci_evidence": {
+    "workflow_run_id": 36817912155,
+    "job_id": 110226911843,
+    "conclusion": "success"
+  },
+  "inputs": {
+    "v1_controller_report": {
+      "path": "runs/E0.4.2/A0/PostFreeze_Controller_Report_v1.0.json",
+      "sha256": "8f5e342dabe31ed93f7d7efd6035dc0b9d7d4a5a714caf4fd93b0c203576c2e1"
+    },
+    "v2_batch_report": {
+      "path": "runs/E0.4.2/E3/A2.6/Evaluator_V2_Batch_Report_v1.0.json",
+      "sha256": "f90f0e612afedba64fe76e31c344699290246a8b5f0875cc9574abb5abcb13ad"
+    },
+    "reference_authority": "Batch001_F0_reference_not_independent_expert_gold",
+    "publication_grade": false
+  },
+  "frozen_output": {
+    "path": "runs/E0.4.2/E3/A2.7/V1_V2_Discrepancy_Attribution_v1.0.json",
+    "sha256": "1452d2f5fc9c227ca9e9a3bb25e1fd1c285cb77ba39f0743ae3afffb6210de2c",
+    "report_version": "E0.4.2-E3-A2.7-v1.0"
+  },
+  "canonical_attribution": {
+    "v1_canonical_non_equivalent_event_count": 44,
+    "category_counts": {
+      "confirmed_evaluator_artifact": 21,
+      "non_isomorphic_unresolved": 9,
+      "ontology_contract_ambiguity": 6,
+      "preserved_scientific_residual": 8
+    },
+    "category_rates": {
+      "confirmed_evaluator_artifact": 0.4772727272727273,
+      "non_isomorphic_unresolved": 0.20454545454545456,
+      "ontology_contract_ambiguity": 0.13636363636363635,
+      "preserved_scientific_residual": 0.18181818181818182
+    },
+    "mechanism_counts": {
+      "kind_conflates_study_design_and_claim_type": 6,
+      "numeric_residual_reclassified": 2,
+      "provenance_representation_mismatch": 20,
+      "safe_abstention_misclassification": 1,
+      "semantic_boundary_not_scored_in_v2_core": 9,
+      "semantic_residual": 6
+    }
+  },
+  "newly_localized_residual_count": 6,
+  "interpretation_freeze_doc": "docs/E0.4.2-E3-A2.7_Scientific_Interpretation_Freeze_v1.0.md",
+  "freeze_invariants": [
+    "The strict-blind semantic ResponseSet was not regenerated or modified.",
+    "Primary attribution uses 44 V1 canonical non-equivalent field events, not overlapping operational flag incidences.",
+    "Every V1 canonical discrepancy event is assigned exactly one frozen attribution category.",
+    "V1 and V2 scalar-looking rates are not treated as the same estimand.",
+    "F0 reference is not represented as independent expert Gold.",
+    "Non-isomorphic applicability-boundary events remain unresolved rather than forced into model/evaluator attribution."
+  ]
+}

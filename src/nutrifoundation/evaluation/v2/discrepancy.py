@@ -85,6 +85,14 @@ def _sha256_file(path: str | Path) -> str:
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def _stable_path(path: str | Path) -> str:
+    value = Path(path)
+    try:
+        return str(value.resolve().relative_to(Path.cwd().resolve()))
+    except ValueError:
+        return str(value)
+
+
 def _comparison(
     v2_case: dict[str, Any],
     dimension: str,
@@ -461,11 +469,11 @@ def build_discrepancy_attribution_report(
         reference_authority=v2["reference_authority"],
         publication_grade=bool(v2["publication_grade"]),
         v1_controller_report=InputEvidence(
-            path=str(v1_path),
+            path=_stable_path(v1_path),
             sha256=_sha256_file(v1_path),
         ),
         v2_batch_report=InputEvidence(
-            path=str(v2_path),
+            path=_stable_path(v2_path),
             sha256=_sha256_file(v2_path),
         ),
         v1_canonical_summary={

@@ -1,0 +1,333 @@
+{
+  "artifact": "E0.4.2-E3 Paper-Level Evidence Package",
+  "package_version": "E0.4.2-E3-A2.8-v1.0",
+  "status": "PASS",
+  "batch_id": "B001",
+  "reference_authority": "Batch001_F0_reference_not_independent_expert_gold",
+  "publication_grade": false,
+  "manuscript_use_status": "METHODS_RESULTS_DRAFT_READY_NOT_PUBLICATION_GRADE",
+  "inputs": {
+    "strict_blind_response_set": {
+      "path": "runs/E0.4.2/A0/StrictBlind_ResponseSet_FROZEN_v1.0.json",
+      "sha256": "f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7"
+    },
+    "v1_controller_report": {
+      "path": "runs/E0.4.2/A0/PostFreeze_Controller_Report_v1.0.json",
+      "sha256": "8f5e342dabe31ed93f7d7efd6035dc0b9d7d4a5a714caf4fd93b0c203576c2e1"
+    },
+    "a2_6_v2_batch_report_repository_artifact": {
+      "path": "runs/E0.4.2/E3/A2.6/Evaluator_V2_Batch_Report_v1.0.json",
+      "sha256": "f90f0e612afedba64fe76e31c344699290246a8b5f0875cc9574abb5abcb13ad"
+    },
+    "a2_7_discrepancy_report": {
+      "path": "runs/E0.4.2/E3/A2.7/V1_V2_Discrepancy_Attribution_v1.0.json",
+      "sha256": "1452d2f5fc9c227ca9e9a3bb25e1fd1c285cb77ba39f0743ae3afffb6210de2c"
+    },
+    "a2_6_freeze_manifest": {
+      "path": "runs/E0.4.2/E3/A2.6/Freeze_Manifest_v1.0.json",
+      "sha256": "659ef65e607d83c93ce12178af1edf5f851eb71113010000249699dc2c3a7b58"
+    },
+    "a2_7_freeze_manifest": {
+      "path": "runs/E0.4.2/E3/A2.7/Freeze_Manifest_v1.0.json",
+      "sha256": "96358e6080c7c4df235507a507f00dbc12a381bafef7b7afd26ed2307fec6f47"
+    }
+  },
+  "non_regression_audit": [
+    {
+      "check_id": "NR-001-frozen-response-identity",
+      "status": "PASS",
+      "interpretation": "The strict-blind semantic ResponseSet is byte-identical to the response set used by A2.6/A2.7.",
+      "details": {
+        "observed_sha256": "f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7",
+        "expected_sha256": "f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7",
+        "response_count": 20
+      }
+    },
+    {
+      "check_id": "NR-002-a26-repository-artifact-binding",
+      "status": "PASS",
+      "interpretation": "The A2.7 attribution report is bound to the exact A2.6 report bytes currently stored in the repository.",
+      "details": {
+        "a26_repository_sha256": "f90f0e612afedba64fe76e31c344699290246a8b5f0875cc9574abb5abcb13ad",
+        "a27_embedded_a26_sha256": "f90f0e612afedba64fe76e31c344699290246a8b5f0875cc9574abb5abcb13ad"
+      }
+    },
+    {
+      "check_id": "NR-003-a26-lineage-reconciliation",
+      "status": "PASS_RECONCILED",
+      "interpretation": "A2.6 scientific content reproduces deterministically. The historical sidecar/manifest digest is retained as the original CI serialization checksum; the repository artifact has a distinct byte digest caused by post-CI packaging/serialization, not by changed scientific content.",
+      "details": {
+        "semantic_object_equal_to_deterministic_rerun": true,
+        "repository_artifact_sha256": "f90f0e612afedba64fe76e31c344699290246a8b5f0875cc9574abb5abcb13ad",
+        "original_ci_serialization_sha256": "3c4f133135ed0160a9e2f5ce65eb83cc655c1ec3f829e5fcc21ea6d0f83b0296",
+        "a26_manifest_frozen_output_sha256": "3c4f133135ed0160a9e2f5ce65eb83cc655c1ec3f829e5fcc21ea6d0f83b0296",
+        "packaging_only_digest_difference": true
+      }
+    },
+    {
+      "check_id": "NR-004-a27-deterministic-freeze",
+      "status": "PASS",
+      "interpretation": "The committed A2.7 attribution report is a deterministic reproduction of the frozen V1 and V2 inputs, and its repository bytes match the frozen checksum sidecar.",
+      "details": {
+        "semantic_object_equal_to_deterministic_rerun": true,
+        "repository_sha256": "1452d2f5fc9c227ca9e9a3bb25e1fd1c285cb77ba39f0743ae3afffb6210de2c",
+        "sidecar_sha256": "1452d2f5fc9c227ca9e9a3bb25e1fd1c285cb77ba39f0743ae3afffb6210de2c"
+      }
+    },
+    {
+      "check_id": "NR-005-attribution-count-conservation",
+      "status": "PASS",
+      "interpretation": "All 44 V1 canonical non-equivalent events are attributed exactly once and V2's six newly localized residuals remain separate from the V1 denominator.",
+      "details": {
+        "v1_non_equivalent_event_count": 44,
+        "category_counts": {
+          "confirmed_evaluator_artifact": 21,
+          "non_isomorphic_unresolved": 9,
+          "ontology_contract_ambiguity": 6,
+          "preserved_scientific_residual": 8
+        },
+        "newly_localized_residual_count": 6
+      }
+    },
+    {
+      "check_id": "NR-006-v2-dimension-non-regression",
+      "status": "PASS",
+      "interpretation": "The frozen five-dimensional V2 descriptive results reproduce without a composite overall score.",
+      "details": {
+        "scientific_semantic_recovery": {
+          "eligible": 19,
+          "mean": 0.9473684210526315
+        },
+        "ontology_alignment": {
+          "eligible": 19,
+          "mean": 0.8596491228070173
+        },
+        "provenance_recovery": {
+          "eligible": 20,
+          "mean": 1.0
+        },
+        "numeric_fidelity": {
+          "eligible": 17,
+          "mean": 0.8088235294117647
+        },
+        "safe_abstention_quality": {
+          "eligible": 1,
+          "mean": 1.0
+        }
+      }
+    },
+    {
+      "check_id": "NR-007-reference-authority-boundary",
+      "status": "PASS",
+      "interpretation": "All E3 claims remain explicitly benchmark/development-side and do not promote the F0 reference to independent expert Gold.",
+      "details": {
+        "reference_authority": "Batch001_F0_reference_not_independent_expert_gold",
+        "publication_grade": false
+      }
+    }
+  ],
+  "descriptive_results": {
+    "v2_dimensions": {
+      "scientific_semantic_recovery": {
+        "eligible_case_count": 19,
+        "mean_score": 0.9473684210526315,
+        "min_score": 0.8,
+        "max_score": 1.0
+      },
+      "ontology_alignment": {
+        "eligible_case_count": 19,
+        "mean_score": 0.8596491228070173,
+        "min_score": 0.6666666666666666,
+        "max_score": 1.0
+      },
+      "provenance_recovery": {
+        "eligible_case_count": 20,
+        "mean_score": 1.0,
+        "min_score": 1.0,
+        "max_score": 1.0
+      },
+      "numeric_fidelity": {
+        "eligible_case_count": 17,
+        "mean_score": 0.8088235294117647,
+        "min_score": 0.0,
+        "max_score": 1.0
+      },
+      "safe_abstention_quality": {
+        "eligible_case_count": 1,
+        "mean_score": 1.0,
+        "min_score": 1.0,
+        "max_score": 1.0
+      }
+    },
+    "overall_scalar_score": null,
+    "overall_scalar_score_policy": "forbidden"
+  },
+  "discrepancy_attribution": {
+    "primary_denominator": 44,
+    "category_counts": {
+      "confirmed_evaluator_artifact": 21,
+      "non_isomorphic_unresolved": 9,
+      "ontology_contract_ambiguity": 6,
+      "preserved_scientific_residual": 8
+    },
+    "category_rates": {
+      "confirmed_evaluator_artifact": 0.4772727272727273,
+      "non_isomorphic_unresolved": 0.20454545454545456,
+      "ontology_contract_ambiguity": 0.13636363636363635,
+      "preserved_scientific_residual": 0.18181818181818182
+    },
+    "mechanism_counts": {
+      "kind_conflates_study_design_and_claim_type": 6,
+      "numeric_residual_reclassified": 2,
+      "provenance_representation_mismatch": 20,
+      "safe_abstention_misclassification": 1,
+      "semantic_boundary_not_scored_in_v2_core": 9,
+      "semantic_residual": 6
+    },
+    "newly_localized_residual_count": 6
+  },
+  "claims": [
+    {
+      "claim_id": "E3-C01",
+      "statement": "For the same frozen strict-blind Batch001 worker outputs, changing the evaluation contract materially changes where errors are attributed.",
+      "status": "SUPPORTED_WITHIN_FROZEN_BATCH",
+      "scope": "Batch001 strict-blind ResponseSet under F0 reference",
+      "evidence_refs": [
+        "NR-001",
+        "NR-004",
+        "NR-005"
+      ],
+      "paper_location": [
+        "Abstract/Key finding",
+        "Results",
+        "Discussion"
+      ],
+      "publication_ready": false
+    },
+    {
+      "claim_id": "E3-C02",
+      "statement": "21 of 44 V1 canonical non-equivalent field events are confirmed evaluator artifacts under the frozen A2.7 rules.",
+      "status": "SUPPORTED_WITHIN_FROZEN_BATCH",
+      "scope": "44 V1 canonical discrepancy events only",
+      "evidence_refs": [
+        "A2.7 canonical attribution"
+      ],
+      "paper_location": [
+        "Results"
+      ],
+      "publication_ready": false
+    },
+    {
+      "claim_id": "E3-C03",
+      "statement": "All 20 V1 anchor mismatches are explained by provenance representation mismatch when worker-supported source spans are evaluated against worker-visible source text.",
+      "status": "SUPPORTED_WITHIN_FROZEN_BATCH",
+      "scope": "20 Batch001 tasks",
+      "evidence_refs": [
+        "A2.6 provenance recovery",
+        "A2.7 mechanism counts"
+      ],
+      "paper_location": [
+        "Results",
+        "Error analysis"
+      ],
+      "publication_ready": false
+    },
+    {
+      "claim_id": "E3-C04",
+      "statement": "The single source-insufficient defer case is correctly recognized as safe abstention rather than a missing-answer failure.",
+      "status": "SUPPORTED_CASE_LEVEL",
+      "scope": "EU-B001-015 only",
+      "evidence_refs": [
+        "A2.6 safe_abstention_quality",
+        "A2.7 attribution"
+      ],
+      "paper_location": [
+        "Results",
+        "Case study"
+      ],
+      "publication_ready": false
+    },
+    {
+      "claim_id": "E3-C05",
+      "statement": "Evaluator V2 preserves eight V1 scientific residuals while also exposing six additional orthogonal residuals not explicitly localized by the V1 canonical summary.",
+      "status": "SUPPORTED_WITHIN_FROZEN_BATCH",
+      "scope": "Batch001 under current V2 decomposition",
+      "evidence_refs": [
+        "A2.7 canonical attribution",
+        "A2.7 newly localized residuals"
+      ],
+      "paper_location": [
+        "Results",
+        "Discussion"
+      ],
+      "publication_ready": false
+    },
+    {
+      "claim_id": "E3-C06",
+      "statement": "Legacy kind disagreements cannot yet be interpreted as pure model errors because the strict-blind contract did not define a closed legacy-kind vocabulary.",
+      "status": "SUPPORTED_AS_CONTRACT_LIMITATION",
+      "scope": "Six ontology/contract ambiguity events",
+      "evidence_refs": [
+        "A2.7 ontology_contract_ambiguity"
+      ],
+      "paper_location": [
+        "Limitations",
+        "Methods"
+      ],
+      "publication_ready": false
+    },
+    {
+      "claim_id": "E3-C07",
+      "statement": "Nine V1 applicability-boundary discrepancies remain unresolved because V1 and V2 lack an isomorphic semantic boundary metric.",
+      "status": "SUPPORTED_AS_UNRESOLVED",
+      "scope": "Nine V1 applicability-boundary events",
+      "evidence_refs": [
+        "A2.7 non_isomorphic_unresolved"
+      ],
+      "paper_location": [
+        "Limitations",
+        "Future work"
+      ],
+      "publication_ready": false
+    },
+    {
+      "claim_id": "E3-C08",
+      "statement": "Evaluator architecture should be treated as part of the scientific measurement system rather than as a neutral implementation detail.",
+      "status": "SUPPORTED_AS_METHODLOGICAL_INTERPRETATION_WITHIN_BATCH",
+      "scope": "Methodological interpretation supported by the frozen Batch001 intervention on evaluator architecture",
+      "evidence_refs": [
+        "E3-C01",
+        "E3-C02",
+        "E3-C05"
+      ],
+      "paper_location": [
+        "Discussion"
+      ],
+      "publication_ready": false
+    }
+  ],
+  "limitations": [
+    "Batch001 contains only 20 tasks and is not an external replication cohort.",
+    "The reference authority is F0 and not independent expert Gold.",
+    "The V2 applicability-boundary semantic dimension is not isomorphic to V1 and remains unresolved.",
+    "The legacy kind contract did not define a closed ontology vocabulary.",
+    "The 47.73% evaluator-artifact fraction is batch-specific and must not be generalized.",
+    "A2.6 has a packaging-level byte-digest discrepancy between original CI serialization and the repository artifact; semantic deterministic equality is preserved and explicitly reconciled in NR-003."
+  ],
+  "prohibited_interpretations": [
+    "Do not report V2 Scientific Semantic Recovery as publication-grade model accuracy.",
+    "Do not subtract V1 field-equivalence rate from V2 semantic-recovery mean as an accuracy gain.",
+    "Do not interpret 123 V1 operational flag incidences as 123 independent model errors.",
+    "Do not generalize the 21/44 evaluator-artifact fraction beyond frozen Batch001.",
+    "Do not call ontology-contract ambiguity events pure model failures.",
+    "Do not resolve applicability-boundary events without an isomorphic boundary evaluator.",
+    "Do not describe the F0 reference as independent expert Gold."
+  ],
+  "next_publication_gates": [
+    "Independent expert-Gold adjudication of the reference set.",
+    "Replication on additional pre-frozen batches with the V2 contract fixed before scoring.",
+    "Dedicated applicability-boundary evaluator with an isomorphic V1↔V2 contract.",
+    "Closed ontology/claim-type vocabulary with pre-registered mapping rules.",
+    "External or cross-domain replication to estimate generalizability of evaluator-artifact rates."
+  ]
+}

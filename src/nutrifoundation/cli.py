@@ -15,6 +15,10 @@ from nutrifoundation.contract import EXECUTABLE_INVARIANTS
 from nutrifoundation.connectors.fixture import FixturePubMedConnector
 from nutrifoundation.connectors.ncbi import PMCConnector, PubMedConnector
 from nutrifoundation.io.loaders import load_structured
+from nutrifoundation.evaluation.v2.consolidation import (
+    build_e3_paper_evidence_package,
+    write_e3_paper_evidence_package,
+)
 from nutrifoundation.evaluation.v2.discrepancy import (
     build_discrepancy_attribution_report,
     write_discrepancy_report,
@@ -601,6 +605,37 @@ def attribute_evaluator_v1_v2_cmd(
                 "operational_audit": result.operational_audit.model_dump(
                     mode="json"
                 ),
+                "report_path": str(report),
+                "report_sha256": digest,
+            },
+            indent=2,
+            ensure_ascii=False,
+        )
+    )
+
+
+@app.command("freeze-e3-paper-evidence")
+def freeze_e3_paper_evidence_cmd(
+    root: Path = Path("."),
+    report: Path = Path(
+        "runs/E0.4.2/E3/A2.8/E3_Paper_Evidence_Package_v1.0.json"
+    ),
+) -> None:
+    """Build the E3 non-regression audit and paper-level claim package."""
+    package = build_e3_paper_evidence_package(root=root)
+    digest = write_e3_paper_evidence_package(package, report)
+    typer.echo(
+        json.dumps(
+            {
+                "artifact": package.artifact,
+                "package_version": package.package_version,
+                "status": package.status,
+                "manuscript_use_status": package.manuscript_use_status,
+                "claim_count": len(package.claims),
+                "non_regression_checks": [
+                    item.model_dump(mode="json")
+                    for item in package.non_regression_audit
+                ],
                 "report_path": str(report),
                 "report_sha256": digest,
             },

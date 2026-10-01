@@ -80,3 +80,13 @@ jobs:
           echo "__A27_SHA_BEGIN__"
           cat /tmp/evaluator_a27/V1_V2_Discrepancy_Attribution_v1.0.json.sha256
           echo "__A27_SHA_END__"
+      - run: |
+          rm -rf /tmp/evaluator_a28
+          nutri freeze-e3-paper-evidence \
+            --report /tmp/evaluator_a28/E3_Paper_Evidence_Package_v1.0.json
+          echo "__A28_REPORT_BEGIN__"
+          cat /tmp/evaluator_a28/E3_Paper_Evidence_Package_v1.0.json
+          echo "__A28_REPORT_END__"
+          echo "__A28_SHA_BEGIN__"
+          cat /tmp/evaluator_a28/E3_Paper_Evidence_Package_v1.0.json.sha256
+          echo "__A28_SHA_END__"

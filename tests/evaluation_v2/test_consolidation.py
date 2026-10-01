@@ -1,3 +1,4 @@
+import hashlib
 from pathlib import Path
 
 from nutrifoundation.evaluation.v2.consolidation import (
@@ -6,6 +7,9 @@ from nutrifoundation.evaluation.v2.consolidation import (
 
 
 ROOT = Path(__file__).resolve().parents[2]
+FROZEN_A28 = ROOT / "runs/E0.4.2/E3/A2.8/E3_Paper_Evidence_Package_v1.0.json"
+FROZEN_A28_SHA = FROZEN_A28.with_suffix(FROZEN_A28.suffix + ".sha256")
+A28_DOC = ROOT / "docs/E0.4.2-E3-A2.8_Paper_Level_Evidence_Freeze_v1.0.md"
 
 
 def _package():
@@ -101,3 +105,24 @@ def test_claims_preserve_batch_scope_and_limitations():
         "must not be generalized" in item
         for item in package.limitations
     )
+
+
+def test_committed_a28_package_is_exact_deterministic_output():
+    expected = _package().model_dump_json(indent=2) + "\n"
+    assert FROZEN_A28.read_text(encoding="utf-8") == expected
+
+
+def test_committed_a28_checksum_matches_package_bytes():
+    digest = hashlib.sha256(FROZEN_A28.read_bytes()).hexdigest()
+    assert digest == "04e4c3b5bbbc2a289383bcab4f2da94eb02f98d06d567b855343a0abe3e53ea8"
+    assert FROZEN_A28_SHA.read_text(encoding="utf-8").strip() == (
+        f"{digest}  {FROZEN_A28.name}"
+    )
+
+
+def test_a28_paper_doc_has_clean_markdown_math_controls():
+    text = A28_DOC.read_text(encoding="utf-8")
+    assert "\x08" not in text
+    assert "\\boxed" in text
+    assert "\\rightarrow" in text
+    assert "PASS / FROZEN" in text

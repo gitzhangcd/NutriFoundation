@@ -90,6 +90,35 @@ def test_legacy_anchor_is_split_from_semantic_and_provenance_components(cases):
     assert provenance.context_retrieval_identifier.endswith("/19721018/")
 
 
+def test_source_span_support_is_verified_against_worker_visible_source():
+    from nutrifoundation.evaluation.v2.compatibility import map_provenance
+
+    source = {
+        "source_text": (
+            "RESULTS: After 4 years, 44% of patients required treatment "
+            "compared with 70% in the control group."
+        ),
+        "source_snapshot": {"identifiers": {}},
+        "source_url": None,
+    }
+    supported = map_provenance(
+        {
+            "source_span": "After 4 years, 44% of patients required treatment",
+            "anchor": "RESULTS",
+        },
+        source,
+    )
+    unsupported = map_provenance(
+        {
+            "source_span": "After 8 years, 99% of patients required treatment",
+            "anchor": "RESULTS",
+        },
+        source,
+    )
+    assert supported.semantic_anchor_supported is True
+    assert unsupported.semantic_anchor_supported is False
+
+
 def test_unprovided_identifier_is_not_invented_as_candidate_output(cases):
     provenance = cases["EU-B001-011"].candidate.provenance
     assert "doi:10.1016/j.diabres.2022.110207" not in provenance.provided_identifiers

@@ -77,6 +77,7 @@ class CanonicalNumericPayload(FrozenModel):
 
 class CanonicalProvenance(FrozenModel):
     semantic_anchor: str | None = None
+    semantic_anchor_supported: bool | None = None
     legacy_anchor: str | None = None
     provided_identifiers: tuple[str, ...] = ()
     context_visible_identifiers: tuple[str, ...] = ()
@@ -284,13 +285,44 @@ def _context_identifiers(source_record: dict[str, Any]) -> tuple[str, ...]:
     return tuple(values)
 
 
+def _semantic_anchor_supported(
+    source_span: str | None,
+    source_text: str | None,
+) -> bool | None:
+    if source_span is None:
+        return None
+    if not source_text:
+        return False
+
+    candidate = canonicalize("source_span", source_span)
+    source = canonicalize("source_span", source_text)
+    candidate_concepts = set(candidate.concepts)
+    source_concepts = set(source.concepts)
+    concept_recall = (
+        len(candidate_concepts & source_concepts) / len(candidate_concepts)
+        if candidate_concepts
+        else 1.0
+    )
+
+    candidate_numbers = set(_v2_numeric_tokens("source_span", source_span))
+    source_numbers = set(_v2_numeric_tokens("source_span", source_text))
+    numeric_supported = candidate_numbers.issubset(source_numbers)
+
+    return concept_recall >= 0.80 and numeric_supported
+
+
 def map_provenance(
     payload: dict[str, Any],
     source_record: dict[str, Any],
 ) -> CanonicalProvenance:
     legacy_anchor = payload.get("anchor")
+    semantic_anchor = payload.get("source_span")
     return CanonicalProvenance(
-        semantic_anchor=payload.get("source_span"),
+        semantic_anchor=semantic_anchor,
+        semantic_anchor_supported=_semantic_anchor_supported(
+            semantic_anchor,
+            source_record.get("source_text"),
+        ),
         legacy_anchor=legacy_anchor,
         provided_identifiers=_provided_identifiers(legacy_anchor),
         context_visible_identifiers=_context_identifiers(source_record),

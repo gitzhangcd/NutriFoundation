@@ -16,6 +16,8 @@ from .scoring import (
     score_batch_v2,
     score_case_v2,
 )
+from .report import BatchEvaluationReportV2
+from .runner import run_frozen_response_set_v2, write_batch_report_v2
 from .schema import (
     AbstentionResult,
     EvaluationMetadata,
@@ -28,6 +30,7 @@ from .schema import (
 
 __all__ = [
     "AbstentionResult",
+    "BatchEvaluationReportV2",
     "CanonicalAbstentionInput",
     "CanonicalArtifactV2",
     "CanonicalNumericPayload",
@@ -48,4 +51,6 @@ __all__ = [
     "map_v1_case",
     "score_batch_v2",
     "score_case_v2",
+    "run_frozen_response_set_v2",
+    "write_batch_report_v2",
 ]

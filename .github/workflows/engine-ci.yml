@@ -58,3 +58,15 @@ jobs:
             --batch-id B001
       - run: nutri validate-strict-blind runs/E0.4/Batch001/responses
       - run: nutri audit-strict-blind-taskpack
+      - run: |
+          rm -rf /tmp/evaluator_v2
+          nutri score-blind-batch-v2 \
+            --report /tmp/evaluator_v2/Evaluator_V2_Batch_Report_v1.0.json \
+            --evaluated-at 2026-10-01T04:36:07Z \
+            --expected-response-set-sha256 f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7
+          echo "__A26_REPORT_BEGIN__"
+          cat /tmp/evaluator_v2/Evaluator_V2_Batch_Report_v1.0.json
+          echo "__A26_REPORT_END__"
+          echo "__A26_SHA_BEGIN__"
+          cat /tmp/evaluator_v2/Evaluator_V2_Batch_Report_v1.0.json.sha256
+          echo "__A26_SHA_END__"

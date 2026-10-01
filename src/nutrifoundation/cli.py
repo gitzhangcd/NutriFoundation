@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 import json
 import shlex
@@ -14,6 +15,10 @@ from nutrifoundation.contract import EXECUTABLE_INVARIANTS
 from nutrifoundation.connectors.fixture import FixturePubMedConnector
 from nutrifoundation.connectors.ncbi import PMCConnector, PubMedConnector
 from nutrifoundation.io.loaders import load_structured
+from nutrifoundation.evaluation.v2.runner import (
+    run_frozen_response_set_v2,
+    write_batch_report_v2,
+)
 from nutrifoundation.persistence.sqlite import SQLiteStore
 from nutrifoundation.services.blind_batch import (
     fixed_e04_time,
@@ -502,6 +507,61 @@ def audit_strict_blind_taskpack(
     typer.echo(payload)
     if result.status != "PASS":
         raise typer.Exit(1)
+
+
+@app.command("score-blind-batch-v2")
+def score_blind_batch_v2_cmd(
+    response_set: Path = Path(
+        "runs/E0.4.2/A0/StrictBlind_ResponseSet_FROZEN_v1.0.json"
+    ),
+    source_fixture: Path = Path("fixtures/Batch001_Blind_SourceText_v0.1.json"),
+    hidden_reference: Path = Path(
+        "fixtures/Batch001_EvidenceUnit_Frozen_v0.1.yaml"
+    ),
+    task_manifest: Path = Path(
+        "runs/E0.4.2/A0/StrictBlind_TaskPack_Manifest_v1.0.json"
+    ),
+    report: Path = Path(
+        "runs/E0.4.2/E3/A2.6/Evaluator_V2_Batch_Report_v1.0.json"
+    ),
+    evaluated_at: str | None = typer.Option(
+        None,
+        "--evaluated-at",
+        help="Optional ISO-8601 timestamp for deterministic report reproduction.",
+    ),
+    expected_response_set_sha256: str | None = typer.Option(
+        None,
+        "--expected-response-set-sha256",
+        help="Fail if the frozen response-set bytes do not match this SHA-256.",
+    ),
+) -> None:
+    """Re-score the frozen strict-blind ResponseSet with Evaluator V2."""
+    timestamp = (
+        datetime.fromisoformat(evaluated_at.replace("Z", "+00:00"))
+        if evaluated_at
+        else None
+    )
+    result = run_frozen_response_set_v2(
+        response_set_path=response_set,
+        source_fixture_path=source_fixture,
+        hidden_reference_path=hidden_reference,
+        task_manifest_path=task_manifest,
+        batch_id="B001",
+        evaluated_at=timestamp,
+        expected_response_set_sha256=expected_response_set_sha256,
+    )
+    digest = write_batch_report_v2(result, report)
+    typer.echo(
+        json.dumps(
+            {
+                **result.compact_summary(),
+                "report_path": str(report),
+                "report_sha256": digest,
+            },
+            indent=2,
+            ensure_ascii=False,
+        )
+    )
 
 
 if __name__ == "__main__":

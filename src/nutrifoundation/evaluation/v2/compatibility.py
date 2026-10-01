@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+import unicodedata
 from pathlib import Path
 from typing import Any
 
@@ -10,7 +11,7 @@ from nutrifoundation.adapters.chat_window import ChatWindowFileBridge
 from nutrifoundation.domain.models import FrozenModel
 from nutrifoundation.domain.semantic_worker import ResponseEnvelope
 from nutrifoundation.io.loaders import load_structured
-from nutrifoundation.services.canonicalization import canonicalize
+from nutrifoundation.services.canonicalization import PHRASE_ALIASES, canonicalize
 
 
 MAPPING_VERSION = "E0.4.2-E3-A2.4-v0.1"
@@ -41,6 +42,9 @@ _KIND_TO_CLAIM_TYPE = {
 _PMID_RE = re.compile(r"\bPMID\s*[:#]?\s*(\d+)\b", re.I)
 _PMCID_RE = re.compile(r"\b(PMC\d+)\b", re.I)
 _DOI_RE = re.compile(r"\b(10\.\d{4,9}/[-._;()/:A-Z0-9]+)\b", re.I)
+_V2_NUMBER_RE = re.compile(
+    r"(?<![A-Za-z0-9_.])[-+−]?\d+(?:[\.,·]\d+)?%?(?![A-Za-z0-9_])"
+)
 
 
 class CanonicalScientificPayload(FrozenModel):
@@ -189,6 +193,48 @@ def map_scientific_payload(payload: dict[str, Any]) -> CanonicalScientificPayloa
     )
 
 
+def _normalize_v2_number(token: str) -> str:
+    token = (
+        token.replace("−", "-")
+        .replace("·", ".")
+        .replace(",", "")
+        .replace("%", "")
+    )
+    try:
+        value = float(token)
+    except ValueError:
+        return token
+    if value == int(value):
+        return str(int(value))
+    return f"{value:.8f}".rstrip("0").rstrip(".")
+
+
+def _v2_numeric_tokens(field: str, value: Any) -> tuple[str, ...]:
+    """Extract quantitative numbers without treating alphanumeric labels as facts.
+
+    V1 canonicalization intentionally normalizes semantic labels such as T2D and
+    HbA1c, but its generic number regex can also surface the embedded digits.
+    Evaluator V2 keeps those labels semantic-only while preserving standalone
+    quantities, ranges, percentages, sample sizes, and effect estimates.
+    """
+    if value is None:
+        return ()
+
+    text = unicodedata.normalize("NFKC", str(value)).casefold()
+    text = text.replace("−", "-").replace("·", ".")
+    text = re.sub(r"(?<=\d)-(?=\d)", " to ", text)
+    for pattern, replacement in PHRASE_ALIASES:
+        text = re.sub(pattern, replacement, text, flags=re.I)
+
+    numbers = {
+        _normalize_v2_number(token)
+        for token in _V2_NUMBER_RE.findall(text)
+    }
+    if field == "effect":
+        numbers.discard("95")
+    return tuple(sorted(numbers))
+
+
 def _numeric_payload(
     scientific: CanonicalScientificPayload,
 ) -> CanonicalNumericPayload:
@@ -208,7 +254,7 @@ def _numeric_payload(
         canonical_field = (
             "intervention" if field == "intervention_exposure" else field
         )
-        numbers = canonicalize(canonical_field, value).numbers
+        numbers = _v2_numeric_tokens(canonical_field, value)
         if numbers:
             by_field[field] = tuple(numbers)
     return CanonicalNumericPayload(by_field=by_field)

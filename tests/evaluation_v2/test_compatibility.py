@@ -102,6 +102,7 @@ def test_numeric_mapping_uses_existing_canonical_number_normalization(cases):
     assert "1.15" in numeric.by_field["effect"]
     assert "1.06" in numeric.by_field["effect"]
     assert "1.25" in numeric.by_field["effect"]
+    assert "2" not in numeric.by_field["effect"]
 
 
 def test_safe_defer_is_mapped_without_turning_it_into_a_score(cases):

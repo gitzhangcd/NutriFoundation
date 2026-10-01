@@ -1,0 +1,80 @@
+{
+  "artifact": "E0.4.2-E3-A2.8 Freeze Manifest",
+  "version": "v1.0",
+  "status": "PASS",
+  "repository": "gitzhangcd/NutriFoundation",
+  "stage": "E0.4.2-E3-A2.8",
+  "code_lineage": {
+    "a2_7_frozen_head": "ed6f574c2c5a0ec3669bd4965ad21b5000c14072",
+    "a2_8_ci_validated_head": "73a5019fa68f09b434f7225b26f4605036fb8e0a"
+  },
+  "ci_evidence": {
+    "workflow_run_id": 36829984036,
+    "job_id": 110264140307,
+    "conclusion": "success"
+  },
+  "frozen_output": {
+    "path": "runs/E0.4.2/E3/A2.8/E3_Paper_Evidence_Package_v1.0.json",
+    "sha256": "04e4c3b5bbbc2a289383bcab4f2da94eb02f98d06d567b855343a0abe3e53ea8",
+    "package_version": "E0.4.2-E3-A2.8-v1.0",
+    "manuscript_use_status": "METHODS_RESULTS_DRAFT_READY_NOT_PUBLICATION_GRADE"
+  },
+  "lineage_reconciliation": {
+    "status": "PASS_RECONCILED",
+    "a2_6_repository_artifact_sha256": "f90f0e612afedba64fe76e31c344699290246a8b5f0875cc9574abb5abcb13ad",
+    "a2_6_original_ci_serialization_sha256": "3c4f133135ed0160a9e2f5ce65eb83cc655c1ec3f829e5fcc21ea6d0f83b0296",
+    "semantic_object_equal_to_deterministic_rerun": true,
+    "packaging_only_digest_difference": true
+  },
+  "scientific_summary": {
+    "claim_count": 8,
+    "publication_ready_claim_count": 0,
+    "primary_discrepancy_denominator": 44,
+    "category_counts": {
+      "confirmed_evaluator_artifact": 21,
+      "non_isomorphic_unresolved": 9,
+      "ontology_contract_ambiguity": 6,
+      "preserved_scientific_residual": 8
+    },
+    "newly_localized_residual_count": 6
+  },
+  "non_regression_checks": [
+    {
+      "check_id": "NR-001-frozen-response-identity",
+      "status": "PASS"
+    },
+    {
+      "check_id": "NR-002-a26-repository-artifact-binding",
+      "status": "PASS"
+    },
+    {
+      "check_id": "NR-003-a26-lineage-reconciliation",
+      "status": "PASS_RECONCILED"
+    },
+    {
+      "check_id": "NR-004-a27-deterministic-freeze",
+      "status": "PASS"
+    },
+    {
+      "check_id": "NR-005-attribution-count-conservation",
+      "status": "PASS"
+    },
+    {
+      "check_id": "NR-006-v2-dimension-non-regression",
+      "status": "PASS"
+    },
+    {
+      "check_id": "NR-007-reference-authority-boundary",
+      "status": "PASS"
+    }
+  ],
+  "freeze_invariants": [
+    "No strict-blind semantic response was regenerated or modified.",
+    "A2.6 packaging-level digest divergence is reconciled without rewriting historical artifacts.",
+    "A2.7 discrepancy attribution remains 21/8/6/9 over the same 44-event denominator.",
+    "Six V2 newly localized residuals remain separate from the V1 denominator.",
+    "No overall scalar score is introduced.",
+    "All scientific claims remain scoped to frozen Batch001 and publication_ready=false.",
+    "F0 reference remains explicitly non-independent-expert-Gold."
+  ]
+}

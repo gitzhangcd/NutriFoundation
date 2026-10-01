@@ -15,6 +15,10 @@ from nutrifoundation.contract import EXECUTABLE_INVARIANTS
 from nutrifoundation.connectors.fixture import FixturePubMedConnector
 from nutrifoundation.connectors.ncbi import PMCConnector, PubMedConnector
 from nutrifoundation.io.loaders import load_structured
+from nutrifoundation.evaluation.v2.discrepancy import (
+    build_discrepancy_attribution_report,
+    write_discrepancy_report,
+)
 from nutrifoundation.evaluation.v2.runner import (
     run_frozen_response_set_v2,
     write_batch_report_v2,
@@ -555,6 +559,48 @@ def score_blind_batch_v2_cmd(
         json.dumps(
             {
                 **result.compact_summary(),
+                "report_path": str(report),
+                "report_sha256": digest,
+            },
+            indent=2,
+            ensure_ascii=False,
+        )
+    )
+
+
+@app.command("attribute-evaluator-v1-v2")
+def attribute_evaluator_v1_v2_cmd(
+    v1_controller_report: Path = Path(
+        "runs/E0.4.2/A0/PostFreeze_Controller_Report_v1.0.json"
+    ),
+    v2_batch_report: Path = Path(
+        "runs/E0.4.2/E3/A2.6/Evaluator_V2_Batch_Report_v1.0.json"
+    ),
+    report: Path = Path(
+        "runs/E0.4.2/E3/A2.7/V1_V2_Discrepancy_Attribution_v1.0.json"
+    ),
+) -> None:
+    """Attribute V1↔V2 evaluator discrepancies without scalar score mixing."""
+    result = build_discrepancy_attribution_report(
+        v1_controller_report_path=v1_controller_report,
+        v2_batch_report_path=v2_batch_report,
+    )
+    digest = write_discrepancy_report(result, report)
+    typer.echo(
+        json.dumps(
+            {
+                "artifact": result.artifact,
+                "report_version": result.report_version,
+                "status": result.status,
+                "canonical_attribution": result.canonical_attribution.model_dump(
+                    mode="json"
+                ),
+                "newly_localized_residual_count": len(
+                    result.v2_newly_localized_residuals
+                ),
+                "operational_audit": result.operational_audit.model_dump(
+                    mode="json"
+                ),
                 "report_path": str(report),
                 "report_sha256": digest,
             },

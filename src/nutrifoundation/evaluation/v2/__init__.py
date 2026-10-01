@@ -1,3 +1,8 @@
+from .discrepancy import (
+    DiscrepancyAttributionReport,
+    build_discrepancy_attribution_report,
+    write_discrepancy_report,
+)
 from .compatibility import (
     CanonicalAbstentionInput,
     CanonicalArtifactV2,
@@ -30,6 +35,7 @@ from .schema import (
 
 __all__ = [
     "AbstentionResult",
+    "DiscrepancyAttributionReport",
     "BatchEvaluationReportV2",
     "CanonicalAbstentionInput",
     "CanonicalArtifactV2",
@@ -47,10 +53,12 @@ __all__ = [
     "ProvenanceResult",
     "ScientificCoreResult",
     "ScoredCaseV2",
+    "build_discrepancy_attribution_report",
     "map_frozen_v1_batch",
     "map_v1_case",
     "score_batch_v2",
     "score_case_v2",
     "run_frozen_response_set_v2",
     "write_batch_report_v2",
+    "write_discrepancy_report",
 ]

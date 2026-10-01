@@ -70,3 +70,13 @@ jobs:
           echo "__A26_SHA_BEGIN__"
           cat /tmp/evaluator_v2/Evaluator_V2_Batch_Report_v1.0.json.sha256
           echo "__A26_SHA_END__"
+      - run: |
+          rm -rf /tmp/evaluator_a27
+          nutri attribute-evaluator-v1-v2 \
+            --report /tmp/evaluator_a27/V1_V2_Discrepancy_Attribution_v1.0.json
+          echo "__A27_REPORT_BEGIN__"
+          cat /tmp/evaluator_a27/V1_V2_Discrepancy_Attribution_v1.0.json
+          echo "__A27_REPORT_END__"
+          echo "__A27_SHA_BEGIN__"
+          cat /tmp/evaluator_a27/V1_V2_Discrepancy_Attribution_v1.0.json.sha256
+          echo "__A27_SHA_END__"

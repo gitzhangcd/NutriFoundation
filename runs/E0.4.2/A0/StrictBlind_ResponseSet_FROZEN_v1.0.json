@@ -1,0 +1,1100 @@
+[
+  {
+    "response_id": "RESP-STRICT-B001-001",
+    "task_id": "TASK-BLIND-B001-001",
+    "task_sha256": "d44cb4f3baa4908bb9b42c234cd84ba0207874b86d6b18e2a3022eecf0320541",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "475eeb6c60ae0842e5427723703168f147f3d75b2021adda33edf5bc54725786",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "RCT",
+      "population": "215 overweight people with newly diagnosed type 2 diabetes, never treated with antihyperglycemic drugs, HbA1c <11%, at a teaching hospital in Naples, Italy.",
+      "intervention": "Low-carbohydrate Mediterranean-style diet (<50% of daily calories from carbohydrates), n=108.",
+      "exposure": null,
+      "intervention_or_exposure": "Low-carbohydrate Mediterranean-style diet (<50% of daily calories from carbohydrates).",
+      "comparator": "Low-fat diet (<30% of daily calories from fat), n=107.",
+      "outcome": "Initiation of antihyperglycemic drug therapy when follow-up HbA1c was >7% (primary outcome); secondary outcomes included weight, glycemic control, and coronary risk factors.",
+      "effect": "After 4 years, 44% in the Mediterranean-style group versus 70% in the low-fat group required drug therapy; absolute difference -26.0 percentage points (95% CI -31.1 to -20.1); hazard ratio 0.63 (CI 0.51 to 0.86); weight-change-adjusted hazard ratio 0.70 (CI 0.59 to 0.90); P<0.001.",
+      "recommendation": null,
+      "applicability_boundary": "Applies to overweight, drug-naive patients with newly diagnosed type 2 diabetes and HbA1c <11% in this single-center trial; drug-initiation investigators were unblinded and dietary intake was self-reported.",
+      "anchor": "RESULTS / CONCLUSION / LIMITATIONS",
+      "source_span": "After 4 years, 44% of patients in the Mediterranean-style diet group and 70% in the low-fat diet group required treatment."
+    },
+    "confidence": null,
+    "uncertainties": [
+      "Investigators responsible for initiating drug therapy were not blinded to treatment assignment.",
+      "Dietary intake was self-reported."
+    ],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-001"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-002",
+    "task_id": "TASK-BLIND-B001-002",
+    "task_sha256": "c0fd259521bc29a9afd4091b5003b97ec4fa9cb7ecc7af157f3e8fda073d43b5",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "c0ac3392e4c84630c4e2abf296cee41f433a332366cfb0dd1f96ced1f951b8b0",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "RCT",
+      "population": "522 middle-aged, overweight subjects with impaired glucose tolerance (mean age 55 years; mean BMI 31).",
+      "intervention": "Individualized lifestyle counseling to reduce weight, total fat and saturated fat intake and increase fiber intake and physical activity.",
+      "exposure": null,
+      "intervention_or_exposure": "Individualized lifestyle intervention.",
+      "comparator": "Control group.",
+      "outcome": "Incident type 2 diabetes confirmed by a second oral glucose-tolerance test; body-weight change was also measured.",
+      "effect": "Cumulative diabetes incidence after 4 years was 11% (95% CI 6% to 15%) in the intervention group versus 23% (95% CI 17% to 29%) in controls; diabetes risk was reduced by 58% during the trial (P<0.001). Mean follow-up was 3.2 years.",
+      "recommendation": null,
+      "applicability_boundary": "Applies to middle-aged, overweight people with impaired glucose tolerance at high risk for type 2 diabetes; the source does not establish effects in normoglycemic or already diabetic populations.",
+      "anchor": "METHODS / RESULTS / CONCLUSIONS",
+      "source_span": "The cumulative incidence of diabetes after four years was 11 percent in the intervention group and 23 percent in the control group."
+    },
+    "confidence": null,
+    "uncertainties": [],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-002"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-003",
+    "task_id": "TASK-BLIND-B001-003",
+    "task_sha256": "28058bd71b6d7ae5a6b9be84ca0c0016b897c3e16c2a0c2ce64cf67c938259a2",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "bc25b1546245af7c469401a8a5e57a1613a4d95c1840a4edf58543992d3d7d5a",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "RCT",
+      "population": "3234 nondiabetic persons with elevated fasting and post-load plasma glucose concentrations (mean age 51 years; mean BMI 34.0).",
+      "intervention": "Lifestyle-modification program targeting at least 7% weight loss and at least 150 minutes of physical activity per week, or metformin 850 mg twice daily.",
+      "exposure": null,
+      "intervention_or_exposure": "Lifestyle modification or metformin.",
+      "comparator": "Placebo.",
+      "outcome": "Incidence of diabetes during an average follow-up of 2.8 years.",
+      "effect": "Diabetes incidence was 11.0, 7.8, and 4.8 cases per 100 person-years in placebo, metformin, and lifestyle groups, respectively. Versus placebo, lifestyle reduced incidence by 58% (95% CI 48% to 66%) and metformin by 31% (95% CI 17% to 43%); lifestyle was significantly more effective than metformin. Three-year numbers needed to treat were 6.9 for lifestyle and 13.9 for metformin.",
+      "recommendation": null,
+      "applicability_boundary": "Applies to nondiabetic adults at high risk because of elevated fasting and post-load glucose; it does not directly address treatment of established diabetes.",
+      "anchor": "METHODS / RESULTS / CONCLUSIONS",
+      "source_span": "The lifestyle intervention reduced the incidence by 58 percent and metformin by 31 percent, as compared with placebo."
+    },
+    "confidence": null,
+    "uncertainties": [],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-003"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-004",
+    "task_id": "TASK-BLIND-B001-004",
+    "task_sha256": "89c70506966c7dba717220d7ef749262d491dc649bdea95cf08ce8720ea089f1",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "9a798e2818c7813b0393720a1d6d6693fe67f52555933efecfb9c21a2bea9cae",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "RCT",
+      "population": "7447 adults aged 55-80 years in Spain who were at high cardiovascular risk but had no cardiovascular disease at enrollment.",
+      "intervention": "Mediterranean diet supplemented with extra-virgin olive oil or Mediterranean diet supplemented with mixed nuts.",
+      "exposure": null,
+      "intervention_or_exposure": "Mediterranean diet supplemented with extra-virgin olive oil or mixed nuts.",
+      "comparator": "Control diet with advice to reduce dietary fat.",
+      "outcome": "Major cardiovascular event: myocardial infarction, stroke, or death from cardiovascular causes.",
+      "effect": "In adjusted intention-to-treat analyses, hazard ratio versus control was 0.69 (95% CI 0.53 to 0.91) for Mediterranean diet plus extra-virgin olive oil and 0.72 (95% CI 0.54 to 0.95) for Mediterranean diet plus nuts. Primary events occurred in 3.8%, 3.4%, and 4.4% of the olive-oil, nuts, and control groups, respectively.",
+      "recommendation": null,
+      "applicability_boundary": "Applies to older adults at high cardiovascular risk without cardiovascular disease at enrollment in this Spanish trial; protocol deviations affected randomization for some participants, and revised analyses adjusted for these issues.",
+      "anchor": "METHODS / RESULTS / CONCLUSIONS",
+      "source_span": "the hazard ratio was 0.69 for a Mediterranean diet with extra-virgin olive oil and 0.72 for a Mediterranean diet with nuts"
+    },
+    "confidence": null,
+    "uncertainties": [
+      "The revised report identified protocol deviations affecting randomization in some participants and used analyses not relying exclusively on full random assignment."
+    ],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-004"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-005",
+    "task_id": "TASK-BLIND-B001-005",
+    "task_sha256": "d0e3750429ef1b9fefcc114c40364427357a8fcf7d4965e9596e5b35ed26ed58",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "a0669af99e8dd3f2c51642b68c2dc621a56ec3718552ec9d6cae548e3396efba",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "RCT",
+      "population": "5145 overweight or obese adults with type 2 diabetes across 16 U.S. study centers.",
+      "intervention": "Intensive lifestyle intervention promoting weight loss through decreased caloric intake and increased physical activity.",
+      "exposure": null,
+      "intervention_or_exposure": "Intensive lifestyle intervention for weight loss.",
+      "comparator": "Diabetes support and education.",
+      "outcome": "Composite cardiovascular outcome of cardiovascular death, nonfatal myocardial infarction, nonfatal stroke, or hospitalization for angina.",
+      "effect": "At median 9.6 years, the primary outcome rate was 1.83 versus 1.92 events per 100 person-years; hazard ratio 0.95 (95% CI 0.83 to 1.09), P=0.51. The intervention produced greater weight loss and improvements in several risk factors but did not reduce cardiovascular event rates.",
+      "recommendation": null,
+      "applicability_boundary": "Applies to overweight or obese adults with established type 2 diabetes enrolled in this long-term U.S. trial; the trial was stopped early for futility.",
+      "anchor": "RESULTS / CONCLUSIONS",
+      "source_span": "hazard ratio in the intervention group, 0.95; 95% confidence interval, 0.83 to 1.09; P=0.51"
+    },
+    "confidence": null,
+    "uncertainties": [
+      "The trial was stopped early on the basis of a futility analysis."
+    ],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-005"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-006",
+    "task_id": "TASK-BLIND-B001-006",
+    "task_sha256": "bdf5606d011cc158f2ea0548a899ea1fdbad2215ed6c859f1c0d03106beaa55d",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "a0a512484427b3ad90e7f6de2ed61faa30693743a24385795d9b2d4786c746f1",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "RCT",
+      "population": "322 moderately obese adults (mean age 52 years; mean BMI 31; 86% male) followed for 2 years.",
+      "intervention": "Mediterranean restricted-calorie diet or low-carbohydrate non-restricted-calorie diet.",
+      "exposure": null,
+      "intervention_or_exposure": "Mediterranean restricted-calorie or low-carbohydrate non-restricted-calorie diet.",
+      "comparator": "Low-fat restricted-calorie diet; the trial compared all three diets.",
+      "outcome": "Body-weight change at 2 years; lipid measures and glycemic measures were secondary outcomes.",
+      "effect": "Mean weight loss was 2.9 kg with low-fat, 4.4 kg with Mediterranean, and 4.7 kg with low-carbohydrate diets (P<0.001 for diet-by-time interaction). Among 36 participants with diabetes, fasting glucose and insulin changes were more favorable with Mediterranean than low-fat diet (P<0.001 for the fasting-glucose interaction).",
+      "recommendation": null,
+      "applicability_boundary": "Applies to moderately obese adults in this 2-year trial, predominantly men; diabetes-specific glycemic findings were based on only 36 participants with diabetes.",
+      "anchor": "RESULTS / CONCLUSIONS",
+      "source_span": "The mean weight loss was 2.9 kg for the low-fat group, 4.4 kg for the Mediterranean-diet group, and 4.7 kg"
+    },
+    "confidence": null,
+    "uncertainties": [
+      "The enrolled population was 86% male.",
+      "Diabetes-specific glycemic findings were based on 36 subjects with diabetes."
+    ],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-006"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-007",
+    "task_id": "TASK-BLIND-B001-007",
+    "task_sha256": "3f7a3c9cb71886160f0578bc4903d6bbfb4447f26928798d07c3f9ab010b0208",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "9e99087ccc231573f2a6084e5a5ca4eef87de09021fae1eeae930ca4e3ad4493",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "RCT",
+      "population": "811 overweight adults assigned to four reduced-calorie diets for 2 years.",
+      "intervention": "Four diets varying in targeted fat, protein, and carbohydrate percentages.",
+      "exposure": null,
+      "intervention_or_exposure": "Reduced-calorie diets with different macronutrient compositions.",
+      "comparator": "Factorial comparisons of lower versus higher fat, average versus higher protein, and highest versus lowest carbohydrate content.",
+      "outcome": "Change in body weight at 2 years; satiety, attendance, lipid-related risk factors, and fasting insulin were also assessed.",
+      "effect": "At 2 years, weight loss was similar for 15% versus 25% protein (3.0 vs 3.6 kg), 20% versus 40% fat (3.3 vs 3.3 kg), and 65% versus 35% carbohydrate (2.9 vs 3.4 kg); P>0.20 for all comparisons.",
+      "recommendation": null,
+      "applicability_boundary": "Applies to overweight adults receiving structured diet instruction over 2 years; the study tested reduced-calorie diets meeting cardiovascular-health guidelines rather than unrestricted versions of these macronutrient patterns.",
+      "anchor": "RESULTS / CONCLUSIONS",
+      "source_span": "By 2 years, weight loss remained similar in those who were assigned to a diet with 15% protein and those assigned to 25% protein."
+    },
+    "confidence": null,
+    "uncertainties": [],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-007"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-008",
+    "task_id": "TASK-BLIND-B001-008",
+    "task_sha256": "76dfc8c1803782b57d497c9f42b4e6f73a5249bba22bec9f3077d74ce615750e",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "c4172dfed6159f2aa9fb3ebab3c5e6bf853d1c8ab0cf1e3c275478373d10a789",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "RCT",
+      "population": "609 adults aged 18-50 years without diabetes, BMI 28-40, randomized to a 12-month diet intervention.",
+      "intervention": "Healthy low-fat diet delivered with behavior-modification sessions.",
+      "exposure": null,
+      "intervention_or_exposure": "Healthy low-fat diet versus healthy low-carbohydrate diet.",
+      "comparator": "Healthy low-carbohydrate diet delivered with the same behavioral framework.",
+      "outcome": "12-month body-weight change; interaction of diet with genotype pattern and baseline insulin secretion.",
+      "effect": "Weight change at 12 months was -5.3 kg with healthy low-fat versus -6.0 kg with healthy low-carbohydrate diet; between-group difference 0.7 kg (95% CI -0.2 to 1.6). Diet-genotype interaction P=0.20 and diet-insulin-secretion interaction P=0.47.",
+      "recommendation": null,
+      "applicability_boundary": "Applies to adults aged 18-50 years with overweight/obesity but without diabetes; results concern the two healthy diet approaches as delivered in DIETFITS.",
+      "anchor": "RESULTS / CONCLUSIONS AND RELEVANCE",
+      "source_span": "Weight change at 12 months was -5.3 kg for the HLF diet vs -6.0 kg for the HLC diet"
+    },
+    "confidence": null,
+    "uncertainties": [],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-008"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-009",
+    "task_id": "TASK-BLIND-B001-009",
+    "task_sha256": "6d39534844298baf5e5a23dee0925c2a0ecffe9d08b107f8add60ca92c47b425",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "98286dba5f663a8ee330c82cbbede1bf9d2ec27b700594e9be5f87edaa24a161",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "RCT",
+      "population": "311 free-living, overweight or obese, nondiabetic, premenopausal women in the United States.",
+      "intervention": "Atkins, Zone, LEARN, or Ornish diet with weekly instruction for 2 months and 10 additional months of follow-up.",
+      "exposure": null,
+      "intervention_or_exposure": "Four named weight-loss diets spanning low to high carbohydrate intake.",
+      "comparator": "Between-diet comparison among Atkins, Zone, LEARN, and Ornish.",
+      "outcome": "Weight loss at 12 months; metabolic risk factors were secondary outcomes.",
+      "effect": "Mean 12-month weight loss was Atkins -4.7 kg (95% CI -6.3 to -3.1), Zone -1.6 kg (95% CI -2.8 to -0.4), LEARN -2.6 kg (-3.8 to -1.3), and Ornish -2.2 kg (-3.6 to -0.8). Atkins differed significantly from Zone (P<0.05); Zone, LEARN, and Ornish did not differ significantly from each other.",
+      "recommendation": "The source concludes that a low-carbohydrate, high-protein, high-fat diet may be considered a feasible alternative recommendation for weight loss, while noting remaining questions about long-term effects and mechanisms.",
+      "applicability_boundary": "Applies to overweight/obese nondiabetic premenopausal women; it does not establish the same comparative effects in men, postmenopausal women, or people with diabetes.",
+      "anchor": "RESULTS / CONCLUSIONS",
+      "source_span": "Mean 12-month weight loss was as follows: Atkins, -4.7 kg, Zone, -1.6 kg, LEARN, -2.6 kg, and Ornish, -2.2 kg."
+    },
+    "confidence": null,
+    "uncertainties": [
+      "The source explicitly notes questions remain about long-term effects and mechanisms."
+    ],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-009"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-010",
+    "task_id": "TASK-BLIND-B001-010",
+    "task_sha256": "72e59a8bc2da33f45f4b87a57d2ffef9632e457e64517358d0ff9b97122310be",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "c209d39eb8a07ee4db2e5fa17821de56e9828d0de259f4aca1cfa7000c01c2df",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "RCT",
+      "population": "Adults aged 20-65 years with type 2 diabetes diagnosed within 6 years, BMI 27-45 kg/m2, not receiving insulin, recruited from 49 primary-care practices in Scotland and Tyneside.",
+      "intervention": "Primary-care weight-management program including withdrawal of antidiabetic and antihypertensive drugs, total diet replacement (825-853 kcal/day for 3-5 months), stepped food reintroduction, and structured weight-maintenance support.",
+      "exposure": null,
+      "intervention_or_exposure": "Intensive primary-care weight-management program.",
+      "comparator": "Best-practice care by guidelines.",
+      "outcome": "Co-primary outcomes at 12 months: weight loss >=15 kg and diabetes remission defined as HbA1c <6.5% after at least 2 months off all antidiabetic medications.",
+      "effect": "At 12 months, >=15 kg weight loss occurred in 24% of intervention participants and 0% of controls. Diabetes remission occurred in 46% versus 4% (odds ratio 19.7, 95% CI 7.8 to 49.8; P<0.0001). Mean body weight fell by 10.0 kg versus 1.0 kg; adjusted difference -8.8 kg (95% CI -10.3 to -7.3).",
+      "recommendation": null,
+      "applicability_boundary": "Applies to adults with relatively recent type 2 diabetes (within 6 years), BMI 27-45, and no insulin therapy, treated in UK primary care under this structured program.",
+      "anchor": "METHODS / FINDINGS / INTERPRETATION",
+      "source_span": "Diabetes remission was achieved in 68 (46%) participants in the intervention group and six (4%) participants in the control group."
+    },
+    "confidence": null,
+    "uncertainties": [
+      "The trial was open-label and participants, carers, and outcome-data collectors were aware of allocation."
+    ],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-010"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-011",
+    "task_id": "TASK-BLIND-B001-011",
+    "task_sha256": "660f21a97d7397c83af2b43ff6d1ba84b50d974fa47641dc8fdeea322385eaa1",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "fc8295f808af817928b09fb87512221d590e2c378ab0b69a30a9308d4a338d7c",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "MetaAnalysis",
+      "population": "People with type 2 diabetes represented in 73 randomized controlled trials of eight dietary patterns.",
+      "intervention": "Eight dietary patterns, including low-carbohydrate and Mediterranean patterns.",
+      "exposure": null,
+      "intervention_or_exposure": "Dietary-pattern interventions.",
+      "comparator": "Usual diet and other dietary patterns within a Bayesian network meta-analysis.",
+      "outcome": "Body weight, blood pressure, HbA1c, lipids at 6 and 12 months; modeled relative risk reduction for cardiovascular events based on 6-month risk-factor changes.",
+      "effect": "At 6 months, all dietary patterns reduced body weight and HbA1c versus usual diet. Largest reported effects were low-carbohydrate for body weight (-4.8 kg, 95% CrI -6.5 to -3.2) and Mediterranean for HbA1c (-1.0%, 95% CrI -15 to -0.4 vs usual diet, copied exactly from source). There were no significant 6-month blood-pressure or lipid effects and 12-month effects were not statistically significant. Mediterranean diet had the largest expected cardiovascular-event RRR, -16% (95% CI -31 to 3.0), which was not statistically significant.",
+      "recommendation": null,
+      "applicability_boundary": "Applies to people with type 2 diabetes in the included RCT evidence; evidence was insufficient to select a single optimal dietary pattern, especially given non-significant 12-month effects.",
+      "anchor": "RESULTS / CONCLUSIONS",
+      "source_span": "There was insufficient evidence to select one optimal dietary pattern."
+    },
+    "confidence": null,
+    "uncertainties": [
+      "The source reports the Mediterranean HbA1c 95% credibility interval as '-15;-0.4 %'; this value is preserved exactly rather than corrected.",
+      "The cardiovascular risk-reduction estimate was modeled from risk-factor changes rather than directly observed cardiovascular events."
+    ],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-011"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-012",
+    "task_id": "TASK-BLIND-B001-012",
+    "task_sha256": "d58f8727e78b9839fff182879a600b22a59e2d82a428a0b40f0579477ea1c440",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "03237c49adf21e888ca3521fbaa811c7e60dbbca4a02e9137f6b4c8bb2eb52cb",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "SystematicReview",
+      "population": "Adults with type 2 diabetes in meta-analyses of randomized weight-loss diet trials and intervention studies reporting diabetes remission.",
+      "intervention": "Weight-loss approaches including very-low-energy diets, formula meal replacement, low-carbohydrate, high-protein, Mediterranean, high-MUFA, vegetarian, low-GI and other diets.",
+      "exposure": null,
+      "intervention_or_exposure": "Weight-loss dietary approaches for people with type 2 diabetes.",
+      "comparator": "Various control or comparator diets across included reviews and trials.",
+      "outcome": "Weight loss and type 2 diabetes remission, largely within 1 year.",
+      "effect": "Very-low-energy diets (400-500 kcal/day for 8-12 weeks) achieved 6.6 kg greater weight loss than low-energy diets (95% CI -9.5 to -3.7; GRADE low). Formula meal replacements achieved 2.4 kg greater weight loss over 12-52 weeks (95% CI -3.3 to -1.4; GRADE moderate). Low-carbohydrate diets were no better for weight loss than higher-carbohydrate/low-fat diets (GRADE high). For remission at 1 year, RCTs with initial low-energy total diet replacement reported a median 54% remission; evidence for ketogenic/very-low-carbohydrate and very-low-energy food-based diets was very low certainty.",
+      "recommendation": null,
+      "applicability_boundary": "Applies to adults with type 2 diabetes and mainly short-term evidence of 1 year or less; long-term effects on weight, glycemic control, clinical outcomes, and complications remain uncertain.",
+      "anchor": "RESULTS / CONCLUSIONS",
+      "source_span": "Very low energy diets and formula meal replacement appear the most effective approaches, generally providing less energy than self-administered food-based diets."
+    },
+    "confidence": null,
+    "uncertainties": [
+      "Most evidence was restricted to 1 year or less.",
+      "Quality and certainty varied substantially across diet types and reviews."
+    ],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-012"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-013",
+    "task_id": "TASK-BLIND-B001-013",
+    "task_sha256": "e93774298da9a3ff5f659ceebac45bada36cc87950e9da5ef336e98b090818a0",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "5b17f89580b582888c81d3373ed0c120cfa29e91a8f586ed7ed6ca6ba0faa901",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "MetaAnalysis",
+      "population": "Population-level evidence from 185 prospective studies and 58 randomized clinical trials; prospective studies and trials involving participants with chronic disease were excluded.",
+      "intervention": "Higher dietary fibre and whole-grain intake in trials and prospective studies.",
+      "exposure": "Dietary fibre, whole grains, glycaemic index, and glycaemic load as markers of carbohydrate quality.",
+      "intervention_or_exposure": "Higher dietary fibre and whole-grain intake and other carbohydrate-quality markers.",
+      "comparator": "Lower fibre/whole-grain intake or higher glycaemic index/load, depending on analysis.",
+      "outcome": "All-cause and cardiovascular mortality, coronary heart disease, stroke, type 2 diabetes, colorectal cancer, and trial risk factors including body weight, systolic blood pressure, and total cholesterol.",
+      "effect": "Observational data suggested 15-30% lower all-cause/cardiovascular mortality and several non-communicable disease outcomes when highest versus lowest fibre consumers were compared. Clinical trials showed significantly lower body weight, systolic blood pressure, and total cholesterol with higher fibre intake. Risk reduction was greatest at 25-29 g/day of fibre; certainty was moderate for fibre, low-to-moderate for whole grains, and low-to-very-low for glycaemic index/load.",
+      "recommendation": "The source supports increasing dietary fibre intake and replacing refined grains with whole grains.",
+      "applicability_boundary": "The review explicitly states findings are limited to risk reduction in the population at large rather than people with chronic disease; observational associations must not be treated as independent randomized causal effects.",
+      "anchor": "FINDINGS / INTERPRETATION",
+      "source_span": "Risk reduction associated with a range of critical outcomes was greatest when daily intake of dietary fibre was between 25 g and 29 g."
+    },
+    "confidence": null,
+    "uncertainties": [
+      "The evidence combines observational prospective studies with randomized trials of risk factors; causal interpretation differs by evidence type."
+    ],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-013"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-014",
+    "task_id": "TASK-BLIND-B001-014",
+    "task_sha256": "f5ca60885fdd391dcdacdc7900255823d1a0e82c971d950dfa1a289a9468dd3f",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "8362506e8622b0775be3fe5698ac1e6d565a615a4d38b5c82f642e246963a883",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "Cohort",
+      "population": "104,707 adults aged 18 years or older in the French NutriNet-Sante prospective cohort (2009-2019), free of the outcome at baseline as analyzed.",
+      "intervention": null,
+      "exposure": "Ultraprocessed food consumption measured by repeated 24-hour dietary records and classified with NOVA.",
+      "intervention_or_exposure": "Higher ultraprocessed food consumption.",
+      "comparator": "Lower ultraprocessed food consumption; models estimated risk per incremental UPF exposure.",
+      "outcome": "Incident type 2 diabetes.",
+      "effect": "Absolute T2D rates were 113 and 166 per 100,000 person-years in the lowest and highest UPF consumers. Each absolute 10-percentage-point increase in UPF share of the diet was associated with HR 1.15 (95% CI 1.06 to 1.25); estimates remained significant after additional adjustments. A 100 g/day increase was associated with HR 1.05 (95% CI 1.02 to 1.08).",
+      "recommendation": "The source states that these observational findings support public-health efforts to recommend limiting ultraprocessed food consumption, while noting that confirmation in other populations and settings is needed.",
+      "applicability_boundary": "Observational association in a French adult cohort; it does not establish causation and requires confirmation in other populations and settings.",
+      "anchor": "RESULTS / CONCLUSIONS AND RELEVANCE",
+      "source_span": "Consumption of UPF was associated with a higher risk of T2D"
+    },
+    "confidence": null,
+    "uncertainties": [
+      "Observational cohort design leaves potential residual confounding.",
+      "The authors state that results need confirmation in other populations and settings."
+    ],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-014"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-015",
+    "task_id": "TASK-BLIND-B001-015",
+    "task_sha256": "d20548a4b68a1cf2cc6f717352f1712673065fcc2468158f7710b4d9b0b7fa4f",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "3bccd0032fca3ebb1b21c92f9404f1d6590711694907d8823b48cf4e0b43c54f",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "defer",
+    "output": {
+      "kind": "Consensus",
+      "population": "Adults with diabetes or prediabetes, as stated in the title.",
+      "intervention": null,
+      "exposure": null,
+      "intervention_or_exposure": "Nutrition therapy, as stated in the title.",
+      "comparator": null,
+      "outcome": null,
+      "effect": null,
+      "recommendation": null,
+      "applicability_boundary": "Only the title-level population and topic are available; no specific consensus recommendation, effect estimate, or applicability qualifier can be safely recovered from the supplied source text.",
+      "anchor": "TITLE / PUBMED ABSTRACT STATUS",
+      "source_span": "PUBMED ABSTRACT: unavailable"
+    },
+    "confidence": null,
+    "uncertainties": [
+      "The supplied source text contains only the title and states that the PubMed abstract is unavailable; specific recommendations cannot be extracted without guessing."
+    ],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-015"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-016",
+    "task_id": "TASK-BLIND-B001-016",
+    "task_sha256": "a32556940b0ef4cbaf5365f1e92b390fc94960e3a340a48041b7d8421db1f9e8",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "5f71261a89b1721b00fca550faa4f0623533ed0ae5ff648bcd06776b1cac7bf3",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "Guideline",
+      "population": "Patients with chronic kidney disease, including stages 1-5 CKD not receiving dialysis, end-stage/advanced CKD, and patients with a functional kidney transplant.",
+      "intervention": "Dietary management and medical nutrition therapy across nutritional assessment, protein and energy intake, supplementation, micronutrients, and electrolytes.",
+      "exposure": null,
+      "intervention_or_exposure": "Evidence-based nutrition care and dietary management for CKD.",
+      "comparator": null,
+      "outcome": "The supplied excerpt describes guideline scope and development rather than a specific quantitative clinical outcome.",
+      "effect": null,
+      "recommendation": "The source establishes an evidence-based guideline covering six primary nutrition areas and indicates that statements were evaluated with GRADE; no specific numeric prescription is supplied in the excerpt.",
+      "applicability_boundary": "Applies to CKD populations explicitly included by the 2020 KDOQI update; specific recommendation strength, dose, or nutrient target must not be inferred from this overview excerpt.",
+      "anchor": "GUIDELINE SCOPE / DEVELOPMENT",
+      "source_span": "The updated guideline statements focus on 6 primary areas"
+    },
+    "confidence": null,
+    "uncertainties": [
+      "The excerpt does not contain individual guideline statements, recommendation grades, or numeric nutrient targets."
+    ],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-016"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-017",
+    "task_id": "TASK-BLIND-B001-017",
+    "task_sha256": "cbefdca98d102e23ee5bcda2caa2aba81804f18fece501bb3f20666ba35f8710",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "e4fb6930d31c6266d5945e7d7b84f04d796ac898f9e53e4f5980fd853263c5be",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "Guideline",
+      "population": "Older persons, including those with malnutrition or risk of malnutrition, specific diseases, dehydration risk, and obese older persons with weight-related health problems.",
+      "intervention": "Individualized nutrition and hydration care including screening, nursing support, education, counseling, food modification, oral supplements, and enteral/parenteral nutrition when indicated.",
+      "exposure": null,
+      "intervention_or_exposure": "Clinical nutrition and hydration interventions for older persons.",
+      "comparator": null,
+      "outcome": "Prevention/treatment of malnutrition and dehydration and support of nutritional status, clinical course, and quality of life.",
+      "effect": null,
+      "recommendation": "Routinely screen all older persons for malnutrition; support oral nutrition as needed; use enteral nutrition when oral intake is insufficient or impossible and parenteral nutrition when enteral intake is insufficient or impossible if prognosis is favorable; generally avoid dietary restrictions; consider weight-reducing diets only in obese older persons with weight-related health problems and combine with physical exercise; encourage adequate fluid intake; individualize care within a multimodal multidisciplinary approach.",
+      "applicability_boundary": "Applies to older persons under the ESPEN geriatric nutrition and hydration guideline; weight-reduction advice is specifically limited to obese older persons with weight-related health problems and combined exercise.",
+      "anchor": "RESULTS / CONCLUSION",
+      "source_span": "all older persons shall routinely be screened for malnutrition in order to identify an existing risk early"
+    },
+    "confidence": null,
+    "uncertainties": [],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-017"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-018",
+    "task_id": "TASK-BLIND-B001-018",
+    "task_sha256": "a710492cded0a55ab4696416bf73b11e66040b21279efec8ce58a83279d6df64",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "a80acc40bebd5758dcc3bc6067829b52cebcbd3e6b41730e8b1c9772c6a32616",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "MetaAnalysis",
+      "population": "Participants in 50 controlled trials of salt-reduction interventions, with no restriction by age, sex, or hypertension status in the systematic review.",
+      "intervention": "Salt substitution, nutrition education, self-help materials, or food reformulation.",
+      "exposure": null,
+      "intervention_or_exposure": "Salt-reduction interventions.",
+      "comparator": "Control/comparator conditions within included controlled trials.",
+      "outcome": "Systolic and diastolic blood pressure.",
+      "effect": "Pooled eligible trials showed salt substitution reduced SBP by WMD -7.44 mmHg and DBP by -3.77 mmHg (both P<0.001), while nutrition education reduced SBP by -2.75 mmHg and DBP by -2.11 mmHg (both P<0.001). Self-help materials reduced SBP by -2.60 mmHg in ages 25-60 (P=0.008) and, among hypertensive participants, SBP by -3.87 mmHg (P=0.003) and DBP by -2.91 mmHg (P<0.001).",
+      "recommendation": null,
+      "applicability_boundary": "Applies to the controlled trials included in the review; effects differ by intervention type and subgroup, and the authors state further trials are required.",
+      "anchor": "RESULTS / CONCLUSION",
+      "source_span": "salt substitution and nutrition education interventions had significant effects on both SBP"
+    },
+    "confidence": null,
+    "uncertainties": [
+      "The source notes that further trials are required."
+    ],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-018"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-019",
+    "task_id": "TASK-BLIND-B001-019",
+    "task_sha256": "78ed0056601d07519de038542c63c7ce5b8f2f40934a1eaf4a49ec049afe6d97",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "820e6a07c5e8c73752b77f4f8c6a73d49bab3843dd9e3a21e0f3003de4ecf08c",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "MetaAnalysis",
+      "population": "1,966,444 adults aged 18 years or older across 31 cohorts in 20 countries, excluding people with diabetes at baseline; 107,271 incident T2D cases.",
+      "intervention": null,
+      "exposure": "Consumption of unprocessed red meat, processed meat, and poultry.",
+      "intervention_or_exposure": "Higher meat consumption.",
+      "comparator": "Lower consumption, modeled continuously within cohorts and pooled by random-effects meta-analysis.",
+      "outcome": "Incident type 2 diabetes.",
+      "effect": "Higher consumption was associated with HR 1.10 (95% CI 1.06 to 1.15) per 100 g/day unprocessed red meat, HR 1.15 (1.11 to 1.20) per 50 g/day processed meat, and HR 1.08 (1.02 to 1.14) per 100 g/day poultry. Poultry findings were weaker under alternative modeling assumptions. Replacing processed meat with unprocessed red meat or poultry was associated with lower T2D incidence.",
+      "recommendation": "The source interpretation highlights reducing meat consumption for public health and informing dietary guidelines; because the evidence derives from cohorts, these are association-based public-health implications rather than randomized causal effects.",
+      "applicability_boundary": "Observational associations across multinational cohorts of adults without diabetes at baseline; confidence intervals were wide in some regions and poultry results were less robust to alternative modeling.",
+      "anchor": "FINDINGS / INTERPRETATION",
+      "source_span": "Greater consumption of each of the three types of meat was associated with increased incidence of type 2 diabetes"
+    },
+    "confidence": null,
+    "uncertainties": [
+      "Observational cohort evidence cannot by itself establish causation.",
+      "Poultry associations were weaker under alternative modeling assumptions.",
+      "Confidence intervals were wide in regions outside North America, Europe, and the Western Pacific."
+    ],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-019"
+      ],
+      "metadata": {}
+    }
+  },
+  {
+    "response_id": "RESP-STRICT-B001-020",
+    "task_id": "TASK-BLIND-B001-020",
+    "task_sha256": "773827e1b4d70d7176bb960265ff39443ddc53b79530916280b2bbca353a4ca5",
+    "contract_version": "E0.4-v0.1",
+    "response_schema_version": "ResponseEnvelope-v0.1",
+    "source_text_sha256": "e6d6734be08ba8cd73331a24a1f61c44cb20c3ebd96cce0da36748457b550931",
+    "worker": {
+      "worker_id": "FRESH_CONTEXT_WORKER_20261001_A0",
+      "adapter_type": "chat_window_file_bridge",
+      "provider": null,
+      "model": null,
+      "model_version": null,
+      "prompt_version": "E0.4.2-A0-v0.1",
+      "metadata": {
+        "fresh_context_attestation": true,
+        "prior_batch_exposure": false,
+        "hidden_reference_available_to_worker": false,
+        "independent_worker_session": true,
+        "strict_blind_protocol_version": "E0.4.2-A0-v0.1",
+        "blindness_class": "strict_blind_fresh_context"
+      }
+    },
+    "status": "completed",
+    "output": {
+      "kind": "MetaAnalysis",
+      "population": "Participants in 16 prospective cohort studies of grain intake and incident type 2 diabetes.",
+      "intervention": null,
+      "exposure": "Whole-grain and refined-grain intake.",
+      "intervention_or_exposure": "Higher whole-grain or refined-grain consumption.",
+      "comparator": "Lower intake, with dose-response estimates per 3 servings/day.",
+      "outcome": "Incident type 2 diabetes.",
+      "effect": "Summary relative risk per 3 servings/day was 0.68 (95% CI 0.58 to 0.81; I2=82%; n=10) for whole grains and 0.95 (95% CI 0.88 to 1.04; I2=53%; n=6) for refined grains. Whole grains showed a nonlinear association (P nonlinearity <0.0001), whereas refined grains did not (P=0.10).",
+      "recommendation": "The source supports replacing refined grains with whole grains and suggests at least two servings of whole grains per day to reduce type 2 diabetes risk.",
+      "applicability_boundary": "Based on prospective cohort evidence; subtype findings were based on few studies and warrant further investigation, so causal certainty and specific food-subtype generalization are limited.",
+      "anchor": "META-ANALYSIS RESULTS / CONCLUSION",
+      "source_span": "The summary relative risk per 3 servings per day was 0.68 for whole grains and 0.95 for refined grains."
+    },
+    "confidence": null,
+    "uncertainties": [
+      "Between-study heterogeneity was high for whole grains (I2=82%).",
+      "Specific whole-grain subtype findings were based on few studies."
+    ],
+    "error": null,
+    "created_at": "2026-10-01T01:08:00+08:00",
+    "provenance": {
+      "source": "E0.4.2 fresh-context strict-blind semantic extraction",
+      "provider": "ChatWindowFileBridge",
+      "retrieved_at": "2026-10-01T01:08:00+08:00",
+      "version": "v1.0",
+      "lineage_refs": [
+        "TASK-BLIND-B001-020"
+      ],
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,988 @@
+{
+  "artifact": "E0.4.2 Post-Freeze Controller Validation & Hidden Scoring Report",
+  "version": "v1.0",
+  "repository": "gitzhangcd/NutriFoundation",
+  "main_commit": "75378e2540fa02d2e8eb3d4734b7b932f2a3cb8f",
+  "frozen_response_set": {
+    "path": "/mnt/data/NutriFoundation_E0.4.2_A0_StrictBlind_ResponseSet_FROZEN_v1.0.json",
+    "sha256": "f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7",
+    "response_count": 20,
+    "completed": 19,
+    "defer": 1,
+    "failed": 0
+  },
+  "taskpack": {
+    "taskpack_sha256": "c4f6be434169f7fc5713d6d7ebb6a8793b50cdcd6611c4ce6902171a13edcdc2",
+    "blind_wall_audit": "PASS"
+  },
+  "controller_validation": {
+    "status": "PASS",
+    "unique_task_ids": 20,
+    "task_hash_bindings": 20,
+    "source_hash_bindings": 20,
+    "schema_contract_bindings": 20,
+    "metadata_attestation_bindings": 20,
+    "lineage_bindings": 20,
+    "strict_blind_qualifies": true
+  },
+  "hidden_scoring": {
+    "strict_blind_attestation": {
+      "fresh_context": true,
+      "prior_batch_exposure": false,
+      "hidden_reference_available_to_worker": false,
+      "independent_worker_session": true,
+      "qualifies": true
+    },
+    "operational_blind_replay": {
+      "batch_id": "B001",
+      "blindness_class": "strict_blind_fresh_context",
+      "case_count": 20,
+      "completed_response_count": 19,
+      "deferred_count": 1,
+      "verifier_pass_count": 15,
+      "f0_freeze_count": 15,
+      "operational_escalation_count": 17,
+      "benchmark_adjudication_count": 20,
+      "critical_error_count": 97,
+      "exact_field_count": 7,
+      "near_or_exact_field_count": 10,
+      "comparable_field_count": 137,
+      "error_counts": {
+        "effect_semantic_mismatch": 12,
+        "comparator_mismatch": 3,
+        "applicability_boundary_mismatch": 20,
+        "source_anchor_mismatch": 20,
+        "high_risk_hidden_reference_mismatch": 20,
+        "population_scope_mismatch": 10,
+        "outcome_mismatch": 9,
+        "verifier_rejection": 5,
+        "numeric_effect_mismatch": 4,
+        "intervention_exposure_mismatch": 7,
+        "evidence_kind_mismatch": 8,
+        "semantic_defer": 1,
+        "missing_critical_field": 1,
+        "recommendation_mismatch": 3
+      },
+      "exact_field_rate": 0.051094890510948905,
+      "near_or_exact_field_rate": 0.072992700729927,
+      "verifier_yield": 0.75,
+      "f0_yield": 0.75,
+      "operational_escalation_rate": 0.85,
+      "benchmark_adjudication_rate": 1.0
+    },
+    "canonical_semantic_scoring": {
+      "batch_id": "B001",
+      "reference_authority": "Batch001_F0_reference_not_independent_expert_gold",
+      "publication_grade": false,
+      "case_count": 20,
+      "completed_response_count": 19,
+      "deferred_count": 1,
+      "comparable_field_count": 137,
+      "equivalent_field_count": 93,
+      "partial_field_count": 8,
+      "mismatch_field_count": 35,
+      "missing_field_count": 1,
+      "all_critical_equivalent_case_count": 0,
+      "field_equivalence_rate": 0.6788321167883211,
+      "complete_case_equivalence_rate": 0.0
+    },
+    "canonical_cases": [
+      {
+        "evidence_id": "EU-B001-001",
+        "status": "completed",
+        "comparable": 7,
+        "equivalent": 6,
+        "partial": 0,
+        "mismatch": 1,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-002",
+        "status": "completed",
+        "comparable": 7,
+        "equivalent": 6,
+        "partial": 0,
+        "mismatch": 1,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-003",
+        "status": "completed",
+        "comparable": 7,
+        "equivalent": 4,
+        "partial": 1,
+        "mismatch": 2,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "outcome:mismatch",
+          "applicability_boundary:partial",
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-004",
+        "status": "completed",
+        "comparable": 7,
+        "equivalent": 6,
+        "partial": 0,
+        "mismatch": 1,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-005",
+        "status": "completed",
+        "comparable": 7,
+        "equivalent": 5,
+        "partial": 0,
+        "mismatch": 2,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "applicability_boundary:mismatch",
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-006",
+        "status": "completed",
+        "comparable": 7,
+        "equivalent": 6,
+        "partial": 0,
+        "mismatch": 1,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-007",
+        "status": "completed",
+        "comparable": 7,
+        "equivalent": 4,
+        "partial": 1,
+        "mismatch": 2,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "comparator:mismatch",
+          "applicability_boundary:partial",
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-008",
+        "status": "completed",
+        "comparable": 7,
+        "equivalent": 5,
+        "partial": 0,
+        "mismatch": 2,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "applicability_boundary:mismatch",
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-009",
+        "status": "completed",
+        "comparable": 7,
+        "equivalent": 5,
+        "partial": 1,
+        "mismatch": 1,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "effect:partial",
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-010",
+        "status": "completed",
+        "comparable": 7,
+        "equivalent": 4,
+        "partial": 0,
+        "mismatch": 3,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "comparator:mismatch",
+          "applicability_boundary:mismatch",
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-011",
+        "status": "completed",
+        "comparable": 8,
+        "equivalent": 6,
+        "partial": 0,
+        "mismatch": 2,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "kind:mismatch",
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-012",
+        "status": "completed",
+        "comparable": 8,
+        "equivalent": 4,
+        "partial": 0,
+        "mismatch": 4,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "kind:mismatch",
+          "comparator:mismatch",
+          "applicability_boundary:mismatch",
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-013",
+        "status": "completed",
+        "comparable": 8,
+        "equivalent": 5,
+        "partial": 1,
+        "mismatch": 2,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "kind:mismatch",
+          "population:partial",
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-014",
+        "status": "completed",
+        "comparable": 7,
+        "equivalent": 6,
+        "partial": 0,
+        "mismatch": 1,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-015",
+        "status": "defer",
+        "comparable": 5,
+        "equivalent": 3,
+        "partial": 0,
+        "mismatch": 1,
+        "missing": 1,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "recommendation:missing",
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-016",
+        "status": "completed",
+        "comparable": 5,
+        "equivalent": 2,
+        "partial": 2,
+        "mismatch": 1,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "recommendation:partial",
+          "applicability_boundary:partial",
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-017",
+        "status": "completed",
+        "comparable": 5,
+        "equivalent": 3,
+        "partial": 1,
+        "mismatch": 1,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "applicability_boundary:partial",
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-018",
+        "status": "completed",
+        "comparable": 7,
+        "equivalent": 4,
+        "partial": 1,
+        "mismatch": 2,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "kind:mismatch",
+          "effect:partial",
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-019",
+        "status": "completed",
+        "comparable": 7,
+        "equivalent": 4,
+        "partial": 0,
+        "mismatch": 3,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "kind:mismatch",
+          "applicability_boundary:mismatch",
+          "anchor:mismatch"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-020",
+        "status": "completed",
+        "comparable": 7,
+        "equivalent": 5,
+        "partial": 0,
+        "mismatch": 2,
+        "missing": 0,
+        "all_equivalent": false,
+        "non_equivalent_fields": [
+          "kind:mismatch",
+          "anchor:mismatch"
+        ]
+      }
+    ],
+    "operational_cases": [
+      {
+        "evidence_id": "EU-B001-001",
+        "response_status": "completed",
+        "verifier_status": "verified",
+        "f0_frozen": true,
+        "critical_errors": 6,
+        "exact": 0,
+        "comparable": 7,
+        "near_or_exact": 0,
+        "operational_escalation": true,
+        "operational_reasons": [
+          "semantic_uncertainty"
+        ],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "population_scope_mismatch",
+          "comparator_mismatch",
+          "outcome_mismatch",
+          "effect_semantic_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": []
+      },
+      {
+        "evidence_id": "EU-B001-002",
+        "response_status": "completed",
+        "verifier_status": "rejected",
+        "f0_frozen": false,
+        "critical_errors": 4,
+        "exact": 0,
+        "comparable": 7,
+        "near_or_exact": 0,
+        "operational_escalation": true,
+        "operational_reasons": [
+          "verifier_rejection",
+          "f0_not_frozen"
+        ],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "verifier_rejection",
+          "outcome_mismatch",
+          "effect_semantic_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": [
+          "numeric tokens not found in source text: 4"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-003",
+        "response_status": "completed",
+        "verifier_status": "verified",
+        "f0_frozen": true,
+        "critical_errors": 6,
+        "exact": 1,
+        "comparable": 7,
+        "near_or_exact": 1,
+        "operational_escalation": false,
+        "operational_reasons": [],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "intervention_exposure_mismatch",
+          "outcome_mismatch",
+          "numeric_effect_mismatch",
+          "effect_semantic_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": []
+      },
+      {
+        "evidence_id": "EU-B001-004",
+        "response_status": "completed",
+        "verifier_status": "verified",
+        "f0_frozen": true,
+        "critical_errors": 4,
+        "exact": 0,
+        "comparable": 7,
+        "near_or_exact": 1,
+        "operational_escalation": true,
+        "operational_reasons": [
+          "semantic_uncertainty"
+        ],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "outcome_mismatch",
+          "effect_semantic_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": []
+      },
+      {
+        "evidence_id": "EU-B001-005",
+        "response_status": "completed",
+        "verifier_status": "verified",
+        "f0_frozen": true,
+        "critical_errors": 5,
+        "exact": 1,
+        "comparable": 7,
+        "near_or_exact": 1,
+        "operational_escalation": true,
+        "operational_reasons": [
+          "semantic_uncertainty"
+        ],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "intervention_exposure_mismatch",
+          "outcome_mismatch",
+          "effect_semantic_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": []
+      },
+      {
+        "evidence_id": "EU-B001-006",
+        "response_status": "completed",
+        "verifier_status": "verified",
+        "f0_frozen": true,
+        "critical_errors": 4,
+        "exact": 0,
+        "comparable": 7,
+        "near_or_exact": 1,
+        "operational_escalation": true,
+        "operational_reasons": [
+          "semantic_uncertainty"
+        ],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "outcome_mismatch",
+          "effect_semantic_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": []
+      },
+      {
+        "evidence_id": "EU-B001-007",
+        "response_status": "completed",
+        "verifier_status": "verified",
+        "f0_frozen": true,
+        "critical_errors": 7,
+        "exact": 0,
+        "comparable": 7,
+        "near_or_exact": 0,
+        "operational_escalation": false,
+        "operational_reasons": [],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "population_scope_mismatch",
+          "intervention_exposure_mismatch",
+          "comparator_mismatch",
+          "outcome_mismatch",
+          "effect_semantic_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": []
+      },
+      {
+        "evidence_id": "EU-B001-008",
+        "response_status": "completed",
+        "verifier_status": "rejected",
+        "f0_frozen": false,
+        "critical_errors": 2,
+        "exact": 0,
+        "comparable": 7,
+        "near_or_exact": 0,
+        "operational_escalation": true,
+        "operational_reasons": [
+          "verifier_rejection",
+          "f0_not_frozen"
+        ],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "verifier_rejection",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": [
+          "numeric tokens not found in source text: 0.20, 0.47"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-009",
+        "response_status": "completed",
+        "verifier_status": "rejected",
+        "f0_frozen": false,
+        "critical_errors": 6,
+        "exact": 0,
+        "comparable": 7,
+        "near_or_exact": 0,
+        "operational_escalation": true,
+        "operational_reasons": [
+          "verifier_rejection",
+          "f0_not_frozen",
+          "semantic_uncertainty"
+        ],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "verifier_rejection",
+          "intervention_exposure_mismatch",
+          "outcome_mismatch",
+          "numeric_effect_mismatch",
+          "effect_semantic_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": [
+          "numeric tokens not found in source text: 0.05"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-010",
+        "response_status": "completed",
+        "verifier_status": "verified",
+        "f0_frozen": true,
+        "critical_errors": 4,
+        "exact": 0,
+        "comparable": 7,
+        "near_or_exact": 0,
+        "operational_escalation": true,
+        "operational_reasons": [
+          "semantic_uncertainty"
+        ],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "intervention_exposure_mismatch",
+          "effect_semantic_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": []
+      },
+      {
+        "evidence_id": "EU-B001-011",
+        "response_status": "completed",
+        "verifier_status": "verified",
+        "f0_frozen": true,
+        "critical_errors": 5,
+        "exact": 0,
+        "comparable": 8,
+        "near_or_exact": 0,
+        "operational_escalation": true,
+        "operational_reasons": [
+          "semantic_uncertainty"
+        ],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "evidence_kind_mismatch",
+          "intervention_exposure_mismatch",
+          "effect_semantic_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": []
+      },
+      {
+        "evidence_id": "EU-B001-012",
+        "response_status": "completed",
+        "verifier_status": "verified",
+        "f0_frozen": true,
+        "critical_errors": 6,
+        "exact": 0,
+        "comparable": 8,
+        "near_or_exact": 0,
+        "operational_escalation": true,
+        "operational_reasons": [
+          "semantic_uncertainty"
+        ],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "evidence_kind_mismatch",
+          "population_scope_mismatch",
+          "comparator_mismatch",
+          "effect_semantic_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": []
+      },
+      {
+        "evidence_id": "EU-B001-013",
+        "response_status": "completed",
+        "verifier_status": "verified",
+        "f0_frozen": true,
+        "critical_errors": 5,
+        "exact": 0,
+        "comparable": 8,
+        "near_or_exact": 0,
+        "operational_escalation": true,
+        "operational_reasons": [
+          "semantic_uncertainty"
+        ],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "evidence_kind_mismatch",
+          "population_scope_mismatch",
+          "outcome_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": []
+      },
+      {
+        "evidence_id": "EU-B001-014",
+        "response_status": "completed",
+        "verifier_status": "rejected",
+        "f0_frozen": false,
+        "critical_errors": 7,
+        "exact": 1,
+        "comparable": 7,
+        "near_or_exact": 1,
+        "operational_escalation": true,
+        "operational_reasons": [
+          "verifier_rejection",
+          "f0_not_frozen",
+          "semantic_uncertainty"
+        ],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "verifier_rejection",
+          "evidence_kind_mismatch",
+          "population_scope_mismatch",
+          "intervention_exposure_mismatch",
+          "numeric_effect_mismatch",
+          "effect_semantic_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": [
+          "numeric tokens not found in source text: 100000",
+          "observational source is not explicitly encoded as association-level evidence"
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-015",
+        "response_status": "defer",
+        "verifier_status": "not_run",
+        "f0_frozen": false,
+        "critical_errors": 4,
+        "exact": 0,
+        "comparable": 5,
+        "near_or_exact": 0,
+        "operational_escalation": true,
+        "operational_reasons": [
+          "semantic_defer",
+          "verifier_rejection",
+          "f0_not_frozen",
+          "semantic_uncertainty"
+        ],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "semantic_defer",
+          "verifier_rejection",
+          "missing_critical_field",
+          "recommendation_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": [
+          "The supplied source text contains only the title and states that the PubMed abstract is unavailable; specific recommendations cannot be extracted without guessing."
+        ]
+      },
+      {
+        "evidence_id": "EU-B001-016",
+        "response_status": "completed",
+        "verifier_status": "verified",
+        "f0_frozen": true,
+        "critical_errors": 5,
+        "exact": 0,
+        "comparable": 5,
+        "near_or_exact": 0,
+        "operational_escalation": true,
+        "operational_reasons": [
+          "semantic_uncertainty"
+        ],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "evidence_kind_mismatch",
+          "population_scope_mismatch",
+          "recommendation_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": []
+      },
+      {
+        "evidence_id": "EU-B001-017",
+        "response_status": "completed",
+        "verifier_status": "verified",
+        "f0_frozen": true,
+        "critical_errors": 4,
+        "exact": 0,
+        "comparable": 5,
+        "near_or_exact": 0,
+        "operational_escalation": false,
+        "operational_reasons": [],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "population_scope_mismatch",
+          "recommendation_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": []
+      },
+      {
+        "evidence_id": "EU-B001-018",
+        "response_status": "completed",
+        "verifier_status": "verified",
+        "f0_frozen": true,
+        "critical_errors": 5,
+        "exact": 1,
+        "comparable": 7,
+        "near_or_exact": 1,
+        "operational_escalation": true,
+        "operational_reasons": [
+          "semantic_uncertainty"
+        ],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "evidence_kind_mismatch",
+          "population_scope_mismatch",
+          "numeric_effect_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": []
+      },
+      {
+        "evidence_id": "EU-B001-019",
+        "response_status": "completed",
+        "verifier_status": "verified",
+        "f0_frozen": true,
+        "critical_errors": 4,
+        "exact": 1,
+        "comparable": 7,
+        "near_or_exact": 2,
+        "operational_escalation": true,
+        "operational_reasons": [
+          "semantic_uncertainty"
+        ],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "evidence_kind_mismatch",
+          "population_scope_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": []
+      },
+      {
+        "evidence_id": "EU-B001-020",
+        "response_status": "completed",
+        "verifier_status": "verified",
+        "f0_frozen": true,
+        "critical_errors": 4,
+        "exact": 2,
+        "comparable": 7,
+        "near_or_exact": 2,
+        "operational_escalation": true,
+        "operational_reasons": [
+          "semantic_uncertainty"
+        ],
+        "benchmark_adjudication": true,
+        "benchmark_reasons": [
+          "evidence_kind_mismatch",
+          "population_scope_mismatch",
+          "applicability_boundary_mismatch",
+          "source_anchor_mismatch",
+          "high_risk_hidden_reference_mismatch"
+        ],
+        "verifier_errors": []
+      }
+    ],
+    "method_note": "Canonical and blind scoring are faithful local ports of current main. Operational verifier was independently replayed against the frozen source-only fixture: tasks 002, 008, 009, and 014 were rejected; task 015 was deferred/not-run. Rejections 002/008/009 and the numeric component of 014 arise from literal numeric-token representation differences; 014 also fails the observational_causality_guard because candidate kind is Cohort rather than explicitly observational/association-level."
+  },
+  "canonical_field_stats": {
+    "kind": {
+      "n": 10,
+      "equivalent": 4,
+      "partial": 0,
+      "mismatch": 6,
+      "missing": 0,
+      "equivalence_rate": 0.4
+    },
+    "population": {
+      "n": 20,
+      "equivalent": 19,
+      "partial": 1,
+      "mismatch": 0,
+      "missing": 0,
+      "equivalence_rate": 0.95
+    },
+    "intervention": {
+      "n": 13,
+      "equivalent": 13,
+      "partial": 0,
+      "mismatch": 0,
+      "missing": 0,
+      "equivalence_rate": 1.0
+    },
+    "exposure": {
+      "n": 3,
+      "equivalent": 3,
+      "partial": 0,
+      "mismatch": 0,
+      "missing": 0,
+      "equivalence_rate": 1.0
+    },
+    "intervention_or_exposure": {
+      "n": 1,
+      "equivalent": 1,
+      "partial": 0,
+      "mismatch": 0,
+      "missing": 0,
+      "equivalence_rate": 1.0
+    },
+    "comparator": {
+      "n": 13,
+      "equivalent": 10,
+      "partial": 0,
+      "mismatch": 3,
+      "missing": 0,
+      "equivalence_rate": 0.7692307692307693
+    },
+    "outcome": {
+      "n": 17,
+      "equivalent": 16,
+      "partial": 0,
+      "mismatch": 1,
+      "missing": 0,
+      "equivalence_rate": 0.9411764705882353
+    },
+    "effect": {
+      "n": 17,
+      "equivalent": 15,
+      "partial": 2,
+      "mismatch": 0,
+      "missing": 0,
+      "equivalence_rate": 0.8823529411764706
+    },
+    "recommendation": {
+      "n": 3,
+      "equivalent": 1,
+      "partial": 1,
+      "mismatch": 0,
+      "missing": 1,
+      "equivalence_rate": 0.3333333333333333
+    },
+    "applicability_boundary": {
+      "n": 20,
+      "equivalent": 11,
+      "partial": 4,
+      "mismatch": 5,
+      "missing": 0,
+      "equivalence_rate": 0.55
+    },
+    "anchor": {
+      "n": 20,
+      "equivalent": 0,
+      "partial": 0,
+      "mismatch": 20,
+      "missing": 0,
+      "equivalence_rate": 0.0
+    }
+  },
+  "diagnostic_rates": {
+    "canonical_all_fields": 0.6788321167883211,
+    "canonical_excluding_anchor": 0.7948717948717948,
+    "canonical_excluding_anchor_and_kind": 0.8317757009345794,
+    "scientific_core_population_intervention_exposure_comparator_outcome_effect": 0.9166666666666666,
+    "all_excluding_anchor_and_task015": 0.7964601769911505,
+    "all_excluding_anchor_kind_and_task015": 0.8365384615384616
+  },
+  "verifier_rejections": {
+    "EU-B001-002": "numeric token literal mismatch: source uses “four years”; response uses “4 years”",
+    "EU-B001-008": "numeric token literal mismatch: source P=.20/.47; response P=0.20/0.47",
+    "EU-B001-009": "numeric token literal mismatch: source P<.05; response P<0.05",
+    "EU-B001-014": "numeric formatting mismatch 100 000 vs 100,000, plus observational causality guard because kind=Cohort rather than explicit association-level kind",
+    "EU-B001-015": "defer/not-run because supplied source text contains title only and abstract unavailable"
+  },
+  "interpretive_cautions": [
+    "Batch001_EvidenceUnit_Frozen_v0.1 is an F0 reference, explicitly not independent expert Gold and not publication-grade.",
+    "Complete-case canonical equivalence is 0/20 because every response anchor omitted the PMID/PMCID identifier expected by anchor canonicalization; this should not be interpreted as global semantic failure.",
+    "The response template/worker instructions encourage preserving study type, while the hidden reference kind field often uses semantic evidence kinds such as synthesis_effect; this creates a contract-alignment penalty.",
+    "EU-B001-015 has an information-set asymmetry: the strict-blind source fixture exposes only the title/abstract-unavailable marker, while the F0 hidden reference uses selectively retrieved full text. Defer is therefore protocol-conformant and should be treated separately from extraction error.",
+    "Operational raw lexical scores are highly wording-sensitive; canonical semantic scoring is the intended semantic-equivalence layer for interpretation."
+  ]
+}

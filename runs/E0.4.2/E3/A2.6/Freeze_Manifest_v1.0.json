@@ -1,0 +1,100 @@
+{
+  "artifact": "E0.4.2-E3-A2.6 Freeze Manifest",
+  "version": "v1.0",
+  "status": "PASS",
+  "repository": "gitzhangcd/NutriFoundation",
+  "stage": "E0.4.2-E3-A2.6-EXEC",
+  "code_lineage": {
+    "a2_4_mapping_head": "0096dbc383be0e7bde241482e9bef395841aeb37",
+    "a2_5_scoring_head": "fda637f70286a1eacee02aff9e411ac25a749f2e",
+    "a2_6_ci_validated_head": "65eef203b9ff17ce229eb79224728b334c6b902d",
+    "report_freeze_commit": "0da2c6d86d218bee77507bc8a832f3af85f3143b"
+  },
+  "ci_evidence": {
+    "workflow_run_id": 36816712586,
+    "job_id": 110223254551,
+    "conclusion": "success"
+  },
+  "frozen_inputs": {
+    "response_set": {
+      "path": "runs/E0.4.2/A0/StrictBlind_ResponseSet_FROZEN_v1.0.json",
+      "sha256": "f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7",
+      "response_count": 20,
+      "completed": 19,
+      "defer": 1,
+      "strict_blind_qualifies": true
+    },
+    "source_fixture": {
+      "path": "fixtures/Batch001_Blind_SourceText_v0.1.json",
+      "sha256": "fd11a2d691dc94f56e3876f880bbc0fd57d4a18222c501a2129bb3782e79f706"
+    },
+    "hidden_reference": {
+      "path": "fixtures/Batch001_EvidenceUnit_Frozen_v0.1.yaml",
+      "sha256": "68cd50d45e9514db87f0c650bc342d6befda968acaab9ff605dcc1de27f4856c",
+      "authority": "Batch001_F0_reference_not_independent_expert_gold",
+      "publication_grade": false
+    },
+    "task_manifest": {
+      "path": "runs/E0.4.2/A0/StrictBlind_TaskPack_Manifest_v1.0.json",
+      "sha256": "44e305a2bc77f23f930ed4b5a74d2e6100520ea11f652a989f5b9ee170637367"
+    }
+  },
+  "frozen_output": {
+    "path": "runs/E0.4.2/E3/A2.6/Evaluator_V2_Batch_Report_v1.0.json",
+    "sha256": "3c4f133135ed0160a9e2f5ce65eb83cc655c1ec3f829e5fcc21ea6d0f83b0296",
+    "report_version": "E0.4.2-E3-A2.6-v1.0",
+    "evaluator_version": "EvaluatorV2-v0.1",
+    "mapping_version": "E0.4.2-E3-A2.4-v0.1"
+  },
+  "dimension_summary": {
+    "scientific_semantic_recovery": {
+      "eligible": 19,
+      "mean": 0.9473684210526315,
+      "min": 0.8,
+      "max": 1
+    },
+    "ontology_alignment": {
+      "eligible": 19,
+      "mean": 0.8596491228070173,
+      "min": 0.6666666666666666,
+      "max": 1
+    },
+    "provenance_recovery": {
+      "eligible": 20,
+      "mean": 1,
+      "min": 1,
+      "max": 1
+    },
+    "numeric_fidelity": {
+      "eligible": 17,
+      "mean": 0.8088235294117647,
+      "min": 0,
+      "max": 1
+    },
+    "safe_abstention_quality": {
+      "eligible": 1,
+      "mean": 1,
+      "min": 1,
+      "max": 1
+    }
+  },
+  "repair_audit": {
+    "superseded_provisional_report_sha256": "ebedcc1919026e9117f5f282a12e7e6fa85a344cb542be9a7069dcd4d573076a",
+    "reason": "Provisional provenance scoring incorrectly required worker output to repeat visible reference identifiers and ignored worker-provided source_span evidence anchors.",
+    "repair_locus": [
+      "A2.4 semantic source-span support verification",
+      "A2.5 provenance scoring"
+    ],
+    "non_target_dimension_change": false,
+    "post_repair_provenance_relation_counts": {
+      "source_span_supported": 20
+    }
+  },
+  "freeze_invariants": [
+    "No semantic responses were regenerated.",
+    "Frozen ResponseEnvelope contents remain unchanged.",
+    "Hidden reference was accessed only post-freeze by deterministic evaluator code.",
+    "No overall scalar score is defined.",
+    "A2.6 report is benchmark/development evidence, not publication-grade expert Gold."
+  ]
+}

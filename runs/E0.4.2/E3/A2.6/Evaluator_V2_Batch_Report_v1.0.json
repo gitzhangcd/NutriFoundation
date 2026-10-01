@@ -1,0 +1,5278 @@
+{
+"artifact": "Evaluator V2 Batch Re-Scoring Report",
+"report_version": "E0.4.2-E3-A2.6-v1.0",
+"evaluator_version": "EvaluatorV2-v0.1",
+"mapping_version": "E0.4.2-E3-A2.4-v0.1",
+"batch_id": "B001",
+"evaluated_at": "2026-10-01T04:36:07Z",
+"reference_authority": "Batch001_F0_reference_not_independent_expert_gold",
+"publication_grade": false,
+"response_set": {
+"path": "runs/E0.4.2/A0/StrictBlind_ResponseSet_FROZEN_v1.0.json",
+"sha256": "f5cc39f4d0394f5928eb5142c5c4aa43dab638ea2077fbcd2950f4f64a66d0c7",
+"response_count": 20,
+"completed_count": 19,
+"deferred_count": 1,
+"failed_count": 0,
+"attestation": {
+"fresh_context": true,
+"prior_batch_exposure": false,
+"hidden_reference_available_to_worker": false,
+"independent_worker_session": true,
+"blindness_class": "strict_blind_fresh_context",
+"qualifies": true
+}
+},
+"source_fixture": {
+"path": "fixtures/Batch001_Blind_SourceText_v0.1.json",
+"sha256": "fd11a2d691dc94f56e3876f880bbc0fd57d4a18222c501a2129bb3782e79f706"
+},
+"hidden_reference": {
+"path": "fixtures/Batch001_EvidenceUnit_Frozen_v0.1.yaml",
+"sha256": "68cd50d45e9514db87f0c650bc342d6befda968acaab9ff605dcc1de27f4856c"
+},
+"task_manifest": {
+"path": "runs/E0.4.2/A0/StrictBlind_TaskPack_Manifest_v1.0.json",
+"sha256": "44e305a2bc77f23f930ed4b5a74d2e6100520ea11f652a989f5b9ee170637367"
+},
+"aggregation_policy": {
+"scientific_semantic_recovery": "completed_responses_only",
+"ontology_alignment": "completed_responses_only",
+"numeric_fidelity": "completed_responses_with_reference_numeric_fields_only",
+"provenance_recovery": "all_cases_with_applicable_provenance_score",
+"safe_abstention_quality": "cases_where_abstention_is_required_or_observed",
+"overall_score": "forbidden"
+},
+"dimension_summary": [
+{
+"dimension": "scientific_semantic_recovery",
+"eligible_case_count": 19,
+"scored_case_count": 19,
+"mean_score": 0.9473684210526315,
+"min_score": 0.8,
+"max_score": 1.0
+},
+{
+"dimension": "ontology_alignment",
+"eligible_case_count": 19,
+"scored_case_count": 19,
+"mean_score": 0.8596491228070173,
+"min_score": 0.6666666666666666,
+"max_score": 1.0
+},
+{
+"dimension": "provenance_recovery",
+"eligible_case_count": 20,
+"scored_case_count": 20,
+"mean_score": 1.0,
+"min_score": 1.0,
+"max_score": 1.0
+},
+{
+"dimension": "numeric_fidelity",
+"eligible_case_count": 17,
+"scored_case_count": 17,
+"mean_score": 0.8088235294117647,
+"min_score": 0.0,
+"max_score": 1.0
+},
+{
+"dimension": "safe_abstention_quality",
+"eligible_case_count": 1,
+"scored_case_count": 1,
+"mean_score": 1.0,
+"min_score": 1.0,
+"max_score": 1.0
+}
+],
+"field_summary": [
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"eligible_case_count": 1,
+"scored_case_count": 1,
+"mean_score": 1.0,
+"relation_counts": {
+"correct_safe_abstention": 1
+}
+},
+{
+"dimension": "numeric",
+"field": "applicability_boundary",
+"eligible_case_count": 5,
+"scored_case_count": 5,
+"mean_score": 0.6,
+"relation_counts": {
+"matched": 3,
+"missing": 2
+}
+},
+{
+"dimension": "numeric",
+"field": "effect",
+"eligible_case_count": 16,
+"scored_case_count": 16,
+"mean_score": 0.8520833333333334,
+"relation_counts": {
+"matched": 12,
+"missing": 2,
+"partial": 2
+}
+},
+{
+"dimension": "numeric",
+"field": "outcome",
+"eligible_case_count": 6,
+"scored_case_count": 6,
+"mean_score": 1.0,
+"relation_counts": {
+"matched": 6
+}
+},
+{
+"dimension": "numeric",
+"field": "population",
+"eligible_case_count": 14,
+"scored_case_count": 14,
+"mean_score": 0.9761904761904762,
+"relation_counts": {
+"matched": 13,
+"partial": 1
+}
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"eligible_case_count": 19,
+"scored_case_count": 19,
+"mean_score": 0.5789473684210527,
+"relation_counts": {
+"equivalent": 11,
+"mismatch": 8
+}
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"eligible_case_count": 19,
+"scored_case_count": 19,
+"mean_score": 1.0,
+"relation_counts": {
+"equivalent": 19
+}
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"eligible_case_count": 19,
+"scored_case_count": 19,
+"mean_score": 1.0,
+"relation_counts": {
+"equivalent": 19
+}
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"eligible_case_count": 20,
+"scored_case_count": 20,
+"mean_score": 1.0,
+"relation_counts": {
+"source_span_supported": 20
+}
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"eligible_case_count": 13,
+"scored_case_count": 13,
+"mean_score": 0.7692307692307693,
+"relation_counts": {
+"compatible_superset": 1,
+"equivalent": 9,
+"mismatch": 3
+}
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"eligible_case_count": 19,
+"scored_case_count": 19,
+"mean_score": 0.9736842105263158,
+"relation_counts": {
+"compatible_superset": 11,
+"equivalent": 5,
+"partial": 3
+}
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"eligible_case_count": 17,
+"scored_case_count": 17,
+"mean_score": 1.0,
+"relation_counts": {
+"compatible_superset": 4,
+"equivalent": 13
+}
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"eligible_case_count": 17,
+"scored_case_count": 17,
+"mean_score": 0.9411764705882353,
+"relation_counts": {
+"compatible_superset": 6,
+"equivalent": 10,
+"mismatch": 1
+}
+},
+{
+"dimension": "scientific_core",
+"field": "population",
+"eligible_case_count": 19,
+"scored_case_count": 19,
+"mean_score": 0.9736842105263158,
+"relation_counts": {
+"compatible_superset": 4,
+"equivalent": 14,
+"partial": 1
+}
+}
+],
+"cases": [
+{
+"task_id": "TASK-BLIND-B001-001",
+"response_id": "RESP-STRICT-B001-001",
+"evidence_id": "EU-B001-001",
+"source_id": "SA-B001-001",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 1.0,
+"ontology_alignment": 1.0,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 1.0,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-001",
+"response_id": "RESP-STRICT-B001-001",
+"evidence_id": "EU-B001-001",
+"source_id": "SA-B001-001",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 1.0,
+"outcome": 1.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 1.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 2,
+"matched_numeric_fields": 2
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "215 overweight adults with newly diagnosed, drug-naive type 2 diabetes",
+"candidate_value": "215 overweight people with newly diagnosed type 2 diabetes, never treated with antihyperglycemic drugs, HbA1c <11%, at a teaching hospital in Naples, Italy.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Low-carbohydrate Mediterranean-style diet",
+"candidate_value": "Low-carbohydrate Mediterranean-style diet (<50% of daily calories from carbohydrates), n=108.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Low-fat diet",
+"candidate_value": "Low-fat diet (<30% of daily calories from fat), n=107.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Initiation of antihyperglycemic drug therapy",
+"candidate_value": "Initiation of antihyperglycemic drug therapy when follow-up HbA1c was >7% (primary outcome); secondary outcomes included weight, glycemic control, and coronary risk factors.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "44% vs 70% required therapy at 4 years; HR 0.63 (95% CI 0.51-0.86)",
+"candidate_value": "After 4 years, 44% in the Mediterranean-style group versus 70% in the low-fat group required drug therapy; absolute difference -26.0 percentage points (95% CI -31.1 to -20.1); hazard ratio 0.63 (CI 0.51 to 0.86); weight-change-adjusted hazard ratio 0.70 (CI 0.59 to 0.90); P<0.001.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "randomized_controlled_trial",
+"candidate_value": "randomized_controlled_trial",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "interventional_effect",
+"candidate_value": "interventional_effect",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "primary_study",
+"candidate_value": "primary_study",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "numeric",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"0.51",
+"0.63",
+"0.86",
+"4",
+"44",
+"70"
+],
+"candidate_value": [
+"-20.1",
+"-26",
+"-31.1",
+"0.001",
+"0.51",
+"0.59",
+"0.63",
+"0.7",
+"0.86",
+"0.9",
+"4",
+"44",
+"70"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"215"
+],
+"candidate_value": [
+"11",
+"215"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 19721018",
+"candidate_value": "RESULTS / CONCLUSION / LIMITATIONS",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.7326/0003-4819-151-5-200909010-00004",
+"pmid:19721018"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": [
+"Investigators responsible for initiating drug therapy were not blinded to treatment assignment.",
+"Dietary intake was self-reported."
+]
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-002",
+"response_id": "RESP-STRICT-B001-002",
+"evidence_id": "EU-B001-002",
+"source_id": "SA-B001-002",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 1.0,
+"ontology_alignment": 1.0,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 1.0,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-002",
+"response_id": "RESP-STRICT-B001-002",
+"evidence_id": "EU-B001-002",
+"source_id": "SA-B001-002",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 1.0,
+"outcome": 1.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 1.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 2,
+"matched_numeric_fields": 2
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "522 middle-aged overweight adults with impaired glucose tolerance",
+"candidate_value": "522 middle-aged, overweight subjects with impaired glucose tolerance (mean age 55 years; mean BMI 31).",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Individualized lifestyle counseling targeting weight, fat, saturated fat, fiber, and physical activity",
+"candidate_value": "Individualized lifestyle counseling to reduce weight, total fat and saturated fat intake and increase fiber intake and physical activity.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Control",
+"candidate_value": "Control group.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Incident type 2 diabetes",
+"candidate_value": "Incident type 2 diabetes confirmed by a second oral glucose-tolerance test; body-weight change was also measured.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "4-year cumulative incidence 11% vs 23%; 58% risk reduction during trial",
+"candidate_value": "Cumulative diabetes incidence after 4 years was 11% (95% CI 6% to 15%) in the intervention group versus 23% (95% CI 17% to 29%) in controls; diabetes risk was reduced by 58% during the trial (P<0.001). Mean follow-up was 3.2 years.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "randomized_controlled_trial",
+"candidate_value": "randomized_controlled_trial",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "interventional_effect",
+"candidate_value": "interventional_effect",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "primary_study",
+"candidate_value": "primary_study",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "numeric",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"11",
+"23",
+"4",
+"58"
+],
+"candidate_value": [
+"0.001",
+"11",
+"15",
+"17",
+"23",
+"29",
+"3.2",
+"4",
+"58",
+"6"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"522"
+],
+"candidate_value": [
+"31",
+"522",
+"55"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 11333990",
+"candidate_value": "METHODS / RESULTS / CONCLUSIONS",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1056/nejm200105033441801",
+"pmid:11333990"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": []
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-003",
+"response_id": "RESP-STRICT-B001-003",
+"evidence_id": "EU-B001-003",
+"source_id": "SA-B001-003",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 0.8,
+"ontology_alignment": 1.0,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 0.5,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-003",
+"response_id": "RESP-STRICT-B001-003",
+"evidence_id": "EU-B001-003",
+"source_id": "SA-B001-003",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 1.0,
+"outcome": 0.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 1.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 2,
+"matched_numeric_fields": 1
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "3234 nondiabetic adults with elevated fasting and post-load glucose",
+"candidate_value": "3234 nondiabetic persons with elevated fasting and post-load plasma glucose concentrations (mean age 51 years; mean BMI 34.0).",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "Intensive lifestyle modification",
+"candidate_value": "Lifestyle-modification program targeting at least 7% weight loss and at least 150 minutes of physical activity per week, or metformin 850 mg twice daily.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Placebo",
+"candidate_value": "Placebo.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": true,
+"score": 0.0,
+"relation": "mismatch",
+"reference_value": "Incident type 2 diabetes",
+"candidate_value": "Incidence of diabetes during an average follow-up of 2.8 years.",
+"rationale": [
+"insufficient_canonical_overlap"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "4.8 vs 11.0 cases per 100 person-years; 58% reduction (95% CI 48%-66%)",
+"candidate_value": "Diabetes incidence was 11.0, 7.8, and 4.8 cases per 100 person-years in placebo, metformin, and lifestyle groups, respectively. Versus placebo, lifestyle reduced incidence by 58% (95% CI 48% to 66%) and metformin by 31% (95% CI 17% to 43%); lifestyle was significantly more effective than metformin. Three-year numbers needed to treat were 6.9 for lifestyle and 13.9 for metformin.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "randomized_controlled_trial",
+"candidate_value": "randomized_controlled_trial",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "interventional_effect",
+"candidate_value": "interventional_effect",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "primary_study",
+"candidate_value": "primary_study",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "numeric",
+"field": "effect",
+"applicable": true,
+"score": 0.8333333333333334,
+"relation": "partial",
+"reference_value": [
+"-66",
+"100",
+"11",
+"4.8",
+"48",
+"58"
+],
+"candidate_value": [
+"100",
+"11",
+"13.9",
+"17",
+"31",
+"4.8",
+"43",
+"48",
+"58",
+"6.9",
+"66",
+"7.8"
+],
+"rationale": [
+"partial_reference_numeric_token_recovery"
+]
+},
+{
+"dimension": "numeric",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"3234"
+],
+"candidate_value": [
+"3234",
+"34",
+"51"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 11832527",
+"candidate_value": "METHODS / RESULTS / CONCLUSIONS",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1056/nejmoa012512",
+"pmcid:PMC1370926",
+"pmid:11832527"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": []
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-004",
+"response_id": "RESP-STRICT-B001-004",
+"evidence_id": "EU-B001-004",
+"source_id": "SA-B001-004",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 1.0,
+"ontology_alignment": 1.0,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 1.0,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-004",
+"response_id": "RESP-STRICT-B001-004",
+"evidence_id": "EU-B001-004",
+"source_id": "SA-B001-004",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 1.0,
+"outcome": 1.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 1.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 2,
+"matched_numeric_fields": 2
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "7447 adults aged 55-80 at high cardiovascular risk without cardiovascular disease at enrollment",
+"candidate_value": "7447 adults aged 55-80 years in Spain who were at high cardiovascular risk but had no cardiovascular disease at enrollment.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Mediterranean diet + extra-virgin olive oil OR Mediterranean diet + mixed nuts",
+"candidate_value": "Mediterranean diet supplemented with extra-virgin olive oil or Mediterranean diet supplemented with mixed nuts.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Advice to reduce dietary fat",
+"candidate_value": "Control diet with advice to reduce dietary fat.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Major cardiovascular event",
+"candidate_value": "Major cardiovascular event: myocardial infarction, stroke, or death from cardiovascular causes.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Adjusted HR 0.69 (95% CI 0.53-0.91) for EVOO arm and 0.72 (95% CI 0.54-0.95) for nuts arm vs control",
+"candidate_value": "In adjusted intention-to-treat analyses, hazard ratio versus control was 0.69 (95% CI 0.53 to 0.91) for Mediterranean diet plus extra-virgin olive oil and 0.72 (95% CI 0.54 to 0.95) for Mediterranean diet plus nuts. Primary events occurred in 3.8%, 3.4%, and 4.4% of the olive-oil, nuts, and control groups, respectively.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "randomized_controlled_trial",
+"candidate_value": "randomized_controlled_trial",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "interventional_effect",
+"candidate_value": "interventional_effect",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "primary_study",
+"candidate_value": "primary_study",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "numeric",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"0.53",
+"0.54",
+"0.69",
+"0.72",
+"0.91",
+"0.95"
+],
+"candidate_value": [
+"0.53",
+"0.54",
+"0.69",
+"0.72",
+"0.91",
+"0.95",
+"3.4",
+"3.8",
+"4.4"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"55",
+"7447",
+"80"
+],
+"candidate_value": [
+"55",
+"7447",
+"80"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 29897866; corrected and republished primary PREDIMED report",
+"candidate_value": "METHODS / RESULTS / CONCLUSIONS",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1056/nejmoa1800389",
+"pmid:29897866"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": [
+"The revised report identified protocol deviations affecting randomization in some participants and used analyses not relying exclusively on full random assignment."
+]
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-005",
+"response_id": "RESP-STRICT-B001-005",
+"evidence_id": "EU-B001-005",
+"source_id": "SA-B001-005",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 1.0,
+"ontology_alignment": 1.0,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 1.0,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-005",
+"response_id": "RESP-STRICT-B001-005",
+"evidence_id": "EU-B001-005",
+"source_id": "SA-B001-005",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 1.0,
+"outcome": 1.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 1.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 2,
+"matched_numeric_fields": 2
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "5145 overweight or obese adults with type 2 diabetes",
+"candidate_value": "5145 overweight or obese adults with type 2 diabetes across 16 U.S. study centers.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Intensive lifestyle intervention for weight loss",
+"candidate_value": "Intensive lifestyle intervention promoting weight loss through decreased caloric intake and increased physical activity.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Diabetes support and education",
+"candidate_value": "Diabetes support and education.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "Composite cardiovascular morbidity/mortality",
+"candidate_value": "Composite cardiovascular outcome of cardiovascular death, nonfatal myocardial infarction, nonfatal stroke, or hospitalization for angina.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "HR 0.95 (95% CI 0.83-1.09), P=0.51 despite greater weight loss and risk-factor improvements",
+"candidate_value": "At median 9.6 years, the primary outcome rate was 1.83 versus 1.92 events per 100 person-years; hazard ratio 0.95 (95% CI 0.83 to 1.09), P=0.51. The intervention produced greater weight loss and improvements in several risk factors but did not reduce cardiovascular event rates.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "randomized_controlled_trial",
+"candidate_value": "randomized_controlled_trial",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "interventional_effect",
+"candidate_value": "interventional_effect",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "primary_study",
+"candidate_value": "primary_study",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "numeric",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"0.51",
+"0.83",
+"0.95",
+"1.09"
+],
+"candidate_value": [
+"0.51",
+"0.83",
+"0.95",
+"1.09",
+"1.83",
+"1.92",
+"100",
+"9.6"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"5145"
+],
+"candidate_value": [
+"16",
+"5145"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 23796131",
+"candidate_value": "RESULTS / CONCLUSIONS",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1056/nejmoa1212914",
+"pmcid:PMC3791615",
+"pmid:23796131"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": [
+"The trial was stopped early on the basis of a futility analysis."
+]
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-006",
+"response_id": "RESP-STRICT-B001-006",
+"evidence_id": "EU-B001-006",
+"source_id": "SA-B001-006",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 1.0,
+"ontology_alignment": 1.0,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 1.0,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-006",
+"response_id": "RESP-STRICT-B001-006",
+"evidence_id": "EU-B001-006",
+"source_id": "SA-B001-006",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 1.0,
+"outcome": 1.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 1.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 4,
+"matched_numeric_fields": 4
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "322 moderately obese adults; 86% male",
+"candidate_value": "322 moderately obese adults (mean age 52 years; mean BMI 31; 86% male) followed for 2 years.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Mediterranean restricted-calorie or low-carbohydrate non-restricted-calorie diet",
+"candidate_value": "Mediterranean restricted-calorie diet or low-carbohydrate non-restricted-calorie diet.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Low-fat restricted-calorie diet",
+"candidate_value": "Low-fat restricted-calorie diet; the trial compared all three diets.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "2-year weight change; metabolic secondary outcomes",
+"candidate_value": "Body-weight change at 2 years; lipid measures and glycemic measures were secondary outcomes.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "Mean weight loss 4.4 kg Mediterranean, 4.7 kg low-carbohydrate, 2.9 kg low-fat; lipid ratio favored low-carbohydrate; glycemic subgroup finding favored Mediterranean",
+"candidate_value": "Mean weight loss was 2.9 kg with low-fat, 4.4 kg with Mediterranean, and 4.7 kg with low-carbohydrate diets (P<0.001 for diet-by-time interaction). Among 36 participants with diabetes, fasting glucose and insulin changes were more favorable with Mediterranean than low-fat diet (P<0.001 for the fasting-glucose interaction).",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "randomized_controlled_trial",
+"candidate_value": "randomized_controlled_trial",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "interventional_effect",
+"candidate_value": "interventional_effect",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "primary_study",
+"candidate_value": "primary_study",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "numeric",
+"field": "applicability_boundary",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"36"
+],
+"candidate_value": [
+"2",
+"36"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"2.9",
+"4.4",
+"4.7"
+],
+"candidate_value": [
+"0.001",
+"2.9",
+"36",
+"4.4",
+"4.7"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"2"
+],
+"candidate_value": [
+"2"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"322",
+"86"
+],
+"candidate_value": [
+"2",
+"31",
+"322",
+"52",
+"86"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 18635428",
+"candidate_value": "RESULTS / CONCLUSIONS",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1056/nejmoa0708681",
+"pmid:18635428"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": [
+"The enrolled population was 86% male.",
+"Diabetes-specific glycemic findings were based on 36 subjects with diabetes."
+]
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-007",
+"response_id": "RESP-STRICT-B001-007",
+"evidence_id": "EU-B001-007",
+"source_id": "SA-B001-007",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 0.8,
+"ontology_alignment": 1.0,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 1.0,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-007",
+"response_id": "RESP-STRICT-B001-007",
+"evidence_id": "EU-B001-007",
+"source_id": "SA-B001-007",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 0.0,
+"outcome": 1.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 1.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 3,
+"matched_numeric_fields": 3
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "811 overweight adults",
+"candidate_value": "811 overweight adults assigned to four reduced-calorie diets for 2 years.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "Reduced-calorie diets with differing fat/protein/carbohydrate targets",
+"candidate_value": "Four diets varying in targeted fat, protein, and carbohydrate percentages.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": true,
+"score": 0.0,
+"relation": "mismatch",
+"reference_value": "Alternative macronutrient targets",
+"candidate_value": "Factorial comparisons of lower versus higher fat, average versus higher protein, and highest versus lowest carbohydrate content.",
+"rationale": [
+"insufficient_canonical_overlap"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "2-year body-weight change",
+"candidate_value": "Change in body weight at 2 years; satiety, attendance, lipid-related risk factors, and fasting insulin were also assessed.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "No significant 2-year weight-loss difference across protein, fat, or carbohydrate target comparisons; P>0.20 for all",
+"candidate_value": "At 2 years, weight loss was similar for 15% versus 25% protein (3.0 vs 3.6 kg), 20% versus 40% fat (3.3 vs 3.3 kg), and 65% versus 35% carbohydrate (2.9 vs 3.4 kg); P>0.20 for all comparisons.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "randomized_controlled_trial",
+"candidate_value": "randomized_controlled_trial",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "interventional_effect",
+"candidate_value": "interventional_effect",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "primary_study",
+"candidate_value": "primary_study",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "numeric",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"0.2",
+"2"
+],
+"candidate_value": [
+"0.2",
+"15",
+"2",
+"2.9",
+"20",
+"25",
+"3",
+"3.3",
+"3.4",
+"3.6",
+"35",
+"40",
+"65"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"2"
+],
+"candidate_value": [
+"2"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"811"
+],
+"candidate_value": [
+"2",
+"811"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 19246357",
+"candidate_value": "RESULTS / CONCLUSIONS",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1056/nejmoa0804748",
+"pmcid:PMC2763382",
+"pmid:19246357"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": []
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-008",
+"response_id": "RESP-STRICT-B001-008",
+"evidence_id": "EU-B001-008",
+"source_id": "SA-B001-008",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 1.0,
+"ontology_alignment": 1.0,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 0.75,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-008",
+"response_id": "RESP-STRICT-B001-008",
+"evidence_id": "EU-B001-008",
+"source_id": "SA-B001-008",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 1.0,
+"outcome": 1.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 1.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 4,
+"matched_numeric_fields": 3
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "609 adults aged 18-50, BMI 28-40, without diabetes",
+"candidate_value": "609 adults aged 18-50 years without diabetes, BMI 28-40, randomized to a 12-month diet intervention.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Healthy low-fat diet",
+"candidate_value": "Healthy low-fat diet delivered with behavior-modification sessions.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Healthy low-carbohydrate diet",
+"candidate_value": "Healthy low-carbohydrate diet delivered with the same behavioral framework.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "12-month weight change; genotype and insulin-secretion interactions",
+"candidate_value": "12-month body-weight change; interaction of diet with genotype pattern and baseline insulin secretion.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "-5.3 vs -6.0 kg; between-group difference 0.7 kg (95% CI -0.2 to 1.6); no significant genotype or insulin-secretion interaction",
+"candidate_value": "Weight change at 12 months was -5.3 kg with healthy low-fat versus -6.0 kg with healthy low-carbohydrate diet; between-group difference 0.7 kg (95% CI -0.2 to 1.6). Diet-genotype interaction P=0.20 and diet-insulin-secretion interaction P=0.47.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "randomized_controlled_trial",
+"candidate_value": "randomized_controlled_trial",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "interventional_effect",
+"candidate_value": "interventional_effect",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "primary_study",
+"candidate_value": "primary_study",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "numeric",
+"field": "applicability_boundary",
+"applicable": true,
+"score": 0.0,
+"relation": "missing",
+"reference_value": [
+"30"
+],
+"candidate_value": [
+"18",
+"50"
+],
+"rationale": [
+"reference_numeric_tokens_not_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"-0.2",
+"-5.3",
+"-6",
+"0.7",
+"1.6"
+],
+"candidate_value": [
+"-0.2",
+"-5.3",
+"-6",
+"0.2",
+"0.47",
+"0.7",
+"1.6",
+"12"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"12"
+],
+"candidate_value": [
+"12"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"18",
+"28",
+"40",
+"50",
+"609"
+],
+"candidate_value": [
+"12",
+"18",
+"28",
+"40",
+"50",
+"609"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 29466592",
+"candidate_value": "RESULTS / CONCLUSIONS AND RELEVANCE",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1001/jama.2018.0245",
+"pmcid:PMC5839290",
+"pmid:29466592"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": []
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-009",
+"response_id": "RESP-STRICT-B001-009",
+"evidence_id": "EU-B001-009",
+"source_id": "SA-B001-009",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 1.0,
+"ontology_alignment": 0.6666666666666666,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 0.5,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-009",
+"response_id": "RESP-STRICT-B001-009",
+"evidence_id": "EU-B001-009",
+"source_id": "SA-B001-009",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 1.0,
+"outcome": 1.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 0.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 4,
+"matched_numeric_fields": 2
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "311 overweight/obese nondiabetic premenopausal women",
+"candidate_value": "311 free-living, overweight or obese, nondiabetic, premenopausal women in the United States.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Atkins diet",
+"candidate_value": "Atkins, Zone, LEARN, or Ornish diet with weekly instruction for 2 months and 10 additional months of follow-up.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "Zone, LEARN, and Ornish diets",
+"candidate_value": "Between-diet comparison among Atkins, Zone, LEARN, and Ornish.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "12-month weight loss",
+"candidate_value": "Weight loss at 12 months; metabolic risk factors were secondary outcomes.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "partial",
+"reference_value": "Mean loss: Atkins 4.7 kg, Zone 1.6 kg, LEARN 2.6 kg, Ornish 2.2 kg; statistically significant difference explicitly reported for Atkins vs Zone",
+"candidate_value": "Mean 12-month weight loss was Atkins -4.7 kg (95% CI -6.3 to -3.1), Zone -1.6 kg (95% CI -2.8 to -0.4), LEARN -2.6 kg (-3.8 to -1.3), and Ornish -2.2 kg (-3.6 to -0.8). Atkins differed significantly from Zone (P<0.05); Zone, LEARN, and Ornish did not differ significantly from each other.",
+"rationale": [
+"partial_canonical_overlap",
+"insufficient_numeric_coverage"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "randomized_controlled_trial",
+"candidate_value": "randomized_controlled_trial",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 0.0,
+"relation": "mismatch",
+"reference_value": "interventional_effect",
+"candidate_value": "recommendation",
+"rationale": [
+"canonical_ontology_mismatch"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "primary_study",
+"candidate_value": "primary_study",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "numeric",
+"field": "applicability_boundary",
+"applicable": true,
+"score": 0.0,
+"relation": "missing",
+"reference_value": [
+"12"
+],
+"candidate_value": [],
+"rationale": [
+"reference_numeric_tokens_not_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "effect",
+"applicable": true,
+"score": 0.0,
+"relation": "missing",
+"reference_value": [
+"1.6",
+"2.2",
+"2.6",
+"4.7"
+],
+"candidate_value": [
+"-0.4",
+"-0.8",
+"-1.3",
+"-1.6",
+"-2.2",
+"-2.6",
+"-2.8",
+"-3.1",
+"-3.6",
+"-3.8",
+"-4.7",
+"-6.3",
+"0.05",
+"12"
+],
+"rationale": [
+"reference_numeric_tokens_not_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"12"
+],
+"candidate_value": [
+"12"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"311"
+],
+"candidate_value": [
+"311"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 17341711",
+"candidate_value": "RESULTS / CONCLUSIONS",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1001/jama.297.9.969",
+"pmid:17341711"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": [
+"The source explicitly notes questions remain about long-term effects and mechanisms."
+]
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-010",
+"response_id": "RESP-STRICT-B001-010",
+"evidence_id": "EU-B001-010",
+"source_id": "SA-B001-010",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 0.8,
+"ontology_alignment": 1.0,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 1.0,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-010",
+"response_id": "RESP-STRICT-B001-010",
+"evidence_id": "EU-B001-010",
+"source_id": "SA-B001-010",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 0.0,
+"outcome": 1.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 1.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 3,
+"matched_numeric_fields": 3
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Adults aged 20-65 with T2D diagnosed within 6 years, BMI 27-45, not receiving insulin",
+"candidate_value": "Adults aged 20-65 years with type 2 diabetes diagnosed within 6 years, BMI 27-45 kg/m2, not receiving insulin, recruited from 49 primary-care practices in Scotland and Tyneside.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Primary-care multicomponent weight-management program",
+"candidate_value": "Primary-care weight-management program including withdrawal of antidiabetic and antihypertensive drugs, total diet replacement (825-853 kcal/day for 3-5 months), stepped food reintroduction, and structured weight-maintenance support.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": true,
+"score": 0.0,
+"relation": "mismatch",
+"reference_value": "Best-practice guideline care",
+"candidate_value": "Best-practice care by guidelines.",
+"rationale": [
+"insufficient_canonical_overlap"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": ">=15 kg weight loss and diabetes remission at 12 months",
+"candidate_value": "Co-primary outcomes at 12 months: weight loss >=15 kg and diabetes remission defined as HbA1c <6.5% after at least 2 months off all antidiabetic medications.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": ">=15 kg loss 24% vs 0%; remission 46% vs 4%, OR 19.7 (95% CI 7.8-49.8)",
+"candidate_value": "At 12 months, >=15 kg weight loss occurred in 24% of intervention participants and 0% of controls. Diabetes remission occurred in 46% versus 4% (odds ratio 19.7, 95% CI 7.8 to 49.8; P<0.0001). Mean body weight fell by 10.0 kg versus 1.0 kg; adjusted difference -8.8 kg (95% CI -10.3 to -7.3).",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "randomized_controlled_trial",
+"candidate_value": "randomized_controlled_trial",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "interventional_effect",
+"candidate_value": "interventional_effect",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "primary_study",
+"candidate_value": "primary_study",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "numeric",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"0",
+"15",
+"19.7",
+"24",
+"4",
+"46",
+"49.8",
+"7.8"
+],
+"candidate_value": [
+"-10.3",
+"-7.3",
+"-8.8",
+"0",
+"0.0001",
+"1",
+"10",
+"12",
+"15",
+"19.7",
+"24",
+"4",
+"46",
+"49.8",
+"7.8"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"12",
+"15"
+],
+"candidate_value": [
+"12",
+"15",
+"2",
+"6.5"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"20",
+"27",
+"45",
+"6",
+"65"
+],
+"candidate_value": [
+"20",
+"27",
+"45",
+"49",
+"6",
+"65"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 29221645",
+"candidate_value": "METHODS / FINDINGS / INTERPRETATION",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1016/s0140-6736(17)33102-1",
+"pmid:29221645"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": [
+"The trial was open-label and participants, carers, and outcome-data collectors were aware of allocation."
+]
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-011",
+"response_id": "RESP-STRICT-B001-011",
+"evidence_id": "EU-B001-011",
+"source_id": "SA-B001-011",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 1.0,
+"ontology_alignment": 0.6666666666666666,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 1.0,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-011",
+"response_id": "RESP-STRICT-B001-011",
+"evidence_id": "EU-B001-011",
+"source_id": "SA-B001-011",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 1.0,
+"outcome": 1.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 0.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 4,
+"matched_numeric_fields": 4
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "People with type 2 diabetes; synthesis of 73 RCTs across eight dietary patterns",
+"candidate_value": "People with type 2 diabetes represented in 73 randomized controlled trials of eight dietary patterns.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "Alternative dietary patterns",
+"candidate_value": "Eight dietary patterns, including low-carbohydrate and Mediterranean patterns.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Usual diet and other dietary patterns",
+"candidate_value": "Usual diet and other dietary patterns within a Bayesian network meta-analysis.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Body weight, HbA1c, blood pressure and lipids at 6 and 12 months",
+"candidate_value": "Body weight, blood pressure, HbA1c, lipids at 6 and 12 months; modeled relative risk reduction for cardiovascular events based on 6-month risk-factor changes.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "All dietary patterns improved body weight and HbA1c at 6 months versus usual diet; largest estimated body-weight effect was low-carbohydrate (-4.8 kg) and largest HbA1c point estimate Mediterranean (-1.0 percentage point). Evidence was insufficient to identify one optimal dietary pattern.",
+"candidate_value": "At 6 months, all dietary patterns reduced body weight and HbA1c versus usual diet. Largest reported effects were low-carbohydrate for body weight (-4.8 kg, 95% CrI -6.5 to -3.2) and Mediterranean for HbA1c (-1.0%, 95% CrI -15 to -0.4 vs usual diet, copied exactly from source). There were no significant 6-month blood-pressure or lipid effects and 12-month effects were not statistically significant. Mediterranean diet had the largest expected cardiovascular-event RRR, -16% (95% CI -31 to 3.0), which was not statistically significant.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "meta_analysis",
+"candidate_value": "meta_analysis",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 0.0,
+"relation": "mismatch",
+"reference_value": "evidence_synthesis",
+"candidate_value": "interventional_effect",
+"rationale": [
+"canonical_ontology_mismatch"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "evidence_synthesis",
+"candidate_value": "evidence_synthesis",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "numeric",
+"field": "applicability_boundary",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"12"
+],
+"candidate_value": [
+"12"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"-1",
+"-4.8",
+"6"
+],
+"candidate_value": [
+"-0.4",
+"-1",
+"-15",
+"-16",
+"-3.2",
+"-31",
+"-4.8",
+"-6.5",
+"12",
+"3",
+"6"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"12",
+"6"
+],
+"candidate_value": [
+"12",
+"6"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"73"
+],
+"candidate_value": [
+"73"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 36513271",
+"candidate_value": "RESULTS / CONCLUSIONS",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1016/j.diabres.2022.110207",
+"pmid:36513271"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": [
+"The source reports the Mediterranean HbA1c 95% credibility interval as '-15;-0.4 %'; this value is preserved exactly rather than corrected.",
+"The cardiovascular risk-reduction estimate was modeled from risk-factor changes rather than directly observed cardiovascular events."
+]
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-012",
+"response_id": "RESP-STRICT-B001-012",
+"evidence_id": "EU-B001-012",
+"source_id": "SA-B001-012",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 0.8,
+"ontology_alignment": 0.6666666666666666,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 1.0,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-012",
+"response_id": "RESP-STRICT-B001-012",
+"evidence_id": "EU-B001-012",
+"source_id": "SA-B001-012",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 0.0,
+"outcome": 1.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 0.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 1,
+"matched_numeric_fields": 1
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Adults with type 2 diabetes",
+"candidate_value": "Adults with type 2 diabetes in meta-analyses of randomized weight-loss diet trials and intervention studies reporting diabetes remission.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Weight-loss diets including very-low-energy diets and formula meal replacements",
+"candidate_value": "Weight-loss approaches including very-low-energy diets, formula meal replacement, low-carbohydrate, high-protein, Mediterranean, high-MUFA, vegetarian, low-GI and other diets.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": true,
+"score": 0.0,
+"relation": "mismatch",
+"reference_value": "Alternative dietary strategies",
+"candidate_value": "Various control or comparator diets across included reviews and trials.",
+"rationale": [
+"insufficient_canonical_overlap"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "Weight loss and diabetes remission",
+"candidate_value": "Weight loss and type 2 diabetes remission, largely within 1 year.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "Very-low-energy diets and formula meal replacements produced the largest weight-loss effects; low-carbohydrate diets were no better for weight loss than higher-carbohydrate/low-fat diets. Total-diet-replacement programmes had the strongest remission evidence.",
+"candidate_value": "Very-low-energy diets (400-500 kcal/day for 8-12 weeks) achieved 6.6 kg greater weight loss than low-energy diets (95% CI -9.5 to -3.7; GRADE low). Formula meal replacements achieved 2.4 kg greater weight loss over 12-52 weeks (95% CI -3.3 to -1.4; GRADE moderate). Low-carbohydrate diets were no better for weight loss than higher-carbohydrate/low-fat diets (GRADE high). For remission at 1 year, RCTs with initial low-energy total diet replacement reported a median 54% remission; evidence for ketogenic/very-low-carbohydrate and very-low-energy food-based diets was very low certainty.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "systematic_review",
+"candidate_value": "systematic_review",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 0.0,
+"relation": "mismatch",
+"reference_value": "evidence_synthesis",
+"candidate_value": "interventional_effect",
+"rationale": [
+"canonical_ontology_mismatch"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "evidence_synthesis",
+"candidate_value": "evidence_synthesis",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "numeric",
+"field": "applicability_boundary",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"1"
+],
+"candidate_value": [
+"1"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 34796367",
+"candidate_value": "RESULTS / CONCLUSIONS",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1007/s00125-021-05577-2",
+"pmcid:PMC8660762",
+"pmid:34796367"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": [
+"Most evidence was restricted to 1 year or less.",
+"Quality and certainty varied substantially across diet types and reviews."
+]
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-013",
+"response_id": "RESP-STRICT-B001-013",
+"evidence_id": "EU-B001-013",
+"source_id": "SA-B001-013",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 0.9,
+"ontology_alignment": 0.6666666666666666,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 1.0,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-013",
+"response_id": "RESP-STRICT-B001-013",
+"evidence_id": "EU-B001-013",
+"source_id": "SA-B001-013",
+"scientific_core": {
+"population": 0.5,
+"intervention_exposure": 1.0,
+"comparator": 1.0,
+"outcome": 1.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 0.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 1,
+"matched_numeric_fields": 1
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 0.5,
+"relation": "partial",
+"reference_value": "General adult populations without chronic disease in included analyses",
+"candidate_value": "Population-level evidence from 185 prospective studies and 58 randomized clinical trials; prospective studies and trials involving participants with chronic disease were excluded.",
+"rationale": [
+"partial_canonical_overlap"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Higher dietary fibre and whole-grain intake",
+"candidate_value": "Higher dietary fibre and whole-grain intake in trials and prospective studies.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Lower fibre and whole-grain intake",
+"candidate_value": "Lower fibre/whole-grain intake or higher glycaemic index/load, depending on analysis.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "Mortality, cardiovascular outcomes, type 2 diabetes, cancer and cardiometabolic risk factors",
+"candidate_value": "All-cause and cardiovascular mortality, coronary heart disease, stroke, type 2 diabetes, colorectal cancer, and trial risk factors including body weight, systolic blood pressure, and total cholesterol.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "Highest versus lowest fibre intake was associated with approximately 15-30% lower risk across several critical outcomes; clinical trials showed lower body weight, systolic blood pressure and total cholesterol with higher fibre intake. Greatest observed risk reduction was around 25-29 g/day fibre.",
+"candidate_value": "Observational data suggested 15-30% lower all-cause/cardiovascular mortality and several non-communicable disease outcomes when highest versus lowest fibre consumers were compared. Clinical trials showed significantly lower body weight, systolic blood pressure, and total cholesterol with higher fibre intake. Risk reduction was greatest at 25-29 g/day of fibre; certainty was moderate for fibre, low-to-moderate for whole grains, and low-to-very-low for glycaemic index/load.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "meta_analysis",
+"candidate_value": "meta_analysis",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 0.0,
+"relation": "mismatch",
+"reference_value": "evidence_synthesis",
+"candidate_value": "recommendation",
+"rationale": [
+"canonical_ontology_mismatch"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "evidence_synthesis",
+"candidate_value": "evidence_synthesis",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "numeric",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"15",
+"25",
+"29",
+"30"
+],
+"candidate_value": [
+"15",
+"25",
+"29",
+"30"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 30638909",
+"candidate_value": "FINDINGS / INTERPRETATION",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1016/s0140-6736(18)31809-9",
+"pmid:30638909"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": [
+"The evidence combines observational prospective studies with randomized trials of risk factors; causal interpretation differs by evidence type."
+]
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-014",
+"response_id": "RESP-STRICT-B001-014",
+"evidence_id": "EU-B001-014",
+"source_id": "SA-B001-014",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 1.0,
+"ontology_alignment": 0.6666666666666666,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 0.5,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-014",
+"response_id": "RESP-STRICT-B001-014",
+"evidence_id": "EU-B001-014",
+"source_id": "SA-B001-014",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 1.0,
+"outcome": 1.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 0.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 2,
+"matched_numeric_fields": 1
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "104707 adults in the French NutriNet-Sante cohort",
+"candidate_value": "104,707 adults aged 18 years or older in the French NutriNet-Sante prospective cohort (2009-2019), free of the outcome at baseline as analyzed.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "Higher ultraprocessed-food share of the diet",
+"candidate_value": "Ultraprocessed food consumption measured by repeated 24-hour dietary records and classified with NOVA.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": false,
+"score": 1.0,
+"relation": "not_applicable",
+"reference_value": null,
+"candidate_value": "Lower ultraprocessed food consumption; models estimated risk per incremental UPF exposure.",
+"rationale": [
+"reference_not_applicable"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Incident type 2 diabetes",
+"candidate_value": "Incident type 2 diabetes.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "Each absolute 10-percentage-point higher UPF share was associated with HR 1.15 (95% CI 1.06-1.25) for incident T2D over median 6.0 years.",
+"candidate_value": "Absolute T2D rates were 113 and 166 per 100,000 person-years in the lowest and highest UPF consumers. Each absolute 10-percentage-point increase in UPF share of the diet was associated with HR 1.15 (95% CI 1.06 to 1.25); estimates remained significant after additional adjustments. A 100 g/day increase was associated with HR 1.05 (95% CI 1.02 to 1.08).",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "cohort",
+"candidate_value": "cohort",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 0.0,
+"relation": "mismatch",
+"reference_value": "observational_association",
+"candidate_value": "recommendation",
+"rationale": [
+"canonical_ontology_mismatch"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "primary_study",
+"candidate_value": "primary_study",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "numeric",
+"field": "effect",
+"applicable": true,
+"score": 0.8,
+"relation": "partial",
+"reference_value": [
+"1.06",
+"1.15",
+"1.25",
+"10",
+"6"
+],
+"candidate_value": [
+"1.02",
+"1.05",
+"1.06",
+"1.08",
+"1.15",
+"1.25",
+"10",
+"100",
+"100000",
+"113",
+"166"
+],
+"rationale": [
+"partial_reference_numeric_token_recovery"
+]
+},
+{
+"dimension": "numeric",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"104707"
+],
+"candidate_value": [
+"104707",
+"18",
+"2009",
+"2019"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 31841598",
+"candidate_value": "RESULTS / CONCLUSIONS AND RELEVANCE",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1001/jamainternmed.2019.5942",
+"pmcid:PMC6990737",
+"pmid:31841598"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": [
+"Observational cohort design leaves potential residual confounding.",
+"The authors state that results need confirmation in other populations and settings."
+]
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-015",
+"response_id": "RESP-STRICT-B001-015",
+"evidence_id": "EU-B001-015",
+"source_id": "SA-B001-015",
+"response_status": "defer",
+"score_vector": {
+"scientific_semantic_recovery": 0.8,
+"ontology_alignment": 0.0,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 1.0,
+"safe_abstention_quality": 1.0
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-015",
+"response_id": "RESP-STRICT-B001-015",
+"evidence_id": "EU-B001-015",
+"source_id": "SA-B001-015",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 1.0,
+"outcome": 1.0,
+"effect": 0.0
+},
+"ontology": {
+"study_design": 0.0,
+"claim_type": 0.0,
+"evidence_role": 0.0
+},
+"numeric": {
+"normalized_numeric_fields": 0,
+"matched_numeric_fields": 0
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": true,
+"correct_abstention": true
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Adults with diabetes or prediabetes",
+"candidate_value": "Adults with diabetes or prediabetes, as stated in the title.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": false,
+"score": 1.0,
+"relation": "not_applicable",
+"reference_value": null,
+"candidate_value": "Nutrition therapy, as stated in the title.",
+"rationale": [
+"reference_not_applicable"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": false,
+"score": 1.0,
+"relation": "not_applicable",
+"reference_value": null,
+"candidate_value": null,
+"rationale": [
+"reference_not_applicable"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": false,
+"score": 1.0,
+"relation": "not_applicable",
+"reference_value": null,
+"candidate_value": null,
+"rationale": [
+"reference_not_applicable"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 0.0,
+"relation": "missing",
+"reference_value": "Individualized diabetes-focused medical nutrition therapy is recommended; the report states that no one-size-fits-all eating plan or ideal macronutrient percentage applies to all people with or at risk for diabetes.",
+"candidate_value": null,
+"rationale": [
+"candidate_missing",
+"reference_recommendation_mapped_to_effect_axis"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 0.0,
+"relation": "no_completed_semantic_output",
+"reference_value": "consensus",
+"candidate_value": "consensus",
+"rationale": [
+"response_not_completed"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 0.0,
+"relation": "no_completed_semantic_output",
+"reference_value": "recommendation",
+"candidate_value": "recommendation",
+"rationale": [
+"response_not_completed"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 0.0,
+"relation": "no_completed_semantic_output",
+"reference_value": "consensus",
+"candidate_value": "consensus",
+"rationale": [
+"response_not_completed"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PMC full text PMCID PMC7011201 / PMID 31000505",
+"candidate_value": "TITLE / PUBMED ABSTRACT STATUS",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.2337/dci19-0014",
+"pmcid:PMC7011201",
+"pmid:31000505"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": true,
+"score": 1.0,
+"relation": "correct_safe_abstention",
+"reference_value": {
+"source_information_insufficient": true
+},
+"candidate_value": {
+"abstained": true,
+"uncertainties": [
+"The supplied source text contains only the title and states that the PubMed abstract is unavailable; specific recommendations cannot be extracted without guessing."
+]
+},
+"rationale": [
+"source_insufficient_and_worker_deferred"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-016",
+"response_id": "RESP-STRICT-B001-016",
+"evidence_id": "EU-B001-016",
+"source_id": "SA-B001-016",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 0.9,
+"ontology_alignment": 1.0,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 1.0,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-016",
+"response_id": "RESP-STRICT-B001-016",
+"evidence_id": "EU-B001-016",
+"source_id": "SA-B001-016",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 1.0,
+"outcome": 1.0,
+"effect": 0.5
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 1.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 0,
+"matched_numeric_fields": 0
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "People with CKD across non-dialysis, dialysis and transplant settings",
+"candidate_value": "Patients with chronic kidney disease, including stages 1-5 CKD not receiving dialysis, end-stage/advanced CKD, and patients with a functional kidney transplant.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": false,
+"score": 1.0,
+"relation": "not_applicable",
+"reference_value": null,
+"candidate_value": "Dietary management and medical nutrition therapy across nutritional assessment, protein and energy intake, supplementation, micronutrients, and electrolytes.",
+"rationale": [
+"reference_not_applicable"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": false,
+"score": 1.0,
+"relation": "not_applicable",
+"reference_value": null,
+"candidate_value": null,
+"rationale": [
+"reference_not_applicable"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": false,
+"score": 1.0,
+"relation": "not_applicable",
+"reference_value": null,
+"candidate_value": "The supplied excerpt describes guideline scope and development rather than a specific quantitative clinical outcome.",
+"rationale": [
+"reference_not_applicable"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 0.5,
+"relation": "partial",
+"reference_value": "The KDOQI guideline addresses nutritional assessment, medical nutrition therapy, dietary protein and energy intake, supplementation, micronutrients and electrolytes using GRADE-evaluated statements.",
+"candidate_value": "The source establishes an evidence-based guideline covering six primary nutrition areas and indicates that statements were evaluated with GRADE; no specific numeric prescription is supplied in the excerpt.",
+"rationale": [
+"partial_canonical_overlap",
+"reference_recommendation_mapped_to_effect_axis",
+"candidate_recommendation_mapped_to_effect_axis"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "guideline",
+"candidate_value": "guideline",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "recommendation",
+"candidate_value": "recommendation",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "guideline",
+"candidate_value": "guideline",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 32829751",
+"candidate_value": "GUIDELINE SCOPE / DEVELOPMENT",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1053/j.ajkd.2020.05.006",
+"pmid:32829751"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": [
+"The excerpt does not contain individual guideline statements, recommendation grades, or numeric nutrient targets."
+]
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-017",
+"response_id": "RESP-STRICT-B001-017",
+"evidence_id": "EU-B001-017",
+"source_id": "SA-B001-017",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 1.0,
+"ontology_alignment": 1.0,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 1.0,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-017",
+"response_id": "RESP-STRICT-B001-017",
+"evidence_id": "EU-B001-017",
+"source_id": "SA-B001-017",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 1.0,
+"outcome": 1.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 1.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 0,
+"matched_numeric_fields": 0
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Older adults",
+"candidate_value": "Older persons, including those with malnutrition or risk of malnutrition, specific diseases, dehydration risk, and obese older persons with weight-related health problems.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": false,
+"score": 1.0,
+"relation": "not_applicable",
+"reference_value": null,
+"candidate_value": "Individualized nutrition and hydration care including screening, nursing support, education, counseling, food modification, oral supplements, and enteral/parenteral nutrition when indicated.",
+"rationale": [
+"reference_not_applicable"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": false,
+"score": 1.0,
+"relation": "not_applicable",
+"reference_value": null,
+"candidate_value": null,
+"rationale": [
+"reference_not_applicable"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": false,
+"score": 1.0,
+"relation": "not_applicable",
+"reference_value": null,
+"candidate_value": "Prevention/treatment of malnutrition and dehydration and support of nutritional status, clinical course, and quality of life.",
+"rationale": [
+"reference_not_applicable"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "Routine malnutrition screening is recommended; unnecessary dietary restrictions should generally be avoided; weight-reducing diets should be considered only in obese older persons with weight-related health problems and combined with physical exercise; care should be individualized and multidisciplinary.",
+"candidate_value": "Routinely screen all older persons for malnutrition; support oral nutrition as needed; use enteral nutrition when oral intake is insufficient or impossible and parenteral nutrition when enteral intake is insufficient or impossible if prognosis is favorable; generally avoid dietary restrictions; consider weight-reducing diets only in obese older persons with weight-related health problems and combine with physical exercise; encourage adequate fluid intake; individualize care within a multimodal multidisciplinary approach.",
+"rationale": [
+"canonical_concepts_compatible",
+"reference_recommendation_mapped_to_effect_axis",
+"candidate_recommendation_mapped_to_effect_axis"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "guideline",
+"candidate_value": "guideline",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "recommendation",
+"candidate_value": "recommendation",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "guideline",
+"candidate_value": "guideline",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 35306388",
+"candidate_value": "RESULTS / CONCLUSION",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1016/j.clnu.2022.01.024",
+"pmid:35306388"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": []
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-018",
+"response_id": "RESP-STRICT-B001-018",
+"evidence_id": "EU-B001-018",
+"source_id": "SA-B001-018",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 1.0,
+"ontology_alignment": 0.6666666666666666,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 0.0,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-018",
+"response_id": "RESP-STRICT-B001-018",
+"evidence_id": "EU-B001-018",
+"source_id": "SA-B001-018",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 1.0,
+"outcome": 1.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 0.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 1,
+"matched_numeric_fields": 0
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Participants in controlled salt-reduction trials",
+"candidate_value": "Participants in 50 controlled trials of salt-reduction interventions, with no restriction by age, sex, or hypertension status in the systematic review.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Salt substitution or nutrition education",
+"candidate_value": "Salt substitution, nutrition education, self-help materials, or food reformulation.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": false,
+"score": 1.0,
+"relation": "not_applicable",
+"reference_value": null,
+"candidate_value": "Control/comparator conditions within included controlled trials.",
+"rationale": [
+"reference_not_applicable"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Systolic and diastolic blood pressure",
+"candidate_value": "Systolic and diastolic blood pressure.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "partial",
+"reference_value": "Salt substitution reduced SBP by 7.44 mmHg and DBP by 3.77 mmHg; nutrition education reduced SBP by 2.75 mmHg and DBP by 2.11 mmHg in pooled analyses.",
+"candidate_value": "Pooled eligible trials showed salt substitution reduced SBP by WMD -7.44 mmHg and DBP by -3.77 mmHg (both P<0.001), while nutrition education reduced SBP by -2.75 mmHg and DBP by -2.11 mmHg (both P<0.001). Self-help materials reduced SBP by -2.60 mmHg in ages 25-60 (P=0.008) and, among hypertensive participants, SBP by -3.87 mmHg (P=0.003) and DBP by -2.91 mmHg (P<0.001).",
+"rationale": [
+"partial_canonical_overlap",
+"insufficient_numeric_coverage"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "meta_analysis",
+"candidate_value": "meta_analysis",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 0.0,
+"relation": "mismatch",
+"reference_value": "evidence_synthesis",
+"candidate_value": "interventional_effect",
+"rationale": [
+"canonical_ontology_mismatch"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "evidence_synthesis",
+"candidate_value": "evidence_synthesis",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "numeric",
+"field": "effect",
+"applicable": true,
+"score": 0.0,
+"relation": "missing",
+"reference_value": [
+"2.11",
+"2.75",
+"3.77",
+"7.44"
+],
+"candidate_value": [
+"-2.11",
+"-2.6",
+"-2.75",
+"-2.91",
+"-3.77",
+"-3.87",
+"-7.44",
+"0.001",
+"0.003",
+"0.008",
+"25",
+"60"
+],
+"rationale": [
+"reference_numeric_tokens_not_recovered"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 36477548",
+"candidate_value": "RESULTS / CONCLUSION",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1371/journal.pone.0277929",
+"pmcid:PMC9728935",
+"pmid:36477548"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": [
+"The source notes that further trials are required."
+]
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-019",
+"response_id": "RESP-STRICT-B001-019",
+"evidence_id": "EU-B001-019",
+"source_id": "SA-B001-019",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 1.0,
+"ontology_alignment": 0.6666666666666666,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 0.5,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-019",
+"response_id": "RESP-STRICT-B001-019",
+"evidence_id": "EU-B001-019",
+"source_id": "SA-B001-019",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 1.0,
+"outcome": 1.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 0.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 2,
+"matched_numeric_fields": 1
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "1.97 million adults from 31 cohorts in 20 countries without diabetes at baseline",
+"candidate_value": "1,966,444 adults aged 18 years or older across 31 cohorts in 20 countries, excluding people with diabetes at baseline; 107,271 incident T2D cases.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Unprocessed red meat, processed meat and poultry",
+"candidate_value": "Consumption of unprocessed red meat, processed meat, and poultry.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": false,
+"score": 1.0,
+"relation": "not_applicable",
+"reference_value": null,
+"candidate_value": "Lower consumption, modeled continuously within cohorts and pooled by random-effects meta-analysis.",
+"rationale": [
+"reference_not_applicable"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Incident type 2 diabetes",
+"candidate_value": "Incident type 2 diabetes.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "HR 1.10 per 100 g/day unprocessed red meat, 1.15 per 50 g/day processed meat and 1.08 per 100 g/day poultry; poultry finding was less robust under alternative modelling assumptions.",
+"candidate_value": "Higher consumption was associated with HR 1.10 (95% CI 1.06 to 1.15) per 100 g/day unprocessed red meat, HR 1.15 (1.11 to 1.20) per 50 g/day processed meat, and HR 1.08 (1.02 to 1.14) per 100 g/day poultry. Poultry findings were weaker under alternative modeling assumptions. Replacing processed meat with unprocessed red meat or poultry was associated with lower T2D incidence.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "meta_analysis",
+"candidate_value": "meta_analysis",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 0.0,
+"relation": "mismatch",
+"reference_value": "observational_association",
+"candidate_value": "recommendation",
+"rationale": [
+"canonical_ontology_mismatch"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "evidence_synthesis",
+"candidate_value": "evidence_synthesis",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "numeric",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"1.08",
+"1.1",
+"1.15",
+"100",
+"50"
+],
+"candidate_value": [
+"1.02",
+"1.06",
+"1.08",
+"1.1",
+"1.11",
+"1.14",
+"1.15",
+"1.2",
+"100",
+"50"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "population",
+"applicable": true,
+"score": 0.6666666666666666,
+"relation": "partial",
+"reference_value": [
+"1.97",
+"20",
+"31"
+],
+"candidate_value": [
+"107271",
+"18",
+"1966",
+"20",
+"31",
+"444"
+],
+"rationale": [
+"partial_reference_numeric_token_recovery"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 39174161",
+"candidate_value": "FINDINGS / INTERPRETATION",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1016/s2213-8587(24)00179-7",
+"pmid:39174161"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": [
+"Observational cohort evidence cannot by itself establish causation.",
+"Poultry associations were weaker under alternative modeling assumptions.",
+"Confidence intervals were wide in regions outside North America, Europe, and the Western Pacific."
+]
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+},
+{
+"task_id": "TASK-BLIND-B001-020",
+"response_id": "RESP-STRICT-B001-020",
+"evidence_id": "EU-B001-020",
+"source_id": "SA-B001-020",
+"response_status": "completed",
+"score_vector": {
+"scientific_semantic_recovery": 1.0,
+"ontology_alignment": 0.6666666666666666,
+"provenance_recovery": 1.0,
+"numeric_fidelity": 1.0,
+"safe_abstention_quality": null
+},
+"evaluation": {
+"task_id": "TASK-BLIND-B001-020",
+"response_id": "RESP-STRICT-B001-020",
+"evidence_id": "EU-B001-020",
+"source_id": "SA-B001-020",
+"scientific_core": {
+"population": 1.0,
+"intervention_exposure": 1.0,
+"comparator": 1.0,
+"outcome": 1.0,
+"effect": 1.0
+},
+"ontology": {
+"study_design": 1.0,
+"claim_type": 0.0,
+"evidence_role": 1.0
+},
+"numeric": {
+"normalized_numeric_fields": 2,
+"matched_numeric_fields": 2
+},
+"provenance": {
+"visible_anchor_score": 1.0,
+"external_identifier_score": null
+},
+"abstention": {
+"applicable": false,
+"correct_abstention": null
+},
+"metadata": {
+"evaluator_version": "EvaluatorV2-v0.1",
+"created_at": "2026-10-01T04:36:07Z",
+"worker_visible_information": [
+"source_text",
+"source_snapshot.source_type",
+"source_snapshot.identifiers",
+"source_snapshot.publication_types",
+"source_url",
+"task_contract"
+],
+"reference_visible_information": [
+"frozen_evidence_unit",
+"source_fixture",
+"task_manifest"
+]
+}
+},
+"field_comparisons": [
+{
+"dimension": "scientific_core",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "compatible_superset",
+"reference_value": "Prospective cohort populations across 16 studies",
+"candidate_value": "Participants in 16 prospective cohort studies of grain intake and incident type 2 diabetes.",
+"rationale": [
+"canonical_concepts_compatible"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "intervention_exposure",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Whole-grain and refined-grain intake",
+"candidate_value": "Whole-grain and refined-grain intake.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "comparator",
+"applicable": false,
+"score": 1.0,
+"relation": "not_applicable",
+"reference_value": null,
+"candidate_value": "Lower intake, with dose-response estimates per 3 servings/day.",
+"rationale": [
+"reference_not_applicable"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "outcome",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Incident type 2 diabetes",
+"candidate_value": "Incident type 2 diabetes.",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "scientific_core",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "Per 3 servings/day of whole grains, summary RR 0.68 (95% CI 0.58-0.81; I2=82%); refined grains RR 0.95 (95% CI 0.88-1.04).",
+"candidate_value": "Summary relative risk per 3 servings/day was 0.68 (95% CI 0.58 to 0.81; I2=82%; n=10) for whole grains and 0.95 (95% CI 0.88 to 1.04; I2=53%; n=6) for refined grains. Whole grains showed a nonlinear association (P nonlinearity <0.0001), whereas refined grains did not (P=0.10).",
+"rationale": [
+"canonical_concepts_equivalent"
+]
+},
+{
+"dimension": "ontology",
+"field": "study_design",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "meta_analysis",
+"candidate_value": "meta_analysis",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "ontology",
+"field": "claim_type",
+"applicable": true,
+"score": 0.0,
+"relation": "mismatch",
+"reference_value": "observational_association",
+"candidate_value": "recommendation",
+"rationale": [
+"canonical_ontology_mismatch"
+]
+},
+{
+"dimension": "ontology",
+"field": "evidence_role",
+"applicable": true,
+"score": 1.0,
+"relation": "equivalent",
+"reference_value": "evidence_synthesis",
+"candidate_value": "evidence_synthesis",
+"rationale": [
+"exact_canonical_ontology_match"
+]
+},
+{
+"dimension": "numeric",
+"field": "effect",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"0.58",
+"0.68",
+"0.81",
+"0.88",
+"0.95",
+"1.04",
+"3",
+"82"
+],
+"candidate_value": [
+"0.0001",
+"0.1",
+"0.58",
+"0.68",
+"0.81",
+"0.88",
+"0.95",
+"1.04",
+"10",
+"3",
+"53",
+"6",
+"82"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "numeric",
+"field": "population",
+"applicable": true,
+"score": 1.0,
+"relation": "matched",
+"reference_value": [
+"16"
+],
+"candidate_value": [
+"16"
+],
+"rationale": [
+"all_reference_numeric_tokens_recovered"
+]
+},
+{
+"dimension": "provenance",
+"field": "visible_anchor",
+"applicable": true,
+"score": 1.0,
+"relation": "source_span_supported",
+"reference_value": "PubMed abstract PMID 24158434",
+"candidate_value": "META-ANALYSIS RESULTS / CONCLUSION",
+"rationale": [
+"candidate_source_span_supported_by_worker_visible_source"
+]
+},
+{
+"dimension": "provenance",
+"field": "external_identifier",
+"applicable": false,
+"score": null,
+"relation": "not_asserted",
+"reference_value": [
+"doi:10.1007/s10654-013-9852-5",
+"pmid:24158434"
+],
+"candidate_value": [],
+"rationale": [
+"candidate_did_not_assert_external_identifier"
+]
+},
+{
+"dimension": "abstention",
+"field": "safe_abstention",
+"applicable": false,
+"score": null,
+"relation": "not_applicable",
+"reference_value": {
+"source_information_insufficient": false
+},
+"candidate_value": {
+"abstained": false,
+"uncertainties": [
+"Between-study heterogeneity was high for whole grains (I2=82%).",
+"Specific whole-grain subtype findings were based on few studies."
+]
+},
+"rationale": [
+"source_sufficient_and_worker_completed"
+]
+}
+]
+}
+]
+}

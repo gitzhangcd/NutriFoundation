@@ -10,6 +10,12 @@ from .compatibility import (
     map_frozen_v1_batch,
     map_v1_case,
 )
+from .scoring import (
+    FieldComparisonV2,
+    ScoredCaseV2,
+    score_batch_v2,
+    score_case_v2,
+)
 from .schema import (
     AbstentionResult,
     EvaluationMetadata,
@@ -31,11 +37,15 @@ __all__ = [
     "CompatibilityCaseV2",
     "CompatibilityMetadata",
     "EvaluationMetadata",
+    "FieldComparisonV2",
     "EvaluationResultV2",
     "NumericFidelityResult",
     "OntologyAlignmentResult",
     "ProvenanceResult",
     "ScientificCoreResult",
+    "ScoredCaseV2",
     "map_frozen_v1_batch",
     "map_v1_case",
+    "score_batch_v2",
+    "score_case_v2",
 ]

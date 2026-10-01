@@ -86,6 +86,21 @@ def _dimension_map(v2_report: dict[str, Any]) -> dict[str, dict[str, Any]]:
     }
 
 
+def _a26_semantic_projection(report: dict[str, Any]) -> dict[str, Any]:
+    projected = {
+        **report,
+        "response_set": dict(report["response_set"]),
+        "source_fixture": dict(report["source_fixture"]),
+        "hidden_reference": dict(report["hidden_reference"]),
+        "task_manifest": dict(report["task_manifest"]),
+    }
+    projected["response_set"]["path"] = "<repo-relative-or-absolute>"
+    projected["source_fixture"]["path"] = "<repo-relative-or-absolute>"
+    projected["hidden_reference"]["path"] = "<repo-relative-or-absolute>"
+    projected["task_manifest"]["path"] = "<repo-relative-or-absolute>"
+    return projected
+
+
 def build_e3_paper_evidence_package(
     *,
     root: str | Path = ".",
@@ -159,7 +174,8 @@ def build_e3_paper_evidence_package(
         expected_response_set_sha256=STRICT_RESPONSE_SHA256,
     )
     a26_semantic_equal = (
-        rerun_a26.model_dump(mode="json") == a26
+        _a26_semantic_projection(rerun_a26.model_dump(mode="json"))
+        == _a26_semantic_projection(a26)
     )
     original_ci_output_sha = _sidecar_digest(a26_sidecar)
     manifest_ci_output_sha = a26_manifest["frozen_output"]["sha256"]
@@ -333,7 +349,7 @@ def build_e3_paper_evidence_package(
         ScientificClaim(
             claim_id="E3-C02",
             statement=(
-                "Twenty-one of 44 V1 canonical non-equivalent field events "
+                "21 of 44 V1 canonical non-equivalent field events "
                 "are confirmed evaluator artifacts under the frozen A2.7 rules."
             ),
             status="SUPPORTED_WITHIN_FROZEN_BATCH",

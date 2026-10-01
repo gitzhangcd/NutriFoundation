@@ -1,3 +1,8 @@
+from .consolidation import (
+    E3PaperEvidencePackage,
+    build_e3_paper_evidence_package,
+    write_e3_paper_evidence_package,
+)
 from .discrepancy import (
     DiscrepancyAttributionReport,
     build_discrepancy_attribution_report,
@@ -35,6 +40,7 @@ from .schema import (
 
 __all__ = [
     "AbstentionResult",
+    "E3PaperEvidencePackage",
     "DiscrepancyAttributionReport",
     "BatchEvaluationReportV2",
     "CanonicalAbstentionInput",
@@ -54,6 +60,7 @@ __all__ = [
     "ScientificCoreResult",
     "ScoredCaseV2",
     "build_discrepancy_attribution_report",
+    "build_e3_paper_evidence_package",
     "map_frozen_v1_batch",
     "map_v1_case",
     "score_batch_v2",
@@ -61,4 +68,5 @@ __all__ = [
     "run_frozen_response_set_v2",
     "write_batch_report_v2",
     "write_discrepancy_report",
+    "write_e3_paper_evidence_package",
 ]

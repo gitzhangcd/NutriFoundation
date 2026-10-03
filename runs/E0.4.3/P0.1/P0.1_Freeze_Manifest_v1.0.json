@@ -1,0 +1,47 @@
+{
+  "stage_id": "E0.4.3-P0.1",
+  "title": "Gold100 Independent Scientific Evidence Ownership, Annotation Independence, Adjudication & Gold Freeze Contract",
+  "version": "v1.0",
+  "date": "2026-10-03",
+  "status": "PASS_FROZEN",
+  "parent": "E0.4.3-R0",
+  "authority_artifacts": [
+    "docs/E0.4.3-P0.1_Gold100_Independent_Scientific_Evidence_Ownership_Annotation_Independence_Adjudication_Gold_Freeze_Contract_v1.0.md",
+    "paper_c/P0.1/Gold100_Gold_Governance_Contract_v1.0.json",
+    "paper_c/P0.1/Gold100_Annotation_Record_Schema_v1.0.json",
+    "paper_c/P0.1/Gold100_Independent_Annotation_Manual_v1.0.md"
+  ],
+  "gold_definition": "Independent source-grounded adjudicated scientific reference",
+  "gold_owner": "Gold100 Independent Gold Panel",
+  "role_separation": {
+    "gold_panel_vs_AB0": "hard_person_level_separation",
+    "gold_panel_vs_AB1_AB6_development_and_operation": "prohibited",
+    "A_vs_B_first_pass": "independent_and_blind",
+    "adjudicator_distinct_from_A_B_per_source": true,
+    "Gold_Custodian_scientific_edit_authority": false
+  },
+  "AB0_status": "human_only_operational_comparator_not_gold",
+  "old_expert_reference_schema_reused": false,
+  "opportunity_denominator": {
+    "created_from_gold_before_AB_scoring": true,
+    "AB_performance_may_modify": false,
+    "types": 8
+  },
+  "agreement_gates": {
+    "critical_categorical_Gwet_AC1": ">=0.80",
+    "ordinal_weighted_agreement": ">=0.80",
+    "numeric_agreement": ">=0.95",
+    "source_span_token_F1": ">=0.85"
+  },
+  "freeze_states": [
+    "SOURCE_GOLD_PROVISIONAL",
+    "GOLD100_FROZEN"
+  ],
+  "post_unblinding_semantic_gold_change": "PROHIBITED_FOR_CURRENT_CONFIRMATORY_CLAIM",
+  "gold_annotation_time_in_HBR": false,
+  "non_regression": {
+    "status": "PASS",
+    "checks": 12
+  },
+  "next_stage": "E0.4.3-P0.2.1"
+}

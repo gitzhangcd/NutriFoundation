@@ -1,0 +1,203 @@
+study: Paper_C_Scientific_Evidence_Production
+stage: E0.4.3-R0
+version: v1.0
+status: frozen_prospective_measurement_contract
+effective_scope: Gold100_confirmatory_program_only
+
+scientific_identity:
+  primary_question: "Which workflow architecture minimizes critical scientific error subject to human burden, cost, time, and traceability?"
+  comparison_unit: workflow_architecture
+  clustering_unit: SourceArtifact
+  confirmatory_corpus: Paper_C_Gold100
+  development_evidence_excluded:
+    - Batch001
+    - E0.1-E0.4 development runs
+    - E0.4.2 A2.8 descriptive results as confirmatory evidence
+
+scope_boundary:
+  included:
+    - source_conditioned_scientific_evidence_production
+    - SourceArtifact
+    - StudyIdentity
+    - EvidenceUnit
+    - source_span
+    - provenance
+    - version_status
+    - critical_error_opportunities
+  excluded_from_paper_c_confirmatory_task:
+    - NHANES_individual_subject_cases
+    - personalized_nutrition_decision_episodes
+    - patient_specific_recommendation_generation
+    - downstream_clinical_decision_effectiveness
+  note: "Individual-world applicability and DecisionEpisode studies remain separate future programs."
+
+gold100_alignment:
+  confirmatory_source_count: 100
+  composition:
+    core: 80
+    stress: 20
+  domain_split:
+    nutrition_metabolic_cardiometabolic: 80
+    external_biomedical_or_public_health: 20
+  sampling_seed: 20260930
+  eligible_pool_must_be_frozen_and_hashed_before_sampling: true
+  batch002_role: "candidate-source mining and eligible-pool construction for Gold100; not a separate benchmark"
+  raw_candidate_mining_floor: 260
+  terminal_qualified_pool_size_fixed_at_80: false
+  final_selection:
+    core: stratified_deterministic_random
+    stress: rule_based_eligibility_then_deterministic_random_within_challenge_strata
+
+claim_type_ontology:
+  status: closed
+  allowed_values:
+    descriptive:
+      definition: "A factual state, frequency, distribution, or non-relational characterization without asserting an exposure-outcome relation."
+    associative:
+      definition: "A reported statistical or observational relation without a causal claim."
+    causal:
+      definition: "A causal-effect claim explicitly warranted by the source's design and/or stated interpretation; observational association must never be upgraded solely by evaluator inference."
+    mechanistic:
+      definition: "A biological, physiological, molecular, or process-level mechanistic claim explicitly supported by the source."
+    recommendation_support:
+      definition: "A normative recommendation or an evidence statement explicitly used to support a recommendation, with authority and exceptions preserved."
+  mapping_policy:
+    preserve_raw_legacy_kind: true
+    force_mapping_when_unambiguous: true
+    ambiguous_mapping_action: UNMAPPABLE_ESCALATE
+    invent_new_type_during_confirmatory_run: false
+    post_unblinding_mapping_change: prohibited
+
+applicability_boundary_contract:
+  purpose: "Create an isomorphic source-level boundary representation for Gold100 scoring."
+  level: source_level_evidence_scope
+  not_individual_subject_matching: true
+  dimensions:
+    - population_scope
+    - intervention_or_exposure_scope
+    - comparator_scope
+    - outcome_scope
+    - setting_context
+    - temporal_scope
+    - normative_exceptions
+    - exclusions_or_contraindications
+    - evidence_limitations
+  per_dimension_status:
+    - match
+    - partial
+    - mismatch
+    - not_applicable
+    - insufficient_source
+  scoring_rules:
+    insufficient_source_is_not_forced_error: true
+    not_applicable_is_excluded_from_denominator: true
+    critical_if_material_scope_corruption: true
+    critical_examples:
+      - material_population_broadening_or_substitution
+      - material_intervention_or_exposure_substitution
+      - material_outcome_substitution
+      - deletion_of_material_recommendation_exception
+      - contraindication_loss
+      - temporal_scope_corruption
+  historical_policy: "Prospective contract only; A2.8 historical nine non-isomorphic events remain frozen and are not retroactively reclassified."
+
+critical_error_opportunity_contract:
+  denominator_unit: applicable_critical_error_opportunity
+  opportunity_types:
+    - effect_direction
+    - critical_numeric_result
+    - StudyIdentity_or_dependency
+    - causal_level
+    - recommendation_normativity_or_exception
+    - provenance_or_source_span
+    - version_retraction_or_temporal_status
+    - critical_PICO_scope
+  critical_error_events:
+    - effect_reversal
+    - materially_wrong_numeric_result
+    - wrong_StudyIdentity_causing_double_counting
+    - association_to_causation_upgrade
+    - false_formal_recommendation
+    - deleted_material_recommendation_exception
+    - unsupported_scientific_assertion
+    - invalid_source_or_version_use
+    - future_information_leakage
+    - material_population_intervention_or_outcome_scope_corruption
+  primary_endpoint: "CSER = CriticalScientificErrorEvents / ApplicableCriticalErrorOpportunities"
+  high_average_field_accuracy_cannot_cancel_critical_error: true
+
+numeric_fidelity_contract:
+  source_reported_values:
+    canonical_representation_equivalence_allowed: true
+    examples:
+      - "0.30 == .30"
+      - "30% == 0.30 only when explicit unit conversion is preserved"
+    copied_numeric_values_default_tolerance: exact_after_canonicalization
+    rounding_policy: "A value is equivalent only when it falls within one-half unit of the last source-reported decimal place after unit normalization."
+    derived_values_as_critical_gold: prohibited_unless_formula_and_tolerance_are_predeclared
+
+provenance_and_span_contract:
+  source_identity_binding_required: true
+  exact_source_text_binding_required: true
+  source_span_validity:
+    requires_span_present_in_worker_visible_source_text: true
+    requires_span_supports_scientific_object: true
+    material_omission_invalidates_support: true
+  hidden_reference_may_not_be_used_for_worker_routing: true
+
+study_identity_contract:
+  resolve_companion_dependency_where_applicable: true
+  prevent_double_counting: true
+  ambiguous_identity_action: escalate
+  wrong_identity_with_material_double_counting: critical_error
+
+temporal_version_contract:
+  evidence_cutoff_must_be_fixed_per_case: true
+  correction_retraction_living_version_status_must_be_resolved_where_applicable: true
+  use_of_future_information: critical_error
+  invalid_version_use: critical_error
+
+gold_annotation_contract:
+  definition: best_available_adjudicated_reference_not_infallible_truth
+  annotators:
+    independent_A: true
+    independent_B: true
+    adjudicator_for_disagreement: true
+  blind_to_AB_outputs: true
+  minimum_freeze_gates:
+    critical_categorical_fields_Gwet_AC1: ">=0.80"
+    ordinal_weighted_agreement: ">=0.80"
+    numeric_exact_or_predeclared_tolerance_agreement: ">=0.95"
+    source_span_token_F1: ">=0.85"
+  failure_action: repair_codebook_and_recalibrate_before_confirmatory_execution
+  post_hoc_gold_edit_to_improve_model_performance: prohibited
+
+human_burden_contract:
+  endpoint: ExpertMinutesPerSource
+  HBR_formula: "1 - ExpertTime_Workflow / ExpertTime_AB0"
+  idle_period_exclusion_minutes: 5
+  gold_adjudication_time_separate_from_AB6_production_burden: true
+
+AB6_publication_gate:
+  safety_noninferiority_margin_absolute: 0.02
+  decision_rule: "upper one-sided 95% CI of CSER_AB6 - CSER_AB0 < 0.02"
+  absolute_CSER_ceiling: 0.05
+  minimum_HBR: 0.30
+  paired_time_reduction_CI_must_exclude_zero: true
+
+frozen_upstream_contracts:
+  AB0_AB6_baselines: paper_c/P0/AB0_AB6_Baseline_Contract_v0.1.yaml
+  Gold100_slots: paper_c/P0/Gold100_Source_Slot_Manifest_v0.1.json
+  publication_kill_tests: paper_c/P0/Publication_Kill_Test_Registry_v0.1.yaml
+  A2_8_authority: docs/E0.4.2-E3-A2.8_Paper_Level_Evidence_Freeze_v1.0.md
+
+change_control:
+  before_confirmatory_unblinding:
+    allowed:
+      - codebook_repair_triggered_by_prespecified_calibration_failure
+      - source_replacement_required_to_fill_a_frozen_stratum_before_outputs_are_unblinded
+      - Gold100_expansion_if_fewer_than_600_applicable_critical_error_opportunities_exist
+    requires_new_version_and_audit_record: true
+  after_confirmatory_unblinding:
+    change_N_thresholds_gold_prompts_code_or_measurement_to_improve_result: prohibited
+    consequence: invalidate_current_confirmatory_claim_and_version_new_study

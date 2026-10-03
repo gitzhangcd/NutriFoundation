@@ -3,10 +3,11 @@
 ## Current state
 
 ```text
-E0.4.3-R0   = PASS / FROZEN
-E0.4.3-P0.1 = PASS / FROZEN
+E0.4.3-R0     = PASS / FROZEN
+E0.4.3-P0.1   = PASS / FROZEN
+E0.4.3-P0.2.1 = PASS / FROZEN
 Primary program = Paper C confirmatory evidence production
-Current execution gate = P0.2.1 Gold100 Eligible-Pool / Source Eligibility Freeze
+Current execution gate = P0.2.2 Gold100 Candidate Source Mining
 ```
 
 ## Upstream freeze
@@ -34,12 +35,23 @@ paper_c/P0.1/Gold100_Independent_Annotation_Manual_v1.0.md
 runs/E0.4.3/P0.1/P0.1_Freeze_Manifest_v1.0.json
 ```
 
+## P0.2.1 authority
+
+```text
+docs/E0.4.3-P0.2.1_Gold100_Eligible_Pool_Source_Eligibility_Provenance_StudyIdentity_Challenge_Tag_Freeze_v1.0.md
+paper_c/P0.2.1/Gold100_Source_Eligibility_Contract_v1.0.json
+paper_c/P0.2.1/Gold100_Candidate_Source_Record_Schema_v1.0.json
+paper_c/P0.2.1/Gold100_Challenge_Tag_Registry_v1.0.json
+paper_c/P0.2.1/Gold100_Eligible_Pool_Screening_Manual_v1.0.md
+runs/E0.4.3/P0.2.1/P0.2.1_Freeze_Manifest_v1.0.json
+```
+
 ## Planned execution chain
 
 ```text
 R0 Measurement-System Lock [PASS]
 → P0.1 Independent Gold governance [PASS]
-→ P0.2.1 Gold100 source eligibility
+→ P0.2.1 Gold100 source eligibility [PASS]
 → P0.2.2 >=260 real candidate SourceArtifacts
 → P0.2.3 eligible-pool qualification + hash freeze
 → P0.2.4 deterministic Gold100 selection
@@ -52,10 +64,14 @@ R0 Measurement-System Lock [PASS]
 Important:
 
 ```text
+Candidate unit = SourceArtifact.
+Dependency unit = StudyIdentityCluster.
+Stress is a tag/selection stratum, not a sixth source family.
+Eligibility and challenge tags are assigned before any AB output is seen.
+Unresolved StudyIdentity cannot survive eligible-pool freeze.
+No pool hash → no deterministic Gold100 sampling.
 AB0 is a comparator, not Gold.
-Gold A/B and Gold Adjudicator are person-level separated from AB0.
 Gold opportunity maps are created before AB scoring.
-Gold annotation time is excluded from HBR.
 260 is a candidate-mining floor, not the final sample size.
 Gold100 = Core80 + Stress20 is the confirmatory corpus.
 NHANES individual-subject DecisionEpisode cases are outside Paper C scope.

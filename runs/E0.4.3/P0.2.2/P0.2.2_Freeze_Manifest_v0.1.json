@@ -1,0 +1,41 @@
+{
+  "stage_id": "E0.4.3-P0.2.2",
+  "version": "v0.1",
+  "status": "PASS_RAW_REGISTRY_FROZEN",
+  "date": "2026-10-03",
+  "raw_candidate_count": 342,
+  "mining_floor": 260,
+  "mining_floor_reached": true,
+  "identity_authority": "PubMed",
+  "unique_key": "PMID",
+  "no_placeholder_sources": true,
+  "registry": "runs/E0.4.3/P0.2.2/Gold100_Candidate_Source_Registry_RAW_v0.1.json",
+  "search_manifest": "runs/E0.4.3/P0.2.2/PubMed_Search_Run_Manifest_v0.1.json",
+  "execution_doc": "docs/E0.4.3-P0.2.2_Gold100_Candidate_Source_Mining_Execution_v0.1.md",
+  "raw_profile": {
+    "by_family": {
+      "primary_interventional": 56,
+      "primary_observational": 45,
+      "evidence_synthesis": 94,
+      "guideline_or_consensus": 50,
+      "companion_or_secondary": 49,
+      "unclassified": 48
+    },
+    "by_domain": {
+      "nutrition_metabolic_cardiometabolic": 242,
+      "external_biomedical_or_public_health": 50,
+      "unclassified": 50
+    },
+    "PMCID_present": 167,
+    "DOI_present": 334,
+    "version_stress": 50
+  },
+  "explicit_nonclaims": [
+    "342 raw candidates are not the eligible pool",
+    "structured_abstract_only does not satisfy final core full-text gate",
+    "version_unknown_hold is not a resolved version state",
+    "unresolved_hold is not a resolved StudyIdentity",
+    "unclassified family/domain records may be excluded in P0.2.3"
+  ],
+  "next_stage": "E0.4.3-P0.2.3"
+}

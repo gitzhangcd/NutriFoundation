@@ -1,0 +1,148 @@
+{
+  "schema": "Gold100CandidateSourceRecord",
+  "version": "v1.0",
+  "stage": "E0.4.3-P0.2.1",
+  "status": "frozen",
+  "fields": {
+    "candidate_id": "string",
+    "discovery": {
+      "retrieval_query_or_seed": "string",
+      "retrieval_channel": "string",
+      "retrieved_at": "datetime",
+      "discovered_by": "string",
+      "source_list_or_search_run_id": "string|null"
+    },
+    "bibliographic_identity": {
+      "canonical_title": "string",
+      "authors_or_issuing_body": "array|string",
+      "publication_or_version_date": "date|null",
+      "journal_or_organization": "string|null",
+      "identifiers": {
+        "pmid": "string|null",
+        "pmcid": "string|null",
+        "doi": "string|null",
+        "official_document_id": "string|null"
+      },
+      "canonical_source_locator": "string"
+    },
+    "source_classification": {
+      "source_family": [
+        "primary_interventional",
+        "primary_observational",
+        "evidence_synthesis",
+        "guideline_or_consensus",
+        "companion_or_secondary"
+      ],
+      "design_subtype": "string",
+      "domain": [
+        "nutrition_metabolic_cardiometabolic",
+        "external_biomedical_or_public_health"
+      ]
+    },
+    "source_text": {
+      "status": [
+        "full_text_frozen",
+        "official_full_text_frozen",
+        "licensed_full_text_frozen",
+        "structured_abstract_only",
+        "partial_text",
+        "missing_text_stress_only"
+      ],
+      "raw_source_sha256": "string|null",
+      "normalized_text_sha256": "string|null",
+      "acquisition_method": "string",
+      "legal_access_note": "string|null",
+      "reproducibility_tier": [
+        "A",
+        "B",
+        "C"
+      ],
+      "worker_visible_text_definition": "string"
+    },
+    "temporal_version": {
+      "evidence_cutoff": "date|datetime",
+      "version_status": [
+        "original_current",
+        "corrected",
+        "republished",
+        "retracted",
+        "living_current",
+        "living_superseded",
+        "superseded_static",
+        "version_unknown_hold"
+      ],
+      "version_chain_refs": "array",
+      "temporal_eligibility": "boolean"
+    },
+    "study_identity": {
+      "study_identity_cluster_id": "string|null",
+      "status": [
+        "independent_primary_report",
+        "companion_publication",
+        "secondary_analysis",
+        "duplicate_or_overlapping_report",
+        "guideline_dependency",
+        "evidence_synthesis_dependency",
+        "identity_resolved_other",
+        "unresolved_hold"
+      ],
+      "linked_source_refs": "array",
+      "registration_identifier": "string|null",
+      "trial_or_cohort_name": "string|null",
+      "identity_evidence_refs": "array",
+      "accidental_duplicate_risk": "boolean"
+    },
+    "challenge_tags": {
+      "numeric_complexity": "boolean",
+      "causal_language_risk": "boolean",
+      "StudyIdentity_dependency": "boolean",
+      "correction_retraction_living_version": "boolean",
+      "conflict": "boolean",
+      "recommendation_exception": "boolean",
+      "temporal_cutoff_sensitive": "boolean",
+      "incomplete_source_text": "boolean",
+      "stress_stratum": "string|null",
+      "tag_evidence_refs": "array"
+    },
+    "eligibility": {
+      "gate_results": "object",
+      "screening_state": [
+        "RAW_CANDIDATE",
+        "PENDING_IDENTITY",
+        "PENDING_TEXT",
+        "PENDING_VERSION",
+        "PENDING_STUDY_IDENTITY",
+        "ELIGIBLE_CORE",
+        "ELIGIBLE_STRESS",
+        "ELIGIBLE_CORE_AND_STRESS",
+        "EXCLUDED",
+        "WITHDRAWN_BEFORE_POOL_FREEZE"
+      ],
+      "exclusion_reason_codes": "array",
+      "screening_notes": "string|null",
+      "screened_by": "string",
+      "screened_at": "datetime"
+    },
+    "provenance": {
+      "provenance_record_id": "string",
+      "retrieval_artifact_refs": "array",
+      "parent_object_refs": "array",
+      "transformation_lineage": "array",
+      "candidate_record_sha256": "string"
+    }
+  },
+  "required_for_eligible": [
+    "candidate_id",
+    "bibliographic_identity.canonical_title",
+    "bibliographic_identity.canonical_source_locator",
+    "source_classification.source_family",
+    "source_classification.domain",
+    "source_text.worker_visible_text_definition",
+    "temporal_version.evidence_cutoff",
+    "temporal_version.version_status",
+    "study_identity.status",
+    "eligibility.gate_results",
+    "eligibility.screening_state",
+    "provenance.candidate_record_sha256"
+  ]
+}

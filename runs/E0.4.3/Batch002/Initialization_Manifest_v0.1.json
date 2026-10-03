@@ -1,16 +1,17 @@
 {
   "stage_id": "E0.4.3",
   "title": "Independent Gold & Batch002 / Gold100 Confirmatory Program",
-  "status": "P0_1_PASS_EXECUTION_OPEN",
+  "status": "P0_2_1_PASS_EXECUTION_OPEN",
   "branch": "e0.4.3-batch002-independent-gold",
   "created_date": "2026-10-03",
   "current_authority": {
-    "stage": "E0.4.3-P0.1",
-    "spec": "docs/E0.4.3-P0.1_Gold100_Independent_Scientific_Evidence_Ownership_Annotation_Independence_Adjudication_Gold_Freeze_Contract_v1.0.md",
-    "governance": "paper_c/P0.1/Gold100_Gold_Governance_Contract_v1.0.json",
-    "annotation_schema": "paper_c/P0.1/Gold100_Annotation_Record_Schema_v1.0.json",
-    "annotation_manual": "paper_c/P0.1/Gold100_Independent_Annotation_Manual_v1.0.md",
-    "freeze_manifest": "runs/E0.4.3/P0.1/P0.1_Freeze_Manifest_v1.0.json"
+    "stage": "E0.4.3-P0.2.1",
+    "spec": "docs/E0.4.3-P0.2.1_Gold100_Eligible_Pool_Source_Eligibility_Provenance_StudyIdentity_Challenge_Tag_Freeze_v1.0.md",
+    "eligibility_contract": "paper_c/P0.2.1/Gold100_Source_Eligibility_Contract_v1.0.json",
+    "candidate_schema": "paper_c/P0.2.1/Gold100_Candidate_Source_Record_Schema_v1.0.json",
+    "challenge_tag_registry": "paper_c/P0.2.1/Gold100_Challenge_Tag_Registry_v1.0.json",
+    "screening_manual": "paper_c/P0.2.1/Gold100_Eligible_Pool_Screening_Manual_v1.0.md",
+    "freeze_manifest": "runs/E0.4.3/P0.2.1/P0.2.1_Freeze_Manifest_v1.0.json"
   },
   "parent": {
     "repository": "gitzhangcd/NutriFoundation",
@@ -27,7 +28,7 @@
   "workstream": {
     "r0": "PASS_FROZEN",
     "p0_1": "PASS_FROZEN",
-    "p0_2_1": "Gold100 Eligible-Pool Construction & Source Eligibility Freeze",
+    "p0_2_1": "PASS_FROZEN",
     "p0_2_2": "Gold100 Candidate Source Mining",
     "p0_2_3": "Eligible-Pool Qualification & Pre-Sampling Freeze",
     "p0_2_4": "Deterministic Gold100 Source Selection Freeze",
@@ -42,12 +43,11 @@
     "eligible_pool_size": "not_pre_fixed",
     "eligible_pool_freeze_and_hash_required": true,
     "allowed_source_families": [
-      "primary interventional research",
-      "primary observational research",
-      "evidence syntheses",
-      "formal guidelines or consensus",
-      "companion or secondary scientific sources",
-      "predefined stress-source categories"
+      "primary interventional",
+      "primary observational",
+      "evidence synthesis",
+      "guideline or consensus",
+      "companion or secondary"
     ],
     "excluded_from_paper_c": [
       "NHANES individual-subject cases",
@@ -55,7 +55,13 @@
       "patient-specific recommendation tasks"
     ],
     "real_provenance_required": true,
-    "placeholder_candidates_allowed": false
+    "placeholder_candidates_allowed": false,
+    "stress_is_source_family": false,
+    "candidate_unit": "SourceArtifact",
+    "dependency_unit": "StudyIdentityCluster",
+    "source_eligibility_gates": 12,
+    "unresolved_StudyIdentity_at_pool_freeze": "NOT_ELIGIBLE",
+    "pool_hash_required_before_sampling": true
   },
   "gold100": {
     "confirmatory_source_count": 100,
@@ -88,7 +94,7 @@
     "AB0-AB6 and K01-K14 remain frozen",
     "no post-unblinding adaptation to improve observed results"
   ],
-  "next_stage": "E0.4.3-P0.2.1",
+  "next_stage": "E0.4.3-P0.2.2",
   "gold_governance": {
     "gold_owner": "Gold100 Independent Gold Panel",
     "AB0_is_gold": false,
@@ -98,5 +104,12 @@
     "old_decision_expert_reference_reused": false,
     "source_freeze_state": "SOURCE_GOLD_PROVISIONAL",
     "corpus_freeze_state": "GOLD100_FROZEN"
+  },
+  "challenge_tagging": {
+    "source_grounded": true,
+    "AB_performance_blind": true,
+    "orthogonal_tag_types": 8,
+    "stress_strata": 6,
+    "artificial_missing_text_creation_prohibited": true
   }
 }

@@ -1,0 +1,86 @@
+{
+  "stage_id": "E0.4.3-R0",
+  "title": "Publication Goal Reconciliation, Measurement-System Lock, Gold100 Alignment & Non-Regression Freeze",
+  "version": "v1.0",
+  "status": "PASS_FROZEN",
+  "date": "2026-10-03",
+  "branch": "e0.4.3-batch002-independent-gold",
+  "upstream": {
+    "frozen_tag": "E0.4.2-E3-A2.8-FROZEN",
+    "frozen_commit": "83a33bbdbb9a647c3aea96a67bf47ba5f246c05a",
+    "paper_c_p0": "paper_c/P0/Paper_C_P0_Scientific_Evidence_Production_Study_v0.1.md"
+  },
+  "authoritative_artifacts": {
+    "r0_spec": "docs/E0.4.3-R0_Publication_Goal_Reconciliation_Measurement_System_Lock_Gold100_Alignment_Non_Regression_Freeze_v1.0.md",
+    "measurement_lock": "paper_c/P0/Gold100_Measurement_System_Lock_v1.0.yaml",
+    "gold100_slots": "paper_c/P0/Gold100_Source_Slot_Manifest_v0.1.json",
+    "baselines": "paper_c/P0/AB0_AB6_Baseline_Contract_v0.1.yaml",
+    "kill_tests": "paper_c/P0/Publication_Kill_Test_Registry_v0.1.yaml"
+  },
+  "reconciled_identity": {
+    "e0_4_3_role": "Paper C confirmatory evidence program",
+    "batch002_role": "candidate-source mining and eligible-pool construction for Gold100",
+    "confirmatory_corpus": "Gold100",
+    "comparison_unit": "workflow architecture",
+    "clustering_unit": "SourceArtifact"
+  },
+  "scope": {
+    "include": [
+      "SourceArtifact",
+      "StudyIdentity",
+      "EvidenceUnit",
+      "source spans",
+      "provenance",
+      "version status",
+      "critical error opportunities"
+    ],
+    "exclude": [
+      "NHANES individual subjects",
+      "personalized DecisionEpisode tasks",
+      "patient-specific recommendation generation"
+    ]
+  },
+  "candidate_program": {
+    "raw_candidate_mining_floor": 260,
+    "fixed_terminal_qualified_count_80": false,
+    "eligible_pool_size": "not_pre_fixed",
+    "eligible_pool_freeze_and_hash_required": true,
+    "final_confirmatory_selection_count": 100,
+    "final_composition": "Core80 + Stress20",
+    "sampling_seed": 20260930
+  },
+  "measurement_lock": {
+    "claim_type_ontology": [
+      "descriptive",
+      "associative",
+      "causal",
+      "mechanistic",
+      "recommendation_support"
+    ],
+    "ambiguous_claim_type_action": "UNMAPPABLE_ESCALATE",
+    "applicability_level": "source_level_evidence_scope",
+    "applicability_dimensions": [
+      "population_scope",
+      "intervention_or_exposure_scope",
+      "comparator_scope",
+      "outcome_scope",
+      "setting_context",
+      "temporal_scope",
+      "normative_exceptions",
+      "exclusions_or_contraindications",
+      "evidence_limitations"
+    ],
+    "primary_endpoint": "CSER",
+    "human_burden_endpoint": "ExpertMinutesPerSource / HBR"
+  },
+  "non_regression": {
+    "status": "PASS",
+    "checks": 13,
+    "historical_A2_8_reclassification": false,
+    "AB0_AB6_changed": false,
+    "Gold100_quota_changed": false,
+    "sampling_seed_changed": false,
+    "kill_tests_changed": false
+  },
+  "next_stage": "E0.4.3-P0.1 Gold100 Independent Scientific Evidence Ownership & Adjudication Contract"
+}

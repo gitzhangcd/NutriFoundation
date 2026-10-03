@@ -1,38 +1,90 @@
 {
   "stage_id": "E0.4.3",
-  "title": "Independent Gold & Batch002 Initialization",
-  "status": "INITIALIZED_EXECUTION_OPEN",
+  "title": "Independent Gold & Batch002 / Gold100 Confirmatory Program",
+  "status": "R0_PASS_EXECUTION_OPEN",
   "branch": "e0.4.3-batch002-independent-gold",
   "created_date": "2026-10-03",
+  "current_authority": {
+    "stage": "E0.4.3-R0",
+    "spec": "docs/E0.4.3-R0_Publication_Goal_Reconciliation_Measurement_System_Lock_Gold100_Alignment_Non_Regression_Freeze_v1.0.md",
+    "measurement_lock": "paper_c/P0/Gold100_Measurement_System_Lock_v1.0.yaml",
+    "freeze_manifest": "runs/E0.4.3/R0/R0_Freeze_Manifest_v1.0.json"
+  },
   "parent": {
     "repository": "gitzhangcd/NutriFoundation",
     "main_convergence_doc": "docs/E0.4.2_Post_Freeze_Repository_Convergence_v1.0.md",
     "frozen_tag": "E0.4.2-E3-A2.8-FROZEN",
     "frozen_commit": "83a33bbdbb9a647c3aea96a67bf47ba5f246c05a"
   },
+  "scientific_identity": {
+    "program": "Paper C confirmatory scientific evidence-production study",
+    "comparison_unit": "workflow architecture",
+    "clustering_unit": "SourceArtifact",
+    "confirmatory_corpus": "Gold100"
+  },
   "workstream": {
-    "p0_1": "Independent Gold Ownership & Adjudication Contract",
-    "p0_2_1": "Case Source Eligibility, Provenance & Reconstruction Gate",
-    "p0_2_2": "Batch002 Candidate Mining, Case Reconstruction & 260→80 Candidate Pool Generation"
+    "r0": "PASS_FROZEN",
+    "p0_1": "Gold100 Independent Scientific Evidence Ownership & Adjudication Contract",
+    "p0_2_1": "Gold100 Eligible-Pool Construction & Source Eligibility Freeze",
+    "p0_2_2": "Gold100 Candidate Source Mining",
+    "p0_2_3": "Eligible-Pool Qualification & Pre-Sampling Freeze",
+    "p0_2_4": "Deterministic Gold100 Source Selection Freeze",
+    "p0_3": "Independent Expert Calibration",
+    "p0_4": "Gold100 Dual Annotation & Adjudication",
+    "p1": "AB0-AB6 Strict-Blind Confirmatory Execution",
+    "p2": "CSER / Human-Burden / Kill-Test Analysis"
   },
   "candidate_pool": {
-    "raw_target": 260,
-    "qualified_target": 80,
+    "raw_candidate_mining_floor": 260,
+    "terminal_qualified_target_80": null,
+    "eligible_pool_size": "not_pre_fixed",
+    "eligible_pool_freeze_and_hash_required": true,
     "allowed_source_families": [
-      "PubMed-indexed scientific literature",
-      "formal guidelines/official recommendations",
-      "NHANES/public scientific datasets where applicable"
+      "primary interventional research",
+      "primary observational research",
+      "evidence syntheses",
+      "formal guidelines or consensus",
+      "companion or secondary scientific sources",
+      "predefined stress-source categories"
+    ],
+    "excluded_from_paper_c": [
+      "NHANES individual-subject cases",
+      "personalized DecisionEpisode cases",
+      "patient-specific recommendation tasks"
     ],
     "real_provenance_required": true,
     "placeholder_candidates_allowed": false
+  },
+  "gold100": {
+    "confirmatory_source_count": 100,
+    "composition": {
+      "core": 80,
+      "stress": 20
+    },
+    "domain_split": {
+      "nutrition_metabolic_cardiometabolic": 80,
+      "external_biomedical_or_public_health": 20
+    },
+    "sampling_seed": 20260930,
+    "deterministic_sampling_required": true
+  },
+  "measurement_system": {
+    "status": "LOCKED_PROSPECTIVELY",
+    "primary_endpoint": "CSER",
+    "claim_type_ontology_closed": true,
+    "source_level_applicability_isomorphic": true,
+    "historical_A2_8_reclassification": false
   },
   "invariants": [
     "E0.4.2 frozen artifacts are immutable",
     "F0 is not independent expert Gold",
     "candidate provenance must be recoverable",
-    "model output must not anchor expert Gold",
+    "AB/model output must not anchor expert Gold",
     "downstream performance must not determine candidate eligibility",
-    "Batch002 Gold construction remains independent from Batch001 evaluator tuning"
+    "Gold100 construction remains independent from Batch001 evaluator tuning",
+    "Gold100 quotas and seed remain frozen",
+    "AB0-AB6 and K01-K14 remain frozen",
+    "no post-unblinding adaptation to improve observed results"
   ],
-  "first_execution_gate": "Create source-backed candidate records with explicit provenance before any Batch002 scoring."
+  "next_stage": "E0.4.3-P0.1"
 }

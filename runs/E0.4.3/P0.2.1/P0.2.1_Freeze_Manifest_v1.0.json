@@ -1,0 +1,47 @@
+{
+  "stage_id": "E0.4.3-P0.2.1",
+  "title": "Gold100 Eligible-Pool Construction, Source Eligibility, Provenance, StudyIdentity & Challenge-Tag Freeze",
+  "version": "v1.0",
+  "date": "2026-10-03",
+  "status": "PASS_FROZEN",
+  "parent": "E0.4.3-P0.1",
+  "authority_artifacts": [
+    "docs/E0.4.3-P0.2.1_Gold100_Eligible_Pool_Source_Eligibility_Provenance_StudyIdentity_Challenge_Tag_Freeze_v1.0.md",
+    "paper_c/P0.2.1/Gold100_Source_Eligibility_Contract_v1.0.json",
+    "paper_c/P0.2.1/Gold100_Candidate_Source_Record_Schema_v1.0.json",
+    "paper_c/P0.2.1/Gold100_Challenge_Tag_Registry_v1.0.json",
+    "paper_c/P0.2.1/Gold100_Eligible_Pool_Screening_Manual_v1.0.md"
+  ],
+  "eligibility_gates": 12,
+  "candidate_unit": "SourceArtifact",
+  "dependency_unit": "StudyIdentityCluster",
+  "core_source_families": 5,
+  "raw_candidate_mining_floor": 260,
+  "eligible_pool_size_pre_fixed": false,
+  "source_text_policy": {
+    "core_exact_worker_visible_text_required": true,
+    "missing_text_exception": "prespecified_incomplete_source_stress_only",
+    "open_access_required": false,
+    "lawful_exact_text_hash_required": true
+  },
+  "duplicate_policy": {
+    "accidental_same_study_double_sampling": "prohibited",
+    "unresolved_StudyIdentity_at_pool_freeze": "not_eligible"
+  },
+  "challenge_tagging": {
+    "source_grounded": true,
+    "AB_performance_blind": true,
+    "orthogonal_tag_types": 8,
+    "stress_strata": 6
+  },
+  "pool_freeze": {
+    "deterministic_sort": true,
+    "SHA256_required": true,
+    "sampling_before_pool_hash": "prohibited"
+  },
+  "non_regression": {
+    "status": "PASS",
+    "checks": 12
+  },
+  "next_stage": "E0.4.3-P0.2.2"
+}

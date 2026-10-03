@@ -1,14 +1,16 @@
 {
   "stage_id": "E0.4.3",
   "title": "Independent Gold & Batch002 / Gold100 Confirmatory Program",
-  "status": "R0_PASS_EXECUTION_OPEN",
+  "status": "P0_1_PASS_EXECUTION_OPEN",
   "branch": "e0.4.3-batch002-independent-gold",
   "created_date": "2026-10-03",
   "current_authority": {
-    "stage": "E0.4.3-R0",
-    "spec": "docs/E0.4.3-R0_Publication_Goal_Reconciliation_Measurement_System_Lock_Gold100_Alignment_Non_Regression_Freeze_v1.0.md",
-    "measurement_lock": "paper_c/P0/Gold100_Measurement_System_Lock_v1.0.yaml",
-    "freeze_manifest": "runs/E0.4.3/R0/R0_Freeze_Manifest_v1.0.json"
+    "stage": "E0.4.3-P0.1",
+    "spec": "docs/E0.4.3-P0.1_Gold100_Independent_Scientific_Evidence_Ownership_Annotation_Independence_Adjudication_Gold_Freeze_Contract_v1.0.md",
+    "governance": "paper_c/P0.1/Gold100_Gold_Governance_Contract_v1.0.json",
+    "annotation_schema": "paper_c/P0.1/Gold100_Annotation_Record_Schema_v1.0.json",
+    "annotation_manual": "paper_c/P0.1/Gold100_Independent_Annotation_Manual_v1.0.md",
+    "freeze_manifest": "runs/E0.4.3/P0.1/P0.1_Freeze_Manifest_v1.0.json"
   },
   "parent": {
     "repository": "gitzhangcd/NutriFoundation",
@@ -24,7 +26,7 @@
   },
   "workstream": {
     "r0": "PASS_FROZEN",
-    "p0_1": "Gold100 Independent Scientific Evidence Ownership & Adjudication Contract",
+    "p0_1": "PASS_FROZEN",
     "p0_2_1": "Gold100 Eligible-Pool Construction & Source Eligibility Freeze",
     "p0_2_2": "Gold100 Candidate Source Mining",
     "p0_2_3": "Eligible-Pool Qualification & Pre-Sampling Freeze",
@@ -86,5 +88,15 @@
     "AB0-AB6 and K01-K14 remain frozen",
     "no post-unblinding adaptation to improve observed results"
   ],
-  "next_stage": "E0.4.3-P0.1"
+  "next_stage": "E0.4.3-P0.2.1",
+  "gold_governance": {
+    "gold_owner": "Gold100 Independent Gold Panel",
+    "AB0_is_gold": false,
+    "gold_panel_vs_AB0_person_level_separation": true,
+    "gold_panel_blind_to_AB_outputs": true,
+    "critical_opportunity_map_precedes_AB_scoring": true,
+    "old_decision_expert_reference_reused": false,
+    "source_freeze_state": "SOURCE_GOLD_PROVISIONAL",
+    "corpus_freeze_state": "GOLD100_FROZEN"
+  }
 }

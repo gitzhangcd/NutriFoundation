@@ -6,8 +6,9 @@
 E0.4.3-R0     = PASS / FROZEN
 E0.4.3-P0.1   = PASS / FROZEN
 E0.4.3-P0.2.1 = PASS / FROZEN
+E0.4.3-P0.2.2 = PASS / RAW REGISTRY FROZEN
 Primary program = Paper C confirmatory evidence production
-Current execution gate = P0.2.2 Gold100 Candidate Source Mining
+Current execution gate = P0.2.3 Eligible-Pool Qualification & Pre-Sampling Freeze
 ```
 
 ## Upstream freeze
@@ -52,8 +53,8 @@ runs/E0.4.3/P0.2.1/P0.2.1_Freeze_Manifest_v1.0.json
 R0 Measurement-System Lock [PASS]
 → P0.1 Independent Gold governance [PASS]
 → P0.2.1 Gold100 source eligibility [PASS]
-→ P0.2.2 >=260 real candidate SourceArtifacts
-→ P0.2.3 eligible-pool qualification + hash freeze
+→ P0.2.2 >=260 real candidate SourceArtifacts [PASS: 342]
+→ P0.2.3 eligible-pool qualification + hash freeze [NEXT]
 → P0.2.4 deterministic Gold100 selection
 → P0.3 independent expert calibration
 → P0.4 Gold100 dual annotation + adjudication

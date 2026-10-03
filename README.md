@@ -42,7 +42,7 @@ ExpertReference
 
 ## Current Status
 
-Scientific data construction has progressed through Batch001 P1.9-E7 machine qualification.
+Scientific data construction has progressed through Batch001 strict-blind execution, Evaluator V2 repair, discrepancy attribution, and E0.4.2-E3-A2.8 paper-level evidence freeze.
 
 Engineering reference implementation:
 
@@ -51,8 +51,12 @@ Engineering reference implementation:
 - E0.3 Evidence Extraction + Independent Verification + F0 Freeze + Batch001 Evidence replay: **PASS (remote CI verified)**
 - E0.3.1 Chat-Window Semantic Worker Bridge + Provider Portability: **PASS (remote CI verified)**
 - E0.4 Batch001 Blind Semantic Replay + Verifier / Escalation Audit: **PASS (engineering-blind, remote CI verified)**
-- E0.4.1 Canonical Semantic Normalization + Calibration + Strict-Blind Gate: **development calibration frozen; strict fresh-context execution pending**
-- E0.4.2-A0 Strict-Blind TaskPack + Blind-Wall Audit + Fresh-Context Handoff: **PASS (71 tests / 47 invariants; fresh-context semantic execution pending)**
+- E0.4.1 Canonical Semantic Normalization + Calibration + Strict-Blind Gate: **development calibration frozen**
+- E0.4.2-A0 Strict-Blind TaskPack + Blind-Wall Audit + Fresh-Context Handoff: **PASS (71 tests / 47 invariants)**
+- E0.4.2 strict-blind ResponseSet: **FROZEN (20 responses = 19 completed + 1 safe defer)**
+- E0.4.2-E3 Evaluator V2 A2.3–A2.8: **PASS / FROZEN**
+- E0.4.2-E3-A2.8 paper-level evidence package: **METHODS_RESULTS_DRAFT_READY_NOT_PUBLICATION_GRADE**
+- Frozen authority tag: `E0.4.2-E3-A2.8-FROZEN` → `83a33bbdbb9a647c3aea96a67bf47ba5f246c05a`
 - Python package: `src/nutrifoundation/`
 - Domain models: Pydantic v2 immutable types
 - Workflow state machine: retrieval → F0/F1 → claim → reception → reliability → human gate → GOLD
@@ -244,7 +248,7 @@ fresh-context startup prompt
 ResponseEnvelope template
 ```
 
-The current conversation remains disqualified from performing the strict-blind semantic run itself.
+The A0 handoff was subsequently executed in a fresh context. The frozen strict-blind response set is preserved under `runs/E0.4.2/A0/StrictBlind_ResponseSet_FROZEN_v1.0.json`; hidden-reference evaluation occurs only after response freeze.
 
 See:
 
@@ -252,3 +256,61 @@ See:
 - `runs/E0.4.2/A0/Blind_Wall_Audit_v1.0.json`
 - `runs/E0.4.2/A0/Fresh_Context_Startup_Prompt_v1.0.md`
 - `docs/E0.4.2-A0_Executable_Contract.md`
+
+
+## E0.4.2-E3 evaluator repair and paper-evidence freeze
+
+The frozen strict-blind Batch001 responses were evaluated through the fixed Evaluator V2 sequence A2.3–A2.8 without regenerating worker outputs.
+
+```text
+A2.3 Evaluator V2 schema
+→ A2.4 V1→V2 compatibility mapping
+→ A2.5 five-dimensional scoring
+→ A2.6 frozen batch report
+→ A2.7 discrepancy attribution
+→ A2.8 non-regression + paper-level evidence freeze
+```
+
+Frozen V2 descriptive vector:
+
+```text
+Scientific Semantic Recovery  0.9474
+Ontology Alignment            0.8596
+Provenance Recovery           1.0000
+Numeric Fidelity              0.8088
+Safe Abstention Quality       1.0000
+```
+
+No overall scalar score is defined.
+
+The 44 V1 canonical discrepancy events are frozen as:
+
+```text
+21 confirmed evaluator artifacts
+ 8 preserved scientific residuals
+ 6 ontology / contract ambiguity
+ 9 non-isomorphic unresolved
+44 total
+```
+
+A2.8 remains development/benchmark evidence, not publication-grade evidence. Independent expert Gold and replication remain required.
+
+See:
+
+- `docs/E0.4.2-E3-A2.8_Paper_Level_Evidence_Freeze_v1.0.md`
+- `runs/E0.4.2/E3/A2.8/E3_Paper_Evidence_Package_v1.0.json`
+- tag `E0.4.2-E3-A2.8-FROZEN`
+
+## Post-Freeze Repository Convergence
+
+On 2026-10-03, `main` was fast-forwarded without force to the frozen A2.8 lineage. Stacked PRs #10–#14 were closed as superseded after verifying that their heads are fully contained in the frozen lineage.
+
+The immutable A2.8 tag remains unchanged. New scientific work must branch from the converged `main`; frozen E0.4.2 artifacts must not be rewritten.
+
+Next program stage:
+
+```text
+E0.4.3
+Independent Gold / Batch002
+Candidate Mining → Case Reconstruction → Candidate Pool → Expert Gold
+```

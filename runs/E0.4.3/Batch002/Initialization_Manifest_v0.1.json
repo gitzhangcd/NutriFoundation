@@ -1,17 +1,14 @@
 {
   "stage_id": "E0.4.3",
   "title": "Independent Gold & Batch002 / Gold100 Confirmatory Program",
-  "status": "P0_2_1_PASS_EXECUTION_OPEN",
+  "status": "P0_2_2_PASS_RAW_REGISTRY_FROZEN",
   "branch": "e0.4.3-batch002-independent-gold",
   "created_date": "2026-10-03",
   "current_authority": {
-    "stage": "E0.4.3-P0.2.1",
-    "spec": "docs/E0.4.3-P0.2.1_Gold100_Eligible_Pool_Source_Eligibility_Provenance_StudyIdentity_Challenge_Tag_Freeze_v1.0.md",
-    "eligibility_contract": "paper_c/P0.2.1/Gold100_Source_Eligibility_Contract_v1.0.json",
-    "candidate_schema": "paper_c/P0.2.1/Gold100_Candidate_Source_Record_Schema_v1.0.json",
-    "challenge_tag_registry": "paper_c/P0.2.1/Gold100_Challenge_Tag_Registry_v1.0.json",
-    "screening_manual": "paper_c/P0.2.1/Gold100_Eligible_Pool_Screening_Manual_v1.0.md",
-    "freeze_manifest": "runs/E0.4.3/P0.2.1/P0.2.1_Freeze_Manifest_v1.0.json"
+    "stage": "E0.4.3-P0.2.2",
+    "execution_doc": "docs/E0.4.3-P0.2.2_Gold100_Candidate_Source_Mining_Execution_v0.1.md",
+    "raw_registry": "runs/E0.4.3/P0.2.2/Gold100_Candidate_Source_Registry_RAW_v0.1.json",
+    "search_manifest": "runs/E0.4.3/P0.2.2/PubMed_Search_Run_Manifest_v0.1.json"
   },
   "parent": {
     "repository": "gitzhangcd/NutriFoundation",
@@ -29,7 +26,7 @@
     "r0": "PASS_FROZEN",
     "p0_1": "PASS_FROZEN",
     "p0_2_1": "PASS_FROZEN",
-    "p0_2_2": "Gold100 Candidate Source Mining",
+    "p0_2_2": "PASS_RAW_REGISTRY_FROZEN",
     "p0_2_3": "Eligible-Pool Qualification & Pre-Sampling Freeze",
     "p0_2_4": "Deterministic Gold100 Source Selection Freeze",
     "p0_3": "Independent Expert Calibration",
@@ -61,7 +58,28 @@
     "dependency_unit": "StudyIdentityCluster",
     "source_eligibility_gates": 12,
     "unresolved_StudyIdentity_at_pool_freeze": "NOT_ELIGIBLE",
-    "pool_hash_required_before_sampling": true
+    "pool_hash_required_before_sampling": true,
+    "raw_registry_count": 342,
+    "real_source_identity_bound_count": 342,
+    "raw_registry_unique_key": "PMID",
+    "full_text_qualification_complete": false,
+    "version_resolution_complete": false,
+    "StudyIdentity_resolution_complete": false,
+    "eligible_pool_frozen": false,
+    "raw_registry_profile": {
+      "primary_interventional": 56,
+      "primary_observational": 45,
+      "evidence_synthesis": 94,
+      "guideline_or_consensus": 50,
+      "companion_or_secondary": 49,
+      "unclassified": 48,
+      "nutrition_metabolic_cardiometabolic": 242,
+      "external_biomedical_or_public_health": 50,
+      "domain_unclassified": 50,
+      "PMCID_present": 167,
+      "DOI_present": 334,
+      "version_stress_seeded": 50
+    }
   },
   "gold100": {
     "confirmatory_source_count": 100,
@@ -94,7 +112,7 @@
     "AB0-AB6 and K01-K14 remain frozen",
     "no post-unblinding adaptation to improve observed results"
   ],
-  "next_stage": "E0.4.3-P0.2.2",
+  "next_stage": "E0.4.3-P0.2.3",
   "gold_governance": {
     "gold_owner": "Gold100 Independent Gold Panel",
     "AB0_is_gold": false,

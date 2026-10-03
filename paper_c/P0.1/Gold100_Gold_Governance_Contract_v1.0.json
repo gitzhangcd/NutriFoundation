@@ -1,0 +1,326 @@
+{
+  "study": "Paper_C_Scientific_Evidence_Production",
+  "stage": "E0.4.3-P0.1",
+  "version": "v1.0",
+  "status": "frozen",
+  "scope": "Gold100_independent_scientific_evidence_reference",
+  "gold_definition": {
+    "definition": "Best available adjudicated scientific reference for the frozen SourceArtifact and evidence cutoff; not infallible truth and not an operational workflow output.",
+    "gold_is_not": [
+      "AB0_human_workflow_output",
+      "AB1_AB6_model_or_agent_output",
+      "evaluator_score",
+      "Batch001_F0",
+      "patient_specific_decision_reference"
+    ],
+    "gold_bundle_components": [
+      "SourceArtifact_identity_and_hash",
+      "source_version_and_evidence_cutoff",
+      "StudyIdentity_and_dependency_status_where_applicable",
+      "one_or_more_adjudicated_EvidenceUnits_or_explicit_no_extractable_unit_status",
+      "claim_type_and_causal_level_where_applicable",
+      "source_spans_and_provenance",
+      "source_level_applicability_boundary",
+      "critical_error_opportunity_map",
+      "annotation_and_adjudication_lineage"
+    ]
+  },
+  "ownership": {
+    "scientific_owner": "Gold100_Independent_Gold_Panel",
+    "operational_custodian": "Gold_Custodian",
+    "forbidden_owners": [
+      "AB1_AB6_model_or_agent",
+      "evaluator",
+      "verifier",
+      "auditor",
+      "prompt_or_workflow_developer",
+      "AB0_operator"
+    ],
+    "principle": "Gold authority derives from independent source-grounded expert adjudication, not agreement with any AB workflow."
+  },
+  "roles": {
+    "Gold_Annotator_A": {
+      "required": true,
+      "first_pass_independent": true
+    },
+    "Gold_Annotator_B": {
+      "required": true,
+      "first_pass_independent": true
+    },
+    "Gold_Adjudicator": {
+      "required_for_any_gold_relevant_disagreement": true,
+      "must_be_distinct_from_A_and_B_for_the_source": true
+    },
+    "Gold_Custodian": {
+      "duties": [
+        "maintain_hidden_gold_store",
+        "bind_hashes_and_versions",
+        "release_gold_only_after_confirmatory_outputs_freeze"
+      ],
+      "may_change_scientific_content": false
+    },
+    "AB0_Operator": {
+      "role": "human_only_operational_comparator",
+      "gold_access": "prohibited"
+    },
+    "AB1_AB6_Execution_Team": {
+      "gold_access": "prohibited"
+    },
+    "Analysis_Team": {
+      "pre_output_freeze_gold_access": "prohibited_except_prespecified_blinded_data_management"
+    }
+  },
+  "person_level_role_separation": {
+    "hard_rules": [
+      "No Gold Annotator A/B or Gold Adjudicator may serve as AB0 operator anywhere in Gold100 confirmatory execution.",
+      "No Gold Annotator A/B or Gold Adjudicator may develop, tune, or operate AB1-AB6 prompts, verifier, auditor, routing, evaluator, or escalation policy for the confirmatory run.",
+      "Gold Custodian may not serve as AB0-AB6 operator or outcome evaluator."
+    ],
+    "rationale": "Avoid reference incorporation, expectancy, and self-comparison bias."
+  },
+  "expert_eligibility": {
+    "general": [
+      "demonstrated competence in scientific evidence appraisal relevant to assigned source types",
+      "familiarity with study-design interpretation and source-grounded extraction",
+      "completion_of_Gold100_training",
+      "calibration_gate_pass_before_Gold100_annotation",
+      "conflict_of_interest_declaration"
+    ],
+    "assignment": {
+      "domain_fit_required": true,
+      "guideline_or_normative_sources_require_relevant_guideline_or_clinical_evidence_competence": true,
+      "adjudicator_competence_must_be_at_least_appropriate_for_disputed_domain": true
+    },
+    "not_required": [
+      "A clinical license for every source when the task is scientific evidence extraction rather than patient care."
+    ],
+    "prohibited": [
+      "untrained_generalist_used_as_final_scientific_gold_owner",
+      "annotator_with_material_undisclosed_conflict_on_assigned_source"
+    ]
+  },
+  "informational_blinding": {
+    "Gold_A_and_B_may_see": [
+      "frozen_SourceArtifact_and_exact_annotation_source_text",
+      "frozen_evidence_cutoff_and_version_metadata",
+      "Gold100_annotation_manual",
+      "R0_measurement_contract_fields_needed_for_annotation",
+      "source_identity_and_public_bibliographic_metadata"
+    ],
+    "Gold_A_and_B_must_not_see": [
+      "AB0_AB6_outputs",
+      "evaluator_scores",
+      "verifier_or_auditor_flags_from_confirmatory_workflows",
+      "Batch001_case_specific_outputs_or_error_labels",
+      "expected_direction_of_AB_hypotheses_per_source",
+      "other_annotator_first_pass_record"
+    ],
+    "Adjudicator_may_see": [
+      "source_material",
+      "A_record",
+      "B_record",
+      "disagreement_diff",
+      "annotation_manual"
+    ],
+    "Adjudicator_must_not_see": [
+      "AB0_AB6_outputs",
+      "evaluator_scores",
+      "workflow_arm_identity"
+    ],
+    "Gold_Custodian_must_not_leak_to": [
+      "AB0_AB6_execution_contexts",
+      "routing_or_repair_logic",
+      "prompt_engineering_context",
+      "pre_freeze_outcome_analysis"
+    ]
+  },
+  "independent_first_pass": {
+    "communication_between_A_and_B_before_lock": "prohibited",
+    "access_to_other_first_pass": "prohibited",
+    "each_record_must_be_hash_locked_before_diff": true,
+    "first_pass_revision_after_diff_visibility": "prohibited_except_as_formal_adjudication_input"
+  },
+  "annotation_unit": {
+    "primary_unit": "SourceArtifact",
+    "source_can_contain_multiple_EvidenceUnits": true,
+    "empty_or_insufficient_source_is_valid_gold_state": true,
+    "no_forced_extraction_when_source_is_insufficient": true
+  },
+  "gold_fields_that_affect_confirmatory_scoring": [
+    "StudyIdentity_or_dependency",
+    "source_version_status",
+    "EvidenceUnit_population",
+    "EvidenceUnit_intervention_or_exposure",
+    "EvidenceUnit_comparator",
+    "EvidenceUnit_outcome",
+    "effect_direction",
+    "critical_numeric_result",
+    "effect_measure_and_unit",
+    "claim_type",
+    "causal_level",
+    "recommendation_normativity_and_exceptions",
+    "provenance_and_source_span",
+    "source_level_applicability_boundary",
+    "critical_error_opportunity_applicability",
+    "critical_error_opportunity_gold_reference",
+    "criticality_status"
+  ],
+  "critical_error_opportunity_independence": {
+    "principle": "The denominator must be defined from Gold and source content before any AB output is used for scoring.",
+    "opportunity_map_created_during_gold_annotation": true,
+    "downstream_AB_performance_may_add_or_remove_opportunity": false,
+    "applicability_status": [
+      "applicable",
+      "not_applicable",
+      "insufficient_source"
+    ],
+    "criticality": [
+      "critical",
+      "noncritical_supporting"
+    ],
+    "minimum_types": [
+      "effect_direction",
+      "critical_numeric_result",
+      "StudyIdentity_or_dependency",
+      "causal_level",
+      "recommendation_normativity_or_exception",
+      "provenance_or_source_span",
+      "version_retraction_or_temporal_status",
+      "critical_PICO_scope"
+    ]
+  },
+  "disagreement_taxonomy": {
+    "classes": [
+      "source_or_version_identity",
+      "StudyIdentity_or_dependency",
+      "EvidenceUnit_boundary_or_count",
+      "population_scope",
+      "intervention_or_exposure_scope",
+      "comparator_scope",
+      "outcome_scope",
+      "effect_direction",
+      "numeric_value_measure_or_unit",
+      "claim_type_or_causal_level",
+      "recommendation_normativity_or_exception",
+      "provenance_or_source_span",
+      "applicability_boundary",
+      "critical_opportunity_applicability",
+      "criticality_classification"
+    ],
+    "gold_relevant_disagreement_requires_adjudication": true,
+    "notes_only_disagreement_requires_adjudication": false
+  },
+  "adjudication": {
+    "trigger": "any_gold_relevant_disagreement",
+    "method": [
+      "adjudicator_reviews_source_and_locked_A_B_records",
+      "adjudicator_records_decision_per_disputed_field",
+      "adjudicator_binds_source_span_or_explicit_insufficiency_reason",
+      "adjudicator_records_rationale",
+      "adjudicator_cannot_choose_based_on_AB_output"
+    ],
+    "allowed_outcomes": [
+      "accept_A",
+      "accept_B",
+      "synthesize_source_supported_value",
+      "insufficient_source",
+      "unresolved_requires_source_or_protocol_escalation"
+    ],
+    "unresolved_critical_disagreement_blocks_source_gold_freeze": true,
+    "protocol_ambiguity_action": "Escalate to codebook governance; do not improvise case-specific scoring rule."
+  },
+  "agreement_gates": {
+    "corpus_level_before_Gold100_freeze": {
+      "critical_categorical_Gwet_AC1": ">=0.80",
+      "ordinal_weighted_agreement": ">=0.80",
+      "numeric_exact_or_predeclared_tolerance_agreement": ">=0.95",
+      "source_span_token_F1": ">=0.85"
+    },
+    "agreement_is_measured_on_pre_adjudication_A_B_records": true,
+    "failure_action": [
+      "stop_Gold100_freeze",
+      "repair_codebook",
+      "recalibrate_on_non_Gold100_sources",
+      "restart_affected_annotation_under_new_prespecified_version_before_confirmatory_unblinding"
+    ]
+  },
+  "source_level_gold_freeze_gate": {
+    "required": [
+      "source_identity_bound",
+      "source_text_sha256_bound",
+      "version_and_cutoff_bound",
+      "A_first_pass_locked",
+      "B_first_pass_locked",
+      "conflicts_of_interest_declared",
+      "blinding_attestations_present",
+      "all_gold_relevant_disagreements_adjudicated",
+      "zero_unresolved_critical_disagreements",
+      "EvidenceUnit_or_valid_insufficient_source_state_present",
+      "source_spans_or_explicit_insufficiency_bound",
+      "critical_error_opportunity_map_complete",
+      "adjudication_lineage_complete"
+    ],
+    "status_on_pass": "SOURCE_GOLD_PROVISIONAL"
+  },
+  "corpus_level_gold_freeze_gate": {
+    "required": [
+      "all_selected_Gold100_sources_have_SOURCE_GOLD_PROVISIONAL",
+      "agreement_gates_pass",
+      "Gold100_quota_and_domain_split_valid",
+      "all_source_hashes_and_versions_frozen",
+      "zero_unresolved_critical_gold_disagreements",
+      "hidden_gold_package_hash_generated",
+      "strict_blind_wall_audit_pass",
+      "total_applicable_critical_error_opportunities_counted"
+    ],
+    "opportunity_count_rule": {
+      "if_total_less_than_600_before_confirmatory_outputs_unblinded": "invoke_prespecified_Gold100_expansion_rule_without_altering_scoring_thresholds"
+    },
+    "status_on_pass": "GOLD100_FROZEN"
+  },
+  "amendment_policy": {
+    "before_confirmatory_unblinding": {
+      "semantic_gold_change_allowed_only_if": [
+        "independent_source_grounded_error_discovered_without_AB_output_reference",
+        "re_adjudication_completed",
+        "new_gold_version_and_hash_issued",
+        "amendment_log_records_reason_and_affected_fields"
+      ],
+      "post_selection_source_replacement_requires_prespecified_stratum_rule": true
+    },
+    "after_confirmatory_unblinding": {
+      "semantic_gold_change_for_current_confirmatory_claim": "prohibited",
+      "if_semantic_gold_error_is_discovered": [
+        "log_error",
+        "invalidate_affected_current_confirmatory_analysis_if_material",
+        "issue_new_study_or_gold_version",
+        "rerun_prespecified_analysis_as_new_version"
+      ],
+      "nonsemantic_metadata_correction": {
+        "allowed_if_scientific_fields_and_scores_unchanged": true,
+        "audit_log_required": true
+      }
+    }
+  },
+  "time_accounting": {
+    "Gold_annotation_time": {
+      "included_in_AB0_time": false,
+      "included_in_AB6_HITL_time": false,
+      "reported_separately": true
+    },
+    "AB0_operator_time": {
+      "measured_as_operational_comparator": true
+    }
+  },
+  "legacy_schema_boundary": {
+    "schemas_expert_reference_yaml": {
+      "reuse_for_Paper_C_Gold100": false,
+      "reason": "Decision-oriented acceptable/unsafe decision schema is outside R0 Paper C source-evidence scope."
+    },
+    "Paper_C_Gold100_uses": "paper_c/P0.1/Gold100_Annotation_Record_Schema_v1.0.json"
+  },
+  "exit_gate": {
+    "next_stage": "E0.4.3-P0.2.1",
+    "large_scale_candidate_mining_allowed_before_P0_2_1_freeze": false
+  }
+}

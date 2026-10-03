@@ -1,0 +1,126 @@
+{
+  "registry": "Gold100_Challenge_Tag_Registry",
+  "version": "v1.0",
+  "stage": "E0.4.3-P0.2.1",
+  "status": "frozen",
+  "principle": "Challenge tags are assigned from source-grounded observable properties before AB outputs are seen. Tags are not labels for model difficulty.",
+  "orthogonal_minimums_for_final_Gold100": {
+    "numeric_complexity": 20,
+    "causal_language_risk": 15,
+    "StudyIdentity_dependency": 15,
+    "correction_retraction_living_version": 10,
+    "conflict": 15,
+    "recommendation_exception": 10,
+    "temporal_cutoff_sensitive": 10,
+    "incomplete_source_text": 5
+  },
+  "stress_strata_final_Gold100": {
+    "correction_republication_retraction_or_living_version": 6,
+    "StudyIdentity_or_companion_dependency": 4,
+    "conflicting_evidence": 4,
+    "recommendation_exception_or_normative_boundary": 2,
+    "temporal_cutoff_sensitive": 2,
+    "incomplete_or_missing_source_text": 2
+  },
+  "tags": {
+    "numeric_complexity": {
+      "code": "CT-NUM",
+      "assign_if_any": [
+        ">=3 distinct critical numeric results must be linked to different outcomes, arms, subgroups, or timepoints",
+        "critical result requires effect measure plus confidence interval or uncertainty bound",
+        "multiple units/scales require explicit normalization while preserving scientific meaning",
+        "multi-arm or multi-timepoint structure creates plausible numeric attribution error"
+      ],
+      "do_not_assign_for": "mere presence of one percentage or p-value"
+    },
+    "causal_language_risk": {
+      "code": "CT-CAUSAL",
+      "assign_if_any": [
+        "observational source uses language that could be overread as causal",
+        "source explicitly distinguishes association from causation",
+        "causal inference design or causal estimand requires preservation",
+        "mechanistic evidence could be mistakenly promoted to intervention-level causality"
+      ]
+    },
+    "StudyIdentity_dependency": {
+      "code": "CT-ID",
+      "assign_if_any": [
+        "multiple publications derive from the same trial/cohort and linkage matters",
+        "secondary or companion analysis depends on a primary report",
+        "duplicate/overlapping populations create double-counting risk",
+        "guideline or synthesis depends on a resolvable source/version family relevant to identity"
+      ],
+      "evidence_required": "linked identifiers or explicit report/study relationship"
+    },
+    "correction_retraction_living_version": {
+      "code": "CT-VERSION",
+      "assign_if_any": [
+        "formal correction/corrigendum/erratum exists",
+        "article was republished or retracted",
+        "guideline/review is living or versioned and supersession matters",
+        "multiple official versions exist and using the wrong one can alter evidence"
+      ],
+      "evidence_required": "official version-chain evidence"
+    },
+    "conflict": {
+      "code": "CT-CONFLICT",
+      "assign_if": "At least one linked, source-grounded scientific result/recommendation is materially discordant in direction, magnitude, certainty, population applicability, or normativity and the conflict cannot be reduced to a clerical mismatch.",
+      "requires_linked_source_cluster": true,
+      "linked_sources_must_be_provenance_bound": true
+    },
+    "recommendation_exception": {
+      "code": "CT-REC-EXC",
+      "assign_if_any": [
+        "formal recommendation contains a material exception, subgroup restriction, contraindication, or conditionality",
+        "strength/certainty or normative wording is scientifically consequential",
+        "removing a qualifier would materially overgeneralize the recommendation"
+      ],
+      "guideline_or_normative_source_preferred": true
+    },
+    "temporal_cutoff_sensitive": {
+      "code": "CT-TEMP",
+      "assign_if": "The scientific interpretation or valid source/version set differs across a plausible frozen evidence cutoff, so future-information leakage or version timing is measurable.",
+      "evidence_required": "dated source/version chain or dated linked evidence"
+    },
+    "incomplete_source_text": {
+      "code": "CT-INCOMPLETE",
+      "assign_if": "The frozen worker-visible source package intentionally lacks text required for at least one otherwise relevant scientific object, making safe insufficiency/defer behavior measurable.",
+      "must_be_intentional_prespecified_stress_case": true,
+      "cannot_be_created_by_artificially_deleting_available_text": true
+    }
+  },
+  "stress_strata": {
+    "correction_republication_retraction_or_living_version": {
+      "eligibility": "CT-VERSION must be source-grounded",
+      "selection_unit": "SourceArtifact with bound version chain"
+    },
+    "StudyIdentity_or_companion_dependency": {
+      "eligibility": "CT-ID must be source-grounded",
+      "selection_unit": "SourceArtifact with linked StudyIdentity cluster"
+    },
+    "conflicting_evidence": {
+      "eligibility": "CT-CONFLICT must be source-grounded",
+      "selection_unit": "Anchor SourceArtifact plus frozen linked conflict cluster"
+    },
+    "recommendation_exception_or_normative_boundary": {
+      "eligibility": "CT-REC-EXC must be source-grounded",
+      "selection_unit": "SourceArtifact containing formal normative content"
+    },
+    "temporal_cutoff_sensitive": {
+      "eligibility": "CT-TEMP must be source-grounded",
+      "selection_unit": "SourceArtifact plus dated evidence/version context"
+    },
+    "incomplete_or_missing_source_text": {
+      "eligibility": "CT-INCOMPLETE must be source-grounded and source package insufficiency must be real or naturally occurring",
+      "selection_unit": "SourceArtifact with frozen incomplete worker-visible text package"
+    }
+  },
+  "anti_gaming_rules": [
+    "Do not assign tags based on model errors.",
+    "Do not inflate tag counts by duplicating reports from the same StudyIdentity cluster.",
+    "Do not create missing-text stress by deleting available text.",
+    "Do not call ordinary heterogeneity a conflict without linked scientific evidence.",
+    "Do not call any recommendation a recommendation-exception case unless the exception or boundary is material and explicit.",
+    "Tag evidence must be auditable before deterministic Gold100 sampling."
+  ]
+}

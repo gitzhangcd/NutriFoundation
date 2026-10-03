@@ -1,0 +1,240 @@
+{
+  "schema": "Gold100AnnotationRecord",
+  "version": "v1.0",
+  "stage": "E0.4.3-P0.1",
+  "status": "frozen",
+  "fields": {
+    "record_identity": {
+      "annotation_record_id": "string",
+      "source_slot_id": "string|null",
+      "source_candidate_id": "string|null",
+      "source_id": "string",
+      "annotator_role": [
+        "Gold_Annotator_A",
+        "Gold_Annotator_B",
+        "Gold_Adjudicator"
+      ],
+      "annotator_pseudonymous_id": "string",
+      "annotation_round": "string",
+      "created_at": "datetime"
+    },
+    "source_binding": {
+      "source_artifact_identifier": "string",
+      "bibliographic_identifiers": {
+        "pmid": "string|null",
+        "doi": "string|null",
+        "guideline_or_official_identifier": "string|null"
+      },
+      "exact_source_text_sha256": "string",
+      "source_version_status": [
+        "original_current",
+        "corrected",
+        "republished",
+        "retracted",
+        "living_current",
+        "living_superseded",
+        "version_unknown_escalate"
+      ],
+      "evidence_cutoff": "date|datetime",
+      "source_text_sufficiency": [
+        "sufficient",
+        "partial_but_annotatable",
+        "insufficient_for_required_object"
+      ]
+    },
+    "study_identity": {
+      "applicable": "boolean",
+      "study_identity_id": "string|null",
+      "dependency_status": [
+        "independent_study",
+        "companion_publication",
+        "secondary_analysis",
+        "duplicate_or_overlapping_report",
+        "guideline_dependency",
+        "not_applicable",
+        "ambiguous_escalate"
+      ],
+      "linked_source_ids": "array",
+      "rationale_span_refs": "array"
+    },
+    "evidence_units": {
+      "type": "array",
+      "item_fields": [
+        "evidence_unit_id",
+        "population",
+        "intervention_or_exposure",
+        "comparator",
+        "outcome",
+        "effect_direction",
+        "effect_measure",
+        "effect_value",
+        "effect_unit",
+        "numeric_source_span_refs",
+        "claim_type",
+        "causal_level",
+        "recommendation",
+        "provenance"
+      ],
+      "enums": {
+        "effect_direction": [
+          "benefit",
+          "harm",
+          "increase",
+          "decrease",
+          "null_or_no_clear_difference",
+          "mixed",
+          "not_applicable",
+          "insufficient_source"
+        ],
+        "claim_type": [
+          "descriptive",
+          "associative",
+          "causal",
+          "mechanistic",
+          "recommendation_support"
+        ],
+        "causal_level": [
+          "not_applicable",
+          "descriptive_only",
+          "association_only",
+          "causal_supported",
+          "mechanistic_supported",
+          "insufficient_source"
+        ],
+        "recommendation_normative_status": [
+          "not_applicable",
+          "formal_recommendation",
+          "conditional_recommendation",
+          "evidence_statement_only",
+          "insufficient_source"
+        ]
+      }
+    },
+    "applicability_boundary": {
+      "level": "source_level_evidence_scope",
+      "dimensions": [
+        "population_scope",
+        "intervention_or_exposure_scope",
+        "comparator_scope",
+        "outcome_scope",
+        "setting_context",
+        "temporal_scope",
+        "normative_exceptions",
+        "exclusions_or_contraindications",
+        "evidence_limitations"
+      ],
+      "allowed_status": [
+        "match",
+        "partial",
+        "mismatch",
+        "not_applicable",
+        "insufficient_source"
+      ],
+      "each_dimension_fields": [
+        "status",
+        "gold_text",
+        "source_span_refs"
+      ]
+    },
+    "source_spans": {
+      "type": "array",
+      "each": [
+        "span_id",
+        "exact_text",
+        "locator",
+        "supports_object_ids",
+        "material_qualifier_present"
+      ]
+    },
+    "critical_error_opportunities": {
+      "type": "array",
+      "opportunity_type": [
+        "effect_direction",
+        "critical_numeric_result",
+        "StudyIdentity_or_dependency",
+        "causal_level",
+        "recommendation_normativity_or_exception",
+        "provenance_or_source_span",
+        "version_retraction_or_temporal_status",
+        "critical_PICO_scope"
+      ],
+      "applicability": [
+        "applicable",
+        "not_applicable",
+        "insufficient_source"
+      ],
+      "criticality": [
+        "critical",
+        "noncritical_supporting"
+      ],
+      "each_fields": [
+        "opportunity_id",
+        "opportunity_type",
+        "applicability",
+        "criticality",
+        "gold_reference_object_ids",
+        "gold_expected_semantics",
+        "source_span_refs",
+        "notes"
+      ]
+    },
+    "annotation_quality": {
+      "completeness": [
+        "complete",
+        "incomplete_blocking",
+        "incomplete_nonblocking"
+      ],
+      "annotator_confidence": [
+        "high",
+        "moderate",
+        "low"
+      ],
+      "uncertainty_reasons": "array",
+      "protocol_ambiguity_flag": "boolean",
+      "protocol_ambiguity_note": "string|null"
+    },
+    "independence_attestation": {
+      "no_AB_outputs_seen": "boolean",
+      "no_evaluator_scores_seen": "boolean",
+      "no_other_annotator_first_pass_seen_before_lock": "boolean",
+      "no_confirmatory_workflow_role_conflict": "boolean",
+      "conflict_of_interest_declared": "boolean",
+      "conflict_of_interest_note": "string|null"
+    },
+    "first_pass_lock": {
+      "record_sha256": "string",
+      "locked_at": "datetime",
+      "immutable_after_diff_visibility": "boolean"
+    },
+    "adjudication": {
+      "applicable": "boolean",
+      "disagreement_ids": "array",
+      "outcomes": [
+        "accept_A",
+        "accept_B",
+        "synthesize_source_supported_value",
+        "insufficient_source",
+        "unresolved_requires_protocol_escalation"
+      ],
+      "decision_fields": [
+        "disagreement_id",
+        "field_path",
+        "outcome",
+        "adjudicated_value",
+        "source_span_refs",
+        "rationale"
+      ],
+      "unresolved_critical_disagreement_count": "integer"
+    },
+    "freeze_state": {
+      "source_level_status": [
+        "ANNOTATION_IN_PROGRESS",
+        "FIRST_PASS_LOCKED",
+        "ADJUDICATION_REQUIRED",
+        "SOURCE_GOLD_PROVISIONAL",
+        "BLOCKED"
+      ],
+      "blocking_reasons": "array"
+    }
+  }
+}

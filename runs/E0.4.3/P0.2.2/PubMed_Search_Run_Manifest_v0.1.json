@@ -1,0 +1,88 @@
+{
+  "stage_id": "E0.4.3-P0.2.2",
+  "version": "v0.1",
+  "status": "MINING_FLOOR_REACHED_QUALIFICATION_PENDING",
+  "generated_at": "2026-10-03T23:26:00+08:00",
+  "raw_candidate_count": 342,
+  "mining_floor": 260,
+  "mining_floor_reached": true,
+  "unique_key": "PMID",
+  "duplicate_pmids_removed": 7,
+  "search_runs": [
+    {
+      "key": "INT",
+      "query": "(nutrition OR diet OR dietary) AND randomized controlled trial[pt]",
+      "query_translation": "(\"nutrition s\"[All Fields] OR \"nutritional status\"[MeSH Terms] OR (\"nutritional\"[All Fields] AND \"status\"[All Fields]) OR \"nutritional status\"[All Fields] OR \"nutrition\"[All Fields] OR \"nutritional sciences\"[MeSH Terms] OR (\"nutritional\"[All Fields] AND \"sciences\"[All Fields]) OR \"nutritional sciences\"[All Fields] OR \"nutritional\"[All Fields] OR \"nutritionals\"[All Fields] OR \"nutritions\"[All Fields] OR \"nutritive\"[All Fields] OR (\"diet\"[MeSH Terms] OR \"diet\"[All Fields]) OR (\"diet\"[MeSH Terms] OR \"diet\"[All Fields] OR \"dietary\"[All Fields] OR \"dietaries\"[All Fields])) AND \"randomized controlled trial\"[Publication Type]",
+      "total_count": 73181,
+      "returned_count": 50,
+      "offset": 0,
+      "source": "PubMed",
+      "retrieved_at": "2026-10-03T23:26:00+08:00"
+    },
+    {
+      "key": "OBS",
+      "query": "(nutrition OR diet OR dietary) AND (cohort[tiab] OR prospective[tiab] OR observational[tiab])",
+      "query_translation": "(\"nutrition s\"[All Fields] OR \"nutritional status\"[MeSH Terms] OR (\"nutritional\"[All Fields] AND \"status\"[All Fields]) OR \"nutritional status\"[All Fields] OR \"nutrition\"[All Fields] OR \"nutritional sciences\"[MeSH Terms] OR (\"nutritional\"[All Fields] AND \"sciences\"[All Fields]) OR \"nutritional sciences\"[All Fields] OR \"nutritional\"[All Fields] OR \"nutritionals\"[All Fields] OR \"nutritions\"[All Fields] OR \"nutritive\"[All Fields] OR (\"diet\"[MeSH Terms] OR \"diet\"[All Fields]) OR (\"diet\"[MeSH Terms] OR \"diet\"[All Fields] OR \"dietary\"[All Fields] OR \"dietaries\"[All Fields])) AND (\"cohort\"[Title/Abstract] OR \"prospective\"[Title/Abstract] OR \"observational\"[Title/Abstract])",
+      "total_count": 136893,
+      "returned_count": 50,
+      "offset": 0,
+      "source": "PubMed",
+      "retrieved_at": "2026-10-03T23:26:00+08:00"
+    },
+    {
+      "key": "SYN",
+      "query": "(nutrition OR diet OR dietary) AND (systematic review[pt] OR meta-analysis[pt])",
+      "query_translation": "(\"nutrition s\"[All Fields] OR \"nutritional status\"[MeSH Terms] OR (\"nutritional\"[All Fields] AND \"status\"[All Fields]) OR \"nutritional status\"[All Fields] OR \"nutrition\"[All Fields] OR \"nutritional sciences\"[MeSH Terms] OR (\"nutritional\"[All Fields] AND \"sciences\"[All Fields]) OR \"nutritional sciences\"[All Fields] OR \"nutritional\"[All Fields] OR \"nutritionals\"[All Fields] OR \"nutritions\"[All Fields] OR \"nutritive\"[All Fields] OR (\"diet\"[MeSH Terms] OR \"diet\"[All Fields]) OR (\"diet\"[MeSH Terms] OR \"diet\"[All Fields] OR \"dietary\"[All Fields] OR \"dietaries\"[All Fields])) AND (\"systematic review\"[Publication Type] OR \"meta-analysis\"[Publication Type])",
+      "total_count": 34187,
+      "returned_count": 50,
+      "offset": 0,
+      "source": "PubMed",
+      "retrieved_at": "2026-10-03T23:26:00+08:00"
+    },
+    {
+      "key": "GUID",
+      "query": "(nutrition OR diet OR dietary OR cardiometabolic) AND (guideline[pt] OR practice guideline[pt] OR consensus[ti])",
+      "query_translation": "(\"nutrition s\"[All Fields] OR \"nutritional status\"[MeSH Terms] OR (\"nutritional\"[All Fields] AND \"status\"[All Fields]) OR \"nutritional status\"[All Fields] OR \"nutrition\"[All Fields] OR \"nutritional sciences\"[MeSH Terms] OR (\"nutritional\"[All Fields] AND \"sciences\"[All Fields]) OR \"nutritional sciences\"[All Fields] OR \"nutritional\"[All Fields] OR \"nutritionals\"[All Fields] OR \"nutritions\"[All Fields] OR \"nutritive\"[All Fields] OR (\"diet\"[MeSH Terms] OR \"diet\"[All Fields]) OR (\"diet\"[MeSH Terms] OR \"diet\"[All Fields] OR \"dietary\"[All Fields] OR \"dietaries\"[All Fields]) OR (\"cardiometabolic\"[All Fields] OR \"cardiometabolically\"[All Fields])) AND (\"guideline\"[Publication Type] OR \"practice guideline\"[Publication Type] OR \"consensus\"[Title])",
+      "total_count": 5398,
+      "returned_count": 49,
+      "offset": 0,
+      "source": "PubMed",
+      "retrieved_at": "2026-10-03T23:26:00+08:00"
+    },
+    {
+      "key": "COMP",
+      "query": "(nutrition OR metabolic OR cardiometabolic) AND (\"secondary analysis\"[tiab] OR \"subgroup analysis\"[tiab] OR \"follow-up\"[tiab])",
+      "query_translation": "(\"nutrition s\"[All Fields] OR \"nutritional status\"[MeSH Terms] OR (\"nutritional\"[All Fields] AND \"status\"[All Fields]) OR \"nutritional status\"[All Fields] OR \"nutrition\"[All Fields] OR \"nutritional sciences\"[MeSH Terms] OR (\"nutritional\"[All Fields] AND \"sciences\"[All Fields]) OR \"nutritional sciences\"[All Fields] OR \"nutritional\"[All Fields] OR \"nutritionals\"[All Fields] OR \"nutritions\"[All Fields] OR \"nutritive\"[All Fields] OR (\"metabolic\"[All Fields] OR \"metabolical\"[All Fields] OR \"metabolically\"[All Fields] OR \"metabolics\"[All Fields] OR \"metabolism\"[MeSH Terms] OR \"metabolism\"[All Fields] OR \"metabolisms\"[All Fields] OR \"metabolism\"[MeSH Subheading] OR \"metabolities\"[All Fields] OR \"metabolization\"[All Fields] OR \"metabolize\"[All Fields] OR \"metabolized\"[All Fields] OR \"metabolizer\"[All Fields] OR \"metabolizers\"[All Fields] OR \"metabolizes\"[All Fields] OR \"metabolizing\"[All Fields]) OR (\"cardiometabolic\"[All Fields] OR \"cardiometabolically\"[All Fields])) AND (\"secondary analysis\"[Title/Abstract] OR \"subgroup analysis\"[Title/Abstract] OR \"follow-up\"[Title/Abstract])",
+      "total_count": 244530,
+      "returned_count": 50,
+      "offset": 0,
+      "source": "PubMed",
+      "retrieved_at": "2026-10-03T23:26:00+08:00"
+    },
+    {
+      "key": "EXT",
+      "query": "(oncology OR infectious disease OR neurology OR respiratory OR public health) AND (randomized controlled trial[pt] OR systematic review[pt] OR meta-analysis[pt])",
+      "query_translation": "(\"neoplasms\"[MeSH Terms] OR \"neoplasms\"[All Fields] OR \"oncology\"[All Fields] OR \"oncology s\"[All Fields] OR (\"communicable diseases\"[MeSH Terms] OR (\"communicable\"[All Fields] AND \"diseases\"[All Fields]) OR \"communicable diseases\"[All Fields] OR (\"infectious\"[All Fields] AND \"disease\"[All Fields]) OR \"infectious disease\"[All Fields]) OR (\"neurology\"[MeSH Terms] OR \"neurology\"[All Fields] OR \"neurology s\"[All Fields]) OR (\"eur med j respir\"[Journal] OR \"respiratory\"[All Fields]) OR (\"public health\"[MeSH Terms] OR (\"public\"[All Fields] AND \"health\"[All Fields]) OR \"public health\"[All Fields])) AND (\"randomized controlled trial\"[Publication Type] OR \"systematic review\"[Publication Type] OR \"meta-analysis\"[Publication Type])",
+      "total_count": 838660,
+      "returned_count": 50,
+      "offset": 0,
+      "source": "PubMed",
+      "retrieved_at": "2026-10-03T23:26:00+08:00"
+    },
+    {
+      "key": "VER",
+      "query": "(nutrition OR metabolic OR biomedical) AND (retracted publication[pt] OR corrected and republished article[pt] OR erratum[pt] OR \"living systematic review\"[tiab])",
+      "query_translation": "(\"nutrition s\"[All Fields] OR \"nutritional status\"[MeSH Terms] OR (\"nutritional\"[All Fields] AND \"status\"[All Fields]) OR \"nutritional status\"[All Fields] OR \"nutrition\"[All Fields] OR \"nutritional sciences\"[MeSH Terms] OR (\"nutritional\"[All Fields] AND \"sciences\"[All Fields]) OR \"nutritional sciences\"[All Fields] OR \"nutritional\"[All Fields] OR \"nutritionals\"[All Fields] OR \"nutritions\"[All Fields] OR \"nutritive\"[All Fields] OR (\"metabolic\"[All Fields] OR \"metabolical\"[All Fields] OR \"metabolically\"[All Fields] OR \"metabolics\"[All Fields] OR \"metabolism\"[MeSH Terms] OR \"metabolism\"[All Fields] OR \"metabolisms\"[All Fields] OR \"metabolism\"[MeSH Subheading] OR \"metabolities\"[All Fields] OR \"metabolization\"[All Fields] OR \"metabolize\"[All Fields] OR \"metabolized\"[All Fields] OR \"metabolizer\"[All Fields] OR \"metabolizers\"[All Fields] OR \"metabolizes\"[All Fields] OR \"metabolizing\"[All Fields]) OR (\"biomedical\"[All Fields] OR \"biomedically\"[All Fields])) AND (\"retracted publication\"[Publication Type] OR \"corrected and republished article\"[Publication Type] OR \"living systematic review\"[Title/Abstract])",
+      "total_count": 14853,
+      "returned_count": 50,
+      "offset": 0,
+      "source": "PubMed",
+      "retrieved_at": "2026-10-03T23:26:00+08:00"
+    }
+  ],
+  "source_text_freeze_completed": false,
+  "StudyIdentity_resolution_completed": false,
+  "eligible_pool_freeze_completed": false,
+  "deterministic_Gold100_sampling_completed": false,
+  "next_stage_when_floor_reached": "E0.4.3-P0.2.3"
+}

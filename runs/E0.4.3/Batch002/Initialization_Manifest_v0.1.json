@@ -1,0 +1,38 @@
+{
+  "stage_id": "E0.4.3",
+  "title": "Independent Gold & Batch002 Initialization",
+  "status": "INITIALIZED_EXECUTION_OPEN",
+  "branch": "e0.4.3-batch002-independent-gold",
+  "created_date": "2026-10-03",
+  "parent": {
+    "repository": "gitzhangcd/NutriFoundation",
+    "main_convergence_doc": "docs/E0.4.2_Post_Freeze_Repository_Convergence_v1.0.md",
+    "frozen_tag": "E0.4.2-E3-A2.8-FROZEN",
+    "frozen_commit": "83a33bbdbb9a647c3aea96a67bf47ba5f246c05a"
+  },
+  "workstream": {
+    "p0_1": "Independent Gold Ownership & Adjudication Contract",
+    "p0_2_1": "Case Source Eligibility, Provenance & Reconstruction Gate",
+    "p0_2_2": "Batch002 Candidate Mining, Case Reconstruction & 260→80 Candidate Pool Generation"
+  },
+  "candidate_pool": {
+    "raw_target": 260,
+    "qualified_target": 80,
+    "allowed_source_families": [
+      "PubMed-indexed scientific literature",
+      "formal guidelines/official recommendations",
+      "NHANES/public scientific datasets where applicable"
+    ],
+    "real_provenance_required": true,
+    "placeholder_candidates_allowed": false
+  },
+  "invariants": [
+    "E0.4.2 frozen artifacts are immutable",
+    "F0 is not independent expert Gold",
+    "candidate provenance must be recoverable",
+    "model output must not anchor expert Gold",
+    "downstream performance must not determine candidate eligibility",
+    "Batch002 Gold construction remains independent from Batch001 evaluator tuning"
+  ],
+  "first_execution_gate": "Create source-backed candidate records with explicit provenance before any Batch002 scoring."
+}

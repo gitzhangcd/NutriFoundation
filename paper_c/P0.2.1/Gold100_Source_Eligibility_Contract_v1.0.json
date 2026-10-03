@@ -1,0 +1,308 @@
+{
+  "study": "Paper_C_Scientific_Evidence_Production",
+  "stage": "E0.4.3-P0.2.1",
+  "version": "v1.0",
+  "status": "frozen",
+  "purpose": "Define the prospective eligible-source universe for Gold100 before large-scale candidate mining or deterministic sampling.",
+  "principles": {
+    "source_first": true,
+    "model_performance_blind": true,
+    "no_case_cherry_picking": true,
+    "provenance_required": true,
+    "study_identity_resolved_before_pool_freeze": true,
+    "stress_tags_source_grounded": true,
+    "eligible_pool_frozen_and_hashed_before_sampling": true
+  },
+  "candidate_unit": {
+    "primary_unit": "SourceArtifact",
+    "underlying_study_unit": "StudyIdentityCluster",
+    "candidate_id_format": "G100-CAND-######",
+    "one_candidate_record_per_source_artifact": true,
+    "linked_sources_allowed_for_identity_version_or_conflict_context": true,
+    "linked_source_does_not_automatically_count_as_separate_candidate": true
+  },
+  "allowed_core_source_families": {
+    "primary_interventional": {
+      "target_Gold100_core_slots": 28,
+      "allowed_designs": [
+        "randomized_controlled_trial",
+        "controlled_intervention_trial",
+        "prospective_intervention_study_if_prespecified_as_nonrandomized"
+      ],
+      "required_primary_report": true
+    },
+    "primary_observational": {
+      "target_Gold100_core_slots": 18,
+      "allowed_designs": [
+        "prospective_cohort",
+        "retrospective_cohort",
+        "case_control",
+        "cross_sectional_analytic",
+        "other_primary_observational_if_mappable"
+      ],
+      "required_primary_report": true
+    },
+    "evidence_synthesis": {
+      "target_Gold100_core_slots": 18,
+      "allowed_designs": [
+        "systematic_review",
+        "meta_analysis",
+        "network_meta_analysis",
+        "living_systematic_review",
+        "evidence_review_with_explicit_methods"
+      ],
+      "narrative_review_without_explicit_methods": "ineligible_for_core"
+    },
+    "guideline_or_consensus": {
+      "target_Gold100_core_slots": 12,
+      "allowed_designs": [
+        "clinical_practice_guideline",
+        "public_health_guideline",
+        "formal_consensus_statement",
+        "formal_position_statement_with_recommendation_authority"
+      ],
+      "authority_and_version_required": true
+    },
+    "companion_or_secondary": {
+      "target_Gold100_core_slots": 4,
+      "allowed_designs": [
+        "secondary_analysis",
+        "companion_publication",
+        "methods_or_followup_report_with_scientific_dependency"
+      ],
+      "explicit_StudyIdentity_link_required": true
+    }
+  },
+  "core_eligibility_gates": [
+    {
+      "id": "ELIG-01",
+      "name": "Canonical source identity",
+      "pass_if": "At least one authoritative persistent identifier or official document identity is bound, and title/authorship/organization/year are recoverable.",
+      "acceptable_identifiers": [
+        "PMID",
+        "DOI",
+        "PMCID",
+        "official_guideline_document_id",
+        "official_versioned_URL_or_archive_id"
+      ],
+      "failure": "exclude"
+    },
+    {
+      "id": "ELIG-02",
+      "name": "Exact source-text availability",
+      "pass_if": "The exact source text used by workers can be lawfully accessed by the study team, frozen or content-addressed, and SHA-256 bound.",
+      "exception": "Only the predefined incomplete_or_missing_source_text stress stratum may intentionally fail full-text sufficiency.",
+      "failure": "exclude_from_core"
+    },
+    {
+      "id": "ELIG-03",
+      "name": "Publication/version status resolvable",
+      "pass_if": "Publication status and current/corrected/retracted/living-version state are known or resolvable before eligible-pool freeze.",
+      "failure": "hold_or_exclude"
+    },
+    {
+      "id": "ELIG-04",
+      "name": "Evidence cutoff compatibility",
+      "pass_if": "Source existed by the frozen case evidence cutoff and no future-information leakage is required to interpret the frozen task.",
+      "failure": "exclude"
+    },
+    {
+      "id": "ELIG-05",
+      "name": "Source-family mappability",
+      "pass_if": "Source maps unambiguously to one frozen source family and relevant Gold100 stratum.",
+      "failure": "exclude_or_protocol_escalation"
+    },
+    {
+      "id": "ELIG-06",
+      "name": "Domain eligibility",
+      "pass_if": "Source maps to nutrition/metabolic/cardiometabolic or the held-out external biomedical/public-health domain.",
+      "failure": "exclude"
+    },
+    {
+      "id": "ELIG-07",
+      "name": "StudyIdentity status",
+      "pass_if": "Underlying study/report relationship is resolved sufficiently to prevent accidental duplicate sampling or hidden dependence.",
+      "failure": "hold_until_resolved"
+    },
+    {
+      "id": "ELIG-08",
+      "name": "Scientific object extractability",
+      "pass_if": "Source contains at least one prospectively annotatable scientific object or critical-error opportunity under the R0 measurement contract.",
+      "exception": "Predefined incomplete/missing-source stress cases may be eligible specifically because required content is unavailable, provided insufficiency is source-grounded and auditable.",
+      "failure": "exclude"
+    },
+    {
+      "id": "ELIG-09",
+      "name": "Development-set non-overlap",
+      "pass_if": "Source is not one of the 20 Batch001 confirmatory-excluded development sources and is not a source-specific derivative that would recreate the same confirmatory case.",
+      "failure": "exclude"
+    },
+    {
+      "id": "ELIG-10",
+      "name": "AB-performance independence",
+      "pass_if": "Eligibility and challenge tagging were decided without using AB0–AB6 outputs, scores, errors, or downstream performance.",
+      "failure": "invalidate_candidate_for_confirmatory_pool"
+    },
+    {
+      "id": "ELIG-11",
+      "name": "Provenance completeness",
+      "pass_if": "Retrieval origin, retrieval time, identifier resolution, exact text identity/hash, transformation lineage, and screening decision are auditable.",
+      "failure": "hold_until_repaired"
+    },
+    {
+      "id": "ELIG-12",
+      "name": "No unresolved fatal integrity issue",
+      "pass_if": "No unresolved source-identity, fabrication, unverifiable version, or irreconcilable provenance problem remains.",
+      "failure": "exclude"
+    }
+  ],
+  "domain_contract": {
+    "in_domain": {
+      "code": "nutrition_metabolic_cardiometabolic",
+      "inclusion_examples": [
+        "dietary exposures or interventions",
+        "nutrient supplementation",
+        "diet patterns",
+        "obesity and weight-related metabolism",
+        "diabetes and glycemic metabolism",
+        "lipid metabolism",
+        "hypertension and cardiometabolic risk",
+        "nutrition-related public health"
+      ],
+      "rule": "Domain assignment is based on the scientific source, not on whether the title contains the word nutrition."
+    },
+    "external_domain": {
+      "code": "external_biomedical_or_public_health",
+      "purpose": "Held-out transportability block",
+      "exclusion": "No source whose primary scientific question is already inside the in-domain definition may be relabeled external merely to fill quota.",
+      "examples": [
+        "infectious disease",
+        "oncology",
+        "neurology",
+        "respiratory medicine",
+        "non-nutrition public-health evidence"
+      ]
+    }
+  },
+  "study_identity_contract": {
+    "cluster_key": "study_identity_cluster_id",
+    "statuses": [
+      "independent_primary_report",
+      "companion_publication",
+      "secondary_analysis",
+      "duplicate_or_overlapping_report",
+      "guideline_dependency",
+      "evidence_synthesis_dependency",
+      "identity_resolved_other",
+      "unresolved_hold"
+    ],
+    "duplicate_policy": {
+      "accidental_same_study_double_sampling": "prohibited",
+      "multiple_reports_same_study_in_core": "prohibited_except_companion_or_secondary_slots",
+      "explicit_stress_identity_case": "allowed_if_tagged_and_linked",
+      "companion_or_secondary_core_slot_requires_primary_link": true
+    },
+    "minimum_resolution_fields": [
+      "trial_or_cohort_name_if_available",
+      "registration_identifier_if_available",
+      "recruitment_population",
+      "sample_size_or_report_population",
+      "intervention_or_exposure",
+      "followup_or_timepoint",
+      "primary_report_linkage"
+    ],
+    "unresolved_identity_at_eligible_pool_freeze": "not_eligible_until_resolved"
+  },
+  "provenance_contract": {
+    "identity_sources_priority": [
+      "official_publisher_or_guideline_organization",
+      "PubMed_or_PMC",
+      "Crossref_or_equivalent_registry",
+      "trial_registry_where_applicable",
+      "trusted_bibliographic_index"
+    ],
+    "required_fields": [
+      "candidate_id",
+      "retrieval_query_or_seed",
+      "retrieval_channel",
+      "retrieved_at",
+      "canonical_title",
+      "authors_or_issuing_body",
+      "publication_date_or_version_date",
+      "persistent_identifiers",
+      "canonical_source_locator",
+      "exact_source_text_status",
+      "exact_source_text_sha256_when_available",
+      "source_text_acquisition_method",
+      "version_status",
+      "evidence_cutoff",
+      "source_family",
+      "domain",
+      "StudyIdentity_status",
+      "screening_status",
+      "inclusion_or_exclusion_reason",
+      "challenge_tags",
+      "provenance_record"
+    ],
+    "exact_source_text_status": [
+      "full_text_frozen",
+      "official_full_text_frozen",
+      "licensed_full_text_frozen",
+      "structured_abstract_only",
+      "partial_text",
+      "missing_text_stress_only"
+    ],
+    "reproducibility_tier": {
+      "A": "Open or official full text with stable identifier and frozen hash.",
+      "B": "Lawfully accessed full text with stable bibliographic identity and frozen hash; redistribution may be restricted.",
+      "C": "Partial/abstract/missing text, eligible only for prespecified insufficiency stress use."
+    },
+    "transformations": {
+      "raw_source_preserved": true,
+      "normalized_text_must_bind_to_raw_hash": true,
+      "OCR_or_machine_conversion_must_record_tool_and_version": true,
+      "silent_manual_text_rewrite": "prohibited"
+    }
+  },
+  "screening_states": [
+    "RAW_CANDIDATE",
+    "PENDING_IDENTITY",
+    "PENDING_TEXT",
+    "PENDING_VERSION",
+    "PENDING_STUDY_IDENTITY",
+    "ELIGIBLE_CORE",
+    "ELIGIBLE_STRESS",
+    "ELIGIBLE_CORE_AND_STRESS",
+    "EXCLUDED",
+    "WITHDRAWN_BEFORE_POOL_FREEZE"
+  ],
+  "exclusion_reason_codes": {
+    "X01": "unverifiable_source_identity",
+    "X02": "source_text_unavailable_outside_prespecified_missing_text_stress",
+    "X03": "version_status_unresolvable",
+    "X04": "outside_evidence_cutoff",
+    "X05": "unmappable_source_family",
+    "X06": "outside_domain_contract",
+    "X07": "unresolved_StudyIdentity_at_pool_freeze",
+    "X08": "no_annotatable_scientific_object_or_opportunity",
+    "X09": "Batch001_or_development_source_overlap",
+    "X10": "eligibility_contaminated_by_AB_performance",
+    "X11": "provenance_incomplete_after_repair_window",
+    "X12": "fatal_integrity_or_fabrication_concern",
+    "X13": "duplicate_report_not_permitted_by_slot_or_stress_rule",
+    "X14": "source_withdrawn_or_superseded_without_valid_version_use",
+    "X15": "candidate_record_incomplete_at_pool_freeze"
+  },
+  "pool_freeze_requirements": {
+    "all_records_have_terminal_screening_state": true,
+    "all_eligible_records_pass_required_gates": true,
+    "all_exclusions_have_reason_code": true,
+    "all_eligible_records_have_StudyIdentity_status": true,
+    "all_eligible_records_have_domain_and_source_family": true,
+    "challenge_tag_evidence_bound": true,
+    "candidate_registry_sorted_deterministically": true,
+    "registry_hash_sha256_required": true,
+    "sampling_must_not_start_before_hash_freeze": true
+  },
+  "next_stage": "E0.4.3-P0.2.2"
+}

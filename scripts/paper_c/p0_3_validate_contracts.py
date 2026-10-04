@@ -33,6 +33,7 @@ transitions={tuple(x[:2]):x[2:] for x in wb["state_machine"]["transitions"]}
 
 checks={
   "calibration_hash_matches": actual==expected==embedded,
+  "protocol_parent_calibration_hash_matches": p03["parent"]["calibration24_source_set_sha256"]==expected,
   "calibration_n_24": len(cal["assignments"])==24,
   "round_A_n_12": sum(1 for x in cal["assignments"] if x["round"]=="A")==12,
   "round_B_n_12": sum(1 for x in cal["assignments"] if x["round"]=="B")==12,

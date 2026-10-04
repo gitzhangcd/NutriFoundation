@@ -57,16 +57,22 @@ COMP_RE=re.compile(r"\b(secondary analysis|prespecified secondary analysis|post[
 RCT_TITLE_RE=re.compile(r"\b(randomized|randomised|controlled trial|clinical trial)\b",re.I)
 OBS_RE=re.compile(r"\b(cohort|case[- ]control|cross[- ]sectional|observational|prospective study|retrospective study)\b",re.I)
 
-def semantic_classification(meta):
-    title=meta.get("title","")
-    abstract=meta.get("abstract","")
+def semantic_classification(meta,source_record):
+    title=meta.get("title") or source_record.get("title") or ""
+    abstract=meta.get("abstract") or ""
     ptypes=" | ".join(meta.get("publication_types",[])).lower()
+    mesh_text=" ".join(meta.get("mesh",[]))
     text=(title+" "+abstract)
     if PROTOCOL_RE.search(text) or "clinical trial protocol" in ptypes:
         return None,None,"protocol_not_evidence_result"
     if VET_RE.search(title+" "+" ".join(meta.get("mesh",[]))) and "humans" not in " ".join(meta.get("mesh",[])).lower():
         return None,None,"nonhuman_or_veterinary"
-    if COMP_RE.search(title):
+    sid=source_record.get("study_identity",{})
+    frozen_companion=(source_record.get("source_family")=="companion_or_secondary"
+                      and sid.get("study_identity_cluster_id")
+                      and (str(sid.get("study_identity_cluster_id")).startswith("REG:")
+                           or sid.get("status") in ("companion_publication","secondary_analysis")))
+    if COMP_RE.search(title) or frozen_companion:
         fam="companion_or_secondary"
     elif "practice guideline" in ptypes or "guideline" in ptypes or "consensus statement" in ptypes or "consensus development conference" in ptypes:
         fam="guideline_or_consensus"
@@ -78,8 +84,11 @@ def semantic_classification(meta):
         fam="primary_interventional"
     else:
         return None,None,"unmappable_calibration_family"
-    mesh_text=" ".join(meta.get("mesh",[]))
-    dom="nutrition_metabolic_cardiometabolic" if (TITLE_NUTRI_RE.search(title) or MESH_NUTRI_RE.search(mesh_text)) else "external_biomedical_or_public_health"
+    # Domain is calibration-specific and source-grounded. Use title/abstract/MeSH
+    # plus the frozen source title as fallback; this prevents parser sparsity from
+    # collapsing the whole corpus into "external".
+    domain_text=title+" "+abstract+" "+mesh_text+" "+(source_record.get("title") or "")
+    dom="nutrition_metabolic_cardiometabolic" if (TITLE_NUTRI_RE.search(domain_text) or MESH_NUTRI_RE.search(domain_text)) else "external_biomedical_or_public_health"
     return fam,dom,None
 
 u=json.loads(UNIVERSE.read_text())
@@ -106,7 +115,7 @@ semantic_excluded=[]
 semantic_reclassified=[]
 for r in pre_candidates:
     m=meta.get(r.get("pmid"),{})
-    fam,dom,reason=semantic_classification(m)
+    fam,dom,reason=semantic_classification(m,r)
     if reason:
         semantic_excluded.append({"candidate_id":r["candidate_id"],"pmid":r.get("pmid"),"reason":reason,"title":m.get("title") or r.get("title")})
         continue
@@ -322,3 +331,5 @@ print(json.dumps(audit,indent=2))
 # semantic refinement: title-only companion signal; report-level observational priority; conservative nutrition-domain mapping
 
 # calibration semantic tag derivation: resolved semantic companion/secondary implies StudyIdentity_dependency
+
+# implementation repair: PubMed metadata fallback + frozen StudyIdentity-supported companion classification

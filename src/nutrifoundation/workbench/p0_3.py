@@ -19,7 +19,7 @@ from typing import Any, Callable
 
 BUILD_ID = "P03-WORKBENCH-REF-v0.1.0"
 TOKENIZER_ID = "ws-token-v1"
-TOKEN_RE = re.compile(r"\\S+")
+TOKEN_RE = re.compile(r"\S+")
 
 
 class WorkbenchError(RuntimeError):

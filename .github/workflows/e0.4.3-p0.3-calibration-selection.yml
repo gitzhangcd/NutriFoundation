@@ -40,5 +40,7 @@ jobs:
             echo "No changes"
           else
             git commit -m "data(E0.4.3-P0.3): freeze leakage-safe Calibration24 [skip ci]"
+            git fetch origin e0.4.3-batch002-independent-gold
+            git rebase origin/e0.4.3-batch002-independent-gold
             git push origin HEAD:e0.4.3-batch002-independent-gold
           fi

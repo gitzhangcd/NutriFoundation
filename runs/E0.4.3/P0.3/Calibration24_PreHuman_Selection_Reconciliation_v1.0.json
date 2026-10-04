@@ -1,0 +1,73 @@
+{
+  "stage_id": "E0.4.3-P0.3",
+  "artifact": "Calibration24_PreHuman_Selection_Reconciliation",
+  "version": "v1.0",
+  "date": "2026-10-04",
+  "status": "PASS_RECONCILED_FINAL_PRE_HUMAN",
+  "principle": "Calibration corpus refinements occurred before any expert assignment, source access, Round A annotation, or Round B annotation.",
+  "gold100_immutable": {
+    "source_set_sha256": "fdb1189647fe4022411d3ebfd6591da2398135aed398c88ca6f85236678420ad",
+    "changed": false
+  },
+  "lineage": [
+    {
+      "state": "initial_machine_selection",
+      "calibration24_sha256": "793128a627c2416a3008d1403ca09fdc44f8bb39c56033d328ac06d849f8de5c",
+      "limitation": "Relied on historical family/domain labels; semantic sanity gate not yet applied.",
+      "human_exposure": false
+    },
+    {
+      "state": "semantic_gate_first_reconciliation",
+      "calibration24_sha256": "990795d69c321f2f8db6e4a4051c2a1f002ecbe37a98386038754c3eb21ad7b8",
+      "limitation": "Domain classification still allowed incidental abstract terms; protocol exclusion scanned abstract too broadly.",
+      "human_exposure": false
+    },
+    {
+      "state": "final_semantic_qualified_freeze",
+      "calibration24_sha256": "ec793d52a130b98aaefebdb40b85356ed88543aea2b8eff63a7fcd9f8212af33",
+      "semantic_gate": {
+        "leakage_safe_pre_semantic_count": 230,
+        "semantic_eligible_count": 221,
+        "excluded_count": 9,
+        "reclassified_count": 36,
+        "protocol_gate": "title/publication-type based",
+        "domain_gate": "primary-topic title + MeSH + frozen-title fallback",
+        "companion_gate": "PubMed semantic signal or frozen StudyIdentity-supported companion status"
+      },
+      "human_exposure": false
+    }
+  ],
+  "final_selection": {
+    "n": 24,
+    "round_A": 12,
+    "round_B": 12,
+    "zero_Gold100_SourceArtifact_overlap": true,
+    "zero_Gold100_StudyIdentityCluster_overlap": true,
+    "unique_sources": true,
+    "unique_StudyIdentityClusters": true,
+    "per_round_family_quota": {
+      "primary_interventional": 4,
+      "primary_observational": 2,
+      "evidence_synthesis": 2,
+      "guideline_or_consensus": 2,
+      "companion_or_secondary": 2
+    },
+    "per_round_domain_quota": {
+      "nutrition_metabolic_cardiometabolic": 9,
+      "external_biomedical_or_public_health": 3
+    },
+    "incomplete_source_per_round": 1
+  },
+  "machine_conformance": {
+    "workflow_run_id": 37177028135,
+    "status": "PASS_MACHINE_CONFORMANCE",
+    "protocol_parent_hash_binding": true
+  },
+  "human_state": {
+    "workbench_smoke_test": "NOT_RUN",
+    "experts_assigned": false,
+    "round_A": "NOT_STARTED",
+    "round_B": "NOT_STARTED",
+    "reliability_metrics": "NOT_AVAILABLE"
+  }
+}

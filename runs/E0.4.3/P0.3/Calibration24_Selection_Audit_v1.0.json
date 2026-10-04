@@ -1,0 +1,88 @@
+{
+  "stage": "E0.4.3-P0.3",
+  "status": "PASS_CALIBRATION24_SOURCE_SET_FROZEN",
+  "selection_key": "E0.4.3-P0.3|CALIBRATION24|fdb1189647fe4022411d3ebfd6591da2398135aed398c88ca6f85236678420ad",
+  "input": {
+    "sampling_universe_count": 333,
+    "gold100_count": 100,
+    "leakage_safe_candidate_count": 230,
+    "same_study_leakage_excluded_count": 3
+  },
+  "solver": {
+    "engine": "OR-Tools CP-SAT",
+    "version": "9.14.6206",
+    "num_search_workers": 1,
+    "search_branching": "FIXED_SEARCH",
+    "stop_after_first_solution": true,
+    "status": "OPTIMAL"
+  },
+  "rounds": {
+    "A": {
+      "count": 12,
+      "family": {
+        "primary_interventional": 4,
+        "primary_observational": 2,
+        "evidence_synthesis": 2,
+        "guideline_or_consensus": 2,
+        "companion_or_secondary": 2
+      },
+      "domain": {
+        "nutrition_metabolic_cardiometabolic": 9,
+        "external_biomedical_or_public_health": 3
+      },
+      "challenge": {
+        "numeric_complexity": 11,
+        "causal_language_risk": 2,
+        "StudyIdentity_dependency": 2,
+        "correction_retraction_living_version": 2,
+        "conflict": 2,
+        "recommendation_exception": 2,
+        "temporal_cutoff_sensitive": 2,
+        "incomplete_source_text": 1
+      },
+      "full_text_frozen": 11,
+      "incomplete_source": 1
+    },
+    "B": {
+      "count": 12,
+      "family": {
+        "primary_interventional": 4,
+        "primary_observational": 2,
+        "evidence_synthesis": 2,
+        "guideline_or_consensus": 2,
+        "companion_or_secondary": 2
+      },
+      "domain": {
+        "nutrition_metabolic_cardiometabolic": 9,
+        "external_biomedical_or_public_health": 3
+      },
+      "challenge": {
+        "numeric_complexity": 9,
+        "causal_language_risk": 2,
+        "StudyIdentity_dependency": 2,
+        "correction_retraction_living_version": 2,
+        "conflict": 2,
+        "recommendation_exception": 2,
+        "temporal_cutoff_sensitive": 2,
+        "incomplete_source_text": 1
+      },
+      "full_text_frozen": 11,
+      "incomplete_source": 1
+    }
+  },
+  "checks": {
+    "selected_24": true,
+    "unique_candidates": true,
+    "unique_study_identity_clusters": true,
+    "no_Gold100_source_overlap": true,
+    "no_Gold100_StudyIdentity_overlap": true,
+    "round_A_count_12": true,
+    "round_B_count_12": true,
+    "round_family_quotas": true,
+    "round_domain_quotas": true,
+    "one_incomplete_per_round": true,
+    "challenge_minima": true,
+    "non_incomplete_have_full_text": true
+  },
+  "calibration24_source_set_sha256": "793128a627c2416a3008d1403ca09fdc44f8bb39c56033d328ac06d849f8de5c"
+}

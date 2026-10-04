@@ -187,8 +187,9 @@
     "gold_panel_blind_to_AB_outputs": true,
     "critical_opportunity_map_precedes_AB_scoring": true,
     "old_decision_expert_reference_reused": false,
-    "source_freeze_state": "SOURCE_GOLD_PROVISIONAL",
-    "corpus_freeze_state": "GOLD100_FROZEN"
+    "source_freeze_state": "GOLD100_SOURCE_SET_FROZEN",
+    "corpus_freeze_state": "SOURCE_SET_FROZEN_EXPERT_GOLD_NOT_STARTED",
+    "expert_gold_status": "NOT_STARTED"
   },
   "challenge_tagging": {
     "source_grounded": true,

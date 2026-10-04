@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 
 ROOT=Path(__file__).resolve().parents[2]
 RAW=ROOT/"runs/E0.4.3/P0.2.2/Gold100_Candidate_Source_Registry_RAW_v0.1.json"
-REPAIR=ROOT/"runs/E0.4.3/P0.2.3/Gold100_Candidate_Source_Registry_Coverage_Repair_v0.1.json"
+REPAIR_DIR=ROOT/"runs/E0.4.3/P0.2.3"
 OUT=ROOT/"runs/E0.4.3/P0.2.3"
 OUT.mkdir(parents=True, exist_ok=True)
 CUTOFF="2026-10-03T23:26:00+08:00"
@@ -237,9 +237,9 @@ def batch001_pmids():
 
 raw=json.loads(RAW.read_text())
 records=list(raw["records"])
-if REPAIR.exists():
-    repair=json.loads(REPAIR.read_text())
-    known_pmids={r["bibliographic_identity"]["identifiers"]["pmid"] for r in records}
+known_pmids={r["bibliographic_identity"]["identifiers"]["pmid"] for r in records}
+for repair_path in sorted(REPAIR_DIR.glob("Gold100_Candidate_Source_Registry_Coverage_Repair_v*.json")):
+    repair=json.loads(repair_path.read_text())
     for r in repair.get("records",[]):
         pmid=r["bibliographic_identity"]["identifiers"]["pmid"]
         if pmid not in known_pmids:
@@ -488,3 +488,5 @@ print(json.dumps(report,indent=2))
 # execution revision: removed serial OA-status calls; fullTextXML retrieval now determines exact-text availability
 
 # execution revision: merge frozen coverage-repair supplement and deterministic Stress20 assignment
+
+# execution revision: merge all versioned coverage-repair registries

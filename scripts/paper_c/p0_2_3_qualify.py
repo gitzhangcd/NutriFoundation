@@ -86,23 +86,24 @@ def oa_status(pmcid):
         return {"open":False,"license":None,"href":None,"reason":"oa_check_error:"+type(e).__name__}
 
 def fetch_one_pmc(pmcid):
-    n=pmcid.replace("PMC","")
+    # Transport layer: Europe PMC fullTextXML mirror keyed by authoritative PMCID.
+    url=f"https://www.ebi.ac.uk/europepmc/webservices/rest/{pmcid}/fullTextXML"
     try:
-        root=ET.fromstring(efetch("pmc",[n]))
-        arts=root.findall(".//article") if root.tag!="article" else [root]
-        for art in arts:
-            pid=txt(art.find(".//article-id[@pub-id-type='pmc']"))
-            pid=pid if pid.startswith("PMC") else ("PMC"+pid if pid else None)
-            if pid==pmcid:
-                return pmcid,art
-    except Exception as e:
+        req=urllib.request.Request(url, headers={"User-Agent":"NutriFoundation/0.4.3"})
+        with urllib.request.urlopen(req, timeout=10) as r:
+            raw=r.read()
+        root=ET.fromstring(raw)
+        art=root if root.tag=="article" else root.find(".//article")
+        if art is not None:
+            return pmcid,art
+    except Exception:
         return pmcid,None
     return pmcid,None
 
 def fetch_pmc_articles(pmcids):
     out={}
     done=0
-    with ThreadPoolExecutor(max_workers=2) as ex:
+    with ThreadPoolExecutor(max_workers=6) as ex:
         futs={ex.submit(fetch_one_pmc,p):p for p in pmcids}
         for fut in as_completed(futs):
             pmcid,art=fut.result()
@@ -293,7 +294,7 @@ for r in records:
     elif cid in incomplete_selected:
         gates["ELIG-02"]={"pass":True,"evidence":"prespecified naturally incomplete source-text stress exception"}
     else:
-        gates["ELIG-02"]={"pass":False,"evidence":"no reproducible PMC EFetch full text available to current qualification run"}; exclusions.append("X02")
+        gates["ELIG-02"]={"pass":False,"evidence":"no reproducible PMCID-bound fullTextXML available to current qualification run"}; exclusions.append("X02")
     gates["ELIG-03"]={"pass":w["version_status"]!="version_unknown_hold","evidence":w["version_status"]}
     if not gates["ELIG-03"]["pass"]: exclusions.append("X03")
     gates["ELIG-04"]={"pass":w["publication_ok"],"evidence":w["publication_date_basis"]}
@@ -397,9 +398,9 @@ for r in records:
         "worker_visible_text_sha256":sha(w["worker_text"]) if full else (sha(m.get("abstract","")) if incomplete else None),
         "worker_visible_text_chars":len(w["worker_text"]) if full else len(m.get("abstract","")),
         "pmc_xml_sha256":sha(ET.tostring(w["article"],encoding="unicode")) if w["article"] is not None else None,
-        "pmc_efetch_retrieved":bool(w["oa"].get("open")),
+        "fulltext_xml_retrieved":bool(w["oa"].get("open")),
         "license":w["oa"].get("license"),
-        "text_definition":"PMC article title + abstract + body, whitespace-normalized; references/back matter excluded" if full else ("PubMed abstract-only natural insufficiency stress package" if incomplete else None)
+        "text_definition":"PMCID-bound fullTextXML article title + abstract + body, whitespace-normalized; references/back matter excluded" if full else ("PubMed abstract-only natural insufficiency stress package" if incomplete else None)
       },
       "temporal_version":{"evidence_cutoff":CUTOFF,"publication_date_basis":w["publication_date_basis"],"version_status":w["version_status"],"version_chain_refs":w["version_chain_refs"]},
       "study_identity":{"study_identity_cluster_id":cluster,"status":status,"registration_ids":w["registration_ids"],"linked_candidate_ids":linked,"accidental_duplicate_risk":dup_forbidden},
@@ -454,4 +455,4 @@ print(json.dumps(report,indent=2))
 # execution revision: batch PMC EFetch path; triggered from latest branch head
 
 # execution revision: stale-run cancellation enabled
-# execution revision: individual PMC EFetch with bounded concurrency
+# execution revision: Europe PMC fullTextXML transport keyed by PMCID

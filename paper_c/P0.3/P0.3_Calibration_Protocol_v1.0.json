@@ -1,0 +1,143 @@
+{
+  "stage_id": "E0.4.3-P0.3",
+  "title": "Independent Expert Calibration, Annotation Workbench Validation, Reliability Gate & Pre-Gold100 Annotation Lock",
+  "version": "v1.0",
+  "status": "PROTOCOL_FROZEN_HUMAN_CALIBRATION_REQUIRED",
+  "parent": {
+    "gold100_source_set_sha256": "fdb1189647fe4022411d3ebfd6591da2398135aed398c88ca6f85236678420ad",
+    "calibration24_source_set_sha256": "79e439c9d14c759eb70d76f289a2a3372d47a8c3519f9816c747fa7c4ab4b0e3"
+  },
+  "calibration_corpus": {
+    "total": 24,
+    "round_A": {
+      "n": 12,
+      "mode": "guided_training_after_independent_first_pass",
+      "discussion_after_both_locks": true
+    },
+    "round_B": {
+      "n": 12,
+      "mode": "blinded_reliability_gate",
+      "discussion_before_metric_freeze": false
+    },
+    "no_Gold100_SourceArtifact_overlap": true,
+    "no_Gold100_StudyIdentityCluster_overlap": true,
+    "non_incomplete_full_text_required": true,
+    "incomplete_source_per_round": 1
+  },
+  "roles": {
+    "Calibration_Annotator_A": {
+      "required": true,
+      "independent_first_pass": true
+    },
+    "Calibration_Annotator_B": {
+      "required": true,
+      "independent_first_pass": true
+    },
+    "Calibration_Facilitator_or_Adjudicator": {
+      "required_for_round_A_discussion": true,
+      "may_not_supply_answers_before_first_pass_lock": true
+    },
+    "Gold_Custodian": {
+      "must_keep_Gold100_unavailable_during_calibration": true
+    }
+  },
+  "eligibility_before_human_execution": [
+    "two qualified expert annotators assigned with pseudonymous IDs",
+    "role-separation and COI attestations signed",
+    "both experts complete Gold100 annotation manual training",
+    "workbench machine-conformance PASS",
+    "workbench human smoke test PASS",
+    "Calibration24 source-set hash verified",
+    "Gold100 source set inaccessible from calibration workspace"
+  ],
+  "round_A": {
+    "objective": "identify codebook/workbench ambiguity before reliability testing",
+    "order": [
+      "A and B annotate Calibration12A independently",
+      "each first-pass record is hash-locked",
+      "only after both locks may differences be shown",
+      "facilitated discussion classifies disagreement as scientific, source ambiguity, codebook ambiguity, or workbench defect",
+      "manual/workbench may be revised only by versioned prospective amendment",
+      "locked first-pass records remain immutable"
+    ],
+    "reliability_metrics": "descriptive_only_not_gate",
+    "discussion_allowed_after_lock": true
+  },
+  "round_B": {
+    "objective": "confirm inter-annotator reliability under the exact version intended for Gold100",
+    "prerequisite": [
+      "Round A completed",
+      "manual version frozen",
+      "workbench contract/version frozen",
+      "annotator training closed",
+      "Calibration12B remains unreviewed by annotators"
+    ],
+    "order": [
+      "A and B annotate independently",
+      "no communication about sources",
+      "no other first-pass visibility",
+      "both records hash-locked",
+      "pre-adjudication reliability metrics computed",
+      "metrics and integrity audit frozen before any discussion/adjudication"
+    ],
+    "discussion_allowed_before_metric_freeze": false
+  },
+  "reliability_gate": {
+    "inherited_from_P0_1": true,
+    "critical_categorical_Gwet_AC1": ">=0.80",
+    "ordinal_weighted_agreement": ">=0.80",
+    "numeric_exact_or_predeclared_tolerance_agreement": ">=0.95",
+    "source_span_token_F1": ">=0.85",
+    "agreement_basis": "locked pre-adjudication Round-B records",
+    "metric_non_estimable_action": "BLOCK_AND_REVIEW_CALIBRATION_DESIGN",
+    "additional_integrity_requirements": [
+      "100% Round-B records schema-valid",
+      "100% first-pass records hash-locked",
+      "0 cross-annotator visibility events before both locks",
+      "0 unauthorized Gold100 accesses",
+      "0 unresolved blocking workbench defects",
+      "0 unresolved protocol ambiguities affecting scoring"
+    ]
+  },
+  "failure_policy": {
+    "if_round_A_finds_ambiguity": [
+      "version manual/workbench",
+      "record normative delta",
+      "do not mutate locked Round-A first passes",
+      "restart Round B only after new version freeze"
+    ],
+    "if_round_B_fails_any_primary_gate": [
+      "P0.3 remains NOT_PASS",
+      "Round-B records become calibration-exposed and cannot be reused as a new blind reliability gate",
+      "repair codebook/workbench on non-Gold100 materials",
+      "select a fresh leakage-safe Validation12C from unused non-Gold100 sources",
+      "repeat blind reliability gate under new frozen version"
+    ],
+    "Gold100_annotation_before_pass": "PROHIBITED"
+  },
+  "pass_gate": {
+    "status_on_pass": "PASS_PRE_GOLD100_ANNOTATION_LOCK",
+    "required": [
+      "Round A complete",
+      "Round B complete",
+      "all four inherited reliability metrics pass",
+      "all workbench integrity requirements pass",
+      "annotator eligibility/COI/role separation complete",
+      "manual version frozen",
+      "workbench version frozen",
+      "reliability report hash frozen",
+      "Gold100 strict-blind access wall audit PASS"
+    ]
+  },
+  "current_state": {
+    "calibration_source_set": "FROZEN",
+    "protocol": "FROZEN",
+    "human_annotators_assigned": false,
+    "workbench_machine_conformance": "PENDING",
+    "human_smoke_test": "PENDING",
+    "round_A": "NOT_STARTED",
+    "round_B": "NOT_STARTED",
+    "reliability_gate": "NOT_RUN",
+    "Gold100_annotation": "PROHIBITED"
+  }
+}

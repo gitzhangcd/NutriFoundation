@@ -16,5 +16,8 @@
   "p0_3_pass": false,
   "workbench_machine_conformance_run_id": 37177028135,
   "workbench_implementation": "NOT_PRESENT",
-  "next_action": "IMPLEMENT_RUNNABLE_WORKBENCH_THEN_EXECUTE_WB_H01_H15"
+  "next_action": "IMPLEMENT_RUNNABLE_WORKBENCH_THEN_EXECUTE_WB_H01_H15",
+  "machine_conformance_latest_run_id": 37177142128,
+  "reliability_scorer_machine_test": "PASS",
+  "reliability_metrics": "NOT_AVAILABLE_FROM_HUMANS"
 }

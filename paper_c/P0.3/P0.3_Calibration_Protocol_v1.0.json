@@ -140,11 +140,12 @@
     "calibration_source_set": "FROZEN",
     "protocol": "FROZEN",
     "human_annotators_assigned": false,
-    "workbench_machine_conformance": "PENDING",
-    "human_smoke_test": "PENDING",
-    "round_A": "NOT_STARTED",
+    "workbench_machine_conformance": "PASS",
+    "human_smoke_test": "BLOCKED_BY_WORKBENCH_IMPLEMENTATION",
+    "round_A": "BLOCKED_PENDING_H0_H1",
     "round_B": "NOT_STARTED",
     "reliability_gate": "NOT_RUN",
-    "Gold100_annotation": "PROHIBITED"
+    "Gold100_annotation": "PROHIBITED",
+    "workbench_implementation": "NOT_PRESENT_IN_REPOSITORY"
   }
 }

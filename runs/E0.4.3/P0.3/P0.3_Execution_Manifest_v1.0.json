@@ -12,17 +12,18 @@
   "calibration24": {
     "status": "PASS_FROZEN",
     "count": 24,
-    "source_set_sha256": "79e439c9d14c759eb70d76f289a2a3372d47a8c3519f9816c747fa7c4ab4b0e3",
+    "source_set_sha256": "ec793d52a130b98aaefebdb40b85356ed88543aea2b8eff63a7fcd9f8212af33",
     "round_A_count": 12,
     "round_B_count": 12,
     "no_Gold100_SourceArtifact_overlap": true,
     "no_Gold100_StudyIdentityCluster_overlap": true,
     "semantic_gate": {
       "pre_semantic_count": 230,
-      "eligible_count": 218,
-      "excluded_count": 12,
+      "eligible_count": 221,
+      "excluded_count": 9,
       "reclassified_count": 36
-    }
+    },
+    "reconciliation": "runs/E0.4.3/P0.3/Calibration24_PreHuman_Selection_Reconciliation_v1.0.json"
   },
   "contracts": {
     "calibration_protocol": "FROZEN",
@@ -34,9 +35,10 @@
   },
   "machine_conformance": {
     "status": "PASS",
-    "workflow_run_id": 37176658991,
+    "workflow_run_id": 37177028135,
     "report": "runs/E0.4.3/P0.3/P0.3_Workbench_Contract_Conformance_Report_v1.0.json",
-    "all_machine_checks_pass": true
+    "all_machine_checks_pass": true,
+    "protocol_parent_calibration_hash_matches": true
   },
   "human_execution": {
     "H0_workbench_smoke_test": "NOT_RUN",

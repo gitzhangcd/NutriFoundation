@@ -1,0 +1,65 @@
+{
+  "stage_id": "E0.4.3-P0.2.4",
+  "title": "Deterministic Gold100 Source Selection, Slot Assignment, Sampling Audit & Source-Set Freeze",
+  "version": "v1.0",
+  "date": "2026-10-04",
+  "status": "PASS_GOLD100_SOURCE_SET_FROZEN",
+  "parent_pool": {
+    "count": 330,
+    "sha256": "ff33d849367c335e5b5cb8345b40a332b1417d0e8a4372eb462a0464a807565c",
+    "path": "runs/E0.4.3/P0.2.3/Gold100_Eligible_Pool_FROZEN_v0.1.json"
+  },
+  "presampling_reconciliation": {
+    "status": "PASS_RECONCILED",
+    "erratum": "paper_c/P0.2.4/Paper_C_P0_PreSampling_Feasibility_Erratum_v0.1.1.md",
+    "only_normative_delta": {
+      "field": "incomplete_source_text_final_minimum",
+      "old": 5,
+      "new": 2,
+      "reason": "P0.2.1 ELIG-02 permits incomplete full-text only in the two dedicated incomplete stress slots."
+    },
+    "amendment_source_count": 3,
+    "all_amendment_sources_machine_qualified": true,
+    "selected_amendment_source_count": 2,
+    "no_AB_or_model_performance_used": true
+  },
+  "augmented_sampling_universe": {
+    "count": 333,
+    "sha256": "7e254f1678e5d3a086e52108974e28ba522866af5e5ec27b7db2fd3328cdc5be",
+    "path": "runs/E0.4.3/P0.2.4/Gold100_Augmented_Sampling_Universe_v1.0.json"
+  },
+  "sampling": {
+    "seed": 20260930,
+    "engine": "OR-Tools CP-SAT",
+    "engine_version": "9.14.6206",
+    "num_search_workers": 1,
+    "search_branching": "FIXED_SEARCH",
+    "deterministic_order": "SHA256(seed|slot_id|candidate_id)",
+    "stop_after_first_solution": true,
+    "solver_status": "OPTIMAL",
+    "workflow_run_id": 37175203530,
+    "workflow_conclusion": "success"
+  },
+  "gold100": {
+    "count": 100,
+    "core": 80,
+    "stress": 20,
+    "nutrition_metabolic_cardiometabolic": 80,
+    "external_biomedical_or_public_health": 20,
+    "full_text_frozen": 98,
+    "incomplete_source_stress": 2,
+    "unique_sources": true,
+    "unique_StudyIdentity_clusters": true,
+    "source_set_sha256": "fdb1189647fe4022411d3ebfd6591da2398135aed398c88ca6f85236678420ad",
+    "source_set_path": "runs/E0.4.3/P0.2.4/Gold100_Source_Set_FROZEN_v1.0.json",
+    "filled_slot_manifest": "runs/E0.4.3/P0.2.4/Gold100_Source_Slot_Manifest_FILLED_v1.0.json"
+  },
+  "all_post_selection_checks_pass": true,
+  "gold_annotation_started": false,
+  "gold_status": "SOURCE_SET_FROZEN_NOT_EXPERT_GOLD",
+  "non_regression": {
+    "status": "PASS_RECONCILED",
+    "checks": 16
+  },
+  "next_stage": "E0.4.3-P0.3"
+}

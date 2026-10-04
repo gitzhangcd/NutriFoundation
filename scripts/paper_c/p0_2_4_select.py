@@ -310,21 +310,26 @@ for tag,minimum in challenge_min.items():
         raise SystemExit(f"TAG_POOL_INFEASIBLE:{tag}:have={len(vars_)}:need={minimum}")
     model.Add(sum(vars_)>=minimum)
 
-# Deterministic pseudo-random objective driven only by frozen seed, slot, and candidate identity.
-terms=[]
+# Deterministic pseudo-random variable ordering driven only by frozen seed,
+# slot identity and candidate identity. The first feasible solution in this fixed
+# ordering is the frozen deterministic sample; no arbitrary hash-sum optimum is needed.
+ranked=[]
 for (sid,cid),v in x.items():
     h=hashlib.sha256(f"{SEED}|{sid}|{cid}".encode()).digest()
-    cost=int.from_bytes(h[:4],"big")
-    terms.append(cost*v)
-model.Minimize(sum(terms))
+    rank=int.from_bytes(h[:8],"big")
+    ranked.append((rank,sid,cid,v))
+ranked.sort(key=lambda z:(z[0],z[1],z[2]))
+model.AddDecisionStrategy([z[3] for z in ranked],cp_model.CHOOSE_FIRST,cp_model.SELECT_MAX_VALUE)
 
 solver=cp_model.CpSolver()
 solver.parameters.num_search_workers=1
 solver.parameters.random_seed=SEED
-solver.parameters.max_time_in_seconds=300
+solver.parameters.search_branching=cp_model.FIXED_SEARCH
+solver.parameters.stop_after_first_solution=True
+solver.parameters.max_time_in_seconds=120
 status=solver.Solve(model)
-if status!=cp_model.OPTIMAL:
-    raise SystemExit(f"SAMPLER_NOT_OPTIMAL:status={solver.StatusName(status)}")
+if status not in (cp_model.FEASIBLE,cp_model.OPTIMAL):
+    raise SystemExit(f"SAMPLER_INFEASIBLE:status={solver.StatusName(status)}")
 
 assignments=[]
 selected_ids=set()
@@ -389,7 +394,7 @@ source_set={
  "corpus":"Paper_C_Gold100","version":"v1.0","stage":"E0.4.3-P0.2.4","status":"FROZEN_SOURCE_SET",
  "sampling_seed":SEED,"parent_pool_sha256":expected_parent_sha,"augmented_sampling_universe_sha256":universe_sha,
  "normative_erratum":"paper_c/P0.2.4/Paper_C_P0_PreSampling_Feasibility_Erratum_v0.1.1.md",
- "selection_algorithm":"OR-Tools CP-SAT 9.14.6206; single worker; deterministic SHA256(seed|slot|candidate) edge-cost minimization",
+ "selection_algorithm":"OR-Tools CP-SAT 9.14.6206; single worker; fixed SHA256(seed|slot|candidate) variable ordering; first feasible solution",
  "assignments":assignments
 }
 source_set_sha=canonical_sha(source_set)
@@ -410,7 +415,7 @@ for s in slots:
 audit={
  "stage":"E0.4.3-P0.2.4","status":"PASS_FROZEN","sampling_seed":SEED,
  "input":{"parent_pool_count":len(parent["records"]),"parent_pool_sha256":expected_parent_sha,"amendment_count":len(new_records),"augmented_count":len(records),"augmented_sampling_universe_sha256":universe_sha},
- "solver":{"engine":"OR-Tools CP-SAT","version":"9.14.6206","num_search_workers":1,"solver_status":solver.StatusName(status),"objective_value":solver.ObjectiveValue()},
+ "solver":{"engine":"OR-Tools CP-SAT","version":"9.14.6206","num_search_workers":1,"search_branching":"FIXED_SEARCH","stop_after_first_solution":True,"solver_status":solver.StatusName(status)},
  "counts":{"block":block_counts,"core_family":family_counts,"domain":domain_counts,"stress":stress_counts,"challenge":challenge_counts},
  "challenge_minima":challenge_min,
  "checks":checks,
@@ -433,3 +438,5 @@ print(json.dumps(audit,indent=2))
 # implementation repair: derive StudyIdentity cluster directly from expected_registration_id
 
 # transport repair: PMC fullTextXML retries with NCBI efetch fallback
+
+# sampling algorithm refinement: fixed seeded variable ordering + first feasible solution

@@ -1,17 +1,18 @@
 {
   "stage_id": "E0.4.3",
   "title": "Independent Gold & Batch002 / Gold100 Confirmatory Program",
-  "status": "P0_2_3_PASS_ELIGIBLE_POOL_FROZEN_SAMPLING_AUTHORIZED",
+  "status": "P0_2_4_PASS_GOLD100_SOURCE_SET_FROZEN",
   "branch": "e0.4.3-batch002-independent-gold",
   "created_date": "2026-10-03",
   "current_authority": {
-    "stage": "E0.4.3-P0.2.3",
-    "spec": "docs/E0.4.3-P0.2.3_Eligible_Pool_Qualification_Exact_Text_Version_StudyIdentity_Resolution_Exclusion_Adjudication_Pre_Sampling_Hash_Freeze_v1.0.md",
-    "eligible_pool": "runs/E0.4.3/P0.2.3/Gold100_Eligible_Pool_FROZEN_v0.1.json",
-    "qualification_report": "runs/E0.4.3/P0.2.3/P0.2.3_Qualification_Report_v0.1.json",
-    "exact_text_manifest": "runs/E0.4.3/P0.2.3/Exact_Text_Hash_Manifest_v0.1.json",
-    "exclusion_registry": "runs/E0.4.3/P0.2.3/Gold100_Exclusion_Registry_v0.1.json",
-    "freeze_manifest": "runs/E0.4.3/P0.2.3/P0.2.3_Freeze_Manifest_v1.0.json"
+    "stage": "E0.4.3-P0.2.4",
+    "spec": "docs/E0.4.3-P0.2.4_Deterministic_Gold100_Source_Selection_Slot_Assignment_Sampling_Audit_Source_Set_Freeze_v1.0.md",
+    "source_set": "runs/E0.4.3/P0.2.4/Gold100_Source_Set_FROZEN_v1.0.json",
+    "source_set_sha": "runs/E0.4.3/P0.2.4/Gold100_Source_Set_SHA256_v1.0.txt",
+    "filled_slot_manifest": "runs/E0.4.3/P0.2.4/Gold100_Source_Slot_Manifest_FILLED_v1.0.json",
+    "sampling_audit": "runs/E0.4.3/P0.2.4/Gold100_Sampling_Audit_v1.0.json",
+    "freeze_manifest": "runs/E0.4.3/P0.2.4/P0.2.4_Freeze_Manifest_v1.0.json",
+    "presampling_erratum": "paper_c/P0.2.4/Paper_C_P0_PreSampling_Feasibility_Erratum_v0.1.1.md"
   },
   "parent": {
     "repository": "gitzhangcd/NutriFoundation",
@@ -31,7 +32,7 @@
     "p0_2_1": "PASS_FROZEN",
     "p0_2_2": "PASS_RAW_REGISTRY_FROZEN",
     "p0_2_3": "PASS_FROZEN_READY_FOR_SAMPLING",
-    "p0_2_4": "Deterministic Gold100 Source Selection Freeze",
+    "p0_2_4": "PASS_GOLD100_SOURCE_SET_FROZEN",
     "p0_3": "Independent Expert Calibration",
     "p0_4": "Gold100 Dual Annotation & Adjudication",
     "p1": "AB0-AB6 Strict-Blind Confirmatory Execution",
@@ -87,7 +88,7 @@
     "excluded_count": 394,
     "eligible_pool_sha256": "ff33d849367c335e5b5cb8345b40a332b1417d0e8a4372eb462a0464a807565c",
     "sampling_authorized": true,
-    "sampling_performed": false,
+    "sampling_performed": true,
     "coverage_gaps": {
       "family": {},
       "domain": {},
@@ -137,7 +138,28 @@
       "external_biomedical_or_public_health": 20
     },
     "sampling_seed": 20260930,
-    "deterministic_sampling_required": true
+    "deterministic_sampling_required": true,
+    "source_set_frozen": true,
+    "source_set_sha256": "fdb1189647fe4022411d3ebfd6591da2398135aed398c88ca6f85236678420ad",
+    "selected_source_count": 100,
+    "full_text_frozen": 98,
+    "incomplete_source_stress": 2,
+    "expert_gold_annotation_started": false,
+    "gold_status": "SOURCE_SET_FROZEN_NOT_EXPERT_GOLD",
+    "presampling_reconciliation": {
+      "status": "PASS_RECONCILED",
+      "augmented_sampling_universe_count": 333,
+      "augmented_sampling_universe_sha256": "7e254f1678e5d3a086e52108974e28ba522866af5e5ec27b7db2fd3328cdc5be",
+      "amendment_sources_qualified": 3,
+      "amendment_sources_selected": 2,
+      "normative_delta": {
+        "incomplete_source_text_minimum": {
+          "old": 5,
+          "new": 2
+        }
+      },
+      "no_AB_or_model_performance_used": true
+    }
   },
   "measurement_system": {
     "status": "LOCKED_PROSPECTIVELY",
@@ -157,7 +179,7 @@
     "AB0-AB6 and K01-K14 remain frozen",
     "no post-unblinding adaptation to improve observed results"
   ],
-  "next_stage": "E0.4.3-P0.2.4",
+  "next_stage": "E0.4.3-P0.3",
   "gold_governance": {
     "gold_owner": "Gold100 Independent Gold Panel",
     "AB0_is_gold": false,

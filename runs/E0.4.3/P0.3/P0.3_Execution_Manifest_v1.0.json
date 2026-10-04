@@ -1,0 +1,66 @@
+{
+  "stage_id": "E0.4.3-P0.3",
+  "title": "Independent Expert Calibration, Annotation Workbench Validation, Reliability Gate & Pre-Gold100 Annotation Lock",
+  "version": "v1.0",
+  "date": "2026-10-04",
+  "overall_status": "EXECUTION_READY_HUMAN_CALIBRATION_REQUIRED_NOT_YET_PASS",
+  "parent": {
+    "gold100_source_set_sha256": "fdb1189647fe4022411d3ebfd6591da2398135aed398c88ca6f85236678420ad",
+    "gold100_source_count": 100,
+    "expert_gold_annotation_started": false
+  },
+  "calibration24": {
+    "status": "PASS_FROZEN",
+    "count": 24,
+    "source_set_sha256": "79e439c9d14c759eb70d76f289a2a3372d47a8c3519f9816c747fa7c4ab4b0e3",
+    "round_A_count": 12,
+    "round_B_count": 12,
+    "no_Gold100_SourceArtifact_overlap": true,
+    "no_Gold100_StudyIdentityCluster_overlap": true,
+    "semantic_gate": {
+      "pre_semantic_count": 230,
+      "eligible_count": 218,
+      "excluded_count": 12,
+      "reclassified_count": 36
+    }
+  },
+  "contracts": {
+    "calibration_protocol": "FROZEN",
+    "annotation_workbench": "FROZEN",
+    "reliability_gate": "FROZEN",
+    "calibration_record_schema": "FROZEN",
+    "expert_manual": "FROZEN",
+    "human_smoke_test_checklist": "FROZEN"
+  },
+  "machine_conformance": {
+    "status": "PASS",
+    "workflow_run_id": 37176658991,
+    "report": "runs/E0.4.3/P0.3/P0.3_Workbench_Contract_Conformance_Report_v1.0.json",
+    "all_machine_checks_pass": true
+  },
+  "human_execution": {
+    "H0_workbench_smoke_test": "NOT_RUN",
+    "H1_expert_assignment_eligibility_COI": "NOT_STARTED",
+    "H2_round_A": "NOT_STARTED",
+    "H3_post_round_A_version_freeze": "NOT_STARTED",
+    "H4_round_B_blinded_reliability": "NOT_STARTED",
+    "H5_reliability_and_blind_wall_freeze": "NOT_STARTED"
+  },
+  "reliability_thresholds": {
+    "critical_categorical_Gwet_AC1": ">=0.80",
+    "ordinal_weighted_agreement": ">=0.80",
+    "numeric_exact_or_predeclared_tolerance_agreement": ">=0.95",
+    "source_span_token_F1": ">=0.85"
+  },
+  "reliability_metrics": {
+    "status": "NOT_AVAILABLE",
+    "basis": "locked pre-adjudication Calibration12B records"
+  },
+  "Gold100_annotation": {
+    "status": "PROHIBITED_UNTIL_P0_3_PASS",
+    "access_during_calibration": "DENIED"
+  },
+  "pass_status_if_human_gates_succeed": "PASS_PRE_GOLD100_ANNOTATION_LOCK",
+  "next_executable_gate": "E0.4.3-P0.3-H0_Human_Workbench_Smoke_Test",
+  "next_stage_after_full_pass": "E0.4.3-P0.4"
+}

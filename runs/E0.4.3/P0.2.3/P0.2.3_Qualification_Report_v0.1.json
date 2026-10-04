@@ -4,98 +4,55 @@
   "raw_count": 664,
   "base_raw_count": 342,
   "coverage_repair_count": 322,
-  "eligible_count": 115,
-  "excluded_count": 549,
+  "eligible_count": 294,
+  "excluded_count": 370,
   "evidence_cutoff": "2026-10-03T23:26:00+08:00",
   "oa_full_text_count": 348,
   "incomplete_stress_count": 8,
   "coverage": {
     "family_counts": {
-      "primary_interventional": 34,
-      "primary_observational": 9,
-      "evidence_synthesis": 57,
-      "guideline_or_consensus": 14,
-      "companion_or_secondary": 1
+      "primary_interventional": 85,
+      "primary_observational": 64,
+      "evidence_synthesis": 102,
+      "guideline_or_consensus": 35,
+      "companion_or_secondary": 8
     },
     "domain_counts": {
-      "nutrition_metabolic_cardiometabolic": 96,
-      "external_biomedical_or_public_health": 19
+      "nutrition_metabolic_cardiometabolic": 240,
+      "external_biomedical_or_public_health": 54
     },
     "tag_counts": {
-      "numeric_complexity": 101,
-      "causal_language_risk": 9,
-      "StudyIdentity_dependency": 2,
-      "correction_retraction_living_version": 9,
-      "conflict": 13,
-      "recommendation_exception": 10,
-      "temporal_cutoff_sensitive": 9,
+      "numeric_complexity": 273,
+      "causal_language_risk": 60,
+      "StudyIdentity_dependency": 11,
+      "correction_retraction_living_version": 39,
+      "conflict": 30,
+      "recommendation_exception": 27,
+      "temporal_cutoff_sensitive": 39,
       "incomplete_source_text": 8
     },
     "stress_counts": {
       "correction_republication_retraction_or_living_version": 6,
-      "StudyIdentity_or_companion_dependency": 2,
+      "StudyIdentity_or_companion_dependency": 4,
       "conflicting_evidence": 4,
       "recommendation_exception_or_normative_boundary": 2,
       "temporal_cutoff_sensitive": 2,
       "incomplete_or_missing_source_text": 2
     },
     "gaps": {
-      "family": {
-        "primary_observational": {
-          "have": 9,
-          "need": 18,
-          "deficit": 9
-        },
-        "companion_or_secondary": {
-          "have": 1,
-          "need": 4,
-          "deficit": 3
-        }
-      },
-      "domain": {
-        "external_biomedical_or_public_health": {
-          "have": 19,
-          "need": 20,
-          "deficit": 1
-        }
-      },
+      "family": {},
+      "domain": {},
       "tags": {
-        "causal_language_risk": {
-          "have": 9,
-          "need": 15,
-          "deficit": 6
-        },
         "StudyIdentity_dependency": {
-          "have": 2,
+          "have": 11,
           "need": 15,
-          "deficit": 13
-        },
-        "correction_retraction_living_version": {
-          "have": 9,
-          "need": 10,
-          "deficit": 1
-        },
-        "conflict": {
-          "have": 13,
-          "need": 15,
-          "deficit": 2
-        },
-        "temporal_cutoff_sensitive": {
-          "have": 9,
-          "need": 10,
-          "deficit": 1
+          "deficit": 4
         }
       },
-      "stress": {
-        "StudyIdentity_or_companion_dependency": {
-          "have": 2,
-          "need": 4,
-          "deficit": 2
-        }
-      }
+      "stress": {}
     }
   },
-  "eligible_pool_sha256": "9f16f9698dcb341af4058c4917410e14337e3a3f17e43657150ff6515591b11e",
+  "eligible_pool_sha256": "1b10592fb909fda0bfc73ea649873219009ff238ddbbe9bd2341b3eaefd4f86c",
   "sampling_authorized": false,
   "nonclaim": "No Gold100 deterministic sampling occurs in P0.2.3."
 }

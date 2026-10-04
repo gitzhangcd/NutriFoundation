@@ -121,3 +121,35 @@ runs/E0.4.3/P0.3/P0.3_Execution_Manifest_v1.0.json
 paper_c/P0.3/Annotation_Workbench_Implementation_Acceptance_Contract_v1.0.json
 paper_c/P0.3/Annotation_Workbench_Implementation_Handoff_v1.0.md
 ```
+
+## P0.3 authority
+
+```text
+docs/E0.4.3-P0.3_Independent_Expert_Calibration_Annotation_Workbench_Validation_Reliability_Gate_Pre_Gold100_Annotation_Lock_v1.0.md
+paper_c/P0.3/P0.3_Calibration_Protocol_v1.0.json
+paper_c/P0.3/Annotation_Workbench_Contract_v1.0.json
+paper_c/P0.3/Reliability_Gate_Contract_v1.0.json
+paper_c/P0.3/Reliability_Computation_Spec_v1.0.md
+paper_c/P0.3/Expert_Calibration_Manual_v1.0.md
+runs/E0.4.3/P0.3/Calibration24_Source_Set_FROZEN_v1.0.json
+runs/E0.4.3/P0.3/Calibration24_PreHuman_Selection_Reconciliation_v1.0.json
+runs/E0.4.3/P0.3/P0.3_Execution_Manifest_v1.0.json
+```
+
+## P0.3 current gate
+
+```text
+Calibration24 = 24 non-Gold100 sources
+Calibration24 SHA256 = ec793d52a130b98aaefebdb40b85356ed88543aea2b8eff63a7fcd9f8212af33
+Round A = 12 guided-training sources
+Round B = 12 blinded-reliability sources
+Gold100 SourceArtifact overlap = 0
+Gold100 StudyIdentity overlap = 0
+Machine conformance = PASS
+Human workbench smoke test = NOT RUN
+Experts A/B = UNASSIGNED
+Round A = NOT STARTED
+Round B = NOT STARTED
+Reliability metrics = NOT AVAILABLE
+Gold100 expert annotation = PROHIBITED
+```

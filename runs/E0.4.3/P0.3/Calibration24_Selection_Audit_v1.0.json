@@ -9,7 +9,7 @@
     "semantic_eligible_candidate_count": 221,
     "same_study_leakage_excluded_count": 3,
     "semantic_excluded_count": 9,
-    "semantic_reclassified_count": 65
+    "semantic_reclassified_count": 69
   },
   "solver": {
     "engine": "OR-Tools CP-SAT",
@@ -210,6 +210,14 @@
         "new_domain": "nutrition_metabolic_cardiometabolic"
       },
       {
+        "candidate_id": "G100-CAND-000442",
+        "pmid": "37552540",
+        "old_family": "evidence_synthesis",
+        "new_family": "evidence_synthesis",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
         "candidate_id": "G100-CAND-000446",
         "pmid": "38061371",
         "old_family": "primary_interventional",
@@ -319,7 +327,7 @@
         "old_family": "primary_interventional",
         "new_family": "companion_or_secondary",
         "old_domain": "nutrition_metabolic_cardiometabolic",
-        "new_domain": "nutrition_metabolic_cardiometabolic"
+        "new_domain": "external_biomedical_or_public_health"
       },
       {
         "candidate_id": "G100-CAND-000555",
@@ -354,6 +362,14 @@
         "new_domain": "nutrition_metabolic_cardiometabolic"
       },
       {
+        "candidate_id": "G100-CAND-000561",
+        "pmid": "34501598",
+        "old_family": "evidence_synthesis",
+        "new_family": "evidence_synthesis",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
         "candidate_id": "G100-CAND-000563",
         "pmid": "34714771",
         "old_family": "primary_interventional",
@@ -366,6 +382,14 @@
         "pmid": "34895248",
         "old_family": "evidence_synthesis",
         "new_family": "evidence_synthesis",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000571",
+        "pmid": "35208593",
+        "old_family": "primary_observational",
+        "new_family": "primary_observational",
         "old_domain": "nutrition_metabolic_cardiometabolic",
         "new_domain": "external_biomedical_or_public_health"
       },
@@ -466,12 +490,20 @@
         "new_domain": "external_biomedical_or_public_health"
       },
       {
+        "candidate_id": "G100-CAND-000633",
+        "pmid": "40017057",
+        "old_family": "evidence_synthesis",
+        "new_family": "evidence_synthesis",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
         "candidate_id": "G100-CAND-000636",
         "pmid": "40233286",
         "old_family": "primary_interventional",
         "new_family": "companion_or_secondary",
         "old_domain": "nutrition_metabolic_cardiometabolic",
-        "new_domain": "nutrition_metabolic_cardiometabolic"
+        "new_domain": "external_biomedical_or_public_health"
       },
       {
         "candidate_id": "G100-CAND-000637",
@@ -535,7 +567,7 @@
         "old_family": "primary_interventional",
         "new_family": "companion_or_secondary",
         "old_domain": "nutrition_metabolic_cardiometabolic",
-        "new_domain": "nutrition_metabolic_cardiometabolic"
+        "new_domain": "external_biomedical_or_public_health"
       },
       {
         "candidate_id": "G100-CAND-000669",

@@ -1,7 +1,7 @@
 {
   "stage_id": "E0.4.3",
   "title": "Independent Gold & Batch002 / Gold100 Confirmatory Program",
-  "status": "P0_3_EXECUTION_READY_HUMAN_CALIBRATION_REQUIRED_NOT_YET_PASS",
+  "status": "P0_3_IN_PROGRESS_BLOCKED_BY_WORKBENCH_IMPLEMENTATION",
   "branch": "e0.4.3-batch002-independent-gold",
   "created_date": "2026-10-03",
   "current_authority": {
@@ -33,7 +33,7 @@
     "p0_2_2": "PASS_RAW_REGISTRY_FROZEN",
     "p0_2_3": "PASS_FROZEN_READY_FOR_SAMPLING",
     "p0_2_4": "PASS_GOLD100_SOURCE_SET_FROZEN",
-    "p0_3": "EXECUTION_READY_HUMAN_CALIBRATION_REQUIRED_NOT_YET_PASS",
+    "p0_3": "IN_PROGRESS_BLOCKED_BY_WORKBENCH_IMPLEMENTATION",
     "p0_4": "Gold100 Dual Annotation & Adjudication",
     "p1": "AB0-AB6 Strict-Blind Confirmatory Execution",
     "p2": "CSER / Human-Burden / Kill-Test Analysis"
@@ -179,7 +179,7 @@
     "AB0-AB6 and K01-K14 remain frozen",
     "no post-unblinding adaptation to improve observed results"
   ],
-  "next_stage": "E0.4.3-P0.3-H0_Human_Workbench_Smoke_Test",
+  "next_stage": "E0.4.3-P0.3-H0A_Workbench_Implementation_and_Automated_Acceptance",
   "gold_governance": {
     "gold_owner": "Gold100 Independent Gold Panel",
     "AB0_is_gold": false,
@@ -205,13 +205,24 @@
     "round_B_count": 12,
     "zero_Gold100_source_overlap": true,
     "zero_Gold100_StudyIdentity_overlap": true,
+    "semantic_gate": {
+      "leakage_safe_pre_semantic_count": 230,
+      "eligible_count": 221,
+      "excluded_count": 9,
+      "reclassified_count": 36
+    },
     "machine_conformance": "PASS",
-    "machine_conformance_run_id": 37177028135,
-    "human_workbench_smoke_test": "NOT_RUN",
+    "machine_conformance_latest_run_id": 37177142128,
+    "reliability_scorer_synthetic_test": "PASS",
+    "workbench_implementation": "NOT_PRESENT",
+    "human_workbench_smoke_test": "BLOCKED_BY_WORKBENCH_IMPLEMENTATION",
     "experts_assigned": false,
-    "round_A": "NOT_STARTED",
+    "COI_role_separation_gate": "NOT_RUN",
+    "round_A": "BLOCKED_PENDING_H0_H1",
     "round_B": "NOT_STARTED",
     "reliability_metrics": "NOT_AVAILABLE",
-    "Gold100_annotation": "PROHIBITED"
+    "Gold100_annotation": "PROHIBITED",
+    "p0_3_pass": false,
+    "next_gate": "P0.3-H0A Workbench Implementation & Automated Acceptance"
   }
 }

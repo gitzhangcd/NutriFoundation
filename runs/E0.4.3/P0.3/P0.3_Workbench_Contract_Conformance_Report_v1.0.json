@@ -3,7 +3,7 @@
   "artifact": "Workbench_Contract_Conformance",
   "version": "v1.0",
   "status": "PASS_MACHINE_CONFORMANCE",
-  "calibration24_source_set_sha256": "990795d69c321f2f8db6e4a4051c2a1f002ecbe37a98386038754c3eb21ad7b8",
+  "calibration24_source_set_sha256": "ec793d52a130b98aaefebdb40b85356ed88543aea2b8eff63a7fcd9f8212af33",
   "gold100_source_set_sha256": "fdb1189647fe4022411d3ebfd6591da2398135aed398c88ca6f85236678420ad",
   "checks": {
     "calibration_hash_matches": true,

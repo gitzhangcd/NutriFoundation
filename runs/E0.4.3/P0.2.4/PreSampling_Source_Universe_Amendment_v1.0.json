@@ -1,0 +1,49 @@
+{
+  "registry": "Gold100_PreSampling_Source_Universe_Amendment",
+  "version": "v1.0",
+  "stage": "E0.4.3-P0.2.4-A0",
+  "status": "PENDING_MACHINE_QUALIFICATION",
+  "parent_pool_sha256": "ff33d849367c335e5b5cb8345b40a332b1417d0e8a4372eb462a0464a807565c",
+  "records": [
+    {
+      "candidate_id": "G100-AMEND-000001",
+      "pmid": "26156323",
+      "pmcid": "PMC4495677",
+      "doi": "10.1136/bmj.h3267",
+      "title": "Evidence based community mobilization for dengue prevention in Nicaragua and Mexico (Camino Verde, the Green Way): cluster randomized controlled trial.",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "expected_registration_id": "ISRCTN27581154",
+      "linked_companion_pmid": "28699554",
+      "expected_challenge_tags": {
+        "StudyIdentity_dependency": true
+      }
+    },
+    {
+      "candidate_id": "G100-AMEND-000002",
+      "pmid": "29235564",
+      "pmcid": "PMC5808035",
+      "doi": "10.1038/bjc.2017.423",
+      "title": "Influence of induction chemotherapy in trimodality therapy-eligible oesophageal cancer patients: secondary analysis of a randomised trial.",
+      "source_family": "companion_or_secondary",
+      "domain": "external_biomedical_or_public_health",
+      "expected_registration_id": "NCT00525915",
+      "expected_challenge_tags": {
+        "StudyIdentity_dependency": true
+      }
+    },
+    {
+      "candidate_id": "G100-AMEND-000003",
+      "pmid": "40323620",
+      "pmcid": "PMC12053795",
+      "doi": "10.1001/jamaneurol.2025.0716",
+      "title": "CT Perfusion Imaging After Selection for Late-Window Endovascular Stroke Treatment: Secondary Analysis of the MR CLEAN-LATE Randomized Trial.",
+      "source_family": "companion_or_secondary",
+      "domain": "external_biomedical_or_public_health",
+      "expected_registration_id": "ISRCTN19922220",
+      "expected_challenge_tags": {
+        "StudyIdentity_dependency": true
+      }
+    }
+  ]
+}

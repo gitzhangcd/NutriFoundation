@@ -6,10 +6,10 @@
     "sampling_universe_count": 333,
     "gold100_count": 100,
     "leakage_safe_pre_semantic_count": 230,
-    "semantic_eligible_candidate_count": 218,
+    "semantic_eligible_candidate_count": 220,
     "same_study_leakage_excluded_count": 3,
-    "semantic_excluded_count": 12,
-    "semantic_reclassified_count": 36
+    "semantic_excluded_count": 10,
+    "semantic_reclassified_count": 32
   },
   "solver": {
     "engine": "OR-Tools CP-SAT",
@@ -132,12 +132,6 @@
         "title": "Manualised Cognitive Remediation Therapy for adult obesity: study protocol for a randomised controlled trial."
       },
       {
-        "candidate_id": "G100-CAND-000514",
-        "pmid": "30717746",
-        "reason": "unmappable_calibration_family",
-        "title": "Changes in diet quality and home food environment in preschool children following weight management."
-      },
-      {
         "candidate_id": "G100-CAND-000540",
         "pmid": "33023665",
         "reason": "unmappable_calibration_family",
@@ -148,12 +142,6 @@
         "pmid": "37498603",
         "reason": "protocol_not_evidence_result",
         "title": "Effects of an Exercise Program on Cardiometabolic and Mental Health in Children With Overweight or Obesity: A Secondary Analysis of a Randomized Clinical Trial."
-      },
-      {
-        "candidate_id": "G100-CAND-000680",
-        "pmid": "40512543",
-        "reason": "unmappable_calibration_family",
-        "title": "Kidney Parameters with Tirzepatide in Obesity with or without Type 2 Diabetes."
       },
       {
         "candidate_id": "G100-CAND-000700",
@@ -193,14 +181,6 @@
         "old_family": "evidence_synthesis",
         "new_family": "evidence_synthesis",
         "old_domain": "external_biomedical_or_public_health",
-        "new_domain": "nutrition_metabolic_cardiometabolic"
-      },
-      {
-        "candidate_id": "G100-CAND-000250",
-        "pmid": "34893024",
-        "old_family": "companion_or_secondary",
-        "new_family": "primary_observational",
-        "old_domain": "nutrition_metabolic_cardiometabolic",
         "new_domain": "nutrition_metabolic_cardiometabolic"
       },
       {
@@ -273,7 +253,7 @@
         "old_family": "primary_interventional",
         "new_family": "companion_or_secondary",
         "old_domain": "nutrition_metabolic_cardiometabolic",
-        "new_domain": "external_biomedical_or_public_health"
+        "new_domain": "nutrition_metabolic_cardiometabolic"
       },
       {
         "candidate_id": "G100-CAND-000555",
@@ -286,22 +266,6 @@
       {
         "candidate_id": "G100-CAND-000557",
         "pmid": "34194474",
-        "old_family": "evidence_synthesis",
-        "new_family": "evidence_synthesis",
-        "old_domain": "nutrition_metabolic_cardiometabolic",
-        "new_domain": "external_biomedical_or_public_health"
-      },
-      {
-        "candidate_id": "G100-CAND-000559",
-        "pmid": "34374223",
-        "old_family": "evidence_synthesis",
-        "new_family": "evidence_synthesis",
-        "old_domain": "nutrition_metabolic_cardiometabolic",
-        "new_domain": "external_biomedical_or_public_health"
-      },
-      {
-        "candidate_id": "G100-CAND-000561",
-        "pmid": "34501598",
         "old_family": "evidence_synthesis",
         "new_family": "evidence_synthesis",
         "old_domain": "nutrition_metabolic_cardiometabolic",
@@ -362,14 +326,6 @@
         "new_family": "companion_or_secondary",
         "old_domain": "nutrition_metabolic_cardiometabolic",
         "new_domain": "nutrition_metabolic_cardiometabolic"
-      },
-      {
-        "candidate_id": "G100-CAND-000636",
-        "pmid": "40233286",
-        "old_family": "primary_interventional",
-        "new_family": "primary_interventional",
-        "old_domain": "nutrition_metabolic_cardiometabolic",
-        "new_domain": "external_biomedical_or_public_health"
       },
       {
         "candidate_id": "G100-CAND-000637",
@@ -453,5 +409,5 @@
       }
     ]
   },
-  "calibration24_source_set_sha256": "79e439c9d14c759eb70d76f289a2a3372d47a8c3519f9816c747fa7c4ab4b0e3"
+  "calibration24_source_set_sha256": "990795d69c321f2f8db6e4a4051c2a1f002ecbe37a98386038754c3eb21ad7b8"
 }

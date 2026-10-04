@@ -49,11 +49,11 @@ def pubmed_meta(pmids):
         time.sleep(0.35)
     return out
 
-NUTRI_RE=re.compile(r"\\b(nutrition|nutritional|diet|dietary|food|nutrient|vitamin|mineral|protein|calorie|selenium|iron|obesity|overweight|diabet|glyc|insulin|lipid|cholesterol|metabolic|cardiometabolic|fatty acid|malnutrition|micronutrient|macronutrient)\\b",re.I)
-VET_RE=re.compile(r"\\b(canine|feline|veterinary|dog|dogs|cat|cats|murine|mouse|mice|rat|rats)\\b",re.I)
-PROTOCOL_RE=re.compile(r"\\b(study protocol|trial protocol|protocol for a randomized|protocol for a randomised|systematic review protocol|protocol:)\\b",re.I)
-COMP_RE=re.compile(r"\\b(secondary analysis|prespecified secondary analysis|post[- ]hoc analysis|subgroup analysis|follow[- ]up analysis|secondary outcome)\\b",re.I)
-OBS_RE=re.compile(r"\\b(cohort|case[- ]control|cross[- ]sectional|observational|prospective study|retrospective study)\\b",re.I)
+NUTRI_RE=re.compile(r"\b(nutrition|nutritional|diet|dietary|food|nutrient|vitamin|mineral|protein|calorie|selenium|iron|obesity|overweight|diabet|glyc|insulin|lipid|cholesterol|metabolic|cardiometabolic|fatty acid|malnutrition|micronutrient|macronutrient)\b",re.I)
+VET_RE=re.compile(r"\b(canine|feline|veterinary|dog|dogs|cat|cats|murine|mouse|mice|rat|rats)\b",re.I)
+PROTOCOL_RE=re.compile(r"\b(study protocol|trial protocol|protocol for a randomized|protocol for a randomised|systematic review protocol|protocol:)\b",re.I)
+COMP_RE=re.compile(r"\b(secondary analysis|prespecified secondary analysis|post[- ]hoc analysis|subgroup analysis|follow[- ]up analysis|secondary outcome)\b",re.I)
+OBS_RE=re.compile(r"\b(cohort|case[- ]control|cross[- ]sectional|observational|prospective study|retrospective study)\b",re.I)
 
 def semantic_classification(meta):
     title=meta.get("title","")

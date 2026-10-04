@@ -449,3 +449,5 @@ report={"stage":"E0.4.3-P0.2.3","status":pool_payload["status"],"raw_count":len(
 print(json.dumps(report,indent=2))
 
 # execution revision: batch PMC EFetch path; triggered from latest branch head
+
+# execution revision: stale-run cancellation enabled

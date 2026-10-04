@@ -1,18 +1,20 @@
 {
   "stage_id": "E0.4.3-P0.3",
   "version": "v1.0",
-  "status": "HUMAN_EXECUTION_NOT_STARTED",
+  "status": "BLOCKED_BY_WORKBENCH_IMPLEMENTATION",
   "calibration24_sha256": "ec793d52a130b98aaefebdb40b85356ed88543aea2b8eff63a7fcd9f8212af33",
   "workbench_machine_conformance": "PASS",
-  "human_workbench_smoke_test": "NOT_RUN",
+  "human_workbench_smoke_test": "BLOCKED_BY_WORKBENCH_IMPLEMENTATION",
   "expert_A": "UNASSIGNED",
   "expert_B": "UNASSIGNED",
   "COI_role_separation_gate": "NOT_RUN",
-  "round_A": "NOT_STARTED",
+  "round_A": "BLOCKED_PENDING_H0_H1",
   "post_round_A_version_freeze": "NOT_STARTED",
   "round_B": "NOT_STARTED",
   "reliability_scoring": "NOT_RUN",
   "Gold100_access": "PROHIBITED",
   "p0_3_pass": false,
-  "workbench_machine_conformance_run_id": 37177028135
+  "workbench_machine_conformance_run_id": 37177028135,
+  "workbench_implementation": "NOT_PRESENT",
+  "next_action": "IMPLEMENT_RUNNABLE_WORKBENCH_THEN_EXECUTE_WB_H01_H15"
 }

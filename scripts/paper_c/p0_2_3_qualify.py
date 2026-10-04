@@ -260,7 +260,7 @@ for r in records:
         "publication_ok":pub_ok,"publication_date_basis":pub_dt,
         "version_status":ver,"version_chain_refs":verrefs,"version_stress":verstress,
         "registration_ids":regids,
-        "oa":oa.get(pmcid) if pmcid else {"open":False}
+        "oa":{"open":bool(art),"license":(txt(art.find(".//license"))[:500] if art is not None and art.find(".//license") is not None else None)}
     }
 
 # Build StudyIdentity clusters from registration IDs.
@@ -290,7 +290,7 @@ for r in records:
     elif cid in incomplete_selected:
         gates["ELIG-02"]={"pass":True,"evidence":"prespecified naturally incomplete source-text stress exception"}
     else:
-        gates["ELIG-02"]={"pass":False,"evidence":"no reproducible OA full text available to current qualification run"}; exclusions.append("X02")
+        gates["ELIG-02"]={"pass":False,"evidence":"no reproducible PMC EFetch full text available to current qualification run"}; exclusions.append("X02")
     gates["ELIG-03"]={"pass":w["version_status"]!="version_unknown_hold","evidence":w["version_status"]}
     if not gates["ELIG-03"]["pass"]: exclusions.append("X03")
     gates["ELIG-04"]={"pass":w["publication_ok"],"evidence":w["publication_date_basis"]}
@@ -394,7 +394,7 @@ for r in records:
         "worker_visible_text_sha256":sha(w["worker_text"]) if full else (sha(m.get("abstract","")) if incomplete else None),
         "worker_visible_text_chars":len(w["worker_text"]) if full else len(m.get("abstract","")),
         "pmc_xml_sha256":sha(ET.tostring(w["article"],encoding="unicode")) if w["article"] is not None else None,
-        "pmc_oa":bool(w["oa"].get("open")),
+        "pmc_efetch_retrieved":bool(w["oa"].get("open")),
         "license":w["oa"].get("license"),
         "text_definition":"PMC article title + abstract + body, whitespace-normalized; references/back matter excluded" if full else ("PubMed abstract-only natural insufficiency stress package" if incomplete else None)
       },

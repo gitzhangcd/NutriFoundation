@@ -162,7 +162,7 @@ for spec in amend["records"]:
         "evidence_cutoff":CUTOFF,"publication_date_basis":pubdate,"version_status":vstat,"version_chain_refs":m.get("comments",[])
       },
       "study_identity":{
-        "study_identity_cluster_id":spec["expected_study_identity_cluster"],"status":identity_status,
+        "study_identity_cluster_id":"REG:"+expected_reg,"status":identity_status,
         "registration_ids":regs,"linked_candidate_ids":[],
         "identity_evidence_refs":[f"PMID:{pmid}",f"REG:{expected_reg}"]+([f"LINKED_COMPANION_PMID:{linked}"] if spec["source_family"]!="companion_or_secondary" and linked else []),
         "accidental_duplicate_risk":False
@@ -188,7 +188,7 @@ for spec in amend["records"]:
           "ELIG-04":{"pass":True,"evidence":pubdate},
           "ELIG-05":{"pass":True,"evidence":spec["source_family"]},
           "ELIG-06":{"pass":True,"evidence":spec["domain"]},
-          "ELIG-07":{"pass":True,"evidence":{"cluster":spec["expected_study_identity_cluster"],"status":identity_status}},
+          "ELIG-07":{"pass":True,"evidence":{"cluster":"REG:"+expected_reg,"status":identity_status}},
           "ELIG-08":{"pass":True,"evidence":f"text_chars={len(wtxt)}"},
           "ELIG-09":{"pass":True,"evidence":"pre-sampling amendment source not in Batch001"},
           "ELIG-10":{"pass":True,"evidence":"joint-feasibility repair only; no AB/model outputs used"},
@@ -409,3 +409,5 @@ audit={
 print(json.dumps(audit,indent=2))
 
 # implementation repair: accept linked_companion_pmid alias from frozen amendment registry
+
+# implementation repair: derive StudyIdentity cluster directly from expected_registration_id

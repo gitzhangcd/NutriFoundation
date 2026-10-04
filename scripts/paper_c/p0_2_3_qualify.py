@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 
 ROOT=Path(__file__).resolve().parents[2]
 RAW=ROOT/"runs/E0.4.3/P0.2.2/Gold100_Candidate_Source_Registry_RAW_v0.1.json"
+REPAIR=ROOT/"runs/E0.4.3/P0.2.3/Gold100_Candidate_Source_Registry_Coverage_Repair_v0.1.json"
 OUT=ROOT/"runs/E0.4.3/P0.2.3"
 OUT.mkdir(parents=True, exist_ok=True)
 CUTOFF="2026-10-03T23:26:00+08:00"
@@ -137,8 +138,11 @@ def infer_family(rec,meta,fulltext):
         return "primary_interventional","pubmed_publication_type"
     if "meta-analysis" in pts or "systematic review" in pts:
         return "evidence_synthesis","pubmed_publication_type"
-    if "practice guideline" in pts or re.search(r"(^|\W)guideline($|\W)",pts) or "consensus development conference" in pts:
+    if ("practice guideline" in pts or re.search(r"(^|\W)guideline($|\W)",pts)
+        or "consensus development conference" in pts or "consensus statement" in pts):
         return "guideline_or_consensus","pubmed_publication_type"
+    if re.search(r"\b(clinical practice guidelines?|guidelines?|consensus (?:report|statement)|position (?:stand|statement))\b",ta):
+        return "guideline_or_consensus","title_or_abstract_formal_normative_signal"
     if re.search(r"\b(secondary analysis|subgroup analysis|post[- ]hoc|follow[- ]up analysis)\b",ta):
         return "companion_or_secondary","title_or_abstract"
     if any(x in pts for x in ["observational study","comparative study"]) or re.search(r"\b(cohort|case[- ]control|cross[- ]sectional|prospective observational|retrospective)\b",ta):
@@ -232,7 +236,16 @@ def batch001_pmids():
     return set(re.findall(r"\bPMID[:\s]*([0-9]{5,9})\b",s,re.I))
 
 raw=json.loads(RAW.read_text())
-records=raw["records"]
+records=list(raw["records"])
+if REPAIR.exists():
+    repair=json.loads(REPAIR.read_text())
+    known_pmids={r["bibliographic_identity"]["identifiers"]["pmid"] for r in records}
+    for r in repair.get("records",[]):
+        pmid=r["bibliographic_identity"]["identifiers"]["pmid"]
+        if pmid not in known_pmids:
+            records.append(r)
+            known_pmids.add(pmid)
+print(f"CANDIDATE_INPUT {len(records)}", flush=True)
 pmids=[r["bibliographic_identity"]["identifiers"]["pmid"] for r in records]
 meta=pubmed_meta(pmids)
 
@@ -307,9 +320,12 @@ for r in records:
     if w["registration_ids"]:
         rid=w["registration_ids"][0]; members=sorted(reg_to_ids.get(rid,[]))
         cluster="REG:"+rid; linked=[x for x in members if x!=cid]
-        if len(members)>1:
-            if w["family"]=="companion_or_secondary": status="companion_publication"
-            else: status="independent_primary_report"
+        if w["family"]=="companion_or_secondary":
+            # Explicit trial/cohort registration is a source-grounded StudyIdentity link
+            # even when the primary report is not itself in the candidate registry.
+            status="companion_publication"
+        elif len(members)>1:
+            status="independent_primary_report"
         else:
             status="independent_primary_report" if w["family"] in ("primary_interventional","primary_observational") else "identity_resolved_other"
     elif w["family"]=="companion_or_secondary":
@@ -374,17 +390,11 @@ for r in records:
       "temporal_cutoff_sensitive":w["version_chain_refs"] if temptag else [],
       "incomplete_source_text":["No reproducible OA full text; abstract-only frozen stress exception"] if incomplete else []
     }
+    # Stress stratum is assigned after all eligible records are assembled so
+    # the frozen 6/4/4/2/2/2 strata can be filled deterministically without overlap.
     stress=None
-    if w["version_stress"]: stress="correction_republication_retraction_or_living_version"
-    elif idtag: stress="StudyIdentity_or_companion_dependency"
-    elif conf: stress="conflicting_evidence"
-    elif recx: stress="recommendation_exception_or_normative_boundary"
-    elif temptag: stress="temporal_cutoff_sensitive"
-    elif incomplete: stress="incomplete_or_missing_source_text"
     if exclusions:
         state="EXCLUDED"
-    elif stress:
-        state="ELIGIBLE_CORE_AND_STRESS" if not incomplete else "ELIGIBLE_STRESS"
     else:
         state="ELIGIBLE_CORE"
     rec={
@@ -412,6 +422,26 @@ for r in records:
     else: qualified.append(rec)
     text_manifest.append({"candidate_id":cid,"pmid":pmid,"pmcid":pmcid,"text_status":rec["source_text"]["status"],"worker_visible_text_sha256":rec["source_text"]["worker_visible_text_sha256"],"pmc_xml_sha256":rec["source_text"]["pmc_xml_sha256"],"license":rec["source_text"]["license"]})
 
+# Deterministic, non-overlapping Stress20 stratum assignment from frozen source-grounded tags.
+# Rare/specific strata are filled first; version-chain sources can support CT-TEMP,
+# but version and temporal slots remain distinct sampling strata.
+stress_plan=[
+    ("incomplete_or_missing_source_text","incomplete_source_text",2),
+    ("recommendation_exception_or_normative_boundary","recommendation_exception",2),
+    ("StudyIdentity_or_companion_dependency","StudyIdentity_dependency",4),
+    ("conflicting_evidence","conflict",4),
+    ("temporal_cutoff_sensitive","temporal_cutoff_sensitive",2),
+    ("correction_republication_retraction_or_living_version","correction_retraction_living_version",6),
+]
+assigned=set()
+for stratum,tag,need in stress_plan:
+    candidates=[x for x in sorted(qualified,key=lambda z:z["candidate_id"])
+                if x["candidate_id"] not in assigned and x["challenge_tags"].get(tag)]
+    for x in candidates[:need]:
+        x["stress_stratum"]=stratum
+        x["eligibility"]["screening_state"]="ELIGIBLE_STRESS" if stratum=="incomplete_or_missing_source_text" else "ELIGIBLE_CORE_AND_STRESS"
+        assigned.add(x["candidate_id"])
+
 # Coverage audit.
 def count_where(xs,fn): return sum(1 for x in xs if fn(x))
 family_counts={f:count_where(qualified,lambda x,f=f:x["source_family"]==f) for f in ["primary_interventional","primary_observational","evidence_synthesis","guideline_or_consensus","companion_or_secondary"]}
@@ -436,7 +466,7 @@ pool_payload={"registry":"Gold100_Eligible_Pool","version":"v0.1","stage":"E0.4.
 canonical=json.dumps(pool_payload,sort_keys=True,ensure_ascii=False,separators=(",",":"))
 pool_sha=sha(canonical)
 pool_payload["eligible_pool_sha256"]=pool_sha
-report={"stage":"E0.4.3-P0.2.3","status":pool_payload["status"],"raw_count":len(records),"eligible_count":len(qualified),"excluded_count":len(excluded),
+report={"stage":"E0.4.3-P0.2.3","status":pool_payload["status"],"raw_count":len(records),"base_raw_count":len(raw.get("records",[])),"coverage_repair_count":max(0,len(records)-len(raw.get("records",[]))),"eligible_count":len(qualified),"excluded_count":len(excluded),
         "evidence_cutoff":CUTOFF,"oa_full_text_count":sum(1 for x in text_manifest if x["text_status"]=="official_full_text_frozen"),
         "incomplete_stress_count":sum(1 for x in text_manifest if x["text_status"]=="structured_abstract_only"),
         "coverage":coverage,"eligible_pool_sha256":pool_sha,
@@ -456,3 +486,5 @@ print(json.dumps(report,indent=2))
 # execution revision: stale-run cancellation enabled
 # execution revision: Europe PMC fullTextXML transport keyed by PMCID
 # execution revision: removed serial OA-status calls; fullTextXML retrieval now determines exact-text availability
+
+# execution revision: merge frozen coverage-repair supplement and deterministic Stress20 assignment

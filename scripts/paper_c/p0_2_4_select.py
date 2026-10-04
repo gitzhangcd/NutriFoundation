@@ -141,7 +141,7 @@ for spec in amend["records"]:
         identity_status="companion_publication"
     else:
         identity_status="independent_primary_report"
-        linked=spec.get("linked_companion_evidence_pmid")
+        linked=spec.get("linked_companion_evidence_pmid") or spec.get("linked_companion_pmid")
         if not linked: raise SystemExit(f"PRIMARY_ID_DEPENDENCY_WITHOUT_LINKED_COMPANION:{pmid}")
     num,num_ev=numeric_tag(m["abstract"]+" "+wtxt)
     pubdate=publication_date_basis(m)
@@ -164,7 +164,7 @@ for spec in amend["records"]:
       "study_identity":{
         "study_identity_cluster_id":spec["expected_study_identity_cluster"],"status":identity_status,
         "registration_ids":regs,"linked_candidate_ids":[],
-        "identity_evidence_refs":[f"PMID:{pmid}",f"REG:{expected_reg}"]+([f"LINKED_COMPANION_PMID:{spec['linked_companion_evidence_pmid']}"] if spec.get("linked_companion_evidence_pmid") else []),
+        "identity_evidence_refs":[f"PMID:{pmid}",f"REG:{expected_reg}"]+([f"LINKED_COMPANION_PMID:{linked}"] if spec["source_family"]!="companion_or_secondary" and linked else []),
         "accidental_duplicate_risk":False
       },
       "challenge_tags":{
@@ -175,7 +175,7 @@ for spec in amend["records"]:
       "challenge_tag_evidence":{
         "numeric_complexity":num_ev if num else [],
         "causal_language_risk":[],
-        "StudyIdentity_dependency":[f"registration={expected_reg}"]+([f"linked companion PMID={spec['linked_companion_evidence_pmid']}"] if spec.get("linked_companion_evidence_pmid") else ["secondary/post-hoc source relation"]),
+        "StudyIdentity_dependency":[f"registration={expected_reg}"]+([f"linked companion PMID={linked}"] if spec["source_family"]!="companion_or_secondary" and linked else ["secondary/post-hoc source relation"]),
         "correction_retraction_living_version":[],"conflict":{},"recommendation_exception":[],
         "temporal_cutoff_sensitive":[],"incomplete_source_text":[]
       },
@@ -407,3 +407,5 @@ audit={
 (OUT/"Gold100_Sampling_Audit_v1.0.json").write_text(json.dumps(audit,indent=2,ensure_ascii=False)+"\n")
 (OUT/"Gold100_Source_Slot_Manifest_FILLED_v1.0.json").write_text(json.dumps(filled,indent=2,ensure_ascii=False)+"\n")
 print(json.dumps(audit,indent=2))
+
+# implementation repair: accept linked_companion_pmid alias from frozen amendment registry

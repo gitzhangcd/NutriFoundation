@@ -1,0 +1,116 @@
+{
+  "categorical": [
+    {
+      "field": "effect_direction",
+      "categories": [
+        "increase",
+        "decrease"
+      ],
+      "a": "increase",
+      "b": "increase",
+      "applicable": true
+    },
+    {
+      "field": "effect_direction",
+      "categories": [
+        "increase",
+        "decrease"
+      ],
+      "a": "decrease",
+      "b": "decrease",
+      "applicable": true
+    },
+    {
+      "field": "effect_direction",
+      "categories": [
+        "increase",
+        "decrease"
+      ],
+      "a": "increase",
+      "b": "increase",
+      "applicable": true
+    },
+    {
+      "field": "effect_direction",
+      "categories": [
+        "increase",
+        "decrease"
+      ],
+      "a": "decrease",
+      "b": "decrease",
+      "applicable": true
+    }
+  ],
+  "ordinal": [
+    {
+      "field": "causal_level",
+      "K": 4,
+      "a": 2,
+      "b": 2,
+      "applicable": true
+    },
+    {
+      "field": "causal_level",
+      "K": 4,
+      "a": 3,
+      "b": 3,
+      "applicable": true
+    }
+  ],
+  "numeric": [
+    {
+      "field": "critical_effect",
+      "a": 1.25,
+      "b": 1.25,
+      "measure": "RR",
+      "unit": null,
+      "tolerance": 0,
+      "applicable": true
+    },
+    {
+      "field": "critical_effect",
+      "a": 4.2,
+      "b": 4.2,
+      "measure": "MD",
+      "unit": "kg",
+      "tolerance": 0,
+      "applicable": true
+    }
+  ],
+  "spans": [
+    {
+      "object_id": "EU-1",
+      "a_tokens": [
+        10,
+        11,
+        12
+      ],
+      "b_tokens": [
+        10,
+        11,
+        12
+      ],
+      "applicable": true
+    },
+    {
+      "object_id": "EU-2",
+      "a_tokens": [
+        30,
+        31
+      ],
+      "b_tokens": [
+        30,
+        31
+      ],
+      "applicable": true
+    }
+  ],
+  "integrity": {
+    "all_schema_valid": true,
+    "all_locked": true,
+    "cross_visibility_events": 0,
+    "unauthorized_gold100_accesses": 0,
+    "blocking_workbench_defects": 0,
+    "blocking_protocol_ambiguities": 0
+  }
+}

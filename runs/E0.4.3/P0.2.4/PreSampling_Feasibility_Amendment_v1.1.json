@@ -1,0 +1,72 @@
+{
+  "stage_id": "E0.4.3-P0.2.4-A0",
+  "title": "Pre-Sampling Joint-Feasibility Reconciliation",
+  "version": "v1.1",
+  "date": "2026-10-04",
+  "status": "PASS_RECONCILED_PRE_SAMPLING",
+  "supersedes": "runs/E0.4.3/P0.2.4/PreSampling_Feasibility_Amendment_v1.0.json",
+  "sampling_performed_before_this_amendment": false,
+  "no_AB_or_model_performance_used": true,
+  "immutable_parent": {
+    "eligible_pool_path": "runs/E0.4.3/P0.2.3/Gold100_Eligible_Pool_FROZEN_v0.1.json",
+    "eligible_pool_sha256": "ff33d849367c335e5b5cb8345b40a332b1417d0e8a4372eb462a0464a807565c",
+    "slot_manifest_sha": "5ee6bb48c345275f3d4f01111a637ac685458c5e",
+    "sampling_seed": 20260930
+  },
+  "normative_delta": {
+    "authority": "paper_c/P0.2.4/Paper_C_P0_PreSampling_Feasibility_Erratum_v0.1.1.md",
+    "field": "orthogonal_minimums_for_final_Gold100.incomplete_source_text",
+    "old_value": 5,
+    "new_value": 2,
+    "reason": "ELIG-02 permits incomplete full-text sufficiency only in the two incomplete/missing-source-text stress slots; >=5 was jointly infeasible by construction."
+  },
+  "source_universe_additions": [
+    {
+      "amendment_id": "G100-AMEND-000001",
+      "pmid": "26156323",
+      "pmcid": "PMC4495677",
+      "doi": "10.1136/bmj.h3267",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "expected_study_identity_cluster": "REG:ISRCTN27581154",
+      "linked_companion_evidence_pmid": "28699554",
+      "StudyIdentity_dependency": true
+    },
+    {
+      "amendment_id": "G100-AMEND-000002",
+      "pmid": "29235564",
+      "pmcid": "PMC5808035",
+      "doi": "10.1038/bjc.2017.423",
+      "source_family": "companion_or_secondary",
+      "domain": "external_biomedical_or_public_health",
+      "expected_study_identity_cluster": "REG:NCT00525915",
+      "StudyIdentity_dependency": true
+    },
+    {
+      "amendment_id": "G100-AMEND-000003",
+      "pmid": "40323620",
+      "pmcid": "PMC12053795",
+      "doi": "10.1001/jamaneurol.2025.0716",
+      "source_family": "companion_or_secondary",
+      "domain": "external_biomedical_or_public_health",
+      "expected_study_identity_cluster": "REG:ISRCTN19922220",
+      "StudyIdentity_dependency": true
+    }
+  ],
+  "removed_from_v1_0_provisional_plan": [
+    "No challenge-tag amendment to G100-CAND-000015 is used.",
+    "Incomplete-source candidates remain legal only for the two dedicated incomplete-source stress slots."
+  ],
+  "frozen_unchanged": [
+    "Gold100 N=100",
+    "Core80 + Stress20",
+    "80/20 domain split",
+    "Core family quotas",
+    "Stress20 6/4/4/2/2/2 slot counts",
+    "all challenge minima except incomplete_source_text",
+    "seed 20260930",
+    "AB0-AB6",
+    "K01-K14",
+    "StudyIdentity non-duplication"
+  ]
+}

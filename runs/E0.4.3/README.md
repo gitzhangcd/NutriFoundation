@@ -10,7 +10,7 @@ E0.4.3-P0.2.2 = PASS / RAW REGISTRY FROZEN
 E0.4.3-P0.2.3 = PASS / ELIGIBLE POOL FROZEN / SAMPLING AUTHORIZED
 E0.4.3-P0.2.4 = PASS / GOLD100 SOURCE SET FROZEN
 Primary program = Paper C confirmatory evidence production
-Current execution gate = P0.3 Independent Expert Calibration
+Current execution gate = P0.3-H0A Workbench Implementation & Acceptance
 ```
 
 ## Upstream freeze
@@ -54,8 +54,8 @@ R0 Measurement-System Lock [PASS]
 → P0.2.2 real candidate SourceArtifacts [PASS]
 → P0.2.3 eligible-pool qualification + hash freeze [PASS: 330 eligible]
 → P0.2.4 deterministic Gold100 selection [PASS: 100 sources frozen]
-→ P0.3 independent expert calibration [NEXT]
-→ P0.4 Gold100 dual annotation + adjudication
+→ P0.3 independent expert calibration [IN PROGRESS: machine preparation frozen; human calibration not started]
+→ P0.4 Gold100 dual annotation + adjudication [BLOCKED UNTIL P0.3 PASS]
 → P1 AB0–AB6 strict-blind confirmatory execution
 → P2 CSER / human-burden / kill-test analysis
 ```
@@ -97,3 +97,27 @@ Expert Gold annotation = NOT STARTED
 ```
 
 Pre-sampling feasibility audit identified and prospectively corrected one protocol contradiction: the incomplete-source challenge minimum was changed from >=5 to >=2 because ELIG-02 permits incomplete text only in the two dedicated incomplete-source stress slots. No Gold100 sampling or AB/model outcome existed before this correction.
+## P0.3 current authority
+
+```text
+P0.3 overall = NOT YET PASS
+Calibration24 = FROZEN
+Calibration24 SHA256 = ec793d52a130b98aaefebdb40b85356ed88543aea2b8eff63a7fcd9f8212af33
+Machine workbench-contract conformance = PASS
+Runnable P0.3 workbench = NOT PRESENT
+Human smoke test = BLOCKED_BY_WORKBENCH_IMPLEMENTATION
+Expert A/B = UNASSIGNED
+Round A = NOT STARTED
+Round B = NOT STARTED
+Reliability metrics = NOT AVAILABLE
+Gold100 expert annotation = PROHIBITED
+```
+
+Authority:
+
+```text
+docs/E0.4.3-P0.3_Independent_Expert_Calibration_Annotation_Workbench_Validation_Reliability_Gate_Pre_Gold100_Annotation_Lock_v1.0.md
+runs/E0.4.3/P0.3/P0.3_Execution_Manifest_v1.0.json
+paper_c/P0.3/Annotation_Workbench_Implementation_Acceptance_Contract_v1.0.json
+paper_c/P0.3/Annotation_Workbench_Implementation_Handoff_v1.0.md
+```

@@ -3,7 +3,7 @@
   "title": "Independent Expert Calibration, Annotation Workbench Validation, Reliability Gate & Pre-Gold100 Annotation Lock",
   "version": "v1.0",
   "date": "2026-10-04",
-  "overall_status": "EXECUTION_CONTRACT_FROZEN_BLOCKED_BY_WORKBENCH_IMPLEMENTATION_HUMAN_CALIBRATION_REQUIRED_NOT_YET_PASS",
+  "overall_status": "EXECUTION_READY_WORKBENCH_IMPLEMENTED_HUMAN_SMOKE_TEST_REQUIRED_NOT_YET_PASS",
   "parent": {
     "gold100_source_set_sha256": "fdb1189647fe4022411d3ebfd6591da2398135aed398c88ca6f85236678420ad",
     "gold100_source_count": 100,
@@ -39,22 +39,29 @@
   },
   "machine_conformance": {
     "status": "PASS",
-    "latest_workflow_run_id": 37177142128,
+    "latest_workflow_run_id": 37177737106,
     "report": "runs/E0.4.3/P0.3/P0.3_Workbench_Contract_Conformance_Report_v1.0.json",
     "all_machine_checks_pass": true,
     "reliability_scorer_synthetic_fixture": "PASS",
     "reliability_scorer_fixture": "fixtures/P0.3_Reliability_Scorer_Synthetic_PASS_v1.0.json",
     "reliability_scorer": "scripts/paper_c/p0_3_score_reliability.py",
-    "note": "Machine/scorer conformance does not establish human expert reliability."
+    "note": "Machine/scorer conformance does not establish human expert reliability.",
+    "workbench_implementation_acceptance": {
+      "status": "PASS",
+      "build_id": "P03-WORKBENCH-REF-v0.1.0",
+      "workflow_run_id": 37177731675,
+      "result": "runs/E0.4.3/P0.3/P0.3_Workbench_Implementation_Acceptance_Result_v1.0.json",
+      "automated_report": "runs/E0.4.3/P0.3/P0.3_Workbench_Automated_Implementation_Test_Report_v1.0.json"
+    }
   },
   "human_execution": {
-    "H0_workbench_smoke_test": "BLOCKED_BY_WORKBENCH_IMPLEMENTATION",
+    "H0_workbench_smoke_test": "READY_NOT_RUN",
     "H1_expert_assignment_eligibility_COI": "NOT_STARTED",
     "H2_round_A": "BLOCKED_PENDING_H0_H1",
     "H3_post_round_A_version_freeze": "NOT_STARTED",
     "H4_round_B_blinded_reliability": "NOT_STARTED",
     "H5_reliability_and_blind_wall_freeze": "NOT_STARTED",
-    "H0_implementation_status": "RUNNABLE_WORKBENCH_NOT_PRESENT"
+    "H0_implementation_status": "PASS_AUTOMATED_ACCEPTANCE"
   },
   "reliability_thresholds": {
     "critical_categorical_Gwet_AC1": ">=0.80",
@@ -71,6 +78,6 @@
     "access_during_calibration": "DENIED"
   },
   "pass_status_if_human_gates_succeed": "PASS_PRE_GOLD100_ANNOTATION_LOCK",
-  "next_executable_gate": "E0.4.3-P0.3-H0A_Workbench_Implementation_and_Automated_Acceptance",
+  "next_executable_gate": "E0.4.3-P0.3-H0_Human_Workbench_Smoke_Test",
   "next_stage_after_full_pass": "E0.4.3-P0.4"
 }

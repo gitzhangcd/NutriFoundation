@@ -1,0 +1,99 @@
+{
+  "stage_id": "E0.4.3-P0.2.4-A0",
+  "title": "Pre-Sampling Feasibility Amendment",
+  "version": "v1.0",
+  "date": "2026-10-04",
+  "status": "PROSPECTIVE_PRE_SAMPLING_AMENDMENT",
+  "trigger": "Exact-slot joint-feasibility audit of the frozen P0.2.3 pool before any Gold100 sampling.",
+  "no_AB_or_model_performance_used": true,
+  "immutable_parent": {
+    "eligible_pool_path": "runs/E0.4.3/P0.2.3/Gold100_Eligible_Pool_FROZEN_v0.1.json",
+    "eligible_pool_sha256": "ff33d849367c335e5b5cb8345b40a332b1417d0e8a4372eb462a0464a807565c",
+    "slot_manifest_sha": "5ee6bb48c345275f3d4f01111a637ac685458c5e",
+    "sampling_seed": 20260930
+  },
+  "feasibility_findings": [
+    {
+      "id": "A0-F01",
+      "finding": "P0.2.3 stress pre-reservations satisfied marginal stratum counts but not all slot-level domain targets.",
+      "impact": "P0.2.4 must assign final stress slots from frozen source-grounded tags rather than reuse provisional stress_stratum reservations as final slot ownership.",
+      "changes_to_source_tags": false
+    },
+    {
+      "id": "A0-F02",
+      "finding": "Frozen pool had only one external companion/secondary StudyIdentity-dependent candidate, but exact slots require one external core companion plus one external StudyIdentity stress source without SourceArtifact reuse.",
+      "impact": "Joint slot assignment infeasible without a pre-sampling source-universe amendment."
+    },
+    {
+      "id": "A0-F03",
+      "finding": "Final Gold100 requires incomplete_source_text >=5 while only two incomplete-specific slots exist. With frozen tags, at most four incomplete sources could legally occupy stress slots.",
+      "impact": "A source-grounded missed normative-boundary tag must be corrected or the frozen design would remain infeasible."
+    },
+    {
+      "id": "A0-F04",
+      "finding": "StudyIdentity_dependency >=15 was jointly infeasible under source-family/slot constraints despite marginal pool count=20.",
+      "impact": "At least one non-companion family source with an explicit companion relationship is required."
+    }
+  ],
+  "source_additions": [
+    {
+      "amendment_id": "G100-AMEND-000001",
+      "pmid": "26156323",
+      "pmcid": "PMC4495677",
+      "doi": "10.1136/bmj.h3267",
+      "title": "Evidence based community mobilization for dengue prevention in Nicaragua and Mexico (Camino Verde, the Green Way): cluster randomized controlled trial.",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "expected_study_identity_cluster": "REG:ISRCTN27581154",
+      "StudyIdentity_dependency": true,
+      "linked_companion_evidence_pmid": "28699554",
+      "reason": "Provides a non-companion StudyIdentity-dependent source eligible for a core interventional slot."
+    },
+    {
+      "amendment_id": "G100-AMEND-000002",
+      "pmid": "29235564",
+      "pmcid": "PMC5808035",
+      "doi": "10.1038/bjc.2017.423",
+      "title": "Influence of induction chemotherapy in trimodality therapy-eligible oesophageal cancer patients: secondary analysis of a randomised trial.",
+      "source_family": "companion_or_secondary",
+      "domain": "external_biomedical_or_public_health",
+      "expected_study_identity_cluster": "REG:NCT00525915",
+      "StudyIdentity_dependency": true,
+      "reason": "External companion/secondary source from an independent StudyIdentity cluster."
+    },
+    {
+      "amendment_id": "G100-AMEND-000003",
+      "pmid": "40323620",
+      "pmcid": "PMC12053795",
+      "doi": "10.1001/jamaneurol.2025.0716",
+      "title": "CT Perfusion Imaging After Selection for Late-Window Endovascular Stroke Treatment: Secondary Analysis of the MR CLEAN-LATE Randomized Trial.",
+      "source_family": "companion_or_secondary",
+      "domain": "external_biomedical_or_public_health",
+      "expected_study_identity_cluster": "REG:ISRCTN19922220",
+      "StudyIdentity_dependency": true,
+      "reason": "Second independent external companion/StudyIdentity source required for simultaneous core + stress slot feasibility."
+    }
+  ],
+  "tag_amendments": [
+    {
+      "candidate_id": "G100-CAND-000015",
+      "pmid": "14673609",
+      "field": "challenge_tags.recommendation_exception",
+      "old_value": false,
+      "new_value": true,
+      "evidence_basis": "Consensus statement limits supplementation/intervention justification to scientifically defined risk groups; this is a material normative population boundary.",
+      "evidence_source": "frozen structured PubMed abstract",
+      "amendment_type": "source_grounded_false_negative_correction"
+    }
+  ],
+  "prohibited_changes": [
+    "No change to Gold100 N=100.",
+    "No change to Core80 + Stress20.",
+    "No change to 80/20 domain split.",
+    "No change to source-family quotas.",
+    "No change to challenge minima.",
+    "No change to Stress20 slot counts.",
+    "No change to seed 20260930.",
+    "No AB/model output may influence amendment or selection."
+  ]
+}

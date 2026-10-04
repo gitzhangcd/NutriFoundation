@@ -1,0 +1,55 @@
+{
+  "stage_id": "E0.4.3-P0.2.3",
+  "artifact": "Coverage_Repair_Lineage",
+  "version": "v1.0",
+  "status": "FROZEN",
+  "principle": "All repair rounds were triggered solely by pre-sampling frozen coverage deficits; AB/model outputs were never used.",
+  "rounds": [
+    {
+      "round": "base",
+      "registry": "runs/E0.4.3/P0.2.2/Gold100_Candidate_Source_Registry_RAW_v0.1.json",
+      "added": 342,
+      "purpose": "initial real-provenance source universe"
+    },
+    {
+      "round": "repair_v0.1",
+      "registry": "runs/E0.4.3/P0.2.3/Gold100_Candidate_Source_Registry_Coverage_Repair_v0.1.json",
+      "added": 118,
+      "purpose": "initial coverage deficits"
+    },
+    {
+      "round": "repair_v0.2",
+      "registry": "runs/E0.4.3/P0.2.3/Gold100_Candidate_Source_Registry_Coverage_Repair_v0.2.json",
+      "added": 204,
+      "purpose": "residual observational/companion/conflict/temporal/external deficits"
+    },
+    {
+      "round": "repair_v0.3",
+      "registry": "runs/E0.4.3/P0.2.3/Gold100_Candidate_Source_Registry_Coverage_Repair_v0.3.json",
+      "added": 60,
+      "purpose": "minimal StudyIdentity_dependency deficit repair"
+    }
+  ],
+  "implementation_repairs": [
+    {
+      "issue": "serial PMC rights calls caused cancelled qualification run",
+      "resolution": "PMCID-bound fullTextXML batch/concurrent retrieval; scientific exact-text rule unchanged"
+    },
+    {
+      "issue": "ELIG-11 exact string rejected versioned repair-provenance statuses",
+      "resolution": "accept REAL_SOURCE_IDENTITY_BOUND* provenance lineage; gate semantics unchanged"
+    },
+    {
+      "issue": "manual stale-run cancellation created CI race",
+      "resolution": "GitHub native concurrency/cancel-in-progress; scientific logic unchanged"
+    }
+  ],
+  "final": {
+    "raw_count": 724,
+    "eligible_count": 330,
+    "excluded_count": 394,
+    "status": "FROZEN_READY_FOR_SAMPLING",
+    "eligible_pool_sha256": "ff33d849367c335e5b5cb8345b40a332b1417d0e8a4372eb462a0464a807565c",
+    "sampling_authorized": true
+  }
+}

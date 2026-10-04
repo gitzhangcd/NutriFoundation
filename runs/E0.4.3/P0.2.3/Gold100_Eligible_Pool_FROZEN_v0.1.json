@@ -5,7 +5,7 @@
   "evidence_cutoff": "2026-10-03T23:26:00+08:00",
   "status": "FROZEN_COVERAGE_GAP_NO_SAMPLING",
   "qualification_script": "scripts/paper_c/p0_2_3_qualify.py",
-  "eligible_count": 104,
+  "eligible_count": 115,
   "records": [
     {
       "candidate_id": "G100-CAND-000005",
@@ -130,7 +130,7 @@
         "pubmed_record_xml_sha256": "57b9053b4e069635f2afc28a752ea8c193282b4d951c61dac812fe934af865b2",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "9b1eb60b05a04ef02af806b9f8f625443ff1d19708f7b02a7fe03e3b8b4fb86d"
+      "record_sha256": "fa860b3fa677ebc9d5bf7e4d21b2334d8c7f8a555f79ce0635a12f792f11cfb7"
     },
     {
       "candidate_id": "G100-CAND-000008",
@@ -248,7 +248,7 @@
         "pubmed_record_xml_sha256": "a66db3f29bf74674a68cb996253a2b90e9a134aa5090efe6a5f302c86d68520a",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "ca6e2e0364411011dec430b85d1bc873b280d00154be5ae76c47d41278fbfcb0"
+      "record_sha256": "28df392446ee0b0ed206f7f3eca95e64c0b059e86d05a254ad973fd4747deafa"
     },
     {
       "candidate_id": "G100-CAND-000009",
@@ -323,7 +323,7 @@
           "No reproducible OA full text; abstract-only frozen stress exception"
         ]
       },
-      "stress_stratum": "correction_republication_retraction_or_living_version",
+      "stress_stratum": "temporal_cutoff_sensitive",
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
@@ -379,7 +379,7 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_STRESS",
+        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
         "exclusion_reason_codes": []
       },
       "provenance": {
@@ -387,7 +387,7 @@
         "pubmed_record_xml_sha256": "a51bc95c22ebdfa8c247a37a515bb0f9a4aed5595f553052a308ca01e715b131",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "c9e69d8774201761d8cac23accb3d598ffe6e4aac8d69f760e97661add7678e2"
+      "record_sha256": "9843ea96bd89039bbd355b3af55fe7532f0780369672fb05c8871a7fa8dabf4e"
     },
     {
       "candidate_id": "G100-CAND-000012",
@@ -441,7 +441,7 @@
           "No reproducible OA full text; abstract-only frozen stress exception"
         ]
       },
-      "stress_stratum": "incomplete_or_missing_source_text",
+      "stress_stratum": null,
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
@@ -497,7 +497,7 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_STRESS",
+        "screening_state": "ELIGIBLE_CORE",
         "exclusion_reason_codes": []
       },
       "provenance": {
@@ -505,7 +505,125 @@
         "pubmed_record_xml_sha256": "709aa0ac07308ce944f7c029a9ef65cbb554c0b39661105ef8fda2b43c831a45",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "ea07ad2057f0d8bdbe17a7257ccdf4ccbc009cfa2fb5a0f8b5d2f29cee59af3c"
+      "record_sha256": "fd4f2124fc43b30767dc2f410436e95f247c70ac657d5d86a9d54e61290de827"
+    },
+    {
+      "candidate_id": "G100-CAND-000015",
+      "pmid": "14673609",
+      "pmcid": null,
+      "doi": "10.1007/s00394-003-0460-0",
+      "title": "Micronutrient deficiencies. Hohenheim Consensus Conference.",
+      "source_family": "guideline_or_consensus",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "structured_abstract_only",
+        "worker_visible_text_sha256": "436dbec47f2975ffe68731798b6046e382db5eb62aaafec64b671d89cec8ef73",
+        "worker_visible_text_chars": 1064,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": "PubMed abstract-only natural insufficiency stress package"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2003-12-16T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "PMID:14673609",
+        "status": "identity_resolved_other",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": false,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": true
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": [
+          "No reproducible OA full text; abstract-only frozen stress exception"
+        ]
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:14673609"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "prespecified naturally incomplete source-text stress exception"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2003-12-16T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "PMID:14673609",
+              "status": "identity_resolved_other",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=1064"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "ELIGIBLE_CORE",
+        "exclusion_reason_codes": []
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "44be66596fa6d38db7b334f55fc0d2858767a5a32099439a9996adf1f6d9b23c",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "98ad6f1855df54635a32443ba693acb78acb18ecfe7ad72415a013315a2d023e"
     },
     {
       "candidate_id": "G100-CAND-000018",
@@ -577,7 +695,7 @@
           "No reproducible OA full text; abstract-only frozen stress exception"
         ]
       },
-      "stress_stratum": "incomplete_or_missing_source_text",
+      "stress_stratum": null,
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
@@ -633,7 +751,7 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_STRESS",
+        "screening_state": "ELIGIBLE_CORE",
         "exclusion_reason_codes": []
       },
       "provenance": {
@@ -641,7 +759,7 @@
         "pubmed_record_xml_sha256": "8b7a748d9bca6d63b35092c3474fe2158ed7c780ebbcfb641218be17148a997f",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "a38897d30b79e9baea3b84418cc1233d8cf619609ee4884c82cb83d29b4d30c4"
+      "record_sha256": "901da377cf91efe80c7bd220e9d8ae3a9305ebc7584b18c125266b59030bde21"
     },
     {
       "candidate_id": "G100-CAND-000021",
@@ -695,7 +813,7 @@
           "No reproducible OA full text; abstract-only frozen stress exception"
         ]
       },
-      "stress_stratum": "correction_republication_retraction_or_living_version",
+      "stress_stratum": "temporal_cutoff_sensitive",
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
@@ -751,7 +869,7 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_STRESS",
+        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
         "exclusion_reason_codes": []
       },
       "provenance": {
@@ -759,7 +877,7 @@
         "pubmed_record_xml_sha256": "abb2c1116aac8d4d991dfe1284067d134864e0ec8344eac45bd2dca4ac9d8545",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "bc66778516220993bf2eab5bf9154915a719a75c2a06f52f53f0f0df6b9169ad"
+      "record_sha256": "183016f4fc97082a7599801c30843614e9cda96e967cccb26ef114523966174a"
     },
     {
       "candidate_id": "G100-CAND-000025",
@@ -824,7 +942,7 @@
           "No reproducible OA full text; abstract-only frozen stress exception"
         ]
       },
-      "stress_stratum": "incomplete_or_missing_source_text",
+      "stress_stratum": null,
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
@@ -880,7 +998,7 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_STRESS",
+        "screening_state": "ELIGIBLE_CORE",
         "exclusion_reason_codes": []
       },
       "provenance": {
@@ -888,34 +1006,34 @@
         "pubmed_record_xml_sha256": "1090898cc6b8f64b8495784b71bcd80cc348b9b54b283fb91aaa284c1f665d7b",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "b5aa884e403445335bcc0539054f544d27dc6eeb7df99837dfca554d306c4d18"
+      "record_sha256": "15c0515e9b291184fe602f82b22d0e7ec38f79e349e55ea334920947db151326"
     },
     {
-      "candidate_id": "G100-CAND-000028",
-      "pmid": "18436085",
-      "pmcid": null,
-      "doi": "10.1053/j.ajkd.2007.12.015",
-      "title": "Randomized controlled trial of nutritional counseling on body composition and dietary intake in severe CKD.",
-      "source_family": "primary_interventional",
+      "candidate_id": "G100-CAND-000040",
+      "pmid": "21923844",
+      "pmcid": "PMC3206217",
+      "doi": "10.1111/j.1742-1241.2011.02763.x",
+      "title": "A healthy bladder: a consensus statement.",
+      "source_family": "guideline_or_consensus",
       "domain": "nutrition_metabolic_cardiometabolic",
       "source_text": {
-        "status": "structured_abstract_only",
-        "worker_visible_text_sha256": "e3b4142d41b79b07d91f6a9e482ca3cf5a05404be93019c25f040e49b7eaadd2",
-        "worker_visible_text_chars": 1791,
-        "pmc_xml_sha256": null,
-        "fulltext_xml_retrieved": false,
-        "license": null,
-        "text_definition": "PubMed abstract-only natural insufficiency stress package"
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "044afa5616d193d7abae1e041f1c0d9d80186fba2810be8622242eee0c9b5814",
+        "worker_visible_text_chars": 34967,
+        "pmc_xml_sha256": "463ab653639218bddc471727c4df136e7f4ee8d8d46399adf4a243d0bb5e1867",
+        "fulltext_xml_retrieved": true,
+        "license": "https://creativecommons.org/licenses/by/2.5/ Re-use of this article is permitted in accordance with the Creative Commons Deed, Attribution 2.5, which does not permit commercial exploitation.",
+        "text_definition": "PMCID-bound fullTextXML article title + abstract + body, whitespace-normalized; references/back matter excluded"
       },
       "temporal_version": {
         "evidence_cutoff": "2026-10-03T23:26:00+08:00",
-        "publication_date_basis": "2008-03-03T00:00:00+08:00",
+        "publication_date_basis": "2011-09-20T00:00:00+08:00",
         "version_status": "original_current",
         "version_chain_refs": []
       },
       "study_identity": {
-        "study_identity_cluster_id": "PMID:18436085",
-        "status": "independent_primary_report",
+        "study_identity_cluster_id": "PMID:21923844",
+        "status": "identity_resolved_other",
         "registration_ids": [],
         "linked_candidate_ids": [],
         "accidental_duplicate_risk": false
@@ -928,20 +1046,22 @@
         "conflict": false,
         "recommendation_exception": false,
         "temporal_cutoff_sensitive": false,
-        "incomplete_source_text": true
+        "incomplete_source_text": false
       },
       "challenge_tag_evidence": {
         "numeric_complexity": [
-          "62%",
-          "3.5%",
-          "95%",
-          "confidence interval",
-          "95%",
-          "confidence interval",
-          "P < 0.01",
-          "95%",
-          "confidence interval",
-          "P < 0.001"
+          "45%",
+          "8.2%",
+          "3.2%",
+          "1.2%",
+          "1.3%",
+          "2.5%",
+          "12%",
+          "11%",
+          "13%",
+          "11%",
+          "21.5%",
+          "0.83%"
         ],
         "causal_language_risk": [],
         "StudyIdentity_dependency": [],
@@ -949,20 +1069,18 @@
         "conflict": {},
         "recommendation_exception": [],
         "temporal_cutoff_sensitive": [],
-        "incomplete_source_text": [
-          "No reproducible OA full text; abstract-only frozen stress exception"
-        ]
+        "incomplete_source_text": []
       },
-      "stress_stratum": "incomplete_or_missing_source_text",
+      "stress_stratum": null,
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
             "pass": true,
-            "evidence": "PMID:18436085"
+            "evidence": "PMID:21923844"
           },
           "ELIG-02": {
             "pass": true,
-            "evidence": "prespecified naturally incomplete source-text stress exception"
+            "evidence": "PMC OA full text PMC3206217"
           },
           "ELIG-03": {
             "pass": true,
@@ -970,7 +1088,7 @@
           },
           "ELIG-04": {
             "pass": true,
-            "evidence": "2008-03-03T00:00:00+08:00"
+            "evidence": "2011-09-20T00:00:00+08:00"
           },
           "ELIG-05": {
             "pass": true,
@@ -983,14 +1101,14 @@
           "ELIG-07": {
             "pass": true,
             "evidence": {
-              "cluster": "PMID:18436085",
-              "status": "independent_primary_report",
+              "cluster": "PMID:21923844",
+              "status": "identity_resolved_other",
               "linked": []
             }
           },
           "ELIG-08": {
             "pass": true,
-            "evidence": "text_chars=1791"
+            "evidence": "text_chars=37042"
           },
           "ELIG-09": {
             "pass": true,
@@ -1009,15 +1127,15 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_STRESS",
+        "screening_state": "ELIGIBLE_CORE",
         "exclusion_reason_codes": []
       },
       "provenance": {
         "source_registry_candidate_sha": null,
-        "pubmed_record_xml_sha256": "bf8d2bf39fdc62279f671fc99ef71f98b35a02892e25fed3b0e9ce4213aa463f",
+        "pubmed_record_xml_sha256": "fa35c6c155abbe13d8e0ca443ab7e267ba22502d94397596f0ce5d9fcc360e54",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "f343122c2ef626d1341b70273a26bca019f5294f336ad03e1858c3c6b0a4a191"
+      "record_sha256": "3fb0fe1c725d5c7b0c3c6af2b81329e093bdd2c5a9a6278a9075baaad477f614"
     },
     {
       "candidate_id": "G100-CAND-000048",
@@ -1284,7 +1402,7 @@
         "pubmed_record_xml_sha256": "f4f3c9026385439d9e810f2d2f7c8dfaef50d706c3717f88b3eb5a29ae13a622",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "81282e218f6164af4f7ab674357459cb815d428e3214be25169e1863e6cdca58"
+      "record_sha256": "e3a376d65f3b01eca80c5d2c7b35b2e1676a08fb14acece636fbe69d2fe52158"
     },
     {
       "candidate_id": "G100-CAND-000067",
@@ -1416,6 +1534,147 @@
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
       "record_sha256": "c8b99ef23d389163f66134e810ff6786fff44b87df9638b3f44a7e03d8e7138d"
+    },
+    {
+      "candidate_id": "G100-CAND-000072",
+      "pmid": "25694464",
+      "pmcid": "PMC4416140",
+      "doi": "10.1093/eurheartj/ehv043",
+      "title": "Statin-associated muscle symptoms: impact on statin therapy-European Atherosclerosis Society Consensus Panel Statement on Assessment, Aetiology and Management.",
+      "source_family": "guideline_or_consensus",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "9b070db701cf57c1d919f3bd4c408fd3dab098fd5af00480cad6ccd1da7ad0d5",
+        "worker_visible_text_chars": 76203,
+        "pmc_xml_sha256": "a12137ebffc1a8a42d45cc39dd4ebf2364c7b73336ae895cc04321e53a3185aa",
+        "fulltext_xml_retrieved": true,
+        "license": "This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License ( http://creativecommons.org/licenses/by-nc/4.0/ ), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited. For commercial re-use, please contact journals.permissions@oup.com",
+        "text_definition": "PMCID-bound fullTextXML article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2015-02-18T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:NCT01252953",
+        "status": "identity_resolved_other",
+        "registration_ids": [
+          "NCT01252953",
+          "NCT01663402",
+          "NCT01687998",
+          "NCT01764633",
+          "NCT01975376",
+          "NCT01975389"
+        ],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": true,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "29%",
+          "29%",
+          "29%",
+          "75%",
+          "65%",
+          "24%",
+          "16%",
+          "P = 0.001",
+          "15%",
+          "9.4%",
+          "4.6%",
+          "P = 0.054"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [
+          "not recommended",
+          "contraindications",
+          "should not",
+          "should not"
+        ],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": "recommendation_exception_or_normative_boundary",
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:25694464"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC OA full text PMC4416140"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2015-02-18T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:NCT01252953",
+              "status": "identity_resolved_other",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=78049"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
+        "exclusion_reason_codes": []
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "a17fba9046c98b390769b8f1b08d333f823116963dba532a3d4cee338f971095",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "d37acb0ed301251d16f209bb00ec1b2cd9a56af01360482df4d0dda7101360c4"
     },
     {
       "candidate_id": "G100-CAND-000079",
@@ -1565,7 +1824,7 @@
         "pubmed_record_xml_sha256": "f4f7bda52b8fd9c70e26c3b3a974ab370a8ca053931db5a6a6a32b4810b3fb04",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "cc57738b7802b6ec3f31de548cc3d6074e3af1212c91c6073f6cba82d2c8988c"
+      "record_sha256": "bc39a13c2a6a56bc2c081fdea083d412c61eae703447e7cd4c8d895d934b1ebc"
     },
     {
       "candidate_id": "G100-CAND-000085",
@@ -1702,7 +1961,7 @@
         "pubmed_record_xml_sha256": "74d1bc22c35636680254671976c7234761a2a2a2fe8b8f2afe6c182561d00221",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "2eabe986ef92c10b24e23850d6a15e63277ac3f4cefcce7e62fff972255f7a0e"
+      "record_sha256": "02d8ccde589e6f3cb890727e7e8a2ef861dafdd5d474e4f21d874ef86e0e3e2f"
     },
     {
       "candidate_id": "G100-CAND-000087",
@@ -2478,6 +2737,141 @@
       "record_sha256": "febc3ab69b4d3b01ea5f063b7bfbbc88b8ec2d245489efe9398ef35b06f7e87f"
     },
     {
+      "candidate_id": "G100-CAND-000129",
+      "pmid": "29480200",
+      "pmcid": "PMC5836397",
+      "doi": "10.3233/JAD-171042",
+      "title": "Homocysteine and Dementia: An International Consensus Statement.",
+      "source_family": "guideline_or_consensus",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "228fc78349c710ea120fe53a6956db854b10a76042084facef8e490e58b03c24",
+        "worker_visible_text_chars": 40338,
+        "pmc_xml_sha256": "ad817c95db448327f96ece0aef0fd158280e1f371cd99295f8d97e925f8db813",
+        "fulltext_xml_retrieved": true,
+        "license": "This is an open access article distributed under the terms of the Creative Commons Attribution Non-Commercial (CC BY-NC 4.0) License , which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.",
+        "text_definition": "PMCID-bound fullTextXML article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2018-02-27T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "PMID:29480200",
+        "status": "identity_resolved_other",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": true,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "31%",
+          "31%",
+          "95%",
+          "95%",
+          "95%",
+          "or 15.6",
+          "RR: 2.5",
+          "OR: 1.50",
+          "RR: 1.93",
+          "RR: 1.53",
+          "RR: 1.77",
+          "RR: 1.15"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [
+          "should not",
+          "should not",
+          "should not",
+          "only in",
+          "only if"
+        ],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": "recommendation_exception_or_normative_boundary",
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:29480200"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC OA full text PMC5836397"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2018-02-27T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "PMID:29480200",
+              "status": "identity_resolved_other",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=42053"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
+        "exclusion_reason_codes": []
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "84a93b24db071bbc807f0fcdace1d90b3f01720b755d4f043d83630691ab3baf",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "089d2d9a6ef71f02f7261214c4e6232b074c783e288de023b0420463e94cce02"
+    },
+    {
       "candidate_id": "G100-CAND-000131",
       "pmid": "29510572",
       "pmcid": "PMC5872726",
@@ -2592,6 +2986,148 @@
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
       "record_sha256": "56842dd5b5e84e2ae3238e0f87b9cd09f4d9f131aea2c632ba74cc306b743091"
+    },
+    {
+      "candidate_id": "G100-CAND-000133",
+      "pmid": "29540367",
+      "pmcid": "PMC5867441",
+      "doi": "10.1136/bjsports-2018-099027",
+      "title": "IOC consensus statement: dietary supplements and the high-performance athlete.",
+      "source_family": "guideline_or_consensus",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "7c6cabaa81031878a93a0b667db431bf1ca3171f8ee6645f337588d956cd1e48",
+        "worker_visible_text_chars": 71725,
+        "pmc_xml_sha256": "167160ed1a3bd36ca22bd93033b41c5e6f95ce5845f2033d9cd7316d73a33173",
+        "fulltext_xml_retrieved": true,
+        "license": "https://creativecommons.org/licenses/by-nc/4.0/ This is an Open Access article distributed in accordance with the Creative Commons Attribution Non Commercial (CC BY-NC 4.0) license, which permits others to distribute, remix, adapt, build upon this work non-commercially, and license their derivative works on different terms, provided the original work is properly cited and the use is non-commercial. See: http://creativecommons.org/licenses/by-nc/4.0/",
+        "text_definition": "PMCID-bound fullTextXML article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2018-03-14T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": [
+          {
+            "ref_type": "CommentIn",
+            "ref_source": "doi: 10.1136/bjsports-2018-099199",
+            "ref_pmid": null,
+            "note": null
+          }
+        ]
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:NCT01814527",
+        "status": "identity_resolved_other",
+        "registration_ids": [
+          "NCT01814527"
+        ],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": true,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "0.01%",
+          "80%",
+          "90%",
+          "or 10",
+          "5%",
+          "8%",
+          "15%",
+          "20%",
+          "50%",
+          "70%",
+          "50%",
+          "100%"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [
+          "should not",
+          "unless",
+          "not recommended"
+        ],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:29540367"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC OA full text PMC5867441"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2018-03-14T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:NCT01814527",
+              "status": "identity_resolved_other",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=73505"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "ELIGIBLE_CORE",
+        "exclusion_reason_codes": []
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "aa994ca55b9b02596ea50d9c8025295595223cbe0ef454a7e0f9274f86823396",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "ac13ed84a96d67f0b25719b7f15e2e5c1ba858f64a21e1f665db11cfd0f014c5"
     },
     {
       "candidate_id": "G100-CAND-000134",
@@ -2861,6 +3397,137 @@
       "record_sha256": "87844fcea8b67c1f59f4817301298a70969f89adaaed28e4b4149096c389dd80"
     },
     {
+      "candidate_id": "G100-CAND-000142",
+      "pmid": "29797247",
+      "pmcid": "PMC6061255",
+      "doi": "10.1007/s40620-018-0497-z",
+      "title": "Nutritional treatment of advanced CKD: twenty consensus statements.",
+      "source_family": "guideline_or_consensus",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "2e4eadc3bd5c1b35ae46c92ab5d50eb4f7d345a89a98b4d74b82f89a5916bf6d",
+        "worker_visible_text_chars": 56699,
+        "pmc_xml_sha256": "c8fc3a7a08c773eb1ac8c65238ba7ee79b12e65aaafad0401b68d6fb749279f7",
+        "fulltext_xml_retrieved": true,
+        "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made.",
+        "text_definition": "PMCID-bound fullTextXML article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2018-05-24T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "PMID:29797247",
+        "status": "identity_resolved_other",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": true,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "50%",
+          "66.6%",
+          "p < 0.05",
+          "75%",
+          "50%",
+          "8%",
+          "31%",
+          "31%"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [
+          "contraindications",
+          "Contraindications",
+          "should not",
+          "only if",
+          "contraindications"
+        ],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:29797247"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC OA full text PMC6061255"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2018-05-24T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "PMID:29797247",
+              "status": "identity_resolved_other",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=58023"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "ELIGIBLE_CORE",
+        "exclusion_reason_codes": []
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "af1ead4960e30586b09996f6d5e0f162894d465aa584cc2d306f7e704afdc609",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "4f9f03c665e2a01ceac75c181beb601d9c5d4ad966c759e9188e5b2a09b7575f"
+    },
+    {
       "candidate_id": "G100-CAND-000144",
       "pmid": "29949894",
       "pmcid": "PMC6073256",
@@ -2988,6 +3655,131 @@
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
       "record_sha256": "a062802818fb5cc74a0aafe237f590ccfb4510d5b3fb5b9d5479562fc0b7f308"
+    },
+    {
+      "candidate_id": "G100-CAND-000154",
+      "pmid": "30358739",
+      "pmcid": "PMC6314510",
+      "doi": "10.1097/MPG.0000000000002188",
+      "title": "Pediatric Feeding Disorder: Consensus Definition and Conceptual Framework.",
+      "source_family": "guideline_or_consensus",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "e974ac1fa0b28ab3c31f9693d4a0c3cfcae6209c62b748ce2a4db5fa87fec6d6",
+        "worker_visible_text_chars": 24937,
+        "pmc_xml_sha256": "6e86f8630836cad5b9b9063b8d3bd2db88eaf223fc644d11ceaba48800024bfc",
+        "fulltext_xml_retrieved": true,
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution-Non Commercial-No Derivatives License 4.0 (CCBY-NC-ND), where it is permissible to download and share the work provided it is properly cited. The work cannot be changed in any way or used commercially without permission from the journal. http://creativecommons.org/licenses/by-nc-nd/4.0",
+        "text_definition": "PMCID-bound fullTextXML article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2018-10-26T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "PMID:30358739",
+        "status": "identity_resolved_other",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": false,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": true,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {
+          "phrases": [
+            "Environmental factors can contribute to the development of PFD. During meals, a distracting feeding environment (eg, use of television or other electronic devices) or resorting to feeding only at times when a child is asleep, may prevent caregivers from providing appropriate responses to mealtime behavior or can lead to the inadvertent reinforcement of problematic mealtime behavior by well-intentioned caregivers (eg, replacing refused foods with highly preferred foods, attending to crying) ( 57 "
+          ],
+          "linked_refs": [
+            "doi:10.1901/jaba.2010.43-71",
+            "pmcid:PMC2831454",
+            "pmid:20808496"
+          ]
+        },
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": "conflicting_evidence",
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:30358739"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC OA full text PMC6314510"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2018-10-26T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "PMID:30358739",
+              "status": "identity_resolved_other",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=26250"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
+        "exclusion_reason_codes": []
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "4af7b17047e76199cb1498283bf6c367a25dca1a5f9798fd922ea1952c8f59e0",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "44094b2d9059daf67b66e35ca1d849d9bc1b707ea4ed5b55d964ff5e058a1554"
     },
     {
       "candidate_id": "G100-CAND-000164",
@@ -3518,7 +4310,7 @@
         "pubmed_record_xml_sha256": "8fcbc2eb990fc072b1f31e94d7e773bc8ca42335ffe8a327449943a4c3c6978a",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "c6e3973d893fa24a5acf46a3fe0123d5a8ba3e36b8bea95a9577accdef3cb469"
+      "record_sha256": "3a26d348f75d316dc74bffad921c715468a97aaf322efb980f42d9741910a467"
     },
     {
       "candidate_id": "G100-CAND-000174",
@@ -3732,7 +4524,7 @@
         "temporal_cutoff_sensitive": [],
         "incomplete_source_text": []
       },
-      "stress_stratum": "conflicting_evidence",
+      "stress_stratum": null,
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
@@ -3788,7 +4580,7 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
+        "screening_state": "ELIGIBLE_CORE",
         "exclusion_reason_codes": []
       },
       "provenance": {
@@ -3796,7 +4588,172 @@
         "pubmed_record_xml_sha256": "2cee4e802931385853d216e0419126dbc7f17a151491266823b061692a1fc212",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "3f71cdfc948ae01cc4fbd7a186a740b680a0be0dff6d768995592d5ea868cabc"
+      "record_sha256": "6c7c5cb04f738af4688929a54bdd39d37f06a4a5ab6247529c300bae84ebaaca"
+    },
+    {
+      "candidate_id": "G100-CAND-000178",
+      "pmid": "31792941",
+      "pmcid": "PMC7064977",
+      "doi": "10.1111/anae.14892",
+      "title": "An international multidisciplinary consensus statement on fasting before procedural sedation in adults and children.",
+      "source_family": "guideline_or_consensus",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "181160dd4bfafd8fdb3787492b632710dca41689078c834d62d30870538d8ea4",
+        "worker_visible_text_chars": 37636,
+        "pmc_xml_sha256": "110eca449ee744bb50512ef9f4b629f26fea120082d0337a78d580d14cb8f294",
+        "fulltext_xml_retrieved": true,
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/ This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc-nd/4.0/ License, which permits use and distribution in any medium, provided the original work is properly cited, the use is non‐commercial and no modifications or adaptations are made.",
+        "text_definition": "PMCID-bound fullTextXML article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2019-12-02T00:00:00+08:00",
+        "version_status": "corrected",
+        "version_chain_refs": [
+          {
+            "ref_type": "ErratumIn",
+            "ref_source": "Anaesthesia. 2020 Jun;75(6):818. doi: 10.1111/anae.15106.",
+            "ref_pmid": "32383508",
+            "note": null
+          },
+          {
+            "ref_type": "CommentIn",
+            "ref_source": "Anaesthesia. 2020 Jun;75(6):829-830. doi: 10.1111/anae.15052.",
+            "ref_pmid": "32383514",
+            "note": null
+          }
+        ]
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "PMID:31792941",
+        "status": "identity_resolved_other",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": true,
+        "conflict": false,
+        "recommendation_exception": true,
+        "temporal_cutoff_sensitive": true,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "or 2",
+          "or 2",
+          "80%",
+          "90%",
+          "17%",
+          "or 4"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [
+          {
+            "ref_type": "ErratumIn",
+            "ref_source": "Anaesthesia. 2020 Jun;75(6):818. doi: 10.1111/anae.15106.",
+            "ref_pmid": "32383508",
+            "note": null
+          },
+          {
+            "ref_type": "CommentIn",
+            "ref_source": "Anaesthesia. 2020 Jun;75(6):829-830. doi: 10.1111/anae.15052.",
+            "ref_pmid": "32383514",
+            "note": null
+          }
+        ],
+        "conflict": {},
+        "recommendation_exception": [
+          "except",
+          "except"
+        ],
+        "temporal_cutoff_sensitive": [
+          {
+            "ref_type": "ErratumIn",
+            "ref_source": "Anaesthesia. 2020 Jun;75(6):818. doi: 10.1111/anae.15106.",
+            "ref_pmid": "32383508",
+            "note": null
+          },
+          {
+            "ref_type": "CommentIn",
+            "ref_source": "Anaesthesia. 2020 Jun;75(6):829-830. doi: 10.1111/anae.15052.",
+            "ref_pmid": "32383514",
+            "note": null
+          }
+        ],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": "correction_republication_retraction_or_living_version",
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:31792941"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC OA full text PMC7064977"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "corrected"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2019-12-02T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "PMID:31792941",
+              "status": "identity_resolved_other",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=39623"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
+        "exclusion_reason_codes": []
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "dc41868740e62cb3e1dbdcc16c06e492754f986058104957c58b2398cd87be71",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "3773ccdadc24f3c12de15502dcea19aabe370d21757e96431fe3c9731814540f"
     },
     {
       "candidate_id": "G100-CAND-000179",
@@ -4066,6 +5023,122 @@
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
       "record_sha256": "7c568e93e907c400f4e51f3abac6e769268a0fc077fa9bbd5dba29aa6c3c57dd"
+    },
+    {
+      "candidate_id": "G100-CAND-000182",
+      "pmid": "31928558",
+      "pmcid": "PMC7282854",
+      "doi": "10.1017/S0954422419000283",
+      "title": "Expert consensus on low-calorie sweeteners: facts, research gaps and suggested actions.",
+      "source_family": "guideline_or_consensus",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "ba821a06f08ea48f43008a8c70fa7a7ea73cbf0c060b1d13d3f1f2526f42211f",
+        "worker_visible_text_chars": 51409,
+        "pmc_xml_sha256": "e3b1604b69e92c3af9b729980f5a80c00b7354e23130f99b8503eb7e1e7ee6e0",
+        "fulltext_xml_retrieved": true,
+        "license": "This is an Open Access article, distributed under the terms of the Creative Commons Attribution licence ( https://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted re-use, distribution, and reproduction in any medium, provided the original work is properly cited.",
+        "text_definition": "PMCID-bound fullTextXML article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2020-01-13T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "PMID:31928558",
+        "status": "identity_resolved_other",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": false,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:31928558"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC OA full text PMC7282854"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2020-01-13T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "PMID:31928558",
+              "status": "identity_resolved_other",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=53234"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "ELIGIBLE_CORE",
+        "exclusion_reason_codes": []
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "4dc3fd8377f7918049224ed4842c69bbadbf983bb1c99490d09f86d4db23aaff",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "093bc981eab20e0aaf5e238dc34015f054efc3915ef040210ea813480349902b"
     },
     {
       "candidate_id": "G100-CAND-000183",
@@ -4452,7 +5525,139 @@
         "pubmed_record_xml_sha256": "dab5eab6a4c0467ccced39e45818555a8bddd20d27155ee8530c88026d1308d9",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "f6f97231fa833c98c4dfaae4712368af94ee58e44dc0863571528ab48233feb7"
+      "record_sha256": "1e826a38d8e21e234f7d888e65c090a16da1e27dfcb71d1b95cfdacb11c1b89f"
+    },
+    {
+      "candidate_id": "G100-CAND-000191",
+      "pmid": "32269302",
+      "pmcid": "PMC7366888",
+      "doi": "10.1038/s41581-020-0267-8",
+      "title": "Consensus guidelines for management of hyperammonaemia in paediatric patients receiving continuous kidney replacement therapy.",
+      "source_family": "guideline_or_consensus",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "8772536cba2bcf227e24bfa442e58955e2fff47790f5f21e3e346187bfac1546",
+        "worker_visible_text_chars": 65644,
+        "pmc_xml_sha256": "794e601c39177cbae6aa593b1fc1c662c098b631752d4c3eeeaa94cf262e30cb",
+        "fulltext_xml_retrieved": true,
+        "license": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise ",
+        "text_definition": "PMCID-bound fullTextXML article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2020-04-08T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "PMID:32269302",
+        "status": "identity_resolved_other",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": true,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "65%",
+          "100%",
+          "60%",
+          "100%",
+          "66%",
+          "57%",
+          "100%",
+          "100%",
+          "100%",
+          "100%",
+          "86.70%",
+          "50%"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [
+          "should not",
+          "not recommended"
+        ],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:32269302"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC OA full text PMC7366888"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2020-04-08T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "PMID:32269302",
+              "status": "identity_resolved_other",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=66641"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "ELIGIBLE_CORE",
+        "exclusion_reason_codes": []
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "a724bef1723fc046126ea89a067bb4c1619b6092f03b2f6afb0afd85e16ac472",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "ddfe6368a387d8b1bd9f534b042fdcbf9dc442fa6d6e14aab9da568d3cd6540b"
     },
     {
       "candidate_id": "G100-CAND-000196",
@@ -5095,7 +6300,7 @@
         "pubmed_record_xml_sha256": "30de97d26823b254534becb5b0f3cf8df3fa9f48da96e46c16d52b6dfd1bfa17",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "cb79986d6355dffb9940f41f9b38485ed3b0e7d76eb28e91e3ae2e8e96776394"
+      "record_sha256": "1c72bd81c8d765ab3019db85a64bc382e930cbada5555f9ff10467d0d1e56a67"
     },
     {
       "candidate_id": "G100-CAND-000208",
@@ -6268,6 +7473,144 @@
       "record_sha256": "1769c9923c85ec1392265d1a638a58a885f690800aade8fc3a61799a97f818af"
     },
     {
+      "candidate_id": "G100-CAND-000235",
+      "pmid": "34330515",
+      "pmcid": "PMC8146268",
+      "doi": "10.1016/j.clnesp.2021.05.003",
+      "title": "Nutrition guidelines for critically ill adults admitted with COVID-19: Is there consensus?",
+      "source_family": "guideline_or_consensus",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "ffcdb2000628997f83924f6720e655e3cab6cf3f7f0426d54fbbcad3ac7fb6e6",
+        "worker_visible_text_chars": 45702,
+        "pmc_xml_sha256": "fa91652a5a9dde99cd5ac4293de3e3c0246e569cc149b67bd9d4665245e12de8",
+        "fulltext_xml_retrieved": true,
+        "license": "Since January 2020 Elsevier has created a COVID-19 resource centre with free information in English and Mandarin on the novel coronavirus COVID-19. The COVID-19 resource centre is hosted on Elsevier Connect, the company's public news and information website. Elsevier hereby grants permission to make all its COVID-19-related research that is available on the COVID-19 resource centre - including this research content - immediately available in PubMed Central and other publicly funded repositories,",
+        "text_definition": "PMCID-bound fullTextXML article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2021-05-25T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "PMID:34330515",
+        "status": "identity_resolved_other",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": true,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "90%",
+          "10%",
+          "65%",
+          "70%",
+          "20%",
+          "50%",
+          "60%",
+          "70%",
+          "100%",
+          "70%",
+          "20%",
+          "70%"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [
+          "recommend against",
+          "should not",
+          "contraindication",
+          "contraindication",
+          "contraindication",
+          "contraindication",
+          "contraindication",
+          "contraindication"
+        ],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:34330515"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC OA full text PMC8146268"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2021-05-25T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "title_or_abstract_formal_normative_signal"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "PMID:34330515",
+              "status": "identity_resolved_other",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=47561"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "ELIGIBLE_CORE",
+        "exclusion_reason_codes": []
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "fcb9047f7fd65b7245811a43e5d3ee951ab6b0a3d7ef443834e6f7e75dc98914",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "2c599a86e2103d40596a9d4059f11cb4ce79c87230073b9929d64224b4985d5d"
+    },
+    {
       "candidate_id": "G100-CAND-000236",
       "pmid": "34360118",
       "pmcid": "PMC8345510",
@@ -6499,7 +7842,7 @@
         "temporal_cutoff_sensitive": [],
         "incomplete_source_text": []
       },
-      "stress_stratum": "conflicting_evidence",
+      "stress_stratum": null,
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
@@ -6555,7 +7898,7 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
+        "screening_state": "ELIGIBLE_CORE",
         "exclusion_reason_codes": []
       },
       "provenance": {
@@ -6563,7 +7906,7 @@
         "pubmed_record_xml_sha256": "62624e22ab959767a21909a66ccc4cdb832273d686f8f2e9ef97481b692c7cc1",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "7944d948b4d8da1e2efa9f964e4d39a50f8f52ceac10e6015cfce6ff936812b8"
+      "record_sha256": "80389b095e06bb8bdf37a71782b3b996b42d805378728d9476a8888e79b8e2da"
     },
     {
       "candidate_id": "G100-CAND-000240",
@@ -7248,7 +8591,7 @@
       },
       "study_identity": {
         "study_identity_cluster_id": "REG:CHICTR1800020329",
-        "status": "identity_resolved_other",
+        "status": "companion_publication",
         "registration_ids": [
           "CHICTR1800020329"
         ],
@@ -7258,7 +8601,7 @@
       "challenge_tags": {
         "numeric_complexity": true,
         "causal_language_risk": false,
-        "StudyIdentity_dependency": false,
+        "StudyIdentity_dependency": true,
         "correction_retraction_living_version": false,
         "conflict": false,
         "recommendation_exception": false,
@@ -7288,7 +8631,7 @@
         "temporal_cutoff_sensitive": [],
         "incomplete_source_text": []
       },
-      "stress_stratum": null,
+      "stress_stratum": "StudyIdentity_or_companion_dependency",
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
@@ -7319,7 +8662,7 @@
             "pass": true,
             "evidence": {
               "cluster": "REG:CHICTR1800020329",
-              "status": "identity_resolved_other",
+              "status": "companion_publication",
               "linked": []
             }
           },
@@ -7344,7 +8687,7 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_CORE",
+        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
         "exclusion_reason_codes": []
       },
       "provenance": {
@@ -7352,7 +8695,7 @@
         "pubmed_record_xml_sha256": "35afa9ebdd130849894212551df7d16fe38d19522ce4d28dbcd5666fd598178f",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "f36c04a34d482befa3cd5cd52b5f443b026113d59cdb808ce30c142662caecfe"
+      "record_sha256": "3e06e86d4747a1e0aba9e4f774edb4522fd3863496e6d259f7d3f3d992236fbf"
     },
     {
       "candidate_id": "G100-CAND-000254",
@@ -7984,7 +9327,7 @@
         "pubmed_record_xml_sha256": "a459160a6ff4e8154d5d1e196cccd366556cb2bc505350d997a5e5892aa53c6c",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "c0580584c800697d0d89c63667ac3291449985150e7790b2602753700984f02e"
+      "record_sha256": "0e0eef058c2ab73ac2b41558132c6a380e9ed868d66a5cd65a141c391816ad8f"
     },
     {
       "candidate_id": "G100-CAND-000265",
@@ -8061,7 +9404,7 @@
         "temporal_cutoff_sensitive": [],
         "incomplete_source_text": []
       },
-      "stress_stratum": "conflicting_evidence",
+      "stress_stratum": null,
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
@@ -8117,7 +9460,7 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
+        "screening_state": "ELIGIBLE_CORE",
         "exclusion_reason_codes": []
       },
       "provenance": {
@@ -8125,7 +9468,7 @@
         "pubmed_record_xml_sha256": "901302416b1fcd2cd333c99a66f5963c12002373627958034aeb32479f401e5a",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "bcfbebb5e84ccbb80cf351ab5cd2fa5e7c7df668953d9cf88d3bbf2e9524176f"
+      "record_sha256": "b96cd9d6141a0b8e7f0ac9a908a936cee3e4e20a52ec8c260bd5a8dde643227f"
     },
     {
       "candidate_id": "G100-CAND-000267",
@@ -8512,7 +9855,7 @@
         "pubmed_record_xml_sha256": "696f950a80aba98cd8f69c41464ad13716363ac5b9a68cae4b85dbdee0a99be5",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "d262e04b852e72e866e732569d2ce4010ccfd6ec9840ed16f9994656652d243d"
+      "record_sha256": "c5e5b98e420ffbdb5a9cb52d1c86a1cf1f78d160f0347cbe5ecb411d688637af"
     },
     {
       "candidate_id": "G100-CAND-000273",
@@ -8995,7 +10338,7 @@
         "temporal_cutoff_sensitive": [],
         "incomplete_source_text": []
       },
-      "stress_stratum": "conflicting_evidence",
+      "stress_stratum": null,
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
@@ -9051,7 +10394,7 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
+        "screening_state": "ELIGIBLE_CORE",
         "exclusion_reason_codes": []
       },
       "provenance": {
@@ -9059,7 +10402,7 @@
         "pubmed_record_xml_sha256": "532e85b6c12c1c7c3e56dd146bcf29bad030dd041a549c7e02ea309f7476803b",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "8f27ab14b57255717b2985d5a3062323b97bc29d62024b93597814b7f64e75b7"
+      "record_sha256": "6dc24bf0f09cff048b5eb890afd3fd78c91af152ea2652dc90b0d3749506cfb8"
     },
     {
       "candidate_id": "G100-CAND-000278",
@@ -9321,7 +10664,7 @@
         "pubmed_record_xml_sha256": "d6e60282fbf48e704ef0679d61257ea623c99711a7b40f310f37a1730916bce9",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "08982474eac96e0fa639c46622aab67c91824bef4ab44f8987442a43bce8b8fc"
+      "record_sha256": "f11b1603d3a0fc6b12c7baffdf3e84cee79cd3336dfc5f6e46c61d1a9d081cb6"
     },
     {
       "candidate_id": "G100-CAND-000283",
@@ -9400,7 +10743,7 @@
         "temporal_cutoff_sensitive": [],
         "incomplete_source_text": []
       },
-      "stress_stratum": "conflicting_evidence",
+      "stress_stratum": null,
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
@@ -9456,7 +10799,7 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
+        "screening_state": "ELIGIBLE_CORE",
         "exclusion_reason_codes": []
       },
       "provenance": {
@@ -9464,7 +10807,7 @@
         "pubmed_record_xml_sha256": "2d72660b7a7c43048dfb7249ed0ba96d2a672671ebffb8c5e2d4875d0c96cf37",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "6dbc86a5730b38fe7975f4426dc8d187d6aeffd6f4ea716f8051dd756606df13"
+      "record_sha256": "5676d139c5694d28f84aeb90cd1122ece80b47586f897c6c17bde1a3dbb38736"
     },
     {
       "candidate_id": "G100-CAND-000284",
@@ -9730,7 +11073,7 @@
       "pmcid": "PMC11648958",
       "doi": "10.1093/ndt/gfae077",
       "title": "The safety of a low-protein diet in older adults with advanced chronic kidney disease.",
-      "source_family": "primary_observational",
+      "source_family": "guideline_or_consensus",
       "domain": "nutrition_metabolic_cardiometabolic",
       "source_text": {
         "status": "official_full_text_frozen",
@@ -9749,18 +11092,18 @@
       },
       "study_identity": {
         "study_identity_cluster_id": "PMID:38544335",
-        "status": "independent_primary_report",
+        "status": "identity_resolved_other",
         "registration_ids": [],
         "linked_candidate_ids": [],
         "accidental_duplicate_risk": false
       },
       "challenge_tags": {
         "numeric_complexity": true,
-        "causal_language_risk": true,
+        "causal_language_risk": false,
         "StudyIdentity_dependency": false,
         "correction_retraction_living_version": false,
         "conflict": false,
-        "recommendation_exception": false,
+        "recommendation_exception": true,
         "temporal_cutoff_sensitive": false,
         "incomplete_source_text": false
       },
@@ -9779,20 +11122,14 @@
           "50%",
           "P < .05"
         ],
-        "causal_language_risk": [
-          "risk of",
-          "risk of",
-          "association between",
-          "risk of",
-          "risk of",
-          "risk of",
-          "associated with",
-          "risk of"
-        ],
+        "causal_language_risk": [],
         "StudyIdentity_dependency": [],
         "correction_retraction_living_version": [],
         "conflict": {},
-        "recommendation_exception": [],
+        "recommendation_exception": [
+          "should not",
+          "unless"
+        ],
         "temporal_cutoff_sensitive": [],
         "incomplete_source_text": []
       },
@@ -9817,7 +11154,7 @@
           },
           "ELIG-05": {
             "pass": true,
-            "evidence": "publication_type_or_abstract"
+            "evidence": "title_or_abstract_formal_normative_signal"
           },
           "ELIG-06": {
             "pass": true,
@@ -9827,7 +11164,7 @@
             "pass": true,
             "evidence": {
               "cluster": "PMID:38544335",
-              "status": "independent_primary_report",
+              "status": "identity_resolved_other",
               "linked": []
             }
           },
@@ -9860,7 +11197,7 @@
         "pubmed_record_xml_sha256": "e5fab9cfa87b0b76dcff8ff33583a509ec2c82b2e84131899047d5fc459e14c3",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "19412eefeb9e93a9129500cde36df9e1ff5fb09f2daf63338f871e6b22477aa7"
+      "record_sha256": "b25b05321af6900f8d4d6057cb5dc9d016afe9a115d9e9432f642dc18310be14"
     },
     {
       "candidate_id": "G100-CAND-000291",
@@ -10074,7 +11411,7 @@
         "temporal_cutoff_sensitive": [],
         "incomplete_source_text": []
       },
-      "stress_stratum": "conflicting_evidence",
+      "stress_stratum": null,
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
@@ -10130,7 +11467,7 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
+        "screening_state": "ELIGIBLE_CORE",
         "exclusion_reason_codes": []
       },
       "provenance": {
@@ -10138,7 +11475,7 @@
         "pubmed_record_xml_sha256": "1783c7335bec8841be0dd0d9b5fd9e7e8d4594937974f0550edd59b7132fd851",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "18e8100a8c2504acea0d34c34da47e5cfa9eb10665dc1ec73fddcd21753c43ca"
+      "record_sha256": "97f56dce4f877cdda90ebe8099c165418a47cb8e394c1207c1e0138fba76c2d9"
     },
     {
       "candidate_id": "G100-CAND-000296",
@@ -11776,7 +13113,7 @@
         "temporal_cutoff_sensitive": [],
         "incomplete_source_text": []
       },
-      "stress_stratum": "conflicting_evidence",
+      "stress_stratum": null,
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
@@ -11832,7 +13169,7 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
+        "screening_state": "ELIGIBLE_CORE",
         "exclusion_reason_codes": []
       },
       "provenance": {
@@ -11840,7 +13177,7 @@
         "pubmed_record_xml_sha256": "1549809e10be5164492329d4dbca335728dcd06ad5ab01ff65ba3abea2c2346b",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "ffda77f01c73190d9a8505d81859edcd8529a97747d872dbeb2e685078d03a58"
+      "record_sha256": "6bb411be410250fc5e62327060d995496125691507c5254dcd8a84fb51af0b1b"
     },
     {
       "candidate_id": "G100-CAND-000317",
@@ -12045,7 +13382,7 @@
         "temporal_cutoff_sensitive": [],
         "incomplete_source_text": []
       },
-      "stress_stratum": "conflicting_evidence",
+      "stress_stratum": null,
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
@@ -12101,7 +13438,7 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
+        "screening_state": "ELIGIBLE_CORE",
         "exclusion_reason_codes": []
       },
       "provenance": {
@@ -12109,7 +13446,7 @@
         "pubmed_record_xml_sha256": "6b10ef1f55b30fad8740ce643f8ad23a0ed4f20c4d84d0bcc472d1364b6fa8a2",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "26c6290515e1062a1b5186cbac399d37297daf6896efbeb73850beb154498708"
+      "record_sha256": "676cbe491a689b3a7d6c53438edec1ac934318c8345b9a285bab223ed59ab48e"
     },
     {
       "candidate_id": "G100-CAND-000319",
@@ -12342,7 +13679,7 @@
         ],
         "incomplete_source_text": []
       },
-      "stress_stratum": "correction_republication_retraction_or_living_version",
+      "stress_stratum": null,
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
@@ -12398,7 +13735,7 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
+        "screening_state": "ELIGIBLE_CORE",
         "exclusion_reason_codes": []
       },
       "provenance": {
@@ -12406,7 +13743,7 @@
         "pubmed_record_xml_sha256": "97aac906e6b257843fc5f9e57a84838c357fb90704c0d9cef15190c612195dd2",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "57ef380755760ed61ce36ada88d68b2ba80fc5822b2527de652da72d1423cf1e"
+      "record_sha256": "ef303cf459909ae5049368d711cd5aa3f177bf0349c546fe40c12193ec824342"
     },
     {
       "candidate_id": "G100-CAND-000321",
@@ -12489,7 +13826,7 @@
         "temporal_cutoff_sensitive": [],
         "incomplete_source_text": []
       },
-      "stress_stratum": "conflicting_evidence",
+      "stress_stratum": null,
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
@@ -12545,7 +13882,7 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
+        "screening_state": "ELIGIBLE_CORE",
         "exclusion_reason_codes": []
       },
       "provenance": {
@@ -12553,7 +13890,7 @@
         "pubmed_record_xml_sha256": "ec9cc844165ad41aad5195e54937216570bbbac938f56504319dff0ce0f6c924",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "8f18f93336007a6ceab4db0eaaa7a8d8caed3c11184e3762b6f53fd4c6fdd4a7"
+      "record_sha256": "f4d30d4c3e7c00d4109c1d3f0d17282d6155104d676e6c1c60b2713cb4da056a"
     },
     {
       "candidate_id": "G100-CAND-000322",
@@ -13011,7 +14348,7 @@
         "temporal_cutoff_sensitive": [],
         "incomplete_source_text": []
       },
-      "stress_stratum": "recommendation_exception_or_normative_boundary",
+      "stress_stratum": null,
       "eligibility": {
         "gate_results": {
           "ELIG-01": {
@@ -13067,7 +14404,7 @@
             "evidence": "no automated fatal identity/fabrication signal"
           }
         },
-        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
+        "screening_state": "ELIGIBLE_CORE",
         "exclusion_reason_codes": []
       },
       "provenance": {
@@ -13075,7 +14412,7 @@
         "pubmed_record_xml_sha256": "d1d44704c29da86bba38cdc2d4e332b98a2f27d3cbe63ad694f2c978acbce123",
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
-      "record_sha256": "a1581e55619a206c031f4762fc20437d3677c845581f03e54704223a27081fba"
+      "record_sha256": "bcd0cce0cd5ce79c4f2378ac847784c5b4b0ce2bcdd437a9a5a8cd84e4e7ad2f"
     },
     {
       "candidate_id": "G100-CAND-000329",
@@ -13743,7 +15080,136 @@
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
       "record_sha256": "dad1a9de8856bdeb318755a327dbd8946ced196c4368828eab4ba0badee973a2"
+    },
+    {
+      "candidate_id": "G100-CAND-000341",
+      "pmid": "42514369",
+      "pmcid": "PMC13414780",
+      "doi": "10.3390/nu18142299",
+      "title": "Diet, Nutrition, and Rhinosinusitis: A Systematic Review of Dietary Interventions and Exposures.",
+      "source_family": "evidence_synthesis",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "e853a178ee81e9f037a8392dc0086dbc0ddcba35189f3ab5ae746463332a7bb2",
+        "worker_visible_text_chars": 50948,
+        "pmc_xml_sha256": "b58505d37daebd2fad0ae6e967411fb3315c0b0c340d34f3b662c3ea91c39b14",
+        "fulltext_xml_retrieved": true,
+        "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license .",
+        "text_definition": "PMCID-bound fullTextXML article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2026-07-14T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "PMID:42514369",
+        "status": "identity_resolved_other",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "p < 0.001",
+          "54%",
+          "p = 0.005",
+          "p = 0.02",
+          "p = 0.008",
+          "p = 0.002",
+          "p = 0.040",
+          "p = 0.008",
+          "p < 0.001",
+          "p < 0.001",
+          "p < 0.0001",
+          "95%"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:42514369"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC OA full text PMC13414780"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2026-07-14T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "PMID:42514369",
+              "status": "identity_resolved_other",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=53320"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "ELIGIBLE_CORE",
+        "exclusion_reason_codes": []
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "a1e786ab77d077144c2acfbf0537eff4b3f0eca47fe63bbcc7202069a8965e1a",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "c7f049884ef3c025d03bbe6b930951eef8c20220499ceff2b64c49f00334d075"
     }
   ],
-  "eligible_pool_sha256": "f44d3c85312d10e729b7d27e4904ffed04b00a2b9111e45d867c4b1ea916b26a"
+  "eligible_pool_sha256": "9f16f9698dcb341af4058c4917410e14337e3a3f17e43657150ff6515591b11e"
 }

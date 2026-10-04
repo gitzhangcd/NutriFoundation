@@ -1,0 +1,151 @@
+{
+  "contract": "Paper_C_P0_3_Annotation_Workbench",
+  "version": "v1.0",
+  "status": "FROZEN_REFERENCE_CONTRACT",
+  "purpose": "Ensure calibration and later Gold annotation occur through an auditable independent-first-pass interface.",
+  "modes": [
+    "calibration_round_A",
+    "calibration_round_B",
+    "gold100_annotation"
+  ],
+  "source_panel": {
+    "read_only": true,
+    "exact_worker_visible_text_hash_required": true,
+    "display_source_identity": true,
+    "display_version_and_evidence_cutoff": true,
+    "incomplete_source_badge_required": true,
+    "prohibit_unbound_external_text_insertion": true
+  },
+  "annotation_panel": {
+    "canonical_scientific_payload": "lossless mapping to paper_c/P0.1/Gold100_Annotation_Record_Schema_v1.0.json",
+    "expert_facing_sections": [
+      "source_check",
+      "StudyIdentity_dependency",
+      "EvidenceUnits",
+      "claim_type_and_causal_level",
+      "critical_numeric_results",
+      "recommendation_normativity",
+      "source_level_applicability_boundary",
+      "evidence_spans",
+      "critical_error_opportunities",
+      "uncertainty_and_protocol_ambiguity",
+      "independence_and_COI_attestation"
+    ]
+  },
+  "span_binding": {
+    "stable_token_index_required": true,
+    "each_span_binds": [
+      "source_text_sha256",
+      "start_token",
+      "end_token",
+      "exact_text",
+      "supported_object_ids"
+    ],
+    "source_span_token_F1_uses_stable_token_indices": true
+  },
+  "isolation": {
+    "separate_annotator_namespaces": true,
+    "annotator_A_cannot_read_B_before_both_locks": true,
+    "annotator_B_cannot_read_A_before_both_locks": true,
+    "AB_outputs_prohibited": true,
+    "evaluator_scores_prohibited": true,
+    "Gold100_hidden_during_P0_3": true
+  },
+  "state_machine": {
+    "states": [
+      "UNOPENED",
+      "IN_PROGRESS",
+      "FIRST_PASS_LOCKED",
+      "PAIR_LOCKED",
+      "DIFF_ELIGIBLE",
+      "METRIC_FROZEN",
+      "DISCUSSION_ELIGIBLE",
+      "CLOSED"
+    ],
+    "transitions": [
+      [
+        "UNOPENED",
+        "IN_PROGRESS"
+      ],
+      [
+        "IN_PROGRESS",
+        "FIRST_PASS_LOCKED"
+      ],
+      [
+        "FIRST_PASS_LOCKED",
+        "PAIR_LOCKED",
+        "only_when_both_A_B_locked"
+      ],
+      [
+        "PAIR_LOCKED",
+        "DIFF_ELIGIBLE"
+      ],
+      [
+        "DIFF_ELIGIBLE",
+        "DISCUSSION_ELIGIBLE",
+        "Round_A_only"
+      ],
+      [
+        "DIFF_ELIGIBLE",
+        "METRIC_FROZEN",
+        "Round_B_only"
+      ],
+      [
+        "METRIC_FROZEN",
+        "DISCUSSION_ELIGIBLE",
+        "Round_B_after_metrics_frozen_only"
+      ],
+      [
+        "DISCUSSION_ELIGIBLE",
+        "CLOSED"
+      ]
+    ],
+    "edit_after_FIRST_PASS_LOCKED": "PROHIBITED"
+  },
+  "first_pass_lock": {
+    "canonical_JSON_hash": "SHA-256",
+    "timestamp_required": true,
+    "immutable": true,
+    "lock_event_in_audit_log": true
+  },
+  "time_accounting": {
+    "active_annotation_seconds_required": true,
+    "discussion_seconds_separate": true,
+    "idle_time_exclusion_supported": true,
+    "calibration_time_not_AB0_or_AB6_HBR": true
+  },
+  "audit_events": [
+    "workspace_login",
+    "source_open",
+    "source_hash_verified",
+    "draft_save",
+    "span_bind",
+    "protocol_ambiguity_flag",
+    "first_pass_lock",
+    "pair_lock",
+    "diff_release",
+    "metric_freeze",
+    "discussion_open",
+    "export",
+    "unauthorized_access_attempt"
+  ],
+  "export": {
+    "format": "JSON",
+    "schema_validation_required": true,
+    "record_hash_required": true,
+    "source_hash_required": true,
+    "event_log_required": true
+  },
+  "machine_conformance_tests": [
+    "source hash mismatch blocks annotation",
+    "other-annotator record unavailable before pair lock",
+    "locked record cannot be edited",
+    "span round-trip preserves exact text and token offsets",
+    "Round B diff does not open before pair lock",
+    "Round B discussion does not open before metric freeze",
+    "incomplete-source record permits explicit insufficient_source",
+    "Gold100 source access is denied in P0.3 workspace",
+    "JSON export maps losslessly to canonical scientific payload",
+    "audit log records every lock and access event"
+  ]
+}

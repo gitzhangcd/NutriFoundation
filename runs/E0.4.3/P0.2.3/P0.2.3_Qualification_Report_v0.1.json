@@ -1,0 +1,119 @@
+{
+  "stage": "E0.4.3-P0.2.3",
+  "status": "FROZEN_COVERAGE_GAP_NO_SAMPLING",
+  "raw_count": 342,
+  "eligible_count": 104,
+  "excluded_count": 238,
+  "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+  "oa_full_text_count": 127,
+  "incomplete_stress_count": 8,
+  "coverage": {
+    "family_counts": {
+      "primary_interventional": 35,
+      "primary_observational": 10,
+      "evidence_synthesis": 56,
+      "guideline_or_consensus": 2,
+      "companion_or_secondary": 1
+    },
+    "domain_counts": {
+      "nutrition_metabolic_cardiometabolic": 85,
+      "external_biomedical_or_public_health": 19
+    },
+    "tag_counts": {
+      "numeric_complexity": 93,
+      "causal_language_risk": 10,
+      "StudyIdentity_dependency": 1,
+      "correction_retraction_living_version": 8,
+      "conflict": 12,
+      "recommendation_exception": 2,
+      "temporal_cutoff_sensitive": 8,
+      "incomplete_source_text": 8
+    },
+    "stress_counts": {
+      "correction_republication_retraction_or_living_version": 8,
+      "StudyIdentity_or_companion_dependency": 1,
+      "conflicting_evidence": 12,
+      "recommendation_exception_or_normative_boundary": 1,
+      "temporal_cutoff_sensitive": 0,
+      "incomplete_or_missing_source_text": 6
+    },
+    "gaps": {
+      "family": {
+        "primary_observational": {
+          "have": 10,
+          "need": 18,
+          "deficit": 8
+        },
+        "guideline_or_consensus": {
+          "have": 2,
+          "need": 12,
+          "deficit": 10
+        },
+        "companion_or_secondary": {
+          "have": 1,
+          "need": 4,
+          "deficit": 3
+        }
+      },
+      "domain": {
+        "external_biomedical_or_public_health": {
+          "have": 19,
+          "need": 20,
+          "deficit": 1
+        }
+      },
+      "tags": {
+        "causal_language_risk": {
+          "have": 10,
+          "need": 15,
+          "deficit": 5
+        },
+        "StudyIdentity_dependency": {
+          "have": 1,
+          "need": 15,
+          "deficit": 14
+        },
+        "correction_retraction_living_version": {
+          "have": 8,
+          "need": 10,
+          "deficit": 2
+        },
+        "conflict": {
+          "have": 12,
+          "need": 15,
+          "deficit": 3
+        },
+        "recommendation_exception": {
+          "have": 2,
+          "need": 10,
+          "deficit": 8
+        },
+        "temporal_cutoff_sensitive": {
+          "have": 8,
+          "need": 10,
+          "deficit": 2
+        }
+      },
+      "stress": {
+        "StudyIdentity_or_companion_dependency": {
+          "have": 1,
+          "need": 4,
+          "deficit": 3
+        },
+        "recommendation_exception_or_normative_boundary": {
+          "have": 1,
+          "need": 2,
+          "deficit": 1
+        },
+        "temporal_cutoff_sensitive": {
+          "have": 0,
+          "need": 2,
+          "deficit": 2
+        }
+      }
+    }
+  },
+  "eligible_pool_sha256": "f44d3c85312d10e729b7d27e4904ffed04b00a2b9111e45d867c4b1ea916b26a",
+  "sampling_authorized": false,
+  "nonclaim": "No Gold100 deterministic sampling occurs in P0.2.3."
+}

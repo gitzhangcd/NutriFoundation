@@ -1,0 +1,3083 @@
+{
+  "stage": "E0.4.3-P0.2.3",
+  "records": [
+    {
+      "candidate_id": "G100-CAND-000001",
+      "pmid": "1359211",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000002",
+      "pmid": "2835803",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000003",
+      "pmid": "3737025",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000004",
+      "pmid": "8865925",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000005",
+      "pmid": "8988907",
+      "pmcid": null,
+      "text_status": "structured_abstract_only",
+      "worker_visible_text_sha256": "5cb7d9c6c97c1c7ee65993329918ad1598cf3f6356bfd046e4468332ab9a96da",
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000006",
+      "pmid": "9598302",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000007",
+      "pmid": "10488660",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000008",
+      "pmid": "10563609",
+      "pmcid": null,
+      "text_status": "structured_abstract_only",
+      "worker_visible_text_sha256": "84b3b65301791d1820399a258ee87d60f63c38e4accab4091de32741ed8a407e",
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000009",
+      "pmid": "10908515",
+      "pmcid": null,
+      "text_status": "structured_abstract_only",
+      "worker_visible_text_sha256": "e7afecaccaa1a9e7c27e0a6804aa66204a322dd4edd605668e20840022aee472",
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000010",
+      "pmid": "10998614",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000011",
+      "pmid": "11527656",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000012",
+      "pmid": "12081835",
+      "pmcid": null,
+      "text_status": "structured_abstract_only",
+      "worker_visible_text_sha256": "26a104d45db683b9b3040d56bef3df09035a7decb43d059b17b0073da0d31a3f",
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000013",
+      "pmid": "12676581",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000014",
+      "pmid": "14499135",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000015",
+      "pmid": "14673609",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000016",
+      "pmid": "15461192",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000017",
+      "pmid": "15630808",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000018",
+      "pmid": "15684319",
+      "pmcid": null,
+      "text_status": "structured_abstract_only",
+      "worker_visible_text_sha256": "5f0f506a26090dd8a885a1acbc36e8fde77dc96036c245428e025a52db2c0807",
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000019",
+      "pmid": "15864528",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000020",
+      "pmid": "16038056",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000021",
+      "pmid": "16277816",
+      "pmcid": null,
+      "text_status": "structured_abstract_only",
+      "worker_visible_text_sha256": "cea8bb71f2ab74e7e6efb9c39ee98a95fa4bf2844b72b57e97e35f955f994a7b",
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000022",
+      "pmid": "16278972",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000023",
+      "pmid": "16440447",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000024",
+      "pmid": "16803864",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000025",
+      "pmid": "17179509",
+      "pmcid": null,
+      "text_status": "structured_abstract_only",
+      "worker_visible_text_sha256": "8bb69c4f17b52fb2cbe02f003c14aacc477970a389cbe5a3d6d92a074b43fccc",
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000026",
+      "pmid": "18375224",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000027",
+      "pmid": "18394991",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000028",
+      "pmid": "18436085",
+      "pmcid": null,
+      "text_status": "structured_abstract_only",
+      "worker_visible_text_sha256": "e3b4142d41b79b07d91f6a9e482ca3cf5a05404be93019c25f040e49b7eaadd2",
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000029",
+      "pmid": "18456578",
+      "pmcid": "PMC2810954",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000030",
+      "pmid": "18596500",
+      "pmcid": "PMC4264831",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000031",
+      "pmid": "18663085",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000032",
+      "pmid": "19019027",
+      "pmcid": "PMC2657658",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000033",
+      "pmid": "19562864",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000034",
+      "pmid": "20706804",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000035",
+      "pmid": "21296615",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000036",
+      "pmid": "21303927",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000037",
+      "pmid": "21420203",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000038",
+      "pmid": "21572266",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000039",
+      "pmid": "21671709",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000040",
+      "pmid": "21923844",
+      "pmcid": "PMC3206217",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "044afa5616d193d7abae1e041f1c0d9d80186fba2810be8622242eee0c9b5814",
+      "pmc_xml_sha256": "463ab653639218bddc471727c4df136e7f4ee8d8d46399adf4a243d0bb5e1867",
+      "license": "https://creativecommons.org/licenses/by/2.5/ Re-use of this article is permitted in accordance with the Creative Commons Deed, Attribution 2.5, which does not permit commercial exploitation."
+    },
+    {
+      "candidate_id": "G100-CAND-000041",
+      "pmid": "22179189",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000042",
+      "pmid": "22249549",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000043",
+      "pmid": "22296871",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000044",
+      "pmid": "22301840",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000045",
+      "pmid": "22535923",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000046",
+      "pmid": "22729386",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000047",
+      "pmid": "23157228",
+      "pmcid": "PMC3570300",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "112591824a06349a60a65b8d47a51342c3c86277b0d5a068ef677bb0f608cfb9",
+      "pmc_xml_sha256": "12cccb8e0d35ff1d2f61bab58f948dd64442cc519ef8952151c873ec44693720",
+      "license": "https://creativecommons.org/licenses/by/2.0/ This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( http://creativecommons.org/licenses/by/2.0 ), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000048",
+      "pmid": "23382431",
+      "pmcid": "PMC3679597",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "ce44b775ed09cdf24f9f551fdc0183c6f5395af9e1ef1b80026d4c227ac6b2f0",
+      "pmc_xml_sha256": "b56b33a5a9abbd148d459af22a3497ce06f1252c825fac9e642eb918ec9812de",
+      "license": "© 2013 The Authors. Published by the Royal Society under the terms of the Creative Commons Attribution License http://creativecommons.org/licenses/by/3.0/ , which permits unrestricted use, provided the original author and source are credited."
+    },
+    {
+      "candidate_id": "G100-CAND-000049",
+      "pmid": "23388664",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000050",
+      "pmid": "23764209",
+      "pmcid": "PMC4084863",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000051",
+      "pmid": "23994919",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000052",
+      "pmid": "24103511",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000053",
+      "pmid": "24158335",
+      "pmcid": "PMC3860059",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000054",
+      "pmid": "24178975",
+      "pmcid": "PMC3878692",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000055",
+      "pmid": "24268300",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000056",
+      "pmid": "24357718",
+      "pmcid": "PMC3924205",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000057",
+      "pmid": "24458080",
+      "pmcid": "PMC3974356",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000058",
+      "pmid": "24476887",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000059",
+      "pmid": "24620037",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000060",
+      "pmid": "24681753",
+      "pmcid": "PMC5380112",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "d8c566a0f470648a97c67dda2196ca2e2116bd150361b77d750fcac72d2a5b7a",
+      "pmc_xml_sha256": "32c63513f343f2af97d30ca361c67e337397b21bfdc0993bb6ab7d6420b28b4a",
+      "license": "https://creativecommons.org/licenses/by-nc-nd/3.0/ This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported license. The images in this article are included in the article's Creative Commons license, unless indicated otherwise in the image credit; if the image is not included under the Creative Commons license, users will need to obtain permission from the license holder in order to reproduce the image. To view a copy of this license, visit http://creativeco"
+    },
+    {
+      "candidate_id": "G100-CAND-000061",
+      "pmid": "24695886",
+      "pmcid": "PMC6410895",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000062",
+      "pmid": "24753196",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000063",
+      "pmid": "24881969",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000064",
+      "pmid": "24910231",
+      "pmcid": "PMC4751088",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000065",
+      "pmid": "25119660",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000066",
+      "pmid": "25156026",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000067",
+      "pmid": "25398084",
+      "pmcid": "PMC4232422",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "34a237c85c7e67f97393c5a8e3e8c7fc97f0f564c74d85e6d439a93ae0afd322",
+      "pmc_xml_sha256": "751d1a09f238249c0fb4f03800a44bcf2dc62aa9f95cd739b9af1be271800e43",
+      "license": "This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited."
+    },
+    {
+      "candidate_id": "G100-CAND-000068",
+      "pmid": "25422273",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000069",
+      "pmid": "25524627",
+      "pmcid": "PMC4291663",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000070",
+      "pmid": "25578926",
+      "pmcid": "PMC4499508",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000071",
+      "pmid": "25624036",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000072",
+      "pmid": "25694464",
+      "pmcid": "PMC4416140",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "9b070db701cf57c1d919f3bd4c408fd3dab098fd5af00480cad6ccd1da7ad0d5",
+      "pmc_xml_sha256": "a12137ebffc1a8a42d45cc39dd4ebf2364c7b73336ae895cc04321e53a3185aa",
+      "license": "This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License ( http://creativecommons.org/licenses/by-nc/4.0/ ), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited. For commercial re-use, please contact journals.permissions@oup.com"
+    },
+    {
+      "candidate_id": "G100-CAND-000073",
+      "pmid": "25744474",
+      "pmcid": "PMC5144106",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000074",
+      "pmid": "25789565",
+      "pmcid": "PMC4615042",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000075",
+      "pmid": "25799486",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000076",
+      "pmid": "25807354",
+      "pmcid": "PMC4506466",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000077",
+      "pmid": "25920424",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000078",
+      "pmid": "25957927",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000079",
+      "pmid": "26014160",
+      "pmcid": "PMC4460719",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "5d08cfaefa4a65bb23b6f93445451c6d67924b949eeb5a6eb3b9e74c7812191a",
+      "pmc_xml_sha256": "cf15c6efef6994c0bbac6c2066198bbd3c61a21d4bf58b262430a6302c781a1e",
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/ This is an open access article under the terms of the Creative Commons Attribution‐Non‐Commercial‐No‐Derivatives Licence, which permits use and distribution in any medium, provided the original work is properly cited, the use is non‐commercial and no modifications or adaptations are made."
+    },
+    {
+      "candidate_id": "G100-CAND-000080",
+      "pmid": "26014267",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000081",
+      "pmid": "26039314",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000082",
+      "pmid": "26119735",
+      "pmcid": "PMC4858438",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000083",
+      "pmid": "26160327",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000084",
+      "pmid": "26286946",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000085",
+      "pmid": "26307238",
+      "pmcid": "PMC4586446",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "293f69633f79894cdc49474eda2971310bc8a34ed7aab767cd4f3bad677f0efc",
+      "pmc_xml_sha256": "cf1a6c58224487b013e1b3f8283afb39f5317f4dc9cd91637529b905a9893999",
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/ This is an Open Access article distributed under the terms of the Creative Commons Attribution-NonCommercial-NoDerivs licence ( http://creativecommons.org/licenses/by-nc-nd/4.0/ ), which permits non-commercial reproduction and distribution of the work, in any medium, provided the original work is not altered or transformed in any way, and that the work properly cited. For commercial re-use, please contact journals.permissions@oup.com"
+    },
+    {
+      "candidate_id": "G100-CAND-000086",
+      "pmid": "26339843",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000087",
+      "pmid": "26379035",
+      "pmcid": "PMC4574979",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "ff6ace1e9559d59d343c3e5d0d693635e9f4b5030a9df5fa9f4ad3cbfc0b65cc",
+      "pmc_xml_sha256": "1cdcef5db227e37da54de6c444c2f0ede9d28c135f6b6555f90ed9a878fe9e52",
+      "license": "This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited."
+    },
+    {
+      "candidate_id": "G100-CAND-000088",
+      "pmid": "26393898",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000089",
+      "pmid": "26442959",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000090",
+      "pmid": "26645476",
+      "pmcid": "PMC9150640",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000091",
+      "pmid": "26828582",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000092",
+      "pmid": "26842929",
+      "pmcid": "PMC7390263",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000093",
+      "pmid": "26850310",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000094",
+      "pmid": "26951041",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000095",
+      "pmid": "27022771",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000096",
+      "pmid": "27183876",
+      "pmcid": "PMC4869025",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "a5bdfb2b8235c827f4f16f9a62b0dc6e79114a96ebf073e3061ce0f15d0523b4",
+      "pmc_xml_sha256": "dd17f29e600322fd2a0c720ee8b0c3dfb9e065653b1f529225ca260a526267e3",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This work is licensed under a Creative Commons Attribution 4.0 International License. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in the credit line; if the material is not included under the Creative Commons license, users will need to obtain permission from the license holder to reproduce the material. To view a copy of this license, visit http://creative"
+    },
+    {
+      "candidate_id": "G100-CAND-000097",
+      "pmid": "27225984",
+      "pmcid": "PMC4881026",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "d8911cea9362d155766b94aaffc91fef57af5d9c71d03eec9ebf04f9e4235ccc",
+      "pmc_xml_sha256": "85cd5207b207258ceef81e3b83cf39db6b65dc156aef13585325900badf61452",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This work is licensed under a Creative Commons Attribution 4.0 International License. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in the credit line; if the material is not included under the Creative Commons license, users will need to obtain permission from the license holder to reproduce the material. To view a copy of this license, visit http://creative"
+    },
+    {
+      "candidate_id": "G100-CAND-000098",
+      "pmid": "27272325",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000099",
+      "pmid": "27322616",
+      "pmcid": "PMC4913934",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "bfcac2a556ae8acd0ecaf3110cade889c882bc7e9409f53378761f5cb21af168",
+      "pmc_xml_sha256": "d317b4f3f7ed990510cf1bc66f5bbe6ecb8a4e70e1dc83ce4969a1917e67d602",
+      "license": "This is an open access article distributed under the terms of the Creative Commons Attribution License , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+    },
+    {
+      "candidate_id": "G100-CAND-000100",
+      "pmid": "27334430",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000101",
+      "pmid": "27472929",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000102",
+      "pmid": "27549329",
+      "pmcid": "PMC4994226",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "a0258a4c70a58079ab812f7c0c6099a7a8ff91a8112ffc63668637c77150042f",
+      "pmc_xml_sha256": "a3ab1897dff6488be42b1a62eb1647aab0fe81f5b3ed269039b55c7d81b7d5d7",
+      "license": "Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver ( http://creativecommons.org/publicdomai"
+    },
+    {
+      "candidate_id": "G100-CAND-000103",
+      "pmid": "27583709",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000104",
+      "pmid": "27637832",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000105",
+      "pmid": "27642056",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000106",
+      "pmid": "27683220",
+      "pmcid": "PMC5159552",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "dfffa33af0b1a6d80e6550c470c355e66d2da5f4677a0bf5a082c4f3a45e714e",
+      "pmc_xml_sha256": "f16a108e1cc08bc6ee1d0dbc3430084b98b09169c97ebb34af324dfe670a8dd2",
+      "license": "https://creativecommons.org/licenses/by-nc/4.0/ This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( http://creativecommons.org/licenses/by-nc/4.0/ ), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited. For commercial re-use, please contact journals.permissions@oup.com"
+    },
+    {
+      "candidate_id": "G100-CAND-000107",
+      "pmid": "27803197",
+      "pmcid": "PMC6005107",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "e2774d3ea7f8b54f11bb0e73e62ceee0913aa7ffd3eb8de61bb89b790b1490b2",
+      "pmc_xml_sha256": "58cfb5064155f0b32ffb4d285d02eeea2559a7b0ea3a16983c1e0c00fc0ccdf0",
+      "license": "https://creativecommons.org/licenses/by-nc/4.0/ This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License ( http://creativecommons.org/licenses/by-nc/4.0/ ), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited. For commercial re-use, please contact journals.permissions@oup.com"
+    },
+    {
+      "candidate_id": "G100-CAND-000108",
+      "pmid": "27886073",
+      "pmcid": "PMC5133133",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "43bc51e242916314d38c309e66f295a7147b874f0cf525a8ad08672b90721fc9",
+      "pmc_xml_sha256": "c368df031164a0517ad8ae6f0840b32d0fd6b3f8abf4b51878bbfc72af74a7f8",
+      "license": "This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC-BY) license ( http://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000109",
+      "pmid": "28012571",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000110",
+      "pmid": "28091346",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000111",
+      "pmid": "28183454",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000112",
+      "pmid": "28265965",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000113",
+      "pmid": "28369858",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000114",
+      "pmid": "28413079",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000115",
+      "pmid": "28506216",
+      "pmcid": "PMC5433026",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "4bef94a5893b4da7fe5aea10be78bb0d598379468224f41ee16b1c5df13cfac5",
+      "pmc_xml_sha256": "f2ee13d621e68d66190352f72e055bcc7cae141899246fb7ce31989293ad72ce",
+      "license": "Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver ( http://creativecommons.org/publicdomai"
+    },
+    {
+      "candidate_id": "G100-CAND-000116",
+      "pmid": "28531465",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000117",
+      "pmid": "28746159",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000118",
+      "pmid": "28765076",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000119",
+      "pmid": "28826840",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000120",
+      "pmid": "28942748",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000121",
+      "pmid": "28948225",
+      "pmcid": "PMC5606707",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "a3cdfa146a34ac46c345d050afa34bfc9d5ba259658e0ceec39a00bd892c6a17",
+      "pmc_xml_sha256": "819a5f117ac911fc3226b1817ff109656c5d13d8e8f97c276f328e4dec95cff5",
+      "license": "This is an open-access article distributed under the terms of the Creative Commons Attribution-NonCommercial license , which permits use, distribution, and reproduction in any medium, so long as the resultant use is not for commercial advantage and provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000122",
+      "pmid": "28954707",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000123",
+      "pmid": "29062556",
+      "pmcid": "PMC5642363",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000124",
+      "pmid": "29070549",
+      "pmcid": "PMC5701725",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000125",
+      "pmid": "29174030",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000126",
+      "pmid": "29253570",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000127",
+      "pmid": "29368435",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000128",
+      "pmid": "29369092",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000129",
+      "pmid": "29480200",
+      "pmcid": "PMC5836397",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "228fc78349c710ea120fe53a6956db854b10a76042084facef8e490e58b03c24",
+      "pmc_xml_sha256": "ad817c95db448327f96ece0aef0fd158280e1f371cd99295f8d97e925f8db813",
+      "license": "This is an open access article distributed under the terms of the Creative Commons Attribution Non-Commercial (CC BY-NC 4.0) License , which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000130",
+      "pmid": "29483829",
+      "pmcid": "PMC5821053",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "1e91d3dd52379a4791237bcc00d99621b16d69ee225272713834e7d767703e57",
+      "pmc_xml_sha256": "e098b101cce03b4b2607e34535fb1b8d10c29c6fa188458f9c3feff4b471974e",
+      "license": "https://creativecommons.org/licenses/by-nc/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution (CC BY-NC) license ( https://creativecommons.org/licenses/by-nc/4.0/ ). See http://ivyspring.com/terms for full terms and conditions."
+    },
+    {
+      "candidate_id": "G100-CAND-000131",
+      "pmid": "29510572",
+      "pmcid": "PMC5872726",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "6c5035279e05afeff2256230d02b785bbdbf4ed5aaeda408246c87c0a0d923fc",
+      "pmc_xml_sha256": "0d28aa8a4afcb9b635113665796af197718a3748be597899b594f0cd1b4b77fa",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000132",
+      "pmid": "29518765",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000133",
+      "pmid": "29540367",
+      "pmcid": "PMC5867441",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "7c6cabaa81031878a93a0b667db431bf1ca3171f8ee6645f337588d956cd1e48",
+      "pmc_xml_sha256": "167160ed1a3bd36ca22bd93033b41c5e6f95ce5845f2033d9cd7316d73a33173",
+      "license": "https://creativecommons.org/licenses/by-nc/4.0/ This is an Open Access article distributed in accordance with the Creative Commons Attribution Non Commercial (CC BY-NC 4.0) license, which permits others to distribute, remix, adapt, build upon this work non-commercially, and license their derivative works on different terms, provided the original work is properly cited and the use is non-commercial. See: http://creativecommons.org/licenses/by-nc/4.0/"
+    },
+    {
+      "candidate_id": "G100-CAND-000134",
+      "pmid": "29562612",
+      "pmcid": "PMC5872787",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "634c57a6016918e63fa0ed714871a76169bcca2ccf392f2bbfe515232e3b884f",
+      "pmc_xml_sha256": "bbf3b2dd3e6cd3174fe319e0cf8bce66ee57d7f846a7bad5a1230b861b3b1718",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000135",
+      "pmid": "29566137",
+      "pmcid": "PMC5982711",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000136",
+      "pmid": "29631758",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000137",
+      "pmid": "29676534",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000138",
+      "pmid": "29678447",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000139",
+      "pmid": "29685614",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000140",
+      "pmid": "29773536",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000141",
+      "pmid": "29788170",
+      "pmcid": "PMC5961292",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "3377ff9a977481fcf3de2c9e3bcf74ad71889bef13542f767574dcb92312033b",
+      "pmc_xml_sha256": "8a07186e5f51151eb2871cb1f3514129b1005c4e2f4e85bb9186f25d5cf31c06",
+      "license": "This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License ( http://creativecommons.org/licenses/by-nc/4.0/ ), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited. For commercial re-use, please contact journals.permissions@oup.com"
+    },
+    {
+      "candidate_id": "G100-CAND-000142",
+      "pmid": "29797247",
+      "pmcid": "PMC6061255",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "2e4eadc3bd5c1b35ae46c92ab5d50eb4f7d345a89a98b4d74b82f89a5916bf6d",
+      "pmc_xml_sha256": "c8fc3a7a08c773eb1ac8c65238ba7ee79b12e65aaafad0401b68d6fb749279f7",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made."
+    },
+    {
+      "candidate_id": "G100-CAND-000143",
+      "pmid": "29807048",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000144",
+      "pmid": "29949894",
+      "pmcid": "PMC6073256",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "af1f16f9cd609c2810e74f6754c9ab10013fbe67e278160b3c0fdbdc314ce163",
+      "pmc_xml_sha256": "e7e8eea8d0ef166049289821bf54e41918ba939c930351b89acbe8a3604609d9",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000145",
+      "pmid": "29995716",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000146",
+      "pmid": "30039517",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000147",
+      "pmid": "30077342",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000148",
+      "pmid": "30142155",
+      "pmcid": "PMC6108473",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "465447d6c1ee7c510253b82fdbd33bd08ac643287c7063752d4a5a25b75dc633",
+      "pmc_xml_sha256": "160ffc46ae75925932447abbb5d1bddeeee3b8ba3049831caa260613f638ff82",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+    },
+    {
+      "candidate_id": "G100-CAND-000149",
+      "pmid": "30175461",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000150",
+      "pmid": "30181091",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000151",
+      "pmid": "30254227",
+      "pmcid": "PMC6156420",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "7ef85d855c80f9fbafe74495f74b695372499c228629765c3207e56bb7f243d0",
+      "pmc_xml_sha256": "00db0bc578c38a94f2eac37c1cc61673a16df421a61a30c7cc3fb8c29088c00e",
+      "license": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise "
+    },
+    {
+      "candidate_id": "G100-CAND-000152",
+      "pmid": "30296472",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000153",
+      "pmid": "30317100",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000154",
+      "pmid": "30358739",
+      "pmcid": "PMC6314510",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "e974ac1fa0b28ab3c31f9693d4a0c3cfcae6209c62b748ce2a4db5fa87fec6d6",
+      "pmc_xml_sha256": "6e86f8630836cad5b9b9063b8d3bd2db88eaf223fc644d11ceaba48800024bfc",
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution-Non Commercial-No Derivatives License 4.0 (CCBY-NC-ND), where it is permissible to download and share the work provided it is properly cited. The work cannot be changed in any way or used commercially without permission from the journal. http://creativecommons.org/licenses/by-nc-nd/4.0"
+    },
+    {
+      "candidate_id": "G100-CAND-000155",
+      "pmid": "30409348",
+      "pmcid": "PMC6983924",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000156",
+      "pmid": "30412241",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000157",
+      "pmid": "30449741",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000158",
+      "pmid": "30817261",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000159",
+      "pmid": "30865980",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000160",
+      "pmid": "30916772",
+      "pmcid": "PMC7108535",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000161",
+      "pmid": "30926447",
+      "pmcid": "PMC7144878",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000162",
+      "pmid": "30952204",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000163",
+      "pmid": "30952576",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000164",
+      "pmid": "31121926",
+      "pmcid": "PMC6566877",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "a2b0bc873efc17c749d80e7a4be6a44a92f1e069dc9e679ac090ebfad1980921",
+      "pmc_xml_sha256": "bd67304c604432c42c068766b650ce34ced292d96c9a7c690809256bd420d48d",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000165",
+      "pmid": "31137859",
+      "pmcid": "PMC6567126",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "9d062f5b76f259ce7dfbfe2fcb48330d44deb06bbffbec05830f9ad9c508af9a",
+      "pmc_xml_sha256": "0363a70533217eff6be7ee890a62cc538e9b50fc151020b2bb2950cfb58b757b",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000166",
+      "pmid": "31162370",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000167",
+      "pmid": "31204304",
+      "pmcid": "PMC6656696",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000168",
+      "pmid": "31255301",
+      "pmcid": "PMC7316527",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000169",
+      "pmid": "31329006",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000170",
+      "pmid": "31382632",
+      "pmcid": "PMC6722791",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "91acb8de3954a89265f33a15cb81be7f5a5f01811e2c20ceb6130c2c4a746bda",
+      "pmc_xml_sha256": "08d6de71b142d13f3203498f564f0350b0701499478e8232e76828c800771994",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000171",
+      "pmid": "31420208",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000172",
+      "pmid": "31451276",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000173",
+      "pmid": "31505890",
+      "pmcid": "PMC6770949",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "f82ed6d1f4bb6ffd799af08b66ff50036a37353d468aba172b680157b36e368b",
+      "pmc_xml_sha256": "3bc722e9eede1f038b756dd50fce0672bc154e56666bebbb91f6325dcf3b53cd",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000174",
+      "pmid": "31541099",
+      "pmcid": "PMC6754503",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "f876810f3958e8c771b073ed8859df98473abfc9213f90deb5cddb562f1c02b9",
+      "pmc_xml_sha256": "dca5d62ebcda050834df9c245e784e91aa600c423ae3c731e3c9eb57ec30190a",
+      "license": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise "
+    },
+    {
+      "candidate_id": "G100-CAND-000175",
+      "pmid": "31608662",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000176",
+      "pmid": "31736453",
+      "pmcid": "PMC10200574",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000177",
+      "pmid": "31757101",
+      "pmcid": "PMC6950804",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "db14d619bfd6afb0e886878f44965237c6038934eb06500d849642c402fef300",
+      "pmc_xml_sha256": "ee8f50a2c7aadb84bb24709810fe1dafc673ba721788c518d7948e2328cce991",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000178",
+      "pmid": "31792941",
+      "pmcid": "PMC7064977",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "181160dd4bfafd8fdb3787492b632710dca41689078c834d62d30870538d8ea4",
+      "pmc_xml_sha256": "110eca449ee744bb50512ef9f4b629f26fea120082d0337a78d580d14cb8f294",
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/ This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc-nd/4.0/ License, which permits use and distribution in any medium, provided the original work is properly cited, the use is non‐commercial and no modifications or adaptations are made."
+    },
+    {
+      "candidate_id": "G100-CAND-000179",
+      "pmid": "31802880",
+      "pmcid": "PMC6826965",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "58027567bc31fc06123f09a5ff3c5f0d762aa92a28979208402e6c3eac0490ef",
+      "pmc_xml_sha256": "3b77805520f251d4792069fa5fe9a663bab336f2ec9e59f9a5b491061aba5b8e",
+      "license": "https://creativecommons.org/licenses/by-nc/3.0/ This work is published and licensed by Dove Medical Press Limited. The full terms of this license are available at https://www.dovepress.com/terms.php and incorporate the Creative Commons Attribution – Non Commercial (unported, v3.0) License ( http://creativecommons.org/licenses/by-nc/3.0/ ). By accessing the work you hereby accept the Terms. Non-commercial uses of the work are permitted without any further permission from Dove Medical Press Limite"
+    },
+    {
+      "candidate_id": "G100-CAND-000180",
+      "pmid": "31846484",
+      "pmcid": "PMC6917285",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "dde3ffbdc67c4965e7d3644ebe462a28974d69b945e09946be2aacae86149191",
+      "pmc_xml_sha256": "a3d88af7a4fecedf89b726cb2e6e6d595f310dd273d837fda5085a42815d2fa4",
+      "license": "This is an open access article distributed under the terms of the Creative Commons Attribution License , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+    },
+    {
+      "candidate_id": "G100-CAND-000181",
+      "pmid": "31886624",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000182",
+      "pmid": "31928558",
+      "pmcid": "PMC7282854",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "ba821a06f08ea48f43008a8c70fa7a7ea73cbf0c060b1d13d3f1f2526f42211f",
+      "pmc_xml_sha256": "e3b1604b69e92c3af9b729980f5a80c00b7354e23130f99b8503eb7e1e7ee6e0",
+      "license": "This is an Open Access article, distributed under the terms of the Creative Commons Attribution licence ( https://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted re-use, distribution, and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000183",
+      "pmid": "31963174",
+      "pmcid": "PMC7019290",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "fb19f683fa0ab147dab0c800358887a0d5b9aa25e881f27ae877346316162621",
+      "pmc_xml_sha256": "b5448ff08feb1a63653b8a31f70e8813adf644df7c3d770b741246e99445943c",
+      "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000184",
+      "pmid": "32024050",
+      "pmcid": "PMC7072664",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "2fe84ab8146abd53b6d7479f6288533a58a9f836ada05db0c4b67a7e26f53acb",
+      "pmc_xml_sha256": "c9b805b67970352360c114996f0acb0e2741f3b46fbf440d53991102ef83cd2c",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000185",
+      "pmid": "32040354",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000186",
+      "pmid": "32076944",
+      "pmcid": "PMC7250948",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "d6582dc898bdc61c9af05e743172ac00711a2d329e5edcfa9c193e6eb6ca5a04",
+      "pmc_xml_sha256": "d025757d2471d1576d3f0b3f6af930e56242fbb1869543342c4e319f851ca769",
+      "license": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise "
+    },
+    {
+      "candidate_id": "G100-CAND-000187",
+      "pmid": "32096326",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000188",
+      "pmid": "32115791",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000189",
+      "pmid": "32216806",
+      "pmcid": "PMC7098112",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "92e71b70a6f026ed9a0da98122f4aff5294bbf2cfc3ad38b671b259aae101bcc",
+      "pmc_xml_sha256": "c150395faafdeea0b10de4d7899e7a2eee01ebb21499306091cd25324e3a3b8a",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative"
+    },
+    {
+      "candidate_id": "G100-CAND-000190",
+      "pmid": "32226011",
+      "pmcid": "PMC7145189",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "dd5bd5c0ae4d9c8160c1cb2c53de8219de08bf60e47ecd9d4d06ad8c4b1baa92",
+      "pmc_xml_sha256": "af59e96ffc67159ae955ff2d67369d7eb0b61f75fe74b41a7b417eef099fd1de",
+      "license": "This is an open access article distributed under the terms of the Creative Commons Attribution License , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+    },
+    {
+      "candidate_id": "G100-CAND-000191",
+      "pmid": "32269302",
+      "pmcid": "PMC7366888",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "8772536cba2bcf227e24bfa442e58955e2fff47790f5f21e3e346187bfac1546",
+      "pmc_xml_sha256": "794e601c39177cbae6aa593b1fc1c662c098b631752d4c3eeeaa94cf262e30cb",
+      "license": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise "
+    },
+    {
+      "candidate_id": "G100-CAND-000192",
+      "pmid": "32313017",
+      "pmcid": "PMC7170903",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "44fe69b041cacfbd90062d25f5a84c493a02a2d330e0bbd554999698d5924c17",
+      "pmc_xml_sha256": "b5261a7a212cea5361b5df8285c9c8c6d69fd76dbaa5bc050f6612c0e293a091",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative"
+    },
+    {
+      "candidate_id": "G100-CAND-000193",
+      "pmid": "32442829",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000194",
+      "pmid": "32532534",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000195",
+      "pmid": "32633891",
+      "pmcid": "PMC7417714",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "9b15dc72607da5a572af8528748035988c8b42807f5036e41ac45bffa3ad8cc8",
+      "pmc_xml_sha256": "d1017230ae078ebe4a17ec11e465827c566ae5c2095ed9aa8c2ae943181f9da5",
+      "license": "This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000196",
+      "pmid": "32641735",
+      "pmcid": "PMC7343797",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "2d6efbfa1a6e67113255c1b4e9c08e0b4fd61b3fa65647e337e6242cc11a50db",
+      "pmc_xml_sha256": "2e6094bf7f02bfdc2c4494060b3ddd6fbf4c710f2f599f85a80dbcaa75cca9be",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative"
+    },
+    {
+      "candidate_id": "G100-CAND-000197",
+      "pmid": "32705811",
+      "pmcid": "PMC7729656",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "1f67dfd8cbf8551e631fbaae8bbc5cf97f1dc71c1576e089545c8bd6e32aa4b9",
+      "pmc_xml_sha256": "3fef6c44b373d6305dd1128910e7351810c7d1a28e5f44a8b819b537a6225bec",
+      "license": "https://creativecommons.org/licenses/by-nc/4.0/ This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited and is not used for commercial purposes."
+    },
+    {
+      "candidate_id": "G100-CAND-000198",
+      "pmid": "32713125",
+      "pmcid": "PMC7540303",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "b2d7fecf0e907baf92927bf5bf78591b52d92a85744dd600aba54439b48d90e1",
+      "pmc_xml_sha256": "6c9d2a068206c0d5c662ccc5ad027aae73c7ce1cb97fd902065fa9a7b4a65cb1",
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/ This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc-nd/4.0/ License, which permits use and distribution in any medium, provided the original work is properly cited, the use is non‐commercial and no modifications or adaptations are made."
+    },
+    {
+      "candidate_id": "G100-CAND-000199",
+      "pmid": "32798501",
+      "pmcid": "PMC7686142",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000200",
+      "pmid": "32851712",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000201",
+      "pmid": "32968801",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000202",
+      "pmid": "33207948",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000203",
+      "pmid": "33241924",
+      "pmcid": "PMC7988851",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "688f05a9ba3dc96613e486c5c8a8b360546ff0b171a6f31a0ef3d92eb5849c3e",
+      "pmc_xml_sha256": "b203b444389c48b2a7e69a3618dca157dc9f07f00037d11a0e33c009e1488ba0",
+      "license": "This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000204",
+      "pmid": "33244563",
+      "pmcid": "PMC12876827",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "30aff3ec2d7e6d2325e5d27ababda3434fa2ff4f979ba5ef2e1bddb03e6cc9a0",
+      "pmc_xml_sha256": "d097414c91f904cd2bf445ced742491bfb7e396dc6d728fb05c4a4357d391c69",
+      "license": "This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/)."
+    },
+    {
+      "candidate_id": "G100-CAND-000205",
+      "pmid": "33248168",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000206",
+      "pmid": "33249225",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000207",
+      "pmid": "33287553",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000208",
+      "pmid": "33302500",
+      "pmcid": "PMC7763532",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "d0a8d316f01f8d896a6db68f4d387087c972a3d79b3d376f5b3f7a537446d10e",
+      "pmc_xml_sha256": "015803216cb5ba457a735cde731b92d12f7576079211c6a1fa3e5d722e572735",
+      "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000209",
+      "pmid": "33370277",
+      "pmcid": "PMC7769433",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "af966975955f0c4998af4bad7d2549b95d9a80399da1953b2cfeefd3aecd3812",
+      "pmc_xml_sha256": "f106810e6db3734e65eb93579cd5cee8052da0eff98b4365117b7ce709e7d21e",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+    },
+    {
+      "candidate_id": "G100-CAND-000210",
+      "pmid": "33418527",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000211",
+      "pmid": "33455975",
+      "pmcid": "PMC8560849",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "4019bfb1bd9960465050f917f209982098c80ed1a952f26552a95dc47e30cd19",
+      "pmc_xml_sha256": "abc5507babe5fade3f92688952755da7ed217cab9232d1b86be1f6703909aed4",
+      "license": "This article is distributed under the terms of the latest version of CC BY-NC-SA defined by the Creative Commons Attribution License. http://creativecommons.org/licenses/by-nc-sa/4.0/"
+    },
+    {
+      "candidate_id": "G100-CAND-000212",
+      "pmid": "33459251",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000213",
+      "pmid": "33460431",
+      "pmcid": "PMC8321870",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000214",
+      "pmid": "33477482",
+      "pmcid": "PMC7831067",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "99bba35fa84fe8756d1647e194123e7f927628f0924ae0e83cd9dea1686ca471",
+      "pmc_xml_sha256": "46ebcb10dc741e0df904c013b2a91e2f03a3defa8c1f0a989d29e961a33837f2",
+      "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000215",
+      "pmid": "33485354",
+      "pmcid": "PMC7825209",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "650089561f0da1c3917f7819ce0a48043b65515a7a3faf51f9790a6aff6b05e7",
+      "pmc_xml_sha256": "42f9293969f58d03d7448ec72beab852118c451cfda31ac4c7ac7ba76c24388d",
+      "license": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise "
+    },
+    {
+      "candidate_id": "G100-CAND-000216",
+      "pmid": "33561997",
+      "pmcid": "PMC7915719",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "aa1d0d57bda3d911b684aabf085240edd5b68a65c5ff0551811f92c48ee1241a",
+      "pmc_xml_sha256": "ffadfac7e3d3232682047c847aca743fdae9c84bf41de87f289ddad7f656d8cc",
+      "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000217",
+      "pmid": "33570583",
+      "pmcid": "PMC7454773",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000218",
+      "pmid": "33610027",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000219",
+      "pmid": "33652433",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000220",
+      "pmid": "33692451",
+      "pmcid": "PMC7970931",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "90201c385ad4ac4b570d4040594b3d2a157d702691c85603ab0e54514fe4ce10",
+      "pmc_xml_sha256": "2137c1f67930972aa20bde679edcc05ff2d5bd59ceee695c5b33556c4fe562a2",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative"
+    },
+    {
+      "candidate_id": "G100-CAND-000221",
+      "pmid": "33741113",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000222",
+      "pmid": "33763851",
+      "pmcid": "PMC8406796",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000223",
+      "pmid": "33907828",
+      "pmcid": "PMC8054635",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "238b0dce35f210b0e4c90c298cebfb3a09965900b4a918f8ea78f078b7b38491",
+      "pmc_xml_sha256": "898a34554852b12d44463e772bf256426d70c5d276faa44bb64e5800a749aa75",
+      "license": "This is an open access article distributed under the terms of the Creative Commons Attribution-NonCommercial-NoDerivs License , which permits use and distribution in any medium, provided the original work is properly cited, the use is non-commercial and no modifications or adaptations are made."
+    },
+    {
+      "candidate_id": "G100-CAND-000224",
+      "pmid": "33966213",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000225",
+      "pmid": "33973009",
+      "pmcid": "PMC8245885",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "3e52e9d243d1cab5251fd372d0bfd356657dc805c334a2cf1236482ace06e7ee",
+      "pmc_xml_sha256": "71c72963e18e634c11595c0cc82e266d843f010d2ed7a093983d88daa74c6f62",
+      "license": "https://creativecommons.org/licenses/by-nc/4.0/ This is an Open Access article distributed under the terms of the Creative Commons Attribution-NonCommercial License ( https://creativecommons.org/licenses/by-nc/4.0/ ), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited. For commercial re-use, please contact journals.permissions@oup.com"
+    },
+    {
+      "candidate_id": "G100-CAND-000226",
+      "pmid": "33975008",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000227",
+      "pmid": "34057813",
+      "pmcid": "PMC9290643",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "5077c50bc081121907b9c9b0f6f35f4ea5f098edd7f95d63431624c7beca54dd",
+      "pmc_xml_sha256": "d1b9a5a284fde40ad40ef73bcdc8e898da4fe408bcd0af81c6a1452d81239b46",
+      "license": "This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited and is not used for commercial purposes."
+    },
+    {
+      "candidate_id": "G100-CAND-000228",
+      "pmid": "34063835",
+      "pmcid": "PMC8224039",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "8b7f479543116e613fdc102dc93210dde1c8327c2445019dfc7d9619a0d7633c",
+      "pmc_xml_sha256": "a6cc63096efc1850e01b7cf95a7d9d810e7e285c23bfa38481cc3d03db817d3e",
+      "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000229",
+      "pmid": "34090212",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000230",
+      "pmid": "34125703",
+      "pmcid": "PMC8437161",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000231",
+      "pmid": "34212419",
+      "pmcid": "PMC9545538",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "ec48dab5ae5363b871208912dd174961c3d16616d83e12233970d98d028fc94c",
+      "pmc_xml_sha256": "57a5d9f790481b4070755a86ed312b4786dd7f88f638248f1ef29f86ce2993b5",
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/ This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc-nd/4.0/ License, which permits use and distribution in any medium, provided the original work is properly cited, the use is non‐commercial and no modifications or adaptations are made."
+    },
+    {
+      "candidate_id": "G100-CAND-000232",
+      "pmid": "34246671",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000233",
+      "pmid": "34295331",
+      "pmcid": "PMC8290185",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "8a7958a18d9cd0c8a92acb053a83ed1dae683278fd6d1ae0076f0b4b3214a1cc",
+      "pmc_xml_sha256": "210c4aedbbbd4f4c630bc1c76b2849419f87b0b69b47307c53de8fa24a9f60ab",
+      "license": "This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms."
+    },
+    {
+      "candidate_id": "G100-CAND-000234",
+      "pmid": "34311391",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000235",
+      "pmid": "34330515",
+      "pmcid": "PMC8146268",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "ffcdb2000628997f83924f6720e655e3cab6cf3f7f0426d54fbbcad3ac7fb6e6",
+      "pmc_xml_sha256": "fa91652a5a9dde99cd5ac4293de3e3c0246e569cc149b67bd9d4665245e12de8",
+      "license": "Since January 2020 Elsevier has created a COVID-19 resource centre with free information in English and Mandarin on the novel coronavirus COVID-19. The COVID-19 resource centre is hosted on Elsevier Connect, the company's public news and information website. Elsevier hereby grants permission to make all its COVID-19-related research that is available on the COVID-19 resource centre - including this research content - immediately available in PubMed Central and other publicly funded repositories,"
+    },
+    {
+      "candidate_id": "G100-CAND-000236",
+      "pmid": "34360118",
+      "pmcid": "PMC8345510",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "db62cc216d6e05c904540c57a9e7e12f75fd8995bb4770d4340966e2fcc1d096",
+      "pmc_xml_sha256": "11655a376f8486470e01b65c184751ad189e23719dc173c0ce27a80c8b4ced91",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000237",
+      "pmid": "34371858",
+      "pmcid": "PMC8308545",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "b01f27e9530cdb584126d7cad3cec9be1cfb34f1dc70886d0af93cb13858a8f1",
+      "pmc_xml_sha256": "b73755659e53dc90d4b10eee067dffe9c5e475a6033d46decc195522620a0dfb",
+      "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000238",
+      "pmid": "34431620",
+      "pmcid": "PMC8830282",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "a7bcf509776e673066598ed10f5341bac128317024f1742cad77a3a8616716e7",
+      "pmc_xml_sha256": "56d428ea17c39150668e779923ccd2ef808a476a336e8d54fbd93f672ace0ab6",
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/ This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc-nd/4.0/ License, which permits use and distribution in any medium, provided the original work is properly cited, the use is non‐commercial and no modifications or adaptations are made."
+    },
+    {
+      "candidate_id": "G100-CAND-000239",
+      "pmid": "34441040",
+      "pmcid": "PMC8399685",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "7b4a2ad8d68283e024eda5f54ba38d6d60383cd630195b33906996d16ab9a526",
+      "pmc_xml_sha256": "0cc0304768c60aade3413a4cef7b97b00890f7157cabc7bf4d1907d39463e53e",
+      "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000240",
+      "pmid": "34515290",
+      "pmcid": "PMC9574657",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "4f71221137f939a4e36160a22cbab6625b07351f089cd75e81a2140389a09f78",
+      "pmc_xml_sha256": "f7652185a14243f26e636465c5c958dc90e3c3e2fab982e7879f859ad8882637",
+      "license": "https://creativecommons.org/licenses/by/3.0/igo/ This is an Open Access article distributed under the terms of the Creative Commons Attribution 3.0 IGO License ( https://creativecommons.org/licenses/by/3.0/igo/ ) which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000241",
+      "pmid": "34521594",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000242",
+      "pmid": "34551744",
+      "pmcid": "PMC8456581",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "94b3eca63ab6cc955ddb3de794a48f7a02c555bd930a3b2bcd2d4ce3f28dfe80",
+      "pmc_xml_sha256": "26ffaa4cce7b5a1c4b002ecdfc1156b3e11cfb9895fa7aa529ea189929107661",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative"
+    },
+    {
+      "candidate_id": "G100-CAND-000243",
+      "pmid": "34684391",
+      "pmcid": "PMC8538030",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "79364f812ff56f15545f13f29ea1a63a6c81619db8ea26ae9f582d067393933d",
+      "pmc_xml_sha256": "5fc0e956c075e1f8ee6b66624df88d9d9c589ab609e4863fd19abc6d926a33d5",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000244",
+      "pmid": "34689200",
+      "pmcid": "PMC8542096",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "50ae9dd00b2063b6a224c78fe2c2a4c42e4fbb9096102d74c362fc4635e696ac",
+      "pmc_xml_sha256": "8b0b4fac15fb45a6f45cd7bbf370ca062c0dc8e73c4b551c5905718297a14adf",
+      "license": "This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( https://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000245",
+      "pmid": "34742138",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000246",
+      "pmid": "34757699",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000247",
+      "pmid": "34763094",
+      "pmcid": "PMC8670983",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000248",
+      "pmid": "34796750",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000249",
+      "pmid": "34837522",
+      "pmcid": "PMC8921037",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "a2a025646eaf7a45fdce29fe875fb005d68d8c8c090d16a4a04dc2be8196c488",
+      "pmc_xml_sha256": "d68c0c9914e8d849a7cb204e0f2950acefe3387699d7a4849745bbcb7267208d",
+      "license": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise "
+    },
+    {
+      "candidate_id": "G100-CAND-000250",
+      "pmid": "34893024",
+      "pmcid": "PMC8665602",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "610935c3fc4898c7d2f4bb7b5cbd0fe5989ddf7a5dda44a9d66e55677c93fc89",
+      "pmc_xml_sha256": "acc48a61b962af7d2114030b2d494d0f445913e634fdf446ecd1b887a73e3057",
+      "license": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise "
+    },
+    {
+      "candidate_id": "G100-CAND-000251",
+      "pmid": "34959972",
+      "pmcid": "PMC8706568",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "09a94782f036364dca20b7defaa4313a5a4d77fcc6a97f0e34405d4ac788560b",
+      "pmc_xml_sha256": "5f23ab3fc7877b13a762ca67d5bd74d1040d142132c896bb621613e5f57088b1",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000252",
+      "pmid": "34968458",
+      "pmcid": "PMC9182711",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "9b62f3d0a01aadf8fe818c95cf28fb246d16d369a522d3249902fd2d97f18ed3",
+      "pmc_xml_sha256": "602ae0894295dfd775f2f2b5eba11905a147b600ad78151087c75619e57cb889",
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/ This is an open access article under the CC BY-NC-ND license ( http://creativecommons.org/licenses/by-nc-nd/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000253",
+      "pmid": "34979165",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000254",
+      "pmid": "35010904",
+      "pmcid": "PMC8746448",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "19d38c3a3a682dadd7c4eabcba41d94ed9ed3284b37a7e7a6f26a00c29b018d1",
+      "pmc_xml_sha256": "14513c0a4f6fd7ae829a1f49d5293ab04ff8710f55d660e460c9fbc22541ccbb",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000255",
+      "pmid": "35258497",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000256",
+      "pmid": "35264317",
+      "pmcid": "PMC8915287",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "8160dcb87eb2e84f45d6e6e9350a51befe0c2972cd13adc4e37a7c383471c534",
+      "pmc_xml_sha256": "c7b40e43eb4083dfa8267183ead77b29d695dd0ff5f7b7445b1cc815d52d28a5",
+      "license": "This is an open access article distributed in accordance with the Creative Commons Attribution Non Commercial (CC BY-NC 4.0) license, which permits others to distribute, remix, adapt, build upon this work non-commercially, and license their derivative works on different terms, provided the original work is properly cited, appropriate credit is given, any changes made indicated, and the use is non-commercial. See: http://creativecommons.org/licenses/by-nc/4.0/ ."
+    },
+    {
+      "candidate_id": "G100-CAND-000257",
+      "pmid": "35307328",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000258",
+      "pmid": "35322333",
+      "pmcid": "PMC8942762",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "47657db6afb3e20ca764e9d8c829f35f4dce358b13802a58d5a6cef34a446462",
+      "pmc_xml_sha256": "98b9565a8b30c6bcf30da04559a84ac65dfbdbc57d1c0c6b068da6edcf672e25",
+      "license": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise "
+    },
+    {
+      "candidate_id": "G100-CAND-000259",
+      "pmid": "35362509",
+      "pmcid": "PMC9526832",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000260",
+      "pmid": "35709810",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000261",
+      "pmid": "35937777",
+      "pmcid": "PMC9354648",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "7b527de8fb05230134d472cf6c2082f194ba6bedacba5081fc382b34c10623b3",
+      "pmc_xml_sha256": "3809ea8599a96cd09799f6e790c129c4cc11985f8c7e3ee994e6db01f449f938",
+      "license": "This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000262",
+      "pmid": "35948944",
+      "pmcid": "PMC9367081",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "19cb82f10e604b6df1f2e5df31e50c12ecad076d1e63df093ff79c9746fc3844",
+      "pmc_xml_sha256": "5b1a4775858e77d2e80533788dc50153837b9e6f3c793a558a55f8f2c9e39d77",
+      "license": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise "
+    },
+    {
+      "candidate_id": "G100-CAND-000263",
+      "pmid": "35958017",
+      "pmcid": "PMC9363184",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "e05445efc166e264c4f6b2967287f19aee80982fbb11dad59685fdc997edf5a4",
+      "pmc_xml_sha256": "023ead480deb77e18fa7593653d41c1527e7f250bc32bf57b0f770c18265f107",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000264",
+      "pmid": "36227259",
+      "pmcid": "PMC9620728",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000265",
+      "pmid": "36266956",
+      "pmcid": "PMC10114259",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "6ff4ffcc5adec703cbccbbc2f06e1953af291f0f55c9d4f5b14a5b272b7ca07b",
+      "pmc_xml_sha256": "b3b9089af9e39602084b76d4c4629ea20a847c667c8b2adaa833c6914f9fade0",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This article is distributed under the terms of the Creative Commons Attribution 4.0 License ( https://creativecommons.org/licenses/by/4.0/ ) which permits any use, reproduction and distribution of the work without further permission provided the original work is attributed as specified on the SAGE and Open Access page ( https://us.sagepub.com/en-us/nam/open-access-at-sage )."
+    },
+    {
+      "candidate_id": "G100-CAND-000266",
+      "pmid": "36413044",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000267",
+      "pmid": "36649740",
+      "pmcid": "PMC10947378",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "b3881d9d1126e74ad68596ca41a940d05da82c89c0fed54a31264da3415294ca",
+      "pmc_xml_sha256": "e750e38005d89bdf48f1a788d305b9b2a0b2be05883522c0625028b5117c9d93",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000268",
+      "pmid": "36688291",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000269",
+      "pmid": "36894248",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000270",
+      "pmid": "36904074",
+      "pmcid": "PMC10005365",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "3439177fdee03bb1c1e6ef777a6ef0de5b789e92102811ce5ae9a6ce8de2fb8c",
+      "pmc_xml_sha256": "ae01d502123254703e6145e33a3af77196a5e6bba3da1948dcba826161107f94",
+      "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000271",
+      "pmid": "36912094",
+      "pmcid": "PMC10551477",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "fc3907209db39969f43a90499b4cf8bd84d81348d0b3258de097d174c9cbc489",
+      "pmc_xml_sha256": "b97458798b3bd9d299535c4c392d837f808a2e05c01c4026dbcfe8a066fcf83e",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This is an Open Access article, distributed under the terms of the Creative Commons Attribution licence ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted re-use, distribution and reproduction, provided the original article is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000272",
+      "pmid": "36967026",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000273",
+      "pmid": "37111195",
+      "pmcid": "PMC10146965",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "681795bc9e791ab40a596e4ec71fb7814269fe47f8afc94c7cdb4f65be79449a",
+      "pmc_xml_sha256": "33d7f501b45090dadb89cf30677eb6283b256ad206c675d8ead13ea471115f4b",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000274",
+      "pmid": "37137772",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000275",
+      "pmid": "37194092",
+      "pmcid": "PMC10186327",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "944a7cef0f126b3615cf62ef436a8e89c6ec8e9c0c4e4d9fb9d18963f53424fd",
+      "pmc_xml_sha256": "e5661d82ca9b5c9a2d55ff6d681aec8b1b5cce8d62caff4b8bca8c1a4cb749f7",
+      "license": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise "
+    },
+    {
+      "candidate_id": "G100-CAND-000276",
+      "pmid": "37505402",
+      "pmcid": "PMC10444659",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "a1934f5b2ba5ed72905fbe14a75bf142936f01a1ef366330b2724d8bddcfd7ed",
+      "pmc_xml_sha256": "a99e50b25a1ce4d660c87c77b43ccd9f96b4e0a83fd34da4a75ada015588c7e3",
+      "license": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise "
+    },
+    {
+      "candidate_id": "G100-CAND-000277",
+      "pmid": "37513571",
+      "pmcid": "PMC10383719",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "283c18c2277902ecdd3ad66ecd6f2cd24c6437769e0d8c1fac45c854df5e1ac1",
+      "pmc_xml_sha256": "20b802462a882f0d60c27200a18fa632574644892c980bff816524bc4a5b7e3d",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000278",
+      "pmid": "37621140",
+      "pmcid": "PMC10467242",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "d5360e262af6cc89c897c3d215364dcbe928b4de170de33d5c8057ce2fcfc621",
+      "pmc_xml_sha256": "124529d4924e33050df50e0744b6dd5bb788bd6971a96de62a43db4b60c5f803",
+      "license": "https://creativecommons.org/licenses/by-nc/4.0/ This article is distributed under the terms of the Creative Commons Attribution-NonCommercial 4.0 License ( https://creativecommons.org/licenses/by-nc/4.0/ ) which permits non-commercial use, reproduction and distribution of the work without further permission provided the original work is attributed as specified on the SAGE and Open Access page ( https://us.sagepub.com/en-us/nam/open-access-at-sage )."
+    },
+    {
+      "candidate_id": "G100-CAND-000279",
+      "pmid": "37811643",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000280",
+      "pmid": "37839453",
+      "pmcid": "PMC10577033",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000281",
+      "pmid": "37880167",
+      "pmcid": "PMC10603411",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "5a6846a953213637f7594e32e8a48247bada21b6875ce1ac3429c2021bec7d10",
+      "pmc_xml_sha256": "3f02243f6a87ec7c8a771b5f8e88a92e5d8ca24a3f79075378ab812abe71d61f",
+      "license": "This is an open access article distributed in accordance with the Creative Commons Attribution 4.0 Unported (CC BY 4.0) license, which permits others to copy, redistribute, remix, transform and build upon this work for any purpose, provided the original work is properly cited, a link to the licence is given, and indication of whether changes were made. See: https://creativecommons.org/licenses/by/4.0/ ."
+    },
+    {
+      "candidate_id": "G100-CAND-000282",
+      "pmid": "38047410",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000283",
+      "pmid": "38097963",
+      "pmcid": "PMC10720150",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "032c3e7eee0f7a9625453a327f28323a74030b3beed5cf372b029f9048ed302d",
+      "pmc_xml_sha256": "be7add0c760e7ef2175e451f210f438929ebd56da3f4e576e6af0017c7390d92",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative"
+    },
+    {
+      "candidate_id": "G100-CAND-000284",
+      "pmid": "38360655",
+      "pmcid": "PMC10870573",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "ecee65334f40819593caf5c76c3c878d95d1a13761a3a36f6df345119ca9749a",
+      "pmc_xml_sha256": "fe50450568346ea474400a122e336fd4f36de0158d4523e448c2af2463bbc2bb",
+      "license": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise "
+    },
+    {
+      "candidate_id": "G100-CAND-000285",
+      "pmid": "38431253",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000286",
+      "pmid": "38433580",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000287",
+      "pmid": "38465786",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000288",
+      "pmid": "38474851",
+      "pmcid": "PMC10934552",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "aae2263177f794b4a6e2525fb19dc6b486e2359731723ce1c241d053253882e9",
+      "pmc_xml_sha256": "a50dab4a34be77ca141e88718e53d14a36591015a27dffd43929f15885327bc3",
+      "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000289",
+      "pmid": "38544335",
+      "pmcid": "PMC11648958",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "584d8e95616a9caf8d8665c901e1a86c7669378c0d9f1a3150b79f7839b2a005",
+      "pmc_xml_sha256": "c165d0ec5a21033467fe66f184f4838bf947bf8281686923b010b5efb03ba16b",
+      "license": "This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( https://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000290",
+      "pmid": "38606657",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000291",
+      "pmid": "38613106",
+      "pmcid": "PMC11013624",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "8bd4e06d0c42b4f5dad94b32a4639b98f26db348e560bc07f7dd7defc4fd6f99",
+      "pmc_xml_sha256": "7865666b7aa3d89a403e6ddfa50c7a55f00f0989e572a213de667b90f8051667",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000292",
+      "pmid": "38701651",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000293",
+      "pmid": "38720068",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000294",
+      "pmid": "38892534",
+      "pmcid": "PMC11175083",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "4de147e984baed383ef63a43b72969a7f08d666f7be580873800db65b272a501",
+      "pmc_xml_sha256": "b2969b68e4575e3b90e853edfedc061e8887ea2e847a827c662fb2580a801146",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000295",
+      "pmid": "38960570",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000296",
+      "pmid": "39000446",
+      "pmcid": "PMC11242202",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "79e56edde248d8dfbf3eed25bbba49dd900f3c32a1794eb93a549cbffa8b81da",
+      "pmc_xml_sha256": "47a73d33ec645daed6fe588664be295efdec5a0410c186a6dc919f6f69567812",
+      "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000297",
+      "pmid": "39059384",
+      "pmcid": "PMC11504329",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000298",
+      "pmid": "39064690",
+      "pmcid": "PMC11280271",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "c464ebd156589a2a6a6b8f4bcaa2e9960caaf47146d964c4d017a0a4fc4fdfd2",
+      "pmc_xml_sha256": "52790b311c14ab2f5204c302fa0576212c2832196cfb93be3deedc4f50989bb0",
+      "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000299",
+      "pmid": "39102684",
+      "pmcid": "PMC11333864",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "469c75bead807adb54cc4beb2e4fd0776697dbc12fc286ded813f53a14abfd6f",
+      "pmc_xml_sha256": "7d2866f4c98cabac4374f0e64cbff5657f69ff2a90002408205bcce0659c2623",
+      "license": "This is an open-access article distributed under the terms of the Creative Commons Attribution License ( https://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work, first published in JMIR Dermatology, is properly cited. The complete bibliographic information, a link to the original publication on http://derma.jmir.org , as well as this copyright and license information must be included."
+    },
+    {
+      "candidate_id": "G100-CAND-000300",
+      "pmid": "39153764",
+      "pmcid": "PMC11331825",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "36980b3168ca8cc695c0f7b561c68a9f49019a02dc39df8eff8a455f7555aa36",
+      "pmc_xml_sha256": "9ae73c84ae7cb3d23503d7013c58ec997265cf3d4adbf45fd0eb3a84eaade3bd",
+      "license": "This is an open access article distributed in accordance with the Creative Commons Attribution Non Commercial (CC BY-NC 4.0) license, which permits others to distribute, remix, adapt, build upon this work non-commercially, and license their derivative works on different terms, provided the original work is properly cited, appropriate credit is given, any changes made indicated, and the use is non-commercial. See: http://creativecommons.org/licenses/by-nc/4.0/ ."
+    },
+    {
+      "candidate_id": "G100-CAND-000301",
+      "pmid": "39270816",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000302",
+      "pmid": "39342405",
+      "pmcid": "PMC11439213",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "5ddf1292c91211632df0f5b752a609848b5d90487197fd05396942e3f2121e7a",
+      "pmc_xml_sha256": "51243bea561ad076534f2062dd686066eb0f57d6f66ae5664b817f6cc7546bef",
+      "license": "Open Access This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence to share adapted material derived from thi"
+    },
+    {
+      "candidate_id": "G100-CAND-000303",
+      "pmid": "39345247",
+      "pmcid": "PMC11428067",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "e253889ac86c41ec4cd6c82bda1af4c93606550913059b23d23f0f5437f38232",
+      "pmc_xml_sha256": "941ff96e6af686586542257007b444916bebc350da202777bf079bd02f85d317",
+      "license": "This is an Open Access article, distributed under the terms of the Creative Commons Attribution licence ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted re-use, distribution and reproduction, provided the original article is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000304",
+      "pmid": "39348126",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000305",
+      "pmid": "39373282",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000306",
+      "pmid": "39519467",
+      "pmcid": "PMC11547687",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "eb1851d367920a51b0c8a4f22fe660e4b63b4ad60272a0e2f54dc3814d810f5a",
+      "pmc_xml_sha256": "7238f92c2714ea88caa96e9e910629807b6417a73de27024ff826affcc79ba8a",
+      "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000307",
+      "pmid": "39796565",
+      "pmcid": "PMC11722735",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "be0a7267c7503dd0da48696f7a64e2f28c0b456e2dd39fab4d41c0cb063777cd",
+      "pmc_xml_sha256": "ba7c3491b9c2becbf4b2192b55b40b96bea7e1dce85c53e78015527201085492",
+      "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000308",
+      "pmid": "39891729",
+      "pmcid": "PMC11787226",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "fdcb1d8cdba3a2060660edcfae4541a1470f3540fc5b93464936aba8c607e411",
+      "pmc_xml_sha256": "a05decc0fb09c8c9d007b0106d9153961928bff690261725fed085dcb0ca2903",
+      "license": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise "
+    },
+    {
+      "candidate_id": "G100-CAND-000309",
+      "pmid": "40005003",
+      "pmcid": "PMC11858716",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "63ba3402a325142f247c9e0db4a40c146c902b695fbdd692b4923d19d506af8e",
+      "pmc_xml_sha256": "0e9a31f6142ef55fd5246cc6f1758c7f2f589daf6e3948a39613a7d48f8e83e4",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000310",
+      "pmid": "40087038",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000311",
+      "pmid": "40227937",
+      "pmcid": "PMC11614123",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "186f0e1a45e79df7917e0724b0e17d8e5cdee180edb5128f6c7a6c01a915cd4d",
+      "pmc_xml_sha256": "a8cfb9f667932418eb9db4715149cefc9210dc403186b972331bb3f73ca5ce2f",
+      "license": "This is an open access journal, and articles are distributed under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 License, which allows others to remix, tweak, and build upon the work non-commercially, as long as appropriate credit is given and the new creations are licensed under the identical terms."
+    },
+    {
+      "candidate_id": "G100-CAND-000312",
+      "pmid": "40328174",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000313",
+      "pmid": "40512040",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000314",
+      "pmid": "40626156",
+      "pmcid": "PMC12230060",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "34bacb026c62403717599a2342c88690a9c6660bcf185b0866f8f8e76fc81ec4",
+      "pmc_xml_sha256": "2ec66eedc88fc00c418a341d68a20545351d50c3425527aee16befa8bce2f9a9",
+      "license": "This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms."
+    },
+    {
+      "candidate_id": "G100-CAND-000315",
+      "pmid": "40638922",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000316",
+      "pmid": "40647286",
+      "pmcid": "PMC12251893",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "6350e16900b8b85476ddc8d1d186b770e7cbbe57a8343d0f2a702558f8f87a49",
+      "pmc_xml_sha256": "e1f707af60ecf92c23ea35f2f3e771772336f0aa78d02622fdf5fb2e6fe1826d",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000317",
+      "pmid": "40647307",
+      "pmcid": "PMC12252281",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "57a7b55d93d6f90fedbdf6b27b807922847acecad0a6d60bee0ec8d35c9589c4",
+      "pmc_xml_sha256": "df719e30bbc66ec092bbe8c647d2db7f104b9a63ca320ce195e80bc740521abc",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000318",
+      "pmid": "40708203",
+      "pmcid": "PMC12290316",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "01cc8067e9607604446ca8021c69990765d1c5ee3708dfc78e02141461687887",
+      "pmc_xml_sha256": "c93b5e3a8525ba381e91a4b083ece0c29cb425b9f89fbc60be6631e19920e032",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000319",
+      "pmid": "40743583",
+      "pmcid": "PMC12336822",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "4ce4f8a6fad260199b05d392201e8470cc24aaa9033ab07399a8a96231b7a4e2",
+      "pmc_xml_sha256": "1a0193f2f4de29305080478ea2bcd30a0110d33fe0be241584a4d349a33ec170",
+      "license": "This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/)."
+    },
+    {
+      "candidate_id": "G100-CAND-000320",
+      "pmid": "40753992",
+      "pmcid": "PMC12720210",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "d37645fdb03effb6b82fd707ed76458bc119a21e9ac36bbf098d2924ff43d142",
+      "pmc_xml_sha256": "1be295ed9dd2e3a9f62c2607823550e4a0d7b226f7c841326995e1c13054e06c",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This is an Open Access article under the CC BY 4.0 license."
+    },
+    {
+      "candidate_id": "G100-CAND-000321",
+      "pmid": "40819279",
+      "pmcid": "PMC12580465",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "353641df31ff544b565809fe30e01c1e1836becac8c5314e9eaa1f687811db75",
+      "pmc_xml_sha256": "8c1e9ea97613854ec21add0471c9743d3d0ef09a0244bd873e9083ae26fbc7cd",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000322",
+      "pmid": "40828321",
+      "pmcid": "PMC12364987",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "b932bad3eea9660f5a23c7e084dbfab20a5b1803dc3822db1c040cf85baf2507",
+      "pmc_xml_sha256": "19fe35acad1fd44aa717659883373846f750161b078c5d1fa66eb55a7d0b4acb",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative"
+    },
+    {
+      "candidate_id": "G100-CAND-000323",
+      "pmid": "40836838",
+      "pmcid": "PMC13338483",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "2900feeddc0b1b7e7fb7ddf6a0540fa79ad285f6a92dd2deb52590d5f44a032e",
+      "pmc_xml_sha256": "90f3c33467c4b4d47646372b4e86bec9f4259b5a1744a41f094ea3d6fc3ce072",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This article is distributed under the terms of the Creative Commons Attribution 4.0 License ( https://creativecommons.org/licenses/by/4.0/ ) which permits any use, reproduction and distribution of the work without further permission provided the original work is attributed as specified on the SAGE and Open Access page ( https://us.sagepub.com/en-us/nam/open-access-at-sage )."
+    },
+    {
+      "candidate_id": "G100-CAND-000324",
+      "pmid": "40919695",
+      "pmcid": "PMC12416133",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000325",
+      "pmid": "40930463",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000326",
+      "pmid": "40953047",
+      "pmcid": "PMC12435722",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "ff3a5503b0bfcaea48153f231df0c472bca1ac266ede9c9ef6e73759ea5a6737",
+      "pmc_xml_sha256": "e2b27c80752d3ffa729f68f22e51005157c90283c346eca36169e21ae57c52bf",
+      "license": "This is an open access article distributed under the terms of the Creative Commons Attribution License , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+    },
+    {
+      "candidate_id": "G100-CAND-000327",
+      "pmid": "41081513",
+      "pmcid": "PMC12517116",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "859ee09af05511c32649bd58655980e0e10b89acdd8b2274026ce148be469cce",
+      "pmc_xml_sha256": "1f3ca6f9c0fc72a3c7f25f5935019c2662964e7025282feffa9e989f9a4f292a",
+      "license": "This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000328",
+      "pmid": "41138567",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000329",
+      "pmid": "41305556",
+      "pmcid": "PMC12655777",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "69af5865825cd760ab66c6ed6c413ba5746ffe48fdfa2bc300cd800e55efde78",
+      "pmc_xml_sha256": "a87ff69250d1e0f4f90fba2fbf00c2335536ae404f06e8baa267bd1bc8266cab",
+      "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000330",
+      "pmid": "41305558",
+      "pmcid": "PMC12655033",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "90c4595b73afcd188881e341953cdde818247036d7b5843083b579be5f024598",
+      "pmc_xml_sha256": "9ba04a167e821d00323762550b9c9c007769f66c3bf47460b2c85560e8d0f644",
+      "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000331",
+      "pmid": "41372407",
+      "pmcid": "PMC12893911",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "7cd5268937e00ad75bd7f7a1b32f3143c98325d99e7b036789f0b5a66fe288cf",
+      "pmc_xml_sha256": "d7dab5657f2812ed1297d967589010db43fb4639892a27d4cf76397fd0c80af2",
+      "license": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise "
+    },
+    {
+      "candidate_id": "G100-CAND-000332",
+      "pmid": "41382333",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000333",
+      "pmid": "41406403",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000334",
+      "pmid": "41470790",
+      "pmcid": "PMC12735435",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "2d4c6c338e80617f4cb14b6269f1ed7d711390c4fe8e304446e48a111a0d1e58",
+      "pmc_xml_sha256": "85a61519aeb55d34fe281ac6637231bf120674e0ac5d7930ef6e2c6e2087dd25",
+      "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000335",
+      "pmid": "41482798",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000336",
+      "pmid": "41628666",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000337",
+      "pmid": "41657234",
+      "pmcid": "PMC13161736",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "b93910ed3b9b2e085766a7f343ae6dd7662713c4c5d785608f10fdd6372449bc",
+      "pmc_xml_sha256": "c61d56b1b09e0193c9ac3e3c31a66df58debe9b5970e439d92030be64d7f779e",
+      "license": "This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited and is not used for commercial purposes."
+    },
+    {
+      "candidate_id": "G100-CAND-000338",
+      "pmid": "41671593",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000339",
+      "pmid": "41785660",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000340",
+      "pmid": "42242853",
+      "pmcid": "PMC13236445",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000341",
+      "pmid": "42514369",
+      "pmcid": "PMC13414780",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000342",
+      "pmid": "42680255",
+      "pmcid": null,
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    }
+  ]
+}

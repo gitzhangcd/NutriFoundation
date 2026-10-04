@@ -8,8 +8,7 @@ on:
       - 'scripts/paper_c/p0_2_3_qualify.py'
       - '.github/workflows/e0.4.3-p0.2.3-qualification.yml'
       - 'runs/E0.4.3/P0.2.2/Gold100_Candidate_Source_Registry_RAW_v0.1.json'
-      - 'runs/E0.4.3/P0.2.3/Gold100_Candidate_Source_Registry_Coverage_Repair_v0.1.json'
-      - 'runs/E0.4.3/P0.2.3/Gold100_Candidate_Source_Registry_Coverage_Repair_v0.2.json'
+      - 'runs/E0.4.3/P0.2.3/Gold100_Candidate_Source_Registry_Coverage_Repair_v*.json'
 
 permissions:
   contents: write

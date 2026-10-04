@@ -76,7 +76,8 @@ def semantic_classification(meta):
         fam="primary_observational"
     else:
         return None,None,"unmappable_calibration_family"
-    dom="nutrition_metabolic_cardiometabolic" if NUTRI_RE.search(text+" "+" ".join(meta.get("mesh",[]))) else "external_biomedical_or_public_health"
+    domain_basis=title+" "+" ".join(meta.get("mesh",[]))
+    dom="nutrition_metabolic_cardiometabolic" if NUTRI_RE.search(domain_basis) else "external_biomedical_or_public_health"
     return fam,dom,None
 
 u=json.loads(UNIVERSE.read_text())
@@ -307,3 +308,5 @@ audit["calibration24_source_set_sha256"]=source_set_sha
 print(json.dumps(audit,indent=2))
 
 # P0.3 revision: independent PubMed semantic gate for calibration-only family/domain validation
+
+# semantic refinement: calibration domain classification uses title + MeSH primary-topic signal, not free abstract mentions

@@ -49,10 +49,12 @@ def pubmed_meta(pmids):
         time.sleep(0.35)
     return out
 
-NUTRI_RE=re.compile(r"\b(nutrition|nutritional|diet|dietary|food|nutrient|vitamin|mineral|protein|calorie|selenium|iron|obesity|overweight|diabet|glyc|insulin|lipid|cholesterol|metabolic|cardiometabolic|fatty acid|malnutrition|micronutrient|macronutrient)\b",re.I)
+TITLE_NUTRI_RE=re.compile(r"\b(nutrition|nutritional|diet|dietary|food|nutrient|vitamin|mineral|calorie|selenium|iron|obesity|overweight|diabet|glyc|lipid|cholesterol|metabolic|cardiometabolic|fatty acid|malnutrition|micronutrient|macronutrient|statin)\b",re.I)
+MESH_NUTRI_RE=re.compile(r"\b(nutritional|nutrition|diet|dietary|obesity|overweight|diabetes mellitus|metabolic syndrome|dyslipid|hyperlipid|cholesterol|cardiovascular diseases)\b",re.I)
 VET_RE=re.compile(r"\b(canine|feline|veterinary|dog|dogs|cat|cats|murine|mouse|mice|rat|rats)\b",re.I)
 PROTOCOL_RE=re.compile(r"\b(study protocol|trial protocol|protocol for a randomized|protocol for a randomised|systematic review protocol|protocol:)\b",re.I)
-COMP_RE=re.compile(r"\b(secondary analysis|prespecified secondary analysis|post[- ]hoc analysis|subgroup analysis|follow[- ]up analysis|secondary outcome)\b",re.I)
+COMP_RE=re.compile(r"\b(secondary analysis|prespecified secondary analysis|post[- ]hoc analysis|subgroup analysis|follow[- ]up analysis)\b",re.I)
+RCT_TITLE_RE=re.compile(r"\b(randomized|randomised|controlled trial|clinical trial)\b",re.I)
 OBS_RE=re.compile(r"\b(cohort|case[- ]control|cross[- ]sectional|observational|prospective study|retrospective study)\b",re.I)
 
 def semantic_classification(meta):
@@ -64,20 +66,20 @@ def semantic_classification(meta):
         return None,None,"protocol_not_evidence_result"
     if VET_RE.search(title+" "+" ".join(meta.get("mesh",[]))) and "humans" not in " ".join(meta.get("mesh",[])).lower():
         return None,None,"nonhuman_or_veterinary"
-    if COMP_RE.search(text):
+    if COMP_RE.search(title):
         fam="companion_or_secondary"
     elif "practice guideline" in ptypes or "guideline" in ptypes or "consensus statement" in ptypes or "consensus development conference" in ptypes:
         fam="guideline_or_consensus"
     elif "systematic review" in ptypes or "meta-analysis" in ptypes:
         fam="evidence_synthesis"
-    elif "randomized controlled trial" in ptypes or "controlled clinical trial" in ptypes or "clinical trial" in ptypes:
-        fam="primary_interventional"
-    elif "observational study" in ptypes or OBS_RE.search(text):
+    elif ("observational study" in ptypes or OBS_RE.search(text)) and not RCT_TITLE_RE.search(title):
         fam="primary_observational"
+    elif "randomized controlled trial" in ptypes or "controlled clinical trial" in ptypes or "clinical trial" in ptypes or RCT_TITLE_RE.search(title):
+        fam="primary_interventional"
     else:
         return None,None,"unmappable_calibration_family"
-    domain_basis=title+" "+" ".join(meta.get("mesh",[]))
-    dom="nutrition_metabolic_cardiometabolic" if NUTRI_RE.search(domain_basis) else "external_biomedical_or_public_health"
+    mesh_text=" ".join(meta.get("mesh",[]))
+    dom="nutrition_metabolic_cardiometabolic" if (TITLE_NUTRI_RE.search(title) or MESH_NUTRI_RE.search(mesh_text)) else "external_biomedical_or_public_health"
     return fam,dom,None
 
 u=json.loads(UNIVERSE.read_text())
@@ -310,3 +312,5 @@ print(json.dumps(audit,indent=2))
 # P0.3 revision: independent PubMed semantic gate for calibration-only family/domain validation
 
 # semantic refinement: calibration domain classification uses title + MeSH primary-topic signal, not free abstract mentions
+
+# semantic refinement: title-only companion signal; report-level observational priority; conservative nutrition-domain mapping

@@ -7,6 +7,8 @@ on:
     paths:
       - 'paper_c/P0.3/**'
       - 'scripts/paper_c/p0_3_validate_contracts.py'
+      - 'scripts/paper_c/p0_3_score_reliability.py'
+      - 'fixtures/P0.3_Reliability_Scorer_Synthetic_PASS_v1.0.json'
       - '.github/workflows/e0.4.3-p0.3-workbench-conformance.yml'
       - 'runs/E0.4.3/P0.3/Calibration24_Source_Set_FROZEN_v1.0.json'
 
@@ -31,6 +33,16 @@ jobs:
           python-version: '3.12'
       - name: Validate P0.3 contracts
         run: python scripts/paper_c/p0_3_validate_contracts.py
+      - name: Test preregistered reliability scorer
+        run: |
+          python scripts/paper_c/p0_3_score_reliability.py fixtures/P0.3_Reliability_Scorer_Synthetic_PASS_v1.0.json --output /tmp/p0_3_reliability.json
+          python - <<'PY'
+          import json
+          x=json.load(open('/tmp/p0_3_reliability.json'))
+          assert x['status']=='PASS_PRE_GOLD100_ANNOTATION_LOCK', x
+          assert all(x['gates'].values()), x
+          print('P0.3 reliability scorer synthetic conformance PASS')
+          PY
       - name: Commit conformance report
         run: |
           git config user.name "NutriFoundation P0.3 Bot"

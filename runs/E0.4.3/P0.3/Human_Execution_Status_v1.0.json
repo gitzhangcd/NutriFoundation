@@ -1,10 +1,10 @@
 {
   "stage_id": "E0.4.3-P0.3",
   "version": "v1.0",
-  "status": "BLOCKED_BY_WORKBENCH_IMPLEMENTATION",
+  "status": "WORKBENCH_IMPLEMENTED_AUTOMATED_ACCEPTANCE_PASS_HUMAN_SMOKE_TEST_READY",
   "calibration24_sha256": "ec793d52a130b98aaefebdb40b85356ed88543aea2b8eff63a7fcd9f8212af33",
   "workbench_machine_conformance": "PASS",
-  "human_workbench_smoke_test": "BLOCKED_BY_WORKBENCH_IMPLEMENTATION",
+  "human_workbench_smoke_test": "READY_NOT_RUN",
   "expert_A": "UNASSIGNED",
   "expert_B": "UNASSIGNED",
   "COI_role_separation_gate": "NOT_RUN",
@@ -14,10 +14,14 @@
   "reliability_scoring": "NOT_RUN",
   "Gold100_access": "PROHIBITED",
   "p0_3_pass": false,
-  "workbench_machine_conformance_run_id": 37177028135,
-  "workbench_implementation": "NOT_PRESENT",
-  "next_action": "IMPLEMENT_RUNNABLE_WORKBENCH_THEN_EXECUTE_WB_H01_H15",
-  "machine_conformance_latest_run_id": 37177142128,
+  "workbench_machine_conformance_run_id": 37177737106,
+  "workbench_implementation": "PRESENT_PASS_AUTOMATED_ACCEPTANCE",
+  "next_action": "EXECUTE_WB_H01_H15_IN_REAL_BROWSER",
+  "machine_conformance_latest_run_id": 37177737106,
   "reliability_scorer_machine_test": "PASS",
-  "reliability_metrics": "NOT_AVAILABLE_FROM_HUMANS"
+  "reliability_metrics": "NOT_AVAILABLE_FROM_HUMANS",
+  "workbench_build_id": "P03-WORKBENCH-REF-v0.1.0",
+  "workbench_automated_acceptance": "PASS",
+  "workbench_automated_acceptance_run_id": 37177731675,
+  "workbench_automated_acceptance_result": "runs/E0.4.3/P0.3/P0.3_Workbench_Implementation_Acceptance_Result_v1.0.json"
 }

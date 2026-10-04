@@ -5,8 +5,11 @@
   "input": {
     "sampling_universe_count": 333,
     "gold100_count": 100,
-    "leakage_safe_candidate_count": 230,
-    "same_study_leakage_excluded_count": 3
+    "leakage_safe_pre_semantic_count": 230,
+    "semantic_eligible_candidate_count": 221,
+    "same_study_leakage_excluded_count": 3,
+    "semantic_excluded_count": 9,
+    "semantic_reclassified_count": 65
   },
   "solver": {
     "engine": "OR-Tools CP-SAT",
@@ -31,7 +34,7 @@
         "external_biomedical_or_public_health": 3
       },
       "challenge": {
-        "numeric_complexity": 11,
+        "numeric_complexity": 12,
         "causal_language_risk": 2,
         "StudyIdentity_dependency": 2,
         "correction_retraction_living_version": 2,
@@ -57,7 +60,7 @@
         "external_biomedical_or_public_health": 3
       },
       "challenge": {
-        "numeric_complexity": 9,
+        "numeric_complexity": 11,
         "causal_language_risk": 2,
         "StudyIdentity_dependency": 2,
         "correction_retraction_living_version": 2,
@@ -84,5 +87,585 @@
     "challenge_minima": true,
     "non_incomplete_have_full_text": true
   },
-  "calibration24_source_set_sha256": "793128a627c2416a3008d1403ca09fdc44f8bb39c56033d328ac06d849f8de5c"
+  "semantic_gate": {
+    "excluded": [
+      {
+        "candidate_id": "G100-CAND-000235",
+        "pmid": "34330515",
+        "reason": "unmappable_calibration_family",
+        "title": "Nutrition guidelines for critically ill adults admitted with COVID-19: Is there consensus?"
+      },
+      {
+        "candidate_id": "G100-CAND-000375",
+        "pmid": "28630601",
+        "reason": "unmappable_calibration_family",
+        "title": "International society of sports nutrition position stand: diets and body composition."
+      },
+      {
+        "candidate_id": "G100-CAND-000400",
+        "pmid": "31456469",
+        "reason": "protocol_not_evidence_result",
+        "title": "The malnutrition in polytrauma patients (MaPP) study: Research protocol."
+      },
+      {
+        "candidate_id": "G100-CAND-000405",
+        "pmid": "32019607",
+        "reason": "unmappable_calibration_family",
+        "title": "Nutrition therapy in critical illness: a review of the literature for clinicians."
+      },
+      {
+        "candidate_id": "G100-CAND-000434",
+        "pmid": "36382765",
+        "reason": "unmappable_calibration_family",
+        "title": "Celiac disease and bone."
+      },
+      {
+        "candidate_id": "G100-CAND-000456",
+        "pmid": "40745695",
+        "reason": "nonhuman_or_veterinary",
+        "title": "World Association for Veterinary Dermatology Consensus Statement for Diagnosis, and Evidence-Based Clinical Practice Guidelines for Treatment and Prevention of Canine Leishmaniosis."
+      },
+      {
+        "candidate_id": "G100-CAND-000485",
+        "pmid": "25370364",
+        "reason": "protocol_not_evidence_result",
+        "title": "Manualised Cognitive Remediation Therapy for adult obesity: study protocol for a randomised controlled trial."
+      },
+      {
+        "candidate_id": "G100-CAND-000597",
+        "pmid": "37498603",
+        "reason": "protocol_not_evidence_result",
+        "title": "Effects of an Exercise Program on Cardiometabolic and Mental Health in Children With Overweight or Obesity: A Secondary Analysis of a Randomized Clinical Trial."
+      },
+      {
+        "candidate_id": "G100-CAND-000700",
+        "pmid": "26269098",
+        "reason": "protocol_not_evidence_result",
+        "title": "The effects of an Audio Visual Assisted Therapy Aid for Refractory auditory hallucinations (AVATAR therapy): study protocol for a randomised controlled trial."
+      }
+    ],
+    "reclassified": [
+      {
+        "candidate_id": "G100-CAND-000005",
+        "pmid": "8988907",
+        "old_family": "primary_interventional",
+        "new_family": "primary_interventional",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000141",
+        "pmid": "29788170",
+        "old_family": "evidence_synthesis",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000196",
+        "pmid": "32641735",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000198",
+        "pmid": "32713125",
+        "old_family": "evidence_synthesis",
+        "new_family": "guideline_or_consensus",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000233",
+        "pmid": "34295331",
+        "old_family": "evidence_synthesis",
+        "new_family": "evidence_synthesis",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000321",
+        "pmid": "40819279",
+        "old_family": "evidence_synthesis",
+        "new_family": "guideline_or_consensus",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000368",
+        "pmid": "26694210",
+        "old_family": "evidence_synthesis",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000406",
+        "pmid": "32141188",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000446",
+        "pmid": "38061371",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000464",
+        "pmid": "20413514",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000471",
+        "pmid": "23835333",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000476",
+        "pmid": "23972001",
+        "old_family": "evidence_synthesis",
+        "new_family": "evidence_synthesis",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000478",
+        "pmid": "24086304",
+        "old_family": "evidence_synthesis",
+        "new_family": "evidence_synthesis",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000492",
+        "pmid": "26938553",
+        "old_family": "primary_observational",
+        "new_family": "primary_observational",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000496",
+        "pmid": "27410162",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000517",
+        "pmid": "30946757",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000522",
+        "pmid": "31596866",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000525",
+        "pmid": "31802395",
+        "old_family": "evidence_synthesis",
+        "new_family": "evidence_synthesis",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000530",
+        "pmid": "32506135",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000536",
+        "pmid": "32746774",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000540",
+        "pmid": "33023665",
+        "old_family": "guideline_or_consensus",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000554",
+        "pmid": "33970268",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000555",
+        "pmid": "34009725",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000557",
+        "pmid": "34194474",
+        "old_family": "evidence_synthesis",
+        "new_family": "evidence_synthesis",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000559",
+        "pmid": "34374223",
+        "old_family": "evidence_synthesis",
+        "new_family": "evidence_synthesis",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000560",
+        "pmid": "34423323",
+        "old_family": "primary_observational",
+        "new_family": "primary_observational",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000563",
+        "pmid": "34714771",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000566",
+        "pmid": "34895248",
+        "old_family": "evidence_synthesis",
+        "new_family": "evidence_synthesis",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000573",
+        "pmid": "35285809",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000575",
+        "pmid": "35325398",
+        "old_family": "evidence_synthesis",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000577",
+        "pmid": "35501762",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000584",
+        "pmid": "36329535",
+        "old_family": "primary_observational",
+        "new_family": "primary_observational",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000593",
+        "pmid": "37264767",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000600",
+        "pmid": "37743489",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000612",
+        "pmid": "38546821",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000613",
+        "pmid": "38561682",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000614",
+        "pmid": "38561962",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000619",
+        "pmid": "38916894",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000622",
+        "pmid": "39227921",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000631",
+        "pmid": "39928571",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000636",
+        "pmid": "40233286",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000637",
+        "pmid": "40259488",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000641",
+        "pmid": "40518455",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000642",
+        "pmid": "40560588",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000655",
+        "pmid": "41367270",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000662",
+        "pmid": "42082865",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000664",
+        "pmid": "42396798",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000667",
+        "pmid": "30924578",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000668",
+        "pmid": "33634589",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000669",
+        "pmid": "33802738",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000675",
+        "pmid": "37137684",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "nutrition_metabolic_cardiometabolic",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000688",
+        "pmid": "19804626",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000689",
+        "pmid": "21576129",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000691",
+        "pmid": "22436129",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000694",
+        "pmid": "23137731",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000695",
+        "pmid": "23308216",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000696",
+        "pmid": "24559194",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "nutrition_metabolic_cardiometabolic"
+      },
+      {
+        "candidate_id": "G100-CAND-000703",
+        "pmid": "27966192",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000704",
+        "pmid": "28211560",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000706",
+        "pmid": "29202730",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000708",
+        "pmid": "29415145",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000709",
+        "pmid": "29695589",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000713",
+        "pmid": "30857452",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000714",
+        "pmid": "31054219",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "external_biomedical_or_public_health"
+      },
+      {
+        "candidate_id": "G100-CAND-000722",
+        "pmid": "32746775",
+        "old_family": "primary_interventional",
+        "new_family": "companion_or_secondary",
+        "old_domain": "external_biomedical_or_public_health",
+        "new_domain": "external_biomedical_or_public_health"
+      }
+    ]
+  },
+  "calibration24_source_set_sha256": "b1aba055401b538fdd8beee0de03fa338d096ed6893f4c7faf2f2683d2b53351"
 }

@@ -5,7 +5,7 @@
   "status": "PASS_AUTOMATED_IMPLEMENTATION_TESTS",
   "build_id": "P03-WORKBENCH-REF-v0.1.0",
   "tokenizer_id": "ws-token-v1",
-  "git_sha": "199b2cd89bbeba0338683cc936354f277ebce012",
+  "git_sha": "756158907692ee063944b596a7bad3851d015468",
   "test_command": "pytest -q tests/test_p0_3_workbench.py",
   "pytest_reached_report_generation": true,
   "checks": {
@@ -21,7 +21,7 @@
   "calibration24_sha256": "ec793d52a130b98aaefebdb40b85356ed88543aea2b8eff63a7fcd9f8212af33",
   "gold100_sha256": "fdb1189647fe4022411d3ebfd6591da2398135aed398c88ca6f85236678420ad",
   "human_smoke_test": "NOT_RUN",
-  "generated_at": "2026-10-04T04:38:53.053499+00:00",
+  "generated_at": "2026-10-04T04:41:41.687665+00:00",
   "important_boundary": "Automated implementation tests do not substitute for WB-H01..WB-H15 human browser smoke test.",
-  "report_sha256": "e8a8c1db3fc5e7e1aab4fcabae57e1d9be672b81724dcd3fc2dfde4e71c9b0c3"
+  "report_sha256": "5eacc36df2d65ceb4f8876eb1e7f5f1a8eb97fe79eff336bc62495c0602ef711"
 }

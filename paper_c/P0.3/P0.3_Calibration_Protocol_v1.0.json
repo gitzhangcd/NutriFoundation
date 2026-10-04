@@ -141,11 +141,14 @@
     "protocol": "FROZEN",
     "human_annotators_assigned": false,
     "workbench_machine_conformance": "PASS",
-    "human_smoke_test": "BLOCKED_BY_WORKBENCH_IMPLEMENTATION",
+    "human_smoke_test": "READY_NOT_RUN",
     "round_A": "BLOCKED_PENDING_H0_H1",
     "round_B": "NOT_STARTED",
     "reliability_gate": "NOT_RUN",
     "Gold100_annotation": "PROHIBITED",
-    "workbench_implementation": "NOT_PRESENT_IN_REPOSITORY"
+    "workbench_implementation": "PRESENT_PASS_AUTOMATED_ACCEPTANCE",
+    "workbench_build_id": "P03-WORKBENCH-REF-v0.1.0",
+    "workbench_automated_acceptance_run_id": 37177731675,
+    "workbench_machine_conformance_run_id": 37177737106
   }
 }

@@ -39,9 +39,13 @@
   },
   "machine_conformance": {
     "status": "PASS",
-    "latest_workflow_run_id": 37176982373,
+    "latest_workflow_run_id": 37177142128,
     "report": "runs/E0.4.3/P0.3/P0.3_Workbench_Contract_Conformance_Report_v1.0.json",
-    "all_machine_checks_pass": true
+    "all_machine_checks_pass": true,
+    "reliability_scorer_synthetic_fixture": "PASS",
+    "reliability_scorer_fixture": "fixtures/P0.3_Reliability_Scorer_Synthetic_PASS_v1.0.json",
+    "reliability_scorer": "scripts/paper_c/p0_3_score_reliability.py",
+    "note": "Machine/scorer conformance does not establish human expert reliability."
   },
   "human_execution": {
     "H0_workbench_smoke_test": "BLOCKED_BY_WORKBENCH_IMPLEMENTATION",

@@ -7,6 +7,7 @@
   "gold100_source_set_sha256": "fdb1189647fe4022411d3ebfd6591da2398135aed398c88ca6f85236678420ad",
   "checks": {
     "calibration_hash_matches": true,
+    "protocol_parent_calibration_hash_matches": true,
     "calibration_n_24": true,
     "round_A_n_12": true,
     "round_B_n_12": true,

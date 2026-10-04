@@ -147,3 +147,12 @@ def test_tokenizer_half_open_contract():
     assert [x["text"] for x in toks] == ["a", "bb", "ccc"]
     span = bind_span(t, sha256_text(t), 1, 3, [])
     assert span["exact_text"] == "bb\nccc"
+
+
+def test_repository_manifests_load_without_gold_leakage(tmp_path):
+    from pathlib import Path
+    root = Path(__file__).resolve().parents[1]
+    w = P03Workbench.from_repo(root, tmp_path / "repo.sqlite3", source_loader=lambda r: "")
+    assert len(w.records) == 24
+    assert len(w.gold100_ids) == 100
+    assert not (set(w.records) & w.gold100_ids)

@@ -115,6 +115,17 @@ for r in pre_candidates:
         semantic_reclassified.append({"candidate_id":rr["candidate_id"],"pmid":rr.get("pmid"),"old_family":old_fam,"new_family":fam,"old_domain":old_dom,"new_domain":dom})
     candidates.append(rr)
 
+profile={"count":len(candidates),"family":{},"domain":{},"tags":{},"family_domain":{}}
+for r in candidates:
+    fam=r.get("calibration_source_family"); dom=r.get("calibration_domain")
+    profile["family"][fam]=profile["family"].get(fam,0)+1
+    profile["domain"][dom]=profile["domain"].get(dom,0)+1
+    key=f"{fam}|{dom}"
+    profile["family_domain"][key]=profile["family_domain"].get(key,0)+1
+    for k,v in r.get("challenge_tags",{}).items():
+        if v: profile["tags"][k]=profile["tags"].get(k,0)+1
+print("SEMANTIC_POOL_PROFILE="+json.dumps(profile,sort_keys=True),flush=True)
+
 rounds=["A","B"]
 family_quota={
     "primary_interventional":4,

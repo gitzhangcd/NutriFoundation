@@ -5,7 +5,7 @@
   "status": "PROTOCOL_FROZEN_HUMAN_CALIBRATION_REQUIRED",
   "parent": {
     "gold100_source_set_sha256": "fdb1189647fe4022411d3ebfd6591da2398135aed398c88ca6f85236678420ad",
-    "calibration24_source_set_sha256": "79e439c9d14c759eb70d76f289a2a3372d47a8c3519f9816c747fa7c4ab4b0e3"
+    "calibration24_source_set_sha256": "ec793d52a130b98aaefebdb40b85356ed88543aea2b8eff63a7fcd9f8212af33"
   },
   "calibration_corpus": {
     "total": 24,
@@ -22,7 +22,14 @@
     "no_Gold100_SourceArtifact_overlap": true,
     "no_Gold100_StudyIdentityCluster_overlap": true,
     "non_incomplete_full_text_required": true,
-    "incomplete_source_per_round": 1
+    "incomplete_source_per_round": 1,
+    "semantic_gate": {
+      "leakage_safe_pre_semantic_count": 230,
+      "semantic_eligible_count": 221,
+      "excluded_count": 9,
+      "reclassified_count": 36,
+      "authority": "runs/E0.4.3/P0.3/Calibration24_Selection_Audit_v1.0.json"
+    }
   },
   "roles": {
     "Calibration_Annotator_A": {

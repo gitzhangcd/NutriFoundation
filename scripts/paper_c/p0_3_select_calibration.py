@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import json, hashlib
+import json, hashlib, re, urllib.request, urllib.parse, time, xml.etree.ElementTree as ET
 from pathlib import Path
 from ortools.sat.python import cp_model
 
@@ -16,13 +16,76 @@ SELECTION_KEY=f"{STAGE}|CALIBRATION24|{SOURCE_SET_SHA}"
 def csha(obj):
     return hashlib.sha256(json.dumps(obj,sort_keys=True,ensure_ascii=False,separators=(",",":")).encode()).hexdigest()
 
+def http_get(url,retries=4):
+    last=None
+    for i in range(retries):
+        try:
+            req=urllib.request.Request(url,headers={"User-Agent":"NutriFoundation-PaperC-P0.3/1.0"})
+            with urllib.request.urlopen(req,timeout=60) as r:
+                return r.read()
+        except Exception as e:
+            last=e
+            time.sleep(min(8,1.5*(i+1)))
+    raise last
+
+def txt(node):
+    if node is None: return ""
+    return " ".join(" ".join(node.itertext()).split())
+
+def pubmed_meta(pmids):
+    out={}
+    for i in range(0,len(pmids),80):
+        ids=pmids[i:i+80]
+        q=urllib.parse.urlencode({"db":"pubmed","id":",".join(ids),"retmode":"xml","tool":"NutriFoundation","email":"noreply@example.invalid"})
+        root=ET.fromstring(http_get("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?"+q))
+        for art in root.findall(".//PubmedArticle"):
+            pmid=txt(art.find("./MedlineCitation/PMID"))
+            if not pmid: continue
+            title=txt(art.find(".//ArticleTitle"))
+            abstract=" ".join(txt(x) for x in art.findall(".//Abstract/AbstractText"))
+            ptypes=[txt(x) for x in art.findall(".//PublicationType") if txt(x)]
+            mesh=[txt(x) for x in art.findall(".//MeshHeading/DescriptorName") if txt(x)]
+            out[pmid]={"title":title,"abstract":abstract,"publication_types":ptypes,"mesh":mesh}
+        time.sleep(0.35)
+    return out
+
+NUTRI_RE=re.compile(r"\\b(nutrition|nutritional|diet|dietary|food|nutrient|vitamin|mineral|protein|calorie|selenium|iron|obesity|overweight|diabet|glyc|insulin|lipid|cholesterol|metabolic|cardiometabolic|fatty acid|malnutrition|micronutrient|macronutrient)\\b",re.I)
+VET_RE=re.compile(r"\\b(canine|feline|veterinary|dog|dogs|cat|cats|murine|mouse|mice|rat|rats)\\b",re.I)
+PROTOCOL_RE=re.compile(r"\\b(study protocol|trial protocol|protocol for a randomized|protocol for a randomised|systematic review protocol|protocol:)\\b",re.I)
+COMP_RE=re.compile(r"\\b(secondary analysis|prespecified secondary analysis|post[- ]hoc analysis|subgroup analysis|follow[- ]up analysis|secondary outcome)\\b",re.I)
+OBS_RE=re.compile(r"\\b(cohort|case[- ]control|cross[- ]sectional|observational|prospective study|retrospective study)\\b",re.I)
+
+def semantic_classification(meta):
+    title=meta.get("title","")
+    abstract=meta.get("abstract","")
+    ptypes=" | ".join(meta.get("publication_types",[])).lower()
+    text=(title+" "+abstract)
+    if PROTOCOL_RE.search(text) or "clinical trial protocol" in ptypes:
+        return None,None,"protocol_not_evidence_result"
+    if VET_RE.search(title+" "+" ".join(meta.get("mesh",[]))) and "humans" not in " ".join(meta.get("mesh",[])).lower():
+        return None,None,"nonhuman_or_veterinary"
+    if COMP_RE.search(text):
+        fam="companion_or_secondary"
+    elif "practice guideline" in ptypes or "guideline" in ptypes or "consensus statement" in ptypes or "consensus development conference" in ptypes:
+        fam="guideline_or_consensus"
+    elif "systematic review" in ptypes or "meta-analysis" in ptypes:
+        fam="evidence_synthesis"
+    elif "randomized controlled trial" in ptypes or "controlled clinical trial" in ptypes or "clinical trial" in ptypes:
+        fam="primary_interventional"
+    elif "observational study" in ptypes or OBS_RE.search(text):
+        fam="primary_observational"
+    else:
+        return None,None,"unmappable_calibration_family"
+    dom="nutrition_metabolic_cardiometabolic" if NUTRI_RE.search(text+" "+" ".join(meta.get("mesh",[]))) else "external_biomedical_or_public_health"
+    return fam,dom,None
+
 u=json.loads(UNIVERSE.read_text())
 g=json.loads(GOLD100.read_text())
 
 gold_ids={a["candidate_id"] for a in g["assignments"]}
 gold_clusters={a.get("study_identity_cluster_id") or a["candidate_id"] for a in g["assignments"]}
 
-candidates=[]
+pre_candidates=[]
 leakage_excluded=[]
 for r in u["records"]:
     cid=r["candidate_id"]
@@ -32,7 +95,25 @@ for r in u["records"]:
     if cluster in gold_clusters:
         leakage_excluded.append({"candidate_id":cid,"reason":"shared_StudyIdentityCluster_with_Gold100","cluster":cluster})
         continue
-    candidates.append(r)
+    pre_candidates.append(r)
+
+meta=pubmed_meta([r.get("pmid") for r in pre_candidates if r.get("pmid")])
+candidates=[]
+semantic_excluded=[]
+semantic_reclassified=[]
+for r in pre_candidates:
+    m=meta.get(r.get("pmid"),{})
+    fam,dom,reason=semantic_classification(m)
+    if reason:
+        semantic_excluded.append({"candidate_id":r["candidate_id"],"pmid":r.get("pmid"),"reason":reason,"title":m.get("title") or r.get("title")})
+        continue
+    rr=json.loads(json.dumps(r))
+    old_fam,old_dom=rr.get("source_family"),rr.get("domain")
+    rr["calibration_source_family"]=fam
+    rr["calibration_domain"]=dom
+    if old_fam!=fam or old_dom!=dom:
+        semantic_reclassified.append({"candidate_id":rr["candidate_id"],"pmid":rr.get("pmid"),"old_family":old_fam,"new_family":fam,"old_domain":old_dom,"new_domain":dom})
+    candidates.append(rr)
 
 rounds=["A","B"]
 family_quota={
@@ -73,9 +154,9 @@ for r in candidates:
 # Exact family and domain quotas per round.
 for rd in rounds:
     for fam,n in family_quota.items():
-        model.Add(sum(x[(rd,r["candidate_id"])] for r in candidates if r.get("source_family")==fam)==n)
+        model.Add(sum(x[(rd,r["candidate_id"])] for r in candidates if r.get("calibration_source_family")==fam)==n)
     for dom,n in domain_quota.items():
-        model.Add(sum(x[(rd,r["candidate_id"])] for r in candidates if r.get("domain")==dom)==n)
+        model.Add(sum(x[(rd,r["candidate_id"])] for r in candidates if r.get("calibration_domain")==dom)==n)
 
 # Each round includes exactly one naturally incomplete-source case.
 for rd in rounds:
@@ -135,7 +216,7 @@ for rd in rounds:
             "mode":"guided_training" if rd=="A" else "blinded_reliability_validation",
             "candidate_id":r["candidate_id"],
             "pmid":r.get("pmid"),"pmcid":r.get("pmcid"),"doi":r.get("doi"),
-            "title":r.get("title"),"source_family":r.get("source_family"),"domain":r.get("domain"),
+            "title":r.get("title"),"source_family":r.get("calibration_source_family"),"domain":r.get("calibration_domain"),
             "study_identity_cluster_id":r.get("study_identity",{}).get("study_identity_cluster_id"),
             "source_text_status":r.get("source_text",{}).get("status"),
             "worker_visible_text_sha256":r.get("source_text",{}).get("worker_visible_text_sha256"),
@@ -151,7 +232,7 @@ def round_count(rd,fn):
 audit={"stage":STAGE,"status":"PASS_CALIBRATION24_SOURCE_SET_FROZEN",
        "selection_key":SELECTION_KEY,
        "input":{"sampling_universe_count":len(u["records"]),"gold100_count":len(gold_ids),
-                "leakage_safe_candidate_count":len(candidates),"same_study_leakage_excluded_count":len(leakage_excluded)},
+                "leakage_safe_pre_semantic_count":len(pre_candidates),"semantic_eligible_candidate_count":len(candidates),"same_study_leakage_excluded_count":len(leakage_excluded),"semantic_excluded_count":len(semantic_excluded),"semantic_reclassified_count":len(semantic_reclassified)},
        "solver":{"engine":"OR-Tools CP-SAT","version":"9.14.6206","num_search_workers":1,
                  "search_branching":"FIXED_SEARCH","stop_after_first_solution":True,"status":solver.StatusName(status)},
        "rounds":{},"checks":{}}
@@ -197,12 +278,14 @@ source_set={
     "challenge_minima_per_round":challenge_min,
     "incomplete_source_per_round":1,
     "gold100_SourceArtifact_overlap":0,
-    "gold100_StudyIdentityCluster_overlap":0
+    "gold100_StudyIdentityCluster_overlap":0,
+    "semantic_gate":"PubMed publication-type + title/abstract/MeSH calibration-specific gate; protocols/nonhuman-unmappable sources excluded"
   },
   "assignments":selected
 }
 source_set_sha=csha(source_set)
 source_set["calibration24_source_set_sha256"]=source_set_sha
+audit["semantic_gate"]={"excluded":semantic_excluded,"reclassified":semantic_reclassified}
 audit["calibration24_source_set_sha256"]=source_set_sha
 
 (OUT/"Calibration24_Source_Set_FROZEN_v1.0.json").write_text(json.dumps(source_set,indent=2,ensure_ascii=False)+"\n")
@@ -211,3 +294,5 @@ audit["calibration24_source_set_sha256"]=source_set_sha
 (OUT/"Calibration12A_Training_Manifest_v1.0.json").write_text(json.dumps({"round":"A","mode":"guided_training_after_independent_first_pass","records":[x for x in selected if x["round"]=="A"]},indent=2,ensure_ascii=False)+"\n")
 (OUT/"Calibration12B_Reliability_Manifest_v1.0.json").write_text(json.dumps({"round":"B","mode":"blinded_reliability_gate","records":[x for x in selected if x["round"]=="B"]},indent=2,ensure_ascii=False)+"\n")
 print(json.dumps(audit,indent=2))
+
+# P0.3 revision: independent PubMed semantic gate for calibration-only family/domain validation

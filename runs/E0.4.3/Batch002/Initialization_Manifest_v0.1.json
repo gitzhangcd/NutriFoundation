@@ -1,18 +1,19 @@
 {
   "stage_id": "E0.4.3",
   "title": "Independent Gold & Batch002 / Gold100 Confirmatory Program",
-  "status": "P0_2_4_PASS_GOLD100_SOURCE_SET_FROZEN",
+  "status": "P0_3_IN_PROGRESS_BLOCKED_BY_WORKBENCH_IMPLEMENTATION",
   "branch": "e0.4.3-batch002-independent-gold",
   "created_date": "2026-10-03",
   "current_authority": {
-    "stage": "E0.4.3-P0.2.4",
-    "spec": "docs/E0.4.3-P0.2.4_Deterministic_Gold100_Source_Selection_Slot_Assignment_Sampling_Audit_Source_Set_Freeze_v1.0.md",
-    "source_set": "runs/E0.4.3/P0.2.4/Gold100_Source_Set_FROZEN_v1.0.json",
-    "source_set_sha": "runs/E0.4.3/P0.2.4/Gold100_Source_Set_SHA256_v1.0.txt",
-    "filled_slot_manifest": "runs/E0.4.3/P0.2.4/Gold100_Source_Slot_Manifest_FILLED_v1.0.json",
-    "sampling_audit": "runs/E0.4.3/P0.2.4/Gold100_Sampling_Audit_v1.0.json",
-    "freeze_manifest": "runs/E0.4.3/P0.2.4/P0.2.4_Freeze_Manifest_v1.0.json",
-    "presampling_erratum": "paper_c/P0.2.4/Paper_C_P0_PreSampling_Feasibility_Erratum_v0.1.1.md"
+    "stage": "E0.4.3-P0.3",
+    "spec": "docs/E0.4.3-P0.3_Independent_Expert_Calibration_Annotation_Workbench_Validation_Reliability_Gate_Pre_Gold100_Annotation_Lock_v1.0.md",
+    "execution_manifest": "runs/E0.4.3/P0.3/P0.3_Execution_Manifest_v1.0.json",
+    "calibration24": "runs/E0.4.3/P0.3/Calibration24_Source_Set_FROZEN_v1.0.json",
+    "calibration24_sha": "runs/E0.4.3/P0.3/Calibration24_Source_Set_SHA256_v1.0.txt",
+    "workbench_contract": "paper_c/P0.3/Annotation_Workbench_Contract_v1.0.json",
+    "workbench_acceptance": "paper_c/P0.3/Annotation_Workbench_Implementation_Acceptance_Contract_v1.0.json",
+    "reliability_contract": "paper_c/P0.3/Reliability_Gate_Contract_v1.0.json",
+    "machine_conformance": "runs/E0.4.3/P0.3/P0.3_Workbench_Contract_Conformance_Report_v1.0.json"
   },
   "parent": {
     "repository": "gitzhangcd/NutriFoundation",
@@ -33,7 +34,7 @@
     "p0_2_2": "PASS_RAW_REGISTRY_FROZEN",
     "p0_2_3": "PASS_FROZEN_READY_FOR_SAMPLING",
     "p0_2_4": "PASS_GOLD100_SOURCE_SET_FROZEN",
-    "p0_3": "Independent Expert Calibration",
+    "p0_3": "IN_PROGRESS_BLOCKED_BY_WORKBENCH_IMPLEMENTATION",
     "p0_4": "Gold100 Dual Annotation & Adjudication",
     "p1": "AB0-AB6 Strict-Blind Confirmatory Execution",
     "p2": "CSER / Human-Burden / Kill-Test Analysis"
@@ -179,7 +180,7 @@
     "AB0-AB6 and K01-K14 remain frozen",
     "no post-unblinding adaptation to improve observed results"
   ],
-  "next_stage": "E0.4.3-P0.3",
+  "next_stage": "E0.4.3-P0.3-H0A",
   "gold_governance": {
     "gold_owner": "Gold100 Independent Gold Panel",
     "AB0_is_gold": false,
@@ -197,5 +198,24 @@
     "orthogonal_tag_types": 8,
     "stress_strata": 6,
     "artificial_missing_text_creation_prohibited": true
+  },
+  "p0_3": {
+    "overall_status": "NOT_YET_PASS",
+    "calibration24": {
+      "status": "FROZEN",
+      "count": 24,
+      "sha256": "ec793d52a130b98aaefebdb40b85356ed88543aea2b8eff63a7fcd9f8212af33",
+      "round_A": 12,
+      "round_B": 12
+    },
+    "machine_conformance": "PASS",
+    "workbench_implementation": "NOT_PRESENT",
+    "human_smoke_test": "BLOCKED",
+    "expert_assignment": "NOT_STARTED",
+    "round_A": "NOT_STARTED",
+    "round_B": "NOT_STARTED",
+    "reliability_metrics": "NOT_AVAILABLE",
+    "Gold100_annotation": "PROHIBITED",
+    "next_gate": "P0.3-H0A Workbench Implementation & Automated Acceptance"
   }
 }

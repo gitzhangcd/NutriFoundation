@@ -1,6 +1,6 @@
 {
   "stage": "E0.4.3-P0.2.3",
-  "excluded_count": 370,
+  "excluded_count": 394,
   "records": [
     {
       "candidate_id": "G100-CAND-000001",
@@ -14247,6 +14247,124 @@
       "record_sha256": "d9a5d71fdac01a11e687feb600803946e76b9063b0438910b54424c7acbb7948"
     },
     {
+      "candidate_id": "G100-CAND-000129",
+      "pmid": "29480200",
+      "pmcid": "PMC5836397",
+      "doi": "10.3233/JAD-171042",
+      "title": "Homocysteine and Dementia: An International Consensus Statement.",
+      "source_family": "guideline_or_consensus",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 1714,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2018-02-27T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "PMID:29480200",
+        "status": "identity_resolved_other",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": false,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:29480200"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2018-02-27T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "PMID:29480200",
+              "status": "identity_resolved_other",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=1714"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "84a93b24db071bbc807f0fcdace1d90b3f01720b755d4f043d83630691ab3baf",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "c8af547423bbd445cfb13a97565f071ba825dc06960088d6b8b499adb4c3611b"
+    },
+    {
       "candidate_id": "G100-CAND-000130",
       "pmid": "29483829",
       "pmcid": "PMC5821053",
@@ -24968,124 +25086,6 @@
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
       "record_sha256": "64262ad9fe5e769c12e009c1e63519b03805146dbba8541d09054bacca49a3ef"
-    },
-    {
-      "candidate_id": "G100-CAND-000258",
-      "pmid": "35322333",
-      "pmcid": "PMC8942762",
-      "doi": "10.1007/s00394-022-02873-4",
-      "title": "Ultra-processed foods and obesity and adiposity parameters among children and adolescents: a systematic review.",
-      "source_family": "evidence_synthesis",
-      "domain": "nutrition_metabolic_cardiometabolic",
-      "source_text": {
-        "status": "unavailable",
-        "worker_visible_text_sha256": null,
-        "worker_visible_text_chars": 1665,
-        "pmc_xml_sha256": null,
-        "fulltext_xml_retrieved": false,
-        "license": null,
-        "text_definition": null
-      },
-      "temporal_version": {
-        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
-        "publication_date_basis": "2022-03-24T00:00:00+08:00",
-        "version_status": "original_current",
-        "version_chain_refs": []
-      },
-      "study_identity": {
-        "study_identity_cluster_id": "PMID:35322333",
-        "status": "identity_resolved_other",
-        "registration_ids": [],
-        "linked_candidate_ids": [],
-        "accidental_duplicate_risk": false
-      },
-      "challenge_tags": {
-        "numeric_complexity": false,
-        "causal_language_risk": false,
-        "StudyIdentity_dependency": false,
-        "correction_retraction_living_version": false,
-        "conflict": false,
-        "recommendation_exception": false,
-        "temporal_cutoff_sensitive": false,
-        "incomplete_source_text": false
-      },
-      "challenge_tag_evidence": {
-        "numeric_complexity": [],
-        "causal_language_risk": [],
-        "StudyIdentity_dependency": [],
-        "correction_retraction_living_version": [],
-        "conflict": {},
-        "recommendation_exception": [],
-        "temporal_cutoff_sensitive": [],
-        "incomplete_source_text": []
-      },
-      "stress_stratum": null,
-      "eligibility": {
-        "gate_results": {
-          "ELIG-01": {
-            "pass": true,
-            "evidence": "PMID:35322333"
-          },
-          "ELIG-02": {
-            "pass": false,
-            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
-          },
-          "ELIG-03": {
-            "pass": true,
-            "evidence": "original_current"
-          },
-          "ELIG-04": {
-            "pass": true,
-            "evidence": "2022-03-24T00:00:00+08:00"
-          },
-          "ELIG-05": {
-            "pass": true,
-            "evidence": "pubmed_publication_type"
-          },
-          "ELIG-06": {
-            "pass": true,
-            "evidence": "discovery_stratum"
-          },
-          "ELIG-07": {
-            "pass": true,
-            "evidence": {
-              "cluster": "PMID:35322333",
-              "status": "identity_resolved_other",
-              "linked": []
-            }
-          },
-          "ELIG-08": {
-            "pass": true,
-            "evidence": "text_chars=1665"
-          },
-          "ELIG-09": {
-            "pass": true,
-            "evidence": "Batch001 PMID overlap check"
-          },
-          "ELIG-10": {
-            "pass": true,
-            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
-          },
-          "ELIG-11": {
-            "pass": true,
-            "evidence": "P0.2.2 PubMed provenance"
-          },
-          "ELIG-12": {
-            "pass": true,
-            "evidence": "no automated fatal identity/fabrication signal"
-          }
-        },
-        "screening_state": "EXCLUDED",
-        "exclusion_reason_codes": [
-          "X02"
-        ]
-      },
-      "provenance": {
-        "source_registry_candidate_sha": null,
-        "pubmed_record_xml_sha256": "1c4ea40ff8dea55b8a8f080bf26764d5ade960fc4b63fa7f3902e81a6fce68b3",
-        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
-      },
-      "record_sha256": "3cd004c6dd462c5fbe0a13e26085b05e4135e07993d5f308884779b188d85036"
     },
     {
       "candidate_id": "G100-CAND-000259",
@@ -37291,6 +37291,158 @@
       "record_sha256": "764b39b20d70426c6ce54d269a93e907f80fd0f57d32c0075581fe677d68ab2e"
     },
     {
+      "candidate_id": "G100-CAND-000457",
+      "pmid": "40747302",
+      "pmcid": "PMC12310450",
+      "doi": "10.3389/fendo.2025.1593134",
+      "title": "Efficacy and safety of tirzepatide for weight loss in patients with obesity or type 2 diabetes: a systematic review and meta-analysis.",
+      "source_family": "evidence_synthesis",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 1968,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2025-07-17T00:00:00+08:00",
+        "version_status": "corrected",
+        "version_chain_refs": [
+          {
+            "ref_type": "ErratumIn",
+            "ref_source": "Front Endocrinol (Lausanne). 2025 Aug 25;16:1683829. doi: 10.3389/fendo.2025.1683829.",
+            "ref_pmid": "40927296",
+            "note": null
+          }
+        ]
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "PMID:40747302",
+        "status": "identity_resolved_other",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": true,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": true,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "or 15",
+          "95%",
+          "confidence interval",
+          "95%",
+          "p < 0.00001",
+          "95%",
+          "p < 0.00001",
+          "95%",
+          "p < 0.00001",
+          "95%",
+          "p < 0.00001",
+          "95%"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [
+          {
+            "ref_type": "ErratumIn",
+            "ref_source": "Front Endocrinol (Lausanne). 2025 Aug 25;16:1683829. doi: 10.3389/fendo.2025.1683829.",
+            "ref_pmid": "40927296",
+            "note": null
+          }
+        ],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [
+          {
+            "ref_type": "ErratumIn",
+            "ref_source": "Front Endocrinol (Lausanne). 2025 Aug 25;16:1683829. doi: 10.3389/fendo.2025.1683829.",
+            "ref_pmid": "40927296",
+            "note": null
+          }
+        ],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:40747302"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "corrected"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2025-07-17T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "PMID:40747302",
+              "status": "identity_resolved_other",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=1968"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "ddd62405d6ff31c4a79b07bd67994dd7c37f0a7bef69c9433c987a09e81a372a",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "9aae151c7792770a3c5a3f9a33a7e59c8516d031f591b2bba62e517576e3fa14"
+    },
+    {
       "candidate_id": "G100-CAND-000460",
       "pmid": "42410309",
       "pmcid": "PMC13449074",
@@ -47858,6 +48010,157 @@
       "record_sha256": "309d9bbb197836c2240296390b940e8a4174c4f62c24a160609f219c2e849cbe"
     },
     {
+      "candidate_id": "G100-CAND-000617",
+      "pmid": "38755195",
+      "pmcid": "PMC11099022",
+      "doi": "10.1038/s41387-024-00285-3",
+      "title": "Mediterranean diet as a strategy for preserving kidney function in patients with coronary heart disease with type 2 diabetes and obesity: a secondary analysis of CORDIOPREV randomized controlled trial.",
+      "source_family": "primary_interventional",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 2183,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2024-05-16T00:00:00+08:00",
+        "version_status": "corrected",
+        "version_chain_refs": [
+          {
+            "ref_type": "ErratumIn",
+            "ref_source": "Nutr Diabetes. 2024 Jun 12;14(1):44. doi: 10.1038/s41387-024-00304-3.",
+            "ref_pmid": "38866744",
+            "note": null
+          }
+        ]
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:NCT00924937",
+        "status": "independent_primary_report",
+        "registration_ids": [
+          "NCT00924937"
+        ],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": true,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": true,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "35%",
+          "22%",
+          "50%",
+          "28%",
+          "12%",
+          "55%",
+          "p < 0.05",
+          "p = 0.014",
+          "p = 0.024"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [
+          {
+            "ref_type": "ErratumIn",
+            "ref_source": "Nutr Diabetes. 2024 Jun 12;14(1):44. doi: 10.1038/s41387-024-00304-3.",
+            "ref_pmid": "38866744",
+            "note": null
+          }
+        ],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [
+          {
+            "ref_type": "ErratumIn",
+            "ref_source": "Nutr Diabetes. 2024 Jun 12;14(1):44. doi: 10.1038/s41387-024-00304-3.",
+            "ref_pmid": "38866744",
+            "note": null
+          }
+        ],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:38755195"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "corrected"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2024-05-16T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:NCT00924937",
+              "status": "independent_primary_report",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=2183"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "c9adff884bf6637d35b942cca8ce464b96a51d1bea3d692c05d3230462b51811",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "5e92d7e94e3ef112f65253dced41ef283bf068f8bcb253664ead417fc2690e34"
+    },
+    {
       "candidate_id": "G100-CAND-000634",
       "pmid": "40101427",
       "pmcid": "PMC12051141",
@@ -48530,6 +48833,2940 @@
         "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
       },
       "record_sha256": "45e8e1e2b5f26d1daa4bb44fd030a2787375d0ee33dcfbea1d03c6900432b7e7"
+    },
+    {
+      "candidate_id": "G100-CAND-000665",
+      "pmid": "23148200",
+      "pmcid": "PMC3474654",
+      "doi": "10.1177/2042018812445573",
+      "title": "Antihypertensive treatment in patients with class 3 obesity.",
+      "source_family": "guideline_or_consensus",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 718,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2012-11-14T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "PMID:23148200",
+        "status": "identity_resolved_other",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": false,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:23148200"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2012-11-14T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "title_or_abstract_formal_normative_signal"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "PMID:23148200",
+              "status": "identity_resolved_other",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=718"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "3d8b4bcd9bce8e005ed97986652abe0ee3c83d51ec6bc1865fea861cb61f93d7",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "0721b9b1ed176b8a5a78e04d0ccb5b39dd9964704b09f57e18f03643453088e9"
+    },
+    {
+      "candidate_id": "G100-CAND-000666",
+      "pmid": "28766127",
+      "pmcid": "PMC6448883",
+      "doi": "10.1007/s00125-017-4380-6",
+      "title": "Metabolic profiling of gestational diabetes in obese women during pregnancy.",
+      "source_family": "companion_or_secondary",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "d5df36ebb53bc72ad6d9b02525a2fc272e8bed1ae70e2ecb37cd0dae461767f9",
+        "worker_visible_text_chars": 33046,
+        "pmc_xml_sha256": "b741ac6a6a8310720b504a88283e0aff328b915d5b162169d219f44e5ae2206a",
+        "fulltext_xml_retrieved": true,
+        "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made.",
+        "text_definition": "PMCID-bound fullTextXML article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2017-08-01T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": null,
+        "status": "unresolved_hold",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": false,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:28766127"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC OA full text PMC6448883"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2017-08-01T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "title_or_abstract"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": false,
+            "evidence": {
+              "cluster": null,
+              "status": "unresolved_hold",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=34873"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X07"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "88db4dd0720452bab4fa72a59d5c1345ef19daeef989a2de2c5c7ea0a8d352e0",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "656bb29b07b2dd19cecac9cb7e028044c43e331551fd5a61d263d36fba87e1d1"
+    },
+    {
+      "candidate_id": "G100-CAND-000670",
+      "pmid": "34313765",
+      "pmcid": "PMC8787851",
+      "doi": "10.1210/clinem/dgab547",
+      "title": "Weight Loss Prior to Pregnancy and Early Gestational Glycemia: Prepare, a Randomized Clinical Trial.",
+      "source_family": "primary_interventional",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 1865,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2021-07-27T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "PMID:34313765",
+        "status": "independent_primary_report",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": false,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:34313765"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2021-07-27T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "PMID:34313765",
+              "status": "independent_primary_report",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=1865"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "851752626778a8de0007bc9c4353411cb0ff84e37b850e417eba9c0ef430d5a9",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "d5456b0c90f2053de89eb4c899edb50d324db2f07f19fb1544badc4c7e0d100e"
+    },
+    {
+      "candidate_id": "G100-CAND-000671",
+      "pmid": "34487181",
+      "pmcid": "PMC8846334",
+      "doi": "10.1093/tbm/ibab116",
+      "title": "Diet quality and exercise in older veterans with PTSD: a pilot study.",
+      "source_family": "primary_interventional",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 1689,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2021-09-06T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "PMID:34487181",
+        "status": "independent_primary_report",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": false,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:34487181"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2021-09-06T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "PMID:34487181",
+              "status": "independent_primary_report",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=1689"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "edd9b820ec0075f0266d9872db655747aae110ea457a5ec7fbe3a0b0cf6a6439",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "8a1804bb199c8cafd702fd8c0aa5df89187821eba315097329a5684b65f009e1"
+    },
+    {
+      "candidate_id": "G100-CAND-000676",
+      "pmid": "38291301",
+      "pmcid": "PMC10878979",
+      "doi": "10.1038/s41591-023-02761-2",
+      "title": "Differential peripheral immune signatures elicited by vegan versus ketogenic diets in humans.",
+      "source_family": "companion_or_secondary",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 1651,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2024-01-30T00:00:00+08:00",
+        "version_status": "corrected",
+        "version_chain_refs": [
+          {
+            "ref_type": "ErratumIn",
+            "ref_source": "Nat Med. 2024 Jun;30(6):1785. doi: 10.1038/s41591-024-02884-0.",
+            "ref_pmid": "38409594",
+            "note": null
+          }
+        ]
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:NCT03878108",
+        "status": "companion_publication",
+        "registration_ids": [
+          "NCT03878108"
+        ],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": false,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": true,
+        "correction_retraction_living_version": true,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": true,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [
+          {
+            "ref_type": "ErratumIn",
+            "ref_source": "Nat Med. 2024 Jun;30(6):1785. doi: 10.1038/s41591-024-02884-0.",
+            "ref_pmid": "38409594",
+            "note": null
+          }
+        ],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [
+          {
+            "ref_type": "ErratumIn",
+            "ref_source": "Nat Med. 2024 Jun;30(6):1785. doi: 10.1038/s41591-024-02884-0.",
+            "ref_pmid": "38409594",
+            "note": null
+          }
+        ],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:38291301"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "corrected"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2024-01-30T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "title_or_abstract"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:NCT03878108",
+              "status": "companion_publication",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=1651"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "a9df5683fbb53da3c82f8bbcb259b5af88aa8a7d45b7ddabcd51be6f7a899685",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "dea0b5a7a71ecd82cd75e5f51053f039b0cfde0551d0ce39accf45649b50d659"
+    },
+    {
+      "candidate_id": "G100-CAND-000678",
+      "pmid": "38416593",
+      "pmcid": "PMC11015952",
+      "doi": "10.1093/eurheartj/ehae028",
+      "title": "Semaglutide and cardiovascular outcomes by baseline HbA1c in diabetes: the SUSTAIN 6 and PIONEER 6 trials.",
+      "source_family": null,
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "4c7d912522b19fe669ee911c7b312b803891398e72aafa0e0d3036b2b54a7e20",
+        "worker_visible_text_chars": 8593,
+        "pmc_xml_sha256": "1ce8ac0ccdb519f3978ed259bb376e350f1a3147b2002c6d9ac11c75658ab977",
+        "fulltext_xml_retrieved": true,
+        "license": "https://creativecommons.org/licenses/by/4.0/ This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( https://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.",
+        "text_definition": "PMCID-bound fullTextXML article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2024-02-28T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:NCT01720446",
+        "status": "identity_resolved_other",
+        "registration_ids": [
+          "NCT01720446",
+          "NCT02692716"
+        ],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "or 1.0",
+          "8%",
+          "8%",
+          "8%",
+          "8%",
+          "8%",
+          "8%",
+          "P < .05",
+          "64.5%",
+          "44.5%",
+          "8.4%",
+          "6.0%"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:38416593"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC OA full text PMC11015952"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2024-02-28T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": false,
+            "evidence": "unmappable"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:NCT01720446",
+              "status": "identity_resolved_other",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=8593"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X05"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "8b0832582e473f6f007ccac1e0deecb624301b252d5d92b5eddfd90e0da26daa",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "a279470b1be99ce039e1be066b90e28a2a932434dfb92a6fb3847793fef4e053"
+    },
+    {
+      "candidate_id": "G100-CAND-000682",
+      "pmid": "40717199",
+      "pmcid": "PMC12381612",
+      "doi": "10.1002/oby.24348",
+      "title": "Early-Onset Obesity and Tirzepatide Treatment: A Post Hoc Analysis of the SURMOUNT Clinical Trials.",
+      "source_family": "primary_interventional",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "13ba86df60bb5028de818cc80ec5f99f6803ba2f9553ce56afe5ce16945d390c",
+        "worker_visible_text_chars": 37924,
+        "pmc_xml_sha256": "ab156b839ef1aff6912c5c980d1966be8e208b2eb7a39c0198c53fd24677208c",
+        "fulltext_xml_retrieved": true,
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/ This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc-nd/4.0/ License, which permits use and distribution in any medium, provided the original work is properly cited, the use is non‐commercial and no modifications or adaptations are made.",
+        "text_definition": "PMCID-bound fullTextXML article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2025-07-27T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:NCT04184622",
+        "status": "independent_primary_report",
+        "registration_ids": [
+          "NCT04184622",
+          "NCT04657016",
+          "NCT04660643"
+        ],
+        "linked_candidate_ids": [
+          "G100-CAND-000680",
+          "G100-CAND-000684"
+        ],
+        "accidental_duplicate_risk": true
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": true,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "5.48%",
+          "0.4%",
+          "5.60%",
+          "0.4%",
+          "23%",
+          "22%",
+          "0.51%",
+          "0.52%",
+          "32%",
+          "31%",
+          "5.48%",
+          "0.4%"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [
+          "G100-CAND-000680",
+          "G100-CAND-000684"
+        ],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:40717199"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC OA full text PMC12381612"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2025-07-27T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": false,
+            "evidence": {
+              "cluster": "REG:NCT04184622",
+              "status": "independent_primary_report",
+              "linked": [
+                "G100-CAND-000680",
+                "G100-CAND-000684"
+              ]
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=39501"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X13"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "d41743e0932e97d6ebe58bf6232d68b1c7874d258ed2d569ebb846e76cf0e9d2",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "5e838da42ca34059d57b112c8814102bfff4afc7e9c3b62cf1fc7b4fb17d227b"
+    },
+    {
+      "candidate_id": "G100-CAND-000684",
+      "pmid": "41017451",
+      "pmcid": "PMC12587230",
+      "doi": "10.1111/dom.70143",
+      "title": "Tirzepatide and the 10-year predicted risk of cardiovascular disease and type 2 diabetes in adults with obesity and prediabetes: A post hoc analysis from the three-year SURMOUNT-1 trial.",
+      "source_family": "primary_interventional",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "8161c0a16865d27c76fd281dfe1b0d9b8c1dbfe3b0b07ca6e7f6818f69676c42",
+        "worker_visible_text_chars": 37186,
+        "pmc_xml_sha256": "2993c26534536d09fcd296616baa93a5539655cb4901180a595cb8e4a2d7c966",
+        "fulltext_xml_retrieved": true,
+        "license": "https://creativecommons.org/licenses/by-nc/4.0/ This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited and is not used for commercial purposes.",
+        "text_definition": "PMCID-bound fullTextXML article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2025-09-29T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:NCT04184622",
+        "status": "independent_primary_report",
+        "registration_ids": [
+          "NCT04184622",
+          "NCT04255433",
+          "NCT05556512"
+        ],
+        "linked_candidate_ids": [
+          "G100-CAND-000680",
+          "G100-CAND-000682"
+        ],
+        "accidental_duplicate_risk": true
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": true,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "4.6%",
+          "7.5%",
+          "9.2%",
+          "3.7%",
+          "6.3%",
+          "8.8%",
+          "57.9%",
+          "40.5%",
+          "p < 0.0001",
+          "17.0%",
+          "19.6%",
+          "19.5%"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [
+          "G100-CAND-000680",
+          "G100-CAND-000682"
+        ],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:41017451"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC OA full text PMC12587230"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2025-09-29T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": false,
+            "evidence": {
+              "cluster": "REG:NCT04184622",
+              "status": "independent_primary_report",
+              "linked": [
+                "G100-CAND-000680",
+                "G100-CAND-000682"
+              ]
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=38801"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X13"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "38695192d45b76498c251aeefd3a2cb631861b612e457f4724d2dd8a25596f0c",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "c8bdf3d47ee12b7c92ab5b07a595ebe5d75a9c858c65eb9e71c8faaad5dc2285"
+    },
+    {
+      "candidate_id": "G100-CAND-000690",
+      "pmid": "22088886",
+      "pmcid": "PMC3241965",
+      "doi": "10.1016/j.genm.2011.10.001",
+      "title": "Are male neonates more vulnerable to neonatal abstinence syndrome than female neonates?",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 1671,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2011-11-15T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "PMID:22088886",
+        "status": "independent_primary_report",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": false,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:22088886"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2011-11-15T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "PMID:22088886",
+              "status": "independent_primary_report",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=1671"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "df9d0df258c181efe673e3a75508abcdc648426948a9a548d1a09ebedede897e",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "3e561ecd119f861ce6e0f7d4e0ef50d00862513283fbae0c890c0f14b4e1c40c"
+    },
+    {
+      "candidate_id": "G100-CAND-000692",
+      "pmid": "22438520",
+      "pmcid": "PMC3311049",
+      "doi": "10.1161/CIRCHEARTFAILURE.111.963793",
+      "title": "Vitamin E supplementation and the risk of heart failure in women.",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 1495,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2012-03-23T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:NCT00000479",
+        "status": "independent_primary_report",
+        "registration_ids": [
+          "NCT00000479"
+        ],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "95%",
+          "P=0.59",
+          "50%",
+          "HR 0.59",
+          "95%",
+          "P=0.02",
+          "95%",
+          "P=0.26"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:22438520"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2012-03-23T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:NCT00000479",
+              "status": "independent_primary_report",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=1495"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "076ddd508c7a0694498ed5cb663bfe251abc353aef496509b2b36f8d7adfb618",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "4bcc52dcc1f77ce3f0621d8ae06e5a67dda5550b7b4def4e0bf706c0b0c1bc50"
+    },
+    {
+      "candidate_id": "G100-CAND-000693",
+      "pmid": "22617579",
+      "pmcid": "PMC3360417",
+      "doi": "10.1097/AOG.0b013e31825618fb",
+      "title": "Altering hirsutism through ovulation induction in women with polycystic ovary syndrome.",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 1454,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2012-05-24T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:NCT00068861",
+        "status": "independent_primary_report",
+        "registration_ids": [
+          "NCT00068861"
+        ],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": false,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:22617579"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2012-05-24T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:NCT00068861",
+              "status": "independent_primary_report",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=1454"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "4d3d2518f150f1af7afaf51207b04ef60458a918374c43f6e011f4a4d201f777",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "4439f52554f857c5f7cff9d046b4e4a8146b09ff07c7f9af0f38230c588555e5"
+    },
+    {
+      "candidate_id": "G100-CAND-000697",
+      "pmid": "25552576",
+      "pmcid": "PMC4335992",
+      "doi": "10.1212/WNL.0000000000001155",
+      "title": "Exercise for falls prevention in Parkinson disease: a randomized controlled trial.",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 2087,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2014-12-31T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:ACTRN12608000303347",
+        "status": "independent_primary_report",
+        "registration_ids": [
+          "ACTRN12608000303347"
+        ],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "95%",
+          "confidence interval",
+          "p = 0.18",
+          "p = 0.45",
+          "p < 0.001",
+          "95%",
+          "p < 0.001",
+          "95%",
+          "p = 0.13",
+          "p < 0.05"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:25552576"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2014-12-31T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:ACTRN12608000303347",
+              "status": "independent_primary_report",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=2087"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "545179c57e7cf878bca0a77779c51322080b056439d349bd69b08ed69a31ce97",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "da4263570573989456f006e17c5ee3869da37291458f1cdcbe2a7a2d730dc60a"
+    },
+    {
+      "candidate_id": "G100-CAND-000698",
+      "pmid": "25719754",
+      "pmcid": "PMC4418332",
+      "doi": "10.1513/AnnalsATS.201408-399OC",
+      "title": "Trazodone Effects on Obstructive Sleep Apnea and Non-REM Arousal Threshold.",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 1794,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2015-02-27T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "PMID:25719754",
+        "status": "independent_primary_report",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": false,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:25719754"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2015-02-27T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "PMID:25719754",
+              "status": "independent_primary_report",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=1794"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "1f2cd59be4cd1a2b20d2b286d6e470db1b131837396d25af86f6a1cb8ec2489f",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "5acaa4b81f75f9d512cbc08c4a6a799c90a62ca8341ce6448d31db69a177ecf5"
+    },
+    {
+      "candidate_id": "G100-CAND-000702",
+      "pmid": "27872058",
+      "pmcid": "PMC5364440",
+      "doi": "10.1182/blood-2016-07-730648",
+      "title": "A randomized assessment of adding the kinase inhibitor lestaurtinib to first-line chemotherapy for FLT3-mutated AML.",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 2149,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2016-11-21T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": [
+          {
+            "ref_type": "CommentIn",
+            "ref_source": "Blood. 2017 Mar 2;129(9):1061-1062. doi: 10.1182/blood-2016-12-754473.",
+            "ref_pmid": "28254820",
+            "note": null
+          }
+        ]
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:ISRCTN17161961",
+        "status": "independent_primary_report",
+        "registration_ids": [
+          "ISRCTN17161961",
+          "ISRCTN55675535"
+        ],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "74%",
+          "23%",
+          "2%",
+          "46%",
+          "45%",
+          "95%",
+          "P = .3",
+          "or 5",
+          "40%",
+          "36%",
+          "95%",
+          "P = .3"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:27872058"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2016-11-21T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:ISRCTN17161961",
+              "status": "independent_primary_report",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=2149"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "f44a22b171fff80ac0453931a4317f4a7bd4ff6db520dfe59dba7c54eef8418b",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "5f33fad4c77b34367ecf4081e246d366c09808125564c268a43a70c2ce50ae36"
+    },
+    {
+      "candidate_id": "G100-CAND-000707",
+      "pmid": "29246264",
+      "pmcid": "PMC5786835",
+      "doi": "10.5664/jcsm.6926",
+      "title": "Clinical Trial Enrollment Enrichment in Resource-Constrained Research Environments: Multivariable Apnea Prediction (MAP) Index in SCIP-PA Trial.",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 1776,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2017-12-17T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "PMID:29246264",
+        "status": "independent_primary_report",
+        "registration_ids": [],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "83.6%",
+          "46.4%",
+          "95.3%",
+          "68.7%",
+          "30.4%",
+          "57.6%",
+          "or 50"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:29246264"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2017-12-17T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "PMID:29246264",
+              "status": "independent_primary_report",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=1776"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "4272710a915c78b15c528a877a52afbba5082e3b6f6e0b1431c80dc45661fbd5",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "bada6873392453c0e7583fa74f08dbf65467b766d1bea03f9a9f6420cab051dc"
+    },
+    {
+      "candidate_id": "G100-CAND-000715",
+      "pmid": "31566680",
+      "pmcid": "PMC6777230",
+      "doi": "10.1001/jamaoncol.2019.4794",
+      "title": "Clinical Outcomes in Early Breast Cancer With a High 21-Gene Recurrence Score of 26 to 100 Assigned to Adjuvant Chemotherapy Plus Endocrine Therapy: A Secondary Analysis of the TAILORx Randomized Clinical Trial.",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 2216,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2019-10-01T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": [
+          {
+            "ref_type": "CommentIn",
+            "ref_source": "JAMA Oncol. 2020 Apr 1;6(4):585-586. doi: 10.1001/jamaoncol.2019.6709.",
+            "ref_pmid": "32053140",
+            "note": null
+          },
+          {
+            "ref_type": "CommentIn",
+            "ref_source": "JAMA Oncol. 2020 Apr 1;6(4):584-585. doi: 10.1001/jamaoncol.2019.6706.",
+            "ref_pmid": "32053151",
+            "note": null
+          },
+          {
+            "ref_type": "CommentIn",
+            "ref_source": "JAMA Oncol. 2020 Apr 1;6(4):586. doi: 10.1001/jamaoncol.2019.6712.",
+            "ref_pmid": "32053157",
+            "note": null
+          }
+        ]
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:NCT00310180",
+        "status": "independent_primary_report",
+        "registration_ids": [
+          "NCT00310180"
+        ],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "14%",
+          "42%",
+          "58%",
+          "42%",
+          "24%",
+          "18%",
+          "4%",
+          "6%",
+          "6%",
+          "93.0%",
+          "0.8%",
+          "91.0%"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:31566680"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2019-10-01T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:NCT00310180",
+              "status": "independent_primary_report",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=2216"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "d6f5ea504b4910fcfcbf9cb87b4263d9d0275f5fd966f45157ac716cd0a99e64",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "1c4f1401508594ea5ac76feca28139b1f5335396e956aa402cd1674dc7eb0eea"
+    },
+    {
+      "candidate_id": "G100-CAND-000716",
+      "pmid": "31851290",
+      "pmcid": "PMC6990948",
+      "doi": "10.1001/jamasurg.2019.5085",
+      "title": "Association of Prehospital Plasma Transfusion With Survival in Trauma Patients With Hemorrhagic Shock When Transport Times Are Longer Than 20 Minutes: A Post Hoc Analysis of the PAMPer and COMBAT Clinical Trials.",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 2478,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2019-12-19T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": [
+          {
+            "ref_type": "CommentIn",
+            "ref_source": "JAMA Surg. 2020 Feb 1;155(2):e195086. doi: 10.1001/jamasurg.2019.5086.",
+            "ref_pmid": "31851291",
+            "note": null
+          },
+          {
+            "ref_type": "CommentIn",
+            "ref_source": "JAMA Surg. 2020 Aug 1;155(8):784. doi: 10.1001/jamasurg.2020.1131.",
+            "ref_pmid": "32432663",
+            "note": null
+          }
+        ]
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:NCT01818427",
+        "status": "independent_primary_report",
+        "registration_ids": [
+          "NCT01818427",
+          "NCT01838863"
+        ],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "30%",
+          "or 2",
+          "74.6%",
+          "25.4%",
+          "95%",
+          "P = .01",
+          "95%",
+          "P = .04",
+          "95%",
+          "P = .46"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:31851290"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2019-12-19T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:NCT01818427",
+              "status": "independent_primary_report",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=2478"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "7b45aef3eab771128da9f8ec23bc5f12924bab34e04dae9c84fad8baad2315db",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "c044b38eb17c3e0daf5b1946c63f89a2b7cefd44ea36ac35e5eb01c9b0950a97"
+    },
+    {
+      "candidate_id": "G100-CAND-000717",
+      "pmid": "31898118",
+      "pmcid": "PMC7210324",
+      "doi": "10.1007/s11606-019-05455-z",
+      "title": "Short-Term VA Health Care Expenditures Following a Health Risk Assessment and Coaching Trial.",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 2017,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2020-01-02T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:NCT01828567",
+        "status": "independent_primary_report",
+        "registration_ids": [
+          "NCT01828567"
+        ],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": false,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:31898118"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2020-01-02T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:NCT01828567",
+              "status": "independent_primary_report",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=2017"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "7c6d05c3a35e8245fe8da4cdeb95b9521c3911feac364da987178ca26d1829a1",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "4630ac552d53a8e3d60209a10e4087092029f34da08bc2e2fae33731b0972e5c"
+    },
+    {
+      "candidate_id": "G100-CAND-000718",
+      "pmid": "32044942",
+      "pmcid": "PMC7042841",
+      "doi": "10.1001/jama.2020.0059",
+      "title": "Effect of Incisional Negative Pressure Wound Therapy vs Standard Wound Dressing on Deep Surgical Site Infection After Surgery for Lower Limb Fractures Associated With Major Trauma: The WHIST Randomized Clinical Trial.",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 2973,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2020-02-12T00:00:00+08:00",
+        "version_status": "corrected",
+        "version_chain_refs": [
+          {
+            "ref_type": "CommentIn",
+            "ref_source": "JAMA. 2020 Feb 11;323(6):513-514. doi: 10.1001/jama.2019.22531.",
+            "ref_pmid": "32044926",
+            "note": null
+          },
+          {
+            "ref_type": "CommentIn",
+            "ref_source": "JAMA. 2020 Jun 9;323(22):2343-2344. doi: 10.1001/jama.2020.5847.",
+            "ref_pmid": "32515809",
+            "note": null
+          },
+          {
+            "ref_type": "ErratumIn",
+            "ref_source": "JAMA. 2021 Jul 20;326(3):279. doi: 10.1001/jama.2021.7433.",
+            "ref_pmid": "34283200",
+            "note": null
+          }
+        ]
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:ISRCTN12702354",
+        "status": "independent_primary_report",
+        "registration_ids": [
+          "ISRCTN12702354"
+        ],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": true,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": true,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "36%",
+          "38%",
+          "57%",
+          "98%",
+          "5.84%",
+          "6.68%",
+          "95%",
+          "0.77%",
+          "95%",
+          "3.19%",
+          "1.66%",
+          "P = .52"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [
+          {
+            "ref_type": "CommentIn",
+            "ref_source": "JAMA. 2020 Feb 11;323(6):513-514. doi: 10.1001/jama.2019.22531.",
+            "ref_pmid": "32044926",
+            "note": null
+          },
+          {
+            "ref_type": "CommentIn",
+            "ref_source": "JAMA. 2020 Jun 9;323(22):2343-2344. doi: 10.1001/jama.2020.5847.",
+            "ref_pmid": "32515809",
+            "note": null
+          },
+          {
+            "ref_type": "ErratumIn",
+            "ref_source": "JAMA. 2021 Jul 20;326(3):279. doi: 10.1001/jama.2021.7433.",
+            "ref_pmid": "34283200",
+            "note": null
+          }
+        ],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [
+          {
+            "ref_type": "CommentIn",
+            "ref_source": "JAMA. 2020 Feb 11;323(6):513-514. doi: 10.1001/jama.2019.22531.",
+            "ref_pmid": "32044926",
+            "note": null
+          },
+          {
+            "ref_type": "CommentIn",
+            "ref_source": "JAMA. 2020 Jun 9;323(22):2343-2344. doi: 10.1001/jama.2020.5847.",
+            "ref_pmid": "32515809",
+            "note": null
+          },
+          {
+            "ref_type": "ErratumIn",
+            "ref_source": "JAMA. 2021 Jul 20;326(3):279. doi: 10.1001/jama.2021.7433.",
+            "ref_pmid": "34283200",
+            "note": null
+          }
+        ],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:32044942"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "corrected"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2020-02-12T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:ISRCTN12702354",
+              "status": "independent_primary_report",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=2973"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "28782dbbed8d27ad1e4c6a0bf3ac450abb4619af0c8d0926c3a7134d5919a728",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "fbf7d84f5b0d63d09e77061f73e7722a637e7704e6da4818bb2ae12bf99f5379"
+    },
+    {
+      "candidate_id": "G100-CAND-000719",
+      "pmid": "32138746",
+      "pmcid": "PMC7059389",
+      "doi": "10.1186/s12933-020-01002-x",
+      "title": "Legacy effect of fibrate add-on therapy in diabetic patients with dyslipidemia: a secondary analysis of the ACCORDION study.",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "c827e0687b112e66eb0f556882508d4dbe03f5dcabdb5d3df9aa3211f1ff01e8",
+        "worker_visible_text_chars": 23902,
+        "pmc_xml_sha256": "2bba77bdf454acdcbb305f71a0305b73af39440562118ace442597144922918e",
+        "fulltext_xml_retrieved": true,
+        "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative",
+        "text_definition": "PMCID-bound fullTextXML article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2020-03-05T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:NCT00000620",
+        "status": "independent_primary_report",
+        "registration_ids": [
+          "NCT00000620"
+        ],
+        "linked_candidate_ids": [
+          "G100-CAND-000672",
+          "G100-CAND-000673",
+          "G100-CAND-000674"
+        ],
+        "accidental_duplicate_risk": true
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": true,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "HR = 0.65",
+          "95%",
+          "P = 0.02",
+          "HR = 0.65",
+          "95%",
+          "P = 0.02",
+          "21%",
+          "8.3%",
+          "10%",
+          "95%",
+          "17.0%",
+          "90.0%"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [
+          "G100-CAND-000672",
+          "G100-CAND-000673",
+          "G100-CAND-000674"
+        ],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:32138746"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC OA full text PMC7059389"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2020-03-05T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": false,
+            "evidence": {
+              "cluster": "REG:NCT00000620",
+              "status": "independent_primary_report",
+              "linked": [
+                "G100-CAND-000672",
+                "G100-CAND-000673",
+                "G100-CAND-000674"
+              ]
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=26394"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X13"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "a175af81839cb01a0878e0e8ce3ae044ed71be4cbed5843abad6339eac85f925",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "fd83293d8e7da816d9ee29c3f99b21ba5e684636e29f55589841f1b1a7ca6f86"
+    },
+    {
+      "candidate_id": "G100-CAND-000723",
+      "pmid": "33057694",
+      "pmcid": "PMC8171799",
+      "doi": "10.1093/abm/kaaa085",
+      "title": "Effects of an Internet-Based Cognitive Behavioral Therapy for Insomnia Program on Work Productivity: A Secondary Analysis.",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 2161,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2020-10-15T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:NCT00328250",
+        "status": "independent_primary_report",
+        "registration_ids": [
+          "NCT00328250"
+        ],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "50%",
+          "95%",
+          "confidence interval",
+          "OR = 0.52",
+          "95%",
+          "OR = 0.50",
+          "95%",
+          "or 12",
+          "95%",
+          "95%",
+          "95%",
+          "95%"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:33057694"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2020-10-15T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:NCT00328250",
+              "status": "independent_primary_report",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=2161"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "16bed45fd41dff1f5457bc2469372519eb81f7aa15c7e9e40fe346e69022db88",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "b18a0e0674da6a16b7526797117e117e9168a15c80c0286da1aa6ea3c3d2c0fb"
+    },
+    {
+      "candidate_id": "G100-CAND-000724",
+      "pmid": "33131315",
+      "pmcid": "PMC7666049",
+      "doi": "10.1161/HYPERTENSIONAHA.120.16209",
+      "title": "Long-Term Blood Pressure Variability and Risk of Cardiovascular Disease Events Among Community-Dwelling Elderly.",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "source_text": {
+        "status": "unavailable",
+        "worker_visible_text_sha256": null,
+        "worker_visible_text_chars": 1813,
+        "pmc_xml_sha256": null,
+        "fulltext_xml_retrieved": false,
+        "license": null,
+        "text_definition": null
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2020-11-02T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:ISRCTN83772183",
+        "status": "independent_primary_report",
+        "registration_ids": [
+          "ISRCTN83772183",
+          "NCT01038583"
+        ],
+        "linked_candidate_ids": [],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": false,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "95%",
+          "95%",
+          "P =0.01",
+          "95%",
+          "P =0.03",
+          "95%",
+          "P =0.02",
+          "95%",
+          "P =0.02"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:33131315"
+          },
+          "ELIG-02": {
+            "pass": false,
+            "evidence": "no reproducible PMCID-bound fullTextXML available to current qualification run"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2020-11-02T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "pubmed_publication_type"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "discovery_stratum"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:ISRCTN83772183",
+              "status": "independent_primary_report",
+              "linked": []
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=1813"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "Batch001 PMID overlap check"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "P0.2.1/P0.2.2 prospective AB-blind construction"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "P0.2.2 PubMed provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no automated fatal identity/fabrication signal"
+          }
+        },
+        "screening_state": "EXCLUDED",
+        "exclusion_reason_codes": [
+          "X02"
+        ]
+      },
+      "provenance": {
+        "source_registry_candidate_sha": null,
+        "pubmed_record_xml_sha256": "60dfa1f59f7e40eb38a991a32525b90f8917ea125997ac33fa044b19d9247cdb",
+        "qualification_script": "scripts/paper_c/p0_2_3_qualify.py"
+      },
+      "record_sha256": "92ecff77da1bbbfb5587032bcb63e9443ede4b49333decb9fe8e0c04ea67ab8b"
     }
   ]
 }

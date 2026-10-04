@@ -1157,10 +1157,10 @@
       "candidate_id": "G100-CAND-000129",
       "pmid": "29480200",
       "pmcid": "PMC5836397",
-      "text_status": "official_full_text_frozen",
-      "worker_visible_text_sha256": "228fc78349c710ea120fe53a6956db854b10a76042084facef8e490e58b03c24",
-      "pmc_xml_sha256": "ad817c95db448327f96ece0aef0fd158280e1f371cd99295f8d97e925f8db813",
-      "license": "This is an open access article distributed under the terms of the Creative Commons Attribution Non-Commercial (CC BY-NC 4.0) License , which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited."
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
     },
     {
       "candidate_id": "G100-CAND-000130",
@@ -2318,10 +2318,10 @@
       "candidate_id": "G100-CAND-000258",
       "pmid": "35322333",
       "pmcid": "PMC8942762",
-      "text_status": "unavailable",
-      "worker_visible_text_sha256": null,
-      "pmc_xml_sha256": null,
-      "license": null
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "47657db6afb3e20ca764e9d8c829f35f4dce358b13802a58d5a6cef34a446462",
+      "pmc_xml_sha256": "98b9565a8b30c6bcf30da04559a84ac65dfbdbc57d1c0c6b068da6edcf672e25",
+      "license": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise "
     },
     {
       "candidate_id": "G100-CAND-000259",
@@ -4109,10 +4109,10 @@
       "candidate_id": "G100-CAND-000457",
       "pmid": "40747302",
       "pmcid": "PMC12310450",
-      "text_status": "official_full_text_frozen",
-      "worker_visible_text_sha256": "bcb1a8ba93f8cbc39f2da56569acf1f59597ddabcb6c140ac658e7819c4a4720",
-      "pmc_xml_sha256": "8917dd1f3565212a04fdffa5d8d2a9952bb98adfe6565290467467d9d8a8ed40",
-      "license": "This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms."
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
     },
     {
       "candidate_id": "G100-CAND-000458",
@@ -5549,10 +5549,10 @@
       "candidate_id": "G100-CAND-000617",
       "pmid": "38755195",
       "pmcid": "PMC11099022",
-      "text_status": "official_full_text_frozen",
-      "worker_visible_text_sha256": "f0826ead8606a0a808b4e1e628a80448ecd6784e06dfb93d7d1a5c6ebd5349bf",
-      "pmc_xml_sha256": "c9169e7113e1f15a6707dea647d3b82278321a072398e86f01aa09d04a4c434f",
-      "license": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise "
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
     },
     {
       "candidate_id": "G100-CAND-000618",
@@ -5976,6 +5976,546 @@
       "worker_visible_text_sha256": "5d307b2827762cc704a30fbfef602f82fb703c69039e0ce57dd23985d022bff6",
       "pmc_xml_sha256": "5f9094aa466b5f2f88b698be3283b8c608efcc7c725f4b093b262b45a65ce398",
       "license": "This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited and is not used for commercial purposes."
+    },
+    {
+      "candidate_id": "G100-CAND-000665",
+      "pmid": "23148200",
+      "pmcid": "PMC3474654",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000666",
+      "pmid": "28766127",
+      "pmcid": "PMC6448883",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "d5df36ebb53bc72ad6d9b02525a2fc272e8bed1ae70e2ecb37cd0dae461767f9",
+      "pmc_xml_sha256": "b741ac6a6a8310720b504a88283e0aff328b915d5b162169d219f44e5ae2206a",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made."
+    },
+    {
+      "candidate_id": "G100-CAND-000667",
+      "pmid": "30924578",
+      "pmcid": "PMC6618272",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "92e3bb4451317bf87d35089a19ea3dcc2f6957bd3bde7e81971ddc2ad3644a2f",
+      "pmc_xml_sha256": "f11f934544382a47b0d4b9beeda3b3c6b2471cd5c484cc52fefe601146b4c5a3",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000668",
+      "pmid": "33634589",
+      "pmcid": "PMC8277686",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "898b10db9811822dfdd4e73c579093163219e6a350d1e23d09b835b213128aa1",
+      "pmc_xml_sha256": "7afb982a9311cb05dfa35493eb348c7d4b27c58fe8a38b581e557e67b7ab7d58",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000669",
+      "pmid": "33802738",
+      "pmcid": "PMC8002510",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "14e448f37a5230122bb9919458159d489ecd518c364e82c2ffa85a518ff6902e",
+      "pmc_xml_sha256": "f9c655c1a83883cc73e1c90806ec7f132026b48d919e70c0afc01420bfc9f051",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000670",
+      "pmid": "34313765",
+      "pmcid": "PMC8787851",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000671",
+      "pmid": "34487181",
+      "pmcid": "PMC8846334",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000672",
+      "pmid": "34764938",
+      "pmcid": "PMC8576347",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "eeb86a7db3841c28a080238595fb87756c2f7ffe883540008560d6d32699be3c",
+      "pmc_xml_sha256": "b697194dc2c809780db92d996abb4e66514a7e0f0a834379cbc4c27c2a2e5b0d",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms."
+    },
+    {
+      "candidate_id": "G100-CAND-000673",
+      "pmid": "34777240",
+      "pmcid": "PMC8578879",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "921a17e92334f84579377fe8dac9327ddd7e483a0f1df6096be8cc62a8d17706",
+      "pmc_xml_sha256": "104883d926f78f8e56a1acad50ce04f063a0e62f03dc50cb1779aff279009036",
+      "license": "This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms."
+    },
+    {
+      "candidate_id": "G100-CAND-000674",
+      "pmid": "36353230",
+      "pmcid": "PMC9637978",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "ec4aaec2f87746d5099cb89320479b9f400bd11420c597fea92dfe0686e6767f",
+      "pmc_xml_sha256": "440cd106e728a9021e2268edb130eb13daa3969cb0a0f203d04d4dfc27a23740",
+      "license": "This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms."
+    },
+    {
+      "candidate_id": "G100-CAND-000675",
+      "pmid": "37137684",
+      "pmcid": "PMC10359530",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "97a4478dd388d32dfdca4d7288aa8f2209c6559c59627a79f82f77f3dcc6f5f8",
+      "pmc_xml_sha256": "dd4939a53df716b1223c9a1351bf4f9129654297fab9324cda312249bc918f1c",
+      "license": "This is an open access article distributed in accordance with the Creative Commons Attribution Non Commercial (CC BY-NC 4.0) license, which permits others to distribute, remix, adapt, build upon this work non-commercially, and license their derivative works on different terms, provided the original work is properly cited, appropriate credit is given, any changes made indicated, and the use is non-commercial. See: http://creativecommons.org/licenses/by-nc/4.0/ ."
+    },
+    {
+      "candidate_id": "G100-CAND-000676",
+      "pmid": "38291301",
+      "pmcid": "PMC10878979",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000677",
+      "pmid": "38386318",
+      "pmcid": "PMC10884882",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "66a482a4cb53efa11581971480ba47faca793175e2ba2714c6958f7833688e28",
+      "pmc_xml_sha256": "0edbbb2892ac970adc8346d4f5d58af15d1060c3d9a0b280f8fba4f0f9c9fe7a",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the CC-BY License."
+    },
+    {
+      "candidate_id": "G100-CAND-000678",
+      "pmid": "38416593",
+      "pmcid": "PMC11015952",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "4c7d912522b19fe669ee911c7b312b803891398e72aafa0e0d3036b2b54a7e20",
+      "pmc_xml_sha256": "1ce8ac0ccdb519f3978ed259bb376e350f1a3147b2002c6d9ac11c75658ab977",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( https://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000679",
+      "pmid": "38639997",
+      "pmcid": "PMC11116907",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "156ce7cff9f60777ecd2f5d605b8150b3fd6f12de49e028972cb16751f25af61",
+      "pmc_xml_sha256": "424f0e6c6a7d375b739f62748d192e6e8994b576c421d9020338cea3e79ba87d",
+      "license": "https://www.diabetesjournals.org/journals/pages/license Readers may use this article as long as the work is properly cited, the use is educational and not for profit, and the work is not altered. More information is available at https://www.diabetesjournals.org/journals/pages/license ."
+    },
+    {
+      "candidate_id": "G100-CAND-000680",
+      "pmid": "40512543",
+      "pmcid": "PMC12591676",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "73e6214babdb847ed560777dc45744ef687fc1ec744110d2fa67cd780fbc240c",
+      "pmc_xml_sha256": "d628084a5dbedc5f0272992af122efa9a07e6d5db5d54abeac9cdf34240c7e1c",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the Creative Commons Attribution License 4.0 (CCBY) , which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000681",
+      "pmid": "40694530",
+      "pmcid": "PMC12368374",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "3b170ddbc8256a18f179e74b836b1a2d058c2feb849681a32e2781f3c86075c0",
+      "pmc_xml_sha256": "8382051c7e65d0a841234141e32c68aced69abd15bb0e04843142926665e232f",
+      "license": "Readers may use this article as long as the work is properly cited, the use is educational and not for profit, and the work is not altered. More information is available at https://www.diabetesjournals.org/journals/pages/license ."
+    },
+    {
+      "candidate_id": "G100-CAND-000682",
+      "pmid": "40717199",
+      "pmcid": "PMC12381612",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "13ba86df60bb5028de818cc80ec5f99f6803ba2f9553ce56afe5ce16945d390c",
+      "pmc_xml_sha256": "ab156b839ef1aff6912c5c980d1966be8e208b2eb7a39c0198c53fd24677208c",
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/ This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc-nd/4.0/ License, which permits use and distribution in any medium, provided the original work is properly cited, the use is non‐commercial and no modifications or adaptations are made."
+    },
+    {
+      "candidate_id": "G100-CAND-000683",
+      "pmid": "40980721",
+      "pmcid": "PMC12448458",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "6bdddbe1549640882230204149e31038be36cfb43d91692a6d6b2021fc73afac",
+      "pmc_xml_sha256": "a47ae29a21c4f9e074eaf504e86c951d249289f1b979cba6ada61eb72fef9ffb",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( https://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000684",
+      "pmid": "41017451",
+      "pmcid": "PMC12587230",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "8161c0a16865d27c76fd281dfe1b0d9b8c1dbfe3b0b07ca6e7f6818f69676c42",
+      "pmc_xml_sha256": "2993c26534536d09fcd296616baa93a5539655cb4901180a595cb8e4a2d7c966",
+      "license": "https://creativecommons.org/licenses/by-nc/4.0/ This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited and is not used for commercial purposes."
+    },
+    {
+      "candidate_id": "G100-CAND-000685",
+      "pmid": "41393101",
+      "pmcid": "PMC12695752",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "b2749166ad078e459ee3252a297de43ee84a6520eb3ae6d65ed4f951951332f4",
+      "pmc_xml_sha256": "5c4909d5a9869b8ad5710473b612bb2a7edc9e9b3000c8e55e26ab5c905428b1",
+      "license": "https://creativecommons.org/licenses/by/4.0/ This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY) . The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms."
+    },
+    {
+      "candidate_id": "G100-CAND-000686",
+      "pmid": "41635114",
+      "pmcid": "PMC12992187",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "a5047b57b7c328f38179fe0caa2850fcff34bdf71674fa3acbe3d4e8d0c03b48",
+      "pmc_xml_sha256": "163eb6914f1e6f0fe7974f7987a1dd28e085295de31315f26e141a2c4f4a5b49",
+      "license": "This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited and is not used for commercial purposes."
+    },
+    {
+      "candidate_id": "G100-CAND-000687",
+      "pmid": "42057080",
+      "pmcid": "PMC13274174",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "199c8303ba8dcdb4a68a2fe61c2d93cb3960699cd4d2c51894fa7952c29dfe93",
+      "pmc_xml_sha256": "2783d87c64014e14e79e7a1bd95680993ba7179531a59835d7925fd9abc001a6",
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/ Open Access This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this"
+    },
+    {
+      "candidate_id": "G100-CAND-000688",
+      "pmid": "19804626",
+      "pmcid": "PMC2784386",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "efaabdc75d8ba19719145f8ba7a1a0cdb2047d38e7e28f7351f96bfc120e4e3e",
+      "pmc_xml_sha256": "f9127b21a9e30ade165e7ff07ed38eec216ae7b5f55fec9f53788a682d8c2db8",
+      "license": "https://creativecommons.org/licenses/by/2.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License ( http://creativecommons.org/licenses/by/2.0 ), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000689",
+      "pmid": "21576129",
+      "pmcid": "PMC3148817",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "408770d49fab49ba93145031ae16852357cc36b1312dbfd3b9f5b6084fc2045c",
+      "pmc_xml_sha256": "98b0d64c40a00119eb8a7896cba8636ef496da0c09ba346cb3eb688c9f6d2721",
+      "license": "The online version of this article has been published under an open access model. Users are entitled to use, reproduce, disseminate, or display the open access version of this article for non-commercial purposes provided that the original authorship is properly and fully attributed; the Journal, Learned Society and Oxford University Press are attributed as the original place of publication with correct citation details given; if an article is subsequently reproduced or disseminated not in its en"
+    },
+    {
+      "candidate_id": "G100-CAND-000690",
+      "pmid": "22088886",
+      "pmcid": "PMC3241965",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000691",
+      "pmid": "22436129",
+      "pmcid": "PMC3368715",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "d64a4a6b2fc1445108dcf68497857e1ef3c969ea0d094f033b8f4a6be5378afe",
+      "pmc_xml_sha256": "f62d05904b62fbf70b749ceeb2e345c28de1bd68723e653bd88761d48635c6ba",
+      "license": "This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( http://creativecommons.org/licenses/by/2.0 ), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000692",
+      "pmid": "22438520",
+      "pmcid": "PMC3311049",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000693",
+      "pmid": "22617579",
+      "pmcid": "PMC3360417",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000694",
+      "pmid": "23137731",
+      "pmcid": "PMC3964866",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "038b370beffbde6d753ef256ae0565912053547b56a6de6f745844ff514d09b3",
+      "pmc_xml_sha256": "352a65bafb071921f85a1b58fb4f310dae926e30d93145660ca3ac845e0db4d5",
+      "license": "Royal College of Psychiatrists, This paper accords with the Wellcome Trust Open Access policy and is governed by the licence available at http://www.rcpsych.ac.uk/pdf/Wellcome%20Trust%20licence.pdf"
+    },
+    {
+      "candidate_id": "G100-CAND-000695",
+      "pmid": "23308216",
+      "pmcid": "PMC3540076",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "dc69635eb1f249b45f7cf6db5b20a8fac9091827084ab2f5e496382d2c6b7aa4",
+      "pmc_xml_sha256": "d7ee28aed3950217667c6b1869bd101d77c7313b4ce454c2744798a07f812835",
+      "license": "This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited."
+    },
+    {
+      "candidate_id": "G100-CAND-000696",
+      "pmid": "24559194",
+      "pmcid": "PMC3941932",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "547dd00f7fc9c5bd85f1442993904b69b33c35eae49941b1c23ae732f4923e29",
+      "pmc_xml_sha256": "8888c927517e6f536379153dd76382114959f95e3f3414d21346eabb78db44f0",
+      "license": "This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( http://creativecommons.org/licenses/by/2.0 ), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly credited."
+    },
+    {
+      "candidate_id": "G100-CAND-000697",
+      "pmid": "25552576",
+      "pmcid": "PMC4335992",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000698",
+      "pmid": "25719754",
+      "pmcid": "PMC4418332",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000699",
+      "pmid": "25758619",
+      "pmcid": "PMC4776722",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "147d5528158ec206424ea63b14d28d0872a373035b7724eefd0015f24a40ea24",
+      "pmc_xml_sha256": "b233227a2bbddf1aa5774bed39f34a329b42a1160150517f444e68bf48bc5d78",
+      "license": "This is an Open Access article distributed under the terms of the Creative Commons Attribution-NonCommercial-NoDerivs License ( http://creativecommons.org/Licenses/by-nc-nd/4.0/ ), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited, and is not altered, transformed, or built upon in any way."
+    },
+    {
+      "candidate_id": "G100-CAND-000700",
+      "pmid": "26269098",
+      "pmcid": "PMC4535824",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "28e83e586e9e8f2eb81adf3f6c5c143d431c6d60b848a37db36e73decb481946",
+      "pmc_xml_sha256": "b4d63caad7f9802c630791055ff15f4a70e82683848054555bbfe4b6b78dc9a9",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication wa"
+    },
+    {
+      "candidate_id": "G100-CAND-000701",
+      "pmid": "26818733",
+      "pmcid": "PMC4730769",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "61185ac173c12ea71e57ee29e82226446c8480c655ee5e0563095661d1b46956",
+      "pmc_xml_sha256": "a0ab0382d13ca29bf84e7ffb1f31e9dc081c3641a08a575e1ed6f0695dba9bdf",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication wa"
+    },
+    {
+      "candidate_id": "G100-CAND-000702",
+      "pmid": "27872058",
+      "pmcid": "PMC5364440",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000703",
+      "pmid": "27966192",
+      "pmcid": "PMC5949132",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "dce540dafcd267f35ead4658ac319c1b013fad90c8df9f2109de6d9014ace31c",
+      "pmc_xml_sha256": "1967b40510b36c1fffa1bfdb48989f46fc32908f8312ec551a3bd54e93ba8b71",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made."
+    },
+    {
+      "candidate_id": "G100-CAND-000704",
+      "pmid": "28211560",
+      "pmcid": "PMC5412871",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "9bf69e07277b70af2aa81d411ef4ae1edce2b123b2bed1dc80286ba885a9fd23",
+      "pmc_xml_sha256": "fb07e19134823de254a0405f245acf8a7b21638a262e26b5bf9772c3b2b4d438",
+      "license": "This is an open access article under the terms of the Creative Commons Attribution‐NonCommercial License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited and is not used for commercial purposes."
+    },
+    {
+      "candidate_id": "G100-CAND-000705",
+      "pmid": "29102982",
+      "pmcid": "PMC5722079",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "8dd65ac9df148f4c4804b449217c3cb25311eeb57f51976333f43e307f136abf",
+      "pmc_xml_sha256": "c70ccb82bbb379dadb35d99f814313eba0fcd3702a62f45fdf61ec43ace56544",
+      "license": "https://creativecommons.org/licenses/by-nc/4.0/ This is an Open Access article distributed in accordance with the Creative Commons Attribution Non Commercial (CC BY-NC 4.0) license, which permits others to distribute, remix, adapt, build upon this work non-commercially, and license their derivative works on different terms, provided the original work is properly cited and the use is non-commercial. See: http://creativecommons.org/licenses/by-nc/4.0/"
+    },
+    {
+      "candidate_id": "G100-CAND-000706",
+      "pmid": "29202730",
+      "pmcid": "PMC5716230",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "842f164ce2dc5ba1b8f6cb39045d46441dd6cee0d620da1c4a896b540f0f1552",
+      "pmc_xml_sha256": "3767729f826f00d56450dc307b605cca44af4c34e700e6af11766130d54f59cf",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication wa"
+    },
+    {
+      "candidate_id": "G100-CAND-000707",
+      "pmid": "29246264",
+      "pmcid": "PMC5786835",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000708",
+      "pmid": "29415145",
+      "pmcid": "PMC5913638",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "606e8c5b8b5302b03bf3c004eeee51fa14c005da05e43bc80de6eb603a818b4a",
+      "pmc_xml_sha256": "3a71befc07b3ec8db1195ea498819c0bb40570370ac8cfc70c0d38de2d7fa5c9",
+      "license": "https://creativecommons.org/licenses/by-nc/4.0/ This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License ( http://creativecommons.org/licenses/by-nc/4.0/ ), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited. For commercial re-use, please contact journals.permissions@oup.com"
+    },
+    {
+      "candidate_id": "G100-CAND-000709",
+      "pmid": "29695589",
+      "pmcid": "PMC5962917",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "a56709aa06a04a9c4c892798bb32a8d02a4c70ceac9588a45a5e839f7c08c692",
+      "pmc_xml_sha256": "01c2c7a67adcc955c2e554cfad401825a5ebc09de150cab5e14b676acb4c19d5",
+      "license": "This is an open access article distributed under the terms of the Creative Commons Attribution-NonCommercial-NoDerivatives License 4.0 (CC BY-NC-ND) , which permits downloading and sharing the work provided it is properly cited. The work cannot be changed in any way or used commercially without permission from the journal."
+    },
+    {
+      "candidate_id": "G100-CAND-000710",
+      "pmid": "30157911",
+      "pmcid": "PMC6116369",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "e6ec53b294939a1685d5a6bb205158cfe626ce647ebfc0976f25e56ecb42c1e4",
+      "pmc_xml_sha256": "166096cc85693f54ac33b3af9ede3b83f1590580e09e2c040338bd8c43b33c57",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication wa"
+    },
+    {
+      "candidate_id": "G100-CAND-000711",
+      "pmid": "30365341",
+      "pmcid": "PMC6467319",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "6983934fde06c53207cd4e5422e2f6a6fb38326ced114a2adc64ed9fc82069d7",
+      "pmc_xml_sha256": "73a1e2112f6fc94c064b6305d1a8a24b5cf02eda721ef75810ada393508bdbf0",
+      "license": "This article is open access and distributed under the terms of the Creative Commons Attribution 4.0 International License ( https://creativecommons.org/licenses/by/4.0/ )."
+    },
+    {
+      "candidate_id": "G100-CAND-000712",
+      "pmid": "30608620",
+      "pmcid": "PMC6532443",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "77aaa66130b483c395b7c800061c104f118353bd2b0a23a837d61e67abc5d91a",
+      "pmc_xml_sha256": "85e41ecc614cde673162347c72ad214ea152867305af7d70895644ec0f46ce6e",
+      "license": "https://creativecommons.org/licenses/by-nc/4.0/ This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License ( http://creativecommons.org/licenses/by-nc/4.0/ ), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited. For commercial re-use, please contact journals.permissions@oup.com"
+    },
+    {
+      "candidate_id": "G100-CAND-000713",
+      "pmid": "30857452",
+      "pmcid": "PMC6475071",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "f51481fdc5013f98744accbfc4b0549fa04b5c4da7f51dccb6a533bf69dd1e8f",
+      "pmc_xml_sha256": "9c95ac7f800deec64ac3cf46922c6f0affbef0ffc5b80b7497ab1fb895cfe751",
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/ This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc-nd/4.0/ License, which permits use and distribution in any medium, provided the original work is properly cited, the use is non‐commercial and no modifications or adaptations are made."
+    },
+    {
+      "candidate_id": "G100-CAND-000714",
+      "pmid": "31054219",
+      "pmcid": "PMC6711420",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "21323b5355021a53fe10f74bba589505d4ced441bd8762fe6106e257f3639d34",
+      "pmc_xml_sha256": "c2bfd802ea461b9b42e26ba48e8d6d28aa49948214d31233815162aea7c2105b",
+      "license": "This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited."
+    },
+    {
+      "candidate_id": "G100-CAND-000715",
+      "pmid": "31566680",
+      "pmcid": "PMC6777230",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000716",
+      "pmid": "31851290",
+      "pmcid": "PMC6990948",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000717",
+      "pmid": "31898118",
+      "pmcid": "PMC7210324",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000718",
+      "pmid": "32044942",
+      "pmcid": "PMC7042841",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000719",
+      "pmid": "32138746",
+      "pmcid": "PMC7059389",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "c827e0687b112e66eb0f556882508d4dbe03f5dcabdb5d3df9aa3211f1ff01e8",
+      "pmc_xml_sha256": "2bba77bdf454acdcbb305f71a0305b73af39440562118ace442597144922918e",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative"
+    },
+    {
+      "candidate_id": "G100-CAND-000720",
+      "pmid": "32316995",
+      "pmcid": "PMC7171853",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "38307b99b6098bc1351b597ef0f55996feddaca22ab584d0abd074e58eaf02c6",
+      "pmc_xml_sha256": "06896995a2b93621f80b1db61bcc5282a734c454d11f5fea063830a6b4854525",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative"
+    },
+    {
+      "candidate_id": "G100-CAND-000721",
+      "pmid": "32646424",
+      "pmcid": "PMC7350568",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "8f3a12c6c80e9ccd4ed92b7784c99fd7a80e6f850814a6fd3eb8e535ecd75717",
+      "pmc_xml_sha256": "e56616111befd79e24d51f21dc8e7aa5a292c57b38dce10966080ac8b05d841b",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative"
+    },
+    {
+      "candidate_id": "G100-CAND-000722",
+      "pmid": "32746775",
+      "pmcid": "PMC7398400",
+      "text_status": "official_full_text_frozen",
+      "worker_visible_text_sha256": "b2c33d70b12c041eb6b4cc2529a0073b253ec4f316058205561348855a407f13",
+      "pmc_xml_sha256": "1cb025acdf0f9501a431bc4e4c360e9c13b96f9b6b4d72f177d3de8e3186829f",
+      "license": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative"
+    },
+    {
+      "candidate_id": "G100-CAND-000723",
+      "pmid": "33057694",
+      "pmcid": "PMC8171799",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
+    },
+    {
+      "candidate_id": "G100-CAND-000724",
+      "pmid": "33131315",
+      "pmcid": "PMC7666049",
+      "text_status": "unavailable",
+      "worker_visible_text_sha256": null,
+      "pmc_xml_sha256": null,
+      "license": null
     }
   ]
 }

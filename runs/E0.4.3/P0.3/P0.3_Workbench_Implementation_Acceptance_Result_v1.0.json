@@ -1,0 +1,64 @@
+{
+  "stage_id": "E0.4.3-P0.3-H0A",
+  "artifact": "Annotation_Workbench_Implementation_Acceptance_Result",
+  "version": "v1.0",
+  "date": "2026-10-04",
+  "status": "PASS_AUTOMATED_IMPLEMENTATION_ACCEPTANCE_HUMAN_SMOKE_READY",
+  "acceptance_contract": {
+    "path": "paper_c/P0.3/Annotation_Workbench_Implementation_Acceptance_Contract_v1.0.json",
+    "blob_sha": "4fe1e25bde1ef97fc890c619ee0b842f22e0577b",
+    "mutated": false
+  },
+  "implementation": {
+    "build_id": "P03-WORKBENCH-REF-v0.1.0",
+    "tokenizer_id": "ws-token-v1",
+    "server_module": "src/nutrifoundation/workbench/p0_3.py",
+    "browser_ui": "paper_c/P0.3/workbench/index.html",
+    "tests": "tests/test_p0_3_workbench.py",
+    "runbook": "paper_c/P0.3/Annotation_Workbench_Runbook_v1.0.md",
+    "local_data_ignore": "runs/E0.4.3/P0.3/.gitignore"
+  },
+  "authority_hashes": {
+    "calibration24_sha256": "ec793d52a130b98aaefebdb40b85356ed88543aea2b8eff63a7fcd9f8212af33",
+    "gold100_sha256": "fdb1189647fe4022411d3ebfd6591da2398135aed398c88ca6f85236678420ad",
+    "automated_report_sha256": "5eacc36df2d65ceb4f8876eb1e7f5f1a8eb97fe79eff336bc62495c0602ef711"
+  },
+  "acceptance_layers": {
+    "L0_static_contract": {
+      "status": "PASS",
+      "workflow_run_id": 37177737106
+    },
+    "L1_automated_implementation_tests": {
+      "status": "PASS",
+      "workflow_run_id": 37177731675,
+      "report": "runs/E0.4.3/P0.3/P0.3_Workbench_Automated_Implementation_Test_Report_v1.0.json"
+    },
+    "engine_regression": {
+      "status": "PASS",
+      "code_workflow_run_id": 37177731648,
+      "post_runbook_workflow_run_id": 37177737019
+    },
+    "L2_human_smoke_test": {
+      "status": "READY_NOT_RUN",
+      "checklist": "paper_c/P0.3/Workbench_Human_Smoke_Test_Checklist_v1.0.md",
+      "result_template": "paper_c/P0.3/Human_Workbench_Smoke_Test_Result_Template_v1.0.json"
+    },
+    "L3_expert_round_A": {
+      "status": "BLOCKED_PENDING_H0_AND_H1"
+    }
+  },
+  "automated_invariants": [
+    "source hash mismatch blocks annotation",
+    "Gold100 access denied and audited",
+    "A/B first-pass visibility blocked before pair lock",
+    "locked first-pass record immutable",
+    "stable-token span round-trip preserved",
+    "Round B discussion blocked before metric freeze",
+    "independence/COI attestations required before lock",
+    "record hash and audit chain exported",
+    "repository loads 24 calibration sources and 100 hidden Gold100 IDs with zero overlap"
+  ],
+  "human_boundary": "WB-H01 through WB-H15 require direct observation in the real browser workbench; automation cannot sign this gate.",
+  "p0_3_pass": false,
+  "next_gate": "E0.4.3-P0.3-H0 Human Workbench Smoke Test"
+}

@@ -447,3 +447,5 @@ report={"stage":"E0.4.3-P0.2.3","status":pool_payload["status"],"raw_count":len(
 (OUT/"P0.2.3_Qualification_Report_v0.1.json").write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n")
 (OUT/"Eligible_Pool_SHA256_v0.1.txt").write_text(pool_sha+"\n")
 print(json.dumps(report,indent=2))
+
+# execution revision: batch PMC EFetch path; triggered from latest branch head

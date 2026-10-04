@@ -21,18 +21,38 @@ def canonical_sha(obj):
 def text_sha(s):
     return hashlib.sha256(s.encode("utf-8")).hexdigest()
 
-def get(url):
-    req=urllib.request.Request(url,headers={"User-Agent":"NutriFoundation-PaperC/0.4.3"})
-    with urllib.request.urlopen(req,timeout=60) as r:
-        return r.read()
+def get(url,retries=4):
+    import time
+    last=None
+    for i in range(retries):
+        try:
+            req=urllib.request.Request(url,headers={"User-Agent":"NutriFoundation-PaperC/0.4.3"})
+            with urllib.request.urlopen(req,timeout=60) as r:
+                return r.read()
+        except Exception as e:
+            last=e
+            time.sleep(min(8,1.5*(i+1)))
+    raise last
 
 def pubmed_xml(pmids):
     q=urllib.parse.urlencode({"db":"pubmed","id":",".join(pmids),"retmode":"xml","tool":"NutriFoundation","email":"noreply@example.invalid"})
     return ET.fromstring(get("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?"+q))
 
 def pmc_xml(pmcid):
-    url=f"https://www.ebi.ac.uk/europepmc/webservices/rest/{pmcid}/fullTextXML"
-    return ET.fromstring(get(url))
+    # Primary transport: Europe PMC fullTextXML. Fallback: NCBI PMC efetch.
+    try:
+        url=f"https://www.ebi.ac.uk/europepmc/webservices/rest/{pmcid}/fullTextXML"
+        return ET.fromstring(get(url,retries=3))
+    except Exception:
+        numeric=pmcid.replace("PMC","")
+        q=urllib.parse.urlencode({"db":"pmc","id":numeric,"retmode":"xml","tool":"NutriFoundation","email":"noreply@example.invalid"})
+        root=ET.fromstring(get("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?"+q,retries=4))
+        if root.tag=="article":
+            return root
+        art=root.find(".//article")
+        if art is None:
+            raise RuntimeError(f"PMC_XML_UNAVAILABLE:{pmcid}")
+        return art
 
 def txt(node):
     if node is None: return ""
@@ -411,3 +431,5 @@ print(json.dumps(audit,indent=2))
 # implementation repair: accept linked_companion_pmid alias from frozen amendment registry
 
 # implementation repair: derive StudyIdentity cluster directly from expected_registration_id
+
+# transport repair: PMC fullTextXML retries with NCBI efetch fallback

@@ -1,0 +1,61 @@
+{
+  "schema": "CalibrationAnnotationRecord",
+  "version": "v1.0",
+  "status": "FROZEN",
+  "scientific_payload_semantics": "same scientific object semantics as Gold100AnnotationRecord v1.0",
+  "fields": {
+    "calibration_identity": {
+      "calibration_slot_id": "string",
+      "calibration_round": [
+        "A",
+        "B",
+        "C_or_later_if_revalidation"
+      ],
+      "mode": [
+        "guided_training",
+        "blinded_reliability_validation"
+      ],
+      "annotator_role": [
+        "Calibration_Annotator_A",
+        "Calibration_Annotator_B"
+      ],
+      "annotator_pseudonymous_id": "string"
+    },
+    "source_binding": {
+      "candidate_id": "string",
+      "pmid": "string|null",
+      "pmcid": "string|null",
+      "doi": "string|null",
+      "exact_source_text_sha256": "string",
+      "source_text_status": "string",
+      "evidence_cutoff": "date|datetime"
+    },
+    "scientific_payload": {
+      "study_identity": "object",
+      "evidence_units": "array",
+      "applicability_boundary": "object",
+      "source_spans": "array",
+      "critical_error_opportunities": "array",
+      "annotation_quality": "object"
+    },
+    "independence_attestation": {
+      "no_Gold100_source_access": "boolean",
+      "no_AB_outputs_seen": "boolean",
+      "no_evaluator_scores_seen": "boolean",
+      "no_other_annotator_first_pass_seen_before_lock": "boolean",
+      "no_discussion_before_lock": "boolean",
+      "conflict_of_interest_declared": "boolean",
+      "conflict_of_interest_note": "string|null"
+    },
+    "timing": {
+      "active_annotation_seconds": "integer",
+      "pause_seconds": "integer",
+      "discussion_seconds": "integer|null"
+    },
+    "first_pass_lock": {
+      "canonical_record_sha256": "string",
+      "locked_at": "datetime",
+      "immutable_after_lock": "boolean"
+    }
+  }
+}

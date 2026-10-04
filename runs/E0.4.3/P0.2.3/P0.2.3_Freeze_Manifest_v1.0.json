@@ -1,0 +1,84 @@
+{
+  "stage_id": "E0.4.3-P0.2.3",
+  "title": "Eligible-Pool Qualification, Exact-Text / Version / StudyIdentity Resolution, Exclusion Adjudication & Pre-Sampling Hash Freeze",
+  "version": "v1.0",
+  "date": "2026-10-04",
+  "status": "PASS_FROZEN_READY_FOR_SAMPLING",
+  "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+  "authority_artifacts": {
+    "master": "docs/E0.4.3-P0.2.3_Eligible_Pool_Qualification_Exact_Text_Version_StudyIdentity_Resolution_Exclusion_Adjudication_Pre_Sampling_Hash_Freeze_v1.0.md",
+    "eligible_pool": "runs/E0.4.3/P0.2.3/Gold100_Eligible_Pool_FROZEN_v0.1.json",
+    "qualification_report": "runs/E0.4.3/P0.2.3/P0.2.3_Qualification_Report_v0.1.json",
+    "exclusion_registry": "runs/E0.4.3/P0.2.3/Gold100_Exclusion_Registry_v0.1.json",
+    "exact_text_manifest": "runs/E0.4.3/P0.2.3/Exact_Text_Hash_Manifest_v0.1.json",
+    "pool_sha_file": "runs/E0.4.3/P0.2.3/Eligible_Pool_SHA256_v0.1.txt",
+    "repair_lineage": "runs/E0.4.3/P0.2.3/Coverage_Repair_Lineage_v1.0.json",
+    "qualifier": "scripts/paper_c/p0_2_3_qualify.py",
+    "workflow": ".github/workflows/e0.4.3-p0.2.3-qualification.yml"
+  },
+  "counts": {
+    "raw": 724,
+    "eligible": 330,
+    "excluded": 394,
+    "fulltext_xml_retrieved_and_hashed": 389,
+    "incomplete_stress": 8
+  },
+  "coverage": {
+    "family": {
+      "primary_interventional": 113,
+      "primary_observational": 64,
+      "evidence_synthesis": 102,
+      "guideline_or_consensus": 34,
+      "companion_or_secondary": 17
+    },
+    "domain": {
+      "nutrition_metabolic_cardiometabolic": 253,
+      "external_biomedical_or_public_health": 77
+    },
+    "tags": {
+      "numeric_complexity": 308,
+      "causal_language_risk": 60,
+      "StudyIdentity_dependency": 20,
+      "correction_retraction_living_version": 39,
+      "conflict": 34,
+      "recommendation_exception": 26,
+      "temporal_cutoff_sensitive": 39,
+      "incomplete_source_text": 8
+    },
+    "stress": {
+      "correction_republication_retraction_or_living_version": 6,
+      "StudyIdentity_or_companion_dependency": 4,
+      "conflicting_evidence": 4,
+      "recommendation_exception_or_normative_boundary": 2,
+      "temporal_cutoff_sensitive": 2,
+      "incomplete_or_missing_source_text": 2
+    },
+    "gaps": {
+      "family": {},
+      "domain": {},
+      "tags": {},
+      "stress": {}
+    }
+  },
+  "eligible_pool_sha256": "ff33d849367c335e5b5cb8345b40a332b1417d0e8a4372eb462a0464a807565c",
+  "sampling_authorized": true,
+  "sampling_performed": false,
+  "sampling_seed_frozen": 20260930,
+  "final_workflow_run": {
+    "id": 37167937162,
+    "conclusion": "success"
+  },
+  "non_regression": {
+    "status": "PASS",
+    "checks": 14
+  },
+  "upstream_blob_shas": {
+    "R0_master": "f4e9e0e16463e7fd6cf4676201b49e4db44f90ab",
+    "P0_1_master": "8b66c0a818852c7d8f132c2bb79a250f691c3c48",
+    "P0_2_1_master": "fa35297e4a180b6b30245819897150676198f387",
+    "Gold100_slot_manifest": "5ee6bb48c345275f3d4f01111a637ac685458c5e",
+    "AB0_AB6_baseline": "5d4f10e94c60ff858a2d1340e9a6a3483456b72c",
+    "kill_test_registry": "196bb1fdaadd2d085ab01fcd77de4774b7500efe"
+  },
+  "next_stage": "E0.4.3-P0.2.4"
+}

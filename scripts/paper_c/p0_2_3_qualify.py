@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import json, re, hashlib, time, urllib.request, urllib.parse, xml.etree.ElementTree as ET
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -12,12 +13,12 @@ CUTOFF_DATE=datetime.fromisoformat(CUTOFF)
 TOOL="NutriFoundation_PaperC_P0_2_3"
 EMAIL="noreply@example.invalid"
 
-def http_get(url, retries=4):
+def http_get(url, retries=2):
     req=urllib.request.Request(url, headers={"User-Agent":"NutriFoundation/0.4.3 (Paper C evidence qualification)"})
     last=None
     for i in range(retries):
         try:
-            with urllib.request.urlopen(req, timeout=60) as r:
+            with urllib.request.urlopen(req, timeout=20) as r:
                 return r.read()
         except Exception as e:
             last=e
@@ -84,29 +85,31 @@ def oa_status(pmcid):
     except Exception as e:
         return {"open":False,"license":None,"href":None,"reason":"oa_check_error:"+type(e).__name__}
 
-def fetch_pmc_articles(pmcids):
-    out={}
-    numeric=[x.replace("PMC","") for x in pmcids]
-    for i in range(0,len(numeric),8):
-        ids=numeric[i:i+8]
-        try:
-            root=ET.fromstring(efetch("pmc",ids))
-        except Exception:
-            for n in ids:
-                try:
-                    root1=ET.fromstring(efetch("pmc",[n]))
-                    arts=root1.findall(".//article") if root1.tag!="article" else [root1]
-                    for art in arts:
-                        pid=txt(art.find(".//article-id[@pub-id-type='pmc']"))
-                        if pid: out[pid if pid.startswith("PMC") else "PMC"+pid]=art
-                except: pass
-                time.sleep(0.4)
-            continue
+def fetch_one_pmc(pmcid):
+    n=pmcid.replace("PMC","")
+    try:
+        root=ET.fromstring(efetch("pmc",[n]))
         arts=root.findall(".//article") if root.tag!="article" else [root]
         for art in arts:
             pid=txt(art.find(".//article-id[@pub-id-type='pmc']"))
-            if pid: out[pid if pid.startswith("PMC") else "PMC"+pid]=art
-        time.sleep(0.38)
+            pid=pid if pid.startswith("PMC") else ("PMC"+pid if pid else None)
+            if pid==pmcid:
+                return pmcid,art
+    except Exception as e:
+        return pmcid,None
+    return pmcid,None
+
+def fetch_pmc_articles(pmcids):
+    out={}
+    done=0
+    with ThreadPoolExecutor(max_workers=2) as ex:
+        futs={ex.submit(fetch_one_pmc,p):p for p in pmcids}
+        for fut in as_completed(futs):
+            pmcid,art=fut.result()
+            if art is not None: out[pmcid]=art
+            done+=1
+            if done%20==0 or done==len(pmcids):
+                print(f"PMC_PROGRESS {done}/{len(pmcids)} retrieved={len(out)}", flush=True)
     return out
 
 def worker_text_from_pmc(art):
@@ -451,3 +454,4 @@ print(json.dumps(report,indent=2))
 # execution revision: batch PMC EFetch path; triggered from latest branch head
 
 # execution revision: stale-run cancellation enabled
+# execution revision: individual PMC EFetch with bounded concurrency

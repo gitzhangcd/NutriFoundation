@@ -63,7 +63,7 @@ def semantic_classification(meta,source_record):
     ptypes=" | ".join(meta.get("publication_types",[])).lower()
     mesh_text=" ".join(meta.get("mesh",[]))
     text=(title+" "+abstract)
-    if PROTOCOL_RE.search(text) or "clinical trial protocol" in ptypes:
+    if PROTOCOL_RE.search(title) or "clinical trial protocol" in ptypes or "protocol" in ptypes:
         return None,None,"protocol_not_evidence_result"
     if VET_RE.search(title+" "+" ".join(meta.get("mesh",[]))) and "humans" not in " ".join(meta.get("mesh",[])).lower():
         return None,None,"nonhuman_or_veterinary"
@@ -87,7 +87,9 @@ def semantic_classification(meta,source_record):
     # Domain is calibration-specific and source-grounded. Use title/abstract/MeSH
     # plus the frozen source title as fallback; this prevents parser sparsity from
     # collapsing the whole corpus into "external".
-    domain_text=title+" "+abstract+" "+mesh_text+" "+(source_record.get("title") or "")
+    # Domain membership must reflect the source's primary topic, not an incidental
+    # nutrition/metabolic term in the abstract. Use title + MeSH + frozen title only.
+    domain_text=title+" "+mesh_text+" "+(source_record.get("title") or "")
     dom="nutrition_metabolic_cardiometabolic" if (TITLE_NUTRI_RE.search(domain_text) or MESH_NUTRI_RE.search(domain_text)) else "external_biomedical_or_public_health"
     return fam,dom,None
 
@@ -333,3 +335,5 @@ print(json.dumps(audit,indent=2))
 # calibration semantic tag derivation: resolved semantic companion/secondary implies StudyIdentity_dependency
 
 # implementation repair: PubMed metadata fallback + frozen StudyIdentity-supported companion classification
+
+# semantic refinement: protocol gate uses title/type; domain gate uses primary-topic title+MeSH only

@@ -95,7 +95,7 @@ fieldset{margin:8px 0;border:1px solid #ddd;border-radius:8px}.toolbar{display:f
 </main>
 
 <script>
-let token=null,current=null,round='A',selectedStart=null,selectedEnd=null;
+let token=null,current=null,round='A',activeStarted=null,activeAccum=0;
 const $=id=>document.getElementById(id);
 async function api(path,opt={}){
   opt.headers=Object.assign({"Content-Type":"application/json"},opt.headers||{});
@@ -122,11 +122,13 @@ async function loadSources(r){
 }
 async function openSource(cid){
  try{
-  const x=await api("/api/source/"+cid);current=cid;
+  const x=await api("/api/source/"+cid);current=cid;activeStarted=Date.now();activeAccum=0;setLockedUI(false);
   $("meta").innerHTML='<span class="badge">'+x.metadata.calibration_slot_id+'</span><span class="badge">'+x.metadata.source_text_status+'</span><br>'+x.metadata.title+'<br>PMID '+(x.metadata.pmid||'—')+' | SHA '+x.metadata.worker_visible_text_sha256;
   const v=$("viewer");v.innerHTML="";
   x.tokens.forEach((t,i)=>{const s=document.createElement("span");s.className="tok";s.dataset.i=t.i;s.textContent=t.text;v.appendChild(s);if(i<x.tokens.length-1)v.appendChild(document.createTextNode(" "));});
   $("spanResult").textContent="Tokenizer: "+x.tokenizer_id+" | tokens: "+x.tokens.length;
+  const own=await api("/api/record/"+cid);
+  if(own&&own.payload){hydrate(own.payload);if(own.status==="FIRST_PASS_LOCKED")setLockedUI(true);}
   $("err").textContent="";
  }catch(e){showErr(e)}
 }
@@ -144,19 +146,25 @@ async function bindSelection(){
  }catch(e){showErr(e)}
 }
 function obj(id){return JSON.parse($(id).value)}
+function setLockedUI(v){["study_identity","evidence_units","applicability_boundary","source_spans","critical_error_opportunities","annotation_quality","coi_note","activeSeconds"].forEach(id=>$(id).disabled=v);document.querySelectorAll(".att").forEach(x=>x.disabled=v);}
+function hydrate(p){const s=p.scientific_payload||{};["study_identity","evidence_units","applicability_boundary","source_spans","critical_error_opportunities","annotation_quality"].forEach(id=>{if(s[id]!==undefined)$(id).value=JSON.stringify(s[id],null,2)});const a=p.independence_attestation||{};document.querySelectorAll(".att").forEach(x=>x.checked=!!a[x.id]);$("coi_note").value=a.conflict_of_interest_note||"";if(p.timing)$("activeSeconds").value=p.timing.active_annotation_seconds||0;}
+function currentActiveSeconds(){if(activeStarted) return Math.max(Number($("activeSeconds").value)||0,Math.floor((activeAccum+(Date.now()-activeStarted))/1000));return Number($("activeSeconds").value)||0;}
 function payload(){
  const att={};document.querySelectorAll(".att").forEach(x=>att[x.id]=x.checked);att.conflict_of_interest_note=$("coi_note").value||null;
  return {scientific_payload:{
    study_identity:obj("study_identity"),evidence_units:obj("evidence_units"),applicability_boundary:obj("applicability_boundary"),
    source_spans:obj("source_spans"),critical_error_opportunities:obj("critical_error_opportunities"),annotation_quality:obj("annotation_quality")
- },independence_attestation:att,timing:{active_annotation_seconds:Number($("activeSeconds").value),pause_seconds:0,discussion_seconds:null}};
+ },independence_attestation:att,timing:{active_annotation_seconds:currentActiveSeconds(),pause_seconds:0,discussion_seconds:null}};
 }
 async function saveDraft(){try{if(!current)throw new Error("Select source");await api("/api/record/"+current,{method:"POST",body:JSON.stringify(payload())});$("output").textContent="saved";}catch(e){showErr(e)}}
-async function lockRecord(){try{if(!current)throw new Error("Select source");await saveDraft();const x=await api("/api/record/"+current+"/lock",{method:"POST",body:"{}"});$("output").textContent=JSON.stringify(x.first_pass_lock,null,2);}catch(e){showErr(e)}}
+async function lockRecord(){try{if(!current)throw new Error("Select source");await saveDraft();const x=await api("/api/record/"+current+"/lock",{method:"POST",body:"{}"});setLockedUI(true);$("output").textContent=JSON.stringify(x.first_pass_lock,null,2);}catch(e){showErr(e)}}
 async function viewPeer(){try{if(!current)throw new Error("Select source");const x=await api("/api/peer/"+current);$("output").textContent=JSON.stringify(x,null,2);}catch(e){showErr(e)}}
 async function checkDiscussion(){try{if(!current)throw new Error("Select source");const x=await api("/api/discussion/"+current);$("output").textContent=JSON.stringify(x,null,2);}catch(e){showErr(e)}}
 async function freezeMetric(){try{const x=await api("/api/metric-freeze",{method:"POST",body:JSON.stringify({report_sha256:$("metricHash").value.trim()})});$("output").textContent=JSON.stringify(x,null,2);}catch(e){showErr(e)}}
 async function exportRecord(){try{if(!current)throw new Error("Select source");const x=await api("/api/export/"+current);$("output").textContent=JSON.stringify(x,null,2);}catch(e){showErr(e)}}
+document.addEventListener("visibilitychange",()=>{if(document.hidden&&activeStarted){activeAccum+=Date.now()-activeStarted;activeStarted=null}else if(!document.hidden&&current&&!activeStarted){activeStarted=Date.now()}});
+window.addEventListener("blur",()=>{if(activeStarted){activeAccum+=Date.now()-activeStarted;activeStarted=null}});
+window.addEventListener("focus",()=>{if(current&&!activeStarted)activeStarted=Date.now()});
 </script>
 </body>
 </html>

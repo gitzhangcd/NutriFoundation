@@ -1,0 +1,54 @@
+{
+  "contract": "P0.3_Reliability_Gate",
+  "version": "v1.0",
+  "status": "FROZEN",
+  "population": "Calibration12B locked pre-adjudication paired records",
+  "field_families": {
+    "critical_categorical": [
+      "StudyIdentity_dependency_status",
+      "source_version_status",
+      "effect_direction",
+      "claim_type",
+      "recommendation_normative_status",
+      "critical_opportunity_applicability",
+      "criticality_classification"
+    ],
+    "ordinal": [
+      "causal_level_ordered_when_applicable",
+      "applicability_match_partial_mismatch_when_applicable"
+    ],
+    "numeric": [
+      "critical_source_reported_effect_value_with_measure_and_unit"
+    ],
+    "source_span": [
+      "source spans supporting critical scientific objects and critical opportunities"
+    ]
+  },
+  "numeric_equivalence": {
+    "primary_rule": "exact canonical source-reported value after formatting normalization",
+    "derived_values": "not eligible for primary numeric agreement unless prospectively declared",
+    "unit_change": "not equivalent unless canonical unit mapping was frozen before Round B"
+  },
+  "span_metric": {
+    "metric": "token_F1",
+    "token_identity": "stable token indices emitted by frozen workbench tokenizer over exact worker-visible source text",
+    "pairing": "same canonical scientific object / opportunity",
+    "empty_empty": "not included in applicable denominator",
+    "one_empty_one_nonempty": "F1=0"
+  },
+  "primary_thresholds": {
+    "critical_categorical_Gwet_AC1": 0.8,
+    "ordinal_weighted_agreement": 0.8,
+    "numeric_agreement": 0.95,
+    "source_span_token_F1": 0.85
+  },
+  "reporting": [
+    "primary corpus-level metrics",
+    "field-family diagnostics",
+    "applicable denominator per metric",
+    "missing/non-estimable cells",
+    "protocol-ambiguity counts",
+    "workbench-integrity violations"
+  ],
+  "adjudication_cannot_improve_reliability_metric": true
+}

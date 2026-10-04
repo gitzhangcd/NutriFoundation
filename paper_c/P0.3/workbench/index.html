@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>P0.3 Expert Annotation Workbench</title>
+<style>
+body{font-family:system-ui,-apple-system,sans-serif;margin:0;background:#f6f7f9;color:#111}
+header{padding:14px 20px;background:white;border-bottom:1px solid #ddd;position:sticky;top:0;z-index:2}
+main{display:grid;grid-template-columns:300px 1fr 520px;gap:12px;padding:12px;height:calc(100vh - 74px);box-sizing:border-box}
+.panel{background:white;border:1px solid #ddd;border-radius:10px;padding:12px;overflow:auto}
+input,select,button,textarea{font:inherit} button{padding:7px 10px;margin:3px;cursor:pointer}
+textarea{width:100%;min-height:95px;box-sizing:border-box;font-family:ui-monospace,monospace;font-size:12px}
+.source-item{padding:8px;border-bottom:1px solid #eee;cursor:pointer}
+.source-item:hover{background:#f3f3f3}.tok{white-space:pre-wrap}.tok.sel{outline:1px solid #777}
+#viewer{line-height:1.65}.badge{display:inline-block;padding:2px 7px;border:1px solid #aaa;border-radius:999px;font-size:12px;margin-right:6px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.small{font-size:12px;color:#555}
+.error{white-space:pre-wrap;color:#8b0000}.ok{color:#165c2b}.locked{font-weight:700}
+fieldset{margin:8px 0;border:1px solid #ddd;border-radius:8px}.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+</style>
+</head>
+<body>
+<header>
+  <strong>P0.3 Expert Annotation Workbench</strong>
+  <span id="build" class="small"></span>
+  <span id="status" class="small"></span>
+</header>
+<main>
+<section class="panel">
+  <h3>1. Expert session</h3>
+  <div class="grid2">
+    <select id="role"><option value="A">Annotator A</option><option value="B">Annotator B</option></select>
+    <input id="pseudonym" placeholder="Pseudonymous ID">
+  </div>
+  <button onclick="login()">Login</button>
+  <hr>
+  <div class="toolbar">
+    <button onclick="loadSources('A')">Round A</button>
+    <button onclick="loadSources('B')">Round B</button>
+  </div>
+  <div id="sources"></div>
+</section>
+
+<section class="panel">
+  <h3>2. Frozen source</h3>
+  <div id="meta" class="small">请选择来源。</div>
+  <div class="toolbar">
+    <input id="objectIds" placeholder="supported object IDs, comma separated" style="flex:1">
+    <button onclick="bindSelection()">Bind selected span</button>
+  </div>
+  <div id="spanResult" class="small"></div>
+  <hr>
+  <div id="viewer"></div>
+</section>
+
+<section class="panel">
+  <h3>3. Scientific annotation</h3>
+  <p class="small">所有 JSON 区域必须保持有效 JSON。Round B 在 metric freeze 前不得讨论。</p>
+
+  <fieldset><legend>StudyIdentity</legend><textarea id="study_identity">{"applicable":false,"study_identity_id":null,"dependency_status":"not_applicable","linked_source_ids":[],"rationale_span_refs":[]}</textarea></fieldset>
+  <fieldset><legend>EvidenceUnits</legend><textarea id="evidence_units">[]</textarea></fieldset>
+  <fieldset><legend>Applicability boundary</legend><textarea id="applicability_boundary">{"level":"source_level_evidence_scope","dimensions":{}}</textarea></fieldset>
+  <fieldset><legend>Source spans</legend><textarea id="source_spans">[]</textarea></fieldset>
+  <fieldset><legend>Critical-error opportunities</legend><textarea id="critical_error_opportunities">[]</textarea></fieldset>
+  <fieldset><legend>Annotation quality</legend><textarea id="annotation_quality">{"completeness":"complete","annotator_confidence":"moderate","uncertainty_reasons":[],"protocol_ambiguity_flag":false,"protocol_ambiguity_note":null}</textarea></fieldset>
+
+  <fieldset>
+    <legend>Independence / COI</legend>
+    <label><input type="checkbox" class="att" id="no_Gold100_source_access"> no Gold100 source access</label><br>
+    <label><input type="checkbox" class="att" id="no_AB_outputs_seen"> no AB outputs seen</label><br>
+    <label><input type="checkbox" class="att" id="no_evaluator_scores_seen"> no evaluator scores seen</label><br>
+    <label><input type="checkbox" class="att" id="no_other_annotator_first_pass_seen_before_lock"> no peer first-pass seen before lock</label><br>
+    <label><input type="checkbox" class="att" id="no_discussion_before_lock"> no discussion before lock</label><br>
+    <label><input type="checkbox" class="att" id="conflict_of_interest_declared"> COI declaration completed</label><br>
+    <input id="coi_note" placeholder="COI note (optional)" style="width:100%">
+  </fieldset>
+
+  <div class="toolbar">
+    <label>Active seconds <input id="activeSeconds" type="number" min="0" value="0" style="width:90px"></label>
+    <button onclick="saveDraft()">Save draft</button>
+    <button onclick="lockRecord()">FIRST_PASS_LOCK</button>
+    <button onclick="viewPeer()">View peer / diff</button>
+    <button onclick="checkDiscussion()">Discussion state</button>
+    <button onclick="exportRecord()">Export</button>
+  </div>
+
+  <fieldset>
+    <legend>Round B metric freeze (custodial smoke-test control)</legend>
+    <input id="metricHash" placeholder="64-char reliability report SHA256" style="width:100%">
+    <button onclick="freezeMetric()">Freeze Round B metric</button>
+  </fieldset>
+  <pre id="output" class="small"></pre>
+  <div id="err" class="error"></div>
+</section>
+</main>
+
+<script>
+let token=null,current=null,round='A',selectedStart=null,selectedEnd=null;
+const $=id=>document.getElementById(id);
+async function api(path,opt={}){
+  opt.headers=Object.assign({"Content-Type":"application/json"},opt.headers||{});
+  if(token) opt.headers["X-Workbench-Token"]=token;
+  const r=await fetch(path,opt); const x=await r.json();
+  if(!r.ok) throw new Error(x.error||r.statusText); return x;
+}
+function showErr(e){$("err").textContent=String(e);}
+
+async function login(){
+ try{
+  const x=await api("/api/login",{method:"POST",body:JSON.stringify({role:$("role").value,pseudonym:$("pseudonym").value})});
+  token=x.token;$("build").textContent=" | "+x.build_id;$("status").textContent=" | session active";$("err").textContent="";
+  await loadSources('A');
+ }catch(e){showErr(e)}
+}
+async function loadSources(r){
+ try{
+  round=r;const xs=await api("/api/sources?round="+r);$("sources").innerHTML="";
+  xs.forEach(x=>{const d=document.createElement("div");d.className="source-item";
+   d.textContent=x.calibration_slot_id+" | "+x.source_family+" | "+x.title;
+   d.onclick=()=>openSource(x.candidate_id);$("sources").appendChild(d);});
+ }catch(e){showErr(e)}
+}
+async function openSource(cid){
+ try{
+  const x=await api("/api/source/"+cid);current=cid;
+  $("meta").innerHTML='<span class="badge">'+x.metadata.calibration_slot_id+'</span><span class="badge">'+x.metadata.source_text_status+'</span><br>'+x.metadata.title+'<br>PMID '+(x.metadata.pmid||'—')+' | SHA '+x.metadata.worker_visible_text_sha256;
+  const v=$("viewer");v.innerHTML="";
+  x.tokens.forEach((t,i)=>{const s=document.createElement("span");s.className="tok";s.dataset.i=t.i;s.textContent=t.text;v.appendChild(s);if(i<x.tokens.length-1)v.appendChild(document.createTextNode(" "));});
+  $("spanResult").textContent="Tokenizer: "+x.tokenizer_id+" | tokens: "+x.tokens.length;
+  $("err").textContent="";
+ }catch(e){showErr(e)}
+}
+function tokNode(n){if(!n)return null;const e=n.nodeType===1?n:n.parentElement;return e&&e.closest?e.closest(".tok"):null}
+async function bindSelection(){
+ try{
+  if(!current)throw new Error("Select a source first");
+  const s=window.getSelection();if(!s||s.rangeCount===0||s.isCollapsed)throw new Error("Select source text first");
+  const a=tokNode(s.anchorNode),f=tokNode(s.focusNode);if(!a||!f)throw new Error("Selection must stay inside source viewer");
+  let i=Number(a.dataset.i),j=Number(f.dataset.i);const start=Math.min(i,j),end=Math.max(i,j)+1;
+  const ids=$("objectIds").value.split(",").map(x=>x.trim()).filter(Boolean);
+  const span=await api("/api/span/"+current,{method:"POST",body:JSON.stringify({start_token:start,end_token:end,supported_object_ids:ids})});
+  const arr=JSON.parse($("source_spans").value||"[]");arr.push(Object.assign({span_id:"SPAN-"+String(arr.length+1).padStart(3,"0")},span));$("source_spans").value=JSON.stringify(arr,null,2);
+  $("spanResult").textContent="Bound ["+start+","+end+"): "+span.exact_text;
+ }catch(e){showErr(e)}
+}
+function obj(id){return JSON.parse($(id).value)}
+function payload(){
+ const att={};document.querySelectorAll(".att").forEach(x=>att[x.id]=x.checked);att.conflict_of_interest_note=$("coi_note").value||null;
+ return {scientific_payload:{
+   study_identity:obj("study_identity"),evidence_units:obj("evidence_units"),applicability_boundary:obj("applicability_boundary"),
+   source_spans:obj("source_spans"),critical_error_opportunities:obj("critical_error_opportunities"),annotation_quality:obj("annotation_quality")
+ },independence_attestation:att,timing:{active_annotation_seconds:Number($("activeSeconds").value),pause_seconds:0,discussion_seconds:null}};
+}
+async function saveDraft(){try{if(!current)throw new Error("Select source");await api("/api/record/"+current,{method:"POST",body:JSON.stringify(payload())});$("output").textContent="saved";}catch(e){showErr(e)}}
+async function lockRecord(){try{if(!current)throw new Error("Select source");await saveDraft();const x=await api("/api/record/"+current+"/lock",{method:"POST",body:"{}"});$("output").textContent=JSON.stringify(x.first_pass_lock,null,2);}catch(e){showErr(e)}}
+async function viewPeer(){try{if(!current)throw new Error("Select source");const x=await api("/api/peer/"+current);$("output").textContent=JSON.stringify(x,null,2);}catch(e){showErr(e)}}
+async function checkDiscussion(){try{if(!current)throw new Error("Select source");const x=await api("/api/discussion/"+current);$("output").textContent=JSON.stringify(x,null,2);}catch(e){showErr(e)}}
+async function freezeMetric(){try{const x=await api("/api/metric-freeze",{method:"POST",body:JSON.stringify({report_sha256:$("metricHash").value.trim()})});$("output").textContent=JSON.stringify(x,null,2);}catch(e){showErr(e)}}
+async function exportRecord(){try{if(!current)throw new Error("Select source");const x=await api("/api/export/"+current);$("output").textContent=JSON.stringify(x,null,2);}catch(e){showErr(e)}}
+</script>
+</body>
+</html>

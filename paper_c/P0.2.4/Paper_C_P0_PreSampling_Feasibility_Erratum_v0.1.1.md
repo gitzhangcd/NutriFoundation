@@ -2,10 +2,7 @@
 
 ## Status
 
-[
-oxed{	extbf{PROSPECTIVE PRE-SAMPLING NORMATIVE DELTA}}
-]
-
+**PROSPECTIVE PRE-SAMPLING NORMATIVE DELTA**
 Date: 2026-10-04  
 Applies to: Paper C Gold100 confirmatory source selection  
 Parent: `paper_c/P0/Paper_C_P0_Scientific_Evidence_Production_Study_v0.1.md`

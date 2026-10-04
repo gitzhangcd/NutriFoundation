@@ -1,0 +1,44 @@
+name: E0.4.3 P0.3 Workbench Contract Conformance
+
+on:
+  push:
+    branches:
+      - e0.4.3-batch002-independent-gold
+    paths:
+      - 'paper_c/P0.3/**'
+      - 'scripts/paper_c/p0_3_validate_contracts.py'
+      - '.github/workflows/e0.4.3-p0.3-workbench-conformance.yml'
+      - 'runs/E0.4.3/P0.3/Calibration24_Source_Set_FROZEN_v1.0.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: e0.4.3-p0.3-workbench-conformance
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: e0.4.3-batch002-independent-gold
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate P0.3 contracts
+        run: python scripts/paper_c/p0_3_validate_contracts.py
+      - name: Commit conformance report
+        run: |
+          git config user.name "NutriFoundation P0.3 Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add runs/E0.4.3/P0.3/P0.3_Workbench_Contract_Conformance_Report_v1.0.json
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "test(E0.4.3-P0.3): freeze workbench contract conformance [skip ci]"
+            git push origin HEAD:e0.4.3-batch002-independent-gold
+          fi

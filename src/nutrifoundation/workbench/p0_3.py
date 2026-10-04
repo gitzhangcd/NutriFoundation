@@ -633,8 +633,10 @@ class P03Workbench:
                     "event_hash": r["event_hash"],
                 }
                 for r in con.execute(
-                    "SELECT * FROM audit_event WHERE candidate_id=? OR candidate_id IS NULL ORDER BY event_id",
-                    (candidate_id,),
+                    """SELECT * FROM audit_event
+                    WHERE role=? OR candidate_id=? OR candidate_id IS NULL
+                    ORDER BY event_id""",
+                    (role, candidate_id),
                 ).fetchall()
             ]
         self.audit("export", role=role, candidate_id=candidate_id)

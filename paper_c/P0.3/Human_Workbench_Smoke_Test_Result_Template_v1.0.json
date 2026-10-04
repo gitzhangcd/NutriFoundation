@@ -1,11 +1,11 @@
 {
   "artifact": "P0.3_Human_Workbench_Smoke_Test_Result",
   "version": "v1.0",
-  "status": "NOT_RUN",
+  "status": "BLOCKED_BY_WORKBENCH_IMPLEMENTATION",
   "executed_by": null,
   "executed_at": null,
   "workbench_version": "v1.0",
-  "calibration24_source_set_sha256": "79e439c9d14c759eb70d76f289a2a3372d47a8c3519f9816c747fa7c4ab4b0e3",
+  "calibration24_source_set_sha256": "ec793d52a130b98aaefebdb40b85356ed88543aea2b8eff63a7fcd9f8212af33",
   "checks": [
     {
       "id": "WB-H01",
@@ -99,6 +99,8 @@
     }
   ],
   "pass_rule": "all checks == PASS",
-  "blocking_defects": [],
-  "overall_result": "NOT_RUN"
+  "blocking_defects": [
+    "No runnable P0.3 annotation workbench implementation is present in the repository as of this freeze state."
+  ],
+  "overall_result": "BLOCKED_BY_WORKBENCH_IMPLEMENTATION"
 }

@@ -41,7 +41,8 @@ eligible sources    = 330
 excluded sources    = 394
 eligible pool SHA256 = ff33d849367c335e5b5cb8345b40a332b1417d0e8a4372eb462a0464a807565c
 sampling_authorized = true
-sampling_performed  = false
+sampling_performed_at_P0.2.3 = false
+sampling_performed_at_P0.2.4 = true
 ```
 
 ## Planned execution chain
@@ -63,9 +64,9 @@ Important:
 
 ```text
 No Gold100 sampling occurred during P0.2.3.
-P0.2.4 must use seed = 20260930.
-Sampling must use the frozen 330-source eligible pool and its SHA256.
-Core80 + Stress20, 80/20 domain split, family quotas, challenge minima, and StudyIdentity non-duplication remain frozen.
+P0.2.4 subsequently used the frozen seed = 20260930.
+P0.2.4 preserved the frozen 330-source parent pool and its SHA256, then applied the explicit pre-sampling feasibility amendment to form the 333-source sampling universe.
+Core80 + Stress20, 80/20 domain split, family quotas, Stress20 quotas, all non-conflicting challenge minima, and StudyIdentity non-duplication remain frozen; the single contradictory incomplete-source minimum is superseded prospectively by the P0.2.4 erratum.
 AB0 is a comparator, not Gold.
 Gold annotation begins only after deterministic source selection and P0.3 calibration.
 ```

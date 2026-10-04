@@ -1,0 +1,17 @@
+{
+  "stage_id": "E0.4.3-P0.3",
+  "version": "v1.0",
+  "status": "HUMAN_EXECUTION_NOT_STARTED",
+  "calibration24_sha256": "79e439c9d14c759eb70d76f289a2a3372d47a8c3519f9816c747fa7c4ab4b0e3",
+  "workbench_machine_conformance": "PASS",
+  "human_workbench_smoke_test": "NOT_RUN",
+  "expert_A": "UNASSIGNED",
+  "expert_B": "UNASSIGNED",
+  "COI_role_separation_gate": "NOT_RUN",
+  "round_A": "NOT_STARTED",
+  "post_round_A_version_freeze": "NOT_STARTED",
+  "round_B": "NOT_STARTED",
+  "reliability_scoring": "NOT_RUN",
+  "Gold100_access": "PROHIBITED",
+  "p0_3_pass": false
+}

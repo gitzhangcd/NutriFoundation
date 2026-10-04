@@ -354,7 +354,8 @@ for r in records:
     gates["ELIG-09"]={"pass":not overlap,"evidence":"Batch001 PMID overlap check"}
     if overlap: exclusions.append("X09")
     gates["ELIG-10"]={"pass":True,"evidence":"P0.2.1/P0.2.2 prospective AB-blind construction"}
-    prov_ok=bool(r.get("provenance",{}).get("record_status")=="REAL_SOURCE_IDENTITY_BOUND")
+    prov_status=str(r.get("provenance",{}).get("record_status") or "")
+    prov_ok=prov_status.startswith("REAL_SOURCE_IDENTITY_BOUND")
     gates["ELIG-11"]={"pass":prov_ok,"evidence":"P0.2.2 PubMed provenance"}
     if not prov_ok: exclusions.append("X11")
     fatal=False
@@ -490,3 +491,5 @@ print(json.dumps(report,indent=2))
 # execution revision: merge frozen coverage-repair supplement and deterministic Stress20 assignment
 
 # execution revision: merge all versioned coverage-repair registries
+
+# execution revision: ELIG-11 accepts versioned REAL_SOURCE_IDENTITY_BOUND_* repair provenance statuses

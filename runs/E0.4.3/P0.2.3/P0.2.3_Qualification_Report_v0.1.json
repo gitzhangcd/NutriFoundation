@@ -1,13 +1,13 @@
 {
   "stage": "E0.4.3-P0.2.3",
   "status": "FROZEN_COVERAGE_GAP_NO_SAMPLING",
-  "raw_count": 460,
+  "raw_count": 664,
   "base_raw_count": 342,
-  "coverage_repair_count": 118,
+  "coverage_repair_count": 322,
   "eligible_count": 115,
-  "excluded_count": 345,
+  "excluded_count": 549,
   "evidence_cutoff": "2026-10-03T23:26:00+08:00",
-  "oa_full_text_count": 201,
+  "oa_full_text_count": 348,
   "incomplete_stress_count": 8,
   "coverage": {
     "family_counts": {

@@ -114,6 +114,12 @@ for r in pre_candidates:
     old_fam,old_dom=rr.get("source_family"),rr.get("domain")
     rr["calibration_source_family"]=fam
     rr["calibration_domain"]=dom
+    tags=json.loads(json.dumps(rr.get("challenge_tags",{})))
+    cluster=rr.get("study_identity",{}).get("study_identity_cluster_id")
+    identity_status=rr.get("study_identity",{}).get("status")
+    if fam=="companion_or_secondary" and cluster and (str(cluster).startswith("REG:") or identity_status in ("companion_publication","secondary_analysis")):
+        tags["StudyIdentity_dependency"]=True
+    rr["calibration_challenge_tags"]=tags
     if old_fam!=fam or old_dom!=dom:
         semantic_reclassified.append({"candidate_id":rr["candidate_id"],"pmid":rr.get("pmid"),"old_family":old_fam,"new_family":fam,"old_domain":old_dom,"new_domain":dom})
     candidates.append(rr)
@@ -125,7 +131,7 @@ for r in candidates:
     profile["domain"][dom]=profile["domain"].get(dom,0)+1
     key=f"{fam}|{dom}"
     profile["family_domain"][key]=profile["family_domain"].get(key,0)+1
-    for k,v in r.get("challenge_tags",{}).items():
+    for k,v in r.get("calibration_challenge_tags",{}).items():
         if v: profile["tags"][k]=profile["tags"].get(k,0)+1
 print("SEMANTIC_POOL_PROFILE="+json.dumps(profile,sort_keys=True),flush=True)
 
@@ -174,18 +180,18 @@ for rd in rounds:
 
 # Each round includes exactly one naturally incomplete-source case.
 for rd in rounds:
-    model.Add(sum(x[(rd,r["candidate_id"])] for r in candidates if r.get("challenge_tags",{}).get("incomplete_source_text"))==1)
+    model.Add(sum(x[(rd,r["candidate_id"])] for r in candidates if r.get("calibration_challenge_tags",{}).get("incomplete_source_text"))==1)
 
 # All non-incomplete calibration sources must have frozen full text.
 for rd in rounds:
     for r in candidates:
-        if not r.get("challenge_tags",{}).get("incomplete_source_text") and r.get("source_text",{}).get("status")!="official_full_text_frozen":
+        if not r.get("calibration_challenge_tags",{}).get("incomplete_source_text") and r.get("source_text",{}).get("status")!="official_full_text_frozen":
             model.Add(x[(rd,r["candidate_id"])]==0)
 
 # Challenge coverage per round.
 for rd in rounds:
     for tag,n in challenge_min.items():
-        model.Add(sum(x[(rd,r["candidate_id"])] for r in candidates if r.get("challenge_tags",{}).get(tag))>=n)
+        model.Add(sum(x[(rd,r["candidate_id"])] for r in candidates if r.get("calibration_challenge_tags",{}).get(tag))>=n)
 
 # No duplicate StudyIdentityCluster across the full 24.
 clusters={}
@@ -234,7 +240,7 @@ for rd in rounds:
             "study_identity_cluster_id":r.get("study_identity",{}).get("study_identity_cluster_id"),
             "source_text_status":r.get("source_text",{}).get("status"),
             "worker_visible_text_sha256":r.get("source_text",{}).get("worker_visible_text_sha256"),
-            "challenge_tags":r.get("challenge_tags",{})
+            "challenge_tags":r.get("calibration_challenge_tags",{})
         })
 
 selected_ids=[x["candidate_id"] for x in selected]
@@ -314,3 +320,5 @@ print(json.dumps(audit,indent=2))
 # semantic refinement: calibration domain classification uses title + MeSH primary-topic signal, not free abstract mentions
 
 # semantic refinement: title-only companion signal; report-level observational priority; conservative nutrition-domain mapping
+
+# calibration semantic tag derivation: resolved semantic companion/secondary implies StudyIdentity_dependency

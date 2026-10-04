@@ -90,7 +90,7 @@ def fetch_one_pmc(pmcid):
     url=f"https://www.ebi.ac.uk/europepmc/webservices/rest/{pmcid}/fullTextXML"
     try:
         req=urllib.request.Request(url, headers={"User-Agent":"NutriFoundation/0.4.3"})
-        with urllib.request.urlopen(req, timeout=10) as r:
+        with urllib.request.urlopen(req, timeout=8) as r:
             raw=r.read()
         root=ET.fromstring(raw)
         art=root if root.tag=="article" else root.find(".//article")
@@ -103,7 +103,7 @@ def fetch_one_pmc(pmcid):
 def fetch_pmc_articles(pmcids):
     out={}
     done=0
-    with ThreadPoolExecutor(max_workers=6) as ex:
+    with ThreadPoolExecutor(max_workers=12) as ex:
         futs={ex.submit(fetch_one_pmc,p):p for p in pmcids}
         for fut in as_completed(futs):
             pmcid,art=fut.result()
@@ -237,13 +237,12 @@ pmids=[r["bibliographic_identity"]["identifiers"]["pmid"] for r in records]
 meta=pubmed_meta(pmids)
 
 pmcids=[r["bibliographic_identity"]["identifiers"].get("pmcid") for r in records if r["bibliographic_identity"]["identifiers"].get("pmcid")]
-oa={}
-for i,p in enumerate(pmcids):
-    oa[p]=oa_status(p)
-    time.sleep(0.36)
-
-open_pmc=[p for p in pmcids if oa.get(p,{}).get("open")]
-pmc_articles=fetch_pmc_articles(open_pmc)
+print(f"PMC_INPUT {len(pmcids)}", flush=True)
+# Exact-text qualification uses PMCID-bound fullTextXML directly.
+# We do not commit copyrighted full text; only normalized text hashes/lengths and license metadata.
+# This removes the prior per-PMC OA-status round trip that caused the first CI run to time out.
+pmc_articles=fetch_pmc_articles(pmcids)
+print(f"PMC_RETRIEVED {len(pmc_articles)}/{len(pmcids)}", flush=True)
 
 # Map candidates to deterministic normalized worker text and preliminary classification.
 work={}
@@ -456,3 +455,4 @@ print(json.dumps(report,indent=2))
 
 # execution revision: stale-run cancellation enabled
 # execution revision: Europe PMC fullTextXML transport keyed by PMCID
+# execution revision: removed serial OA-status calls; fullTextXML retrieval now determines exact-text availability

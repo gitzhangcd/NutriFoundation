@@ -8,8 +8,9 @@ E0.4.3-P0.1   = PASS / FROZEN
 E0.4.3-P0.2.1 = PASS / FROZEN
 E0.4.3-P0.2.2 = PASS / RAW REGISTRY FROZEN
 E0.4.3-P0.2.3 = PASS / ELIGIBLE POOL FROZEN / SAMPLING AUTHORIZED
+E0.4.3-P0.2.4 = PASS / GOLD100 SOURCE SET FROZEN
 Primary program = Paper C confirmatory evidence production
-Current execution gate = P0.2.4 Deterministic Gold100 Source Selection
+Current execution gate = P0.3 Independent Expert Calibration
 ```
 
 ## Upstream freeze
@@ -51,8 +52,8 @@ R0 Measurement-System Lock [PASS]
 → P0.2.1 Gold100 source eligibility [PASS]
 → P0.2.2 real candidate SourceArtifacts [PASS]
 → P0.2.3 eligible-pool qualification + hash freeze [PASS: 330 eligible]
-→ P0.2.4 deterministic Gold100 selection [NEXT]
-→ P0.3 independent expert calibration
+→ P0.2.4 deterministic Gold100 selection [PASS: 100 sources frozen]
+→ P0.3 independent expert calibration [NEXT]
 → P0.4 Gold100 dual annotation + adjudication
 → P1 AB0–AB6 strict-blind confirmatory execution
 → P2 CSER / human-burden / kill-test analysis
@@ -68,3 +69,30 @@ Core80 + Stress20, 80/20 domain split, family quotas, challenge minima, and Stud
 AB0 is a comparator, not Gold.
 Gold annotation begins only after deterministic source selection and P0.3 calibration.
 ```
+## P0.2.4 authority
+
+```text
+docs/E0.4.3-P0.2.4_Deterministic_Gold100_Source_Selection_Slot_Assignment_Sampling_Audit_Source_Set_Freeze_v1.0.md
+paper_c/P0.2.4/Paper_C_P0_PreSampling_Feasibility_Erratum_v0.1.1.md
+runs/E0.4.3/P0.2.4/Gold100_Source_Set_FROZEN_v1.0.json
+runs/E0.4.3/P0.2.4/Gold100_Source_Set_SHA256_v1.0.txt
+runs/E0.4.3/P0.2.4/Gold100_Source_Slot_Manifest_FILLED_v1.0.json
+runs/E0.4.3/P0.2.4/Gold100_Sampling_Audit_v1.0.json
+runs/E0.4.3/P0.2.4/P0.2.4_Freeze_Manifest_v1.0.json
+```
+
+## Frozen Gold100 source set
+
+```text
+Gold100 sources = 100
+Core = 80
+Stress = 20
+Nutrition/metabolic/cardiometabolic = 80
+External biomedical/public-health = 20
+Frozen full text = 98
+Predefined incomplete-source stress = 2
+Gold100 source-set SHA256 = fdb1189647fe4022411d3ebfd6591da2398135aed398c88ca6f85236678420ad
+Expert Gold annotation = NOT STARTED
+```
+
+Pre-sampling feasibility audit identified and prospectively corrected one protocol contradiction: the incomplete-source challenge minimum was changed from >=5 to >=2 because ELIG-02 permits incomplete text only in the two dedicated incomplete-source stress slots. No Gold100 sampling or AB/model outcome existed before this correction.

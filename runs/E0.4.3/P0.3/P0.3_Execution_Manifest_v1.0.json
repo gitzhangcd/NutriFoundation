@@ -3,7 +3,7 @@
   "title": "Independent Expert Calibration, Annotation Workbench Validation, Reliability Gate & Pre-Gold100 Annotation Lock",
   "version": "v1.0",
   "date": "2026-10-04",
-  "overall_status": "EXECUTION_READY_HUMAN_CALIBRATION_REQUIRED_NOT_YET_PASS",
+  "overall_status": "EXECUTION_CONTRACT_FROZEN_BLOCKED_BY_WORKBENCH_IMPLEMENTATION_HUMAN_CALIBRATION_REQUIRED_NOT_YET_PASS",
   "parent": {
     "gold100_source_set_sha256": "fdb1189647fe4022411d3ebfd6591da2398135aed398c88ca6f85236678420ad",
     "gold100_source_count": 100,
@@ -31,22 +31,26 @@
     "reliability_gate": "FROZEN",
     "calibration_record_schema": "FROZEN",
     "expert_manual": "FROZEN",
-    "human_smoke_test_checklist": "FROZEN"
+    "human_smoke_test_checklist": "FROZEN",
+    "workbench_implementation_acceptance": "FROZEN",
+    "workbench_implementation_handoff": "FROZEN",
+    "reliability_computation_spec": "FROZEN",
+    "expert_eligibility_COI_form": "FROZEN"
   },
   "machine_conformance": {
     "status": "PASS",
-    "workflow_run_id": 37177028135,
+    "latest_workflow_run_id": 37176982373,
     "report": "runs/E0.4.3/P0.3/P0.3_Workbench_Contract_Conformance_Report_v1.0.json",
-    "all_machine_checks_pass": true,
-    "protocol_parent_calibration_hash_matches": true
+    "all_machine_checks_pass": true
   },
   "human_execution": {
-    "H0_workbench_smoke_test": "NOT_RUN",
+    "H0_workbench_smoke_test": "BLOCKED_BY_WORKBENCH_IMPLEMENTATION",
     "H1_expert_assignment_eligibility_COI": "NOT_STARTED",
-    "H2_round_A": "NOT_STARTED",
+    "H2_round_A": "BLOCKED_PENDING_H0_H1",
     "H3_post_round_A_version_freeze": "NOT_STARTED",
     "H4_round_B_blinded_reliability": "NOT_STARTED",
-    "H5_reliability_and_blind_wall_freeze": "NOT_STARTED"
+    "H5_reliability_and_blind_wall_freeze": "NOT_STARTED",
+    "H0_implementation_status": "RUNNABLE_WORKBENCH_NOT_PRESENT"
   },
   "reliability_thresholds": {
     "critical_categorical_Gwet_AC1": ">=0.80",
@@ -63,6 +67,6 @@
     "access_during_calibration": "DENIED"
   },
   "pass_status_if_human_gates_succeed": "PASS_PRE_GOLD100_ANNOTATION_LOCK",
-  "next_executable_gate": "E0.4.3-P0.3-H0_Human_Workbench_Smoke_Test",
+  "next_executable_gate": "E0.4.3-P0.3-H0A_Workbench_Implementation_and_Automated_Acceptance",
   "next_stage_after_full_pass": "E0.4.3-P0.4"
 }

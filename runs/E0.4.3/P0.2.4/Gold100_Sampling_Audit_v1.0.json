@@ -1,0 +1,136 @@
+{
+  "stage": "E0.4.3-P0.2.4",
+  "status": "PASS_FROZEN",
+  "sampling_seed": 20260930,
+  "input": {
+    "parent_pool_count": 330,
+    "parent_pool_sha256": "ff33d849367c335e5b5cb8345b40a332b1417d0e8a4372eb462a0464a807565c",
+    "amendment_count": 3,
+    "augmented_count": 333,
+    "augmented_sampling_universe_sha256": "7e254f1678e5d3a086e52108974e28ba522866af5e5ec27b7db2fd3328cdc5be"
+  },
+  "solver": {
+    "engine": "OR-Tools CP-SAT",
+    "version": "9.14.6206",
+    "num_search_workers": 1,
+    "search_branching": "FIXED_SEARCH",
+    "stop_after_first_solution": true,
+    "solver_status": "OPTIMAL"
+  },
+  "counts": {
+    "block": {
+      "core": 80,
+      "stress": 20
+    },
+    "core_family": {
+      "primary_interventional": 28,
+      "primary_observational": 18,
+      "evidence_synthesis": 18,
+      "guideline_or_consensus": 12,
+      "companion_or_secondary": 4
+    },
+    "domain": {
+      "nutrition_metabolic_cardiometabolic": 80,
+      "external_biomedical_or_public_health": 20
+    },
+    "stress": {
+      "correction_republication_retraction_or_living_version": 6,
+      "study_identity_or_companion_dependency": 4,
+      "conflicting_evidence": 4,
+      "recommendation_exception_or_normative_boundary": 2,
+      "temporal_cutoff_sensitive": 2,
+      "incomplete_or_missing_source_text": 2
+    },
+    "challenge": {
+      "numeric_complexity": 96,
+      "causal_language_risk": 20,
+      "StudyIdentity_dependency": 15,
+      "correction_retraction_living_version": 19,
+      "conflict": 15,
+      "recommendation_exception": 11,
+      "temporal_cutoff_sensitive": 19,
+      "incomplete_source_text": 2
+    }
+  },
+  "challenge_minima": {
+    "numeric_complexity": 20,
+    "causal_language_risk": 15,
+    "StudyIdentity_dependency": 15,
+    "correction_retraction_living_version": 10,
+    "conflict": 15,
+    "recommendation_exception": 10,
+    "temporal_cutoff_sensitive": 10,
+    "incomplete_source_text": 2
+  },
+  "checks": {
+    "selected_count": true,
+    "unique_source_count": true,
+    "unique_study_identity_clusters": true,
+    "core80": true,
+    "stress20": true,
+    "domain_80_20": true,
+    "core_family_quotas": true,
+    "stress_quotas": true,
+    "challenge_minima": true,
+    "non_incomplete_slots_have_full_text": true,
+    "incomplete_slots_are_incomplete_tagged": true
+  },
+  "selected_amendment_sources": [
+    {
+      "slot_id": "G100-016",
+      "block": "core",
+      "sampling_stratum": "primary_interventional",
+      "domain_target": "external_biomedical_or_public_health",
+      "candidate_id": "G100-AMEND-000001",
+      "pmid": "26156323",
+      "pmcid": "PMC4495677",
+      "doi": "10.1136/bmj.h3267",
+      "title": "Evidence based community mobilization for dengue prevention in Nicaragua and Mexico (Camino Verde, the Green Way): cluster randomized controlled trial.",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "study_identity_cluster_id": "REG:ISRCTN27581154",
+      "worker_visible_text_sha256": "d8630963567d86c86792e4b2ec2fa04255ca11c248d0989d917a95c95102f900",
+      "source_text_status": "official_full_text_frozen",
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": true,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "source_origin": "pre_sampling_amendment"
+    },
+    {
+      "slot_id": "G100-078",
+      "block": "core",
+      "sampling_stratum": "companion_or_secondary",
+      "domain_target": "external_biomedical_or_public_health",
+      "candidate_id": "G100-AMEND-000002",
+      "pmid": "29235564",
+      "pmcid": "PMC5808035",
+      "doi": "10.1038/bjc.2017.423",
+      "title": "Influence of induction chemotherapy in trimodality therapy-eligible oesophageal cancer patients: secondary analysis of a randomised trial.",
+      "source_family": "companion_or_secondary",
+      "domain": "external_biomedical_or_public_health",
+      "study_identity_cluster_id": "REG:NCT00525915",
+      "worker_visible_text_sha256": "539b65c0eab213c668a7169d61d191f4fa1d10d7a7899891ddc342763c5afa2c",
+      "source_text_status": "official_full_text_frozen",
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": true,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "source_origin": "pre_sampling_amendment"
+    }
+  ],
+  "gold100_source_set_sha256": "fdb1189647fe4022411d3ebfd6591da2398135aed398c88ca6f85236678420ad",
+  "sampling_performed": true
+}

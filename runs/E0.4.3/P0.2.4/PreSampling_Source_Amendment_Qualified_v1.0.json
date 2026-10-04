@@ -1,0 +1,423 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "candidate_id": "G100-AMEND-000001",
+      "pmid": "26156323",
+      "pmcid": "PMC4495677",
+      "doi": "10.1136/bmj.h3267",
+      "title": "Evidence based community mobilization for dengue prevention in Nicaragua and Mexico (Camino Verde, the Green Way): cluster randomized controlled trial.",
+      "source_family": "primary_interventional",
+      "domain": "external_biomedical_or_public_health",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "d8630963567d86c86792e4b2ec2fa04255ca11c248d0989d917a95c95102f900",
+        "worker_visible_text_chars": 49677,
+        "pmc_xml_sha256": "0bd175a197546803cc7e6ac00c7ebd0fd1b85a11e7b5c9164f56cc72c6735a46",
+        "fulltext_xml_retrieved": true,
+        "license": "This is an Open Access article distributed in accordance with the Creative Commons Attribution Non Commercial (CC BY-NC 4.0) license, which permits others to distribute, remix, adapt, build upon this work non-commercially, and license their derivative works on different terms, provided the original ",
+        "text_definition": "PMC article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2015-07-08T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:ISRCTN27581154",
+        "status": "independent_primary_report",
+        "registration_ids": [
+          "ISRCTN27581154"
+        ],
+        "linked_candidate_ids": [],
+        "identity_evidence_refs": [
+          "PMID:26156323",
+          "REG:ISRCTN27581154",
+          "LINKED_COMPANION_PMID:28699554"
+        ],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": true,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "29.5%",
+          "95%",
+          "confidence interval",
+          "3.8%",
+          "55.3%",
+          "24.7%",
+          "1.8%",
+          "51.2%",
+          "44.1%",
+          "13.6%",
+          "74.7%",
+          "36.7%"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [
+          "registration=ISRCTN27581154",
+          "linked companion PMID=28699554"
+        ],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:26156323; PMCID:PMC4495677"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC fullTextXML frozen; chars=49677"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2015-07-08T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "primary_interventional"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "external_biomedical_or_public_health"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:ISRCTN27581154",
+              "status": "independent_primary_report"
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=49677"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "pre-sampling amendment source not in Batch001"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "joint-feasibility repair only; no AB/model outputs used"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "PubMed+PMCID+fullTextXML amendment provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no fatal integrity signal"
+          }
+        },
+        "screening_state": "ELIGIBLE_CORE",
+        "exclusion_reason_codes": []
+      },
+      "provenance": {
+        "pubmed_record_xml_sha256": "ada7a3bd87d38945e102f2c6df8c73c9c8208d1079395fd4707cc754ce3d6b11",
+        "qualification_script": "scripts/paper_c/p0_2_4_select.py",
+        "amendment_authority": "runs/E0.4.3/P0.2.4/PreSampling_Feasibility_Amendment_v1.1.json"
+      },
+      "record_sha256": "6d59a22a70e3e18cc5a6347f645a9434fd9b266adb952f9c4969c40b2f7c08dd"
+    },
+    {
+      "candidate_id": "G100-AMEND-000002",
+      "pmid": "29235564",
+      "pmcid": "PMC5808035",
+      "doi": "10.1038/bjc.2017.423",
+      "title": "Influence of induction chemotherapy in trimodality therapy-eligible oesophageal cancer patients: secondary analysis of a randomised trial.",
+      "source_family": "companion_or_secondary",
+      "domain": "external_biomedical_or_public_health",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "539b65c0eab213c668a7169d61d191f4fa1d10d7a7899891ddc342763c5afa2c",
+        "worker_visible_text_chars": 28597,
+        "pmc_xml_sha256": "b76d2d86575851b7979a3d371ade8911c4184fc54eb7a9f2efaa2d751a630413",
+        "fulltext_xml_retrieved": true,
+        "license": "From twelve months after its original publication, this work is licensed under the Creative Commons Attribution-NonCommercial-Share Alike 4.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "text_definition": "PMC article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2018-02-06T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": []
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:NCT00525915",
+        "status": "companion_publication",
+        "registration_ids": [
+          "NCT00525915"
+        ],
+        "linked_candidate_ids": [],
+        "identity_evidence_refs": [
+          "PMID:29235564",
+          "REG:NCT00525915"
+        ],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": true,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "95%",
+          "confidence interval",
+          "P=0.03",
+          "P=0.02",
+          "P=0.04",
+          "P=0.01",
+          "P<0.001",
+          "74%",
+          "50%",
+          "P=0.001",
+          "31%",
+          "28%"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [
+          "registration=NCT00525915",
+          "secondary/post-hoc source relation"
+        ],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:29235564; PMCID:PMC5808035"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC fullTextXML frozen; chars=28597"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2018-02-06T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "companion_or_secondary"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "external_biomedical_or_public_health"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:NCT00525915",
+              "status": "companion_publication"
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=28597"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "pre-sampling amendment source not in Batch001"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "joint-feasibility repair only; no AB/model outputs used"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "PubMed+PMCID+fullTextXML amendment provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no fatal integrity signal"
+          }
+        },
+        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
+        "exclusion_reason_codes": []
+      },
+      "provenance": {
+        "pubmed_record_xml_sha256": "5a28d1d05b0adcfa9e000cc30407e58ac1bfe2afdb667c15542799a92764c2e2",
+        "qualification_script": "scripts/paper_c/p0_2_4_select.py",
+        "amendment_authority": "runs/E0.4.3/P0.2.4/PreSampling_Feasibility_Amendment_v1.1.json"
+      },
+      "record_sha256": "4765aa4c9420c54a97fb92cd37b03b983a4e9f3b7190abb2858e939df2584c93"
+    },
+    {
+      "candidate_id": "G100-AMEND-000003",
+      "pmid": "40323620",
+      "pmcid": "PMC12053795",
+      "doi": "10.1001/jamaneurol.2025.0716",
+      "title": "CT Perfusion Imaging After Selection for Late-Window Endovascular Stroke Treatment: Secondary Analysis of the MR CLEAN-LATE Randomized Trial.",
+      "source_family": "companion_or_secondary",
+      "domain": "external_biomedical_or_public_health",
+      "source_text": {
+        "status": "official_full_text_frozen",
+        "worker_visible_text_sha256": "6a169006baec366fb4b266b8fafafc1a9f03f2cdbb03b7de5e88b57d89181bb7",
+        "worker_visible_text_chars": 4344,
+        "pmc_xml_sha256": "d6ec35f72be596504f4de04533aafbabde1d57c0a0c22798b994669e31592026",
+        "fulltext_xml_retrieved": true,
+        "license": null,
+        "text_definition": "PMC article title + abstract + body, whitespace-normalized; references/back matter excluded"
+      },
+      "temporal_version": {
+        "evidence_cutoff": "2026-10-03T23:26:00+08:00",
+        "publication_date_basis": "2025-06-01T00:00:00+08:00",
+        "version_status": "original_current",
+        "version_chain_refs": [
+          {
+            "ref_type": "CommentIn",
+            "ref_pmid": "40699022",
+            "ref_source": "AJR Am J Roentgenol. 2026 Mar;226(3):e2533557. doi: 10.2214/AJR.25.33557."
+          }
+        ]
+      },
+      "study_identity": {
+        "study_identity_cluster_id": "REG:ISRCTN19922220",
+        "status": "companion_publication",
+        "registration_ids": [
+          "ISRCTN19922220"
+        ],
+        "linked_candidate_ids": [],
+        "identity_evidence_refs": [
+          "PMID:40323620",
+          "REG:ISRCTN19922220"
+        ],
+        "accidental_duplicate_risk": false
+      },
+      "challenge_tags": {
+        "numeric_complexity": true,
+        "causal_language_risk": false,
+        "StudyIdentity_dependency": true,
+        "correction_retraction_living_version": false,
+        "conflict": false,
+        "recommendation_exception": false,
+        "temporal_cutoff_sensitive": false,
+        "incomplete_source_text": false
+      },
+      "challenge_tag_evidence": {
+        "numeric_complexity": [
+          "62%",
+          "50%",
+          "43%",
+          "57%",
+          "P < .001",
+          "95%",
+          "95%",
+          "62%",
+          "50%",
+          "43%",
+          "57%",
+          "P < .001"
+        ],
+        "causal_language_risk": [],
+        "StudyIdentity_dependency": [
+          "registration=ISRCTN19922220",
+          "secondary/post-hoc source relation"
+        ],
+        "correction_retraction_living_version": [],
+        "conflict": {},
+        "recommendation_exception": [],
+        "temporal_cutoff_sensitive": [],
+        "incomplete_source_text": []
+      },
+      "stress_stratum": null,
+      "eligibility": {
+        "gate_results": {
+          "ELIG-01": {
+            "pass": true,
+            "evidence": "PMID:40323620; PMCID:PMC12053795"
+          },
+          "ELIG-02": {
+            "pass": true,
+            "evidence": "PMC fullTextXML frozen; chars=4344"
+          },
+          "ELIG-03": {
+            "pass": true,
+            "evidence": "original_current"
+          },
+          "ELIG-04": {
+            "pass": true,
+            "evidence": "2025-06-01T00:00:00+08:00"
+          },
+          "ELIG-05": {
+            "pass": true,
+            "evidence": "companion_or_secondary"
+          },
+          "ELIG-06": {
+            "pass": true,
+            "evidence": "external_biomedical_or_public_health"
+          },
+          "ELIG-07": {
+            "pass": true,
+            "evidence": {
+              "cluster": "REG:ISRCTN19922220",
+              "status": "companion_publication"
+            }
+          },
+          "ELIG-08": {
+            "pass": true,
+            "evidence": "text_chars=4344"
+          },
+          "ELIG-09": {
+            "pass": true,
+            "evidence": "pre-sampling amendment source not in Batch001"
+          },
+          "ELIG-10": {
+            "pass": true,
+            "evidence": "joint-feasibility repair only; no AB/model outputs used"
+          },
+          "ELIG-11": {
+            "pass": true,
+            "evidence": "PubMed+PMCID+fullTextXML amendment provenance"
+          },
+          "ELIG-12": {
+            "pass": true,
+            "evidence": "no fatal integrity signal"
+          }
+        },
+        "screening_state": "ELIGIBLE_CORE_AND_STRESS",
+        "exclusion_reason_codes": []
+      },
+      "provenance": {
+        "pubmed_record_xml_sha256": "10cb156b3a3f372a712a8d3f69966e20f15c8d6e79106b42596168c01bbfc949",
+        "qualification_script": "scripts/paper_c/p0_2_4_select.py",
+        "amendment_authority": "runs/E0.4.3/P0.2.4/PreSampling_Feasibility_Amendment_v1.1.json"
+      },
+      "record_sha256": "9b6f16a21babb55423ce91c1ab7f6441d1e3dcd7c34c9b2c1bee18522a5fb624"
+    }
+  ]
+}

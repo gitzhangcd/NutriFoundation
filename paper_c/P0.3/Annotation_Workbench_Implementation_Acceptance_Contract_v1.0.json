@@ -1,0 +1,75 @@
+{
+  "stage_id": "E0.4.3-P0.3-H0",
+  "artifact": "Annotation_Workbench_Implementation_Acceptance_Contract",
+  "version": "v1.0",
+  "status": "FROZEN_IMPLEMENTATION_REQUIRED",
+  "current_repository_finding": {
+    "runnable_P0_3_annotation_UI_present": false,
+    "contract_and_schemas_present": true,
+    "implication": "Human smoke test cannot be truthfully executed until a runnable workbench implementation exists."
+  },
+  "implementation_boundary": {
+    "may_change": [
+      "frontend_framework",
+      "local_or_server_deployment",
+      "visual_layout",
+      "component_library",
+      "nonsemantic convenience features"
+    ],
+    "must_not_change": [
+      "Gold100 hidden-access rule",
+      "A/B namespace separation",
+      "first-pass immutability",
+      "pair-lock ordering",
+      "Round-B metric-before-discussion ordering",
+      "canonical scientific payload semantics",
+      "source/span/hash binding",
+      "audit event requirements",
+      "reliability thresholds",
+      "Calibration24 membership"
+    ]
+  },
+  "minimum_capabilities": [
+    "authenticate or pseudonymously bind Annotator A/B roles without cross-record visibility",
+    "load only Calibration12A/12B source manifests during P0.3",
+    "render exact worker-visible source text and verify SHA-256",
+    "support stable-token source-span selection and round-trip validation",
+    "edit all calibration scientific payload fields defined by Calibration_Annotation_Record_Schema_v1.0",
+    "support explicit not_applicable, insufficient_source, and protocol_ambiguity",
+    "capture active annotation time separately from discussion time",
+    "require independence/COI attestation before first-pass lock",
+    "canonicalize and SHA-256 lock the first-pass record",
+    "make locked record immutable",
+    "withhold peer record until both A/B locks exist",
+    "Round A: permit diff/discussion only after pair lock",
+    "Round B: compute/freeze reliability before permitting discussion",
+    "deny Gold100 source access in P0.3",
+    "deny AB0-AB6 outputs and evaluator scores",
+    "emit immutable audit-event log",
+    "export schema-valid JSON records and event log"
+  ],
+  "acceptance_layers": {
+    "L0_static_contract": {
+      "status": "PASS",
+      "authority": "runs/E0.4.3/P0.3/P0.3_Workbench_Contract_Conformance_Report_v1.0.json"
+    },
+    "L1_automated_implementation_tests": {
+      "status": "NOT_RUN",
+      "required_before_human_smoke_test": true
+    },
+    "L2_human_smoke_test": {
+      "status": "BLOCKED_BY_MISSING_RUNNABLE_WORKBENCH",
+      "checklist": "paper_c/P0.3/Workbench_Human_Smoke_Test_Checklist_v1.0.md"
+    },
+    "L3_expert_round_A": {
+      "status": "BLOCKED"
+    }
+  },
+  "implementation_done_definition": [
+    "runnable workbench exists in repository or connected deployment",
+    "automated implementation tests pass",
+    "version/build identifier frozen",
+    "human smoke-test package can be executed against Calibration12A without Gold100 access"
+  ],
+  "current_exit": "BLOCKED_BY_WORKBENCH_IMPLEMENTATION"
+}

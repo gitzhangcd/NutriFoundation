@@ -1,0 +1,39 @@
+name: E0.4.3 P0.2.3 Eligible Pool Qualification
+
+on:
+  push:
+    branches:
+      - e0.4.3-batch002-independent-gold
+    paths:
+      - 'scripts/paper_c/p0_2_3_qualify.py'
+      - '.github/workflows/e0.4.3-p0.2.3-qualification.yml'
+      - 'runs/E0.4.3/P0.2.2/Gold100_Candidate_Source_Registry_RAW_v0.1.json'
+
+permissions:
+  contents: write
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: e0.4.3-batch002-independent-gold
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run P0.2.3 qualification
+        run: python scripts/paper_c/p0_2_3_qualify.py
+      - name: Commit qualification outputs
+        run: |
+          git config user.name "NutriFoundation Qualification Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add runs/E0.4.3/P0.2.3
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "data(E0.4.3-P0.2.3): qualify and freeze eligible pool [skip ci]"
+            git push origin HEAD:e0.4.3-batch002-independent-gold
+          fi

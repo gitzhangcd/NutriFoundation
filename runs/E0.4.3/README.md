@@ -10,7 +10,7 @@ E0.4.3-P0.2.2 = PASS / RAW REGISTRY FROZEN
 E0.4.3-P0.2.3 = PASS / ELIGIBLE POOL FROZEN / SAMPLING AUTHORIZED
 E0.4.3-P0.2.4 = PASS / GOLD100 SOURCE SET FROZEN
 Primary program = Paper C confirmatory evidence production
-Current execution gate = P0.3-H0A Workbench Implementation & Acceptance
+Current execution gate = P0.3-H0 Human Workbench Smoke Test
 ```
 
 ## Upstream freeze
@@ -104,8 +104,9 @@ P0.3 overall = NOT YET PASS
 Calibration24 = FROZEN
 Calibration24 SHA256 = ec793d52a130b98aaefebdb40b85356ed88543aea2b8eff63a7fcd9f8212af33
 Machine workbench-contract conformance = PASS
-Runnable P0.3 workbench = NOT PRESENT
-Human smoke test = BLOCKED_BY_WORKBENCH_IMPLEMENTATION
+Runnable P0.3 workbench = PRESENT / P03-WORKBENCH-REF-v0.1.0
+Automated implementation acceptance = PASS
+Human smoke test = READY / NOT RUN
 Expert A/B = UNASSIGNED
 Round A = NOT STARTED
 Round B = NOT STARTED
@@ -120,6 +121,8 @@ docs/E0.4.3-P0.3_Independent_Expert_Calibration_Annotation_Workbench_Validation_
 runs/E0.4.3/P0.3/P0.3_Execution_Manifest_v1.0.json
 paper_c/P0.3/Annotation_Workbench_Implementation_Acceptance_Contract_v1.0.json
 paper_c/P0.3/Annotation_Workbench_Implementation_Handoff_v1.0.md
+paper_c/P0.3/Annotation_Workbench_Runbook_v1.0.md
+runs/E0.4.3/P0.3/P0.3_Workbench_Implementation_Acceptance_Result_v1.0.json
 ```
 
 ## P0.3 authority
@@ -146,7 +149,7 @@ Round B = 12 blinded-reliability sources
 Gold100 SourceArtifact overlap = 0
 Gold100 StudyIdentity overlap = 0
 Machine conformance = PASS
-Human workbench smoke test = NOT RUN
+Human workbench smoke test = READY / NOT RUN
 Experts A/B = UNASSIGNED
 Round A = NOT STARTED
 Round B = NOT STARTED

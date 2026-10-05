@@ -65,6 +65,8 @@ from nutrifoundation.services.strict_blind_taskpack import (
 )
 
 app = typer.Typer(help="NutriFoundation Engine reference CLI")
+from nutrifoundation.production.cli import app as production_app
+app.add_typer(production_app, name="production")
 
 
 @app.command("contract-check")
@@ -185,8 +187,9 @@ def produce_evidence(
         help="External JSON extraction command, e.g. 'python my_extractor.py'",
     ),
     db: Path = Path("nutrifoundation.db"),
+    legacy_f0: bool = typer.Option(False, help="Opt in to historical mechanical F0 contract; not D0 canonical/Gold."),
 ) -> None:
-    """Run extraction -> independent verification -> F0 freeze for one source."""
+    """Save a candidate with legacy mechanical checks; no freeze by default."""
     provider = SubprocessEvidenceExtractionProvider(
         shlex.split(extractor_command)
     )
@@ -195,6 +198,7 @@ def produce_evidence(
         IndependentEvidenceVerifier(),
         SQLiteStore(db),
         mode="live",
+        legacy_f0=legacy_f0,
     )
     manifest = service.produce([(source_id, evidence_id)])
     typer.echo(manifest.model_dump_json(indent=2))
@@ -258,12 +262,13 @@ def prepare_chat_task(
 def ingest_chat_response(
     response_path: Path,
     db: Path = Path("nutrifoundation.db"),
+    legacy_f0: bool = typer.Option(False, help="Explicit historical F0 replay only."),
 ) -> None:
-    """Validate a chat-window ResponseEnvelope and continue verifier -> F0."""
+    """Ingest a candidate; freeze requires explicit --legacy-f0."""
     bridge = ChatWindowFileBridge()
     response = bridge.load_response(response_path)
     result = SemanticResponseIngestionService(
-        SQLiteStore(db)
+        SQLiteStore(db), legacy_f0=legacy_f0
     ).ingest(response)
     typer.echo(
         json.dumps(

@@ -4,6 +4,8 @@ import hashlib
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
+from functools import reduce
+from operator import add
 from typing import Iterable
 
 from nutrifoundation.domain.semantic_worker import ResponseEnvelope
@@ -155,7 +157,8 @@ def _aggregate(
         dimension=dimension,
         eligible_case_count=eligible_case_count,
         scored_case_count=len(scores),
-        mean_score=(sum(scores) / len(scores)) if scores else None,
+        # Preserve v0.1's Python 3.11 left-to-right arithmetic on Python 3.12+.
+        mean_score=(reduce(add, scores, 0) / len(scores)) if scores else None,
         min_score=min(scores) if scores else None,
         max_score=max(scores) if scores else None,
     )
@@ -260,7 +263,7 @@ def _field_summary(
             eligible_case_count=eligible[(dimension, field)],
             scored_case_count=len(values[(dimension, field)]),
             mean_score=(
-                sum(values[(dimension, field)]) / len(values[(dimension, field)])
+                reduce(add, values[(dimension, field)], 0) / len(values[(dimension, field)])
                 if values[(dimension, field)]
                 else None
             ),

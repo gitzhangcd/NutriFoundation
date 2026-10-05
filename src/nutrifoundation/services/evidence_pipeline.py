@@ -23,6 +23,7 @@ class EvidenceProductionService:
             "pmc_fulltext",
             "pubmed_abstract",
         ),
+        legacy_f0: bool = False,
     ):
         self.extractor = extractor
         self.verifier = verifier
@@ -30,6 +31,7 @@ class EvidenceProductionService:
         self.mode = mode
         self.code_version = code_version
         self.preferred_text_kinds = preferred_text_kinds
+        self.legacy_f0 = legacy_f0
         self.freeze_engine = F0FreezeEngine()
 
     def produce(
@@ -143,6 +145,8 @@ class EvidenceProductionService:
                     "completed",
                 )
 
+                if not self.legacy_f0:
+                    continue
                 evidence, freeze = self.freeze_engine.freeze(
                     candidate,
                     verification,
@@ -170,7 +174,8 @@ class EvidenceProductionService:
                     str(error),
                 )
 
-        status = "completed" if frozen == len(mapping) and not errors else "failed"
+        completed = frozen if self.legacy_f0 else verified
+        status = "completed" if completed == len(mapping) and not errors else "failed"
         final = manifest.model_copy(
             update={
                 "finished_at": datetime.now(timezone.utc),
@@ -181,6 +186,8 @@ class EvidenceProductionService:
                     "verified_count": verified,
                     "frozen_F0_count": frozen,
                     "rejected_count": rejected,
+                    "verification_scope": "legacy_mechanical_checks_only",
+                    "legacy_f0_enabled": self.legacy_f0,
                 },
                 "errors": tuple(errors),
             }

@@ -1,0 +1,119 @@
+{
+  "$defs": {
+    "Check": {
+      "additionalProperties": false,
+      "properties": {
+        "result_id": {
+          "title": "Result Id",
+          "type": "string"
+        },
+        "field": {
+          "title": "Field",
+          "type": "string"
+        },
+        "rule": {
+          "title": "Rule",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNRESOLVED",
+            "NOT_APPLICABLE"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "result_id",
+        "field",
+        "rule",
+        "status",
+        "reason"
+      ],
+      "title": "Check",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "report_id": {
+      "title": "Report Id",
+      "type": "string"
+    },
+    "draft_sha256": {
+      "title": "Draft Sha256",
+      "type": "string"
+    },
+    "parsed_sha256": {
+      "title": "Parsed Sha256",
+      "type": "string"
+    },
+    "scope": {
+      "const": "mechanical_and_independent_readout_comparison",
+      "default": "mechanical_and_independent_readout_comparison",
+      "title": "Scope",
+      "type": "string"
+    },
+    "checks": {
+      "items": {
+        "$ref": "#/$defs/Check"
+      },
+      "title": "Checks",
+      "type": "array"
+    },
+    "independent_readout_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Independent Readout Id"
+    },
+    "independent_readout_sha256": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Independent Readout Sha256"
+    },
+    "independent_evidence_status": {
+      "default": "NOT_PROVEN",
+      "enum": [
+        "NOT_PROVEN",
+        "ATTESTED_EXECUTION_ONLY"
+      ],
+      "title": "Independent Evidence Status",
+      "type": "string"
+    },
+    "scientific_truth_certified": {
+      "const": false,
+      "default": false,
+      "title": "Scientific Truth Certified",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "report_id",
+    "draft_sha256",
+    "parsed_sha256",
+    "checks"
+  ],
+  "title": "VerificationReport",
+  "type": "object"
+}

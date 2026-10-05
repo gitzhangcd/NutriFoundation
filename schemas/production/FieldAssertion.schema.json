@@ -1,0 +1,66 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "state": {
+      "enum": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "NOT_ACQUIRED",
+        "EXTRACTION_FAILED",
+        "UNRESOLVED"
+      ],
+      "title": "State",
+      "type": "string"
+    },
+    "source_value": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Value"
+    },
+    "normalized_value": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Normalized Value"
+    },
+    "anchor_refs": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Anchor Refs",
+      "type": "array"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason"
+    }
+  },
+  "required": [
+    "state"
+  ],
+  "title": "FieldAssertion",
+  "type": "object"
+}

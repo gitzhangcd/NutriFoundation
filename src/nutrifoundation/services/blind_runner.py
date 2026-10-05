@@ -100,7 +100,8 @@ def score_blind_artifact_run(
     }
 
     bridge = ChatWindowFileBridge()
-    ingestion = SemanticResponseIngestionService(store)
+    # Historical evaluator contract: explicit opt-in, never the production default.
+    ingestion = SemanticResponseIngestionService(store, legacy_f0=True)
 
     cases = []
     response_paths = sorted(Path(response_dir).glob("*.response.json"))

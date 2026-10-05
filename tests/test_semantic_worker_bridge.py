@@ -127,7 +127,7 @@ def test_completed_chat_response_runs_deterministic_verifier_and_freezes_f0(tmp_
         "SA-TEST-001",
         "EU-TEST-001",
     )
-    result = SemanticResponseIngestionService(store).ingest(
+    result = SemanticResponseIngestionService(store, legacy_f0=True).ingest(
         make_response(task)
     )
 

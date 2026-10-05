@@ -1,0 +1,178 @@
+{
+  "$defs": {
+    "FieldAssertion": {
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "enum": [
+            "PRESENT",
+            "NOT_REPORTED",
+            "NOT_APPLICABLE",
+            "NOT_ACQUIRED",
+            "EXTRACTION_FAILED",
+            "UNRESOLVED"
+          ],
+          "title": "State",
+          "type": "string"
+        },
+        "source_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Value"
+        },
+        "normalized_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Normalized Value"
+        },
+        "anchor_refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Anchor Refs",
+          "type": "array"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "state"
+      ],
+      "title": "FieldAssertion",
+      "type": "object"
+    },
+    "ResultDraft": {
+      "additionalProperties": false,
+      "properties": {
+        "result_id": {
+          "title": "Result Id",
+          "type": "string"
+        },
+        "object_type": {
+          "enum": [
+            "EvidenceUnit",
+            "Recommendation",
+            "ScientificClaim"
+          ],
+          "title": "Object Type",
+          "type": "string"
+        },
+        "fields": {
+          "additionalProperties": {
+            "$ref": "#/$defs/FieldAssertion"
+          },
+          "title": "Fields",
+          "type": "object"
+        },
+        "issues": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Issues",
+          "type": "array"
+        }
+      },
+      "required": [
+        "result_id",
+        "object_type",
+        "fields"
+      ],
+      "title": "ResultDraft",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "readout_id": {
+      "title": "Readout Id",
+      "type": "string"
+    },
+    "task_sha256": {
+      "title": "Task Sha256",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "parsed_sha256": {
+      "title": "Parsed Sha256",
+      "type": "string"
+    },
+    "worker_id": {
+      "title": "Worker Id",
+      "type": "string"
+    },
+    "session_id": {
+      "title": "Session Id",
+      "type": "string"
+    },
+    "input_scope": {
+      "const": "source_only",
+      "title": "Input Scope",
+      "type": "string"
+    },
+    "candidate_exposed": {
+      "title": "Candidate Exposed",
+      "type": "boolean"
+    },
+    "completed_at": {
+      "format": "date-time",
+      "title": "Completed At",
+      "type": "string"
+    },
+    "locked_at": {
+      "format": "date-time",
+      "title": "Locked At",
+      "type": "string"
+    },
+    "results": {
+      "items": {
+        "$ref": "#/$defs/ResultDraft"
+      },
+      "title": "Results",
+      "type": "array"
+    }
+  },
+  "required": [
+    "readout_id",
+    "task_sha256",
+    "snapshot_id",
+    "parsed_sha256",
+    "worker_id",
+    "session_id",
+    "input_scope",
+    "candidate_exposed",
+    "completed_at",
+    "locked_at",
+    "results"
+  ],
+  "title": "IndependentReadout",
+  "type": "object"
+}

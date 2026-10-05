@@ -54,6 +54,12 @@ def _source_numeric_tokens(source_text: str) -> set[str]:
 
 
 class IndependentEvidenceVerifier:
+    """Historical E0.3 mechanical verifier, retained for frozen replay.
+
+    Different role IDs do not prove execution independence. A `verified` result
+    means only these legacy checks passed; use production.verification for D0
+    field/readout checking. Never treat this record alone as canonical or Gold.
+    """
     def __init__(self, *, verifier_id: str = "IndependentEvidenceVerifier-v0.1"):
         self.verifier_id = verifier_id
 

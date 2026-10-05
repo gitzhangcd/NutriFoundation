@@ -141,6 +141,7 @@ def replay_batch001_evidence(
         store,
         mode="offline_replay",
         preferred_text_kinds=("regression_support_fixture",),
+        legacy_f0=True,
     )
     mapping = [
         (item["source_id"], item["evidence_id"])

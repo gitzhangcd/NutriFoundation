@@ -10,7 +10,7 @@ from nutrifoundation.domain.run_manifest import RunManifest
 from nutrifoundation.persistence.sqlite import SQLiteStore
 
 
-def classify_source_type(article: PubMedArticle) -> SourceType:
+def classify_source_type(article: PubMedArticle, *, legacy: bool = False) -> SourceType | None:
     publication_types = set(article.publication_types)
     title = article.title.lower()
 
@@ -20,7 +20,7 @@ def classify_source_type(article: PubMedArticle) -> SourceType:
         return SourceType.META_ANALYSIS
     if "Systematic Review" in publication_types:
         return SourceType.SYSTEMATIC_REVIEW
-    if "Randomized Controlled Trial" in publication_types or "Clinical Trial" in publication_types:
+    if "Randomized Controlled Trial" in publication_types or (legacy and "Clinical Trial" in publication_types):
         return SourceType.RCT
     if "Observational Study" in publication_types or "cohort" in title:
         return SourceType.COHORT
@@ -37,7 +37,9 @@ def classify_source_type(article: PubMedArticle) -> SourceType:
         ):
             return SourceType.RCT
 
-    return SourceType.POSITION_STATEMENT
+    if "Position Statement" in publication_types or "position statement" in title:
+        return SourceType.POSITION_STATEMENT
+    return SourceType.POSITION_STATEMENT if legacy else None
 
 
 def article_to_source(
@@ -46,10 +48,14 @@ def article_to_source(
     *,
     provider: str = "PubMed",
     run_id: str | None = None,
+    legacy_source_types: bool = False,
 ) -> SourceArtifact:
+    source_type = classify_source_type(article, legacy=legacy_source_types)
+    if source_type is None:
+        raise ValueError("Unresolved source type; retain acquisition and request classification")
     return SourceArtifact(
         source_id=source_id,
-        source_type=classify_source_type(article),
+        source_type=source_type,
         title=article.title,
         authors=article.authors,
         publication_date=article.publication_date,
@@ -66,6 +72,13 @@ def article_to_source(
                 "publication_types": list(article.publication_types),
                 "journal": article.journal,
                 "run_id": run_id,
+                **({
+                    "publication_date_raw": article.publication_date_raw,
+                    "publication_date_precision": article.publication_date_precision,
+                    "publication_date_start": article.publication_date_start.isoformat() if article.publication_date_start else None,
+                    "publication_date_end": article.publication_date_end.isoformat() if article.publication_date_end else None,
+                    "source_type_status": "metadata_candidate_not_design_verified",
+                } if article.publication_date_raw else {}),
             },
         ),
     )
@@ -79,11 +92,13 @@ class SourceArtifactIngestionService:
         *,
         mode: str = "live",
         code_version: str = "0.2.0",
+        legacy_source_types: bool = False,
     ):
         self.connector = connector
         self.store = store
         self.mode = mode
         self.code_version = code_version
+        self.legacy_source_types = legacy_source_types
 
     def ingest(self, mapping: list[tuple[str, str]]) -> RunManifest:
         run_id = (
@@ -129,12 +144,16 @@ class SourceArtifactIngestionService:
                     )
                     continue
 
-                source = article_to_source(
-                    by_pmid[pmid],
-                    source_id,
-                    provider=self.connector.__class__.__name__,
-                    run_id=run_id,
-                )
+                try:
+                    source = article_to_source(
+                        by_pmid[pmid], source_id,
+                        provider=self.connector.__class__.__name__, run_id=run_id,
+                        legacy_source_types=self.legacy_source_types,
+                    )
+                except ValueError as error:
+                    errors.append(f"{source_id}: {error}")
+                    self.store.log_ingestion_event(run_id, source_id, "classify", "deferred", str(error))
+                    continue
                 self.store.upsert_source(source)
                 if by_pmid[pmid].abstract:
                     self.store.save_source_text(

@@ -1,0 +1,104 @@
+{
+  "stage": "NDF-D1-A1R",
+  "artifact": "Knowledge-Need Contract",
+  "version": "v0.1",
+  "status": "FROZEN_NEED_CONTRACT_SOURCE_QUALIFICATION_PENDING",
+  "knowledge_need_contract_id": "KN-D1-A1R-001",
+  "scientific_question_ref": "SQ-D1-A1R-001",
+  "decision_episode_ref": "EP-NHANES-L-0001",
+  "purpose": "Define the minimum scientific knowledge that must be qualified before experts/agents can construct a defensible reference for information sufficiency and process action without pre-writing the answer.",
+  "required_dimensions": [
+    {
+      "need_id": "KN-001",
+      "name": "Individualized nutrition assessment prerequisites",
+      "question": "What information domains are scientifically relevant to an individualized nutrition assessment/recommendation in this decision context?",
+      "required_output": "Qualified candidate prerequisite domains with scope and exceptions; not a universal checklist unless sources support one.",
+      "preferred_source_classes": [
+        "current formal guideline",
+        "professional consensus/standard",
+        "official evidence report",
+        "authoritative nutrition assessment framework"
+      ],
+      "qualification_level_required": "L4_SCIENTIFIC_QUALIFICATION"
+    },
+    {
+      "need_id": "KN-002",
+      "name": "Action-specific information sufficiency",
+      "question": "Which available or missing information changes whether START/MODIFY-type nutrition actions are supportable versus whether ASK/REQUEST_MORE_INFORMATION/DEFER is supportable?",
+      "required_output": "Action-specific sufficiency conditions; preserve the Foundation rule that information may be sufficient for ASK/DEFER while insufficient for START.",
+      "preferred_source_classes": [
+        "guideline/consensus",
+        "decision or assessment framework",
+        "high-quality review where directly relevant"
+      ],
+      "qualification_level_required": "L4_SCIENTIFIC_QUALIFICATION"
+    },
+    {
+      "need_id": "KN-003",
+      "name": "Observed-marker interpretation boundary",
+      "question": "What scientifically defensible interpretation can be made from the visible anthropometric and blood-pressure observations without converting them into unsupported diagnosis or individualized diet prescription?",
+      "required_output": "Boundary conditions and explicitly prohibited over-inference.",
+      "preferred_source_classes": [
+        "official measurement/clinical guideline",
+        "authoritative reference standard",
+        "relevant professional guideline"
+      ],
+      "qualification_level_required": "L4_SCIENTIFIC_QUALIFICATION"
+    },
+    {
+      "need_id": "KN-004",
+      "name": "Safety and referral/escalation boundary",
+      "question": "What safety-relevant conditions or unresolved information would require professional review, referral, escalation, or restraint before individualized nutrition advice?",
+      "required_output": "Qualified safety modifiers and unresolved safety gaps; no automatic SAFE label.",
+      "preferred_source_classes": [
+        "current safety-relevant guideline",
+        "professional standard",
+        "official clinical/nutrition recommendation"
+      ],
+      "qualification_level_required": "L4_SCIENTIFIC_QUALIFICATION"
+    },
+    {
+      "need_id": "KN-005",
+      "name": "Conflict, uncertainty and alternative process actions",
+      "question": "Where sources permit multiple reasonable information-gathering or defer strategies, what alternatives and uncertainty must the reference preserve?",
+      "required_output": "Conflict/uncertainty record and acceptable process-action structure rather than forced single-answer collapse.",
+      "preferred_source_classes": [
+        "qualified sources from KN-001 through KN-004",
+        "conflicting or updated sources when material"
+      ],
+      "qualification_level_required": "CASE_SPECIFIC_SYNTHESIS_AFTER_L4_SOURCE_QUALIFICATION"
+    }
+  ],
+  "source_selection_principles": [
+    "source composition follows decision relevance + scientific risk, not source-type quotas",
+    "guideline/official/standard sources are actively sought because the question is about assessment/safety/process boundaries",
+    "primary studies are required only when a claim being used requires primary empirical support; they are not included merely to satisfy a quota",
+    "conflicting or superseded sources are preserved when decision-relevant",
+    "all key claims require recoverable source spans and version identity"
+  ],
+  "verification_ladder": {
+    "L1": "Mechanical integrity: identifiers, date, version, units, table/number consistency",
+    "L2": "Source support: source span actually supports extraction",
+    "L3": "Semantic scope: population/condition/action/time and intended meaning are correct",
+    "L4": "Scientific qualification: allowed for this scientific question/reference/application"
+  },
+  "temporal_policy": {
+    "observation_cutoff_ref": "EP-NHANES-L-0001 / BOUND-NHANES-L-0001-SYSTEM",
+    "scientific_evidence_cutoff": "TO_BE_FROZEN_BEFORE_A2R_ACQUISITION_PROMOTION",
+    "rule": "Evidence cutoff and observation cutoff are separate objects; no future-evidence leakage is permitted."
+  },
+  "case_specific_readiness_gate": [
+    "decision-relevant source set qualified",
+    "critical claims source-span supported",
+    "applicability/boundary conditions explicit",
+    "major conflicts preserved",
+    "critical uncertainty explicit",
+    "safety-relevant evidence or unresolved safety gap explicit"
+  ],
+  "reference_contamination_controls": [
+    "A1R does not declare the final action correct.",
+    "Agent-generated candidate domains are not final expert reference.",
+    "Experts' pre-AI judgments must remain preserved in NDS-R1.",
+    "Legacy Gold100/source-level labels cannot become DecisionReference labels."
+  ]
+}

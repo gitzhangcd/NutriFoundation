@@ -1,0 +1,118 @@
+{
+  "stage": "NDF-D1-A2R",
+  "artifact": "Targeted Source Acquisition Manifest",
+  "version": "v0.1",
+  "status": "INITIAL_TARGETED_SET_ACQUIRED",
+  "evidence_cutoff_ref": "A2R_Evidence_Cutoff_Lock_v0.1",
+  "scientific_question_ref": "SQ-D1-A1R-001",
+  "sources": [
+    {
+      "source_id": "SRC-A2R-001",
+      "title": "Academy of Nutrition and Dietetics — Nutrition Assessment",
+      "source_class": "PROFESSIONAL_STANDARD_WEB",
+      "organization": "Academy of Nutrition and Dietetics",
+      "url": "https://www.eatrightpro.org/practice/nutrition-care-process/ncp-overview/nutrition-assessment",
+      "version_identity": "retrieved/current page as of 2026-10-07",
+      "knowledge_need_refs": [
+        "KN-001",
+        "KN-002"
+      ],
+      "purpose": "REFERENCE_CONSTRUCTION_CANDIDATE",
+      "acquisition_origin": "TARGETED_EXTERNAL",
+      "status": "ACQUIRED"
+    },
+    {
+      "source_id": "SRC-A2R-002",
+      "title": "2025 AHA/ACC Multisociety High Blood Pressure Guideline",
+      "source_class": "CLINICAL_PRACTICE_GUIDELINE",
+      "organization": "American Heart Association / American College of Cardiology and collaborating societies",
+      "pmid": "40811497",
+      "doi": "10.1161/CIR.0000000000001356",
+      "url": "https://professional.heart.org/en/science-news/2025",
+      "version_identity": "2025 guideline with correction lineage present",
+      "linked_correction_pmids": [
+        "41212942",
+        "42160500"
+      ],
+      "knowledge_need_refs": [
+        "KN-003",
+        "KN-004"
+      ],
+      "purpose": "REFERENCE_CONSTRUCTION_CANDIDATE",
+      "acquisition_origin": "TARGETED_EXTERNAL",
+      "status": "ACQUIRED_VERSION_LINEAGE_RESOLVED"
+    },
+    {
+      "source_id": "SRC-A2R-003",
+      "title": "AHA Home Blood Pressure Monitoring / interpretation page",
+      "source_class": "OFFICIAL_PROFESSIONAL_GUIDANCE_WEB",
+      "organization": "American Heart Association",
+      "url": "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home",
+      "version_identity": "Last reviewed 2025-08-14; retrieved 2026-10-07",
+      "knowledge_need_refs": [
+        "KN-003",
+        "KN-004"
+      ],
+      "purpose": "REFERENCE_CONSTRUCTION_CANDIDATE",
+      "acquisition_origin": "TARGETED_EXTERNAL",
+      "status": "ACQUIRED"
+    },
+    {
+      "source_id": "SRC-A2R-004",
+      "title": "USPSTF Behavioral Counseling for Healthy Diet and Physical Activity in Adults With CVD Risk Factors",
+      "source_class": "PREVENTIVE_RECOMMENDATION",
+      "organization": "U.S. Preventive Services Task Force",
+      "pmid": "33231670",
+      "doi": "10.1001/jama.2020.21749",
+      "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/healthy-diet-and-physical-activity-counseling-adults-with-high-risk-of-cvd",
+      "version_identity": "Final 2020 recommendation; update in progress as of 2026-10-07",
+      "knowledge_need_refs": [
+        "KN-002",
+        "KN-004",
+        "KN-005"
+      ],
+      "purpose": "REFERENCE_CONSTRUCTION_CANDIDATE",
+      "acquisition_origin": "TARGETED_EXTERNAL",
+      "status": "ACQUIRED_TEMPORAL_CAUTION"
+    },
+    {
+      "source_id": "SRC-A2R-005",
+      "title": "Dietary Guidelines for Americans, 2025–2030",
+      "source_class": "FEDERAL_DIETARY_GUIDELINE",
+      "organization": "U.S. Department of Health and Human Services / U.S. Department of Agriculture",
+      "url": "https://odphp.health.gov/our-work/nutrition-physical-activity/dietary-guidelines/current-dietary-guidelines",
+      "version_identity": "10th Edition, January 2026; ODPHP page updated 2026-06-10",
+      "knowledge_need_refs": [
+        "KN-001",
+        "KN-005"
+      ],
+      "purpose": "REFERENCE_CONSTRUCTION_CONTEXT",
+      "acquisition_origin": "TARGETED_EXTERNAL",
+      "status": "ACQUIRED"
+    },
+    {
+      "source_id": "SRC-A2R-006",
+      "title": "USPSTF Behavioral Weight Loss Interventions in Adults",
+      "source_class": "PREVENTIVE_RECOMMENDATION",
+      "organization": "U.S. Preventive Services Task Force",
+      "pmid": "30326502",
+      "doi": "10.1001/jama.2018.13022",
+      "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-adults-interventions",
+      "version_identity": "Final 2018 recommendation; update in progress as of 2026-10-07",
+      "knowledge_need_refs": [
+        "KN-002",
+        "KN-003",
+        "KN-005"
+      ],
+      "purpose": "REFERENCE_CONSTRUCTION_CANDIDATE",
+      "acquisition_origin": "TARGETED_EXTERNAL",
+      "status": "ACQUIRED_TEMPORAL_CAUTION"
+    }
+  ],
+  "acquisition_nonclaims": [
+    "Acquired does not mean scientifically qualified.",
+    "No source is a DecisionReference.",
+    "Current final recommendations under active update retain a temporal caution flag.",
+    "General dietary guidance cannot by itself authorize individualized recommendation."
+  ]
+}

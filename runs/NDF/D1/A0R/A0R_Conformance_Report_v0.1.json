@@ -1,0 +1,45 @@
+{
+  "stage": "NDF-D1-A0R",
+  "artifact": "Conformance Report",
+  "version": "v0.1",
+  "status": "PASS_FROZEN",
+  "date": "2026-10-07",
+  "branch": "ndf-d1-scientific-core-thin-slice",
+  "verified_against_main": "6b2559eb10037149c605921c09423453c8b1d821",
+  "checks": {
+    "latest_paper_plan_recovered": "PASS",
+    "legacy_31_eq_current_authority_removed": "PASS",
+    "eq010_thin_slice_deactivated": "PASS",
+    "e0_4_3_migration_lineage_preserved": "PASS",
+    "locked_evaluation_quarantine_preserved": "PASS",
+    "calibration_isolation_preserved": "PASS",
+    "nds_r1_not_equal_nds_p1": "PASS",
+    "program_routing_frozen": "PASS",
+    "readme_route_visible": "PASS",
+    "json_parse_validation": "PASS",
+    "silent_history_rewrite": "PASS"
+  },
+  "current_route": [
+    "NDF-D0",
+    "NDF-D1 || NDF-D2",
+    "NDS-R1 (N1+N7)",
+    "NDS-P1 (N2)",
+    "NDS-P2 (N3)",
+    "NDS-P3 (N4+N6)",
+    "NDS-P4 (N5)",
+    "NDS-P5 (N8)"
+  ],
+  "preserved_a0_assets": [
+    "runs/NDF/D1/A0/E0.4.3_Source_Universe_Migration_Registry_v0.1.json",
+    "source identity/recoverability findings",
+    "purpose/overlap audit",
+    "legacy source provenance"
+  ],
+  "deactivated_execution_assets": [
+    "runs/NDF/D1/A0/Thin_Slice_Candidate_Lock_v0.1.json as current authority",
+    "legacy 31-EQ registry as current D1 driver",
+    "legacy Paper 1 fixed reference plan as CurrentPaper1Authority"
+  ],
+  "next_stage": "NDF-D1-A1R｜Demand-Driven Scientific Question Intake, Knowledge-Need Contract & First R1/P1 Thin-Slice Selection",
+  "merge_policy": "DO_NOT_MERGE_AUTOMATICALLY; branch is ready for review/continued A1R execution."
+}

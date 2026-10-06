@@ -1,6 +1,6 @@
 # NDF-D1-A2R｜First Thin-Slice Targeted Source Acquisition, Study Resolution & Source-Span Qualification
 
-**Status:** `PASS_INITIAL_SOURCE_SET_QUALIFIED_FOR_A3R`  
+**Status:** `PASS_INITIAL_SOURCE_SET_QUALIFIED_FOR_A3R_WITH_SNAPSHOT_GAPS`  
 **Date:** 2026-10-07  
 **Scientific Question:** `SQ-D1-A1R-001`  
 **Thin Slice:** `TS-D1-A1R-001`
@@ -84,7 +84,38 @@ Most importantly, none of the sources authorizes the statement:
 
 That remains an NDS-R1 reference-science question.
 
-## 6. Next stage
+## 6. Snapshot / correction reproducibility gap
+
+A2R distinguishes source-span recoverability from immutable snapshot closure.
+
+Current live-web sources have:
+
+```text
+URL
++ retrieval date
++ bounded line/section locator
++ qualified support statement
+```
+
+but are not yet byte-frozen immutable snapshots. In addition, the 2025 AHA/ACC guideline has a correction lineage that must be reconstructed claim-by-claim before final promotion.
+
+Therefore:
+
+[
+oxed{
+A3R ClaimConstruction MayProceed
+quadlandquad
+FinalSRSReproducibility RemainsBlocked
+}
+]
+
+The controlling register is:
+
+`runs/NDF/D1/A2R/A2R_Source_Snapshot_Gap_Register_v0.1.json`
+
+No final `D1-G6 Reference-state reproducibility = PASS` and no `R1 knowledge-ready` state may be assigned until every source actually used by the final SRS has its relevant snapshot/correction gap closed.
+
+## 7. Next stage
 
 Proceed to:
 

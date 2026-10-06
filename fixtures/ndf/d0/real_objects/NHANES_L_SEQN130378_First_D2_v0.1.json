@@ -1,0 +1,417 @@
+{
+  "case_id": "D2-NHANES-L-0001",
+  "status": "D0_PHYSICAL_CONFORMANCE_ONLY",
+  "source_semantics_authority": "CDC/NCHS NHANES August 2021-August 2023 codebooks",
+  "byte_carrier_note": "Row values were read from a public GitHub CSV replica because the CDC XPT binary could not be decoded in the current execution environment. The replica is a transport carrier, not semantic authority, and is not yet byte-verified against the official XPT in this runtime.",
+  "context": {
+    "cutoff_time": "2026-10-07T00:00:00Z",
+    "authorized_view": "SYSTEM_VIEW",
+    "contract_version": "NDF-D0-v0.1",
+    "projection_policy_version": "NDF-D0-Projection-v0.1"
+  },
+  "objects": [
+    {
+      "object_id": "SRC-CDC-NHANES-L-DEMO-DOC",
+      "revision_id": "r1",
+      "kind": "SourceArtifact",
+      "schema_version": "NDF-D0-v0.1",
+      "lifecycle": "DRAFT",
+      "producer_role": "A2_1_REAL_D2",
+      "created_time": "2026-10-07T00:00:00Z",
+      "provenance_refs": [
+        "CDC-NCHS"
+      ],
+      "dependency_refs": [],
+      "source_class": "OFFICIAL_CDC_DOCUMENT",
+      "purpose_release_ref": "CURATION_DEV",
+      "supersedes_ref": null,
+      "title": "NHANES August 2021-August 2023 Demographic Variables and Sample Weights (DEMO_L)",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DEMO_L.htm",
+      "public_file": "DEMO_L.xpt"
+    },
+    {
+      "object_id": "SRC-CDC-NHANES-L-BMX-DOC",
+      "revision_id": "r1",
+      "kind": "SourceArtifact",
+      "schema_version": "NDF-D0-v0.1",
+      "lifecycle": "DRAFT",
+      "producer_role": "A2_1_REAL_D2",
+      "created_time": "2026-10-07T00:00:00Z",
+      "provenance_refs": [
+        "CDC-NCHS"
+      ],
+      "dependency_refs": [],
+      "source_class": "OFFICIAL_CDC_DOCUMENT",
+      "purpose_release_ref": "CURATION_DEV",
+      "supersedes_ref": null,
+      "title": "NHANES August 2021-August 2023 Body Measures (BMX_L)",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/BMX_L.htm",
+      "public_file": "BMX_L.xpt"
+    },
+    {
+      "object_id": "SRC-CDC-NHANES-L-BPXO-DOC",
+      "revision_id": "r1",
+      "kind": "SourceArtifact",
+      "schema_version": "NDF-D0-v0.1",
+      "lifecycle": "DRAFT",
+      "producer_role": "A2_1_REAL_D2",
+      "created_time": "2026-10-07T00:00:00Z",
+      "provenance_refs": [
+        "CDC-NCHS"
+      ],
+      "dependency_refs": [],
+      "source_class": "OFFICIAL_CDC_DOCUMENT",
+      "purpose_release_ref": "CURATION_DEV",
+      "supersedes_ref": null,
+      "title": "NHANES August 2021-August 2023 Blood Pressure - Oscillometric Measurements (BPXO_L)",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/BPXO_L.htm",
+      "public_file": "BPXO_L.xpt"
+    },
+    {
+      "object_id": "SRC-REPLICA-NHANES23-MERGED",
+      "revision_id": "r1",
+      "kind": "SourceArtifact",
+      "schema_version": "NDF-D0-v0.1",
+      "lifecycle": "DRAFT",
+      "producer_role": "A2_1_REAL_D2",
+      "created_time": "2026-10-07T00:00:00Z",
+      "provenance_refs": [
+        "PUBLIC_GITHUB_REPLICA"
+      ],
+      "dependency_refs": [],
+      "source_class": "PUBLIC_DATASET_REPLICA",
+      "purpose_release_ref": "CURATION_DEV",
+      "supersedes_ref": null,
+      "repository": "codingman7778/nhanes",
+      "path": "nhanes_23.csv",
+      "git_blob_sha": "705865448b96f122a52ee2f738ff9991488a2476",
+      "upstream_cycle": "NHANES August 2021-August 2023",
+      "replica_verification_status": "NOT_BYTE_VERIFIED_AGAINST_OFFICIAL_XPT_IN_CURRENT_RUNTIME"
+    },
+    {
+      "object_id": "ANCH-REPLICA-SEQN130378",
+      "revision_id": "r1",
+      "kind": "SourceAnchor",
+      "schema_version": "NDF-D0-v0.1",
+      "lifecycle": "DRAFT",
+      "producer_role": "A2_1_REAL_D2",
+      "created_time": "2026-10-07T00:00:00Z",
+      "provenance_refs": [
+        "SRC-REPLICA-NHANES23-MERGED"
+      ],
+      "dependency_refs": [
+        "SRC-REPLICA-NHANES23-MERGED"
+      ],
+      "source_class": "PUBLIC_DATASET_REPLICA",
+      "purpose_release_ref": "CURATION_DEV",
+      "supersedes_ref": null,
+      "locator": "nhanes_23.csv row where SEQN=130378",
+      "header": "SEQN,RIDAGEYR,RIAGENDR,BMXWT,BMXHT,BMXBMI,BPXOSY1,BPXOSY2,BPXOSY3",
+      "exact_row": "130378.0,43.0,1.0,86.9,179.5,27.0,135.0,131.0,132.0",
+      "available_time": "2026-10-06T17:00:00Z"
+    },
+    {
+      "object_id": "SUBJMAP-NHANES-L-0001",
+      "revision_id": "r1",
+      "kind": "SubjectSourceMapping",
+      "schema_version": "NDF-D0-v0.1",
+      "lifecycle": "DRAFT",
+      "producer_role": "A2_1_REAL_D2",
+      "created_time": "2026-10-07T00:00:00Z",
+      "provenance_refs": [
+        "ANCH-REPLICA-SEQN130378"
+      ],
+      "dependency_refs": [
+        "ANCH-REPLICA-SEQN130378"
+      ],
+      "source_class": "ROLE_RESTRICTED_INTERNAL_MAPPING",
+      "purpose_release_ref": "CURATION_DEV",
+      "supersedes_ref": null,
+      "subject_id": "SUBJ-NHANES-L-0001",
+      "internal_source_mapping": {
+        "dataset": "NHANES",
+        "cycle": "AUG2021_AUG2023",
+        "SEQN": 130378
+      },
+      "visibility": "ROLE_RESTRICTED"
+    },
+    {
+      "object_id": "OBS-NHANES-L-0001-RAW",
+      "revision_id": "r1",
+      "kind": "NutritionObservation",
+      "schema_version": "NDF-D0-v0.1",
+      "lifecycle": "DRAFT",
+      "producer_role": "A2_1_REAL_D2",
+      "created_time": "2026-10-07T00:00:00Z",
+      "provenance_refs": [
+        "ANCH-REPLICA-SEQN130378",
+        "SRC-CDC-NHANES-L-DEMO-DOC",
+        "SRC-CDC-NHANES-L-BMX-DOC",
+        "SRC-CDC-NHANES-L-BPXO-DOC"
+      ],
+      "dependency_refs": [
+        "ANCH-REPLICA-SEQN130378",
+        "SRC-CDC-NHANES-L-DEMO-DOC",
+        "SRC-CDC-NHANES-L-BMX-DOC",
+        "SRC-CDC-NHANES-L-BPXO-DOC"
+      ],
+      "source_class": "REAL_PUBLIC_OBSERVATION_REPLICA_CARRIER",
+      "purpose_release_ref": "CURATION_DEV",
+      "supersedes_ref": null,
+      "subject_id": "SUBJ-NHANES-L-0001",
+      "available_time": "2026-10-06T17:00:00Z",
+      "observations": [
+        {
+          "concept": "age_at_screening",
+          "source_variable": "RIDAGEYR",
+          "source_file": "DEMO_L",
+          "value": 43,
+          "unit": "years",
+          "semantic_origin": "OBSERVED",
+          "construction_origin": "OBS",
+          "epistemic_expression": "KNOWN",
+          "visibility": "VISIBLE",
+          "available_time": "2026-10-06T17:00:00Z"
+        },
+        {
+          "concept": "sex",
+          "source_variable": "RIAGENDR",
+          "source_file": "DEMO_L",
+          "raw_value": 1,
+          "normalized_label": "Male",
+          "semantic_origin": "OBSERVED",
+          "construction_origin": "OBS",
+          "epistemic_expression": "KNOWN",
+          "visibility": "VISIBLE",
+          "available_time": "2026-10-06T17:00:00Z"
+        },
+        {
+          "concept": "measured_weight",
+          "source_variable": "BMXWT",
+          "source_file": "BMX_L",
+          "value": 86.9,
+          "unit": "kg",
+          "semantic_origin": "OBSERVED",
+          "construction_origin": "OBS",
+          "epistemic_expression": "KNOWN",
+          "visibility": "VISIBLE",
+          "available_time": "2026-10-06T17:00:00Z"
+        },
+        {
+          "concept": "standing_height",
+          "source_variable": "BMXHT",
+          "source_file": "BMX_L",
+          "value": 179.5,
+          "unit": "cm",
+          "semantic_origin": "OBSERVED",
+          "construction_origin": "OBS",
+          "epistemic_expression": "KNOWN",
+          "visibility": "VISIBLE",
+          "available_time": "2026-10-06T17:00:00Z"
+        },
+        {
+          "concept": "source_reported_bmi",
+          "source_variable": "BMXBMI",
+          "source_file": "BMX_L",
+          "value": 27,
+          "unit": "kg/m^2",
+          "semantic_origin": "OBSERVED",
+          "construction_origin": "OBS",
+          "epistemic_expression": "KNOWN",
+          "visibility": "VISIBLE",
+          "available_time": "2026-10-06T17:00:00Z"
+        },
+        {
+          "concept": "oscillometric_sbp_1",
+          "source_variable": "BPXOSY1",
+          "source_file": "BPXO_L",
+          "value": 135,
+          "unit": "mmHg",
+          "semantic_origin": "OBSERVED",
+          "construction_origin": "OBS",
+          "epistemic_expression": "KNOWN",
+          "visibility": "VISIBLE",
+          "available_time": "2026-10-06T17:00:00Z"
+        },
+        {
+          "concept": "oscillometric_sbp_2",
+          "source_variable": "BPXOSY2",
+          "source_file": "BPXO_L",
+          "value": 131,
+          "unit": "mmHg",
+          "semantic_origin": "OBSERVED",
+          "construction_origin": "OBS",
+          "epistemic_expression": "KNOWN",
+          "visibility": "VISIBLE",
+          "available_time": "2026-10-06T17:00:00Z"
+        },
+        {
+          "concept": "oscillometric_sbp_3",
+          "source_variable": "BPXOSY3",
+          "source_file": "BPXO_L",
+          "value": 132,
+          "unit": "mmHg",
+          "semantic_origin": "OBSERVED",
+          "construction_origin": "OBS",
+          "epistemic_expression": "KNOWN",
+          "visibility": "VISIBLE",
+          "available_time": "2026-10-06T17:00:00Z"
+        },
+        {
+          "concept": "day1_total_energy",
+          "source_variable": "DR1TKCAL",
+          "source_file": "DR1TOT_L",
+          "value": null,
+          "semantic_origin": "OBSERVED",
+          "construction_origin": "UNK",
+          "epistemic_expression": "UNKNOWN",
+          "visibility": "NOT_YET_AVAILABLE",
+          "missingness_reason": "SOURCE_COMPONENT_NOT_INGESTED_IN_A2_1",
+          "available_time": "2026-10-07T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "object_id": "OBS-NHANES-L-0001-DRV",
+      "revision_id": "r1",
+      "kind": "NutritionObservation",
+      "schema_version": "NDF-D0-v0.1",
+      "lifecycle": "DRAFT",
+      "producer_role": "A2_1_REAL_D2",
+      "created_time": "2026-10-07T00:00:00Z",
+      "provenance_refs": [
+        "OBS-NHANES-L-0001-RAW"
+      ],
+      "dependency_refs": [
+        "OBS-NHANES-L-0001-RAW"
+      ],
+      "source_class": "DERIVED_FROM_PUBLIC_OBSERVATIONS",
+      "purpose_release_ref": "CURATION_DEV",
+      "supersedes_ref": null,
+      "subject_id": "SUBJ-NHANES-L-0001",
+      "available_time": "2026-10-07T00:00:00Z",
+      "observations": [
+        {
+          "concept": "DRV_BMI_RECALC",
+          "value": 26.970616304963496,
+          "unit": "kg/m^2",
+          "derivation_formula": "86.9 / (1.795^2)",
+          "input_concepts": [
+            "BMXWT",
+            "BMXHT"
+          ],
+          "semantic_origin": "DERIVED",
+          "construction_origin": "DRV",
+          "epistemic_expression": "KNOWN",
+          "visibility": "VISIBLE",
+          "available_time": "2026-10-07T00:00:00Z"
+        },
+        {
+          "concept": "DRV_SBP_MEAN",
+          "value": 132.66666666666666,
+          "unit": "mmHg",
+          "derivation_formula": "mean(BPXOSY1,BPXOSY2,BPXOSY3)",
+          "input_concepts": [
+            "BPXOSY1",
+            "BPXOSY2",
+            "BPXOSY3"
+          ],
+          "semantic_origin": "DERIVED",
+          "construction_origin": "DRV",
+          "epistemic_expression": "KNOWN",
+          "visibility": "VISIBLE",
+          "available_time": "2026-10-07T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "object_id": "BOUND-NHANES-L-0001-SYSTEM",
+      "revision_id": "r1",
+      "kind": "NutritionInformationBoundary",
+      "schema_version": "NDF-D0-v0.1",
+      "lifecycle": "DRAFT",
+      "producer_role": "A2_1_REAL_D2",
+      "created_time": "2026-10-07T00:00:00Z",
+      "provenance_refs": [
+        "OBS-NHANES-L-0001-RAW",
+        "OBS-NHANES-L-0001-DRV"
+      ],
+      "dependency_refs": [
+        "OBS-NHANES-L-0001-RAW",
+        "OBS-NHANES-L-0001-DRV"
+      ],
+      "source_class": "MIXED_CONSTRUCTED",
+      "purpose_release_ref": "CURATION_DEV",
+      "supersedes_ref": null,
+      "subject_id": "SUBJ-NHANES-L-0001",
+      "role": "SYSTEM",
+      "cutoff_time": "2026-10-07T00:00:00Z",
+      "knowledge_mode": "SYSTEM_FAITHFUL_CURRENT",
+      "allowed_object_refs": [
+        "OBS-NHANES-L-0001-RAW",
+        "OBS-NHANES-L-0001-DRV"
+      ],
+      "restricted_object_refs": [
+        "SUBJMAP-NHANES-L-0001"
+      ],
+      "temporal_integrity_status": "VERIFIED_FOR_DECLARED_MODE",
+      "projected_payload": {
+        "subject_id": "SUBJ-NHANES-L-0001",
+        "visible_observations": {
+          "age_at_screening": 43,
+          "sex": "Male",
+          "measured_weight_kg": 86.9,
+          "standing_height_cm": 179.5,
+          "source_reported_bmi": 27,
+          "oscillometric_sbp": [
+            135,
+            131,
+            132
+          ],
+          "derived_bmi_recalc": 26.970616304963496,
+          "derived_sbp_mean": 132.66666666666666,
+          "day1_total_energy": {
+            "status": "UNKNOWN",
+            "reason": "SOURCE_COMPONENT_NOT_INGESTED_IN_A2_1"
+          }
+        }
+      }
+    },
+    {
+      "object_id": "EP-NHANES-L-0001",
+      "revision_id": "r1",
+      "kind": "NutritionDecisionEpisode",
+      "schema_version": "NDF-D0-v0.1",
+      "lifecycle": "DRAFT",
+      "producer_role": "A2_1_REAL_D2",
+      "created_time": "2026-10-07T00:00:00Z",
+      "provenance_refs": [
+        "OBS-NHANES-L-0001-RAW",
+        "OBS-NHANES-L-0001-DRV",
+        "BOUND-NHANES-L-0001-SYSTEM"
+      ],
+      "dependency_refs": [
+        "OBS-NHANES-L-0001-RAW",
+        "OBS-NHANES-L-0001-DRV",
+        "BOUND-NHANES-L-0001-SYSTEM"
+      ],
+      "source_class": "NHANES_GROUNDED_DE_NOVO_DECISION_EPISODE",
+      "purpose_release_ref": "CURATION_DEV",
+      "supersedes_ref": null,
+      "subject_id": "SUBJ-NHANES-L-0001",
+      "time_mode": "EXPERIMENTALLY_DEFINED_CROSS_SECTIONAL",
+      "decision_point_id": "DP-NHANES-L-0001",
+      "task_type": "INFORMATION_SUFFICIENCY_TRIAGE",
+      "task_text": "Using only the visible NHANES observations in this constructed research case, determine whether there is enough information to proceed to an individualized nutrition recommendation or whether additional nutrition-relevant information should be requested/deferred. Do not infer a diagnosis and do not use future information.",
+      "information_boundary_ref": "BOUND-NHANES-L-0001-SYSTEM",
+      "observation_refs": [
+        "OBS-NHANES-L-0001-RAW",
+        "OBS-NHANES-L-0001-DRV"
+      ],
+      "reference_status": "REFERENCE_PENDING",
+      "evaluator_status": "PENDING",
+      "scientific_claim_status": "NOT_EVALUATED",
+      "clinical_case_claim": "NOT_A_REAL_CLINICAL_CASE"
+    }
+  ]
+}

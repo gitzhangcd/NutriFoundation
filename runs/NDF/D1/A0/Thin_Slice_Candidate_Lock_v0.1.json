@@ -1,0 +1,196 @@
+{
+  "stage": "NDF-D1-A0",
+  "artifact": "First Case-Relevant Thin-Slice Candidate Lock",
+  "version": "v0.1",
+  "status": "PROVISIONAL_CANDIDATE_LOCK_NOT_REFERENCE_READY",
+  "focus": {
+    "evidence_question": "EQ-010",
+    "core_issue": "Dietary patterns in prediabetes/T2D",
+    "linked_paper1_cases": [
+      "016",
+      "017",
+      "020"
+    ],
+    "rationale": "Use the first source-recoverable glycemia decision slice to test D1 migration and qualification before scaling across all 31 EvidenceQuestions."
+  },
+  "candidate_count": 8,
+  "candidates": [
+    {
+      "source_origin": "CURRENT_NDF_D0_FIXTURE_OUTSIDE_E0.4.3",
+      "legacy_candidate_id": null,
+      "pmid": "36670395",
+      "doi": "10.1186/s12902-023-01275-9",
+      "title": "Dietary pattern scores in relation to pre-diabetes regression to normal glycemia or progression to type 2 diabetes: a 9-year follow-up.",
+      "source_family": "primary_observational",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text_status": "D0_SOURCE_ANCHOR_PRESENT_SCIENTIFIC_QUALIFICATION_NOT_STARTED",
+      "study_identity_cluster_id": "STUDY-TLGS-PREDM-334",
+      "version_status": "NOT_YET_D1_AUDITED",
+      "challenge_tags": [],
+      "target_evidence_questions": [
+        "EQ-010"
+      ],
+      "selection_basis": "current first real D1 physical-conformance seed; directly aligned to prediabetes dietary-pattern question",
+      "d1_qualification": "NOT_STARTED"
+    },
+    {
+      "source_origin": "E0.4.3_ELIGIBLE_POOL",
+      "legacy_candidate_id": "G100-CAND-000363",
+      "pmid": "26199070",
+      "doi": "10.1136/bmj.h3576",
+      "title": "Consumption of sugar sweetened beverages, artificially sweetened beverages, and fruit juice and incidence of type 2 diabetes: systematic review, meta-analysis, and estimation of population attributable fraction.",
+      "source_family": "evidence_synthesis",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text_status": "official_full_text_frozen",
+      "study_identity_cluster_id": "PMID:26199070",
+      "version_status": "original_current",
+      "challenge_tags": [
+        "numeric_complexity"
+      ],
+      "target_evidence_questions": [
+        "EQ-010"
+      ],
+      "selection_basis": "title/scope candidate for dietary-pattern or diet-exposure reasoning in prediabetes/T2D; requires full D1 semantic qualification",
+      "d1_qualification": "NOT_STARTED"
+    },
+    {
+      "source_origin": "E0.4.3_ELIGIBLE_POOL",
+      "legacy_candidate_id": "G100-CAND-000418",
+      "pmid": "33441384",
+      "doi": "10.1136/bmj.m4743",
+      "title": "Efficacy and safety of low and very low carbohydrate diets for type 2 diabetes remission: systematic review and meta-analysis of published and unpublished randomized trial data.",
+      "source_family": "evidence_synthesis",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text_status": "official_full_text_frozen",
+      "study_identity_cluster_id": "PMID:33441384",
+      "version_status": "original_current",
+      "challenge_tags": [
+        "numeric_complexity"
+      ],
+      "target_evidence_questions": [
+        "EQ-010"
+      ],
+      "selection_basis": "title/scope candidate for dietary-pattern or diet-exposure reasoning in prediabetes/T2D; requires full D1 semantic qualification",
+      "d1_qualification": "NOT_STARTED"
+    },
+    {
+      "source_origin": "E0.4.3_ELIGIBLE_POOL",
+      "legacy_candidate_id": "G100-CAND-000426",
+      "pmid": "34348965",
+      "doi": "10.1136/bmj.n1651",
+      "title": "Effect of low glycaemic index or load dietary patterns on glycaemic control and cardiometabolic risk factors in diabetes: systematic review and meta-analysis of randomised controlled trials.",
+      "source_family": "evidence_synthesis",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text_status": "official_full_text_frozen",
+      "study_identity_cluster_id": "REG:NCT01063374",
+      "version_status": "corrected",
+      "challenge_tags": [
+        "numeric_complexity",
+        "correction_retraction_living_version",
+        "temporal_cutoff_sensitive"
+      ],
+      "target_evidence_questions": [
+        "EQ-010"
+      ],
+      "selection_basis": "title/scope candidate for dietary-pattern or diet-exposure reasoning in prediabetes/T2D; requires full D1 semantic qualification",
+      "d1_qualification": "NOT_STARTED"
+    },
+    {
+      "source_origin": "E0.4.3_ELIGIBLE_POOL",
+      "legacy_candidate_id": "G100-CAND-000443",
+      "pmid": "37789346",
+      "doi": "10.1186/s12937-023-00877-2",
+      "title": "Associations between plant-based dietary patterns and risks of type 2 diabetes, cardiovascular disease, cancer, and mortality - a systematic review and meta-analysis.",
+      "source_family": "evidence_synthesis",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text_status": "official_full_text_frozen",
+      "study_identity_cluster_id": "PMID:37789346",
+      "version_status": "corrected",
+      "challenge_tags": [
+        "numeric_complexity",
+        "correction_retraction_living_version",
+        "temporal_cutoff_sensitive"
+      ],
+      "target_evidence_questions": [
+        "EQ-010"
+      ],
+      "selection_basis": "title/scope candidate for dietary-pattern or diet-exposure reasoning in prediabetes/T2D; requires full D1 semantic qualification",
+      "d1_qualification": "NOT_STARTED"
+    },
+    {
+      "source_origin": "E0.4.3_ELIGIBLE_POOL",
+      "legacy_candidate_id": "G100-CAND-000478",
+      "pmid": "24086304",
+      "doi": "10.1371/journal.pone.0073965",
+      "title": "Dairy products consumption and risk of type 2 diabetes: systematic review and dose-response meta-analysis.",
+      "source_family": "evidence_synthesis",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text_status": "official_full_text_frozen",
+      "study_identity_cluster_id": "PMID:24086304",
+      "version_status": "original_current",
+      "challenge_tags": [
+        "numeric_complexity",
+        "conflict"
+      ],
+      "target_evidence_questions": [
+        "EQ-010"
+      ],
+      "selection_basis": "title/scope candidate for dietary-pattern or diet-exposure reasoning in prediabetes/T2D; requires full D1 semantic qualification",
+      "d1_qualification": "NOT_STARTED"
+    },
+    {
+      "source_origin": "E0.4.3_ELIGIBLE_POOL",
+      "legacy_candidate_id": "G100-CAND-000669",
+      "pmid": "33802738",
+      "doi": "10.3390/nu13030969",
+      "title": "Using a Paleo Ratio to Assess Adherence to Paleolithic Dietary Recommendations in a Randomized Controlled Trial of Individuals with Type 2 Diabetes.",
+      "source_family": "primary_interventional",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text_status": "official_full_text_frozen",
+      "study_identity_cluster_id": "REG:NCT01513798",
+      "version_status": "original_current",
+      "challenge_tags": [
+        "numeric_complexity",
+        "conflict"
+      ],
+      "target_evidence_questions": [
+        "EQ-010"
+      ],
+      "selection_basis": "title/scope candidate for dietary-pattern or diet-exposure reasoning in prediabetes/T2D; requires full D1 semantic qualification",
+      "d1_qualification": "NOT_STARTED"
+    },
+    {
+      "source_origin": "E0.4.3_ELIGIBLE_POOL",
+      "legacy_candidate_id": "G100-CAND-000675",
+      "pmid": "37137684",
+      "doi": "10.1136/gutjnl-2022-329201",
+      "title": "Gut microbiome modulates the effects of a personalised postprandial-targeting (PPT) diet on cardiometabolic markers: a diet intervention in pre-diabetes.",
+      "source_family": "primary_interventional",
+      "domain": "nutrition_metabolic_cardiometabolic",
+      "source_text_status": "official_full_text_frozen",
+      "study_identity_cluster_id": "REG:NCT03222791",
+      "version_status": "original_current",
+      "challenge_tags": [
+        "numeric_complexity"
+      ],
+      "target_evidence_questions": [
+        "EQ-010"
+      ],
+      "selection_basis": "title/scope candidate for dietary-pattern or diet-exposure reasoning in prediabetes/T2D; requires full D1 semantic qualification",
+      "d1_qualification": "NOT_STARTED"
+    }
+  ],
+  "required_gap_fill": [
+    "At least one current formal guideline/official recommendation source relevant to dietary management of prediabetes/T2D.",
+    "Targeted primary evidence sufficient to avoid synthesis-only reference construction.",
+    "Explicit version-as-of-cutoff reconstruction for corrected/living sources.",
+    "EvidenceQuestion scope audit using PICO/PECO and case decision relevance; title match alone is insufficient."
+  ],
+  "prohibitions": [
+    "No candidate is a verified ScientificClaim.",
+    "No candidate is authorized for NDS-R1 reference use yet.",
+    "Do not infer Paper 1 source completeness from this seed.",
+    "Do not reuse Gold100 locked-evaluation sources to fill gaps."
+  ],
+  "next_action": "NDF-D1-A1 EvidenceQuestion lock + targeted acquisition/semantic qualification for EQ-010"
+}

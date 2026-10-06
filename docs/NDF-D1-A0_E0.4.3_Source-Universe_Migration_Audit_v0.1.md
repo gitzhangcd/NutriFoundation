@@ -1,5 +1,8 @@
 # NDF-D1-A0｜E0.4.3 Source-Universe Migration, Purpose Audit & Thin-Slice Candidate Lock
 
+> **A0R SUPERSESSION NOTICE — 2026-10-07**  
+> The source-universe migration findings in this document remain valid. The legacy 31-EQ/EQ-010 Paper 1 routing, candidate cutoff interpretation, first thin-slice authority and the former A1 next-stage instruction are **superseded by NDF-D1-A0R**. Current authority: `runs/NDF/D1/A0R/A0R_Rebaseline_Manifest_v0.1.json`. Historical EQ artifacts must not activate current D1/R1/P1 execution.
+
 **Status:** `PASS_MIGRATION_WITH_SCIENTIFIC_GAPS`  
 **Date:** 2026-10-07
 

@@ -1,0 +1,67 @@
+{
+  "stage": "NDF-D1-A1R",
+  "artifact": "First R1/P1 Demand-Driven Thin-Slice Selection",
+  "version": "v0.1",
+  "status": "SELECTED_KNOWLEDGE_NEED_LOCKED_SOURCE_SET_OPEN",
+  "thin_slice_id": "TS-D1-A1R-001",
+  "scientific_question_ref": "SQ-D1-A1R-001",
+  "knowledge_need_contract_ref": "KN-D1-A1R-001",
+  "decision_episode_ref": "EP-NHANES-L-0001",
+  "selected_construct": "Information sufficiency / REQUEST_MORE_INFORMATION / DEFER before individualized nutrition recommendation under incomplete cross-sectional observation",
+  "why_this_is_first": [
+    "directly linked to an existing real NHANES-grounded D2 representation",
+    "reference is pending, avoiding contamination from pre-existing Gold",
+    "tests a core Nutrition Foundation distinction: sufficiency for ASK/DEFER can differ from sufficiency for START",
+    "high value for NDS-R1 because expert focus and agent breadth can disagree on critical missing information",
+    "high value for NDS-P1 because structured architecture should preserve missingness and avoid unsupported personalized action"
+  ],
+  "source_universe_policy": {
+    "legacy_migration_registry": "runs/NDF/D1/A0/E0.4.3_Source_Universe_Migration_Registry_v0.1.json",
+    "role": "candidate reservoir only",
+    "automatic_inclusion": false,
+    "targeted_acquisition_allowed": true,
+    "targeted_acquisition_expected": true,
+    "legacy_external_stress_candidates": "require explicit relevance justification",
+    "gold100_locked_evaluation": "PROHIBITED",
+    "calibration24": "CALIBRATION_ONLY"
+  },
+  "existing_fixture_disposition": {
+    "PMID:36670395": {
+      "status": "NOT_SELECTED_FOR_CURRENT_THIN_SLICE_AT_A1R",
+      "reason": "The fixture is a D0 physical-conformance source about dietary patterns and prediabetes; A1R has not established relevance to the current information-sufficiency question. It may only be reconsidered after explicit knowledge-need mapping."
+    }
+  },
+  "required_source_need_classes": [
+    "authoritative nutrition assessment / individualized recommendation prerequisites",
+    "action-specific sufficiency and missing-information guidance",
+    "authoritative interpretation boundaries for visible anthropometric/BP observations",
+    "safety/referral/escalation guidance relevant to nutrition decision-making",
+    "material conflicting or updated guidance if discovered"
+  ],
+  "excluded_as_selection_logic": [
+    "legacy EQ-010 title match",
+    "legacy 31-EQ coverage quota",
+    "Paper C challenge-tag coverage",
+    "source-count quota",
+    "model-generated answer agreement"
+  ],
+  "downstream_views_to_support": [
+    "EXPERT_PRE_AI_VIEW",
+    "AGENT_EXPANSION_VIEW",
+    "EXPERT_POST_AI_VIEW",
+    "META_AUDIT_VIEW",
+    "EVALUATOR_VIEW"
+  ],
+  "A2R_entry_conditions": [
+    "SQ-D1-A1R-001 frozen",
+    "KN-D1-A1R-001 frozen",
+    "case information boundary unchanged or versioned",
+    "purpose-split and legacy quarantine rules active",
+    "scientific evidence cutoff policy instantiated before promotion",
+    "targeted search protocol records inclusion/exclusion rationale"
+  ],
+  "next_stage": {
+    "id": "NDF-D1-A2R",
+    "title": "First Thin-Slice Targeted Source Acquisition, Study Resolution & Source-Span Qualification"
+  }
+}

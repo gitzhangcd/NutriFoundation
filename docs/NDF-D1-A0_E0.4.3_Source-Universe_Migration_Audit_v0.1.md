@@ -93,10 +93,19 @@ eq QualifiedReference
 
 ## Next stage
 
+The former EvidenceQuestion-registry migration route is **superseded by A0R**.
+
 Proceed to:
 
 [
-oxed{	ext{NDF-D1-A1｜EvidenceQuestion Registry Migration, Scope Reconciliation & Targeted Acquisition Lock}}
+oxed{
+	extbf{
+NDF-D1-A1R｜
+Demand-Driven Scientific Question Intake,
+Knowledge-Need Contract
+& First R1/P1 Thin-Slice Selection
+}
+}
 ]
 
-A1 should first qualify EQ-010 end-to-end, then expand across the remaining 30 EQs.
+A1R begins from an active NDS-R1 or NDS-P1 scientific need. It must not migrate the legacy 31-EQ registry or execute EQ-010 as current authority.

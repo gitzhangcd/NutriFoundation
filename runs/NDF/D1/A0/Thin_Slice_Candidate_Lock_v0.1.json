@@ -2,7 +2,7 @@
   "stage": "NDF-D1-A0",
   "artifact": "First Case-Relevant Thin-Slice Candidate Lock",
   "version": "v0.1",
-  "status": "PROVISIONAL_CANDIDATE_LOCK_NOT_REFERENCE_READY",
+  "status": "DEACTIVATED_SUPERSEDED_BY_A0R_HISTORICAL_ONLY",
   "focus": {
     "evidence_question": "EQ-010",
     "core_issue": "Dietary patterns in prediabetes/T2D",
@@ -192,5 +192,23 @@
     "Do not infer Paper 1 source completeness from this seed.",
     "Do not reuse Gold100 locked-evaluation sources to fill gaps."
   ],
-  "next_action": "NDF-D1-A1 EvidenceQuestion lock + targeted acquisition/semantic qualification for EQ-010"
+  "next_action": "DO_NOT_EXECUTE_EQ010_FROM_THIS_FILE. Follow NDF-D1-A1R demand-driven intake.",
+  "current_authority": false,
+  "superseded_by": {
+    "stage": "NDF-D1-A0R",
+    "manifest": "runs/NDF/D1/A0R/A0R_Rebaseline_Manifest_v0.1.json",
+    "date": "2026-10-07",
+    "reason": "Latest paper plan no longer treats the legacy 31-EQ registry or EQ-010 as the authoritative D1 execution driver."
+  },
+  "allowed_use": [
+    "historical lineage",
+    "method replay",
+    "candidate-source provenance audit"
+  ],
+  "prohibited_current_use": [
+    "activate NDF-D1 acquisition",
+    "activate ScientificClaim qualification",
+    "authorize NDS-R1 reference construction",
+    "define NDS-P1 scope or evidence completeness"
+  ]
 }

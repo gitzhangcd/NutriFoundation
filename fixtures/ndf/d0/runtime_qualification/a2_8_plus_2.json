@@ -103,7 +103,7 @@
     {
       "fixture_id": "FX-A1-008",
       "expected_error_codes": ["REVISION_IMMUTABILITY_VIOLATION"],
-      "context": {"frozen_revisions": {"FX-A1-008-OBJ@r1": "7c4f4bdd6b456fd3977e210731e311a80b25cd95b6880f7918cb0557a06170b6"}},
+      "context": {"frozen_revisions": {"FX-A1-008-OBJ@r1": "3e55512023cb5ba98da688e735fc9d2ecd440521141698151b6480af3a9f0908"}},
       "objects": [{
         "object_id": "FX-A1-008-OBJ", "revision_id": "r1", "kind": "SourceArtifact",
         "schema_version": "NDF-D0-v0.1", "lifecycle": "FROZEN", "producer_role": "A2_FIXTURE",

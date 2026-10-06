@@ -1,0 +1,22 @@
+{
+  "stage": "NDF-D1-A2R",
+  "artifact": "Scientific Evidence Cutoff Lock",
+  "version": "v0.1",
+  "status": "FROZEN_DATE_CUTOFF",
+  "scientific_question_ref": "SQ-D1-A1R-001",
+  "knowledge_need_contract_ref": "KN-D1-A1R-001",
+  "thin_slice_ref": "TS-D1-A1R-001",
+  "evidence_cutoff": {
+    "date": "2026-10-07",
+    "precision": "DATE",
+    "timezone_context": "Asia/Tokyo",
+    "same_day_policy": "Only sources verified as available on or before 2026-10-07 may be promoted; ambiguous same-day availability remains HOLD.",
+    "rationale": "Avoid fabricating an exact timestamp while freezing a reproducible date-bounded knowledge snapshot."
+  },
+  "separation": {
+    "observation_cutoff_ref": "BOUND-NHANES-L-0001-SYSTEM",
+    "evidence_cutoff_is_distinct": true,
+    "invariant": "EvidenceCutoff != ObservationCutoff"
+  },
+  "update_policy": "Any post-cutoff source requires a new KnowledgeSnapshot revision and cannot silently rewrite the A2R snapshot."
+}

@@ -2,7 +2,7 @@
   "stage": "NDF-D1-A2R",
   "artifact": "Conformance Report",
   "version": "v0.1",
-  "status": "PASS_INITIAL_SOURCE_SET_QUALIFIED_FOR_A3R",
+  "status": "PASS_INITIAL_SOURCE_SET_QUALIFIED_FOR_A3R_WITH_SNAPSHOT_GAPS",
   "date": "2026-10-07",
   "scientific_question_ref": "SQ-D1-A1R-001",
   "knowledge_need_contract_ref": "KN-D1-A1R-001",
@@ -28,7 +28,8 @@
     "locked_evaluation_not_reused": "PASS",
     "calibration_not_reused": "PASS",
     "old_eq_not_used": "PASS",
-    "no_predeclared_reference_action": "PASS"
+    "no_predeclared_reference_action": "PASS",
+    "source_snapshot_reproducibility": "OPEN_NONBLOCKING_FOR_A3R_BLOCKING_FOR_FINAL_SRS_FREEZE"
   },
   "provisional_scientific_findings_allowed_for_A3R": [
     "Nutrition assessment is multi-domain and can require obtaining additional information.",
@@ -46,6 +47,10 @@
   ],
   "next_stage": {
     "id": "NDF-D1-A3R",
-    "title": "EvidenceUnit / ScientificClaim Construction, Conflict-Gap Synthesis & First ScientificReferenceState"
-  }
+    "title": "EvidenceUnit / ScientificClaim Construction, Conflict-Gap Synthesis & First ScientificReferenceState",
+    "caveat": "A3R may begin with provisional typed EvidenceUnits/ScientificClaims, but final SRS reproducibility cannot PASS until relevant A2R snapshot/correction gaps are closed."
+  },
+  "open_work": [
+    "close live-web snapshot and guideline-correction reconstruction gaps before final ScientificReferenceState freeze"
+  ]
 }

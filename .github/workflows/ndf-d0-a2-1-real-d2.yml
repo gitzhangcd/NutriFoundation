@@ -1,0 +1,29 @@
+name: NDF D0 A2.1 First Real D2
+
+on:
+  push:
+    branches:
+      - ndf-d0-a2-1-first-real-d2
+    paths:
+      - "fixtures/ndf/d0/real_objects/NHANES_L_SEQN130378_First_D2_v0.1.json"
+      - "tests/ndf/test_d0_a2_1_real_d2.py"
+      - "scripts/ndf/run_d0_a2_1_real_d2_conformance.py"
+      - "src/nutrifoundation/ndf/d0/**"
+      - "runs/NDF/D0/A2/D0_A2_Runtime_Conformance_Report_v0.1.json"
+      - ".github/workflows/ndf-d0-a2-1-real-d2.yml"
+  workflow_dispatch:
+
+jobs:
+  conformance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: pip install -e ".[dev]"
+      - name: Run first real D2 tests
+        run: pytest -q tests/ndf/test_d0_a2_1_real_d2.py
+      - name: Generate A2.1 conformance report
+        run: python scripts/ndf/run_d0_a2_1_real_d2_conformance.py

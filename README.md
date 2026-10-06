@@ -1,5 +1,54 @@
 # AI Nutri Data Foundation v0.1
 
+## Current Authoritative Research Program Routing — 2026-10-07
+
+The current research authority is **not** the legacy E0.4.x / Paper C sequence and is **not** the older fixed Paper 1 31-EvidenceQuestion plan.
+
+```text
+SIS v0.3.1 R5
+    ↓
+Nutrition Foundation v0.1
+    ↓
+NDF-D0
+    ↓
+NDF-D1  ||  NDF-D2
+    ↓
+NDS-R1  (N1 Reference Science + N7 Expert-Native Annotation)
+    ↓
+NDS-P1  (N2 Structured Decision Intelligence)
+    ↓
+NDS-P2  (N3 Active Information Acquisition)
+NDS-P3  (N4 Decision Trajectory + N6 Failure & Recovery)
+NDS-P4  (N5 Component × System / Capability Interaction)
+NDS-P5  (N8 Transportability)
+```
+
+Key invariant:
+
+```text
+NDS-R1 != NDS-P1
+Legacy 31-EQ / EQ-010 planning != current D1 execution authority
+Legacy source-level Gold != QualifiedDecisionReference
+```
+
+Current D1 routing is demand-driven:
+
+```text
+ActiveScientificQuestion
++ DecisionEpisodeNeed
++ ReferenceConstructionNeed
+    ↓
+ScientificKnowledgeThinSlice
+```
+
+See:
+
+- `docs/NDF-D1-A0R_Latest-Paper-Plan-Conformance-Rebaseline_v0.1.md`
+- `runs/NDF/D1/A0R/A0R_Rebaseline_Manifest_v0.1.json`
+- `runs/NDF/D1/A0R/Repository_Program_Routing_Freeze_v0.1.json`
+
+Legacy `paper_c/` and `runs/E0.4.x/` assets are preserved as historical/conditional scientific evidence-production lineage and do not define the current NDS-P1 question.
+
 ## Purpose
 
 AI Nutri Data Foundation is the scientific data infrastructure for evidence-grounded, applicability-aware, state-aware, safety-constrained nutrition decision intelligence.
@@ -307,10 +356,12 @@ On 2026-10-03, `main` was fast-forwarded without force to the frozen A2.8 lineag
 
 The immutable A2.8 tag remains unchanged. New scientific work must branch from the converged `main`; frozen E0.4.2 artifacts must not be rewritten.
 
-Next program stage:
+Historical next-stage record at the time of the E0.4.2 freeze:
 
 ```text
 E0.4.3
 Independent Gold / Batch002
 Candidate Mining → Case Reconstruction → Candidate Pool → Expert Gold
 ```
+
+This E0.4.3 route is preserved for lineage only. The current authoritative route is the NDF → NDS-R1 → NDS-P1+ program map frozen above.

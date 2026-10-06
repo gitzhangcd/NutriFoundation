@@ -1,0 +1,96 @@
+{
+  "stage": "NDF-D2",
+  "artifact": "Observation Substrate & DecisionEpisode Pool Initialization Manifest",
+  "version": "v0.1",
+  "status": "INITIALIZED_EXECUTION_OPEN",
+  "base_main_commit": "6b2559eb10037149c605921c09423453c8b1d821",
+  "branch": "ndf-d2-decisionepisode-pool",
+  "authority": [
+    "SIS v0.3.1 R5",
+    "Nutrition Foundation v0.1",
+    "Nutrition Data Foundation D0-D2 + NDS-R1 v0.1"
+  ],
+  "scientific_identity": "Construct source-recoverable NHANES-grounded observation bundles and de novo research DecisionEpisodes without converting cross-sectional survey records into clinical patients or longitudinal trajectories.",
+  "first_real_seed": {
+    "case_id": "D2-NHANES-L-0001",
+    "subject_alias": "SUBJ-NHANES-L-0001",
+    "status": "D0_PHYSICAL_CONFORMANCE_ONLY",
+    "inherited_from_main": true
+  },
+  "data_backbone": {
+    "cycle": "NHANES August 2021-August 2023",
+    "join_key": "SEQN",
+    "external_subject_policy": "SEQN -> benchmark alias; SEQN retained only in role-restricted internal mapping",
+    "priority_components": [
+      "DEMO_L",
+      "BMX_L",
+      "BPXO_L",
+      "DR1TOT_L",
+      "DR2TOT_L",
+      "DIQ_L",
+      "BPQ_L",
+      "WHQ_L",
+      "BIOPRO_L",
+      "GHB_L",
+      "GLU_L"
+    ]
+  },
+  "first_execution_block": {
+    "id": "NDF-D2-A0",
+    "title": "Official NHANES Acquisition, Variable Provenance & Candidate Subject Pool Build",
+    "tasks": [
+      "obtain and hash official CDC/NCHS files where technically possible",
+      "resolve the A2.1 public-replica carrier limitation with official-file provenance",
+      "build exact variable dictionary/provenance records for priority components",
+      "join components by SEQN with explicit missingness",
+      "construct CandidateSubjectPool before any Gold/reference",
+      "derive only explicitly versioned DRV variables",
+      "create first CandidateDecisionEpisodePool",
+      "run D0 structural/dependency/temporal/projection validators on every candidate"
+    ]
+  },
+  "candidate_pool_filters": [
+    "source recoverability",
+    "domain relevance",
+    "decision tension",
+    "information incompleteness",
+    "multiple plausible actions",
+    "defer/ask opportunity",
+    "applicability sensitivity",
+    "safety sensitivity",
+    "counterfactual suitability",
+    "expert disagreement potential",
+    "dependency diversity"
+  ],
+  "provenance_axes": {
+    "construction_origin": [
+      "OBS",
+      "DRV",
+      "CON",
+      "CFM",
+      "UNK"
+    ],
+    "visibility": [
+      "VISIBLE",
+      "MASKED",
+      "ROLE_RESTRICTED",
+      "NOT_YET_AVAILABLE"
+    ],
+    "rule": "visibility never overwrites construction origin"
+  },
+  "gates": [
+    "D2-G1 Observation fidelity",
+    "D2-G2 Case provenance",
+    "D2-G3 Constructed transparency",
+    "D2-G4 Boundary integrity",
+    "D2-G5 Dependency integrity",
+    "D2-G6 No fake trajectory"
+  ],
+  "non_claims": [
+    "NHANES participant != clinical patient",
+    "NHANES participant record != scientific evidence",
+    "cross-sectional case != longitudinal trajectory",
+    "CandidateDecisionEpisode != Gold/reference",
+    "D2 completion != individualized clinical validity"
+  ]
+}

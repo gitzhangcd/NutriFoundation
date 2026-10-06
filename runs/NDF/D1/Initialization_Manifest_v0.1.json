@@ -2,7 +2,7 @@
   "stage": "NDF-D1",
   "artifact": "Scientific Core Thin-Slice Initialization Manifest",
   "version": "v0.1",
-  "status": "INITIALIZED_EXECUTION_OPEN_A0R_REBASELINED",
+  "status": "A1R_PASS_SELECTION_SOURCE_ACQUISITION_OPEN",
   "base_main_commit": "6b2559eb10037149c605921c09423453c8b1d821",
   "branch": "ndf-d1-scientific-core-thin-slice",
   "authority": [
@@ -84,7 +84,16 @@
     "ReferenceConstructionNeed"
   ],
   "next_stage": {
+    "id": "NDF-D1-A2R",
+    "title": "First Thin-Slice Targeted Source Acquisition, Study Resolution & Source-Span Qualification"
+  },
+  "current_stage": {
     "id": "NDF-D1-A1R",
-    "title": "Demand-Driven Scientific Question Intake, Knowledge-Need Contract & First R1/P1 Thin-Slice Selection"
+    "status": "PASS_SELECTION_SOURCE_ACQUISITION_OPEN",
+    "scientific_question_ref": "SQ-D1-A1R-001",
+    "knowledge_need_contract_ref": "KN-D1-A1R-001",
+    "thin_slice_ref": "TS-D1-A1R-001",
+    "selected_case_ref": "EP-NHANES-L-0001",
+    "r1_activation": "BLOCKED_PENDING_D1_D2_CASE_SPECIFIC_READINESS"
   }
 }

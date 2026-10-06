@@ -1,0 +1,44 @@
+{
+  "stage": "NDF-D1-A1R",
+  "artifact": "Conformance Report",
+  "version": "v0.1",
+  "status": "PASS_SELECTION_SOURCE_ACQUISITION_OPEN",
+  "date": "2026-10-07",
+  "branch": "ndf-d1-scientific-core-thin-slice",
+  "scientific_question": "SQ-D1-A1R-001",
+  "knowledge_need_contract": "KN-D1-A1R-001",
+  "thin_slice": "TS-D1-A1R-001",
+  "case_ref": "EP-NHANES-L-0001",
+  "checks": {
+    "demand_driven_intake": "PASS",
+    "legacy_eq_not_used_as_driver": "PASS",
+    "real_d2_grounded_case_selected": "PASS_WITH_D0_PHYSICAL_ONLY_BOUNDARY",
+    "authorized_information_boundary_preserved": "PASS",
+    "no_diagnosis_inference": "PASS",
+    "no_predeclared_gold_action": "PASS",
+    "knowledge_need_dimensions_locked": "PASS",
+    "legacy_source_universe_treated_as_candidate_reservoir_only": "PASS",
+    "gold100_quarantine_preserved": "PASS",
+    "calibration24_isolation_preserved": "PASS",
+    "existing_pmid36670395_not_auto_promoted": "PASS",
+    "evidence_observation_cutoff_separation": "PASS_POLICY_DEFINED_CUTOFF_NOT_YET_FROZEN",
+    "r1_activation_blocked_until_case_specific_readiness": "PASS"
+  },
+  "selected_stress_constructs": [
+    "critical_missing_information",
+    "defer/request-more-information",
+    "safety-sensitive information boundary",
+    "multiple acceptable process actions",
+    "professional judgment under missingness"
+  ],
+  "open_work": [
+    "freeze the scientific evidence cutoff for this thin slice",
+    "run targeted acquisition against KN-001 through KN-005",
+    "resolve StudyIdentity and source versions",
+    "verify source spans and semantic scope",
+    "construct qualified ScientificClaim set and conflict/gap registry",
+    "build case-specific ScientificReferenceState",
+    "complete D2 readiness independently before R1 activation"
+  ],
+  "next_stage": "NDF-D1-A2R｜First Thin-Slice Targeted Source Acquisition, Study Resolution & Source-Span Qualification"
+}

@@ -2,7 +2,7 @@
   "stage": "NDF-D1",
   "artifact": "Scientific Core Thin-Slice Initialization Manifest",
   "version": "v0.1",
-  "status": "INITIALIZED_EXECUTION_OPEN",
+  "status": "INITIALIZED_EXECUTION_OPEN_A0R_REBASELINED",
   "base_main_commit": "6b2559eb10037149c605921c09423453c8b1d821",
   "branch": "ndf-d1-scientific-core-thin-slice",
   "authority": [
@@ -49,12 +49,14 @@
       "exclude/quarantine Gold100 locked-evaluation sources from development use",
       "select first case-relevant thin slice based on EvidenceQuestion coverage and scientific risk",
       "produce machine-readable migration/conformance report"
-    ]
+    ],
+    "current_authority": "HISTORICAL_EXECUTION_RECORD",
+    "correction": "Thin-slice selection by legacy EvidenceQuestion coverage is superseded by A0R demand-driven routing."
   },
   "initial_planning_targets": {
-    "evidence_questions": "retain existing 31-question registry as planning input; audit before use",
-    "source_target": "50-100 high-value sources for D1 v0.1 overall, not required before first R1 case",
-    "verified_claim_target": "80-150 planning range, not a completion claim"
+    "evidence_questions": "DEACTIVATED_AS_CURRENT_AUTHORITY: legacy 31-question registry retained only as historical planning lineage.",
+    "source_target": "NON_NORMATIVE_PLANNING_RANGE_ONLY: source count is demand-driven by current R1/P1 knowledge need.",
+    "verified_claim_target": "NON_NORMATIVE_PLANNING_RANGE_ONLY: claim count is not a completion or activation criterion."
   },
   "gates": [
     "D1-G1 Source identity",
@@ -69,5 +71,20 @@
     "verified extraction != scientific qualification",
     "D1 completion != DecisionReference validity",
     "D1 completion != NDS-P1 activation"
-  ]
+  ],
+  "rebaseline": {
+    "stage": "NDF-D1-A0R",
+    "status": "CURRENT_AUTHORITY",
+    "manifest": "runs/NDF/D1/A0R/A0R_Rebaseline_Manifest_v0.1.json",
+    "rule": "Latest paper-plan routing supersedes the legacy 31-EQ/EQ-010 execution path while preserving A0 migration lineage."
+  },
+  "current_d1_driver": [
+    "ActiveScientificQuestion",
+    "DecisionEpisodeNeed",
+    "ReferenceConstructionNeed"
+  ],
+  "next_stage": {
+    "id": "NDF-D1-A1R",
+    "title": "Demand-Driven Scientific Question Intake, Knowledge-Need Contract & First R1/P1 Thin-Slice Selection"
+  }
 }

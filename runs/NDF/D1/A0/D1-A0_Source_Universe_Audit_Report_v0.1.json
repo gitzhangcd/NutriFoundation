@@ -2,13 +2,12 @@
   "stage": "NDF-D1-A0",
   "title": "E0.4.3 Source-Universe Migration, Purpose Audit & Thin-Slice Candidate Lock",
   "version": "v0.1",
-  "status": "PASS_MIGRATION_WITH_SCIENTIFIC_GAPS",
+  "status": "PASS_MIGRATION_PAPER_PLAN_COMPONENTS_SUPERSEDED_BY_A0R",
   "audited_at": "2026-10-07",
   "authority": [
     "SIS v0.3.1 R5",
     "Nutrition Foundation v0.1",
-    "Nutrition Data Foundation D0-D2 + NDS-R1 v0.1",
-    "AI Nutri Paper 1 P0 Integrated Protocol v0.1 as downstream planning input"
+    "Nutrition Data Foundation D0-D2 + NDS-R1 v0.1"
   ],
   "input_lineage": {
     "legacy_branch": "e0.4.3-batch002-independent-gold",
@@ -99,7 +98,8 @@
     "d1_remaining_records_with_publication_date_after_paper1_candidate_cutoff": 0,
     "d1_remaining_temporal_sensitive_records": 16,
     "decision": "DO_NOT_INHERIT_LEGACY_CUTOFF_AS_PAPER1_CUTOFF",
-    "note": "Publication-date compatibility alone is insufficient. Corrected/living/version-sensitive records require reconstruction of the exact version available at the eventual Paper 1 evidence cutoff."
+    "note": "Publication-date compatibility alone is insufficient. Corrected/living/version-sensitive records require reconstruction of the exact version available at the eventual Paper 1 evidence cutoff.",
+    "paper1_protocol_candidate_cutoff_status": "HISTORICAL_PLANNING_ONLY_NOT_CURRENT_CUTOFF"
   },
   "scientific_scope_audit": {
     "paper1_evidence_questions": 31,
@@ -111,23 +111,26 @@
       "Legacy PubMed universe does not guarantee current formal guideline/official nutrition recommendation coverage.",
       "Official nutrient/safety reference classes required by some Paper 1 EQs are not guaranteed by the legacy source-family design.",
       "No legacy eligibility state transfers to D1 ScientificClaim qualification."
-    ]
+    ],
+    "paper1_evidence_questions_status": "HISTORICAL_PLANNING_ONLY_NOT_CURRENT_SCOPE"
   },
   "first_thin_slice": {
     "focus": "EQ-010 Dietary patterns in prediabetes/T2D",
     "candidate_lock": "runs/NDF/D1/A0/Thin_Slice_Candidate_Lock_v0.1.json",
     "candidate_count": 8,
     "includes_new_nonlegacy_seed": "PMID 36670395",
-    "current_status": "PROVISIONAL_CANDIDATE_LOCK_NOT_REFERENCE_READY",
-    "open_gap": "formal guideline/official recommendation + targeted primary evidence acquisition and semantic qualification"
+    "current_status": "DEACTIVATED_SUPERSEDED_BY_A0R",
+    "open_gap": "formal guideline/official recommendation + targeted primary evidence acquisition and semantic qualification",
+    "current_authority": false,
+    "allowed_use": "historical lineage / method replay only"
   },
   "gates": {
     "A0-G1_lineage_identity": "PASS",
     "A0-G2_purpose_isolation": "PASS",
     "A0-G3_source_study_anchor_recoverability": "PASS_WITH_DEPENDENCY_MONITORING",
     "A0-G4_temporal_compatibility": "RECONSTRUCTION_REQUIRED",
-    "A0-G5_evidence_question_relevance": "NOT_YET_PASSED",
-    "A0-G6_first_thin_slice_candidate_lock": "PASS_PROVISIONAL"
+    "A0-G5_evidence_question_relevance": "SUPERSEDED_BY_A0R_DEMAND_DRIVEN_RELEVANCE",
+    "A0-G6_first_thin_slice_candidate_lock": "DEACTIVATED_SUPERSEDED_BY_A0R"
   },
   "hard_nonclaims": [
     "E0.4.3 ELIGIBLE != NDF-D1 QUALIFIED.",
@@ -137,14 +140,36 @@
     "D1 migration completion != NDS-R1 activation."
   ],
   "next_stage": {
-    "id": "NDF-D1-A1",
-    "title": "EvidenceQuestion Registry Migration, Scope Reconciliation & Targeted Acquisition Lock",
+    "id": "NDF-D1-A1R",
+    "title": "Demand-Driven Scientific Question Intake, Knowledge-Need Contract & First R1/P1 Thin-Slice Selection",
     "actions": [
-      "migrate all 31 Paper 1 EvidenceQuestions into machine-readable D1 registry",
-      "freeze current Paper 1 evidence cutoff or explicitly version multiple cutoff snapshots",
-      "map the 153 nutrition primary candidates to EQs using semantic/PICO-PECO review",
-      "run targeted acquisition for missing guideline/official/safety/measurement sources",
-      "qualify EQ-010 first to build the first ScientificReferenceState"
+      "select an active NDS-R1 or NDS-P1 scientific need",
+      "derive ScientificQuestion and KnowledgeNeed objects from that need",
+      "identify DecisionEpisode/reference relevance where applicable",
+      "acquire or reuse sources under purpose, provenance, temporal and dependency controls",
+      "construct the first demand-driven scientific knowledge thin slice without legacy EQ authority"
     ]
-  }
+  },
+  "a0r_rebaseline": {
+    "status": "CURRENT_AUTHORITY",
+    "manifest": "runs/NDF/D1/A0R/A0R_Rebaseline_Manifest_v0.1.json",
+    "preserved_findings": [
+      "source-universe lineage",
+      "purpose overlap audit",
+      "locked-evaluation quarantine",
+      "source identity and recoverability",
+      "dependency monitoring"
+    ],
+    "superseded_findings": [
+      "legacy 31-EQ registry as current D1 scope",
+      "EQ-010 first thin-slice authority",
+      "old Paper 1 candidate cutoff as current P1 cutoff",
+      "A1 EvidenceQuestion-registry migration as next stage"
+    ]
+  },
+  "historical_planning_inputs": [
+    "AI Nutri Paper 1 P0 Integrated Protocol v0.1",
+    "legacy 31 Evidence Questions",
+    "EQ-010 thin-slice planning"
+  ]
 }

@@ -5,9 +5,9 @@ on:
     branches:
       - ndf-d0-a2-runtime-conformance
     paths:
-      - "src/nutrifoundation/ndf/**"
-      - "fixtures/ndf/d0_a2/**"
-      - "tests/test_ndf_d0_a2.py"
+      - "src/nutrifoundation/ndf/d0/**"
+      - "fixtures/ndf/d0/**"
+      - "tests/ndf/test_d0_a2_runtime.py"
       - "scripts/ndf/run_d0_a2_conformance.py"
       - ".github/workflows/ndf-d0-a2-conformance.yml"
   workflow_dispatch:
@@ -22,7 +22,7 @@ jobs:
           python-version: "3.11"
       - name: Install
         run: pip install -e ".[dev]"
-      - name: Run NDF D0 A2 tests
-        run: pytest -q tests/test_ndf_d0_a2.py
-      - name: Generate fixture conformance report
+      - name: Run existing NDF D0 A2 runtime tests
+        run: pytest -q tests/ndf/test_d0_a2_runtime.py
+      - name: Generate NDF D0 A2 conformance report
         run: python scripts/ndf/run_d0_a2_conformance.py

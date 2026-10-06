@@ -1,0 +1,61 @@
+{
+  "artifact": "Repository Program Routing Freeze",
+  "version": "v0.1",
+  "status": "FROZEN",
+  "date": "2026-10-07",
+  "authority_order": [
+    "SIS v0.3.1 R5",
+    "Nutrition Foundation v0.1",
+    "Nutrition Data Foundation",
+    "NDS research programs",
+    "Experiment/Benchmark",
+    "Engineering/Implementation"
+  ],
+  "canonical_route": {
+    "foundation": "NDF-D0",
+    "parallel_substrates": [
+      "NDF-D1",
+      "NDF-D2"
+    ],
+    "reference_science": "NDS-R1",
+    "papers": [
+      {
+        "program": "NDS-P1",
+        "workline": "N2",
+        "name": "Structured Decision Intelligence"
+      },
+      {
+        "program": "NDS-P2",
+        "workline": "N3",
+        "name": "Active Information Acquisition"
+      },
+      {
+        "program": "NDS-P3",
+        "workline": "N4+N6",
+        "name": "Decision Trajectory + Failure & Recovery"
+      },
+      {
+        "program": "NDS-P4",
+        "workline": "N5",
+        "name": "Component × System / Capability Interaction"
+      },
+      {
+        "program": "NDS-P5",
+        "workline": "N8",
+        "name": "Transportability"
+      }
+    ]
+  },
+  "legacy_namespace_policy": {
+    "paper_c/": "PRESERVE_AS_LEGACY_OR_CONDITIONAL_EVIDENCE_PRODUCTION_PROGRAM",
+    "runs/E0.4.x/": "PRESERVE_AS_HISTORICAL_EXECUTION_LINEAGE",
+    "legacy Paper 1 reference/EQ assets": "HISTORICAL_PLANNING_ONLY_NOT_CURRENT_AUTHORITY"
+  },
+  "routing_invariants": [
+    "NDS-R1 != NDS-P1",
+    "Reference construction science precedes P1 reference qualification.",
+    "NDF-D1 scientific knowledge construction is reusable substrate, not Paper 1 itself.",
+    "Legacy source-level Gold != DecisionEpisode-level QualifiedDecisionReference.",
+    "No legacy paper namespace may override Nutrition Foundation or NDF semantics."
+  ]
+}

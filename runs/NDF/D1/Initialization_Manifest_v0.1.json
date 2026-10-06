@@ -2,7 +2,7 @@
   "stage": "NDF-D1",
   "artifact": "Scientific Core Thin-Slice Initialization Manifest",
   "version": "v0.1",
-  "status": "A1R_PASS_SELECTION_SOURCE_ACQUISITION_OPEN",
+  "status": "A2R_PASS_INITIAL_SOURCE_SET_QUALIFIED_WITH_SNAPSHOT_GAPS",
   "base_main_commit": "6b2559eb10037149c605921c09423453c8b1d821",
   "branch": "ndf-d1-scientific-core-thin-slice",
   "authority": [
@@ -84,16 +84,20 @@
     "ReferenceConstructionNeed"
   ],
   "next_stage": {
-    "id": "NDF-D1-A2R",
-    "title": "First Thin-Slice Targeted Source Acquisition, Study Resolution & Source-Span Qualification"
+    "id": "NDF-D1-A3R",
+    "title": "EvidenceUnit / ScientificClaim Construction, Conflict-Gap Synthesis & First ScientificReferenceState"
   },
   "current_stage": {
-    "id": "NDF-D1-A1R",
-    "status": "PASS_SELECTION_SOURCE_ACQUISITION_OPEN",
+    "id": "NDF-D1-A2R",
+    "status": "PASS_INITIAL_SOURCE_SET_QUALIFIED_FOR_A3R_WITH_SNAPSHOT_GAPS",
     "scientific_question_ref": "SQ-D1-A1R-001",
     "knowledge_need_contract_ref": "KN-D1-A1R-001",
     "thin_slice_ref": "TS-D1-A1R-001",
-    "selected_case_ref": "EP-NHANES-L-0001",
-    "r1_activation": "BLOCKED_PENDING_D1_D2_CASE_SPECIFIC_READINESS"
+    "evidence_cutoff": "2026-10-07 DATE precision",
+    "targeted_sources_acquired": 6,
+    "historical_sources_promoted": 0,
+    "snapshot_gap_ref": "runs/NDF/D1/A2R/A2R_Source_Snapshot_Gap_Register_v0.1.json",
+    "final_srs_reproducibility": "BLOCKED_PENDING_SNAPSHOT_GAP_CLOSURE",
+    "r1_activation": "BLOCKED_PENDING_D1_FINAL_SRS_AND_D2_CASE_SPECIFIC_READINESS"
   }
 }

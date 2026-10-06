@@ -49,6 +49,22 @@ See:
 
 Legacy `paper_c/` and `runs/E0.4.x/` assets are preserved as historical/conditional scientific evidence-production lineage and do not define the current NDS-P1 question.
 
+### Current NDF-D1 execution state
+
+```text
+A0R  PASS_FROZEN
+  ↓
+A1R  PASS_SELECTION / SOURCE_ACQUISITION_OPEN
+      ScientificQuestion: SQ-D1-A1R-001
+      KnowledgeNeed:      KN-D1-A1R-001
+      ThinSlice:          TS-D1-A1R-001
+      Case:               EP-NHANES-L-0001
+      R1 activation:      BLOCKED pending D1 + D2 case-specific readiness
+  ↓
+A2R  NEXT — targeted source acquisition + study resolution + source-span qualification
+```
+
+
 ## Purpose
 
 AI Nutri Data Foundation is the scientific data infrastructure for evidence-grounded, applicability-aware, state-aware, safety-constrained nutrition decision intelligence.

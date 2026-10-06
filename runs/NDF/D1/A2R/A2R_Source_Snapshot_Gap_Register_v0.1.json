@@ -1,0 +1,32 @@
+{
+  "stage": "NDF-D1-A2R",
+  "artifact": "Source Snapshot Gap Register",
+  "version": "v0.1",
+  "status": "OPEN_NONBLOCKING_FOR_A3R_BLOCKING_FOR_FINAL_SRS_FREEZE",
+  "gaps": [
+    {
+      "source_refs": [
+        "SRC-A2R-001",
+        "SRC-A2R-003",
+        "SRC-A2R-004",
+        "SRC-A2R-005",
+        "SRC-A2R-006"
+      ],
+      "gap_type": "LIVE_WEB_DOCUMENT_NOT_BYTE_FROZEN",
+      "current_recoverability": "URL + retrieval date + section/line locator + bounded support statement",
+      "risk": "live web content may change after cutoff",
+      "closure_requirement": "Create immutable/source-permitted snapshot or archived content digest before final ScientificReferenceState freeze; preserve version/date and legal retrieval constraints."
+    },
+    {
+      "source_refs": [
+        "SRC-A2R-002"
+      ],
+      "gap_type": "GUIDELINE_CORRECTION_CONTENT_NOT_FULLY_RECONSTRUCTED",
+      "current_recoverability": "primary PMID/DOI + correction PMIDs + current official summary anchors",
+      "risk": "downstream claims could accidentally rely on pre-correction wording",
+      "closure_requirement": "Confirm exact current wording for every claim drawn from the corrected guideline before final promotion."
+    }
+  ],
+  "nonblocking_scope": "A3R may construct provisional typed EvidenceUnits/ScientificClaims with explicit source-version restrictions.",
+  "blocking_scope": "No final SRS reproducibility PASS and no R1 knowledge-ready status until relevant snapshot/correction gaps are closed."
+}

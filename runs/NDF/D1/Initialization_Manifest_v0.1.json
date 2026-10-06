@@ -1,0 +1,73 @@
+{
+  "stage": "NDF-D1",
+  "artifact": "Scientific Core Thin-Slice Initialization Manifest",
+  "version": "v0.1",
+  "status": "INITIALIZED_EXECUTION_OPEN",
+  "base_main_commit": "6b2559eb10037149c605921c09423453c8b1d821",
+  "branch": "ndf-d1-scientific-core-thin-slice",
+  "authority": [
+    "SIS v0.3.1 R5",
+    "Nutrition Foundation v0.1",
+    "Nutrition Data Foundation D0-D2 + NDS-R1 v0.1"
+  ],
+  "scientific_identity": "Build the minimum source-recoverable, versioned and verified scientific knowledge core required for near-term NDS-R1/P1 cases; not a complete nutrition knowledge base.",
+  "primary_objects": [
+    "SourceArtifact",
+    "SourceAnchor",
+    "StudyIdentity",
+    "EvidenceUnit",
+    "ScientificClaim",
+    "EvidenceConflict",
+    "EvidenceGap",
+    "VerificationRecord",
+    "KnowledgeSnapshot",
+    "ScientificReferenceState"
+  ],
+  "legacy_inputs": {
+    "source_branch": "e0.4.3-batch002-independent-gold",
+    "reusable": [
+      "Gold100_Candidate_Source_Record_Schema_v1.0",
+      "Gold100_Eligible_Pool_FROZEN_v0.1",
+      "Calibration24_Source_Set_FROZEN_v1.0",
+      "StudyIdentity resolution assets",
+      "source hash/span/version logic",
+      "p0_2_3 qualification logic as migration input"
+    ],
+    "quarantined": [
+      "Gold100_Source_Set_FROZEN_v1.0",
+      "Gold100 expert Gold / confirmatory labels"
+    ],
+    "rule": "Gold100 locked-evaluation assets are not development data for NDF-D1."
+  },
+  "first_execution_block": {
+    "id": "NDF-D1-A0",
+    "title": "E0.4.3 Source-Universe Migration, Purpose Audit & Thin-Slice Candidate Lock",
+    "tasks": [
+      "materialize eligible-pool source identities into NDF D1 migration registry",
+      "register purpose/reuse/overlap status",
+      "verify SourceArtifact -> StudyIdentity -> SourceAnchor recoverability",
+      "exclude/quarantine Gold100 locked-evaluation sources from development use",
+      "select first case-relevant thin slice based on EvidenceQuestion coverage and scientific risk",
+      "produce machine-readable migration/conformance report"
+    ]
+  },
+  "initial_planning_targets": {
+    "evidence_questions": "retain existing 31-question registry as planning input; audit before use",
+    "source_target": "50-100 high-value sources for D1 v0.1 overall, not required before first R1 case",
+    "verified_claim_target": "80-150 planning range, not a completion claim"
+  },
+  "gates": [
+    "D1-G1 Source identity",
+    "D1-G2 Evidence reconstruction",
+    "D1-G3 Source-span support",
+    "D1-G4 Temporal fidelity",
+    "D1-G5 Conflict preservation",
+    "D1-G6 ScientificReferenceState reproducibility"
+  ],
+  "non_claims": [
+    "source discovered != evidence verified",
+    "verified extraction != scientific qualification",
+    "D1 completion != DecisionReference validity",
+    "D1 completion != NDS-P1 activation"
+  ]
+}

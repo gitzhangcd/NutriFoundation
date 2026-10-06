@@ -1,0 +1,80 @@
+{
+  "stage": "NDF-D1-A2R",
+  "artifact": "Study and Document Identity Registry",
+  "version": "v0.1",
+  "status": "RESOLVED_FOR_INITIAL_SOURCE_SET",
+  "identities": [
+    {
+      "identity_id": "DOC-A2R-AND-NCP-ASSESSMENT",
+      "source_refs": [
+        "SRC-A2R-001"
+      ],
+      "identity_type": "LIVING_PROFESSIONAL_WEB_DOCUMENT",
+      "study_identity_required": false,
+      "version_status": "CURRENT_PAGE_SNAPSHOT",
+      "dependency_notes": "Professional standard/process guidance; no study-family counting."
+    },
+    {
+      "identity_id": "DOC-A2R-AHA-HBP-2025",
+      "source_refs": [
+        "SRC-A2R-002",
+        "SRC-A2R-003"
+      ],
+      "identity_type": "GUIDELINE_FAMILY",
+      "primary_publication": {
+        "pmid": "40811497",
+        "doi": "10.1161/CIR.0000000000001356"
+      },
+      "corrections": [
+        {
+          "pmid": "41212942",
+          "doi": "10.1161/CIR.0000000000001396",
+          "journal_family": "Circulation"
+        },
+        {
+          "pmid": "42160500",
+          "doi": "10.1161/HYP.0000000000000264",
+          "journal_family": "Hypertension parallel publication lineage"
+        }
+      ],
+      "version_status": "CORRECTION_LINEAGE_PRESENT",
+      "dependency_notes": "Count as one guideline family, not independent pieces of evidence."
+    },
+    {
+      "identity_id": "DOC-A2R-USPSTF-CVD-COUNSEL-2020",
+      "source_refs": [
+        "SRC-A2R-004"
+      ],
+      "identity_type": "RECOMMENDATION_FAMILY",
+      "primary_publication": {
+        "pmid": "33231670",
+        "doi": "10.1001/jama.2020.21749"
+      },
+      "version_status": "FINAL_CURRENT_AT_CUTOFF_UPDATE_IN_PROGRESS",
+      "dependency_notes": "Do not treat web recommendation and JAMA statement as independent evidence."
+    },
+    {
+      "identity_id": "DOC-A2R-DGA-2025-2030",
+      "source_refs": [
+        "SRC-A2R-005"
+      ],
+      "identity_type": "FEDERAL_GUIDELINE",
+      "study_identity_required": false,
+      "version_status": "CURRENT_2025_2030_EDITION",
+      "dependency_notes": "General population guidance; not an individualized assessment protocol."
+    },
+    {
+      "identity_id": "DOC-A2R-USPSTF-WEIGHT-2018",
+      "source_refs": [
+        "SRC-A2R-006"
+      ],
+      "identity_type": "RECOMMENDATION_FAMILY",
+      "primary_publication": {
+        "pmid": "30326502",
+        "doi": "10.1001/jama.2018.13022"
+      },
+      "version_status": "FINAL_CURRENT_AT_CUTOFF_UPDATE_IN_PROGRESS",
+      "dependency_notes": "Use only for BMI/behavioral-intervention scope boundary; update status preserved."
+    }
+  ]
+}

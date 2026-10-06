@@ -1,0 +1,44 @@
+{
+  "stage": "NDF-D1-A1R",
+  "artifact": "D1-D2-R1 Coupling Gate",
+  "version": "v0.1",
+  "status": "BLOCK_R1_UNTIL_D1_AND_D2_CASE_SPECIFIC_READINESS",
+  "case_id": "D2-NHANES-L-0001",
+  "decision_episode_ref": "EP-NHANES-L-0001",
+  "current_states": {
+    "D0_physical_runtime_conformance": "PASS",
+    "D1_scientific_question_intake": "PASS",
+    "D1_knowledge_need_contract": "PASS",
+    "D1_source_acquisition": "NOT_STARTED",
+    "D1_scientific_reference_state": "NOT_AVAILABLE",
+    "D2_case_specific_readiness": "NOT_YET_QUALIFIED",
+    "reference_status": "REFERENCE_PENDING",
+    "evaluator_status": "PENDING",
+    "NDS_R1_entry": "BLOCKED",
+    "NDS_P1_entry": "BLOCKED"
+  },
+  "unblock_requirements": {
+    "D1": [
+      "targeted sources acquired under frozen evidence-cutoff policy",
+      "source identity/study dependency resolved",
+      "key source spans verified",
+      "critical claims reach L4 scientific qualification",
+      "major conflict/uncertainty/safety gaps represented",
+      "case-specific ScientificReferenceState reproducible"
+    ],
+    "D2": [
+      "observation fidelity and source provenance complete for the selected case",
+      "constructed/unknown/observed fields remain explicit",
+      "expert/system/agent projection boundaries qualified",
+      "dependency groups available",
+      "case reaches at least INPUT_READY under D2 semantics"
+    ],
+    "R1": [
+      "R1 workflow protocol available",
+      "EXPERT_PRE_AI_VIEW and AGENT_EXPANSION_VIEW defined",
+      "pre-AI judgment preservation enabled",
+      "no pre-existing final Gold injected into expert workflow"
+    ]
+  },
+  "invariant": "ThinSliceSelected != D1Ready != D2Ready != R1Activated != P1Activated"
+}

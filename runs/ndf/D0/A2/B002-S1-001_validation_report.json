@@ -1,0 +1,12 @@
+{
+  "run_id": "B002-S1-001",
+  "contract_version": "NDF-D0-v0.1",
+  "projection_policy_version": "NDF-D0-Projection-v0.1",
+  "target_refs": ["SRC-PMID-36670395","ANCH-PMID-36670395-ABS","STUDY-TLGS-PREDM-334"],
+  "checks": [],
+  "summary": {"total_checks":0,"failed_checks":0,"warning_checks":0},
+  "qualification": "PASS",
+  "interpretation": "D0_PHYSICAL_CONFORMANCE_ONLY",
+  "scientific_claim_qualification": "NOT_STARTED",
+  "reference_qualification": "NOT_STARTED"
+}

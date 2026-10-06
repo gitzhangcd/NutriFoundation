@@ -1,0 +1,20 @@
+{
+  "program": "NDF-D0-A2",
+  "repository_identity": "gitzhangcd/NutriFoundation",
+  "namespace": "src/nutrifoundation/ndf/d0",
+  "validator_runtime": "PASS",
+  "negative_fixture_runtime": {"passed": 8, "total": 8},
+  "positive_fixture_runtime": {"passed": 2, "total": 2},
+  "first_real_scientific_object": {
+    "case_id": "B002-S1-001",
+    "pmid": "36670395",
+    "status": "PASS_D0_PHYSICAL_CONFORMANCE"
+  },
+  "semantic_regression": {"detected": false},
+  "foundation_ontology_delta": 0,
+  "core_scientific_delta": 0,
+  "production_scale_validation": "OPEN",
+  "human_reference_validation": "NOT_STARTED",
+  "scientific_claim_qualification": "NOT_STARTED",
+  "decision": "PASS_FOR_CONTROLLED_D1_D2_ENTRY"
+}

@@ -1,0 +1,17 @@
+{
+  "run_id": "NDF-D0-A2-8+2",
+  "contract_version": "NDF-D0-v0.1",
+  "results": [
+    {"fixture_id":"FX-A1-001","group":"negative","expected_error_codes":["PROJECTION_LEAKAGE"],"observed_error_codes":["PROJECTION_LEAKAGE"],"qualification":"FAIL","expected_behavior_reproduced":true},
+    {"fixture_id":"FX-A1-002","group":"negative","expected_error_codes":["TEMPORAL_DEPENDENCY_ERROR"],"observed_error_codes":["TEMPORAL_DEPENDENCY_ERROR"],"qualification":"FAIL","expected_behavior_reproduced":true},
+    {"fixture_id":"FX-A1-003","group":"negative","expected_error_codes":["TEMPORAL_DEPENDENCY_ERROR"],"observed_error_codes":["TEMPORAL_DEPENDENCY_ERROR"],"qualification":"FAIL","expected_behavior_reproduced":true},
+    {"fixture_id":"FX-A1-004","group":"negative","expected_error_codes":["PROJECTION_LEAKAGE"],"observed_error_codes":["PROJECTION_LEAKAGE"],"qualification":"FAIL","expected_behavior_reproduced":true},
+    {"fixture_id":"FX-A1-005","group":"negative","expected_error_codes":["FABRICATED_OBSERVATION","CONDITION_COLLAPSE"],"observed_error_codes":["CONDITION_COLLAPSE","FABRICATED_OBSERVATION"],"qualification":"FAIL","expected_behavior_reproduced":true},
+    {"fixture_id":"FX-A1-006","group":"negative","expected_error_codes":["EPISTEMIC_COLLAPSE","SOURCE_CLASS_INFLATION"],"observed_error_codes":["EPISTEMIC_COLLAPSE","SOURCE_CLASS_INFLATION"],"qualification":"FAIL","expected_behavior_reproduced":true},
+    {"fixture_id":"FX-A1-007","group":"negative","expected_error_codes":["SUBJECT_JOIN_ERROR"],"observed_error_codes":["SUBJECT_JOIN_ERROR"],"qualification":"FAIL","expected_behavior_reproduced":true},
+    {"fixture_id":"FX-A1-008","group":"negative","expected_error_codes":["REVISION_IMMUTABILITY_VIOLATION"],"observed_error_codes":["REVISION_IMMUTABILITY_VIOLATION"],"qualification":"FAIL","expected_behavior_reproduced":true},
+    {"fixture_id":"PF-A1-001","group":"positive","expected_error_codes":[],"observed_error_codes":[],"qualification":"PASS","expected_behavior_reproduced":true},
+    {"fixture_id":"PF-A1-002","group":"positive","expected_error_codes":[],"observed_error_codes":[],"qualification":"PASS","expected_behavior_reproduced":true}
+  ],
+  "summary": {"negative_passed":8,"negative_total":8,"positive_passed":2,"positive_total":2}
+}

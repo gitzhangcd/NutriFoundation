@@ -1,0 +1,51 @@
+{
+  "stage": "NDF-D1-A2R",
+  "artifact": "Conformance Report",
+  "version": "v0.1",
+  "status": "PASS_INITIAL_SOURCE_SET_QUALIFIED_FOR_A3R",
+  "date": "2026-10-07",
+  "scientific_question_ref": "SQ-D1-A1R-001",
+  "knowledge_need_contract_ref": "KN-D1-A1R-001",
+  "thin_slice_ref": "TS-D1-A1R-001",
+  "evidence_cutoff": "2026-10-07 DATE precision",
+  "counts": {
+    "targeted_external_sources_acquired": 6,
+    "sources_eligible_for_A3R_claim_construction": 6,
+    "historical_sources_formally_reviewed": 5,
+    "historical_sources_promoted": 0,
+    "historical_sources_scope_failed": 2,
+    "historical_sources_purpose_prohibited": 3
+  },
+  "checks": {
+    "evidence_cutoff_frozen": "PASS",
+    "external_authority_acquisition": "PASS",
+    "study_document_identity_resolution": "PASS",
+    "guideline_correction_lineage_preserved": "PASS",
+    "source_span_support": "PASS_INITIAL_SET",
+    "semantic_scope_qualification": "PASS_WITH_USE_RESTRICTIONS",
+    "uspstf_update_in_progress_preserved": "PASS",
+    "historical_reuse_attempted": "PASS",
+    "locked_evaluation_not_reused": "PASS",
+    "calibration_not_reused": "PASS",
+    "old_eq_not_used": "PASS",
+    "no_predeclared_reference_action": "PASS"
+  },
+  "provisional_scientific_findings_allowed_for_A3R": [
+    "Nutrition assessment is multi-domain and can require obtaining additional information.",
+    "The visible NHANES BP snapshot should not be converted into a confirmed high-BP diagnosis.",
+    "Risk-context and measurement-context materially affect counseling/management applicability.",
+    "General dietary guidance is not equivalent to an individualized decision reference.",
+    "BMI 27 is not sufficient to invoke an obesity-specific intensive behavioral weight-loss recommendation."
+  ],
+  "prohibited_inferences": [
+    "DEFER is already the final Gold reference.",
+    "The case has hypertension.",
+    "The case requires weight loss.",
+    "A specific diet is indicated.",
+    "All missing nutrition domains are mandatory for every individualized decision."
+  ],
+  "next_stage": {
+    "id": "NDF-D1-A3R",
+    "title": "EvidenceUnit / ScientificClaim Construction, Conflict-Gap Synthesis & First ScientificReferenceState"
+  }
+}

@@ -54,14 +54,19 @@ Legacy `paper_c/` and `runs/E0.4.x/` assets are preserved as historical/conditio
 ```text
 A0R  PASS_FROZEN
   ↓
-A1R  PASS_SELECTION / SOURCE_ACQUISITION_OPEN
+A1R  PASS_SELECTION
       ScientificQuestion: SQ-D1-A1R-001
       KnowledgeNeed:      KN-D1-A1R-001
       ThinSlice:          TS-D1-A1R-001
       Case:               EP-NHANES-L-0001
-      R1 activation:      BLOCKED pending D1 + D2 case-specific readiness
   ↓
-A2R  NEXT — targeted source acquisition + study resolution + source-span qualification
+A2R  PASS_INITIAL_SOURCE_SET_QUALIFIED_FOR_A3R_WITH_SNAPSHOT_GAPS
+      Targeted sources:   6
+      Historical promoted: 0 / 5 reviewed
+      Final SRS:          BLOCKED pending snapshot/correction closure
+      R1 activation:      BLOCKED pending final D1 SRS + D2 readiness
+  ↓
+A3R  NEXT — EvidenceUnit / ScientificClaim + conflict-gap synthesis + first SRS
 ```
 
 

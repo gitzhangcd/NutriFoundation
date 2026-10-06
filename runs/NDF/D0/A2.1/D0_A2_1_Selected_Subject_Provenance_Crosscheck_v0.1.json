@@ -1,0 +1,56 @@
+{
+  "artifact": "NDF-D0-A2.1 Selected Subject Provenance Crosscheck",
+  "version": "v0.1",
+  "subject_alias": "SUBJ-NHANES-L-0001",
+  "internal_seqn": 130378,
+  "official_semantic_authority": "CDC/NCHS NHANES August 2021-August 2023",
+  "transport_carrier": {
+    "repository": "codingman7778/nhanes",
+    "file": "nhanes_23.csv",
+    "blob_sha": "705865448b96f122a52ee2f738ff9991488a2476"
+  },
+  "checks": [
+    {
+      "field": "RIDAGEYR",
+      "carrier": 43,
+      "crosscheck": 43,
+      "status": "MATCH"
+    },
+    {
+      "field": "RIAGENDR",
+      "carrier": 1,
+      "crosscheck": "Male (code 1)",
+      "status": "MATCH"
+    },
+    {
+      "field": "BMXWT",
+      "carrier": 86.9,
+      "crosscheck": 86.9,
+      "status": "MATCH"
+    },
+    {
+      "field": "BMXHT",
+      "carrier": 179.5,
+      "crosscheck": 179.5,
+      "status": "MATCH"
+    },
+    {
+      "field": "BMXBMI",
+      "carrier": 27,
+      "crosscheck": 27,
+      "status": "MATCH"
+    },
+    {
+      "field": "BPXOSY1",
+      "carrier": 135,
+      "crosscheck": 135,
+      "status": "MATCH"
+    }
+  ],
+  "crosscheck_sources": [
+    "https://wimr-genomics.vip.sydney.edu.au/BBHE1006/BBHE1006_week10_2026.html",
+    "https://austinrochford.com/index-65.html"
+  ],
+  "qualification": "SELECTED_FIELDS_CROSSCHECKED",
+  "non_claim": "This is not a byte-for-byte verification against the official CDC XPT files."
+}

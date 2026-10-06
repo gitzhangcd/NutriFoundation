@@ -1,0 +1,67 @@
+{
+  "stage": "NDF-D1-A2R",
+  "artifact": "Historical Source Reuse Audit",
+  "version": "v0.1",
+  "status": "COMPLETE_FOR_FIRST_THIN_SLICE",
+  "source_registry_ref": "runs/NDF/D1/A0/E0.4.3_Source_Universe_Migration_Registry_v0.1.json",
+  "reviewed": [
+    {
+      "legacy_candidate_id": "G100-CAND-000250",
+      "pmid": "34893024",
+      "title": "PG-SGA SF in nutrition assessment and survival prediction for elderly patients with cancer.",
+      "migration_disposition": "D1_PRIMARY_CANDIDATE",
+      "allowed_purpose": true,
+      "audit": {
+        "L1": "PASS",
+        "L2": "PASS_ABSTRACT",
+        "L3": "FAIL_POPULATION_AND_PURPOSE_MISMATCH",
+        "L4": "NOT_QUALIFIED"
+      },
+      "decision": "DO_NOT_PROMOTE",
+      "rationale": "Elderly cancer/malnutrition prognostic assessment is not a valid basis for a generic 43-year-old cross-sectional information-sufficiency reference."
+    },
+    {
+      "legacy_candidate_id": "G100-CAND-000309",
+      "pmid": "40005003",
+      "title": "Personalized Diet With or Without Physical Exercise Improves Nutritional Status, Muscle Strength, Physical Performance, and Quality of Life in Malnourished Older Adults.",
+      "migration_disposition": "D1_PRIMARY_CANDIDATE",
+      "allowed_purpose": true,
+      "audit": {
+        "L1": "PASS",
+        "L2": "PASS_ABSTRACT",
+        "L3": "FAIL_POPULATION_INTERVENTION_MISMATCH",
+        "L4": "NOT_QUALIFIED"
+      },
+      "decision": "DO_NOT_PROMOTE",
+      "rationale": "Trial concerns malnourished older adults and intervention efficacy; it does not answer current assessment sufficiency."
+    },
+    {
+      "legacy_candidate_id": "G100-CAND-000657",
+      "pmid": "41462029",
+      "title": "Dietary management and aerobic exercise counselling on blood pressure control in subjects with prehypertension and drug-naïve stage 1 hypertension: a randomized clinical trial.",
+      "migration_disposition": "QUARANTINE_LOCKED_EVALUATION",
+      "allowed_purpose": false,
+      "decision": "PROHIBITED_FROM_REFERENCE_CONSTRUCTION",
+      "rationale": "Topically relevant but purpose-locked; no reuse despite apparent relevance."
+    },
+    {
+      "legacy_candidate_id": "G100-CAND-000433",
+      "pmid": "35735908",
+      "title": "British Dietetic Association consensus guidelines on the nutritional assessment and dietary management of patients with inflammatory bowel disease.",
+      "migration_disposition": "QUARANTINE_LOCKED_EVALUATION",
+      "allowed_purpose": false,
+      "decision": "PROHIBITED_FROM_REFERENCE_CONSTRUCTION",
+      "rationale": "Locked-evaluation source and disease-specific."
+    },
+    {
+      "legacy_candidate_id": "G100-CAND-000327",
+      "pmid": "41081513",
+      "title": "British Dietetic Association Guidelines for the Dietary Management of Chronic Constipation in Adults.",
+      "migration_disposition": "CALIBRATION_ONLY",
+      "allowed_purpose": false,
+      "decision": "PROHIBITED_FROM_REFERENCE_CONSTRUCTION",
+      "rationale": "Calibration-only purpose; cannot be promoted into R1 reference development."
+    }
+  ],
+  "conclusion": "No historical repository paper was promoted into the first qualified thin slice. Two reusable candidates failed semantic-scope qualification; three apparently relevant sources were purpose-prohibited. This is a substantive A2R finding, not a migration failure."
+}

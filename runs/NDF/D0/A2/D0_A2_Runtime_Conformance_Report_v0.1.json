@@ -1,0 +1,25 @@
+{
+  "stage": "NDF-D0-A2",
+  "version": "v0.1",
+  "branch": "ndf-d0-a2-runtime-conformance",
+  "workflow_run_id": 37501704680,
+  "workflow_head_sha": "ffbd77d8d23bfe18f5fb7d0ebf7ae610347ed1d2",
+  "workflow_conclusion": "success",
+  "contract_version": "NDF-D0-v0.1",
+  "fixture_gate": "PASS",
+  "fixture_summary": {
+    "negative_total": 8,
+    "negative_correctly_rejected": 8,
+    "positive_total": 2,
+    "positive_correctly_accepted": 2
+  },
+  "first_real_D1_object": {
+    "case_id": "B002-S1-001",
+    "source_identity": "PMID:36670395",
+    "qualification": "PASS",
+    "status_boundary": "D0_PHYSICAL_CONFORMANCE_ONLY"
+  },
+  "D0_A2_gate": "PASS",
+  "full_D0_runtime_gate": "PENDING_FIRST_REAL_D2_OBJECT",
+  "important_boundary": "D0-A2 PASS establishes deterministic fixture qualification and first real D1 physical conformance only. It does not establish scientific qualification, reference validity, or full D0 completion; a first real D2 observation/case object remains required."
+}

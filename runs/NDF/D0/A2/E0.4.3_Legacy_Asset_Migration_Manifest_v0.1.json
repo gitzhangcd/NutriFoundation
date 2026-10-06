@@ -1,0 +1,72 @@
+{
+  "stage": "NDF-D0-A2",
+  "artifact": "E0.4.3 Legacy Asset Migration Manifest",
+  "version": "v0.1",
+  "source_repository": "gitzhangcd/NutriFoundation",
+  "source_branch": "e0.4.3-batch002-independent-gold",
+  "target_branch": "ndf-d0-a2-runtime-conformance",
+  "source_branch_state": {
+    "relative_to_main": "diverged",
+    "ahead_by": 165,
+    "behind_by": 3,
+    "policy": "NO_WHOLE_BRANCH_MERGE"
+  },
+  "migration_principle": "Preserve E0.4.3 frozen lineage; selectively reuse shared infrastructure through NDF adapters and purpose controls.",
+  "shared_runtime_resolution": {
+    "status": "USE_EXISTING_MAIN_NDF_D0_RUNTIME",
+    "rationale": "main already contains NDF-D0 contracts, V0.1-V0.4 validators, 8+2 fixtures, and first real D1 physical-conformance object; do not duplicate or overwrite with Paper C-specific runtime."
+  },
+  "assets": [
+    {
+      "source": "paper_c/P0.2.1/Gold100_Candidate_Source_Record_Schema_v1.0.json",
+      "target_role": "NDF-D1 SourceArtifact/StudyIdentity migration input",
+      "disposition": "REUSE_WITH_ADAPTER",
+      "purpose": "CURATION_DEV/MEASUREMENT_CALIBRATION"
+    },
+    {
+      "source": "scripts/paper_c/p0_2_3_qualify.py",
+      "target_role": "future shared source ingestion/qualification library",
+      "disposition": "EXTRACT_SHARED_LOGIC_LATER",
+      "note": "Do not bind NDF core to Paper C filenames or quotas."
+    },
+    {
+      "source": "src/nutrifoundation/workbench/p0_3.py",
+      "target_role": "NDS-R1 workbench ancestor",
+      "disposition": "REUSE_WITH_NDS_R1_ADAPTER",
+      "note": "Preserve hash binding, first-pass lock, role isolation, audit chain; add pre-AI lock, agent-release and reconciliation states later."
+    },
+    {
+      "source": "tests/test_p0_3_workbench.py",
+      "target_role": "NDS-R1 regression-test patterns",
+      "disposition": "REUSE_TEST_PATTERNS"
+    },
+    {
+      "source": "runs/E0.4.3/P0.3/Calibration24_Source_Set_FROZEN_v1.0.json",
+      "target_role": "D0/D1 calibration and migration fixtures",
+      "disposition": "REUSE_DECLARED",
+      "purpose": "MEASUREMENT_CALIBRATION",
+      "constraints": [
+        "zero Gold100 SourceArtifact overlap",
+        "zero Gold100 StudyIdentity overlap"
+      ]
+    },
+    {
+      "source": "runs/E0.4.3/P0.2.4/Gold100_Source_Set_FROZEN_v1.0.json",
+      "target_role": "Paper C confirmatory evidence-production corpus",
+      "disposition": "QUARANTINE_PRESERVE",
+      "purpose": "LOCKED_EVALUATION",
+      "prohibition": "Do not use for NDF validator development or NDS-R1 decision-reference development."
+    },
+    {
+      "source": "runs/E0.4.3/P0.2.3/Gold100_Eligible_Pool_FROZEN_v0.1.json",
+      "target_role": "candidate NDF-D1 source universe",
+      "disposition": "REUSE_AFTER_PURPOSE_REGISTRATION_AND_OVERLAP_AUDIT"
+    }
+  ],
+  "exclusions": [
+    "Gold100 expert Gold is not NutritionDecisionReference.",
+    "SourceArtifact-level annotation semantics are not DecisionEpisode-level reference semantics.",
+    "E0.4.3 contains no NHANES personalized DecisionEpisode substrate; NDF-D2 remains new work."
+  ],
+  "next_required_object": "First real NDF-D2 NHANES observation/case conformance object"
+}

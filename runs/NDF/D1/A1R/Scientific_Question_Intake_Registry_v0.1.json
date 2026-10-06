@@ -1,0 +1,89 @@
+{
+  "stage": "NDF-D1-A1R",
+  "artifact": "Scientific Question Intake Registry",
+  "version": "v0.1",
+  "status": "FROZEN_INTAKE_SOURCE_ACQUISITION_PENDING",
+  "date": "2026-10-07",
+  "authority": [
+    "SIS v0.3.1 R5",
+    "Nutrition Foundation v0.1",
+    "Nutrition Data Foundation D0-D2 + NDS-R1 v0.1",
+    "NDF-D1-A0R re-baseline"
+  ],
+  "intake_policy": {
+    "driver": [
+      "ActiveScientificQuestion",
+      "DecisionEpisodeNeed",
+      "ReferenceConstructionNeed"
+    ],
+    "prohibited_driver": [
+      "legacy EQ number alone",
+      "legacy Paper 1 fixed reference package",
+      "Paper C source-challenge quota"
+    ],
+    "invariant": "EvidenceQuestionRegistry != PaperPlan"
+  },
+  "active_questions": [
+    {
+      "scientific_question_id": "SQ-D1-A1R-001",
+      "title": "Information sufficiency before individualized nutrition recommendation",
+      "question_text": "Within the authorized information boundary of EP-NHANES-L-0001, is the currently available information sufficient to support an individualized nutrition recommendation now, or is REQUEST_MORE_INFORMATION / DEFER the scientifically defensible action class; and which missing information categories are decision-critical before an individualized recommendation can be qualified?",
+      "source_case": {
+        "case_id": "D2-NHANES-L-0001",
+        "decision_episode_ref": "EP-NHANES-L-0001",
+        "subject_ref": "SUBJ-NHANES-L-0001",
+        "time_mode": "EXPERIMENTALLY_DEFINED_CROSS_SECTIONAL",
+        "current_reference_status": "REFERENCE_PENDING",
+        "current_evaluator_status": "PENDING",
+        "clinical_case_claim": "NOT_A_REAL_CLINICAL_CASE"
+      },
+      "authorized_visible_inputs": [
+        "age_at_screening = 43 years",
+        "sex = Male",
+        "measured_weight = 86.9 kg",
+        "standing_height = 179.5 cm",
+        "source_reported_bmi = 27 kg/m^2",
+        "derived_bmi_recalc = 26.970616304963496 kg/m^2",
+        "oscillometric_sbp = [135,131,132] mmHg",
+        "derived_sbp_mean = 132.66666666666666 mmHg",
+        "day1_total_energy = UNKNOWN because source component was not ingested"
+      ],
+      "prohibited_inferences": [
+        "do not infer a clinical diagnosis",
+        "do not infer an unobserved diet pattern or nutrient intake",
+        "do not infer medication, disease, laboratory, allergy, preference, goal or longitudinal history not present in the authorized view",
+        "do not use future observations or future evidence",
+        "do not treat NHANES row values as a real clinical patient record"
+      ],
+      "r1_stress_constructs": [
+        "critical_missing_information",
+        "defer_is_potentially_correct",
+        "multiple_acceptable_process_actions",
+        "safety_sensitive_information_boundary",
+        "professional_judgment_under_missingness"
+      ],
+      "p1_mechanistic_constructs": [
+        "structured information sufficiency reasoning",
+        "explicit missingness preservation",
+        "DEFER / REQUEST_MORE_INFORMATION capability",
+        "avoidance of unsupported individualized recommendation",
+        "state/evidence/decision separation"
+      ],
+      "legacy_eq_binding": null,
+      "legacy_eq_status": "NO_AUTHORITY_AND_NOT_REQUIRED",
+      "selection_rationale": [
+        "real NHANES-grounded D2 object already passes D0 physical/runtime conformance",
+        "reference and evaluator are still pending, so the case is suitable for R1 rather than contaminated by an existing Gold",
+        "the task directly exercises Foundation rules that information can be insufficient for START while sufficient for ASK/DEFER",
+        "the case can expose overconfident recommendation behavior without requiring a fabricated diagnosis"
+      ],
+      "current_state": "ACTIVE_KNOWLEDGE_NEED_DEFINED_SOURCE_SET_OPEN"
+    }
+  ],
+  "nonclaims": [
+    "Question selection does not establish that DEFER is the correct final reference.",
+    "Question selection does not establish which missing variables are mandatory.",
+    "No scientific claim or guideline statement is qualified in A1R.",
+    "No source count target is a completion threshold."
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "stage": "NDF-D1-A0",
+  "title": "E0.4.3 Source-Universe Migration, Purpose Audit & Thin-Slice Candidate Lock",
+  "version": "v0.1",
+  "status": "PASS_MIGRATION_WITH_SCIENTIFIC_GAPS",
+  "audited_at": "2026-10-07",
+  "authority": [
+    "SIS v0.3.1 R5",
+    "Nutrition Foundation v0.1",
+    "Nutrition Data Foundation D0-D2 + NDS-R1 v0.1",
+    "AI Nutri Paper 1 P0 Integrated Protocol v0.1 as downstream planning input"
+  ],
+  "input_lineage": {
+    "legacy_branch": "e0.4.3-batch002-independent-gold",
+    "legacy_eligible_pool": {
+      "count": 330,
+      "sha256": "ff33d849367c335e5b5cb8345b40a332b1417d0e8a4372eb462a0464a807565c",
+      "cutoff": "2026-10-03T23:26:00+08:00"
+    },
+    "legacy_raw_mining": {
+      "base_raw": 342,
+      "coverage_repair": 382,
+      "total_qualified_universe_before_exclusion": 724
+    },
+    "legacy_sampling_role": "Paper C source-level evidence-production measurement universe; not a NutritionDecisionReference universe"
+  },
+  "purpose_overlap_audit": {
+    "gold100_locked_evaluation_count": 100,
+    "eligible_pool_overlap_with_gold100": 98,
+    "gold100_augmented_sources_outside_eligible_pool": 2,
+    "calibration24_count": 24,
+    "eligible_pool_overlap_with_calibration24": 24,
+    "gold100_calibration_overlap": 0,
+    "d1_remaining_after_quarantine_and_calibration": 208,
+    "rule": "98 locked-evaluation overlaps are quarantine-only; 24 Calibration24 overlaps are calibration-only; neither class is D1 reference-development input."
+  },
+  "d1_remaining_profile": {
+    "total": 208,
+    "domain": {
+      "nutrition_metabolic_cardiometabolic": 153,
+      "external_biomedical_or_public_health": 55
+    },
+    "source_family": {
+      "primary_interventional": 70,
+      "primary_observational": 40,
+      "evidence_synthesis": 76,
+      "guideline_or_consensus": 15,
+      "companion_or_secondary": 7
+    },
+    "source_text": {
+      "official_full_text_frozen": 204,
+      "structured_abstract_only": 4
+    },
+    "study_identity": {
+      "independent_primary_report": 110,
+      "identity_resolved_other": 91,
+      "companion_publication": 7
+    },
+    "version_status": {
+      "original_current": 192,
+      "corrected": 8,
+      "living_current": 8
+    },
+    "risk_tags": {
+      "numeric_complexity": 190,
+      "causal_language_risk": 36,
+      "StudyIdentity_dependency": 7,
+      "correction_retraction_living_version": 16,
+      "conflict": 15,
+      "recommendation_exception": 11,
+      "temporal_cutoff_sensitive": 16,
+      "incomplete_source_text": 4
+    }
+  },
+  "source_identity_recoverability": {
+    "eligible_pool_330": {
+      "pmid_present": 330,
+      "study_identity_cluster_present": 330,
+      "worker_visible_text_hash_present": 330,
+      "pubmed_record_hash_present": 330,
+      "doi_present": 329,
+      "duplicate_pmids": 0,
+      "multi_report_study_clusters": 2
+    },
+    "d1_remaining_208": {
+      "pmid_present": 208,
+      "study_identity_cluster_present": 208,
+      "worker_visible_text_hash_present": 208,
+      "pubmed_record_hash_present": 208,
+      "doi_present": 208,
+      "duplicate_pmids": 0,
+      "multi_report_study_clusters": 1
+    },
+    "interpretation": "SourceArtifact/StudyIdentity/source-text lineage is broadly recoverable, but same-study multi-report records must remain dependency-linked rather than counted as independent evidence."
+  },
+  "temporal_audit": {
+    "legacy_pool_cutoff": "2026-10-03T23:26:00+08:00",
+    "paper1_protocol_candidate_cutoff": "2026-08-31T23:59:59Z",
+    "d1_remaining_records_with_publication_date_after_paper1_candidate_cutoff": 0,
+    "d1_remaining_temporal_sensitive_records": 16,
+    "decision": "DO_NOT_INHERIT_LEGACY_CUTOFF_AS_PAPER1_CUTOFF",
+    "note": "Publication-date compatibility alone is insufficient. Corrected/living/version-sensitive records require reconstruction of the exact version available at the eventual Paper 1 evidence cutoff."
+  },
+  "scientific_scope_audit": {
+    "paper1_evidence_questions": 31,
+    "legacy_records_with_explicit_EQ_mapping": 0,
+    "legacy_mining_design": "broad PubMed family queries with capped returned sets plus coverage repair, optimized for source-level challenge coverage",
+    "mismatch": [
+      "E0.4.3 was optimized for Paper C extraction/verification stress coverage, not Paper 1 decision relevance.",
+      "55/208 remaining records are external biomedical/public-health stress candidates and require explicit EQ relevance justification.",
+      "Legacy PubMed universe does not guarantee current formal guideline/official nutrition recommendation coverage.",
+      "Official nutrient/safety reference classes required by some Paper 1 EQs are not guaranteed by the legacy source-family design.",
+      "No legacy eligibility state transfers to D1 ScientificClaim qualification."
+    ]
+  },
+  "first_thin_slice": {
+    "focus": "EQ-010 Dietary patterns in prediabetes/T2D",
+    "candidate_lock": "runs/NDF/D1/A0/Thin_Slice_Candidate_Lock_v0.1.json",
+    "candidate_count": 8,
+    "includes_new_nonlegacy_seed": "PMID 36670395",
+    "current_status": "PROVISIONAL_CANDIDATE_LOCK_NOT_REFERENCE_READY",
+    "open_gap": "formal guideline/official recommendation + targeted primary evidence acquisition and semantic qualification"
+  },
+  "gates": {
+    "A0-G1_lineage_identity": "PASS",
+    "A0-G2_purpose_isolation": "PASS",
+    "A0-G3_source_study_anchor_recoverability": "PASS_WITH_DEPENDENCY_MONITORING",
+    "A0-G4_temporal_compatibility": "RECONSTRUCTION_REQUIRED",
+    "A0-G5_evidence_question_relevance": "NOT_YET_PASSED",
+    "A0-G6_first_thin_slice_candidate_lock": "PASS_PROVISIONAL"
+  },
+  "hard_nonclaims": [
+    "E0.4.3 ELIGIBLE != NDF-D1 QUALIFIED.",
+    "SourceArtifact eligibility != ScientificClaim qualification.",
+    "Gold100 expert/source Gold != NutritionDecisionReference.",
+    "Candidate thin-slice lock != ScientificReferenceState.",
+    "D1 migration completion != NDS-R1 activation."
+  ],
+  "next_stage": {
+    "id": "NDF-D1-A1",
+    "title": "EvidenceQuestion Registry Migration, Scope Reconciliation & Targeted Acquisition Lock",
+    "actions": [
+      "migrate all 31 Paper 1 EvidenceQuestions into machine-readable D1 registry",
+      "freeze current Paper 1 evidence cutoff or explicitly version multiple cutoff snapshots",
+      "map the 153 nutrition primary candidates to EQs using semantic/PICO-PECO review",
+      "run targeted acquisition for missing guideline/official/safety/measurement sources",
+      "qualify EQ-010 first to build the first ScientificReferenceState"
+    ]
+  }
+}

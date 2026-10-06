@@ -1,0 +1,178 @@
+{
+  "stage": "NDF-D1-A2R",
+  "artifact": "Source-Span Qualification Registry",
+  "version": "v0.1",
+  "status": "INITIAL_SOURCE_SPANS_QUALIFIED",
+  "qualification_scale": {
+    "L1": "mechanical integrity",
+    "L2": "source-span support",
+    "L3": "semantic scope",
+    "L4": "scientific qualification for current question/reference use"
+  },
+  "records": [
+    {
+      "qualification_id": "QUAL-A2R-001",
+      "source_ref": "SRC-A2R-001",
+      "knowledge_need_refs": [
+        "KN-001",
+        "KN-002"
+      ],
+      "anchors": [
+        {
+          "locator": "official web lines 43-46",
+          "support": "Nutrition Assessment is the first NCP step and its data support downstream diagnosis/intervention."
+        },
+        {
+          "locator": "official web lines 51-65",
+          "support": "Assessment may draw from multiple sources and spans food/nutrition history, anthropometrics, biochemical/tests, physical findings and client history."
+        },
+        {
+          "locator": "official web lines 83-90",
+          "support": "Critical thinking explicitly includes identifying and obtaining additional information and choosing valid tools/guidelines."
+        }
+      ],
+      "L1": "PASS",
+      "L2": "PASS",
+      "L3": "PASS_GENERAL_NUTRITION_ASSESSMENT",
+      "L4": "PASS_FOR_ASSESSMENT_AND_MISSING_INFORMATION_BOUNDARY",
+      "use_restriction": "Does not define a universal mandatory-variable checklist or the final action for EP-NHANES-L-0001."
+    },
+    {
+      "qualification_id": "QUAL-A2R-002",
+      "source_ref": "SRC-A2R-002",
+      "knowledge_need_refs": [
+        "KN-003",
+        "KN-004"
+      ],
+      "anchors": [
+        {
+          "locator": "AHA Top Things lines 25-30",
+          "support": "Defines adult BP categories, recommends lifestyle measures, and conditions treatment decisions on average BP and cardiovascular risk/context."
+        },
+        {
+          "locator": "PubMed PMID 40811497 abstract",
+          "support": "Confirms this is the current multisociety 2025 adult high-BP guideline replacing 2017 guidance."
+        }
+      ],
+      "L1": "PASS",
+      "L2": "PASS",
+      "L3": "PASS_ADULT_BP_CONTEXT",
+      "L4": "PASS_FOR_BP_INTERPRETATION_AND_RISK_CONTEXT_BOUNDARY",
+      "version_caution": "Correction lineage exists; exact full-text correction incorporation must be retained in downstream provenance.",
+      "use_restriction": "Do not infer hypertension diagnosis or individualized diet prescription from the NHANES systolic observations alone."
+    },
+    {
+      "qualification_id": "QUAL-A2R-003",
+      "source_ref": "SRC-A2R-003",
+      "knowledge_need_refs": [
+        "KN-003",
+        "KN-004"
+      ],
+      "anchors": [
+        {
+          "locator": "AHA page lines 20-20",
+          "support": "Home monitoring can help confirm a high-BP diagnosis and does not replace professional evaluation."
+        },
+        {
+          "locator": "AHA page lines 47-47",
+          "support": "Multiple readings should be taken and recorded during measurement."
+        },
+        {
+          "locator": "AHA page lines 57-68",
+          "support": "Provides BP category ranges and states only a medical professional can confirm a diagnosis."
+        },
+        {
+          "locator": "AHA page lines 75-89",
+          "support": "A single high reading is not enough for immediate conclusion; longitudinal readings provide a more complete picture."
+        }
+      ],
+      "L1": "PASS",
+      "L2": "PASS",
+      "L3": "PASS_MEASUREMENT_INTERPRETATION",
+      "L4": "PASS_FOR_NO_SINGLE_SNAPSHOT_DIAGNOSIS_BOUNDARY",
+      "use_restriction": "Patient-facing guidance; use as boundary support, not as the sole clinical practice guideline."
+    },
+    {
+      "qualification_id": "QUAL-A2R-004",
+      "source_ref": "SRC-A2R-004",
+      "knowledge_need_refs": [
+        "KN-002",
+        "KN-004",
+        "KN-005"
+      ],
+      "anchors": [
+        {
+          "locator": "USPSTF web lines 69-80",
+          "support": "Applicability requires known CVD-risk context and explicit risk assessment."
+        },
+        {
+          "locator": "USPSTF web lines 81-89",
+          "support": "Behavioral counseling is a structured intervention, not a one-shot generic prescription."
+        },
+        {
+          "locator": "PubMed PMID 33231670 abstract",
+          "support": "Recommendation applies to adults with defined CVD risk factors and supports counseling in that target population."
+        }
+      ],
+      "L1": "PASS",
+      "L2": "PASS",
+      "L3": "PASS_CONDITIONAL_ON_RISK_STATUS",
+      "L4": "CONDITIONAL_PASS_IF_RELEVANT_RISK_STATUS_IS_ESTABLISHED",
+      "temporal_caution": "USPSTF page states the topic is being updated at the 2026-10-07 cutoff.",
+      "use_restriction": "Cannot be directly projected onto the case until risk-factor status is appropriately established."
+    },
+    {
+      "qualification_id": "QUAL-A2R-005",
+      "source_ref": "SRC-A2R-005",
+      "knowledge_need_refs": [
+        "KN-001",
+        "KN-005"
+      ],
+      "anchors": [
+        {
+          "locator": "ODPHP lines 41-50",
+          "support": "Identifies the 2025-2030 Dietary Guidelines as current federal nutrition guidance and summarizes general healthy dietary pattern advice."
+        }
+      ],
+      "L1": "PASS",
+      "L2": "PASS",
+      "L3": "PASS_GENERAL_POPULATION_GUIDANCE",
+      "L4": "PASS_CONTEXT_ONLY_NOT_INDIVIDUAL_REFERENCE",
+      "use_restriction": "Supports general healthy-pattern context only; does not establish individualized recommendation sufficiency."
+    },
+    {
+      "qualification_id": "QUAL-A2R-006",
+      "source_ref": "SRC-A2R-006",
+      "knowledge_need_refs": [
+        "KN-002",
+        "KN-003",
+        "KN-005"
+      ],
+      "anchors": [
+        {
+          "locator": "USPSTF current page recommendation summary",
+          "support": "Intensive multicomponent behavioral intervention recommendation is for BMI >=30; BMI 25-29.9 is categorized as overweight."
+        },
+        {
+          "locator": "PubMed PMID 30326502 abstract",
+          "support": "Confirms the evidence-backed recommendation threshold for adults with obesity."
+        }
+      ],
+      "L1": "PASS",
+      "L2": "PASS",
+      "L3": "PASS_WEIGHT_INTERVENTION_SCOPE",
+      "L4": "PASS_FOR_SCOPE_BOUNDARY_WITH_TEMPORAL_CAUTION",
+      "temporal_caution": "Topic is being updated at cutoff.",
+      "use_restriction": "BMI 27 must not be silently converted into an obesity-specific intensive weight-loss reference."
+    }
+  ],
+  "promoted_for_next_stage": [
+    "SRC-A2R-001",
+    "SRC-A2R-002",
+    "SRC-A2R-003",
+    "SRC-A2R-004",
+    "SRC-A2R-005",
+    "SRC-A2R-006"
+  ],
+  "note": "Promotion means eligible for A3R claim construction under stated restrictions; it does not mean every source contributes a positive recommendation."
+}

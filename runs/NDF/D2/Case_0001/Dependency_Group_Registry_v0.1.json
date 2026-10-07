@@ -1,0 +1,62 @@
+{
+  "stage": "NDF-D2",
+  "artifact": "Dependency Group Registry",
+  "version": "v0.1",
+  "status": "FROZEN",
+  "case_ref": "D2-NHANES-L-0001",
+  "groups": [
+    {
+      "group_type": "SUBJECT_FAMILY",
+      "group_id": "SUBJFAM-NHANES-L-130378",
+      "members": [
+        "D2-NHANES-L-0001"
+      ],
+      "split_rule": "ALL_VARIANTS_CO_SPLIT"
+    },
+    {
+      "group_type": "SOURCE_FAMILY",
+      "group_id": "SRCFAM-NHANES-AUG2021-AUG2023",
+      "members": [
+        "DEMO_L",
+        "BMX_L",
+        "BPXO_L",
+        "DR1TOT_L"
+      ]
+    },
+    {
+      "group_type": "CASE_TEMPLATE_FAMILY",
+      "group_id": "TMPL-INFO-SUFFICIENCY-TRIAGE-v1",
+      "members": [
+        "D2-NHANES-L-0001"
+      ]
+    },
+    {
+      "group_type": "VISIBILITY_VARIANT_FAMILY",
+      "group_id": "VISFAM-NHANES-L-0001-DIET",
+      "members": [
+        "MSK-D2-NHANES-L-0001-DIET1"
+      ],
+      "future_sibling_policy": "Any unmasked or differently masked sibling must remain in the same split."
+    },
+    {
+      "group_type": "SCIENTIFIC_QUESTION_FAMILY",
+      "group_id": "SQFAM-SQ-D1-A1R-001",
+      "members": [
+        "SQ-D1-A1R-001"
+      ]
+    },
+    {
+      "group_type": "SCIENTIFIC_REFERENCE_FAMILY",
+      "group_id": "SRSFAM-SRS-D1-A3R-001",
+      "members": [
+        "SRS-D1-A3R-001:r1",
+        "SRS-D1-A3R-001:r2",
+        "SRS-D1-A3R-001:r3"
+      ],
+      "note": "r3 must be rebound to completed D2 view before R1 use."
+    }
+  ],
+  "counterfactual_family_ref": null,
+  "no_fake_trajectory": true,
+  "time_mode": "EXPERIMENTALLY_DEFINED_CROSS_SECTIONAL"
+}

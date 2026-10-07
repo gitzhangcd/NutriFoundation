@@ -2,12 +2,12 @@
   "program_id": "NDF-D2",
   "version": "v0.1",
   "date": "2026-10-07",
-  "status": "FIRST_CASE_INPUT_READY_D1_REBIND_REQUIRED",
-  "case_ref": "D2-NHANES-L-0001:r2",
+  "status": "FIRST_CASE_INPUT_READY_FOR_NDS_R1",
+  "case_ref": "D2-NHANES-L-0001:r3",
   "current_stage": {
     "id": "NDF-D2",
-    "status": "PASS_D2_INPUT_READY_D1_REBIND_REQUIRED_BEFORE_R1",
-    "readiness": "INPUT_READY",
+    "status": "PASS_D2_INPUT_READY_REBOUND_TO_SRS_R4",
+    "readiness": "INPUT_READY_FOR_NDS_R1_REFERENCE_WORKFLOW",
     "source_fidelity": "QUALIFIED_FOR_R1_PILOT_WITH_OFFICIAL_BYTE_EQUALITY_OPEN",
     "D2_G1": "PASS",
     "D2_G2": "PASS_WITH_CAVEAT",
@@ -15,7 +15,8 @@
     "D2_G4": "PASS_MATERIALIZED_VIEW_LEAKAGE_SCAN",
     "D2_G5": "PASS",
     "D2_G6": "PASS",
-    "r1_activation": "BLOCKED_PENDING_D1_REBIND_AND_R1_HUMAN_REFERENCE_WORKFLOW"
+    "r1_activation": "READY_FOR_NDS_R1_REFERENCE_WORKFLOW",
+    "srs_binding": "SRS-D1-A3R-001:r4"
   },
   "canonical_assets": [
     "runs/NDF/D2/Case_0001/Source_Fidelity_Audit_v0.1.json",
@@ -25,10 +26,12 @@
     "runs/NDF/D2/Case_0001/Materialized_Projection_Views_v0.1.json",
     "runs/NDF/D2/Case_0001/NutritionDecisionCaseBundle_v0.1.json",
     "runs/NDF/D2/Case_0001/D1_Rebind_Impact_Notice_v0.1.json",
-    "runs/NDF/D2/Case_0001/D2_Conformance_Report_v0.1.json"
+    "runs/NDF/D2/Case_0001/D2_Conformance_Report_v0.1.json",
+    "runs/NDF/D2/Case_0001/Materialized_Projection_Views_v0.2.json",
+    "runs/NDF/D2/Case_0001/NutritionDecisionCaseBundle_v0.2.json"
   ],
   "next_stage": {
-    "id": "NDF-D1-A3R.3",
-    "title": "D2 Observation Completion Rebind, BP Applicability Refresh & Non-Regression Freeze"
+    "id": "NDS-R1-P0",
+    "title": "First Human Focus × Agent Breadth Reference Construction Pilot Intake"
   }
 }

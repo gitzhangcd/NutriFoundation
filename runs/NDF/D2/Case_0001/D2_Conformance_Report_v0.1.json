@@ -10,7 +10,7 @@
     "D2-G1 Observation fidelity": "PASS",
     "D2-G2 Case provenance": "PASS_WITH_OFFICIAL_BYTE_EQUALITY_CAVEAT",
     "D2-G3 Constructed transparency": "PASS",
-    "D2-G4 Boundary integrity": "PASS",
+    "D2-G4 Boundary integrity": "PASS_MATERIALIZED_VIEW_LEAKAGE_SCAN",
     "D2-G5 Dependency integrity": "PASS",
     "D2-G6 No fake trajectory": "PASS"
   },
@@ -55,5 +55,12 @@
   "next_stage": {
     "id": "NDF-D1-A3R.3",
     "title": "D2 Observation Completion Rebind, BP Applicability Refresh & Non-Regression Freeze"
+  },
+  "projection_validation": {
+    "materialized_views_ref": "runs/NDF/D2/Case_0001/Materialized_Projection_Views_v0.1.json",
+    "leakage_scan": "PASS",
+    "hidden_diet_values": "NOT_PRESENT_IN_R1_FACING_VIEWS",
+    "source_identifiers": "NOT_PRESENT_IN_R1_FACING_VIEWS",
+    "final_reference_or_adjudication": "NOT_PRESENT"
   }
 }

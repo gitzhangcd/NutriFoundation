@@ -1,0 +1,160 @@
+{
+  "stage": "NDF-D1-A3R",
+  "artifact": "EvidenceUnit Set",
+  "version": "v0.1",
+  "status": "PROVISIONAL_TYPED_EVIDENCE_UNITS_SOURCE_QUALIFIED",
+  "scientific_question_ref": "SQ-D1-A1R-001",
+  "thin_slice_ref": "TS-D1-A1R-001",
+  "evidence_cutoff": "2026-10-07",
+  "units": [
+    {
+      "evidence_unit_id": "EU-A3R-001",
+      "source_ref": "SRC-A2R-001",
+      "source_identity_ref": "DOC-A2R-AND-NCP-ASSESSMENT",
+      "anchor": {
+        "locator": "Nutrition Assessment lines 43-46, 51-65",
+        "source_snapshot_status": "LIVE_WEB_NOT_BYTE_FROZEN"
+      },
+      "evidence_type": "PROFESSIONAL_STANDARD_PROCESS",
+      "proposition": "Nutrition assessment is the first Nutrition Care Process step; collected data support downstream nutrition diagnosis/intervention and span multiple assessment domains rather than anthropometry alone.",
+      "scope": {
+        "population": "nutrition-care clients; general professional process",
+        "setting": "nutrition assessment",
+        "action": "assessment"
+      },
+      "supports": [
+        "KN-001",
+        "KN-002"
+      ],
+      "qualification": "L4_PASS_WITH_SOURCE_SNAPSHOT_GAP"
+    },
+    {
+      "evidence_unit_id": "EU-A3R-002",
+      "source_ref": "SRC-A2R-001",
+      "source_identity_ref": "DOC-A2R-AND-NCP-ASSESSMENT",
+      "anchor": {
+        "locator": "Nutrition Assessment lines 76-101",
+        "source_snapshot_status": "LIVE_WEB_NOT_BYTE_FROZEN"
+      },
+      "evidence_type": "PROFESSIONAL_STANDARD_PROCESS",
+      "proposition": "Nutrition-assessment critical thinking includes identifying the need for additional information, obtaining/requesting data, using population-appropriate tools/guidelines, and validating findings against standards.",
+      "scope": {
+        "population": "nutrition-care clients; general professional process",
+        "setting": "nutrition assessment",
+        "action": "information acquisition and validation"
+      },
+      "supports": [
+        "KN-001",
+        "KN-002",
+        "KN-005"
+      ],
+      "qualification": "L4_PASS_WITH_SOURCE_SNAPSHOT_GAP"
+    },
+    {
+      "evidence_unit_id": "EU-A3R-003",
+      "source_ref": "SRC-A2R-002",
+      "source_identity_ref": "DOC-A2R-AHA-HBP-2025",
+      "anchor": {
+        "locator": "AHA 2025 HBP Top Things lines 25-30 + PMID 40811497",
+        "source_snapshot_status": "GUIDELINE_FAMILY_CORRECTION_GAP_OPEN"
+      },
+      "evidence_type": "CLINICAL_PRACTICE_GUIDELINE",
+      "proposition": "Adult BP categories use systolic and/or diastolic thresholds; treatment decisions in the 2025 guideline depend on average BP plus cardiovascular/clinical-risk context, and standardized monitoring is part of BP management.",
+      "scope": {
+        "population": "adults",
+        "condition": "elevated/high blood pressure context",
+        "action": "classification and management context"
+      },
+      "supports": [
+        "KN-003",
+        "KN-004"
+      ],
+      "qualification": "L4_PASS_WITH_CORRECTION_RECONSTRUCTION_GAP"
+    },
+    {
+      "evidence_unit_id": "EU-A3R-004",
+      "source_ref": "SRC-A2R-003",
+      "source_identity_ref": "DOC-A2R-AHA-HBP-2025",
+      "anchor": {
+        "locator": "AHA Home BP Monitoring lines 20, 38-47, 57-76",
+        "source_snapshot_status": "LIVE_WEB_NOT_BYTE_FROZEN"
+      },
+      "evidence_type": "OFFICIAL_PROFESSIONAL_MEASUREMENT_GUIDANCE",
+      "proposition": "BP interpretation depends on correct measurement technique and repeated readings; home monitoring can help confirm high BP, but diagnosis requires professional confirmation and a single high reading is not sufficient for an immediate conclusion.",
+      "scope": {
+        "population": "adults using BP monitoring",
+        "action": "measurement and interpretation"
+      },
+      "supports": [
+        "KN-003",
+        "KN-004"
+      ],
+      "qualification": "L4_PASS_FOR_MEASUREMENT_BOUNDARY_WITH_SNAPSHOT_GAP"
+    },
+    {
+      "evidence_unit_id": "EU-A3R-005",
+      "source_ref": "SRC-A2R-004",
+      "source_identity_ref": "DOC-A2R-USPSTF-CVD-COUNSEL-2020",
+      "anchor": {
+        "locator": "USPSTF lines 54, 64, 69-88 + PMID 33231670",
+        "source_snapshot_status": "LIVE_WEB_NOT_BYTE_FROZEN"
+      },
+      "evidence_type": "PREVENTIVE_RECOMMENDATION",
+      "proposition": "USPSTF behavioral counseling recommendation for healthy diet/physical activity applies to adults at increased CVD risk defined by specified risk factors, requires risk assessment, and describes structured counseling rather than a one-shot individualized prescription.",
+      "scope": {
+        "population": "adults >=18 at increased CVD risk",
+        "action": "behavioral counseling",
+        "status": "topic update in progress at cutoff"
+      },
+      "supports": [
+        "KN-002",
+        "KN-004",
+        "KN-005"
+      ],
+      "qualification": "L4_CONDITIONAL_PASS_RISK_STATUS_REQUIRED"
+    },
+    {
+      "evidence_unit_id": "EU-A3R-006",
+      "source_ref": "SRC-A2R-005",
+      "source_identity_ref": "DOC-A2R-DGA-2025-2030",
+      "anchor": {
+        "locator": "ODPHP lines 39-50",
+        "source_snapshot_status": "LIVE_WEB_NOT_BYTE_FROZEN"
+      },
+      "evidence_type": "FEDERAL_GENERAL_DIETARY_GUIDELINE",
+      "proposition": "The 2025-2030 Dietary Guidelines provide general advice on nutrient intake and healthy dietary patterns to meet nutrient needs, promote health, and prevent disease.",
+      "scope": {
+        "population": "general U.S. population guidance",
+        "action": "general dietary pattern context"
+      },
+      "supports": [
+        "KN-001",
+        "KN-005"
+      ],
+      "qualification": "L4_PASS_CONTEXT_ONLY"
+    },
+    {
+      "evidence_unit_id": "EU-A3R-007",
+      "source_ref": "SRC-A2R-006",
+      "source_identity_ref": "DOC-A2R-USPSTF-WEIGHT-2018",
+      "anchor": {
+        "locator": "USPSTF obesity recommendation lines 54, 62-79 + PMID 30326502",
+        "source_snapshot_status": "LIVE_WEB_NOT_BYTE_FROZEN"
+      },
+      "evidence_type": "PREVENTIVE_RECOMMENDATION",
+      "proposition": "USPSTF defines overweight as BMI 25-29.9 and its B recommendation for intensive multicomponent behavioral weight-loss intervention applies to adults with BMI >=30.",
+      "scope": {
+        "population": "adults",
+        "action": "intensive behavioral weight-loss intervention",
+        "status": "topic update in progress at cutoff"
+      },
+      "supports": [
+        "KN-002",
+        "KN-003",
+        "KN-005"
+      ],
+      "qualification": "L4_PASS_FOR_SCOPE_BOUNDARY"
+    }
+  ],
+  "invariant": "EvidenceUnit preserves source proposition and scope; it is not a case-specific decision or Gold label."
+}

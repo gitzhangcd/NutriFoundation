@@ -49,57 +49,52 @@ See:
 
 Legacy `paper_c/` and `runs/E0.4.x/` assets are preserved as historical/conditional scientific evidence-production lineage and do not define the current NDS-P1 question.
 
-### Current NDF-D1 / D2 execution state
+### Current NDF-D1 / D2 / NDS-R1 execution state
 
 ```text
-D1
-A0R    PASS_FROZEN
-  ↓
-A1R    PASS_SELECTION
-  ↓
-A2R    PASS_SOURCE_QUALIFICATION
-  ↓
-A3R    PASS_PROVISIONAL_SRS
-  ↓
-A3R.1  PASS_D1_G6
-  ↓
-A3R.2  PASS_EPISTEMIC_APPRAISAL
-        SRS r3: epistemically appraised + reproducible
-  ↓
-A3R.3  PASS_D1_D2_REBIND
-        SC-001: wording-only rebind
-        SC-003: BP boundary scope refresh
-        SC-004: completed-view numerical mapping revised
-                SBP mean 132.7 → stage-1 component
-                DBP mean 96.0  → stage-2 component
-                overall by OR  → stage-2 numerical category
-                diagnosis      → NOT ESTABLISHED
-        SRS r4: CURRENT
-        D1 status: READY FOR NDS-R1
+NDF-D1
+A0R → A1R → A2R → A3R → A3R.1 → A3R.2 → A3R.3
+PASS
+SRS-D1-A3R-001:r4 CURRENT
+Status: READY_FOR_NDS_R1_REFERENCE_WORKFLOW
 
-D2
-Case D2-NHANES-L-0001:r3
-        Observation completion: PASS
-        Source fidelity:        PASS for R1 pilot, official-byte equality open
-        Diet substrate:         restored as OBS
-        Diet in R1 views:       explicit MSK
-        Materialized views v0.2: leakage scan PASS
-        D2-G1..G6:              PASS
-        SRS binding:            SRS-D1-A3R-001:r4 CURRENT
-        Readiness:              INPUT_READY_FOR_NDS_R1_REFERENCE_WORKFLOW
+NDF-D2
+D2-NHANES-L-0001:r3
+D2-G1..G6 PASS
+Materialized projection leakage scan PASS
+Status: INPUT_READY_FOR_NDS_R1_REFERENCE_WORKFLOW
 
-Cross-branch:
-D1 ready + D2 input ready
-QualifiedDecisionReference: NOT YET EXISTS
-Evaluator:                 NOT YET FROZEN
+NDS-R1
+P0 First Human Focus × Agent Breadth Pilot Intake
+PASS_PILOT_INTAKE_READY_FOR_REAL_EXPERT_BINDING
+
+Workflow arms:
+R0 Human De Novo
+R1 Agent First → Expert Verify
+R2 Expert Focus → Agent Expand → Expert Reconcile
+
+Expert slots:
+EXP-R1P0-A → R0 → UNBOUND
+EXP-R1P0-B → R1 → UNBOUND
+EXP-R1P0-C → R2 → UNBOUND
+
+Current empirical outputs:
+Expert judgments:      0
+Agent candidate sets:  0
+Reconciliations:       0
+Meta-audit items:      0
+QualifiedReference:    NOT CREATED
+Evaluator:             NOT FROZEN
 ```
 
-Next scientific stage:
+Next required stage:
 
 ```text
-NDS-R1-P0
-First Human Focus × Agent Breadth
-Reference Construction Pilot Intake
+NDS-R1-P0.1
+Expert Qualification,
+Slot Binding,
+Pre-AI Capture
+& Exposure Lock
 ```
 
 

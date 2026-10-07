@@ -1,0 +1,40 @@
+{
+  "stage": "NDS-R1-P0.1",
+  "artifact": "Expert Judgment Immutability and Freeze Contract",
+  "version": "v0.1",
+  "status": "FROZEN",
+  "freeze_targets": [
+    {
+      "workflow": "R0",
+      "target": "J_human_de_novo",
+      "source_workpack": "runs/NDS/R1/P0.1/R0_Human_DeNovo_Workpack_v0.1.json",
+      "required_receipt": [
+        "expert_slot",
+        "submitted_at",
+        "content_sha",
+        "exposure_check=PASS"
+      ],
+      "post_freeze_mutation": "PROHIBITED; corrections require a new revision preserving prior content."
+    },
+    {
+      "workflow": "R2",
+      "target": "J_preAI",
+      "source_workpack": "runs/NDS/R1/P0.1/R2_PreAI_Workpack_v0.1.json",
+      "required_receipt": [
+        "expert_slot",
+        "submitted_at",
+        "content_sha",
+        "exposure_check=PASS"
+      ],
+      "post_freeze_mutation": "PROHIBITED; later Agent reconciliation must create J_postAI without overwriting J_preAI."
+    }
+  ],
+  "r2_unlock_predicate": "BOUND(EXP-R1P0-C) AND QUALIFIED(EXP-R1P0-C) AND FREEZE_RECEIPT(J_preAI)=PASS",
+  "failure_conditions": [
+    "Agent exposure before J_preAI freeze",
+    "content modified after freeze without revision lineage",
+    "expert slot identity reused for same case in another arm",
+    "hidden information exposure before submission"
+  ],
+  "auditability": "The immutable content SHA is part of the exposure/anchoring audit trail."
+}

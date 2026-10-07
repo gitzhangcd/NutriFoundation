@@ -1,0 +1,37 @@
+{
+  "stage": "NDF-D1-A3R",
+  "artifact": "Conformance Report",
+  "version": "v0.1",
+  "status": "PASS_CLAIM_CONTENT_SRS_PROVISIONAL_D1G6_HOLD",
+  "date": "2026-10-07",
+  "counts": {
+    "evidence_units": 7,
+    "scientific_claims": 7,
+    "relations": 4,
+    "direct_conflicts": 0,
+    "evidence_gaps": 6,
+    "verification_records": 7,
+    "knowledge_snapshots": 1,
+    "scientific_reference_states": 1
+  },
+  "checks": {
+    "typed_evidence_units": "PASS",
+    "claim_source_traceability": "PASS",
+    "claim_scope_boundaries": "PASS",
+    "case_observation_vs_scientific_evidence_separation": "PASS",
+    "direct_conflict_not_manufactured": "PASS",
+    "scope_divergence_preserved": "PASS",
+    "evidence_gaps_preserved": "PASS",
+    "temporal_cutoff_integrity": "PASS_AT_DATE_PRECISION",
+    "legacy_purpose_quarantine": "PASS",
+    "no_gold_predeclaration": "PASS",
+    "source_snapshot_reproducibility": "HOLD",
+    "D1_G6": "HOLD",
+    "R1_activation": "BLOCKED"
+  },
+  "next_stage": {
+    "id": "NDF-D1-A3R.1",
+    "title": "Source Snapshot / Correction Closure, Independent Claim Audit & SRS Reproducibility Qualification",
+    "purpose": "Close D1-G6 before any R1 knowledge-ready promotion."
+  }
+}

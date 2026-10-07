@@ -1,0 +1,28 @@
+{
+  "stage": "NDS-R1-P0",
+  "artifact": "Expert Qualification and Prior-Exposure Screen",
+  "version": "v0.1",
+  "status": "FROZEN_EMPTY_SCREEN",
+  "expert_slot": null,
+  "qualification_fields": {
+    "professional_role": null,
+    "nutrition_or_clinical_nutrition_expertise": null,
+    "years_relevant_practice_or_research": null,
+    "relevant_decision_experience": null,
+    "source_appraisal_experience": null,
+    "declared_conflicts": [],
+    "prior_exposure_to_exact_case": false,
+    "prior_exposure_to_other_arm_output_for_case": false,
+    "prior_access_to_hidden_diet_values": false,
+    "prior_access_to_SRS_claim_labels": false
+  },
+  "qualification_gate": {
+    "professional_expertise": "REQUIRED",
+    "task_relevance": "REQUIRED",
+    "exact_case_cross_arm_exposure": "MUST_BE_FALSE",
+    "hidden_information_exposure": "MUST_BE_FALSE",
+    "conflicts": "RECORDED_AND_ADJUDICATED"
+  },
+  "output_status": "QUALIFIED|EXCLUDED|HOLD",
+  "nonclaim": "Professional qualification does not make any expert's judgment Gold."
+}

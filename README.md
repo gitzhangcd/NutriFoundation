@@ -53,7 +53,6 @@ Legacy `paper_c/` and `runs/E0.4.x/` assets are preserved as historical/conditio
 
 ```text
 NDF-D1
-A0R → A1R → A2R → A3R → A3R.1 → A3R.2 → A3R.3
 PASS
 SRS-D1-A3R-001:r4 CURRENT
 Status: READY_FOR_NDS_R1_REFERENCE_WORKFLOW
@@ -61,40 +60,52 @@ Status: READY_FOR_NDS_R1_REFERENCE_WORKFLOW
 NDF-D2
 D2-NHANES-L-0001:r3
 D2-G1..G6 PASS
-Materialized projection leakage scan PASS
 Status: INPUT_READY_FOR_NDS_R1_REFERENCE_WORKFLOW
 
 NDS-R1
-P0 First Human Focus × Agent Breadth Pilot Intake
-PASS_PILOT_INTAKE_READY_FOR_REAL_EXPERT_BINDING
-
-Workflow arms:
-R0 Human De Novo
-R1 Agent First → Expert Verify
-R2 Expert Focus → Agent Expand → Expert Reconcile
+P0    PASS_PILOT_INTAKE
+P0.1  PASS_OPERATIONAL_READINESS / EMPIRICAL_CAPTURE_PENDING
 
 Expert slots:
 EXP-R1P0-A → R0 → UNBOUND
 EXP-R1P0-B → R1 → UNBOUND
 EXP-R1P0-C → R2 → UNBOUND
 
-Current empirical outputs:
-Expert judgments:      0
-Agent candidate sets:  0
-Reconciliations:       0
-Meta-audit items:      0
-QualifiedReference:    NOT CREATED
-Evaluator:             NOT FROZEN
+Current human source packet:
+Human_Baseline_Source_Packet_v0.2
+(current after A3R.3 BP rebind)
+
+Exposure locks:
+R0 → permanent no-Agent
+R1 → expert verify only after frozen AgentCandidateSet
+R2 → HARD LOCK Agent until frozen J_preAI
+
+Empirical outputs:
+Qualified experts:      0 / 3
+R0 judgments:           0
+R2 J_preAI:             0
+Agent candidate sets:   0
+Reconciliations:        0
+QualifiedReference:     NOT CREATED
+Evaluator:              NOT FROZEN
 ```
 
-Next required stage:
+Current action:
 
 ```text
-NDS-R1-P0.1
-Expert Qualification,
-Slot Binding,
-Pre-AI Capture
-& Exposure Lock
+Remain in NDS-R1-P0.1 until real experts are qualified/bound
+and R0 / R2 independent human captures are submitted.
+```
+
+Next gated stage:
+
+```text
+NDS-R1-P0.2
+First Agent Breadth Execution,
+R1 AgentFirst Candidate Freeze
+& R2 Post-PreAI Unlock
+
+Gate: R2 J_preAI must be immutably frozen first.
 ```
 
 

@@ -1,0 +1,71 @@
+{
+  "stage": "NDF-D1-A3R.3",
+  "artifact": "Impacted Claim Replay Audit",
+  "version": "v0.1",
+  "status": "PASS_MINIMAL_REBIND_REPLAY",
+  "audit_mode": "ROLE_SEPARATED_CASE_REPLAY_WITH_CURRENT_CORRECTED_BP_FRAMEWORK",
+  "inputs": [
+    "runs/NDF/D2/Case_0001/Observation_Completion_Record_v0.1.json",
+    "runs/NDF/D1/A3R.3/BP_Applicability_Refresh_v0.1.json",
+    "runs/NDF/D1/A3R.3/ScientificClaim_Set_v0.3.json",
+    "runs/NDF/D1/A3R.1/A3R1_AHA_Correction_Closure_v0.1.json"
+  ],
+  "mechanical_replay": {
+    "observed_sbp": [
+      135,
+      131,
+      132
+    ],
+    "recomputed_mean_sbp": 132.66666666666666,
+    "observed_dbp": [
+      98,
+      96,
+      94
+    ],
+    "recomputed_mean_dbp": 96,
+    "classification_rules": {
+      "stage_1": "SBP 130-139 OR DBP 80-89",
+      "stage_2": "SBP >=140 OR DBP >=90"
+    },
+    "systolic_component": "STAGE_1_RANGE",
+    "diastolic_component": "STAGE_2_RANGE",
+    "overall_numeric_category": "STAGE_2_BY_OR_CRITERION",
+    "diagnosis": "NOT_ESTABLISHED",
+    "result": "PASS"
+  },
+  "claim_replay": [
+    {
+      "claim_ref": "SC-A3R-001",
+      "impact_class": "WORDING_ONLY_CASE_VIEW_REBIND",
+      "source_support": "PASS",
+      "scope_preservation": "PASS",
+      "epistemic_state_preservation": "PASS_PARTIALLY_SUPPORTED",
+      "prohibited_inference": "NONE",
+      "result": "PASS"
+    },
+    {
+      "claim_ref": "SC-A3R-003",
+      "impact_class": "BOUNDARY_SCOPE_REFRESH",
+      "source_support": "PASS",
+      "scope_preservation": "PASS_SBP_PLUS_DBP",
+      "no_diagnosis_boundary": "PASS",
+      "epistemic_state_preservation": "PASS_SUPPORTED",
+      "prohibited_inference": "NONE",
+      "result": "PASS"
+    },
+    {
+      "claim_ref": "SC-A3R-004",
+      "impact_class": "MATERIAL_CASE_MAPPING_REVISION",
+      "prior_mapping": "STAGE_1_FROM_SBP_ONLY",
+      "completed_view_mapping": "STAGE_2_NUMERICAL_CATEGORY_BY_DBP_96_AND_OR_CRITERION",
+      "deterministic_replay": "PASS",
+      "no_diagnosis_boundary": "PASS",
+      "epistemic_state": "SUPPORTED",
+      "prior_version_status": "SUPERSEDED_FOR_COMPLETED_D2_VIEW_NOT_DELETED",
+      "prohibited_inference": "NONE",
+      "result": "PASS"
+    }
+  ],
+  "independence_caveat": "This is a logically separated replay within the same research session, not independent human validation.",
+  "conclusion": "The completed D2 view requires one material case-mapping revision (SC-A3R-004), one boundary scope refresh (SC-A3R-003), and one wording-only view rebind (SC-A3R-001). No diagnosis or treatment claim is introduced."
+}

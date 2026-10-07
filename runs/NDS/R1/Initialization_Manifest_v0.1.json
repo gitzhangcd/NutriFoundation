@@ -2,21 +2,24 @@
   "program_id": "NDS-R1",
   "version": "v0.1",
   "date": "2026-10-07",
-  "status": "P0_PILOT_INTAKE_READY_FOR_REAL_EXPERT_BINDING",
+  "status": "P0_1_OPERATIONAL_READY_EMPIRICAL_CAPTURE_PENDING",
   "scientific_identity": "Human Focus × Agent Breadth Reference Construction Science",
   "current_stage": {
-    "id": "NDS-R1-P0",
-    "status": "PASS_PILOT_INTAKE_READY_FOR_REAL_EXPERT_BINDING",
+    "id": "NDS-R1-P0.1",
+    "status": "PASS_OPERATIONAL_READINESS_EMPIRICAL_CAPTURE_PENDING_REAL_EXPERTS",
     "case_ref": "D2-NHANES-L-0001:r3",
     "srs_ref": "SRS-D1-A3R-001:r4",
-    "workflow_protocol": "FROZEN",
-    "role_input_surface": "FROZEN",
     "expert_slots": "3_UNBOUND",
-    "human_baseline_packet": "HBSP-R1P0-001",
-    "expert_judgments": "0",
-    "agent_candidate_sets": "0",
-    "reconciliations": "0",
-    "meta_audit_items": "0",
+    "qualified_experts": 0,
+    "current_human_source_packet": "runs/NDS/R1/P0.1/Human_Baseline_Source_Packet_v0.2.json",
+    "R0_workpack": "READY_TEMPLATE_ONLY",
+    "R1_verification": "HOLD_UNTIL_AGENT_SET_AND_BINDING",
+    "R2_preAI_workpack": "READY_TEMPLATE_ONLY_AGENT_HARD_LOCKED",
+    "R0_judgments": 0,
+    "R2_preAI_judgments": 0,
+    "agent_candidate_sets": 0,
+    "reconciliations": 0,
+    "meta_audit_items": 0,
     "qualified_reference": "NOT_CREATED",
     "evaluator": "NOT_FROZEN"
   },
@@ -31,10 +34,20 @@
     "runs/NDS/R1/P0/Agent_Breadth_Expansion_Contract_v0.1.json",
     "runs/NDS/R1/P0/Reconciliation_Exposure_Templates_v0.1.json",
     "runs/NDS/R1/P0/Blind_MetaAudit_Measurement_Shell_v0.1.json",
-    "runs/NDS/R1/P0/P0_Conformance_Report_v0.1.json"
+    "runs/NDS/R1/P0/P0_Conformance_Report_v0.1.json",
+    "runs/NDS/R1/P0.1/Expert_Slot_Binding_Registry_v0.1.json",
+    "runs/NDS/R1/P0.1/Exposure_Lock_Registry_v0.1.json",
+    "runs/NDS/R1/P0.1/Expert_Qualification_Instance_Registry_v0.1.json",
+    "runs/NDS/R1/P0.1/Human_Baseline_Source_Packet_v0.2.json",
+    "runs/NDS/R1/P0.1/R0_Human_DeNovo_Workpack_v0.2.json",
+    "runs/NDS/R1/P0.1/R2_PreAI_Workpack_v0.2.json",
+    "runs/NDS/R1/P0.1/R1_AgentFirst_Verification_HoldPack_v0.1.json",
+    "runs/NDS/R1/P0.1/Judgment_Freeze_Contract_v0.1.json",
+    "runs/NDS/R1/P0.1/P0.1_Conformance_Report_v0.1.json"
   ],
   "next_stage": {
-    "id": "NDS-R1-P0.1",
-    "title": "Expert Qualification, Slot Binding, Pre-AI Capture & Exposure Lock"
+    "id": "NDS-R1-P0.2",
+    "title": "First Agent Breadth Execution, R1 AgentFirst Candidate Freeze & R2 Post-PreAI Unlock",
+    "gate": "Requires qualified expert binding and frozen R2 J_preAI; otherwise remain in P0.1 human capture."
   }
 }

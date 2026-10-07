@@ -37,11 +37,11 @@
     ]
   },
   "impacted_claims": [
+    "SC-A3R-001",
     "SC-A3R-003",
     "SC-A3R-004"
   ],
   "non_impacted_claims": [
-    "SC-A3R-001",
     "SC-A3R-002",
     "SC-A3R-005",
     "SC-A3R-006",
@@ -58,5 +58,11 @@
     "checked_on": "2026-10-07"
   },
   "minimal_repair_rule": "Only case-bound BP claims and their SRS binding may change unless replay identifies a dependency-mediated effect.",
-  "nonclaim": "A stage-category numerical mapping from observed averages is not a confirmed clinical diagnosis."
+  "nonclaim": "A stage-category numerical mapping from observed averages is not a confirmed clinical diagnosis.",
+  "impact_classes": {
+    "SC-A3R-001": "WORDING_ONLY_CASE_VIEW_REBIND: systolic-only wording becomes BP observations; epistemic state unchanged.",
+    "SC-A3R-003": "BOUNDARY_SCOPE_REFRESH: systolic-only wording becomes systolic+diastolic BP tuple; no-diagnosis boundary unchanged.",
+    "SC-A3R-004": "MATERIAL_CASE_MAPPING_REVISION: mean DBP 96 mmHg changes overall numerical category mapping from prior systolic-only stage-1 interpretation to stage-2 by OR criterion; no-diagnosis boundary unchanged."
+  },
+  "audit_discovery": "Non-regression replay identified SC-A3R-001 as wording-stale even though the D2 impact notice initially named only SC-A3R-003/004."
 }

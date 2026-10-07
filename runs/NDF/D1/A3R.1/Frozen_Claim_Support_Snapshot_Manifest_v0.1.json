@@ -1,0 +1,132 @@
+{
+  "stage": "NDF-D1-A3R.1",
+  "artifact": "Frozen Claim-Support Snapshot Manifest",
+  "version": "v0.1",
+  "status": "FROZEN_CLAIM_SUPPORT_SNAPSHOTS",
+  "evidence_cutoff": "2026-10-07",
+  "snapshot_policy": {
+    "mode": "MINIMAL_CLAIM_SUPPORT_SNAPSHOT",
+    "rationale": "Freeze only the bounded source support needed to replay current claims; preserve DOI/URL/version provenance instead of copying full copyrighted source documents.",
+    "raw_fulltext_archival": "NOT_REQUIRED_FOR_D1_G6_WHEN_PUBLIC_SOURCE_IDENTITY_AND_BOUNDED_SUPPORT_ARE_RECONSTRUCTIBLE",
+    "future_change_rule": "Any changed source wording after cutoff requires a new snapshot revision."
+  },
+  "snapshots": [
+    {
+      "snapshot_id": "CSS-A3R1-001",
+      "source_ref": "SRC-A2R-001",
+      "title": "Academy of Nutrition and Dietetics — Nutrition Assessment",
+      "canonical_url": "https://www.eatrightpro.org/practice/nutrition-care-process/ncp-overview/nutrition-assessment",
+      "retrieved_on": "2026-10-07",
+      "locator": "Nutrition Assessment / Nutrition Assessment Critical Thinking",
+      "normalized_support": [
+        "Nutrition Assessment is the first Nutrition Care Process step and its collected data support later NCP steps.",
+        "Assessment uses multiple domains, including food/nutrition history, anthropometrics, biochemical/tests, physical findings and client history.",
+        "Critical thinking includes identifying needs for additional information and obtaining/requesting relevant data."
+      ],
+      "claim_refs": [
+        "SC-A3R-001",
+        "SC-A3R-002"
+      ],
+      "version_status": "PUBLIC_LIVE_PAGE_AT_CUTOFF",
+      "replay_status": "RECONSTRUCTIBLE"
+    },
+    {
+      "snapshot_id": "CSS-A3R1-002",
+      "source_ref": "SRC-A2R-002",
+      "title": "2025 AHA/ACC Multisociety High Blood Pressure Guideline — current corrected online version",
+      "canonical_doi": "10.1161/CIR.0000000000001356",
+      "pmid": "40811497",
+      "canonical_url": "https://www.ahajournals.org/doi/full/10.1161/CIR.0000000000001356",
+      "retrieved_on": "2026-10-07",
+      "locator": "current online guideline: BP classification + treatment threshold/risk sections",
+      "normalized_support": [
+        "Current corrected guideline classifies stage 1 hypertension as systolic 130–139 or diastolic 80–89 mmHg.",
+        "Management recommendations use average BP and cardiovascular/clinical-risk context rather than a single isolated reading."
+      ],
+      "claim_refs": [
+        "SC-A3R-003",
+        "SC-A3R-004"
+      ],
+      "version_status": "POST_CORRECTION_CURRENT_ONLINE_VERSION",
+      "correction_closure_ref": "A3R1_AHA_Correction_Closure_v0.1",
+      "replay_status": "RECONSTRUCTIBLE"
+    },
+    {
+      "snapshot_id": "CSS-A3R1-003",
+      "source_ref": "SRC-A2R-003",
+      "title": "American Heart Association — Home Blood Pressure Monitoring",
+      "canonical_url": "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home",
+      "retrieved_on": "2026-10-07",
+      "source_review_date": "2025-08-14",
+      "locator": "Who should monitor / measurement instructions / high reading / journal sections",
+      "normalized_support": [
+        "Repeated measurements and correct technique are part of BP interpretation.",
+        "Home monitoring can aid confirmation, while a medical professional confirms diagnosis.",
+        "A single high reading should not be treated as a complete longitudinal BP picture."
+      ],
+      "claim_refs": [
+        "SC-A3R-003",
+        "SC-A3R-004"
+      ],
+      "version_status": "PUBLIC_LIVE_PAGE_AT_CUTOFF",
+      "replay_status": "RECONSTRUCTIBLE"
+    },
+    {
+      "snapshot_id": "CSS-A3R1-004",
+      "source_ref": "SRC-A2R-004",
+      "title": "USPSTF — Healthy Diet and Physical Activity Counseling in Adults With CVD Risk Factors",
+      "canonical_url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/healthy-diet-and-physical-activity-counseling-adults-with-high-risk-of-cvd",
+      "pmid": "33231670",
+      "doi": "10.1001/jama.2020.21749",
+      "retrieved_on": "2026-10-07",
+      "locator": "Final Recommendation Statement / Recommendation Summary / Clinician Summary",
+      "normalized_support": [
+        "The recommendation applies to adults with cardiovascular disease risk factors and recommends offering or referring them for behavioral counseling.",
+        "Applicability requires risk-factor context; the topic is under update at the cutoff."
+      ],
+      "claim_refs": [
+        "SC-A3R-005"
+      ],
+      "version_status": "FINAL_2020_RECOMMENDATION_UPDATE_IN_PROGRESS_AT_CUTOFF",
+      "replay_status": "RECONSTRUCTIBLE_WITH_TEMPORAL_CAUTION"
+    },
+    {
+      "snapshot_id": "CSS-A3R1-005",
+      "source_ref": "SRC-A2R-005",
+      "title": "Dietary Guidelines for Americans, 2025–2030",
+      "canonical_url": "https://odphp.health.gov/our-work/nutrition-physical-activity/dietary-guidelines/current-dietary-guidelines",
+      "retrieved_on": "2026-10-07",
+      "source_page_updated": "2026-06-10/11",
+      "locator": "Current Dietary Guidelines overview",
+      "normalized_support": [
+        "The 2025–2030 Dietary Guidelines provide general nutrition guidance to meet nutrient needs, promote health and prevent disease.",
+        "This is broad population guidance rather than a case-specific individualized assessment protocol."
+      ],
+      "claim_refs": [
+        "SC-A3R-006"
+      ],
+      "version_status": "CURRENT_2025_2030_EDITION",
+      "replay_status": "RECONSTRUCTIBLE"
+    },
+    {
+      "snapshot_id": "CSS-A3R1-006",
+      "source_ref": "SRC-A2R-006",
+      "title": "USPSTF — Behavioral Weight Loss Interventions in Adults",
+      "canonical_url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-adults-interventions",
+      "pmid": "30326502",
+      "doi": "10.1001/jama.2018.13022",
+      "retrieved_on": "2026-10-07",
+      "locator": "Recommendation Summary / Clinician Summary",
+      "normalized_support": [
+        "USPSTF recommends intensive multicomponent behavioral interventions for adults with BMI 30 or higher.",
+        "The topic is under update at the cutoff."
+      ],
+      "claim_refs": [
+        "SC-A3R-007"
+      ],
+      "version_status": "FINAL_2018_RECOMMENDATION_UPDATE_IN_PROGRESS_AT_CUTOFF",
+      "replay_status": "RECONSTRUCTIBLE_WITH_TEMPORAL_CAUTION"
+    }
+  ],
+  "copyright_boundary": "No full copyrighted source document is stored; snapshots contain bounded normalized support plus stable source identity and locator."
+}

@@ -1,0 +1,51 @@
+{
+  "stage": "NDF-D1-A3R.2",
+  "artifact": "Evidence-to-Claim Appraisal Routing Contract",
+  "version": "v0.1",
+  "status": "FROZEN",
+  "authority_basis": [
+    "AI Nutri v2.0 §§23–25 ScientificClaim / ScientificRelation / dependency",
+    "AI Nutri v2.0 §§34–36 Evidence Quality, MethodologicalAppraisal, EvidenceCertaintyAssessment",
+    "Nutrition Foundation v0.1 II.8 Scientific evidence / Recommendation / Applicability",
+    "NDF-D1 source-to-SRS contracts"
+  ],
+  "invariants": [
+    "Citation != Evidence",
+    "SUPPORTS != QUALIFIES",
+    "MethodologicalQuality != EvidenceCertainty",
+    "SUPPORTED != HIGH_CERTAINTY",
+    "Authority != ScientificCertainty",
+    "RecommendationStrength != EvidenceCertainty",
+    "DifferentDocument != IndependentEvidence",
+    "EdgeCount != EvidenceStrength"
+  ],
+  "appraisal_route": [
+    {
+      "target_class": "EMPIRICAL_EFFECT_CLAIM",
+      "required_route": "Study-level methodological appraisal + EvidenceBody/Synthesis + claim-level certainty using an appropriate recognized framework when applicable"
+    },
+    {
+      "target_class": "SYSTEMATIC_REVIEW_OR_META_ANALYTIC_CLAIM",
+      "required_route": "Review-method appraisal (e.g. framework appropriate to review type) + dependency/overlap handling + claim-level certainty"
+    },
+    {
+      "target_class": "GUIDELINE_RECOMMENDATION_OR_NORMATIVE_CLAIM",
+      "required_route": "Guideline/recommendation process appraisal and explicit separation of recommendation strength from underlying evidence certainty"
+    },
+    {
+      "target_class": "DEFINITIONAL_PROCESS_BOUNDARY_ELIGIBILITY_OR_CASE_MAPPING_CLAIM",
+      "required_route": "Evidence contribution + directness/scope + deterministic reconstruction where applicable; empirical effect certainty may legitimately be NOT_APPLICABLE"
+    }
+  ],
+  "current_thin_slice_classification": {
+    "SC_A3R_001": "PROCESS_AND_CASE_BOUNDARY",
+    "SC_A3R_002": "PROCESS",
+    "SC_A3R_003": "BOUNDARY",
+    "SC_A3R_004": "DEFINITIONAL_CLASSIFICATION_PLUS_CASE_MAPPING",
+    "SC_A3R_005": "ELIGIBILITY_AND_APPLICABILITY",
+    "SC_A3R_006": "GENERAL_GUIDANCE_VS_INDIVIDUAL_REFERENCE_BOUNDARY",
+    "SC_A3R_007": "THRESHOLD_ELIGIBILITY_PLUS_CASE_MAPPING"
+  },
+  "current_result": "No current claim is an empirical treatment-effect claim; do not assign GRADE-like HIGH/MODERATE/LOW merely to create a certainty label.",
+  "future_rule": "When a future claim asserts an empirical effect magnitude/direction, NOT_APPLICABLE is no longer acceptable solely because the source is a guideline; the underlying evidence body must be reconstructed to the level required by the claim."
+}

@@ -1,0 +1,72 @@
+{
+  "stage": "NDF-D1-A3R.3",
+  "artifact": "Conformance Report",
+  "version": "v0.1",
+  "status": "PASS_D1_D2_REBIND_READY_FOR_NDS_R1",
+  "date": "2026-10-07",
+  "scope": "TS-D1-A1R-001 / D2-NHANES-L-0001:r2 / SRS-D1-A3R-001:r4",
+  "trigger": "D2 restored source-observed DBP readings and completed the case information boundary.",
+  "deterministic_results": {
+    "mean_sbp": 132.66666666666666,
+    "mean_dbp": 96,
+    "systolic_category_component": "STAGE_1_RANGE",
+    "diastolic_category_component": "STAGE_2_RANGE",
+    "overall_numeric_category": "STAGE_2_BY_OR_CRITERION",
+    "diagnosis": "NOT_ESTABLISHED"
+  },
+  "claim_delta": {
+    "wording_only": [
+      "SC-A3R-001"
+    ],
+    "boundary_scope_refresh": [
+      "SC-A3R-003"
+    ],
+    "material_case_mapping_revision": [
+      "SC-A3R-004"
+    ],
+    "unchanged": [
+      "SC-A3R-002",
+      "SC-A3R-005",
+      "SC-A3R-006",
+      "SC-A3R-007"
+    ]
+  },
+  "epistemic_non_regression": {
+    "before": {
+      "SUPPORTED": 5,
+      "PARTIALLY_SUPPORTED": 2,
+      "effect_certainty_not_applicable": 7
+    },
+    "after": {
+      "SUPPORTED": 5,
+      "PARTIALLY_SUPPORTED": 2,
+      "effect_certainty_not_applicable": 7
+    },
+    "result": "PASS"
+  },
+  "gates": {
+    "A3R.3-G1 D2 delta recoverability": "PASS",
+    "A3R.3-G2 deterministic BP replay": "PASS",
+    "A3R.3-G3 applicability refresh": "PASS_PARTIALLY_APPLICABLE_NUMERIC_MAPPING_ONLY",
+    "A3R.3-G4 no-diagnosis boundary": "PASS",
+    "A3R.3-G5 claim non-regression": "PASS_WITH_THREE_EXPLICIT_DELTAS",
+    "A3R.3-G6 SRS rebinding": "PASS_R4_CURRENT"
+  },
+  "convergence": {
+    "D1": "READY_FOR_NDS_R1_INTAKE",
+    "D2": "INPUT_READY",
+    "combined": "READY_FOR_NDS_R1_REFERENCE_WORKFLOW",
+    "qualified_reference": "NOT_YET_EXISTS",
+    "evaluator": "NOT_YET_FROZEN"
+  },
+  "nonclaims": [
+    "Stage-2 numerical category mapping is not a confirmed hypertension diagnosis.",
+    "A3R.3 does not create a Gold/QualifiedDecisionReference.",
+    "The hidden Day-1 diet values remain excluded from ex-ante R1-facing views.",
+    "R1 still requires human pre-AI judgment, agent expansion, reconciliation and meta-audit."
+  ],
+  "next_stage": {
+    "id": "NDS-R1-P0",
+    "title": "First Human Focus × Agent Breadth Reference Construction Pilot Intake"
+  }
+}

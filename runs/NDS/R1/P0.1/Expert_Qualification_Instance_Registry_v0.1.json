@@ -1,0 +1,42 @@
+{
+  "stage": "NDS-R1-P0.1",
+  "artifact": "Expert Qualification Instance Registry",
+  "version": "v0.1",
+  "status": "AWAITING_REAL_EXPERT_INPUT",
+  "instances": [
+    {
+      "expert_slot": "EXP-R1P0-A",
+      "workflow": "R0",
+      "expert_identity": null,
+      "qualification_status": "PENDING",
+      "screen_status": "NOT_COMPLETED"
+    },
+    {
+      "expert_slot": "EXP-R1P0-B",
+      "workflow": "R1",
+      "expert_identity": null,
+      "qualification_status": "PENDING",
+      "screen_status": "NOT_COMPLETED"
+    },
+    {
+      "expert_slot": "EXP-R1P0-C",
+      "workflow": "R2",
+      "expert_identity": null,
+      "qualification_status": "PENDING",
+      "screen_status": "NOT_COMPLETED"
+    }
+  ],
+  "required_fields": [
+    "professional_role",
+    "nutrition_or_clinical_nutrition_expertise",
+    "years_relevant_practice_or_research",
+    "relevant_decision_experience",
+    "source_appraisal_experience",
+    "declared_conflicts",
+    "prior_exposure_to_exact_case",
+    "prior_exposure_to_other_arm_output_for_case",
+    "prior_access_to_hidden_diet_values",
+    "prior_access_to_SRS_claim_labels"
+  ],
+  "output_rule": "No slot can move from HOLD to BOUND until its individual screen evaluates to QUALIFIED."
+}

@@ -1,0 +1,52 @@
+{
+  "stage": "NDS-R1-P0",
+  "artifact": "Agent Breadth Expansion Contract",
+  "version": "v0.1",
+  "status": "FROZEN_NOT_EXECUTED",
+  "purpose": "Find potentially decision-relevant items the expert may have missed; not construct final Gold.",
+  "case_ref": "D2-NHANES-L-0001:r3",
+  "scientific_knowledge_ref": "SRS-D1-A3R-001:r4",
+  "allowed_inputs": [
+    "AGENT_EXPANSION_VIEW",
+    "SRS-D1-A3R-001:r4"
+  ],
+  "prohibited_inputs": [
+    "Expert pre-AI judgment for the same R2 execution",
+    "Other expert judgments",
+    "Final qualified reference",
+    "Meta-audit labels",
+    "Hidden Day-1 diet values",
+    "Evaluator scores"
+  ],
+  "candidate_types": [
+    "OVERLOOKED_EVIDENCE",
+    "OVERLOOKED_SUBJECT_MODIFIER",
+    "CRITICAL_MISSING_INFORMATION",
+    "CONFLICTING_EVIDENCE",
+    "APPLICABILITY_CONDITION",
+    "ALTERNATIVE_ACCEPTABLE_ACTION",
+    "SAFETY_CONCERN",
+    "MONITORING_DEPENDENCY"
+  ],
+  "candidate_schema": {
+    "candidate_id": null,
+    "candidate_type": null,
+    "candidate_statement": null,
+    "source_refs": [],
+    "source_spans": [],
+    "why_may_be_decision_relevant": null,
+    "confidence_or_uncertainty": null
+  },
+  "hard_prohibitions": [
+    "final_reference = agent_answer",
+    "final_safety = agent_answer",
+    "final_adjudication = agent_answer",
+    "unsupported diagnosis",
+    "unsupported intervention",
+    "false contraindication"
+  ],
+  "execution_gate": {
+    "R1_arm": "May execute before expert verification under R1 AgentFirst.",
+    "R2_arm": "Must not execute/expose until J_preAI is frozen for the assigned R2 expert slot."
+  }
+}

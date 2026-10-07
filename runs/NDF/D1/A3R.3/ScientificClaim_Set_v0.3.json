@@ -1,0 +1,248 @@
+{
+  "stage": "NDF-D1-A3R.3",
+  "artifact": "ScientificClaim Set",
+  "version": "v0.3",
+  "status": "D2_REBOUND_EPISTEMIC_STATE_FROZEN",
+  "supersedes": "runs/NDF/D1/A3R.2/ScientificClaim_Set_v0.2.json",
+  "scientific_question_ref": "SQ-D1-A1R-001",
+  "claims": [
+    {
+      "scientific_claim_id": "SC-A3R-001",
+      "claim_type": "POSITIVE_SUPPORT",
+      "statement": "A defensible individualized nutrition assessment should not be reduced to the currently visible anthropometric and blood-pressure observations; relevant assessment may require additional food/nutrition, biochemical/medical-test, physical-finding, and client-history information depending on the decision.",
+      "evidence_unit_refs": [
+        "EU-A3R-001",
+        "EU-A3R-002"
+      ],
+      "support_strength": "QUALIFIED_PROCESS_STANDARD",
+      "applicability": "GENERAL_ASSESSMENT_PROCESS",
+      "boundary": "Does not assert that every listed domain is mandatory for every decision.",
+      "evidential_state": "PARTIALLY_SUPPORTED",
+      "evidence_body_ref": "EBODY-A3R2-001",
+      "evidence_synthesis_ref": "SYN-A3R2-001",
+      "supporting_contribution_refs": [
+        "ECA-A3R2-001"
+      ],
+      "contradicting_contribution_refs": [],
+      "qualifying_contribution_refs": [
+        "ECA-A3R2-002"
+      ],
+      "all_contribution_refs": [
+        "ECA-A3R2-001",
+        "ECA-A3R2-002"
+      ],
+      "certainty_assessment_ref": "ECA-CERT-A3R2-001",
+      "epistemic_state_rationale": "Professional-process evidence supports multi-domain assessment and missing-information acquisition. D2 completion changes only the case-view wording from systolic-only BP to BP observations; the underlying epistemic state remains PARTIALLY_SUPPORTED.",
+      "evidence_cutoff_time": "2026-10-07",
+      "case_view_revision": "WORDING_REBOUND_TO_D2_R2_BP_COMPLETE_VIEW"
+    },
+    {
+      "scientific_claim_id": "SC-A3R-002",
+      "claim_type": "POSITIVE_SUPPORT",
+      "statement": "Requesting additional relevant information is itself a scientifically legitimate nutrition-assessment action when available data are insufficient for the downstream nutrition decision.",
+      "evidence_unit_refs": [
+        "EU-A3R-002"
+      ],
+      "support_strength": "QUALIFIED_PROCESS_STANDARD",
+      "applicability": "INFORMATION_ACQUISITION_PROCESS",
+      "boundary": "Does not determine which specific missing item is mandatory in EP-NHANES-L-0001.",
+      "evidential_state": "SUPPORTED",
+      "evidence_body_ref": "EBODY-A3R2-001",
+      "evidence_synthesis_ref": "SYN-A3R2-001",
+      "supporting_contribution_refs": [
+        "ECA-A3R2-003"
+      ],
+      "contradicting_contribution_refs": [],
+      "qualifying_contribution_refs": [],
+      "all_contribution_refs": [
+        "ECA-A3R2-003"
+      ],
+      "certainty_assessment_ref": "ECA-CERT-A3R2-002",
+      "epistemic_state_rationale": "The professional assessment source directly supports acquiring additional relevant information as part of assessment.",
+      "evidence_cutoff_time": "2026-10-07",
+      "non_regression_status": "UNCHANGED_FROM_v0.2"
+    },
+    {
+      "scientific_claim_id": "SC-A3R-003",
+      "claim_type": "BOUNDARY_PROHIBITION",
+      "statement": "The visible systolic and diastolic blood-pressure measurements and their derived means must not be converted by this research case into a confirmed hypertension diagnosis or into a diagnosis-dependent individualized nutrition prescription without appropriate measurement and clinical context.",
+      "evidence_unit_refs": [
+        "EU-A3R-003",
+        "EU-A3R-004"
+      ],
+      "support_strength": "QUALIFIED_GUIDELINE_PLUS_MEASUREMENT_BOUNDARY",
+      "applicability": "EP-NHANES-L-0001",
+      "boundary": "The observed systolic and diastolic values may be numerically compared with published BP categories, but diagnostic confirmation remains outside the authorized inference.",
+      "evidential_state": "SUPPORTED",
+      "evidence_body_ref": "EBODY-A3R2-002",
+      "evidence_synthesis_ref": "SYN-A3R2-002",
+      "supporting_contribution_refs": [
+        "ECA-A3R2-004",
+        "ECA-A3R2-005"
+      ],
+      "contradicting_contribution_refs": [],
+      "qualifying_contribution_refs": [],
+      "all_contribution_refs": [
+        "ECA-A3R2-004",
+        "ECA-A3R2-005"
+      ],
+      "certainty_assessment_ref": "ECA-CERT-A3R2-003",
+      "epistemic_state_rationale": "Current corrected guideline and measurement guidance continue to support the no-diagnosis-from-snapshot boundary after DBP restoration; scope is refreshed from systolic-only to the complete visible BP tuple.",
+      "evidence_cutoff_time": "2026-10-07",
+      "case_view_revision": "BOUNDARY_SCOPE_REFRESHED_TO_SBP_PLUS_DBP",
+      "applicability_ref": "runs/NDF/D1/A3R.3/BP_Applicability_Refresh_v0.1.json"
+    },
+    {
+      "scientific_claim_id": "SC-A3R-004",
+      "claim_type": "CASE_APPLICABILITY_INFERENCE",
+      "statement": "The completed D2 view has a derived mean blood pressure of approximately 132.7/96.0 mmHg. Under the 2025 AHA/ACC category framework, the systolic component lies in the stage-1 range while the diastolic component meets the stage-2 threshold; because the framework uses an OR criterion, the overall numerical category mapping is stage 2. This numerical category mapping is not equivalent to a confirmed hypertension diagnosis.",
+      "evidence_unit_refs": [
+        "EU-A3R-003",
+        "EU-A3R-004"
+      ],
+      "observation_refs": [
+        "runs/NDF/D2/Case_0001/Observation_Completion_Record_v0.1.json",
+        "DRV_SBP_MEAN",
+        "DRV_DBP_MEAN"
+      ],
+      "support_strength": "DERIVED_CASE_MAPPING_WITH_D2_COMPLETE_BP_AND_DIAGNOSTIC_PROHIBITION",
+      "applicability": "EP-NHANES-L-0001",
+      "boundary": "Numerical category mapping only. It does not establish diagnosis, treatment indication, or individualized nutrition prescription.",
+      "evidential_state": "SUPPORTED",
+      "evidence_body_ref": "EBODY-A3R2-002",
+      "evidence_synthesis_ref": "SYN-A3R2-002",
+      "supporting_contribution_refs": [
+        "ECA-A3R2-006"
+      ],
+      "contradicting_contribution_refs": [],
+      "qualifying_contribution_refs": [
+        "ECA-A3R2-007"
+      ],
+      "all_contribution_refs": [
+        "ECA-A3R2-006",
+        "ECA-A3R2-007"
+      ],
+      "certainty_assessment_ref": "ECA-CERT-A3R2-004",
+      "epistemic_state_rationale": "Both BP means are deterministically reproducible. The current category framework uses SBP OR DBP thresholds, so DBP 96 mmHg changes the complete-view numerical mapping to stage 2 while the no-diagnosis boundary remains unchanged.",
+      "evidence_cutoff_time": "2026-10-07",
+      "applicability_ref": "runs/NDF/D1/A3R.3/BP_Applicability_Refresh_v0.1.json",
+      "prior_case_mapping_status": "SUPERSEDED: systolic-only stage-1 mapping from ScientificClaim_Set_v0.2 is incomplete under the completed D2 view."
+    },
+    {
+      "scientific_claim_id": "SC-A3R-005",
+      "claim_type": "CONDITIONAL_APPLICABILITY",
+      "statement": "A USPSTF healthy-diet/physical-activity behavioral-counseling recommendation for increased CVD risk should only be projected onto this case after the relevant risk-factor status is established; the current sparse view does not establish the full applicability conditions.",
+      "evidence_unit_refs": [
+        "EU-A3R-005"
+      ],
+      "support_strength": "QUALIFIED_CONDITIONAL_RECOMMENDATION",
+      "applicability": "EP-NHANES-L-0001",
+      "boundary": "The source supports general benefits of healthy behavior but does not authorize case-specific counseling eligibility without risk assessment.",
+      "evidential_state": "SUPPORTED",
+      "evidence_body_ref": "EBODY-A3R2-003",
+      "evidence_synthesis_ref": null,
+      "supporting_contribution_refs": [
+        "ECA-A3R2-008"
+      ],
+      "contradicting_contribution_refs": [],
+      "qualifying_contribution_refs": [],
+      "all_contribution_refs": [
+        "ECA-A3R2-008"
+      ],
+      "certainty_assessment_ref": "ECA-CERT-A3R2-005",
+      "epistemic_state_rationale": "The USPSTF recommendation explicitly conditions applicability on cardiovascular risk-factor context; the authorized case view does not establish the complete condition set.",
+      "evidence_cutoff_time": "2026-10-07",
+      "non_regression_status": "UNCHANGED_FROM_v0.2"
+    },
+    {
+      "scientific_claim_id": "SC-A3R-006",
+      "claim_type": "BOUNDARY_PROHIBITION",
+      "statement": "General Dietary Guidelines for Americans can supply broad healthy-pattern context but cannot, by themselves, establish that the current information is sufficient for an individualized nutrition recommendation.",
+      "evidence_unit_refs": [
+        "EU-A3R-006"
+      ],
+      "support_strength": "QUALIFIED_CONTEXT_ONLY",
+      "applicability": "EP-NHANES-L-0001",
+      "boundary": "General-population advice and individualized reference construction are distinct objects.",
+      "evidential_state": "PARTIALLY_SUPPORTED",
+      "evidence_body_ref": "EBODY-A3R2-004",
+      "evidence_synthesis_ref": null,
+      "supporting_contribution_refs": [],
+      "contradicting_contribution_refs": [],
+      "qualifying_contribution_refs": [
+        "ECA-A3R2-009"
+      ],
+      "all_contribution_refs": [
+        "ECA-A3R2-009"
+      ],
+      "certainty_assessment_ref": "ECA-CERT-A3R2-006",
+      "epistemic_state_rationale": "The Dietary Guidelines source establishes general-population guidance, while the stronger statement that it cannot alone establish individualized-reference sufficiency additionally depends on Foundation/NDF object-boundary rules.",
+      "evidence_cutoff_time": "2026-10-07",
+      "non_regression_status": "UNCHANGED_FROM_v0.2"
+    },
+    {
+      "scientific_claim_id": "SC-A3R-007",
+      "claim_type": "CASE_APPLICABILITY_INFERENCE",
+      "statement": "The observed BMI of 27 kg/m^2 falls in the USPSTF overweight range (25-29.9), not the BMI >=30 population targeted by the USPSTF B recommendation for intensive multicomponent behavioral weight-loss intervention.",
+      "evidence_unit_refs": [
+        "EU-A3R-007"
+      ],
+      "observation_refs": [
+        "OBS-NHANES-L-0001-RAW",
+        "OBS-NHANES-L-0001-DRV"
+      ],
+      "support_strength": "QUALIFIED_THRESHOLD_MAPPING",
+      "applicability": "EP-NHANES-L-0001",
+      "boundary": "This does not imply that weight management is unnecessary or that no other nutrition intervention could be appropriate.",
+      "evidential_state": "SUPPORTED",
+      "evidence_body_ref": "EBODY-A3R2-005",
+      "evidence_synthesis_ref": null,
+      "supporting_contribution_refs": [
+        "ECA-A3R2-010"
+      ],
+      "contradicting_contribution_refs": [],
+      "qualifying_contribution_refs": [],
+      "all_contribution_refs": [
+        "ECA-A3R2-010"
+      ],
+      "certainty_assessment_ref": "ECA-CERT-A3R2-007",
+      "epistemic_state_rationale": "Observed/recalculated BMI is reproducible and the recommendation population threshold is directly stated by the source.",
+      "evidence_cutoff_time": "2026-10-07",
+      "non_regression_status": "UNCHANGED_FROM_v0.2"
+    }
+  ],
+  "summary": {
+    "SUPPORTED": 5,
+    "PARTIALLY_SUPPORTED": 2,
+    "MIXED": 0,
+    "CONTRADICTED": 0,
+    "INCONCLUSIVE": 0,
+    "INSUFFICIENT_EVIDENCE": 0,
+    "NOT_EVALUATED": 0
+  },
+  "prohibited_claims": [
+    "EP-NHANES-L-0001 has hypertension.",
+    "EP-NHANES-L-0001 requires weight loss.",
+    "EP-NHANES-L-0001 should definitely DEFER.",
+    "A specific diet is indicated now.",
+    "Every nutrition-assessment domain is mandatory before any individualized recommendation."
+  ],
+  "invariant": "D2 observation completion may revise case-specific mapping without retroactively falsifying the earlier authorized-view reconstruction; historical claim versions remain preserved.",
+  "delta_summary": {
+    "wording_only": [
+      "SC-A3R-001"
+    ],
+    "boundary_scope_refresh": [
+      "SC-A3R-003"
+    ],
+    "material_case_mapping_revision": [
+      "SC-A3R-004"
+    ],
+    "unchanged": [
+      "SC-A3R-002",
+      "SC-A3R-005",
+      "SC-A3R-006",
+      "SC-A3R-007"
+    ]
+  }
+}

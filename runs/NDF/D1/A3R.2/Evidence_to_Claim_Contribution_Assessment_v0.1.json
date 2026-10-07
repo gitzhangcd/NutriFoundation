@@ -1,0 +1,181 @@
+{
+  "stage": "NDF-D1-A3R.2",
+  "artifact": "Evidence-to-Claim Contribution Assessment",
+  "version": "v0.1",
+  "status": "FROZEN",
+  "records": [
+    {
+      "contribution_id": "ECA-A3R2-001",
+      "evidence_unit_ref": "EU-A3R-001",
+      "scientific_claim_ref": "SC-A3R-001",
+      "methodological_appraisal_ref": "MA-A3R2-001",
+      "relation": "SUPPORTS",
+      "direction_alignment": "CONSISTENT",
+      "scope_match": {
+        "population": "GENERAL_PROCESS_MATCH",
+        "action": "ASSESSMENT_MATCH",
+        "time": "NOT_CRITICAL"
+      },
+      "directness": "HIGH_FOR_MULTI_DOMAIN_ASSESSMENT",
+      "contribution_strength": "MAJOR",
+      "limitations": [
+        "Does not by itself prove that every domain is mandatory in this exact case."
+      ]
+    },
+    {
+      "contribution_id": "ECA-A3R2-002",
+      "evidence_unit_ref": "EU-A3R-002",
+      "scientific_claim_ref": "SC-A3R-001",
+      "methodological_appraisal_ref": "MA-A3R2-001",
+      "relation": "QUALIFIES",
+      "direction_alignment": "CONSISTENT",
+      "scope_match": {
+        "population": "GENERAL_PROCESS_MATCH",
+        "action": "INFORMATION_ACQUISITION_MATCH"
+      },
+      "directness": "MODERATE",
+      "contribution_strength": "MODERATE",
+      "limitations": [
+        "Supports the legitimacy of seeking missing information rather than proving a fixed checklist."
+      ]
+    },
+    {
+      "contribution_id": "ECA-A3R2-003",
+      "evidence_unit_ref": "EU-A3R-002",
+      "scientific_claim_ref": "SC-A3R-002",
+      "methodological_appraisal_ref": "MA-A3R2-001",
+      "relation": "SUPPORTS",
+      "direction_alignment": "CONSISTENT",
+      "scope_match": {
+        "population": "GENERAL_PROCESS_MATCH",
+        "action": "INFORMATION_ACQUISITION_MATCH"
+      },
+      "directness": "HIGH",
+      "contribution_strength": "MAJOR",
+      "limitations": [
+        "Does not identify which variable is decision-critical for the selected case."
+      ]
+    },
+    {
+      "contribution_id": "ECA-A3R2-004",
+      "evidence_unit_ref": "EU-A3R-003",
+      "scientific_claim_ref": "SC-A3R-003",
+      "methodological_appraisal_ref": "MA-A3R2-002",
+      "relation": "SUPPORTS",
+      "direction_alignment": "CONSISTENT",
+      "scope_match": {
+        "population": "ADULT_MATCH",
+        "condition": "BP_CONTEXT_MATCH",
+        "action": "CLASSIFICATION_MANAGEMENT_CONTEXT"
+      },
+      "directness": "HIGH",
+      "contribution_strength": "MAJOR",
+      "limitations": [
+        "Does not itself adjudicate the diagnosis of the constructed NHANES case."
+      ]
+    },
+    {
+      "contribution_id": "ECA-A3R2-005",
+      "evidence_unit_ref": "EU-A3R-004",
+      "scientific_claim_ref": "SC-A3R-003",
+      "methodological_appraisal_ref": "MA-A3R2-003",
+      "relation": "SUPPORTS",
+      "direction_alignment": "CONSISTENT",
+      "scope_match": {
+        "population": "ADULT_MATCH",
+        "action": "MEASUREMENT_INTERPRETATION_MATCH"
+      },
+      "directness": "HIGH_FOR_NO_SINGLE_READING_DIAGNOSIS_BOUNDARY",
+      "contribution_strength": "MAJOR",
+      "limitations": [
+        "Supporting guidance source; not sole clinical practice authority."
+      ]
+    },
+    {
+      "contribution_id": "ECA-A3R2-006",
+      "evidence_unit_ref": "EU-A3R-003",
+      "scientific_claim_ref": "SC-A3R-004",
+      "methodological_appraisal_ref": "MA-A3R2-002",
+      "relation": "SUPPORTS",
+      "direction_alignment": "CONSISTENT",
+      "scope_match": {
+        "population": "ADULT_MATCH",
+        "condition": "BP_CATEGORY_MATCH"
+      },
+      "directness": "HIGH_FOR_CATEGORY_THRESHOLD",
+      "contribution_strength": "MAJOR",
+      "limitations": [
+        "Supports category definition, not diagnosis."
+      ]
+    },
+    {
+      "contribution_id": "ECA-A3R2-007",
+      "evidence_unit_ref": "EU-A3R-004",
+      "scientific_claim_ref": "SC-A3R-004",
+      "methodological_appraisal_ref": "MA-A3R2-003",
+      "relation": "QUALIFIES",
+      "direction_alignment": "CONSISTENT",
+      "scope_match": {
+        "population": "ADULT_MATCH",
+        "action": "MEASUREMENT_CONTEXT_MATCH"
+      },
+      "directness": "HIGH_FOR_DIAGNOSTIC_BOUNDARY",
+      "contribution_strength": "MODERATE",
+      "limitations": [
+        "Qualifies the meaning of the numerical category match."
+      ]
+    },
+    {
+      "contribution_id": "ECA-A3R2-008",
+      "evidence_unit_ref": "EU-A3R-005",
+      "scientific_claim_ref": "SC-A3R-005",
+      "methodological_appraisal_ref": "MA-A3R2-004",
+      "relation": "SUPPORTS",
+      "direction_alignment": "CONSISTENT",
+      "scope_match": {
+        "population": "CONDITIONAL_MATCH_REQUIRES_CVD_RISK_FACTOR",
+        "action": "COUNSELING_SCOPE_MATCH"
+      },
+      "directness": "HIGH_FOR_ELIGIBILITY_CONDITION",
+      "contribution_strength": "MAJOR",
+      "limitations": [
+        "Does not establish that the current case actually satisfies the risk-factor condition."
+      ]
+    },
+    {
+      "contribution_id": "ECA-A3R2-009",
+      "evidence_unit_ref": "EU-A3R-006",
+      "scientific_claim_ref": "SC-A3R-006",
+      "methodological_appraisal_ref": "MA-A3R2-005",
+      "relation": "QUALIFIES",
+      "direction_alignment": "CONSISTENT",
+      "scope_match": {
+        "population": "GENERAL_POPULATION_CONTEXT",
+        "action": "GENERAL_DIETARY_GUIDANCE"
+      },
+      "directness": "MODERATE",
+      "contribution_strength": "LIMITED",
+      "limitations": [
+        "Source establishes general guidance; the non-equivalence to individualized DecisionReference additionally depends on Nutrition Foundation/NDF scope rules."
+      ]
+    },
+    {
+      "contribution_id": "ECA-A3R2-010",
+      "evidence_unit_ref": "EU-A3R-007",
+      "scientific_claim_ref": "SC-A3R-007",
+      "methodological_appraisal_ref": "MA-A3R2-006",
+      "relation": "SUPPORTS",
+      "direction_alignment": "CONSISTENT",
+      "scope_match": {
+        "population": "ADULT_MATCH",
+        "action": "BMI_THRESHOLD_ELIGIBILITY"
+      },
+      "directness": "HIGH",
+      "contribution_strength": "MAJOR",
+      "limitations": [
+        "Supports threshold mapping only; does not imply absence of other weight-management considerations."
+      ]
+    }
+  ],
+  "invariant": "Contribution strength describes how much this EvidenceUnit informs this specific claim under its scope; it is not a universal source-quality score or claim certainty grade."
+}

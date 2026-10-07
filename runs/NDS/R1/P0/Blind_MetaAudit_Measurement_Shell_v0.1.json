@@ -1,0 +1,42 @@
+{
+  "stage": "NDS-R1-P0",
+  "artifact": "Blind Meta-Audit and Measurement Shell",
+  "version": "v0.1",
+  "status": "FROZEN_EMPTY_SHELL",
+  "union_candidate_set_status": "NOT_CONSTRUCTED",
+  "union_rule": "After arm outputs exist, deduplicate candidate items semantically, remove workflow-source labels, preserve necessary case/source evidence and assign blind item IDs.",
+  "meta_item_schema": {
+    "blinded_item_id": null,
+    "candidate_statement": null,
+    "evidence_refs": [],
+    "support_status": "SUPPORTED|NOT_SUPPORTED|PARTIALLY_SUPPORTED|UNRESOLVED",
+    "decision_relevance": "DECISION_RELEVANT|NOT_DECISION_RELEVANT",
+    "criticality": "CRITICAL|NONCRITICAL",
+    "safety_criticality": "SAFETY_CRITICAL|NOT_SAFETY_CRITICAL",
+    "decision_change": "DECISION_CHANGING|NOT_DECISION_CHANGING|UNRESOLVED",
+    "rationale": null
+  },
+  "measurements": {
+    "CDRRecall": "|C_w ∩ C| / |C|",
+    "DRPrecision": "QualifiedDecisionRelevantItems_w / AllWorkflowCandidateItems_w",
+    "CriticalOmissionRate": "1 - CDRRecall",
+    "SafetyCriticalOmissionRate": "separately reported",
+    "QualifiedUnitsPerHumanHour": "qualified units / active expert hours",
+    "anchoring": "unsupported changes conditional on Agent exposure",
+    "reference_set_quality": [
+      "set coverage",
+      "condition preservation",
+      "alternative preservation",
+      "uncertainty preservation",
+      "safety discrimination",
+      "action-envelope stability"
+    ]
+  },
+  "anti_circularity": [
+    "R0 output cannot define the Gold used to score R0.",
+    "R2 post-AI output cannot define the Gold used to score R2.",
+    "Meta-audit is best-available qualified audit, not latent truth.",
+    "Workflow labels remain blinded during item qualification where feasible."
+  ],
+  "current_measurement_status": "NOT_EXECUTABLE_UNTIL_REAL_ARM_OUTPUTS_EXIST"
+}

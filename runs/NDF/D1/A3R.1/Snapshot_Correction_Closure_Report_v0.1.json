@@ -1,0 +1,37 @@
+{
+  "stage": "NDF-D1-A3R.1",
+  "artifact": "Snapshot and Correction Closure Report",
+  "version": "v0.1",
+  "status": "PASS_CLAIM_LEVEL_SNAPSHOT_AND_CORRECTION_CLOSURE",
+  "claim_support_snapshot": {
+    "path": "runs/NDF/D1/A3R.1/Frozen_Claim_Support_Snapshot_Manifest_v0.1.json",
+    "git_blob_sha": "6cc91ccd2610547e08716d1b70e41672dcb77569",
+    "closure": "PASS",
+    "scope": "six sources used by the current seven-claim set"
+  },
+  "aha_correction_closure": {
+    "path": "runs/NDF/D1/A3R.1/A3R1_AHA_Correction_Closure_v0.1.json",
+    "git_blob_sha": "416fcd0f833a3a9a841bb2cf98d2f524e19bc1cd",
+    "closure": "PASS_CLAIM_LEVEL",
+    "scope": "SC-A3R-003 and SC-A3R-004 only"
+  },
+  "previous_gap_ref": "runs/NDF/D1/A2R/A2R_Source_Snapshot_Gap_Register_v0.1.json",
+  "gap_resolution": [
+    {
+      "gap_type": "LIVE_WEB_DOCUMENT_NOT_BYTE_FROZEN",
+      "resolution": "CLOSED_BY_MINIMAL_CLAIM_SUPPORT_SNAPSHOT",
+      "rationale": "D1-G6 requires reconstruction of the scientific reference state, not redistribution of full copyrighted documents. Bounded support, source identity, version/date, locator and immutable repository blob are frozen."
+    },
+    {
+      "gap_type": "GUIDELINE_CORRECTION_CONTENT_NOT_FULLY_RECONSTRUCTED",
+      "resolution": "CLOSED_FOR_USED_CLAIMS_BY_CURRENT_POST_CORRECTION_RECONSTRUCTION",
+      "rationale": "The current corrected online guideline was re-read for the exact BP classification/average-risk content used; known unrelated errata were also retained in lineage."
+    }
+  ],
+  "residual_limitations": [
+    "Full raw bytes of live copyrighted web pages are not mirrored in the repository.",
+    "The closure is claim-level and does not certify unused portions of source documents.",
+    "Future source updates require a new KnowledgeSnapshot revision."
+  ],
+  "result": "D1_G6_SNAPSHOT_COMPONENT_READY"
+}

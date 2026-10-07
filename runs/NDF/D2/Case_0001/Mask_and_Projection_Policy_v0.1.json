@@ -1,0 +1,125 @@
+{
+  "stage": "NDF-D2",
+  "artifact": "Mask and Projection Policy",
+  "version": "v0.1",
+  "status": "FROZEN",
+  "case_ref": "D2-NHANES-L-0001",
+  "base_observation_ref": "runs/NDF/D2/Case_0001/Observation_Completion_Record_v0.1.json",
+  "mask_records": [
+    {
+      "mask_id": "MSK-D2-NHANES-L-0001-DIET1",
+      "construction_origin": "MSK",
+      "base_origin": "OBS",
+      "target_concepts": [
+        "day1_energy",
+        "day1_protein",
+        "day1_carbohydrate",
+        "day1_total_sugars",
+        "day1_dietary_fiber",
+        "day1_total_fat"
+      ],
+      "reason": "R1 critical-missing-information / information-sufficiency stress construct",
+      "invariant": "Masked != source-missing. Underlying DR1TOT_L observations exist but are intentionally withheld from R1-facing views.",
+      "hidden_value_use_policy": "Underlying values may be used only for data-integrity audit and controlled future visibility-variant construction; they MUST NOT be used to justify the ex-ante reference action."
+    }
+  ],
+  "projections": {
+    "SYSTEM_VIEW": {
+      "allow": [
+        "age_at_screening",
+        "sex",
+        "measured_weight",
+        "standing_height",
+        "source_reported_bmi",
+        "oscillometric_sbp",
+        "oscillometric_dbp",
+        "DRV_BMI_RECALC",
+        "DRV_SBP_MEAN",
+        "DRV_DBP_MEAN",
+        "task_text",
+        "decision_point_id"
+      ],
+      "exclude": [
+        "day1_*",
+        "oscillometric_pulse",
+        "bp_arm",
+        "bp_cuff_code",
+        "subject_source_mapping",
+        "hidden underlying diet values",
+        "scientific_reference_state internals",
+        "expert judgments",
+        "agent expansion",
+        "adjudication",
+        "evaluator",
+        "future information"
+      ]
+    },
+    "EXPERT_PRE_AI_VIEW": {
+      "allow_ref": "SYSTEM_VIEW",
+      "additions": [
+        "case provenance summary without hidden values"
+      ],
+      "exclude": [
+        "agent expansion",
+        "system response",
+        "other expert answer",
+        "hidden underlying diet values",
+        "final reference"
+      ]
+    },
+    "AGENT_EXPANSION_VIEW": {
+      "allow_ref": "SYSTEM_VIEW",
+      "additions": [
+        "protocol-authorized scientific knowledge package after D1 rebind"
+      ],
+      "exclude": [
+        "hidden underlying diet values",
+        "expert pre-AI answer",
+        "final reference",
+        "adjudication"
+      ]
+    },
+    "EXPERT_POST_AI_VIEW": {
+      "allow_ref": "EXPERT_PRE_AI_VIEW",
+      "additions": [
+        "agent candidate expansion when generated"
+      ],
+      "exclude": [
+        "other expert answer",
+        "final adjudication",
+        "hidden underlying diet values"
+      ]
+    },
+    "META_ADJUDICATION_VIEW": {
+      "allow": [
+        "visible case payload",
+        "source/claim support needed for item qualification",
+        "blinded candidate set"
+      ],
+      "exclude": [
+        "workflow-arm identity where blinding is required",
+        "hidden underlying diet values as decision evidence",
+        "model/system response labels unless adjudication protocol requires them"
+      ]
+    },
+    "EVALUATOR_VIEW": {
+      "allow": [
+        "visible case payload",
+        "qualified reference after R1",
+        "frozen evaluator definition after R1"
+      ],
+      "exclude": [
+        "hidden underlying diet values as ex-ante decision evidence",
+        "development-only notes",
+        "unblinded workflow metadata"
+      ]
+    }
+  },
+  "projection_integrity_tests": [
+    "diet mask cannot be bypassed through nested objects or provenance text",
+    "subject source mapping must not leak SEQN into ordinary R1-facing case text unless protocol explicitly permits it",
+    "no final reference/adjudication/evaluator objects exist in INPUT_READY case",
+    "DBP is visible because it is source-observed and no scientific masking rationale applies",
+    "pulse/arm/cuff are retained internally but omitted from current task view as non-target context, not marked missing"
+  ]
+}

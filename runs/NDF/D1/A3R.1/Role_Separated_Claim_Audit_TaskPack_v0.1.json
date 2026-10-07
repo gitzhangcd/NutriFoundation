@@ -1,0 +1,61 @@
+{
+  "stage": "NDF-D1-A3R.1",
+  "artifact": "Role-Separated Claim Audit TaskPack",
+  "version": "v0.1",
+  "status": "FROZEN_AUDIT_INPUT",
+  "audit_role": "AUDITOR",
+  "logical_role_separation_basis": "NDF-D1 permits the same base model across roles if execution/prompt-context separation and independent source reconstruction are preserved.",
+  "allowed_inputs": [
+    {
+      "path": "runs/NDF/D1/A3R.1/Frozen_Claim_Support_Snapshot_Manifest_v0.1.json",
+      "sha": "6cc91ccd2610547e08716d1b70e41672dcb77569"
+    },
+    {
+      "path": "runs/NDF/D1/A3R/ScientificClaim_Set_v0.1.json",
+      "purpose": "claims to audit"
+    },
+    {
+      "path": "fixtures/ndf/d0/real_objects/NHANES_L_SEQN130378_First_D2_v0.1.json",
+      "purpose": "case observations used only for deterministic mapping checks"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.1/A3R1_AHA_Correction_Closure_v0.1.json",
+      "sha": "416fcd0f833a3a9a841bb2cf98d2f524e19bc1cd"
+    }
+  ],
+  "prohibited_inputs": [
+    "runs/NDF/D1/A3R/Verification_Records_v0.1.json",
+    "runs/NDF/D1/A3R/A3R_Conformance_Report_v0.1.json",
+    "NDS-R1 expert judgments",
+    "any Gold/DecisionReference",
+    "legacy Gold100 evaluation labels"
+  ],
+  "audit_questions": [
+    "Does the frozen claim-support snapshot materially support the claim?",
+    "Does the claim preserve source population/action/condition scope?",
+    "Does the claim add a diagnosis, treatment, or mandatory rule not supported by the source?",
+    "For case-mapped claims, is the numerical mapping mechanically reproducible from the authorized observations?",
+    "Are uncertainty, update status, and correction lineage preserved?",
+    "Would a reviewer using only the frozen audit inputs reconstruct the same bounded claim class?"
+  ],
+  "scoring": {
+    "exact_support": [
+      "PASS",
+      "PASS_WITH_FRAMEWORK_BOUNDARY",
+      "FAIL"
+    ],
+    "scope_preservation": [
+      "PASS",
+      "FAIL"
+    ],
+    "prohibited_inference": [
+      "NONE",
+      "PRESENT"
+    ],
+    "reproducibility": [
+      "PASS",
+      "FAIL"
+    ]
+  },
+  "independence_caveat": "This is logical role separation and replay within the same ChatGPT research session, not independent human review. Human review remains mandatory before R1/P1 qualified reference use."
+}

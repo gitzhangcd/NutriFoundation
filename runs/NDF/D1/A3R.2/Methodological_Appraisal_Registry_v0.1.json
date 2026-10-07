@@ -1,0 +1,106 @@
+{
+  "stage": "NDF-D1-A3R.2",
+  "artifact": "Methodological Appraisal Registry",
+  "version": "v0.1",
+  "status": "FROZEN_BOUNDED_APPRAISAL",
+  "records": [
+    {
+      "appraisal_id": "MA-A3R2-001",
+      "target_ref": "SRC-A2R-001",
+      "target_type": "PROFESSIONAL_PROCESS_STANDARD_WEB",
+      "formal_framework": "NOT_APPLICABLE_TO_SINGLE_PROCESS_WEB_PAGE",
+      "framework_version": null,
+      "method_transparency": "LIMITED",
+      "authority_profile": "PROFESSIONAL_ORGANIZATION",
+      "directness_to_used_claims": "HIGH_FOR_PROCESS_STRUCTURE",
+      "empirical_effect_appraisal": "NOT_APPLICABLE",
+      "overall_methodological_appraisal": "USABLE_FOR_PROCESS_CLAIMS_ONLY",
+      "limitations": [
+        "No formal systematic evidence-development method was reconstructed for the web page itself.",
+        "Not usable to establish treatment-effect certainty."
+      ]
+    },
+    {
+      "appraisal_id": "MA-A3R2-002",
+      "target_ref": "SRC-A2R-002",
+      "target_type": "MULTISOCIETY_CLINICAL_PRACTICE_GUIDELINE",
+      "formal_framework": "AGREE_II_NOT_PERFORMED_IN_THIS_STAGE",
+      "framework_version": null,
+      "method_transparency": "PARTIALLY_RECONSTRUCTED",
+      "authority_profile": "MULTISOCIETY_CLINICAL_GUIDELINE",
+      "directness_to_used_claims": "HIGH_FOR_BP_CLASSIFICATION_AND_MANAGEMENT_CONTEXT",
+      "documented_methods": [
+        "comprehensive literature search described in guideline abstract",
+        "current corrected version and erratum lineage reconstructed"
+      ],
+      "overall_methodological_appraisal": "METHODS_PARTIALLY_RECONSTRUCTED_FORMAL_GUIDELINE_APPRAISAL_NOT_PERFORMED",
+      "limitations": [
+        "No full AGREE II domain scoring was performed.",
+        "This appraisal does not grade underlying treatment-effect evidence."
+      ]
+    },
+    {
+      "appraisal_id": "MA-A3R2-003",
+      "target_ref": "SRC-A2R-003",
+      "target_type": "OFFICIAL_PROFESSIONAL_GUIDANCE_WEB",
+      "formal_framework": "NOT_APPLICABLE_AS_PRIMARY_GUIDELINE_APPRAISAL",
+      "framework_version": null,
+      "method_transparency": "LIMITED",
+      "authority_profile": "PROFESSIONAL_ORGANIZATION_PATIENT_GUIDANCE",
+      "directness_to_used_claims": "MODERATE_TO_HIGH_FOR_MEASUREMENT_BOUNDARY",
+      "overall_methodological_appraisal": "SUPPORTING_BOUNDARY_SOURCE_ONLY",
+      "limitations": [
+        "Patient-facing guidance is not the sole basis for a clinical practice claim.",
+        "No independent evidence synthesis is represented on the page."
+      ]
+    },
+    {
+      "appraisal_id": "MA-A3R2-004",
+      "target_ref": "SRC-A2R-004",
+      "target_type": "USPSTF_FINAL_RECOMMENDATION_STATEMENT",
+      "formal_framework": "USPSTF_METHOD_PROCESS_RECOGNIZED_BUT_UNDERLYING_EVIDENCE_BODY_NOT_RECONSTRUCTED_HERE",
+      "framework_version": "2020 final recommendation at cutoff",
+      "method_transparency": "MODERATE",
+      "authority_profile": "INDEPENDENT_PREVENTIVE_SERVICES_RECOMMENDATION_BODY",
+      "directness_to_used_claims": "HIGH_FOR_TARGET_POPULATION_AND_RISK_CONDITION",
+      "empirical_effect_appraisal": "NOT_RECONSTRUCTED_FOR_CURRENT_CLAIM",
+      "overall_methodological_appraisal": "USABLE_FOR_ELIGIBILITY_SCOPE_NOT_FOR_DE_NOVO_EFFECT_CERTAINTY",
+      "limitations": [
+        "Topic update in progress at cutoff.",
+        "Underlying review evidence was not rebuilt because the current claim concerns recommendation applicability, not effect magnitude."
+      ]
+    },
+    {
+      "appraisal_id": "MA-A3R2-005",
+      "target_ref": "SRC-A2R-005",
+      "target_type": "FEDERAL_DIETARY_GUIDELINE",
+      "formal_framework": "FORMAL_GUIDELINE_METHOD_APPRAISAL_NOT_PERFORMED",
+      "framework_version": "2025-2030 edition",
+      "method_transparency": "NOT_RECONSTRUCTED_IN_CURRENT_THIN_SLICE",
+      "authority_profile": "FEDERAL_GUIDELINE",
+      "directness_to_used_claims": "HIGH_FOR_GENERAL_GUIDANCE_SCOPE_ONLY",
+      "overall_methodological_appraisal": "CONTEXT_ONLY",
+      "limitations": [
+        "Cannot establish individualized decision sufficiency.",
+        "No de novo quality score assigned from institutional authority."
+      ]
+    },
+    {
+      "appraisal_id": "MA-A3R2-006",
+      "target_ref": "SRC-A2R-006",
+      "target_type": "USPSTF_FINAL_RECOMMENDATION_STATEMENT",
+      "formal_framework": "USPSTF_METHOD_PROCESS_RECOGNIZED_BUT_UNDERLYING_EVIDENCE_BODY_NOT_RECONSTRUCTED_HERE",
+      "framework_version": "2018 final recommendation at cutoff",
+      "method_transparency": "MODERATE",
+      "authority_profile": "INDEPENDENT_PREVENTIVE_SERVICES_RECOMMENDATION_BODY",
+      "directness_to_used_claims": "HIGH_FOR_BMI_THRESHOLD_ELIGIBILITY",
+      "empirical_effect_appraisal": "NOT_RECONSTRUCTED_FOR_CURRENT_CLAIM",
+      "overall_methodological_appraisal": "USABLE_FOR_ELIGIBILITY_SCOPE_NOT_FOR_DE_NOVO_EFFECT_CERTAINTY",
+      "limitations": [
+        "Topic update in progress at cutoff.",
+        "No inference that BMI below 30 means no weight-management need."
+      ]
+    }
+  ],
+  "invariant": "Methodological appraisal is target-specific; NOT_ASSESSED or NOT_APPLICABLE is scientifically preferable to fabricating a universal evidence-quality score."
+}

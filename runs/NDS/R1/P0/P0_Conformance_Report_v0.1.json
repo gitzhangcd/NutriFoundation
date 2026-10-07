@@ -18,7 +18,10 @@
     "measurement_family_operationalization": "PASS_SHELL",
     "real_expert_judgment": "NOT_YET_COLLECTED",
     "agent_candidate_output": "NOT_YET_GENERATED",
-    "qualified_reference": "NOT_YET_EXISTS"
+    "qualified_reference": "NOT_YET_EXISTS",
+    "role_input_surface_resource_control": "PASS",
+    "human_baseline_source_packet": "PASS_NO_SYSTEM_SYNTHESIS_LABELS",
+    "expert_identity_fabrication": "PASS_NONE_BOUND"
   },
   "kill_test_precheck": {
     "KT-R1-01 Human Gold Circularity": "GUARDED",

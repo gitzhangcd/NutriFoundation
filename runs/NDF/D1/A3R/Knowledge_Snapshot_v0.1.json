@@ -1,0 +1,73 @@
+{
+  "stage": "NDF-D1-A3R",
+  "artifact": "Knowledge Snapshot",
+  "version": "v0.1",
+  "knowledge_snapshot_id": "KS-D1-A3R-001",
+  "status": "PROVISIONAL_SYSTEM_SNAPSHOT",
+  "evidence_cutoff": "2026-10-07",
+  "scientific_question_ref": "SQ-D1-A1R-001",
+  "eligible_knowledge_state": {
+    "semantics": "K_t^eligible",
+    "scope": "bounded targeted-discovery set verified as available by cutoff; not an exhaustive literature universe",
+    "source_refs": [
+      "SRC-A2R-001",
+      "SRC-A2R-002",
+      "SRC-A2R-003",
+      "SRC-A2R-004",
+      "SRC-A2R-005",
+      "SRC-A2R-006"
+    ]
+  },
+  "system_knowledge_state": {
+    "semantics": "K_t^system",
+    "promoted_source_refs": [
+      "SRC-A2R-001",
+      "SRC-A2R-002",
+      "SRC-A2R-003",
+      "SRC-A2R-004",
+      "SRC-A2R-005",
+      "SRC-A2R-006"
+    ],
+    "evidence_unit_refs": [
+      "EU-A3R-001",
+      "EU-A3R-002",
+      "EU-A3R-003",
+      "EU-A3R-004",
+      "EU-A3R-005",
+      "EU-A3R-006",
+      "EU-A3R-007"
+    ],
+    "scientific_claim_refs": [
+      "SC-A3R-001",
+      "SC-A3R-002",
+      "SC-A3R-003",
+      "SC-A3R-004",
+      "SC-A3R-005",
+      "SC-A3R-006",
+      "SC-A3R-007"
+    ]
+  },
+  "excluded_or_not_promoted": [
+    {
+      "ref": "PMID:34893024",
+      "reason": "semantic-scope mismatch"
+    },
+    {
+      "ref": "PMID:40005003",
+      "reason": "population/intervention mismatch"
+    },
+    {
+      "ref": "PMID:41462029",
+      "reason": "locked evaluation purpose"
+    },
+    {
+      "ref": "PMID:35735908",
+      "reason": "locked evaluation purpose"
+    },
+    {
+      "ref": "PMID:41081513",
+      "reason": "calibration-only purpose"
+    }
+  ],
+  "reproducibility_status": "HOLD_PENDING_A2R_SOURCE_SNAPSHOT_GAP_CLOSURE"
+}

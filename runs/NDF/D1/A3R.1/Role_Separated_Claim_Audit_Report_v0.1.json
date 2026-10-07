@@ -1,0 +1,90 @@
+{
+  "stage": "NDF-D1-A3R.1",
+  "artifact": "Role-Separated Claim Audit Report",
+  "version": "v0.1",
+  "status": "PASS_LOGICAL_ROLE_REPLAY_WITH_SESSION_CONTEXT_CAVEAT",
+  "audit_taskpack_ref": "runs/NDF/D1/A3R.1/Role_Separated_Claim_Audit_TaskPack_v0.1.json",
+  "audit_mode": "LOGICAL_ROLE_SEPARATION + FRESH_SOURCE_RECONSTRUCTION",
+  "independence_statement": "This audit is not an independent human or external-model review. It is a separate auditor-role replay in the same ChatGPT research session. D1 permits same-base-model logical role separation, but human review remains required before any R1/P1 qualified reference.",
+  "mechanical_replay": {
+    "observed_sbp": [
+      135,
+      131,
+      132
+    ],
+    "recomputed_mean_sbp": 132.66666666666666,
+    "observed_weight_kg": 86.9,
+    "observed_height_m": 1.795,
+    "recomputed_bmi": 26.970616304963496,
+    "source_reported_bmi": 27,
+    "result": "PASS"
+  },
+  "claim_audits": [
+    {
+      "claim_ref": "SC-A3R-001",
+      "exact_support": "PASS_WITH_FRAMEWORK_BOUNDARY",
+      "scope_preservation": "PASS",
+      "prohibited_inference": "NONE",
+      "reproducibility": "PASS",
+      "notes": "Academy source supports multi-domain assessment and additional-information logic; case-specific incompleteness is a bounded inference, not a universal checklist."
+    },
+    {
+      "claim_ref": "SC-A3R-002",
+      "exact_support": "PASS",
+      "scope_preservation": "PASS",
+      "prohibited_inference": "NONE",
+      "reproducibility": "PASS",
+      "notes": "Additional-information acquisition is directly represented as Nutrition Assessment critical thinking; no specific missing variable is predeclared mandatory."
+    },
+    {
+      "claim_ref": "SC-A3R-003",
+      "exact_support": "PASS",
+      "scope_preservation": "PASS",
+      "prohibited_inference": "NONE",
+      "reproducibility": "PASS",
+      "notes": "Current corrected AHA guidance and measurement guidance support repeated/standardized measurement and professional diagnostic confirmation; claim correctly prohibits over-inference."
+    },
+    {
+      "claim_ref": "SC-A3R-004",
+      "exact_support": "PASS",
+      "scope_preservation": "PASS",
+      "prohibited_inference": "NONE",
+      "reproducibility": "PASS",
+      "notes": "132.6667 is mechanically reproducible and falls in the current 130–139 systolic stage-1 category; claim explicitly separates numerical category match from confirmed diagnosis."
+    },
+    {
+      "claim_ref": "SC-A3R-005",
+      "exact_support": "PASS",
+      "scope_preservation": "PASS",
+      "prohibited_inference": "NONE",
+      "reproducibility": "PASS",
+      "notes": "USPSTF recommendation is risk-factor conditioned; the case view lacks sufficient validated risk context for unqualified projection."
+    },
+    {
+      "claim_ref": "SC-A3R-006",
+      "exact_support": "PASS_WITH_FRAMEWORK_BOUNDARY",
+      "scope_preservation": "PASS",
+      "prohibited_inference": "NONE",
+      "reproducibility": "PASS",
+      "notes": "DGA supports general population dietary guidance; the non-equivalence to individualized DecisionReference is a Foundation/NDF scope rule rather than a direct DGA efficacy claim."
+    },
+    {
+      "claim_ref": "SC-A3R-007",
+      "exact_support": "PASS",
+      "scope_preservation": "PASS",
+      "prohibited_inference": "NONE",
+      "reproducibility": "PASS",
+      "notes": "BMI 27 and recalculated 26.97 are mechanically reproducible and below the BMI>=30 population threshold for the cited USPSTF obesity behavioral recommendation."
+    }
+  ],
+  "disagreements": [],
+  "audit_summary": {
+    "claims_reviewed": 7,
+    "pass": 7,
+    "fail": 0,
+    "framework_boundary_passes": 2,
+    "prohibited_inference_events": 0,
+    "mechanical_replay_failures": 0
+  },
+  "conclusion": "The bounded A3R claim set is reproducible from the frozen claim-support snapshots plus authorized case observations. The audit does not validate a DecisionReference or replace mandatory downstream human review."
+}

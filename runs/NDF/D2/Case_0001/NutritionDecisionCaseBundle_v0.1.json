@@ -1,0 +1,76 @@
+{
+  "stage": "NDF-D2",
+  "artifact": "NutritionDecisionCaseBundle",
+  "version": "v0.1",
+  "case_ref": "D2-NHANES-L-0001",
+  "revision": "r2",
+  "readiness_status": "INPUT_READY",
+  "subject_ref": "SUBJ-NHANES-L-0001",
+  "profile_ref": null,
+  "decision_point_ref": "DP-NHANES-L-0001",
+  "source_manifest_ref": "runs/NDF/D2/Case_0001/Source_Fidelity_Audit_v0.1.json",
+  "observation_refs": [
+    "runs/NDF/D2/Case_0001/Observation_Completion_Record_v0.1.json"
+  ],
+  "derived_refs": [
+    "DRV_BMI_RECALC",
+    "DRV_SBP_MEAN",
+    "DRV_DBP_MEAN",
+    "DRV_PULSE_MEAN"
+  ],
+  "constructed_context_refs": [],
+  "mask_records": [
+    "MSK-D2-NHANES-L-0001-DIET1"
+  ],
+  "counterfactual_family_ref": null,
+  "scientific_reference_state_binding": {
+    "current_ref": "SRS-D1-A3R-001:r3",
+    "binding_status": "STALE_FOR_COMPLETED_D2_VIEW_REBIND_REQUIRED",
+    "reason": "r3 was built against systolic-only view; D2 completion restored source-observed DBP."
+  },
+  "task_text": "Using only the visible NHANES observations in this constructed research case, determine whether there is enough information to proceed to an individualized nutrition recommendation or whether additional nutrition-relevant information should be requested/deferred. Do not infer a diagnosis and do not use future or hidden information.",
+  "goal_refs": [
+    "INFORMATION_SUFFICIENCY_TRIAGE"
+  ],
+  "constraint_refs": [
+    "NO_DIAGNOSIS_INFERENCE",
+    "VISIBLE_INFORMATION_ONLY",
+    "NO_HIDDEN_DIET_VALUES",
+    "NO_FUTURE_INFORMATION",
+    "CROSS_SECTIONAL_NOT_TRAJECTORY"
+  ],
+  "information_boundary_refs": [
+    "BOUND-D2-NHANES-L-0001-R2"
+  ],
+  "system_input_view_ref": "SYSTEM_VIEW",
+  "expert_pre_ai_view_ref": "EXPERT_PRE_AI_VIEW",
+  "agent_expansion_view_ref": "AGENT_EXPANSION_VIEW",
+  "expert_post_ai_view_ref": "EXPERT_POST_AI_VIEW",
+  "meta_audit_view_ref": "META_ADJUDICATION_VIEW",
+  "evaluator_view_ref": "EVALUATOR_VIEW",
+  "dependency_group_refs": [
+    "SUBJFAM-NHANES-L-130378",
+    "SRCFAM-NHANES-AUG2021-AUG2023",
+    "TMPL-INFO-SUFFICIENCY-TRIAGE-v1",
+    "VISFAM-NHANES-L-0001-DIET",
+    "SQFAM-SQ-D1-A1R-001",
+    "SRSFAM-SRS-D1-A3R-001"
+  ],
+  "reference_status": "REFERENCE_PENDING",
+  "evaluator_status": "PENDING",
+  "clinical_case_claim": "NOT_A_REAL_CLINICAL_CASE",
+  "time_mode": "EXPERIMENTALLY_DEFINED_CROSS_SECTIONAL",
+  "provenance": {
+    "original_fixture": "fixtures/ndf/d0/real_objects/NHANES_L_SEQN130378_First_D2_v0.1.json",
+    "source_fidelity_ref": "runs/NDF/D2/Case_0001/Source_Fidelity_Audit_v0.1.json",
+    "observation_completion_ref": "runs/NDF/D2/Case_0001/Observation_Completion_Record_v0.1.json",
+    "projection_policy_ref": "runs/NDF/D2/Case_0001/Mask_and_Projection_Policy_v0.1.json",
+    "dependency_registry_ref": "runs/NDF/D2/Case_0001/Dependency_Group_Registry_v0.1.json"
+  },
+  "nonclaims": [
+    "INPUT_READY does not mean a Gold reference exists.",
+    "Masked dietary data are not participant-level missingness.",
+    "NHANES participant data are not a real clinical patient record or longitudinal trajectory.",
+    "Underlying diet values must not be used to justify ex-ante action."
+  ]
+}

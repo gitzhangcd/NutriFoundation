@@ -52,26 +52,27 @@ Legacy `paper_c/` and `runs/E0.4.x/` assets are preserved as historical/conditio
 ### Current NDF-D1 execution state
 
 ```text
-A0R   PASS_FROZEN
+A0R    PASS_FROZEN
   ↓
-A1R   PASS_SELECTION
-       ScientificQuestion: SQ-D1-A1R-001
-       ThinSlice:          TS-D1-A1R-001
+A1R    PASS_SELECTION
+        ScientificQuestion: SQ-D1-A1R-001
+        ThinSlice:          TS-D1-A1R-001
   ↓
-A2R   PASS_INITIAL_SOURCE_SET_QUALIFIED_WITH_SNAPSHOT_GAPS
-       Targeted sources:   6
-       Historical promoted: 0 / 5 reviewed
+A2R    PASS_SOURCE_QUALIFICATION
+        Targeted sources:   6
   ↓
-A3R   PASS_CLAIM_CONTENT_SRS_PROVISIONAL_D1G6_HOLD
-       EvidenceUnits:      7
-       ScientificClaims:   7
-       Direct conflicts:   0
-       Evidence gaps:      6
-       SRS:                SRS-D1-A3R-001
-       D1-G6:              HOLD
-       R1 activation:      BLOCKED
+A3R    PASS_PROVISIONAL_SRS
+        EvidenceUnits:      7
+        ScientificClaims:   7
+        SRS r1:             reproducibility HOLD
   ↓
-A3R.1 NEXT — snapshot/correction closure + independent claim audit + SRS reproducibility
+A3R.1  PASS_D1_G6_FIRST_THIN_SLICE_KNOWLEDGE_READY
+        Claim replay:       7 / 7 PASS
+        D1-G1..G6:          PASS
+        SRS r2:             D1_CONTENT_AND_REPRODUCIBILITY_QUALIFIED
+        R1 activation:      BLOCKED pending D2 + human reference workflow
+  ↓
+NEXT    NDF-D2 case-specific readiness
 ```
 
 

@@ -1,0 +1,73 @@
+{
+  "stage": "NDS-R1-P0.1",
+  "artifact": "Exposure Lock Registry",
+  "version": "v0.1",
+  "date": "2026-10-07",
+  "status": "FROZEN",
+  "case_ref": "D2-NHANES-L-0001:r3",
+  "locks": [
+    {
+      "lock_id": "LOCK-R1P0-A",
+      "expert_slot": "EXP-R1P0-A",
+      "workflow": "R0",
+      "state": "PERMANENT_NO_AGENT_EXPOSURE",
+      "unlock_condition": "NONE",
+      "allowed_sequence": [
+        "QUALIFY_AND_BIND",
+        "OPEN_R0_WORKPACK",
+        "SUBMIT_J_HUMAN",
+        "FREEZE_J_HUMAN"
+      ],
+      "prohibited_sequence": [
+        "AGENT_CANDIDATE_EXPOSURE",
+        "OTHER_ARM_OUTPUT_EXPOSURE",
+        "META_AUDIT_EXPOSURE"
+      ]
+    },
+    {
+      "lock_id": "LOCK-R1P0-B",
+      "expert_slot": "EXP-R1P0-B",
+      "workflow": "R1",
+      "state": "HOLD_UNTIL_REAL_EXPERT_BINDING_AND_AGENT_SET_FREEZE",
+      "unlock_condition": "expert QUALIFIED + slot BOUND + R1 AgentCandidateSet generated and immutable + source spans attached",
+      "required_sequence": [
+        "QUALIFY_AND_BIND",
+        "GENERATE_AGENT_FIRST_CANDIDATE_SET",
+        "FREEZE_AGENT_SET",
+        "OPEN_R1_VERIFY_WORKPACK",
+        "EXPERT_VERIFY",
+        "FREEZE_R1_OUTPUT"
+      ],
+      "prohibited_sequence": [
+        "EXPERT_VERIFICATION_BEFORE_AGENT_SET_FREEZE",
+        "OTHER_EXPERT_OUTPUT_EXPOSURE",
+        "FINAL_REFERENCE_EXPOSURE"
+      ]
+    },
+    {
+      "lock_id": "LOCK-R1P0-C",
+      "expert_slot": "EXP-R1P0-C",
+      "workflow": "R2",
+      "state": "HARD_LOCK_AGENT_UNTIL_J_PREAI_FREEZE",
+      "unlock_condition": "expert QUALIFIED + slot BOUND + J_preAI submitted + exposure assertions pass + immutable content SHA recorded",
+      "required_sequence": [
+        "QUALIFY_AND_BIND",
+        "OPEN_R2_PREAI_WORKPACK",
+        "SUBMIT_J_PREAI",
+        "FREEZE_J_PREAI",
+        "UNLOCK_AGENT_EXPANSION",
+        "GENERATE_AGENT_SET",
+        "FREEZE_AGENT_SET",
+        "EXPERT_RECONCILE",
+        "FREEZE_J_POSTAI"
+      ],
+      "prohibited_sequence": [
+        "ANY_AGENT_OUTPUT_BEFORE_J_PREAI_FREEZE",
+        "OTHER_EXPERT_OUTPUT_EXPOSURE",
+        "FINAL_REFERENCE_EXPOSURE"
+      ]
+    }
+  ],
+  "invariant": "Exposure/order is part of the treatment definition and cannot be repaired retrospectively.",
+  "violation_policy": "Any out-of-order Agent exposure creates a protocol deviation; the affected execution is not eligible for clean anchoring analysis."
+}

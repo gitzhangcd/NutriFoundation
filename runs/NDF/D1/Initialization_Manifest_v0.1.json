@@ -84,8 +84,8 @@
     "ReferenceConstructionNeed"
   ],
   "next_stage": {
-    "id": "NDS-R1-P0",
-    "title": "First Human Focus × Agent Breadth Reference Construction Pilot Intake"
+    "id": "NDS-R1-P0.1",
+    "title": "Expert Qualification, Slot Binding, Pre-AI Capture & Exposure Lock"
   },
   "current_stage": {
     "id": "NDF-D1-A3R.3",
@@ -105,5 +105,12 @@
     "D1_epistemic_appraisal": "PASS",
     "D1_knowledge_readiness": "PASS_FOR_FIRST_THIN_SLICE",
     "r1_activation": "READY_FOR_NDS_R1_REFERENCE_WORKFLOW"
+  },
+  "handoff_to_nds_r1": {
+    "status": "HANDOFF_COMPLETE",
+    "entered_stage": "NDS-R1-P0",
+    "p0_status": "PASS_PILOT_INTAKE_READY_FOR_REAL_EXPERT_BINDING",
+    "next_owner": "NDS-R1",
+    "next_stage": "NDS-R1-P0.1"
   }
 }

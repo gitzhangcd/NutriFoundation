@@ -2,7 +2,7 @@
   "stage": "NDF-D1",
   "artifact": "Scientific Core Thin-Slice Initialization Manifest",
   "version": "v0.1",
-  "status": "A2R_PASS_INITIAL_SOURCE_SET_QUALIFIED_WITH_SNAPSHOT_GAPS",
+  "status": "A3R_PASS_CLAIM_CONTENT_SRS_PROVISIONAL_D1G6_HOLD",
   "base_main_commit": "6b2559eb10037149c605921c09423453c8b1d821",
   "branch": "ndf-d1-scientific-core-thin-slice",
   "authority": [
@@ -84,20 +84,20 @@
     "ReferenceConstructionNeed"
   ],
   "next_stage": {
-    "id": "NDF-D1-A3R",
-    "title": "EvidenceUnit / ScientificClaim Construction, Conflict-Gap Synthesis & First ScientificReferenceState"
+    "id": "NDF-D1-A3R.1",
+    "title": "Source Snapshot / Correction Closure, Independent Claim Audit & SRS Reproducibility Qualification"
   },
   "current_stage": {
-    "id": "NDF-D1-A2R",
-    "status": "PASS_INITIAL_SOURCE_SET_QUALIFIED_FOR_A3R_WITH_SNAPSHOT_GAPS",
+    "id": "NDF-D1-A3R",
+    "status": "PASS_CLAIM_CONTENT_SRS_PROVISIONAL_D1G6_HOLD",
     "scientific_question_ref": "SQ-D1-A1R-001",
-    "knowledge_need_contract_ref": "KN-D1-A1R-001",
     "thin_slice_ref": "TS-D1-A1R-001",
-    "evidence_cutoff": "2026-10-07 DATE precision",
-    "targeted_sources_acquired": 6,
-    "historical_sources_promoted": 0,
-    "snapshot_gap_ref": "runs/NDF/D1/A2R/A2R_Source_Snapshot_Gap_Register_v0.1.json",
-    "final_srs_reproducibility": "BLOCKED_PENDING_SNAPSHOT_GAP_CLOSURE",
-    "r1_activation": "BLOCKED_PENDING_D1_FINAL_SRS_AND_D2_CASE_SPECIFIC_READINESS"
+    "scientific_reference_state_ref": "SRS-D1-A3R-001",
+    "evidence_units": 7,
+    "scientific_claims": 7,
+    "evidence_gaps": 6,
+    "direct_conflicts": 0,
+    "D1_G6": "HOLD_PENDING_SNAPSHOT_CORRECTION_AND_INDEPENDENT_AUDIT",
+    "r1_activation": "BLOCKED_PENDING_A3R1_AND_D2_CASE_SPECIFIC_READINESS"
   }
 }

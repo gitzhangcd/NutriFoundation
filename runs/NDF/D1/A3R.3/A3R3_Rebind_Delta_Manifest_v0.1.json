@@ -1,0 +1,62 @@
+{
+  "stage": "NDF-D1-A3R.3",
+  "artifact": "D2 Observation Completion Rebind Delta Manifest",
+  "version": "v0.1",
+  "status": "FROZEN_MINIMAL_DELTA",
+  "trigger_ref": "runs/NDF/D2/Case_0001/D1_Rebind_Impact_Notice_v0.1.json",
+  "prior_srs_ref": "SRS-D1-A3R-001:r3",
+  "target_case_ref": "D2-NHANES-L-0001:r2",
+  "delta": {
+    "added_visible_observations": [
+      {
+        "concept": "oscillometric_dbp",
+        "values": [
+          98,
+          96,
+          94
+        ],
+        "unit": "mmHg"
+      },
+      {
+        "concept": "DRV_DBP_MEAN",
+        "value": 96,
+        "unit": "mmHg"
+      }
+    ],
+    "unchanged_visible_core": [
+      "age=43",
+      "sex=Male",
+      "weight=86.9 kg",
+      "height=179.5 cm",
+      "BMI=27.0",
+      "SBP=[135,131,132] mmHg",
+      "DRV_SBP_MEAN=132.6667 mmHg"
+    ],
+    "deliberately_hidden": [
+      "day-1 diet observations remain masked by MSK-D2-NHANES-L-0001-DIET1"
+    ]
+  },
+  "impacted_claims": [
+    "SC-A3R-003",
+    "SC-A3R-004"
+  ],
+  "non_impacted_claims": [
+    "SC-A3R-001",
+    "SC-A3R-002",
+    "SC-A3R-005",
+    "SC-A3R-006",
+    "SC-A3R-007"
+  ],
+  "refresh_authority": {
+    "source": "2025 AHA/ACC multisociety high blood pressure guideline, current corrected online framework",
+    "official_summary_url": "https://professional.heart.org/en/science-news/2025-high-blood-pressure-guideline/top-things-to-know",
+    "guideline_doi": "10.1161/CIR.0000000000001356",
+    "classification_semantics": {
+      "stage_1": "SBP 130-139 mmHg OR DBP 80-89 mmHg",
+      "stage_2": "SBP >=140 mmHg OR DBP >=90 mmHg"
+    },
+    "checked_on": "2026-10-07"
+  },
+  "minimal_repair_rule": "Only case-bound BP claims and their SRS binding may change unless replay identifies a dependency-mediated effect.",
+  "nonclaim": "A stage-category numerical mapping from observed averages is not a confirmed clinical diagnosis."
+}

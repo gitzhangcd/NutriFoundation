@@ -1,0 +1,81 @@
+{
+  "stage": "NDF-D1-A3R.1",
+  "artifact": "AHA 2025 High Blood Pressure Guideline Correction Closure",
+  "version": "v0.1",
+  "status": "CLAIM_LEVEL_CORRECTION_CLOSED",
+  "guideline_family": {
+    "canonical_circulation": {
+      "pmid": "40811497",
+      "doi": "10.1161/CIR.0000000000001356"
+    },
+    "parallel_hypertension": {
+      "pmid": "40811516",
+      "doi": "10.1161/HYP.0000000000000249"
+    },
+    "current_online_version_checked_on": "2026-10-07"
+  },
+  "correction_lineage": {
+    "circulation": [
+      {
+        "pmid": "41212942",
+        "doi": "10.1161/CIR.0000000000001396",
+        "date": "2025-11-11",
+        "content_resolution": "DETAIL_RETRIEVED",
+        "impact_on_used_claims": "NONE",
+        "notes": "Corrections concern a Table 1 labeling field and resistant-hypertension/aprocitentan wording/figure; current A3R BP-category and average/risk claims do not rely on those corrected passages."
+      },
+      {
+        "pmid": "41973840",
+        "doi": "10.1161/CIR.0000000000001436",
+        "date": "2026-04-14",
+        "content_resolution": "ERRATUM_IDENTITY_CONFIRMED_CURRENT_ONLINE_POST_CORRECTION_TEXT_RECONSTRUCTED",
+        "impact_on_used_claims": "NONE_DETECTED_AT_CURRENT_VERSION",
+        "notes": "Full historical diff was not required for the used claims because the current corrected online guideline was re-read directly for BP classification and risk/average-BP wording."
+      },
+      {
+        "pmid": "42189957",
+        "doi": "10.1161/CIR.0000000000001448",
+        "date": "2026-05-26",
+        "content_resolution": "DETAIL_RETRIEVED",
+        "impact_on_used_claims": "NONE",
+        "notes": "Correction concerns labetalol IV dosing interval in hypertensive-emergency drug table, outside the A3R claim spans."
+      }
+    ],
+    "hypertension_parallel": [
+      {
+        "pmid": "41259465",
+        "doi": "10.1161/HYP.0000000000000257",
+        "date": "2025-12",
+        "relationship": "parallel-journal erratum lineage"
+      },
+      {
+        "pmid": "41984986",
+        "doi": "10.1161/HYP.0000000000000262",
+        "date": "2026-05",
+        "relationship": "parallel-journal erratum lineage"
+      },
+      {
+        "pmid": "42160500",
+        "doi": "10.1161/HYP.0000000000000264",
+        "date": "2026-06",
+        "relationship": "parallel-journal erratum lineage"
+      }
+    ]
+  },
+  "current_version_reconstruction": {
+    "source": "current online Circulation guideline after listed corrections",
+    "used_support": [
+      "stage 1 BP category remains systolic 130–139 or diastolic 80–89 mmHg",
+      "management thresholds use average BP",
+      "risk-conditioned treatment framework remains present",
+      "achievement/interpretation of BP relies on repeated measurements rather than a single isolated value"
+    ],
+    "claim_refs": [
+      "SC-A3R-003",
+      "SC-A3R-004"
+    ],
+    "result": "PASS_CURRENT_CORRECTED_WORDING_SUPPORTS_USED_CLAIMS"
+  },
+  "closure_rule": "For D1 claim-level correction closure, every claim-support span must be reconstructed from the current corrected source version. Historical erratum details are retained when accessible, but unrelated corrections do not invalidate unaffected claim spans.",
+  "nonclaim": "This does not certify every statement in the 2025 guideline; it closes correction risk only for the A3R claim spans actually used."
+}

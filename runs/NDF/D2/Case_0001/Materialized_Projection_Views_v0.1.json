@@ -1,0 +1,179 @@
+{
+  "stage": "NDF-D2",
+  "artifact": "Materialized Projection Views",
+  "version": "v0.1",
+  "case_ref": "D2-NHANES-L-0001:r2",
+  "views": {
+    "SYSTEM_VIEW": {
+      "payload": {
+        "age_at_screening": 43,
+        "sex": "Male",
+        "measured_weight_kg": 86.9,
+        "standing_height_cm": 179.5,
+        "source_reported_bmi": 27,
+        "oscillometric_sbp": [
+          135,
+          131,
+          132
+        ],
+        "oscillometric_dbp": [
+          98,
+          96,
+          94
+        ],
+        "derived_bmi_recalc": 26.970616304963496,
+        "derived_sbp_mean": 132.66666666666666,
+        "derived_dbp_mean": 96,
+        "task_text": "Using only the visible NHANES observations in this constructed research case, determine whether there is enough information to proceed to an individualized nutrition recommendation or whether additional nutrition-relevant information should be requested/deferred. Do not infer a diagnosis and do not use future or hidden information."
+      },
+      "status": "MATERIALIZED"
+    },
+    "EXPERT_PRE_AI_VIEW": {
+      "payload": {
+        "age_at_screening": 43,
+        "sex": "Male",
+        "measured_weight_kg": 86.9,
+        "standing_height_cm": 179.5,
+        "source_reported_bmi": 27,
+        "oscillometric_sbp": [
+          135,
+          131,
+          132
+        ],
+        "oscillometric_dbp": [
+          98,
+          96,
+          94
+        ],
+        "derived_bmi_recalc": 26.970616304963496,
+        "derived_sbp_mean": 132.66666666666666,
+        "derived_dbp_mean": 96,
+        "task_text": "Using only the visible NHANES observations in this constructed research case, determine whether there is enough information to proceed to an individualized nutrition recommendation or whether additional nutrition-relevant information should be requested/deferred. Do not infer a diagnosis and do not use future or hidden information.",
+        "provenance_summary": "NHANES August 2021-August 2023 public-observation-supported constructed research case"
+      },
+      "status": "MATERIALIZED"
+    },
+    "AGENT_EXPANSION_VIEW": {
+      "payload": {
+        "age_at_screening": 43,
+        "sex": "Male",
+        "measured_weight_kg": 86.9,
+        "standing_height_cm": 179.5,
+        "source_reported_bmi": 27,
+        "oscillometric_sbp": [
+          135,
+          131,
+          132
+        ],
+        "oscillometric_dbp": [
+          98,
+          96,
+          94
+        ],
+        "derived_bmi_recalc": 26.970616304963496,
+        "derived_sbp_mean": 132.66666666666666,
+        "derived_dbp_mean": 96,
+        "task_text": "Using only the visible NHANES observations in this constructed research case, determine whether there is enough information to proceed to an individualized nutrition recommendation or whether additional nutrition-relevant information should be requested/deferred. Do not infer a diagnosis and do not use future or hidden information.",
+        "scientific_knowledge_binding": "PENDING_D1_A3R3_REBIND"
+      },
+      "status": "MATERIALIZED"
+    },
+    "EXPERT_POST_AI_VIEW": {
+      "payload": {
+        "age_at_screening": 43,
+        "sex": "Male",
+        "measured_weight_kg": 86.9,
+        "standing_height_cm": 179.5,
+        "source_reported_bmi": 27,
+        "oscillometric_sbp": [
+          135,
+          131,
+          132
+        ],
+        "oscillometric_dbp": [
+          98,
+          96,
+          94
+        ],
+        "derived_bmi_recalc": 26.970616304963496,
+        "derived_sbp_mean": 132.66666666666666,
+        "derived_dbp_mean": 96,
+        "task_text": "Using only the visible NHANES observations in this constructed research case, determine whether there is enough information to proceed to an individualized nutrition recommendation or whether additional nutrition-relevant information should be requested/deferred. Do not infer a diagnosis and do not use future or hidden information.",
+        "agent_expansion_ref": "PENDING_R1_EXECUTION"
+      },
+      "status": "TEMPLATE_MATERIALIZED_NO_AGENT_OUTPUT_YET"
+    },
+    "META_ADJUDICATION_VIEW": {
+      "payload": {
+        "age_at_screening": 43,
+        "sex": "Male",
+        "measured_weight_kg": 86.9,
+        "standing_height_cm": 179.5,
+        "source_reported_bmi": 27,
+        "oscillometric_sbp": [
+          135,
+          131,
+          132
+        ],
+        "oscillometric_dbp": [
+          98,
+          96,
+          94
+        ],
+        "derived_bmi_recalc": 26.970616304963496,
+        "derived_sbp_mean": 132.66666666666666,
+        "derived_dbp_mean": 96,
+        "task_text": "Using only the visible NHANES observations in this constructed research case, determine whether there is enough information to proceed to an individualized nutrition recommendation or whether additional nutrition-relevant information should be requested/deferred. Do not infer a diagnosis and do not use future or hidden information.",
+        "candidate_set_ref": "PENDING_R1_EXECUTION",
+        "workflow_arm_identity": "BLINDED_WHEN_REQUIRED"
+      },
+      "status": "TEMPLATE_MATERIALIZED"
+    },
+    "EVALUATOR_VIEW": {
+      "payload": {
+        "age_at_screening": 43,
+        "sex": "Male",
+        "measured_weight_kg": 86.9,
+        "standing_height_cm": 179.5,
+        "source_reported_bmi": 27,
+        "oscillometric_sbp": [
+          135,
+          131,
+          132
+        ],
+        "oscillometric_dbp": [
+          98,
+          96,
+          94
+        ],
+        "derived_bmi_recalc": 26.970616304963496,
+        "derived_sbp_mean": 132.66666666666666,
+        "derived_dbp_mean": 96,
+        "task_text": "Using only the visible NHANES observations in this constructed research case, determine whether there is enough information to proceed to an individualized nutrition recommendation or whether additional nutrition-relevant information should be requested/deferred. Do not infer a diagnosis and do not use future or hidden information.",
+        "qualified_reference_ref": "PENDING",
+        "evaluator_definition_ref": "PENDING"
+      },
+      "status": "TEMPLATE_MATERIALIZED"
+    }
+  },
+  "forbidden_tokens_and_fields": [
+    "1740",
+    "169.66",
+    "43.71",
+    "55.07",
+    "80.46",
+    "10.1",
+    "SEQN",
+    "130378",
+    "SUBJMAP-NHANES-L-0001",
+    "QualifiedDecisionReference",
+    "Gold",
+    "adjudicated_reference"
+  ],
+  "note": "Numeric token scan is a fixture-level guard only; field/name-aware projection validation remains authoritative.",
+  "leakage_scan": {
+    "status": "PASS",
+    "forbidden_hits": [],
+    "explanation": "No hidden diet values, source identifiers, final reference or adjudication content are present in the materialized view payloads."
+  }
+}

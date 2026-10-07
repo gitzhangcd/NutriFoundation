@@ -2,7 +2,7 @@
   "stage": "NDF-D1",
   "artifact": "Scientific Core Thin-Slice Initialization Manifest",
   "version": "v0.1",
-  "status": "FIRST_THIN_SLICE_D1_KNOWLEDGE_READY",
+  "status": "FIRST_THIN_SLICE_D1_EPISTEMICALLY_APPRAISED_KNOWLEDGE_READY",
   "base_main_commit": "6b2559eb10037149c605921c09423453c8b1d821",
   "branch": "ndf-d1-scientific-core-thin-slice",
   "authority": [
@@ -85,20 +85,22 @@
   ],
   "next_stage": {
     "id": "NDF-D2-CASE-SPECIFIC-READINESS",
-    "title": "Case-Specific D2 Readiness, Observation Completion & Projection Qualification",
-    "rationale": "D1 side is knowledge-ready for the first thin slice; R1 cannot activate until the D2 side is independently ready."
+    "title": "Case-Specific D2 Readiness, Observation Completion, Source Fidelity & Projection Qualification"
   },
   "current_stage": {
-    "id": "NDF-D1-A3R.1",
-    "status": "PASS_D1_G6_FIRST_THIN_SLICE_KNOWLEDGE_READY",
+    "id": "NDF-D1-A3R.2",
+    "status": "PASS_EPISTEMIC_APPRAISAL_FIRST_THIN_SLICE",
     "thin_slice_ref": "TS-D1-A1R-001",
-    "scientific_reference_state_ref": "SRS-D1-A3R-001:r2",
-    "D1_G1": "PASS",
-    "D1_G2": "PASS",
-    "D1_G3": "PASS",
-    "D1_G4": "PASS_AT_DATE_PRECISION",
-    "D1_G5": "PASS",
-    "D1_G6": "PASS",
+    "scientific_reference_state_ref": "SRS-D1-A3R-001:r3",
+    "evidential_state_summary": {
+      "SUPPORTED": 5,
+      "PARTIALLY_SUPPORTED": 2
+    },
+    "empirical_effect_certainty_summary": {
+      "NOT_APPLICABLE": 7
+    },
+    "D1_reproducibility": "PASS",
+    "D1_epistemic_appraisal": "PASS",
     "D1_knowledge_readiness": "PASS_FOR_FIRST_THIN_SLICE",
     "r1_activation": "BLOCKED_PENDING_D2_CASE_SPECIFIC_READINESS_AND_R1_HUMAN_REFERENCE_WORKFLOW"
   }

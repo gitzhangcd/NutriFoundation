@@ -1,0 +1,121 @@
+{
+  "stage": "NDS-R1-P0.1",
+  "artifact": "Human Baseline Source Packet",
+  "version": "v0.2",
+  "packet_id": "HBSP-R1P0-001",
+  "status": "FROZEN_CURRENT_FOR_A3R3_REBOUND_CASE",
+  "case_ref": "D2-NHANES-L-0001:r3",
+  "case_view_ref": "runs/NDF/D2/Case_0001/Materialized_Projection_Views_v0.2.json#EXPERT_PRE_AI_VIEW",
+  "scientific_sources": [
+    {
+      "source_title": "Academy of Nutrition and Dietetics — Nutrition Assessment",
+      "canonical_url": "https://www.eatrightpro.org/practice/nutrition-care-process/ncp-overview/nutrition-assessment",
+      "canonical_doi": null,
+      "pmid": null,
+      "retrieved_on": "2026-10-07",
+      "source_review_date": null,
+      "locator": "Nutrition Assessment / Nutrition Assessment Critical Thinking",
+      "bounded_source_support": [
+        "Nutrition Assessment is the first Nutrition Care Process step and its collected data support later NCP steps.",
+        "Assessment uses multiple domains, including food/nutrition history, anthropometrics, biochemical/tests, physical findings and client history.",
+        "Critical thinking includes identifying needs for additional information and obtaining/requesting relevant data."
+      ],
+      "version_status": "PUBLIC_LIVE_PAGE_AT_CUTOFF"
+    },
+    {
+      "source_title": "2025 AHA/ACC Multisociety High Blood Pressure Guideline — current corrected online version",
+      "canonical_url": "https://www.ahajournals.org/doi/full/10.1161/CIR.0000000000001356",
+      "canonical_doi": "10.1161/CIR.0000000000001356",
+      "pmid": "40811497",
+      "retrieved_on": "2026-10-07",
+      "source_review_date": null,
+      "locator": "current online guideline: BP classification + treatment threshold/risk sections",
+      "bounded_source_support": [
+        "Current corrected guideline classifies stage 1 hypertension as systolic 130–139 mmHg or diastolic 80–89 mmHg.",
+        "Current corrected guideline classifies stage 2 hypertension as systolic at least 140 mmHg or diastolic at least 90 mmHg, using an OR criterion.",
+        "Management recommendations use average BP and cardiovascular/clinical-risk context rather than a single isolated reading."
+      ],
+      "version_status": "POST_CORRECTION_CURRENT_ONLINE_VERSION_REBOUND_A3R3"
+    },
+    {
+      "source_title": "American Heart Association — Home Blood Pressure Monitoring",
+      "canonical_url": "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home",
+      "canonical_doi": null,
+      "pmid": null,
+      "retrieved_on": "2026-10-07",
+      "source_review_date": "2025-08-14",
+      "locator": "Who should monitor / measurement instructions / high reading / journal sections",
+      "bounded_source_support": [
+        "Repeated measurements and correct technique are part of BP interpretation.",
+        "Home monitoring can aid confirmation, while a medical professional confirms diagnosis.",
+        "A single high reading should not be treated as a complete longitudinal BP picture."
+      ],
+      "version_status": "PUBLIC_LIVE_PAGE_AT_CUTOFF"
+    },
+    {
+      "source_title": "USPSTF — Healthy Diet and Physical Activity Counseling in Adults With CVD Risk Factors",
+      "canonical_url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/healthy-diet-and-physical-activity-counseling-adults-with-high-risk-of-cvd",
+      "canonical_doi": null,
+      "pmid": "33231670",
+      "retrieved_on": "2026-10-07",
+      "source_review_date": null,
+      "locator": "Final Recommendation Statement / Recommendation Summary / Clinician Summary",
+      "bounded_source_support": [
+        "The recommendation applies to adults with cardiovascular disease risk factors and recommends offering or referring them for behavioral counseling.",
+        "Applicability requires risk-factor context; the topic is under update at the cutoff."
+      ],
+      "version_status": "FINAL_2020_RECOMMENDATION_UPDATE_IN_PROGRESS_AT_CUTOFF"
+    },
+    {
+      "source_title": "Dietary Guidelines for Americans, 2025–2030",
+      "canonical_url": "https://odphp.health.gov/our-work/nutrition-physical-activity/dietary-guidelines/current-dietary-guidelines",
+      "canonical_doi": null,
+      "pmid": null,
+      "retrieved_on": "2026-10-07",
+      "source_review_date": null,
+      "locator": "Current Dietary Guidelines overview",
+      "bounded_source_support": [
+        "The 2025–2030 Dietary Guidelines provide general nutrition guidance to meet nutrient needs, promote health and prevent disease.",
+        "This is broad population guidance rather than a case-specific individualized assessment protocol."
+      ],
+      "version_status": "CURRENT_2025_2030_EDITION"
+    },
+    {
+      "source_title": "USPSTF — Behavioral Weight Loss Interventions in Adults",
+      "canonical_url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-adults-interventions",
+      "canonical_doi": null,
+      "pmid": "30326502",
+      "retrieved_on": "2026-10-07",
+      "source_review_date": null,
+      "locator": "Recommendation Summary / Clinician Summary",
+      "bounded_source_support": [
+        "USPSTF recommends intensive multicomponent behavioral interventions for adults with BMI 30 or higher.",
+        "The topic is under update at the cutoff."
+      ],
+      "version_status": "FINAL_2018_RECOMMENDATION_UPDATE_IN_PROGRESS_AT_CUTOFF"
+    }
+  ],
+  "removed_system_synthesis": [
+    "ScientificClaim IDs",
+    "evidential_state labels",
+    "certainty labels",
+    "Agent candidate statements",
+    "D1 case-specific applicability conclusions",
+    "computed case category conclusion",
+    "final/reference/meta-audit labels"
+  ],
+  "hidden_case_information": [
+    "Day-1 diet values masked by MSK-D2-NHANES-L-0001-DIET1",
+    "SEQN/source identity mapping",
+    "other workflow outputs",
+    "other expert judgments"
+  ],
+  "use_policy": {
+    "R0": "Human de novo reference-candidate construction from case + this source packet.",
+    "R2_preAI": "Independent focus capture from case + this same source packet before any Agent exposure.",
+    "R1_expert": "Not used as initial independent phase; R1 expert verifies Agent candidates with referenced source spans."
+  },
+  "invariant": "The packet may expose source-level thresholds but must not expose the system's case-specific category conclusion; expert judgment remains independent.",
+  "supersedes": "runs/NDS/R1/P0/Human_Baseline_Source_Packet_v0.1.json",
+  "refresh_reason": "A3R.3 completed-view BP rebind requires current source-level Stage-2 classification support in the human baseline substrate."
+}

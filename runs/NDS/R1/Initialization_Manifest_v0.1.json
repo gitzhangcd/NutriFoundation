@@ -1,0 +1,40 @@
+{
+  "program_id": "NDS-R1",
+  "version": "v0.1",
+  "date": "2026-10-07",
+  "status": "P0_PILOT_INTAKE_READY_FOR_REAL_EXPERT_BINDING",
+  "scientific_identity": "Human Focus × Agent Breadth Reference Construction Science",
+  "current_stage": {
+    "id": "NDS-R1-P0",
+    "status": "PASS_PILOT_INTAKE_READY_FOR_REAL_EXPERT_BINDING",
+    "case_ref": "D2-NHANES-L-0001:r3",
+    "srs_ref": "SRS-D1-A3R-001:r4",
+    "workflow_protocol": "FROZEN",
+    "role_input_surface": "FROZEN",
+    "expert_slots": "3_UNBOUND",
+    "human_baseline_packet": "HBSP-R1P0-001",
+    "expert_judgments": "0",
+    "agent_candidate_sets": "0",
+    "reconciliations": "0",
+    "meta_audit_items": "0",
+    "qualified_reference": "NOT_CREATED",
+    "evaluator": "NOT_FROZEN"
+  },
+  "canonical_assets": [
+    "runs/NDS/R1/P0/P0_Intake_Manifest_v0.1.json",
+    "runs/NDS/R1/P0/R1_Workflow_Protocol_v0.1.json",
+    "runs/NDS/R1/P0/First_Case_Assignment_Blinding_Plan_v0.1.json",
+    "runs/NDS/R1/P0/Role_Input_Surface_Contract_v0.1.json",
+    "runs/NDS/R1/P0/Human_Baseline_Source_Packet_v0.1.json",
+    "runs/NDS/R1/P0/Expert_Qualification_Exposure_Screen_v0.1.json",
+    "runs/NDS/R1/P0/Expert_PreAI_Judgment_Template_v0.1.json",
+    "runs/NDS/R1/P0/Agent_Breadth_Expansion_Contract_v0.1.json",
+    "runs/NDS/R1/P0/Reconciliation_Exposure_Templates_v0.1.json",
+    "runs/NDS/R1/P0/Blind_MetaAudit_Measurement_Shell_v0.1.json",
+    "runs/NDS/R1/P0/P0_Conformance_Report_v0.1.json"
+  ],
+  "next_stage": {
+    "id": "NDS-R1-P0.1",
+    "title": "Expert Qualification, Slot Binding, Pre-AI Capture & Exposure Lock"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "stage": "NDS-R1-P0",
+  "artifact": "Reconciliation and Exposure Templates",
+  "version": "v0.1",
+  "status": "FROZEN_EMPTY_TEMPLATES",
+  "reconciliation_item_schema": {
+    "candidate_ref": null,
+    "expert_disposition": "ACCEPT|REJECT|MODIFY|IRRELEVANT|UNCERTAIN|NEEDS_MORE_EVIDENCE",
+    "rationale": null,
+    "changed_pre_ai_judgment": false,
+    "change_type": null,
+    "source_refs": []
+  },
+  "post_ai_judgment_schema": {
+    "judgment_id": null,
+    "pre_ai_judgment_ref": null,
+    "candidate_set_ref": null,
+    "reconciliation_item_refs": [],
+    "final_reference_set_candidate": {
+      "preferred": [],
+      "acceptable": [],
+      "conditional": [],
+      "not_currently_indicated": [],
+      "prohibited": [],
+      "unsafe": [],
+      "unresolved": []
+    },
+    "uncertainty_notes": [],
+    "active_expert_minutes": null
+  },
+  "exposure_log_schema": {
+    "exposure_id": null,
+    "case_ref": "D2-NHANES-L-0001:r3",
+    "expert_slot": null,
+    "workflow": null,
+    "event_sequence": [],
+    "agent_candidate_seen_at": null,
+    "pre_ai_frozen_at": null,
+    "post_ai_frozen_at": null,
+    "source_items_reviewed": 0,
+    "agent_candidates_reviewed": 0,
+    "clarification_count": 0,
+    "revision_count": 0,
+    "case_reopen_count": 0,
+    "adjudication_need": null
+  },
+  "anchoring_fields": [
+    "unsupported_decision_change",
+    "unsupported_action_addition",
+    "unsafe_shift",
+    "valid_alternative_removed",
+    "confidence_inflation",
+    "reference_set_contraction"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "stage": "NDS-R1-P0",
+  "artifact": "P0 Conformance Report",
+  "version": "v0.1",
+  "date": "2026-10-07",
+  "status": "PASS_PILOT_INTAKE_READY_FOR_REAL_EXPERT_BINDING",
+  "checks": {
+    "D1_current_binding": "PASS_SRS_R4",
+    "D2_input_ready": "PASS_CASE_R3",
+    "three_arm_protocol": "PASS",
+    "no_preselected_winner": "PASS",
+    "expert_pre_ai_immutability": "PASS_CONTRACT",
+    "same_expert_same_case_cross_arm_prohibition": "PASS_CONTRACT",
+    "agent_self_gold_prevention": "PASS_CONTRACT",
+    "human_gold_circularity_prevention": "PASS_CONTRACT",
+    "exposure_logging": "PASS_TEMPLATE",
+    "meta_audit_anti_circularity": "PASS_SHELL",
+    "measurement_family_operationalization": "PASS_SHELL",
+    "real_expert_judgment": "NOT_YET_COLLECTED",
+    "agent_candidate_output": "NOT_YET_GENERATED",
+    "qualified_reference": "NOT_YET_EXISTS"
+  },
+  "kill_test_precheck": {
+    "KT-R1-01 Human Gold Circularity": "GUARDED",
+    "KT-R1-02 Agent Self-Gold": "GUARDED",
+    "KT-R1-03 Anchoring Unmeasured": "GUARDED_BY_EXPOSURE_LOG",
+    "KT-R1-04 Breadth Inflation": "MEASURABLE_AFTER_EXECUTION",
+    "KT-R1-05 Critical False Addition": "MEASURABLE_AFTER_EXECUTION",
+    "KT-R1-06 Reference Instability": "MEASURABLE_AFTER_MULTI_WORKFLOW_OUTPUT",
+    "KT-R1-07 Meta-Audit Collapse": "MEASURABLE_AFTER_META_AUDIT"
+  },
+  "important_boundary": "This P0 pass means the pilot can begin real expert capture; it does not mean R1a has produced evidence about workflow quality.",
+  "next_stage": {
+    "id": "NDS-R1-P0.1",
+    "title": "Expert Qualification, Slot Binding, Pre-AI Capture & Exposure Lock"
+  }
+}

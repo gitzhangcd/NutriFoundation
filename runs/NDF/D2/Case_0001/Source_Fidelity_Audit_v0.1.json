@@ -1,0 +1,121 @@
+{
+  "stage": "NDF-D2",
+  "artifact": "Case-Specific Source Fidelity Audit",
+  "version": "v0.1",
+  "status": "PASS_FOR_R1_PILOT_WITH_OFFICIAL_BYTE_EQUALITY_OPEN",
+  "case_ref": "D2-NHANES-L-0001",
+  "subject_source_id": "NHANES AUG2021-AUG2023 / SEQN 130378",
+  "source_authority": {
+    "semantics": [
+      {
+        "component": "DEMO_L",
+        "authority": "CDC/NCHS official codebook",
+        "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DEMO_L.htm",
+        "used_semantics": [
+          "SEQN",
+          "RIAGENDR",
+          "RIDAGEYR"
+        ]
+      },
+      {
+        "component": "BMX_L",
+        "authority": "CDC/NCHS official codebook",
+        "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/BMX_L.htm",
+        "used_semantics": [
+          "BMXWT",
+          "BMXHT",
+          "BMXBMI"
+        ]
+      },
+      {
+        "component": "BPXO_L",
+        "authority": "CDC/NCHS official codebook",
+        "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/BPXO_L.htm",
+        "used_semantics": [
+          "BPXOSY1",
+          "BPXODI1",
+          "BPXOSY2",
+          "BPXODI2",
+          "BPXOSY3",
+          "BPXODI3",
+          "BPXOPLS1",
+          "BPXOPLS2",
+          "BPXOPLS3",
+          "BPAOARM",
+          "BPAOCSZ"
+        ]
+      },
+      {
+        "component": "DR1TOT_L",
+        "authority": "CDC/NCHS official codebook",
+        "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DR1TOT_L.htm",
+        "used_semantics": [
+          "DR1TKCAL",
+          "DR1TPROT",
+          "DR1TCARB",
+          "DR1TSUGR",
+          "DR1TFIBE",
+          "DR1TTFAT"
+        ]
+      }
+    ],
+    "row_carriers": [
+      {
+        "carrier_id": "CARRIER-NHANES23-MERGED",
+        "source": "codingman7778/nhanes nhanes_23.csv",
+        "immutable_blob_sha": "705865448b96f122a52ee2f738ff9991488a2476",
+        "role": "initial merged carrier for age/sex/body/SBP",
+        "limitation": "merged projection omitted DBP/pulse and diet fields"
+      },
+      {
+        "carrier_id": "CARRIER-BMX-COMPONENT",
+        "source": "codingman7778/nhanes BMX_L.csv",
+        "immutable_blob_sha": "e745cdf0ca93a549f75055f35de4876b5d4b7358",
+        "role": "component-level body-measure row carrier",
+        "row_excerpt": "SEQN=130378; BMXWT=86.9; BMXHT=179.5; BMXBMI=27.0"
+      },
+      {
+        "carrier_id": "CARRIER-BPXO-COMPONENT",
+        "source": "codingman7778/nhanes BPXO_L.csv",
+        "immutable_blob_sha": "7105a1f63967e8354870f94b0f905805763a320e",
+        "role": "component-level BP row carrier",
+        "row_excerpt": "SEQN=130378; arm=R; cuff=4; SBP=[135,131,132]; DBP=[98,96,94]; pulse=[82,79,82]"
+      },
+      {
+        "carrier_id": "CARRIER-DIET-A",
+        "source": "vuhoangnamdoan/nhanes-diabetes-risk-analysis report.ipynb",
+        "immutable_commit": "9ede8e95738989a905493f7c6adb4e7b03078ae8",
+        "role": "public XPT-derived dietary row carrier",
+        "extraction_procedure": "notebook reads DR1TOT_L.XPT with pandas.read_sas(format='xport')",
+        "row_excerpt": "SEQN=130378; DR1TKCAL=1740.0; DR1TCARB=169.66; DR1TSUGR=43.71; DR1TTFAT=55.07"
+      },
+      {
+        "carrier_id": "CARRIER-DIET-B",
+        "source": "jerbeario/CasualPresentation NHANES_EDA.ipynb",
+        "immutable_commit": "072e7fff4e06dd888a5d1174f4630951b00617a6",
+        "role": "independent public XPT-derived dietary row carrier",
+        "extraction_procedure": "notebook reads DR1TOT_L.xpt with pandas.read_sas(format='xport')",
+        "row_excerpt": "SEQN=130378; energy=1740.0; protein=80.46; carbs=169.66; sugar=43.71; fiber=10.1; total fat=55.07"
+      }
+    ]
+  },
+  "concordance": {
+    "age_sex_body_sbp": "PASS_INITIAL_MERGED_CARRIER_PLUS_OFFICIAL_SEMANTICS",
+    "body_measures_component_crosscheck": "PASS",
+    "bp_component_completion": "PASS_DBPS_AND_PULSE_RECOVERED",
+    "dietary_cross_carrier": [
+      "DR1TKCAL=1740.0",
+      "DR1TCARB=169.66",
+      "DR1TSUGR=43.71",
+      "DR1TTFAT=55.07"
+    ],
+    "dietary_cross_carrier_status": "PASS_TWO_INDEPENDENT_PUBLIC_XPT_DERIVED_CARRIERS"
+  },
+  "fidelity_tier": "OFFICIAL_SEMANTIC_AUTHORITY_PLUS_IMMUTABLE_PUBLIC_CARRIERS_PLUS_CROSS_CARRIER_CONCORDANCE",
+  "unresolved": [
+    "Current runtime did not byte-decode the CDC official XPT files directly.",
+    "Therefore exact official-XPT byte equality is not claimed.",
+    "This caveat must be closed or revalidated before locked benchmark publication freeze if policy requires first-party byte equality."
+  ],
+  "qualification_decision": "QUALIFIED_FOR_R1_REFERENCE_SCIENCE_PILOT_NOT_YET_FIRST_PARTY_BYTE_VERIFIED"
+}

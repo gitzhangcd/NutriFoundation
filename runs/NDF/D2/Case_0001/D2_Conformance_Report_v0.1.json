@@ -1,0 +1,59 @@
+{
+  "stage": "NDF-D2",
+  "artifact": "Case-Specific Readiness Conformance Report",
+  "version": "v0.1",
+  "status": "PASS_D2_INPUT_READY_D1_REBIND_REQUIRED_BEFORE_R1",
+  "date": "2026-10-07",
+  "case_ref": "D2-NHANES-L-0001:r2",
+  "readiness_status": "INPUT_READY",
+  "gates": {
+    "D2-G1 Observation fidelity": "PASS",
+    "D2-G2 Case provenance": "PASS_WITH_OFFICIAL_BYTE_EQUALITY_CAVEAT",
+    "D2-G3 Constructed transparency": "PASS",
+    "D2-G4 Boundary integrity": "PASS",
+    "D2-G5 Dependency integrity": "PASS",
+    "D2-G6 No fake trajectory": "PASS"
+  },
+  "observation_completion": {
+    "source_observed_restored": [
+      "BPXODI1=98",
+      "BPXODI2=96",
+      "BPXODI3=94",
+      "BPXOPLS1=82",
+      "BPXOPLS2=79",
+      "BPXOPLS3=82",
+      "DR1TKCAL=1740",
+      "DR1TPROT=80.46",
+      "DR1TCARB=169.66",
+      "DR1TSUGR=43.71",
+      "DR1TFIBE=10.1",
+      "DR1TTFAT=55.07"
+    ],
+    "derived": [
+      "DRV_DBP_MEAN=96.0",
+      "DRV_PULSE_MEAN=81.0"
+    ],
+    "diet_visibility": "MASKED_BY_EXPLICIT_MSK_OVERLAY_IN_R1_FACING_VIEWS"
+  },
+  "source_fidelity": {
+    "status": "QUALIFIED_FOR_R1_REFERENCE_SCIENCE_PILOT",
+    "basis": "CDC official semantic authority + immutable public carriers + component/diet cross-carrier concordance",
+    "unresolved": "Official CDC XPT bytes were not directly decoded in the current runtime.",
+    "locked_benchmark_policy": "HOLD_OR_REVALIDATE_FIRST_PARTY_BYTE_EQUALITY_BEFORE_PUBLICATION_FREEZE_IF_REQUIRED"
+  },
+  "cross_branch_non_regression": {
+    "D1_rebind": "REQUIRED",
+    "impact_notice_ref": "runs/NDF/D2/Case_0001/D1_Rebind_Impact_Notice_v0.1.json",
+    "r1_activation": "BLOCKED_PENDING_D1_REBIND_AND_R1_HUMAN_WORKFLOW"
+  },
+  "nonclaims": [
+    "INPUT_READY is not REFERENCE_QUALIFIED.",
+    "D2 PASS does not mean the current D1 case-bound SRS remains valid after observation completion.",
+    "Dietary values hidden by MSK are not source-missing.",
+    "NHANES cross-sectional observations are not a longitudinal clinical trajectory."
+  ],
+  "next_stage": {
+    "id": "NDF-D1-A3R.3",
+    "title": "D2 Observation Completion Rebind, BP Applicability Refresh & Non-Regression Freeze"
+  }
+}

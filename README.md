@@ -49,38 +49,48 @@ See:
 
 Legacy `paper_c/` and `runs/E0.4.x/` assets are preserved as historical/conditional scientific evidence-production lineage and do not define the current NDS-P1 question.
 
-### Current NDF-D1 execution state
+### Current NDF-D1 / D2 execution state
 
 ```text
+D1
 A0R    PASS_FROZEN
   ↓
 A1R    PASS_SELECTION
-        ScientificQuestion: SQ-D1-A1R-001
-        ThinSlice:          TS-D1-A1R-001
   ↓
 A2R    PASS_SOURCE_QUALIFICATION
-        Targeted sources:   6
   ↓
 A3R    PASS_PROVISIONAL_SRS
-        EvidenceUnits:      7
-        ScientificClaims:   7
   ↓
 A3R.1  PASS_D1_G6
-        Claim replay:       7 / 7 PASS
-        SRS r2:             reproducibility qualified
   ↓
 A3R.2  PASS_EPISTEMIC_APPRAISAL
-        Method appraisals:  6
-        Contributions:      10
-        EvidenceBodies:     5
-        Syntheses:          2
-        SUPPORTED:          5
-        PARTIAL:            2
-        Effect certainty:   7 × NOT_APPLICABLE
-        SRS r3:             epistemically appraised + reproducible
-        R1 activation:      BLOCKED pending D2 + human reference workflow
-  ↓
-NEXT    NDF-D2 case-specific readiness
+        SRS r3: epistemically appraised + reproducible
+        case binding: STALE after D2 observation completion
+        reason: source-observed DBP restored
+        ↓
+        A3R.3 REBIND REQUIRED
+
+D2
+Case D2-NHANES-L-0001:r2
+        Observation completion: PASS
+        Source fidelity:        PASS for R1 pilot, official-byte equality open
+        Diet substrate:         restored as OBS
+        Diet in R1 views:       explicit MSK
+        Materialized views:     leakage scan PASS
+        D2-G1..G6:              PASS
+        Readiness:              INPUT_READY
+
+Cross-branch:
+D2 PASS + D1 case-specific rebind required
+R1 activation: BLOCKED until A3R.3 + human reference workflow
+```
+
+Next required stage:
+
+```text
+NDF-D1-A3R.3
+D2 Observation Completion Rebind,
+BP Applicability Refresh & Non-Regression Freeze
 ```
 
 

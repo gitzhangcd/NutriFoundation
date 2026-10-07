@@ -1,0 +1,60 @@
+{
+  "stage": "NDF-D1-A3R.3",
+  "artifact": "BP Applicability Refresh",
+  "version": "v0.1",
+  "status": "PASS_COMPLETED_D2_VIEW",
+  "case_ref": "D2-NHANES-L-0001:r2",
+  "knowledge_targets": [
+    "SC-A3R-003",
+    "SC-A3R-004"
+  ],
+  "source_framework": {
+    "name": "2025 AHA/ACC multisociety high blood pressure guideline",
+    "current_corrected_version_checked_on": "2026-10-07",
+    "stage_1": "SBP 130-139 OR DBP 80-89 mmHg",
+    "stage_2": "SBP >=140 OR DBP >=90 mmHg",
+    "criterion_logic": "OR"
+  },
+  "subject_context": {
+    "adult": true,
+    "observed_sbp": [
+      135,
+      131,
+      132
+    ],
+    "observed_dbp": [
+      98,
+      96,
+      94
+    ],
+    "derived_mean_sbp": 132.66666666666666,
+    "derived_mean_dbp": 96,
+    "derivation_status": "DETERMINISTIC_REPLAY_PASS"
+  },
+  "dimensional_match": {
+    "population_match": "ADULT_MATCH",
+    "measurement_type_match": "OSCILLOMETRIC_BP_NUMERICAL_MAPPING_MATCH",
+    "temporal_match": "CURRENT_CROSS_SECTIONAL_SNAPSHOT_ONLY",
+    "diagnostic_workflow_match": "INCOMPLETE",
+    "treatment_context_match": "INCOMPLETE",
+    "risk_context_match": "INCOMPLETE"
+  },
+  "numerical_mapping": {
+    "systolic_component": "STAGE_1_RANGE",
+    "diastolic_component": "STAGE_2_RANGE",
+    "overall_framework_category": "STAGE_2_NUMERICAL_CATEGORY_BY_OR_CRITERION",
+    "diagnostic_status": "NOT_ESTABLISHED"
+  },
+  "missing_information": [
+    "clinical diagnostic confirmation context",
+    "appropriate repeated/standardized measurement context beyond the constructed snapshot where required",
+    "relevant comorbid/risk context for treatment or individualized nutrition decisions"
+  ],
+  "overall_applicability": "PARTIALLY_APPLICABLE",
+  "rationale": "The guideline category thresholds directly apply to numerical BP classification for this adult case, but the constructed NHANES snapshot does not by itself establish a confirmed diagnosis or authorize diagnosis-dependent individualized treatment.",
+  "prohibited_inference": [
+    "EP-NHANES-L-0001 has confirmed stage 2 hypertension.",
+    "The case requires a specific antihypertensive treatment.",
+    "The BP category alone determines an individualized nutrition prescription."
+  ]
+}

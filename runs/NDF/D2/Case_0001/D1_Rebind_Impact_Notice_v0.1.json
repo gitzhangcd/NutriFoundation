@@ -1,0 +1,39 @@
+{
+  "stage": "NDF-D2",
+  "artifact": "D1 Rebind Impact Notice",
+  "version": "v0.1",
+  "status": "REBIND_REQUIRED",
+  "trigger_case_ref": "D2-NHANES-L-0001:r2",
+  "trigger": "D2 observation completion restored source-observed DBP readings absent from the prior systolic-only authorized view.",
+  "affected_d1_objects": [
+    {
+      "ref": "SC-A3R-003",
+      "reason": "BP interpretation boundary remains relevant but must be rechecked against the completed BP tuple."
+    },
+    {
+      "ref": "SC-A3R-004",
+      "reason": "Existing case mapping explicitly used mean SBP and a systolic category; the completed view includes DBP and therefore the case-level category mapping is incomplete/stale."
+    },
+    {
+      "ref": "SRS-D1-A3R-001:r3",
+      "reason": "Case-specific ScientificReferenceState was bound to the prior authorized view and must be regenerated/rebound before R1 use."
+    }
+  ],
+  "unaffected_or_expected_stable": [
+    "A3R.2 general evidence-to-claim appraisal architecture",
+    "source/correction reproducibility closure",
+    "diet masking construct itself, because hidden diet values remain excluded from R1-facing projections"
+  ],
+  "required_action": {
+    "suggested_stage_id": "NDF-D1-A3R.3",
+    "title": "D2 Observation Completion Rebind, BP Applicability Refresh & Non-Regression Freeze",
+    "minimum_scope": [
+      "refresh case observation binding",
+      "re-evaluate SC-A3R-003 and SC-A3R-004 against SBP+DBP completed view",
+      "update case-specific relations/boundaries if needed",
+      "regenerate SRS revision without changing unrelated claims",
+      "rerun claim replay only for impacted objects"
+    ]
+  },
+  "invariant": "D2 correction must not be hidden to preserve a previously frozen D1 conclusion."
+}

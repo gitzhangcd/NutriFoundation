@@ -1,0 +1,90 @@
+{
+  "stage": "NDS-R1-P0",
+  "artifact": "R1 Workflow Protocol",
+  "version": "v0.1",
+  "status": "FROZEN_OPERATIONAL_PROTOCOL",
+  "arms": {
+    "R0": {
+      "name": "Human De Novo",
+      "sequence": [
+        "CASE_SOURCE_VIEW",
+        "HUMAN_JUDGMENT",
+        "REFERENCE_CANDIDATE"
+      ],
+      "agent_exposure": "NONE",
+      "required_records": [
+        "HumanJudgment",
+        "BurdenLog"
+      ],
+      "prohibited": [
+        "Treating R0 output as meta-audit Gold"
+      ]
+    },
+    "R1": {
+      "name": "Agent First → Expert Verify",
+      "sequence": [
+        "CASE_AGENT_VIEW",
+        "AGENT_CANDIDATE_EXPANSION",
+        "EXPERT_VERIFICATION",
+        "REFERENCE_CANDIDATE"
+      ],
+      "agent_exposure": "BEFORE_EXPERT_INDEPENDENT_FOCUS",
+      "purpose": "High-anchoring-risk comparator",
+      "required_records": [
+        "AgentCandidateSet",
+        "ExposureLog",
+        "ExpertVerification",
+        "BurdenLog"
+      ],
+      "prohibited": [
+        "Agent answer promoted directly to reference"
+      ]
+    },
+    "R2": {
+      "name": "Expert Focus → Agent Expand → Expert Reconcile",
+      "sequence": [
+        "EXPERT_PRE_AI_VIEW",
+        "FREEZE_J_PREAI",
+        "AGENT_EXPANSION_VIEW",
+        "AGENT_CANDIDATE_EXPANSION",
+        "EXPERT_RECONCILIATION",
+        "FREEZE_J_POSTAI"
+      ],
+      "agent_exposure": "ONLY_AFTER_J_PREAI_FREEZE",
+      "purpose": "Primary candidate workflow without predeclared superiority",
+      "required_records": [
+        "ExpertPreAIJudgment",
+        "AgentCandidateSet",
+        "ExposureLog",
+        "ReconciliationRecord",
+        "ExpertPostAIJudgment",
+        "BurdenLog"
+      ],
+      "prohibited": [
+        "Overwriting J_preAI",
+        "Hiding rejected/modified Agent candidates"
+      ]
+    }
+  },
+  "reference_set_labels": [
+    "PREFERRED",
+    "ACCEPTABLE",
+    "CONDITIONAL",
+    "NOT_CURRENTLY_INDICATED",
+    "PROHIBITED",
+    "UNSAFE",
+    "UNRESOLVED"
+  ],
+  "assignment_rule": "Case × Expert × Workflow design; no expert may see the same case in more than one arm.",
+  "meta_audit_rule": "Build UnionCandidateSet across workflow outputs, remove workflow-source labels, retain necessary case/source support, then blind-qualify items.",
+  "kill_tests": [
+    "KT-R1-01 Human Gold Circularity",
+    "KT-R1-02 Agent Self-Gold",
+    "KT-R1-03 Anchoring Unmeasured",
+    "KT-R1-04 Breadth Inflation",
+    "KT-R1-05 Critical False Addition",
+    "KT-R1-06 Reference Instability",
+    "KT-R1-07 Meta-Audit Collapse"
+  ],
+  "pilot_claim_boundary": "With one operational fixture, only workflow operability, measurement validity and failure-mode discovery may be reported."
+}

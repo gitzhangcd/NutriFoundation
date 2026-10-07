@@ -1,0 +1,44 @@
+{
+  "stage": "NDS-R1-P0",
+  "artifact": "First Case Arm Assignment and Blinding Plan",
+  "version": "v0.1",
+  "status": "FROZEN_SLOTS_UNBOUND",
+  "case_ref": "D2-NHANES-L-0001:r3",
+  "slots": [
+    {
+      "workflow": "R0",
+      "expert_slot": "EXP-R1P0-A",
+      "expert_identity": "UNBOUND",
+      "allowed_view": "EXPERT_PRE_AI_VIEW",
+      "agent_exposure": false,
+      "same_case_other_arm_exposure": "PROHIBITED"
+    },
+    {
+      "workflow": "R1",
+      "expert_slot": "EXP-R1P0-B",
+      "expert_identity": "UNBOUND",
+      "allowed_view_initial": "AGENT_FIRST_EXPERT_VERIFY_PACKAGE",
+      "agent_exposure": true,
+      "exposure_order": "AGENT_BEFORE_EXPERT_VERIFICATION",
+      "same_case_other_arm_exposure": "PROHIBITED"
+    },
+    {
+      "workflow": "R2",
+      "expert_slot": "EXP-R1P0-C",
+      "expert_identity": "UNBOUND",
+      "allowed_view_initial": "EXPERT_PRE_AI_VIEW",
+      "agent_exposure": true,
+      "exposure_order": "ONLY_AFTER_PRE_AI_FREEZE",
+      "same_case_other_arm_exposure": "PROHIBITED"
+    }
+  ],
+  "expert_eligibility_minimum": [
+    "Qualified professional with nutrition/dietetics or relevant clinical nutrition decision expertise appropriate to the task.",
+    "Able to make independent professional judgments under incomplete information.",
+    "No prior exposure to this exact case in another R1 workflow arm.",
+    "No access to hidden diet values, final reference, other experts' answers or meta-audit labels.",
+    "Conflict-of-interest and prior-case-exposure status recorded before binding."
+  ],
+  "identity_binding_rule": "Real identities are bound only after qualification/exposure screening; P0 does not invent expert identities.",
+  "randomization_status": "NOT_INFERENTIAL_WITH_ONE_CASE; slot structure frozen, multi-case randomization deferred until R1a stress slice expands."
+}

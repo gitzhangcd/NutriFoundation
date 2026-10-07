@@ -12,7 +12,7 @@
     "D2_G1": "PASS",
     "D2_G2": "PASS_WITH_CAVEAT",
     "D2_G3": "PASS",
-    "D2_G4": "PASS",
+    "D2_G4": "PASS_MATERIALIZED_VIEW_LEAKAGE_SCAN",
     "D2_G5": "PASS",
     "D2_G6": "PASS",
     "r1_activation": "BLOCKED_PENDING_D1_REBIND_AND_R1_HUMAN_REFERENCE_WORKFLOW"
@@ -22,6 +22,7 @@
     "runs/NDF/D2/Case_0001/Observation_Completion_Record_v0.1.json",
     "runs/NDF/D2/Case_0001/Mask_and_Projection_Policy_v0.1.json",
     "runs/NDF/D2/Case_0001/Dependency_Group_Registry_v0.1.json",
+    "runs/NDF/D2/Case_0001/Materialized_Projection_Views_v0.1.json",
     "runs/NDF/D2/Case_0001/NutritionDecisionCaseBundle_v0.1.json",
     "runs/NDF/D2/Case_0001/D1_Rebind_Impact_Notice_v0.1.json",
     "runs/NDF/D2/Case_0001/D2_Conformance_Report_v0.1.json"

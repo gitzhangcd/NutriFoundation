@@ -1,0 +1,77 @@
+{
+  "stage": "NDF-D1-A3R.3",
+  "artifact": "Non-Regression Report",
+  "version": "v0.1",
+  "status": "PASS_WITH_THREE_EXPLICIT_DELTAS",
+  "baseline": "runs/NDF/D1/A3R.2/ScientificClaim_Set_v0.2.json",
+  "candidate": "runs/NDF/D1/A3R.3/ScientificClaim_Set_v0.3.json",
+  "explicit_deltas": [
+    {
+      "claim_ref": "SC-A3R-001",
+      "class": "WORDING_ONLY",
+      "scientific_meaning_change": false
+    },
+    {
+      "claim_ref": "SC-A3R-003",
+      "class": "BOUNDARY_SCOPE_REFRESH",
+      "scientific_meaning_change": false
+    },
+    {
+      "claim_ref": "SC-A3R-004",
+      "class": "MATERIAL_CASE_MAPPING_REVISION",
+      "scientific_meaning_change": true
+    }
+  ],
+  "unchanged_claims": [
+    {
+      "claim_ref": "SC-A3R-002",
+      "statement": "UNCHANGED",
+      "evidential_state": "SUPPORTED",
+      "certainty_ref": "UNCHANGED",
+      "result": "PASS"
+    },
+    {
+      "claim_ref": "SC-A3R-005",
+      "statement": "UNCHANGED",
+      "evidential_state": "SUPPORTED",
+      "certainty_ref": "UNCHANGED",
+      "result": "PASS"
+    },
+    {
+      "claim_ref": "SC-A3R-006",
+      "statement": "UNCHANGED",
+      "evidential_state": "PARTIALLY_SUPPORTED",
+      "certainty_ref": "UNCHANGED",
+      "result": "PASS"
+    },
+    {
+      "claim_ref": "SC-A3R-007",
+      "statement": "UNCHANGED",
+      "evidential_state": "SUPPORTED",
+      "certainty_ref": "UNCHANGED",
+      "result": "PASS"
+    }
+  ],
+  "aggregate_epistemic_state": {
+    "before": {
+      "SUPPORTED": 5,
+      "PARTIALLY_SUPPORTED": 2
+    },
+    "after": {
+      "SUPPORTED": 5,
+      "PARTIALLY_SUPPORTED": 2
+    },
+    "result": "UNCHANGED"
+  },
+  "evidence_certainty": {
+    "before": "7 x NOT_APPLICABLE",
+    "after": "7 x NOT_APPLICABLE",
+    "result": "UNCHANGED"
+  },
+  "source_set_change": "NONE",
+  "methodological_appraisal_change": "NONE",
+  "evidence_body_change": "NONE_REQUIRED",
+  "evidence_synthesis_change": "BP synthesis requires case-binding note only; source-level synthesis content is unchanged.",
+  "diet_mask_non_regression": "PASS_UNDERLYING_DIET_REMAINS_HIDDEN_FROM_R1_FACING_VIEWS",
+  "result": "PASS"
+}

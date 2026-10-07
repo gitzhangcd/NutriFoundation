@@ -1,0 +1,147 @@
+{
+  "stage": "NDF-D1-A3R.2",
+  "artifact": "Evidence Certainty Assessment Registry",
+  "version": "v0.1",
+  "status": "FROZEN",
+  "assessment_policy": {
+    "canonical_semantics": "AI Nutri v2.0 EvidenceCertaintyAssessment",
+    "rule": "Use HIGH/MODERATE/LOW/VERY_LOW only when the claim's epistemic target is an empirical evidence-certainty question supported by an appropriate framework. Use NOT_APPLICABLE for definitional/process/boundary/eligibility/case-mapping claims when empirical effect certainty is not the relevant construct.",
+    "invariant": "SUPPORTED != HIGH_CERTAINTY"
+  },
+  "records": [
+    {
+      "certainty_assessment_id": "ECA-CERT-A3R2-001",
+      "target_ref": "SC-A3R-001",
+      "question_ref": "SQ-D1-A1R-001",
+      "outcome_ref": null,
+      "framework": "NDF-A3R2-CERTAINTY-ROUTER-v0.1",
+      "epistemic_target_class": "PROCESS_AND_CASE_BOUNDARY",
+      "downgrade_domains": {
+        "risk_of_bias": "NOT_APPLICABLE",
+        "inconsistency": "NOT_APPLICABLE",
+        "indirectness": "PRESENT_AT_CASE_SPECIFIC_INFERENCE_LAYER",
+        "imprecision": "NOT_APPLICABLE",
+        "publication_bias": "NOT_APPLICABLE"
+      },
+      "upgrade_domains": [],
+      "final_certainty": "NOT_APPLICABLE",
+      "rationale": "This is not an empirical effect-estimate claim. The relevant judgment is evidential support/directness, not GRADE-like effect certainty.",
+      "evidence_cutoff_date": "2026-10-07"
+    },
+    {
+      "certainty_assessment_id": "ECA-CERT-A3R2-002",
+      "target_ref": "SC-A3R-002",
+      "question_ref": "SQ-D1-A1R-001",
+      "outcome_ref": null,
+      "framework": "NDF-A3R2-CERTAINTY-ROUTER-v0.1",
+      "epistemic_target_class": "PROCESS",
+      "downgrade_domains": {
+        "risk_of_bias": "NOT_APPLICABLE",
+        "inconsistency": "NOT_APPLICABLE",
+        "indirectness": "LOW_FOR_PROCESS_STATEMENT",
+        "imprecision": "NOT_APPLICABLE",
+        "publication_bias": "NOT_APPLICABLE"
+      },
+      "upgrade_domains": [],
+      "final_certainty": "NOT_APPLICABLE",
+      "rationale": "The claim describes a professional assessment process, not a treatment effect.",
+      "evidence_cutoff_date": "2026-10-07"
+    },
+    {
+      "certainty_assessment_id": "ECA-CERT-A3R2-003",
+      "target_ref": "SC-A3R-003",
+      "question_ref": "SQ-D1-A1R-001",
+      "outcome_ref": null,
+      "framework": "NDF-A3R2-CERTAINTY-ROUTER-v0.1",
+      "epistemic_target_class": "CLINICAL_INTERPRETATION_BOUNDARY",
+      "downgrade_domains": {
+        "risk_of_bias": "NOT_APPLICABLE",
+        "inconsistency": "NO_DIRECT_CONFLICT_DETECTED",
+        "indirectness": "LOW_FOR_BOUNDARY",
+        "imprecision": "NOT_APPLICABLE",
+        "publication_bias": "NOT_APPLICABLE"
+      },
+      "upgrade_domains": [],
+      "final_certainty": "NOT_APPLICABLE",
+      "rationale": "The claim is a diagnostic-inference boundary derived from guideline/measurement rules, not an empirical effect claim.",
+      "evidence_cutoff_date": "2026-10-07"
+    },
+    {
+      "certainty_assessment_id": "ECA-CERT-A3R2-004",
+      "target_ref": "SC-A3R-004",
+      "question_ref": "SQ-D1-A1R-001",
+      "outcome_ref": null,
+      "framework": "NDF-A3R2-CERTAINTY-ROUTER-v0.1",
+      "epistemic_target_class": "DEFINITIONAL_CLASSIFICATION_PLUS_DETERMINISTIC_CASE_MAPPING",
+      "downgrade_domains": {
+        "risk_of_bias": "NOT_APPLICABLE",
+        "inconsistency": "NOT_APPLICABLE",
+        "indirectness": "LOW_FOR_NUMERICAL_MAPPING",
+        "imprecision": "NOT_APPLICABLE_TO_THRESHOLD_MAPPING",
+        "publication_bias": "NOT_APPLICABLE"
+      },
+      "upgrade_domains": [],
+      "final_certainty": "NOT_APPLICABLE",
+      "rationale": "The claim is a reproducible numerical mapping to a guideline-defined category with an explicit non-diagnostic boundary.",
+      "evidence_cutoff_date": "2026-10-07"
+    },
+    {
+      "certainty_assessment_id": "ECA-CERT-A3R2-005",
+      "target_ref": "SC-A3R-005",
+      "question_ref": "SQ-D1-A1R-001",
+      "outcome_ref": null,
+      "framework": "NDF-A3R2-CERTAINTY-ROUTER-v0.1",
+      "epistemic_target_class": "RECOMMENDATION_ELIGIBILITY_AND_APPLICABILITY",
+      "downgrade_domains": {
+        "risk_of_bias": "NOT_APPLICABLE_TO_ELIGIBILITY_STATEMENT",
+        "inconsistency": "NOT_APPLICABLE",
+        "indirectness": "CASE_RISK_STATUS_INCOMPLETE",
+        "imprecision": "NOT_APPLICABLE",
+        "publication_bias": "NOT_APPLICABLE"
+      },
+      "upgrade_domains": [],
+      "final_certainty": "NOT_APPLICABLE",
+      "rationale": "The current claim concerns whether recommendation conditions are established in the case, not the magnitude/certainty of counseling benefit.",
+      "evidence_cutoff_date": "2026-10-07"
+    },
+    {
+      "certainty_assessment_id": "ECA-CERT-A3R2-006",
+      "target_ref": "SC-A3R-006",
+      "question_ref": "SQ-D1-A1R-001",
+      "outcome_ref": null,
+      "framework": "NDF-A3R2-CERTAINTY-ROUTER-v0.1",
+      "epistemic_target_class": "GENERAL_GUIDANCE_VS_INDIVIDUAL_REFERENCE_BOUNDARY",
+      "downgrade_domains": {
+        "risk_of_bias": "NOT_APPLICABLE",
+        "inconsistency": "NOT_APPLICABLE",
+        "indirectness": "FRAMEWORK_BOUNDARY_REQUIRED",
+        "imprecision": "NOT_APPLICABLE",
+        "publication_bias": "NOT_APPLICABLE"
+      },
+      "upgrade_domains": [],
+      "final_certainty": "NOT_APPLICABLE",
+      "rationale": "The general-vs-individual distinction is a scope/ontology boundary, not an empirical effect-certainty claim.",
+      "evidence_cutoff_date": "2026-10-07"
+    },
+    {
+      "certainty_assessment_id": "ECA-CERT-A3R2-007",
+      "target_ref": "SC-A3R-007",
+      "question_ref": "SQ-D1-A1R-001",
+      "outcome_ref": null,
+      "framework": "NDF-A3R2-CERTAINTY-ROUTER-v0.1",
+      "epistemic_target_class": "THRESHOLD_ELIGIBILITY_PLUS_DETERMINISTIC_CASE_MAPPING",
+      "downgrade_domains": {
+        "risk_of_bias": "NOT_APPLICABLE",
+        "inconsistency": "NOT_APPLICABLE",
+        "indirectness": "LOW_FOR_THRESHOLD_MAPPING",
+        "imprecision": "NOT_APPLICABLE_TO_THRESHOLD_MAPPING",
+        "publication_bias": "NOT_APPLICABLE"
+      },
+      "upgrade_domains": [],
+      "final_certainty": "NOT_APPLICABLE",
+      "rationale": "The claim maps observed BMI to a recommendation population threshold; it does not estimate intervention benefit.",
+      "evidence_cutoff_date": "2026-10-07"
+    }
+  ],
+  "conclusion": "For the first thin slice, claim certainty in the empirical-effect sense is NOT_APPLICABLE across all seven claims. This is an informative scientific result, not a missing-data failure."
+}

@@ -64,12 +64,20 @@ A2R    PASS_SOURCE_QUALIFICATION
 A3R    PASS_PROVISIONAL_SRS
         EvidenceUnits:      7
         ScientificClaims:   7
-        SRS r1:             reproducibility HOLD
   ↓
-A3R.1  PASS_D1_G6_FIRST_THIN_SLICE_KNOWLEDGE_READY
+A3R.1  PASS_D1_G6
         Claim replay:       7 / 7 PASS
-        D1-G1..G6:          PASS
-        SRS r2:             D1_CONTENT_AND_REPRODUCIBILITY_QUALIFIED
+        SRS r2:             reproducibility qualified
+  ↓
+A3R.2  PASS_EPISTEMIC_APPRAISAL
+        Method appraisals:  6
+        Contributions:      10
+        EvidenceBodies:     5
+        Syntheses:          2
+        SUPPORTED:          5
+        PARTIAL:            2
+        Effect certainty:   7 × NOT_APPLICABLE
+        SRS r3:             epistemically appraised + reproducible
         R1 activation:      BLOCKED pending D2 + human reference workflow
   ↓
 NEXT    NDF-D2 case-specific readiness

@@ -65,32 +65,41 @@ A3R.1  PASS_D1_G6
   ↓
 A3R.2  PASS_EPISTEMIC_APPRAISAL
         SRS r3: epistemically appraised + reproducible
-        case binding: STALE after D2 observation completion
-        reason: source-observed DBP restored
-        ↓
-        A3R.3 REBIND REQUIRED
+  ↓
+A3R.3  PASS_D1_D2_REBIND
+        SC-001: wording-only rebind
+        SC-003: BP boundary scope refresh
+        SC-004: completed-view numerical mapping revised
+                SBP mean 132.7 → stage-1 component
+                DBP mean 96.0  → stage-2 component
+                overall by OR  → stage-2 numerical category
+                diagnosis      → NOT ESTABLISHED
+        SRS r4: CURRENT
+        D1 status: READY FOR NDS-R1
 
 D2
-Case D2-NHANES-L-0001:r2
+Case D2-NHANES-L-0001:r3
         Observation completion: PASS
         Source fidelity:        PASS for R1 pilot, official-byte equality open
         Diet substrate:         restored as OBS
         Diet in R1 views:       explicit MSK
-        Materialized views:     leakage scan PASS
+        Materialized views v0.2: leakage scan PASS
         D2-G1..G6:              PASS
-        Readiness:              INPUT_READY
+        SRS binding:            SRS-D1-A3R-001:r4 CURRENT
+        Readiness:              INPUT_READY_FOR_NDS_R1_REFERENCE_WORKFLOW
 
 Cross-branch:
-D2 PASS + D1 case-specific rebind required
-R1 activation: BLOCKED until A3R.3 + human reference workflow
+D1 ready + D2 input ready
+QualifiedDecisionReference: NOT YET EXISTS
+Evaluator:                 NOT YET FROZEN
 ```
 
-Next required stage:
+Next scientific stage:
 
 ```text
-NDF-D1-A3R.3
-D2 Observation Completion Rebind,
-BP Applicability Refresh & Non-Regression Freeze
+NDS-R1-P0
+First Human Focus × Agent Breadth
+Reference Construction Pilot Intake
 ```
 
 

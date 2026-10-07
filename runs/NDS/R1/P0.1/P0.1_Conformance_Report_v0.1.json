@@ -1,0 +1,45 @@
+{
+  "stage": "NDS-R1-P0.1",
+  "artifact": "P0.1 Conformance Report",
+  "version": "v0.1",
+  "date": "2026-10-07",
+  "status": "PASS_OPERATIONAL_READINESS_EMPIRICAL_CAPTURE_PENDING_REAL_EXPERTS",
+  "case_ref": "D2-NHANES-L-0001:r3",
+  "current_source_packet": "runs/NDS/R1/P0.1/Human_Baseline_Source_Packet_v0.2.json",
+  "checks": {
+    "expert_slot_registry": "PASS_3_SLOTS_UNBOUND",
+    "qualification_screen_instances": "PASS_TEMPLATES_READY",
+    "same_expert_cross_arm_prevention": "PASS_CONTRACT",
+    "R0_no_agent_lock": "PASS",
+    "R1_agent_first_order_lock": "PASS",
+    "R2_preAI_before_agent_lock": "PASS",
+    "judgment_immutability_contract": "PASS",
+    "human_source_packet_current_after_A3R3": "PASS_V0_2",
+    "R0_workpack_ready": "PASS_TEMPLATE_ONLY",
+    "R2_preAI_workpack_ready": "PASS_TEMPLATE_ONLY",
+    "R1_verification_pack": "HOLD_UNTIL_AGENT_SET",
+    "real_expert_binding": "PENDING",
+    "real_preAI_capture": "PENDING",
+    "empirical_reference_data": "NOT_YET_CREATED"
+  },
+  "blockers": [
+    "No real expert identity/qualification evidence has been supplied for EXP-R1P0-A/B/C.",
+    "No R0 Human De Novo judgment has been submitted.",
+    "No R2 J_preAI has been submitted/frozen.",
+    "R1 AgentCandidateSet has not yet been generated/frozen.",
+    "Therefore no empirical workflow output exists yet."
+  ],
+  "interpretation": "P0.1 infrastructure is conformant and ready for real human execution. The stage is not empirically complete until qualified experts are bound and the required first human captures are frozen.",
+  "next_action_order": [
+    "Complete qualification screen and bind a real expert to EXP-R1P0-A.",
+    "Complete qualification screen and bind a different real expert to EXP-R1P0-C.",
+    "Collect and freeze R0 J_human_de_novo.",
+    "Collect and freeze R2 J_preAI before any Agent exposure.",
+    "Bind EXP-R1P0-B before opening the R1 AgentFirst verification workflow."
+  ],
+  "next_stage_gate": {
+    "id": "NDS-R1-P0.2",
+    "title": "First Agent Breadth Execution, R1 AgentFirst Candidate Freeze & R2 Post-PreAI Unlock",
+    "condition": "Only after at least R2 J_preAI is immutably frozen and required expert bindings are qualified."
+  }
+}

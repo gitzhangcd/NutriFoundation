@@ -2,7 +2,7 @@
   "stage": "NDF-D1",
   "artifact": "Scientific Core Thin-Slice Initialization Manifest",
   "version": "v0.1",
-  "status": "FIRST_THIN_SLICE_D1_EPISTEMICALLY_APPRAISED_REBIND_REQUIRED_BY_D2_COMPLETION",
+  "status": "FIRST_THIN_SLICE_D1_D2_REBOUND_READY_FOR_NDS_R1",
   "base_main_commit": "6b2559eb10037149c605921c09423453c8b1d821",
   "branch": "ndf-d1-scientific-core-thin-slice",
   "authority": [
@@ -84,14 +84,15 @@
     "ReferenceConstructionNeed"
   ],
   "next_stage": {
-    "id": "NDF-D1-A3R.3",
-    "title": "D2 Observation Completion Rebind, BP Applicability Refresh & Non-Regression Freeze"
+    "id": "NDS-R1-P0",
+    "title": "First Human Focus × Agent Breadth Reference Construction Pilot Intake"
   },
   "current_stage": {
-    "id": "NDF-D1-A3R.2",
-    "status": "PASS_EPISTEMIC_APPRAISAL_FIRST_THIN_SLICE",
+    "id": "NDF-D1-A3R.3",
+    "status": "PASS_D1_D2_REBIND_READY_FOR_NDS_R1",
     "thin_slice_ref": "TS-D1-A1R-001",
-    "scientific_reference_state_ref": "SRS-D1-A3R-001:r3",
+    "scientific_reference_state_ref": "SRS-D1-A3R-001:r4",
+    "case_binding_status": "CURRENT",
     "evidential_state_summary": {
       "SUPPORTED": 5,
       "PARTIALLY_SUPPORTED": 2
@@ -99,12 +100,10 @@
     "empirical_effect_certainty_summary": {
       "NOT_APPLICABLE": 7
     },
+    "material_delta": "SC-A3R-004 completed-view numerical BP category revised to stage 2 by DBP 96 mmHg and OR criterion; no diagnosis claim.",
     "D1_reproducibility": "PASS",
     "D1_epistemic_appraisal": "PASS",
-    "D1_knowledge_readiness": "PASS_CORE_BUT_CASE_SPECIFIC_REBIND_REQUIRED",
-    "r1_activation": "BLOCKED_PENDING_NDF_D1_A3R3_REBIND_AND_R1_HUMAN_REFERENCE_WORKFLOW",
-    "case_binding_status": "STALE_BY_D2_OBSERVATION_COMPLETION",
-    "rebind_trigger_ref": "runs/NDF/D2/Case_0001/D1_Rebind_Impact_Notice_v0.1.json",
-    "rebind_reason": "D2 restored source-observed DBP readings that were absent from the systolic-only case view used by SRS-D1-A3R-001:r3."
+    "D1_knowledge_readiness": "PASS_FOR_FIRST_THIN_SLICE",
+    "r1_activation": "READY_FOR_NDS_R1_REFERENCE_WORKFLOW"
   }
 }

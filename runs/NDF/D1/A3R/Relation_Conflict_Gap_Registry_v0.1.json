@@ -1,0 +1,89 @@
+{
+  "stage": "NDF-D1-A3R",
+  "artifact": "Scientific Relation, Conflict and Gap Registry",
+  "version": "v0.1",
+  "status": "ACTIVE_GAPS_PRESERVED_NO_FORCED_CONFLICT",
+  "relations": [
+    {
+      "relation_id": "REL-A3R-001",
+      "relation_type": "COMPLEMENTARY_SCOPE",
+      "refs": [
+        "SC-A3R-001",
+        "SC-A3R-002"
+      ],
+      "interpretation": "Multi-domain assessment and active acquisition of missing information are complementary process claims."
+    },
+    {
+      "relation_id": "REL-A3R-002",
+      "relation_type": "SCOPE_DIVERGENCE_NOT_CONFLICT",
+      "refs": [
+        "SC-A3R-003",
+        "SC-A3R-005"
+      ],
+      "interpretation": "AHA BP guidance defines BP/risk management context, whereas USPSTF counseling has its own eligibility population."
+    },
+    {
+      "relation_id": "REL-A3R-003",
+      "relation_type": "ABSTRACTION_LEVEL_SEPARATION",
+      "refs": [
+        "SC-A3R-001",
+        "SC-A3R-006"
+      ],
+      "interpretation": "General dietary guidance is broader than individualized assessment/reference construction."
+    },
+    {
+      "relation_id": "REL-A3R-004",
+      "relation_type": "THRESHOLD_SCOPE_LIMIT",
+      "refs": [
+        "SC-A3R-007"
+      ],
+      "interpretation": "BMI-based eligibility for a specific obesity behavioral recommendation is narrower than generic nutrition/weight considerations."
+    }
+  ],
+  "conflicts": [],
+  "conflict_summary": "No direct scientific contradiction requiring adjudication was identified in the initial six-source set. Scope differences and temporal-update status are preserved as relations/uncertainties rather than manufactured conflicts.",
+  "gaps": [
+    {
+      "gap_id": "GAP-A3R-001",
+      "gap_type": "CASE_INFORMATION_GAP",
+      "description": "Current authorized case view lacks direct dietary intake/pattern information; day-1 total energy is explicitly UNKNOWN because the source component has not been ingested.",
+      "impact": "Blocks confident individualized diet-specific recommendation and leaves nutrition-assessment sufficiency unresolved.",
+      "resolution_owner": "NDF-D2 / NDS-R1"
+    },
+    {
+      "gap_id": "GAP-A3R-002",
+      "gap_type": "CASE_INFORMATION_GAP",
+      "description": "Current case view does not expose a complete medical/risk context needed to determine applicability of risk-conditioned cardiovascular counseling or management recommendations.",
+      "impact": "Risk-conditioned applicability remains unresolved.",
+      "resolution_owner": "NDF-D2"
+    },
+    {
+      "gap_id": "GAP-A3R-003",
+      "gap_type": "REFERENCE_SCIENCE_GAP",
+      "description": "No qualified source in the current set defines a universal minimal variable checklist that must always be present before any individualized nutrition recommendation.",
+      "impact": "Prevents conversion of the KnowledgeNeed contract into a rigid mandatory checklist.",
+      "resolution_owner": "NDS-R1"
+    },
+    {
+      "gap_id": "GAP-A3R-004",
+      "gap_type": "REFERENCE_SCIENCE_GAP",
+      "description": "No qualified source in the current set establishes DEFER as the uniquely correct action for EP-NHANES-L-0001.",
+      "impact": "Final action remains a reference-construction question rather than a D1 scientific fact.",
+      "resolution_owner": "NDS-R1"
+    },
+    {
+      "gap_id": "GAP-A3R-005",
+      "gap_type": "TEMPORAL_VERSION_GAP",
+      "description": "USPSTF counseling/weight-loss topics are flagged as being updated at the evidence cutoff.",
+      "impact": "Current-at-cutoff claims remain temporally qualified.",
+      "resolution_owner": "NDF-D1"
+    },
+    {
+      "gap_id": "GAP-A3R-006",
+      "gap_type": "REPRODUCIBILITY_GAP",
+      "description": "Live-web sources are not byte-frozen and the 2025 AHA/ACC guideline correction lineage has not been reconstructed claim-by-claim.",
+      "impact": "Blocks final D1-G6 ScientificReferenceState reproducibility PASS.",
+      "resolution_owner": "NDF-D1"
+    }
+  ]
+}

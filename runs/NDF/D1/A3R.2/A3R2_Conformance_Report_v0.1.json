@@ -1,0 +1,56 @@
+{
+  "stage": "NDF-D1-A3R.2",
+  "artifact": "Conformance Report",
+  "version": "v0.1",
+  "status": "PASS_EPISTEMIC_APPRAISAL_FIRST_THIN_SLICE",
+  "date": "2026-10-07",
+  "scope": "TS-D1-A1R-001 / SRS-D1-A3R-001:r3",
+  "counts": {
+    "methodological_appraisals": 6,
+    "evidence_to_claim_contributions": 10,
+    "evidence_bodies": 5,
+    "evidence_syntheses": 2,
+    "scientific_claims": 7,
+    "evidential_state_supported": 5,
+    "evidential_state_partially_supported": 2,
+    "empirical_effect_certainty_not_applicable": 7
+  },
+  "checks": {
+    "citation_not_equated_with_support": "PASS",
+    "support_not_equated_with_certainty": "PASS",
+    "contribution_relation_explicit": "PASS",
+    "source_methodological_appraisal_routed_by_source_type": "PASS",
+    "universal_evidence_score_avoided": "PASS",
+    "study_dependency_preserved": "PASS",
+    "evidence_body_constructed": "PASS",
+    "synthesis_constructed_only_when_needed": "PASS",
+    "claim_evidential_state_frozen": "PASS",
+    "certainty_assessment_refs_present": "PASS",
+    "inappropriate_grade_like_certainty_avoided": "PASS",
+    "claim_reproducibility_preserved_from_A3R1": "PASS",
+    "no_gold_predeclaration": "PASS"
+  },
+  "key_findings": [
+    "Five claims are SUPPORTED and two are PARTIALLY_SUPPORTED.",
+    "No claim is MIXED, CONTRADICTED, INCONCLUSIVE, INSUFFICIENT_EVIDENCE or NOT_EVALUATED in the current bounded source set.",
+    "All seven claims have empirical-effect certainty = NOT_APPLICABLE because they are process/boundary/eligibility/classification/case-mapping claims, not treatment-effect claims.",
+    "Formal source-quality scores such as AGREE II were not fabricated when a complete framework appraisal was not performed.",
+    "SC-A3R-001 and SC-A3R-006 remain PARTIALLY_SUPPORTED because part of their wording depends on case/framework interpretation beyond direct source text."
+  ],
+  "D1_state": {
+    "reproducibility": "PASS",
+    "epistemic_appraisal": "PASS",
+    "first_thin_slice_knowledge_readiness": "PASS",
+    "entire_D1_program_complete": false,
+    "r1_activation": "BLOCKED"
+  },
+  "blockers_to_R1": [
+    "NDF-D2 case-specific readiness is not yet qualified.",
+    "NDS-R1 expert pre-AI / agent expansion / reconciliation / meta-audit workflow has not been executed.",
+    "Mandatory human review remains required before any R1/P1 qualified reference use."
+  ],
+  "next_stage": {
+    "id": "NDF-D2-CASE-SPECIFIC-READINESS",
+    "title": "Case-Specific D2 Readiness, Observation Completion, Source Fidelity & Projection Qualification"
+  }
+}

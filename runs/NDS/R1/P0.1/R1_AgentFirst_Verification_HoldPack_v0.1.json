@@ -1,0 +1,36 @@
+{
+  "stage": "NDS-R1-P0.1",
+  "artifact": "R1 Agent-First Expert Verification Hold Pack",
+  "version": "v0.1",
+  "status": "HOLD_AGENT_CANDIDATE_SET_NOT_YET_GENERATED",
+  "workpack_id": "WP-R1P0-R1-VERIFY-001",
+  "expert_slot": "EXP-R1P0-B",
+  "workflow": "R1_AGENT_FIRST_EXPERT_VERIFY",
+  "case_ref": "D2-NHANES-L-0001:r3",
+  "current_gate": {
+    "expert_binding": "PENDING",
+    "qualification": "PENDING",
+    "agent_candidate_set": "NOT_GENERATED",
+    "verification_open": "NO"
+  },
+  "future_expert_inputs": [
+    "visible case",
+    "frozen AgentCandidateSet",
+    "source spans referenced by each Agent candidate"
+  ],
+  "verification_dispositions": [
+    "ACCEPT",
+    "REJECT",
+    "MODIFY",
+    "IRRELEVANT",
+    "UNCERTAIN",
+    "NEEDS_MORE_EVIDENCE"
+  ],
+  "invariant": "R1 has no independent pre-AI judgment phase by design; the expert first sees the frozen Agent candidate set after qualification/binding.",
+  "prohibited": [
+    "Opening verification before AgentCandidateSet freeze",
+    "Agent prose without source spans",
+    "other expert outputs",
+    "final reference/meta-audit labels"
+  ]
+}

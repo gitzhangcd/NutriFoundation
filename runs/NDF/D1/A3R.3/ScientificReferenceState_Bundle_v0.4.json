@@ -1,0 +1,191 @@
+{
+  "stage": "NDF-D1-A3R.3",
+  "artifact": "ScientificReferenceState Bundle",
+  "version": "v0.4",
+  "reference_state_id": "SRS-D1-A3R-001",
+  "revision": "r4",
+  "status": "D1_D2_REBOUND_EPISTEMICALLY_APPRAISED_AND_REPRODUCIBILITY_QUALIFIED",
+  "scientific_question_ref": "SQ-D1-A1R-001",
+  "task_ref": "EP-NHANES-L-0001",
+  "evidence_cutoff_time": {
+    "value": "2026-10-07",
+    "precision": "DATE",
+    "timezone_context": "Asia/Tokyo"
+  },
+  "knowledge_snapshot_ref": "KS-D1-A3R-001",
+  "source_refs": [
+    "SRC-A2R-001",
+    "SRC-A2R-002",
+    "SRC-A2R-003",
+    "SRC-A2R-004",
+    "SRC-A2R-005",
+    "SRC-A2R-006"
+  ],
+  "study_refs": [
+    "DOC-A2R-AND-NCP-ASSESSMENT",
+    "DOC-A2R-AHA-HBP-2025",
+    "DOC-A2R-USPSTF-CVD-COUNSEL-2020",
+    "DOC-A2R-DGA-2025-2030",
+    "DOC-A2R-USPSTF-WEIGHT-2018"
+  ],
+  "evidence_unit_refs": [
+    "EU-A3R-001",
+    "EU-A3R-002",
+    "EU-A3R-003",
+    "EU-A3R-004",
+    "EU-A3R-005",
+    "EU-A3R-006",
+    "EU-A3R-007"
+  ],
+  "synthesis_refs": [
+    "REL-A3R-001",
+    "REL-A3R-002",
+    "REL-A3R-003",
+    "REL-A3R-004"
+  ],
+  "scientific_claim_refs": [
+    "SC-A3R-001",
+    "SC-A3R-002",
+    "SC-A3R-003",
+    "SC-A3R-004",
+    "SC-A3R-005",
+    "SC-A3R-006",
+    "SC-A3R-007"
+  ],
+  "relation_refs": [
+    "REL-A3R-001",
+    "REL-A3R-002",
+    "REL-A3R-003",
+    "REL-A3R-004"
+  ],
+  "conflict_refs": [],
+  "gap_refs": [
+    "GAP-A3R-001",
+    "GAP-A3R-002",
+    "GAP-A3R-003",
+    "GAP-A3R-004",
+    "GAP-A3R-005"
+  ],
+  "certainty_refs": [
+    "ECA-CERT-A3R2-001",
+    "ECA-CERT-A3R2-002",
+    "ECA-CERT-A3R2-003",
+    "ECA-CERT-A3R2-004",
+    "ECA-CERT-A3R2-005",
+    "ECA-CERT-A3R2-006",
+    "ECA-CERT-A3R2-007"
+  ],
+  "boundary_conditions": [
+    "Current scientific state supports asking for additional decision-relevant information as a legitimate assessment process, but does not preselect the final action.",
+    "Visible systolic BP values may be category-mapped numerically but may not be converted into a confirmed hypertension diagnosis.",
+    "Current CVD-counseling applicability is unresolved because complete risk context is not present in the authorized case view.",
+    "BMI 27 does not meet the BMI >=30 population criterion for the cited USPSTF obesity behavioral-intervention recommendation.",
+    "General dietary guidance is context, not an individualized DecisionReference."
+  ],
+  "residual_uncertainty": [
+    "Which missing information domains are critical for this exact DecisionEpisode?",
+    "Whether expert reference should REQUEST_MORE_INFORMATION, DEFER, provide only general low-risk guidance, or preserve multiple acceptable actions.",
+    "Whether additional disease/risk/safety context exists in D2 but is not yet ingested/projected.",
+    "How updated USPSTF guidance after this cutoff may alter applicability."
+  ],
+  "omitted_information": [
+    {
+      "object_ref": "Gold100 locked-evaluation sources",
+      "omission_reason": "purpose quarantine"
+    },
+    {
+      "object_ref": "Calibration24 sources",
+      "omission_reason": "calibration-only purpose"
+    },
+    {
+      "object_ref": "legacy 31-EQ routing",
+      "omission_reason": "superseded by A0R"
+    },
+    {
+      "object_ref": "unqualified historical papers",
+      "omission_reason": "failed L3 semantic-scope relevance"
+    },
+    {
+      "object_ref": "future evidence after 2026-10-07",
+      "omission_reason": "temporal leakage prevention"
+    }
+  ],
+  "reconstruction_policy": "Reconstruct from frozen scientific question, date cutoff, A2R source manifest/identity registry, typed EvidenceUnits, claim-level verification, and preserved relation/gap registries.",
+  "projection_policy_version": "NDF-D0-Projection-v0.1 / A0R demand-driven routing",
+  "provenance": {
+    "question_ref": "runs/NDF/D1/A1R/Scientific_Question_Intake_Registry_v0.1.json",
+    "knowledge_need_ref": "runs/NDF/D1/A1R/Knowledge_Need_Contract_v0.1.json",
+    "source_manifest_ref": "runs/NDF/D1/A2R/Targeted_Source_Acquisition_Manifest_v0.1.json",
+    "span_qualification_ref": "runs/NDF/D1/A2R/Source_Span_Qualification_Registry_v0.1.json",
+    "snapshot_gap_ref": "runs/NDF/D1/A2R/A2R_Source_Snapshot_Gap_Register_v0.1.json",
+    "claim_support_snapshot_ref": "runs/NDF/D1/A3R.1/Frozen_Claim_Support_Snapshot_Manifest_v0.1.json",
+    "correction_closure_ref": "runs/NDF/D1/A3R.1/A3R1_AHA_Correction_Closure_v0.1.json",
+    "role_separated_audit_ref": "runs/NDF/D1/A3R.1/Role_Separated_Claim_Audit_Report_v0.1.json",
+    "verification_v2_ref": "runs/NDF/D1/A3R.1/Verification_Records_v0.2.json",
+    "snapshot_correction_closure_ref": "runs/NDF/D1/A3R.1/Snapshot_Correction_Closure_Report_v0.1.json",
+    "a3r2_routing_ref": "runs/NDF/D1/A3R.2/A3R2_Appraisal_Routing_Contract_v0.1.json",
+    "a3r2_claim_set_ref": "runs/NDF/D1/A3R.2/ScientificClaim_Set_v0.2.json"
+  },
+  "gates": {
+    "D1-G1 Source identity": "PASS",
+    "D1-G2 Evidence reconstruction": "PASS",
+    "D1-G3 Source-span support": "PASS",
+    "D1-G4 Temporal fidelity": "PASS_AT_DATE_PRECISION",
+    "D1-G5 Conflict preservation": "PASS_NO_DIRECT_CONFLICT_DETECTED_SCOPE_DIVERGENCE_PRESERVED",
+    "D1-G6 Reference-state reproducibility": "PASS",
+    "A3R.2 Evidence-to-claim contribution appraisal": "PASS",
+    "A3R.2 Methodological-quality routing": "PASS_NO_UNIVERSAL_SCORE",
+    "A3R.2 Claim epistemic-state freeze": "PASS",
+    "A3R.2 Claim certainty routing": "PASS_NOT_APPLICABLE_FOR_7_NON_EFFECT_CLAIMS",
+    "A3R.3 D2 observation rebind": "PASS",
+    "A3R.3 BP applicability refresh": "PASS",
+    "A3R.3 impacted claim replay": "PASS",
+    "A3R.3 non-regression": "PASS_WITH_THREE_EXPLICIT_DELTAS"
+  },
+  "case_specific_knowledge_readiness": "PASS_D1_D2_REBOUND_READY_FOR_NDS_R1_INTAKE",
+  "explicit_nonclaim": "This rebound SRS is not a QualifiedDecisionReference and does not diagnose hypertension. The stage-2 label is a numerical category mapping of the completed BP tuple only.",
+  "resolved_gap_refs": [
+    "GAP-A3R-006"
+  ],
+  "r1_entry_status": "READY_FOR_NDS_R1_REFERENCE_WORKFLOW",
+  "audit_boundary": {
+    "claim_replay": "PASS_7_OF_7",
+    "independent_human_review": "NOT_PERFORMED",
+    "interpretation": "D1 scientific-state reproducibility is qualified. Human expert review remains mandatory before R1/P1 qualified reference use."
+  },
+  "epistemic_appraisal": {
+    "scientific_claim_set_ref": "runs/NDF/D1/A3R.2/ScientificClaim_Set_v0.2.json",
+    "methodological_appraisal_ref": "runs/NDF/D1/A3R.2/Methodological_Appraisal_Registry_v0.1.json",
+    "contribution_assessment_ref": "runs/NDF/D1/A3R.2/Evidence_to_Claim_Contribution_Assessment_v0.1.json",
+    "evidence_body_synthesis_ref": "runs/NDF/D1/A3R.2/EvidenceBody_and_EvidenceSynthesis_Registry_v0.1.json",
+    "certainty_assessment_ref": "runs/NDF/D1/A3R.2/Evidence_Certainty_Assessment_Registry_v0.1.json",
+    "evidential_state_summary": {
+      "SUPPORTED": 5,
+      "PARTIALLY_SUPPORTED": 2
+    },
+    "empirical_effect_certainty_summary": {
+      "NOT_APPLICABLE": 7
+    },
+    "interpretation": "The current thin slice consists of process/boundary/eligibility/classification claims rather than empirical treatment-effect claims. Evidential support is frozen; GRADE-like effect certainty is not applicable.",
+    "rebind_interpretation": "Epistemic-state counts are unchanged. Only SC-A3R-004 has a material case-mapping revision; SC-A3R-001/003 are wording/scope rebinds."
+  },
+  "supersedes": "runs/NDF/D1/A3R.2/ScientificReferenceState_Bundle_v0.3.json",
+  "case_binding": {
+    "case_ref": "D2-NHANES-L-0001:r2",
+    "prior_binding": "SRS-D1-A3R-001:r3 / systolic-only case view",
+    "current_binding": "COMPLETED_D2_BP_VIEW_WITH_EXPLICIT_DIET_MASK",
+    "binding_status": "CURRENT",
+    "observation_completion_ref": "runs/NDF/D2/Case_0001/Observation_Completion_Record_v0.1.json",
+    "projection_ref": "runs/NDF/D2/Case_0001/Mask_and_Projection_Policy_v0.1.json"
+  },
+  "scientific_claim_set_ref": "runs/NDF/D1/A3R.3/ScientificClaim_Set_v0.3.json",
+  "applicability_refresh_ref": "runs/NDF/D1/A3R.3/BP_Applicability_Refresh_v0.1.json",
+  "rebind_delta_ref": "runs/NDF/D1/A3R.3/A3R3_Rebind_Delta_Manifest_v0.1.json",
+  "replay_audit_ref": "runs/NDF/D1/A3R.3/Impacted_Claim_Replay_Audit_v0.1.json",
+  "non_regression_ref": "runs/NDF/D1/A3R.3/Non_Regression_Report_v0.1.json",
+  "case_specific_delta": {
+    "SC-A3R-001": "wording-only rebind to visible BP observations",
+    "SC-A3R-003": "no-diagnosis boundary refreshed from systolic-only to systolic+diastolic tuple",
+    "SC-A3R-004": "overall numerical category mapping revised to stage 2 because mean DBP=96 mmHg satisfies the >=90 threshold under OR logic"
+  }
+}

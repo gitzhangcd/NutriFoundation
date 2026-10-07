@@ -1,0 +1,51 @@
+{
+  "stage": "NDS-R1-P0.1",
+  "artifact": "Expert Slot Binding Registry",
+  "version": "v0.1",
+  "date": "2026-10-07",
+  "status": "FROZEN_UNBOUND_AWAITING_REAL_EXPERTS",
+  "case_ref": "D2-NHANES-L-0001:r3",
+  "slots": [
+    {
+      "expert_slot": "EXP-R1P0-A",
+      "workflow": "R0",
+      "identity_status": "UNBOUND",
+      "qualification_status": "PENDING",
+      "prior_exposure_status": "PENDING_SCREEN",
+      "binding_status": "HOLD",
+      "eligibility_screen_ref": "TO_BE_CREATED_ON_REAL_EXPERT_BINDING",
+      "same_case_cross_arm_exclusion": "HARD_RULE"
+    },
+    {
+      "expert_slot": "EXP-R1P0-B",
+      "workflow": "R1",
+      "identity_status": "UNBOUND",
+      "qualification_status": "PENDING",
+      "prior_exposure_status": "PENDING_SCREEN",
+      "binding_status": "HOLD",
+      "eligibility_screen_ref": "TO_BE_CREATED_ON_REAL_EXPERT_BINDING",
+      "same_case_cross_arm_exclusion": "HARD_RULE"
+    },
+    {
+      "expert_slot": "EXP-R1P0-C",
+      "workflow": "R2",
+      "identity_status": "UNBOUND",
+      "qualification_status": "PENDING",
+      "prior_exposure_status": "PENDING_SCREEN",
+      "binding_status": "HOLD",
+      "eligibility_screen_ref": "TO_BE_CREATED_ON_REAL_EXPERT_BINDING",
+      "same_case_cross_arm_exclusion": "HARD_RULE"
+    }
+  ],
+  "binding_gate": [
+    "professional/task expertise qualified",
+    "conflicts recorded and acceptable",
+    "no prior exposure to same case in another R1 arm",
+    "no access to hidden diet values",
+    "no access to final reference/meta-audit labels",
+    "no access to other experts' judgments",
+    "one real expert identity may occupy at most one slot for this case"
+  ],
+  "identity_policy": "No placeholder person is converted into a qualified expert. Real identity and qualification evidence are required before binding.",
+  "next_action": "Bind a real expert only after completing an individual qualification/exposure screen."
+}

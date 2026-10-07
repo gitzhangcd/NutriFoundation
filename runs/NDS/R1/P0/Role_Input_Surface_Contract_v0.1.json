@@ -1,0 +1,76 @@
+{
+  "stage": "NDS-R1-P0",
+  "artifact": "Role Input Surface and Resource-Control Contract",
+  "version": "v0.1",
+  "status": "FROZEN",
+  "case_ref": "D2-NHANES-L-0001:r3",
+  "comparability_principle": "Workflow comparison must not silently become a comparison of unequal source access.",
+  "baseline_case_view_ref": "runs/NDF/D2/Case_0001/Materialized_Projection_Views_v0.2.json",
+  "human_baseline_source_packet": {
+    "packet_id": "HBSP-R1P0-001",
+    "contents": [
+      "case-visible observations under EXPERT_PRE_AI_VIEW",
+      "frozen claim-support source excerpts/anchors from A3R.1",
+      "source identity/version/date",
+      "no D1 ScientificClaim labels",
+      "no evidential-state labels",
+      "no Agent candidate synthesis",
+      "no final/reference/meta-audit labels"
+    ],
+    "source_snapshot_ref": "runs/NDF/D1/A3R.1/Frozen_Claim_Support_Snapshot_Manifest_v0.1.json",
+    "purpose": "Give human arms access to the same bounded scientific source substrate without importing D1's synthesized claim conclusions."
+  },
+  "arm_surfaces": {
+    "R0": {
+      "initial": [
+        "HUMAN_BASELINE_SOURCE_PACKET"
+      ],
+      "later": [],
+      "interpretation": "Human de novo judgment from common case+source substrate."
+    },
+    "R1": {
+      "agent_initial": [
+        "CASE_VIEW",
+        "SRS-D1-A3R-001:r4"
+      ],
+      "expert_initial": [
+        "CASE_VIEW",
+        "AGENT_CANDIDATE_SET",
+        "SOURCE_SPANS_REFERENCED_BY_CANDIDATES"
+      ],
+      "interpretation": "Agent first creates candidate space; expert verifies. High anchoring-risk comparator."
+    },
+    "R2": {
+      "expert_pre_ai": [
+        "HUMAN_BASELINE_SOURCE_PACKET"
+      ],
+      "agent_after_pre_ai_freeze": [
+        "CASE_VIEW",
+        "SRS-D1-A3R-001:r4"
+      ],
+      "expert_post_ai": [
+        "FROZEN_J_PREAI",
+        "AGENT_CANDIDATE_SET",
+        "SOURCE_SPANS_REFERENCED_BY_CANDIDATES"
+      ],
+      "interpretation": "Same human baseline substrate as R0 before Agent exposure, then breadth expansion and reconciliation."
+    }
+  },
+  "resource_control_notes": [
+    "R0 and R2 pre-AI human phases share the same baseline case/source substrate.",
+    "Agent phases may use the structured SRS because Agent breadth/source-recovery is the intervention mechanism being studied.",
+    "R1 expert verification must have access to the source spans referenced by Agent candidates; verification cannot be pure trust in Agent prose.",
+    "Hidden Day-1 diet values remain unavailable in all ex-ante workflow arms.",
+    "D1 ScientificClaim evidential-state labels are not shown to R0/R2 pre-AI experts because they would import prior synthesized judgments."
+  ],
+  "forbidden_surface_leakage": [
+    "workflow outcome scores",
+    "other workflow outputs",
+    "meta-audit qualification",
+    "QualifiedDecisionReference",
+    "hidden diet values",
+    "future evidence",
+    "other experts' judgments"
+  ],
+  "conformance_rationale": "This preserves the intended contrast: Human De Novo vs AgentFirst vs FocusFirst+AgentExpand, rather than unequal raw scientific resource availability."
+}

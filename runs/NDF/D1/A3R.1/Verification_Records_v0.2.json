@@ -1,0 +1,102 @@
+{
+  "stage": "NDF-D1-A3R.1",
+  "artifact": "Verification Records",
+  "version": "v0.2",
+  "status": "CLAIM_REPRODUCIBILITY_QUALIFIED",
+  "supersedes": "runs/NDF/D1/A3R/Verification_Records_v0.1.json",
+  "audit_ref": "runs/NDF/D1/A3R.1/Role_Separated_Claim_Audit_Report_v0.1.json",
+  "records": [
+    {
+      "verification_id": "VR2-SC-A3R-001",
+      "scientific_claim_ref": "SC-A3R-001",
+      "L1_mechanical_integrity": "PASS",
+      "L2_source_support": "PASS",
+      "L3_semantic_scope": "PASS_WITH_EXPLICIT_BOUNDARY",
+      "L4_scientific_qualification": "PASS_FOR_STATED_CLAIM_ONLY",
+      "role_separated_audit": "PASS",
+      "audit_mode": "LOGICAL_ROLE_REPLAY_SAME_BASE_MODEL_SESSION_CONTEXT_CAVEAT",
+      "reproducibility_status": "PASS_FOR_D1_SRS",
+      "human_review_status": "NOT_YET_PERFORMED_NOT_REQUIRED_FOR_D1_G6_BUT_REQUIRED_BEFORE_R1_P1_QUALIFIED_REFERENCE_USE",
+      "final_freeze_status": "PASS_D1_CLAIM_REPRODUCIBLE"
+    },
+    {
+      "verification_id": "VR2-SC-A3R-002",
+      "scientific_claim_ref": "SC-A3R-002",
+      "L1_mechanical_integrity": "PASS",
+      "L2_source_support": "PASS",
+      "L3_semantic_scope": "PASS_WITH_EXPLICIT_BOUNDARY",
+      "L4_scientific_qualification": "PASS_FOR_STATED_CLAIM_ONLY",
+      "role_separated_audit": "PASS",
+      "audit_mode": "LOGICAL_ROLE_REPLAY_SAME_BASE_MODEL_SESSION_CONTEXT_CAVEAT",
+      "reproducibility_status": "PASS_FOR_D1_SRS",
+      "human_review_status": "NOT_YET_PERFORMED_NOT_REQUIRED_FOR_D1_G6_BUT_REQUIRED_BEFORE_R1_P1_QUALIFIED_REFERENCE_USE",
+      "final_freeze_status": "PASS_D1_CLAIM_REPRODUCIBLE"
+    },
+    {
+      "verification_id": "VR2-SC-A3R-003",
+      "scientific_claim_ref": "SC-A3R-003",
+      "L1_mechanical_integrity": "PASS",
+      "L2_source_support": "PASS",
+      "L3_semantic_scope": "PASS_WITH_EXPLICIT_BOUNDARY",
+      "L4_scientific_qualification": "PASS_FOR_STATED_CLAIM_ONLY",
+      "role_separated_audit": "PASS",
+      "audit_mode": "LOGICAL_ROLE_REPLAY_SAME_BASE_MODEL_SESSION_CONTEXT_CAVEAT",
+      "reproducibility_status": "PASS_FOR_D1_SRS",
+      "human_review_status": "NOT_YET_PERFORMED_NOT_REQUIRED_FOR_D1_G6_BUT_REQUIRED_BEFORE_R1_P1_QUALIFIED_REFERENCE_USE",
+      "final_freeze_status": "PASS_D1_CLAIM_REPRODUCIBLE"
+    },
+    {
+      "verification_id": "VR2-SC-A3R-004",
+      "scientific_claim_ref": "SC-A3R-004",
+      "L1_mechanical_integrity": "PASS",
+      "L2_source_support": "PASS",
+      "L3_semantic_scope": "PASS_WITH_EXPLICIT_BOUNDARY",
+      "L4_scientific_qualification": "PASS_FOR_STATED_CLAIM_ONLY",
+      "role_separated_audit": "PASS",
+      "audit_mode": "LOGICAL_ROLE_REPLAY_SAME_BASE_MODEL_SESSION_CONTEXT_CAVEAT",
+      "reproducibility_status": "PASS_FOR_D1_SRS",
+      "human_review_status": "NOT_YET_PERFORMED_NOT_REQUIRED_FOR_D1_G6_BUT_REQUIRED_BEFORE_R1_P1_QUALIFIED_REFERENCE_USE",
+      "final_freeze_status": "PASS_D1_CLAIM_REPRODUCIBLE"
+    },
+    {
+      "verification_id": "VR2-SC-A3R-005",
+      "scientific_claim_ref": "SC-A3R-005",
+      "L1_mechanical_integrity": "PASS",
+      "L2_source_support": "PASS",
+      "L3_semantic_scope": "PASS_WITH_EXPLICIT_BOUNDARY",
+      "L4_scientific_qualification": "PASS_FOR_STATED_CLAIM_ONLY",
+      "role_separated_audit": "PASS",
+      "audit_mode": "LOGICAL_ROLE_REPLAY_SAME_BASE_MODEL_SESSION_CONTEXT_CAVEAT",
+      "reproducibility_status": "PASS_FOR_D1_SRS",
+      "human_review_status": "NOT_YET_PERFORMED_NOT_REQUIRED_FOR_D1_G6_BUT_REQUIRED_BEFORE_R1_P1_QUALIFIED_REFERENCE_USE",
+      "final_freeze_status": "PASS_D1_CLAIM_REPRODUCIBLE"
+    },
+    {
+      "verification_id": "VR2-SC-A3R-006",
+      "scientific_claim_ref": "SC-A3R-006",
+      "L1_mechanical_integrity": "PASS",
+      "L2_source_support": "PASS",
+      "L3_semantic_scope": "PASS_WITH_EXPLICIT_BOUNDARY",
+      "L4_scientific_qualification": "PASS_FOR_STATED_CLAIM_ONLY",
+      "role_separated_audit": "PASS",
+      "audit_mode": "LOGICAL_ROLE_REPLAY_SAME_BASE_MODEL_SESSION_CONTEXT_CAVEAT",
+      "reproducibility_status": "PASS_FOR_D1_SRS",
+      "human_review_status": "NOT_YET_PERFORMED_NOT_REQUIRED_FOR_D1_G6_BUT_REQUIRED_BEFORE_R1_P1_QUALIFIED_REFERENCE_USE",
+      "final_freeze_status": "PASS_D1_CLAIM_REPRODUCIBLE"
+    },
+    {
+      "verification_id": "VR2-SC-A3R-007",
+      "scientific_claim_ref": "SC-A3R-007",
+      "L1_mechanical_integrity": "PASS",
+      "L2_source_support": "PASS",
+      "L3_semantic_scope": "PASS_WITH_EXPLICIT_BOUNDARY",
+      "L4_scientific_qualification": "PASS_FOR_STATED_CLAIM_ONLY",
+      "role_separated_audit": "PASS",
+      "audit_mode": "LOGICAL_ROLE_REPLAY_SAME_BASE_MODEL_SESSION_CONTEXT_CAVEAT",
+      "reproducibility_status": "PASS_FOR_D1_SRS",
+      "human_review_status": "NOT_YET_PERFORMED_NOT_REQUIRED_FOR_D1_G6_BUT_REQUIRED_BEFORE_R1_P1_QUALIFIED_REFERENCE_USE",
+      "final_freeze_status": "PASS_D1_CLAIM_REPRODUCIBLE"
+    }
+  ],
+  "invariant": "D1 claim reproducibility does not constitute human-qualified DecisionReference approval."
+}

@@ -1,0 +1,75 @@
+{
+  "stage": "NDS-R1-P0.1",
+  "artifact": "R0 Human De Novo Expert Workpack",
+  "version": "v0.1",
+  "status": "READY_TEMPLATE_EXPERT_UNBOUND",
+  "workpack_id": "WP-R1P0-R0-001",
+  "expert_slot": "EXP-R1P0-A",
+  "workflow": "R0_HUMAN_DE_NOVO",
+  "case_ref": "D2-NHANES-L-0001:r3",
+  "input_surface": {
+    "visible_case": {
+      "age_at_screening": 43,
+      "sex": "Male",
+      "measured_weight_kg": 86.9,
+      "standing_height_cm": 179.5,
+      "source_reported_bmi": 27,
+      "oscillometric_sbp": [
+        135,
+        131,
+        132
+      ],
+      "oscillometric_dbp": [
+        98,
+        96,
+        94
+      ],
+      "derived_bmi_recalc": 26.970616304963496,
+      "derived_sbp_mean": 132.66666666666666,
+      "derived_dbp_mean": 96
+    },
+    "task_text": "Using only the visible NHANES observations in this constructed research case, determine whether there is enough information to proceed to an individualized nutrition recommendation or whether additional nutrition-relevant information should be requested/deferred. Do not infer a diagnosis and do not use future or hidden information.",
+    "human_baseline_source_packet_ref": "runs/NDS/R1/P0/Human_Baseline_Source_Packet_v0.1.json"
+  },
+  "pre_open_gate": [
+    "expert slot A BOUND",
+    "qualification PASS",
+    "exposure screen PASS"
+  ],
+  "instructions": [
+    "Construct an independent professional judgment from the common case/source substrate.",
+    "Do not infer a diagnosis from the BP snapshot.",
+    "Do not assume hidden dietary data are normal or available.",
+    "Preserve multiple acceptable/conditional/unresolved actions when appropriate.",
+    "Do not use Agent assistance for this case."
+  ],
+  "response": {
+    "decision_focus": null,
+    "salient_existing_facts": [],
+    "decision_changing_missing_information": [],
+    "currently_acceptable_actions": [],
+    "conditional_actions": [],
+    "not_indicated_prohibited_or_unsafe": [],
+    "process_action": [],
+    "monitoring_needs": [],
+    "reference_set": {
+      "preferred": [],
+      "acceptable": [],
+      "conditional": [],
+      "not_currently_indicated": [],
+      "prohibited": [],
+      "unsafe": [],
+      "unresolved": []
+    },
+    "uncertainty_notes": [],
+    "rationale_notes": [],
+    "active_expert_minutes": null,
+    "clarification_count": 0
+  },
+  "freeze_receipt": {
+    "submitted_at": null,
+    "content_sha": null,
+    "exposure_check": null,
+    "status": "NOT_SUBMITTED"
+  }
+}

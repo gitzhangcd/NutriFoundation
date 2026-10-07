@@ -1,0 +1,66 @@
+{
+  "program_id": "NDS-R1",
+  "stage": "NDS-R1-P0",
+  "artifact": "First Human Focus × Agent Breadth Pilot Intake Manifest",
+  "version": "v0.1",
+  "date": "2026-10-07",
+  "status": "PILOT_INTAKE_FROZEN_READY_FOR_REAL_EXPERT_BINDING",
+  "scientific_identity": "Empirically determine how human expert focus and agentic knowledge breadth should be combined to construct high-fidelity decision references; not use Agent output as Gold.",
+  "authority": [
+    "SIS v0.3.1 R5",
+    "Nutrition Foundation v0.1",
+    "Nutrition Data Foundation D0-D2 + NDS-R1 v0.1",
+    "NDF-D1 SRS-D1-A3R-001:r4",
+    "NDF-D2 D2-NHANES-L-0001:r3"
+  ],
+  "intake_case": {
+    "case_ref": "D2-NHANES-L-0001:r3",
+    "case_bundle_ref": "runs/NDF/D2/Case_0001/NutritionDecisionCaseBundle_v0.2.json",
+    "projection_ref": "runs/NDF/D2/Case_0001/Materialized_Projection_Views_v0.2.json",
+    "scientific_reference_state_ref": "SRS-D1-A3R-001:r4",
+    "scientific_reference_state_path": "runs/NDF/D1/A3R.3/ScientificReferenceState_Bundle_v0.4.json",
+    "D1_status": "READY_FOR_NDS_R1_REFERENCE_WORKFLOW",
+    "D2_status": "INPUT_READY_FOR_NDS_R1_REFERENCE_WORKFLOW"
+  },
+  "study_phase": "R1a_FEASIBILITY_AND_MEASUREMENT_PILOT",
+  "current_case_role": "FIRST_OPERATIONAL_FIXTURE_NOT_SUFFICIENT_FOR_WORKFLOW_SUPERIORITY_INFERENCE",
+  "workflow_arms": [
+    "R0_HUMAN_DE_NOVO",
+    "R1_AGENT_FIRST_EXPERT_VERIFY",
+    "R2_EXPERT_FOCUS_AGENT_EXPAND_EXPERT_RECONCILE"
+  ],
+  "primary_construct": "Maximum decision-relevant coverage subject to acceptable error, safety and human burden.",
+  "core_measurement_families": [
+    "CriticalDecisionRelevantRecall",
+    "DecisionRelevantPrecision",
+    "CriticalOmissionRate",
+    "SafetyCriticalOmissionRate",
+    "HumanBurden",
+    "Anchoring",
+    "ReferenceSetQuality",
+    "ReferenceStability"
+  ],
+  "hard_invariants": [
+    "R0 Human judgment is not predefined Gold.",
+    "Agent output is never final Gold.",
+    "R2 is a primary candidate workflow, not a preselected winner.",
+    "Pre-AI judgment is immutable once frozen.",
+    "Same expert must not see the same case in multiple workflow arms.",
+    "Workflow source labels are removed before blind meta-audit.",
+    "Efficiency cannot offset critical scientific or safety failure.",
+    "Pilot results cannot claim causal superiority."
+  ],
+  "current_execution_boundary": {
+    "expert_identity_binding": "PENDING_REAL_EXPERT",
+    "pre_ai_judgment": "NOT_COLLECTED",
+    "agent_candidate_generation": "NOT_EXECUTED",
+    "reconciliation": "NOT_EXECUTED",
+    "meta_audit": "NOT_EXECUTED",
+    "qualified_reference": "NOT_CREATED",
+    "evaluator": "NOT_FROZEN"
+  },
+  "next_stage": {
+    "id": "NDS-R1-P0.1",
+    "title": "Expert Qualification, Slot Binding, Pre-AI Capture & Exposure Lock"
+  }
+}

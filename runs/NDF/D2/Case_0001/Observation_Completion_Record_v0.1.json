@@ -1,0 +1,217 @@
+{
+  "stage": "NDF-D2",
+  "artifact": "Observation Completion Record",
+  "version": "v0.1",
+  "status": "BASE_OBSERVATION_COMPLETED_WITH_EXPLICIT_MASK_OVERLAY",
+  "case_ref": "D2-NHANES-L-0001",
+  "subject_ref": "SUBJ-NHANES-L-0001",
+  "base_observations": [
+    {
+      "concept": "age_at_screening",
+      "source_variable": "RIDAGEYR",
+      "value": 43,
+      "unit": "years",
+      "construction_origin": "OBS",
+      "semantic_origin": "OBSERVED"
+    },
+    {
+      "concept": "sex",
+      "source_variable": "RIAGENDR",
+      "raw_value": 1,
+      "normalized_label": "Male",
+      "construction_origin": "OBS",
+      "semantic_origin": "OBSERVED"
+    },
+    {
+      "concept": "measured_weight",
+      "source_variable": "BMXWT",
+      "value": 86.9,
+      "unit": "kg",
+      "construction_origin": "OBS",
+      "semantic_origin": "OBSERVED"
+    },
+    {
+      "concept": "standing_height",
+      "source_variable": "BMXHT",
+      "value": 179.5,
+      "unit": "cm",
+      "construction_origin": "OBS",
+      "semantic_origin": "OBSERVED"
+    },
+    {
+      "concept": "source_reported_bmi",
+      "source_variable": "BMXBMI",
+      "value": 27,
+      "unit": "kg/m^2",
+      "construction_origin": "OBS",
+      "semantic_origin": "OBSERVED"
+    },
+    {
+      "concept": "oscillometric_sbp",
+      "source_variables": [
+        "BPXOSY1",
+        "BPXOSY2",
+        "BPXOSY3"
+      ],
+      "values": [
+        135,
+        131,
+        132
+      ],
+      "unit": "mmHg",
+      "construction_origin": "OBS",
+      "semantic_origin": "OBSERVED"
+    },
+    {
+      "concept": "oscillometric_dbp",
+      "source_variables": [
+        "BPXODI1",
+        "BPXODI2",
+        "BPXODI3"
+      ],
+      "values": [
+        98,
+        96,
+        94
+      ],
+      "unit": "mmHg",
+      "construction_origin": "OBS",
+      "semantic_origin": "OBSERVED"
+    },
+    {
+      "concept": "oscillometric_pulse",
+      "source_variables": [
+        "BPXOPLS1",
+        "BPXOPLS2",
+        "BPXOPLS3"
+      ],
+      "values": [
+        82,
+        79,
+        82
+      ],
+      "unit": "beats/min",
+      "construction_origin": "OBS",
+      "semantic_origin": "OBSERVED"
+    },
+    {
+      "concept": "bp_arm",
+      "source_variable": "BPAOARM",
+      "value": "R",
+      "construction_origin": "OBS",
+      "semantic_origin": "OBSERVED"
+    },
+    {
+      "concept": "bp_cuff_code",
+      "source_variable": "BPAOCSZ",
+      "value": 4,
+      "construction_origin": "OBS",
+      "semantic_origin": "OBSERVED"
+    },
+    {
+      "concept": "day1_energy",
+      "source_variable": "DR1TKCAL",
+      "value": 1740,
+      "unit": "kcal",
+      "construction_origin": "OBS",
+      "semantic_origin": "OBSERVED",
+      "time_scope": "single day 24h recall"
+    },
+    {
+      "concept": "day1_protein",
+      "source_variable": "DR1TPROT",
+      "value": 80.46,
+      "unit": "g",
+      "construction_origin": "OBS",
+      "semantic_origin": "OBSERVED",
+      "time_scope": "single day 24h recall"
+    },
+    {
+      "concept": "day1_carbohydrate",
+      "source_variable": "DR1TCARB",
+      "value": 169.66,
+      "unit": "g",
+      "construction_origin": "OBS",
+      "semantic_origin": "OBSERVED",
+      "time_scope": "single day 24h recall"
+    },
+    {
+      "concept": "day1_total_sugars",
+      "source_variable": "DR1TSUGR",
+      "value": 43.71,
+      "unit": "g",
+      "construction_origin": "OBS",
+      "semantic_origin": "OBSERVED",
+      "time_scope": "single day 24h recall"
+    },
+    {
+      "concept": "day1_dietary_fiber",
+      "source_variable": "DR1TFIBE",
+      "value": 10.1,
+      "unit": "g",
+      "construction_origin": "OBS",
+      "semantic_origin": "OBSERVED",
+      "time_scope": "single day 24h recall"
+    },
+    {
+      "concept": "day1_total_fat",
+      "source_variable": "DR1TTFAT",
+      "value": 55.07,
+      "unit": "g",
+      "construction_origin": "OBS",
+      "semantic_origin": "OBSERVED",
+      "time_scope": "single day 24h recall"
+    }
+  ],
+  "derived_observations": [
+    {
+      "concept": "DRV_BMI_RECALC",
+      "value": 26.970616304963496,
+      "unit": "kg/m^2",
+      "formula": "86.9 / (1.795^2)",
+      "construction_origin": "DRV"
+    },
+    {
+      "concept": "DRV_SBP_MEAN",
+      "value": 132.66666666666666,
+      "unit": "mmHg",
+      "formula": "mean(135,131,132)",
+      "construction_origin": "DRV"
+    },
+    {
+      "concept": "DRV_DBP_MEAN",
+      "value": 96,
+      "unit": "mmHg",
+      "formula": "mean(98,96,94)",
+      "construction_origin": "DRV"
+    },
+    {
+      "concept": "DRV_PULSE_MEAN",
+      "value": 81,
+      "unit": "beats/min",
+      "formula": "mean(82,79,82)",
+      "construction_origin": "DRV"
+    }
+  ],
+  "semantic_constraints": [
+    "A single 24h dietary recall is not habitual diet.",
+    "Observed BP values are measurements, not diagnosis.",
+    "Derived means are DRV, not source-reported fields.",
+    "Presence of underlying diet values does not require those values to be visible in every experimental projection."
+  ],
+  "material_change_from_D0_fixture": [
+    "DBP readings restored from component-level BPXO carrier.",
+    "Pulse/arm/cuff context restored.",
+    "Day-1 dietary observations reconstructed instead of treating them as unavailable source data.",
+    "Dietary missingness will be represented as explicit experimental masking, not accidental ingestion failure."
+  ],
+  "D1_impact_trigger": {
+    "status": "TRIGGERED",
+    "reason": "Existing case-bound ScientificReferenceState r3 was constructed against a systolic-only authorized view. Completed D2 observation set includes DBP and therefore requires D1 case-specific applicability/relation rebind before R1 activation.",
+    "affected_refs": [
+      "SC-A3R-003",
+      "SC-A3R-004",
+      "SRS-D1-A3R-001:r3"
+    ]
+  }
+}

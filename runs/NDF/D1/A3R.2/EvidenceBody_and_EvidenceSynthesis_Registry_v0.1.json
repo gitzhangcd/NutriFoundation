@@ -1,0 +1,131 @@
+{
+  "stage": "NDF-D1-A3R.2",
+  "artifact": "EvidenceBody and EvidenceSynthesis Registry",
+  "version": "v0.1",
+  "status": "FROZEN",
+  "evidence_bodies": [
+    {
+      "evidence_body_id": "EBODY-A3R2-001",
+      "scientific_claim_refs": [
+        "SC-A3R-001",
+        "SC-A3R-002"
+      ],
+      "candidate_evidence_unit_refs": [
+        "EU-A3R-001",
+        "EU-A3R-002"
+      ],
+      "included_evidence_unit_refs": [
+        "EU-A3R-001",
+        "EU-A3R-002"
+      ],
+      "excluded_evidence_unit_refs": [],
+      "dependency_groups": [
+        "DOC-A2R-AND-NCP-ASSESSMENT"
+      ],
+      "compatibility": "COMPATIBLE_PROCESS_EVIDENCE",
+      "evidence_cutoff": "2026-10-07",
+      "note": "Both EvidenceUnits derive from the same professional process source and therefore do not count as independent empirical replications."
+    },
+    {
+      "evidence_body_id": "EBODY-A3R2-002",
+      "scientific_claim_refs": [
+        "SC-A3R-003",
+        "SC-A3R-004"
+      ],
+      "candidate_evidence_unit_refs": [
+        "EU-A3R-003",
+        "EU-A3R-004"
+      ],
+      "included_evidence_unit_refs": [
+        "EU-A3R-003",
+        "EU-A3R-004"
+      ],
+      "excluded_evidence_unit_refs": [],
+      "dependency_groups": [
+        "DOC-A2R-AHA-HBP-2025"
+      ],
+      "compatibility": "COMPLEMENTARY_GUIDELINE_PLUS_MEASUREMENT_GUIDANCE",
+      "evidence_cutoff": "2026-10-07",
+      "note": "The guideline and AHA measurement page are related organizational sources and are treated as complementary, not independent confirmatory studies."
+    },
+    {
+      "evidence_body_id": "EBODY-A3R2-003",
+      "scientific_claim_refs": [
+        "SC-A3R-005"
+      ],
+      "candidate_evidence_unit_refs": [
+        "EU-A3R-005"
+      ],
+      "included_evidence_unit_refs": [
+        "EU-A3R-005"
+      ],
+      "excluded_evidence_unit_refs": [],
+      "dependency_groups": [
+        "DOC-A2R-USPSTF-CVD-COUNSEL-2020"
+      ],
+      "compatibility": "SINGLE_SOURCE_APPLICABILITY_BODY",
+      "evidence_cutoff": "2026-10-07"
+    },
+    {
+      "evidence_body_id": "EBODY-A3R2-004",
+      "scientific_claim_refs": [
+        "SC-A3R-006"
+      ],
+      "candidate_evidence_unit_refs": [
+        "EU-A3R-006"
+      ],
+      "included_evidence_unit_refs": [
+        "EU-A3R-006"
+      ],
+      "excluded_evidence_unit_refs": [],
+      "dependency_groups": [
+        "DOC-A2R-DGA-2025-2030"
+      ],
+      "compatibility": "SINGLE_SOURCE_GENERAL_GUIDANCE_BODY",
+      "evidence_cutoff": "2026-10-07"
+    },
+    {
+      "evidence_body_id": "EBODY-A3R2-005",
+      "scientific_claim_refs": [
+        "SC-A3R-007"
+      ],
+      "candidate_evidence_unit_refs": [
+        "EU-A3R-007"
+      ],
+      "included_evidence_unit_refs": [
+        "EU-A3R-007"
+      ],
+      "excluded_evidence_unit_refs": [],
+      "dependency_groups": [
+        "DOC-A2R-USPSTF-WEIGHT-2018"
+      ],
+      "compatibility": "SINGLE_SOURCE_THRESHOLD_BODY",
+      "evidence_cutoff": "2026-10-07"
+    }
+  ],
+  "syntheses": [
+    {
+      "synthesis_id": "SYN-A3R2-001",
+      "evidence_body_ref": "EBODY-A3R2-001",
+      "synthesis_type": "STRUCTURED_NARRATIVE_SYNTHESIS",
+      "target_claim_refs": [
+        "SC-A3R-001",
+        "SC-A3R-002"
+      ],
+      "result": "The source directly supports multi-domain nutrition assessment and the legitimacy of acquiring additional information. It does not establish a universal mandatory-variable checklist or a unique action for the selected case.",
+      "pooling_status": "DO_NOT_POOL_NON_EMPIRICAL_PROCESS_SOURCE"
+    },
+    {
+      "synthesis_id": "SYN-A3R2-002",
+      "evidence_body_ref": "EBODY-A3R2-002",
+      "synthesis_type": "STRUCTURED_DO_NOT_POOL_SYNTHESIS",
+      "target_claim_refs": [
+        "SC-A3R-003",
+        "SC-A3R-004"
+      ],
+      "result": "The current corrected guideline supplies BP category/management context, while measurement guidance qualifies diagnostic interpretation. Together they support numerical category mapping with a strict no-diagnosis-from-snapshot boundary.",
+      "pooling_status": "DO_NOT_POOL_DIFFERENT_SOURCE_FUNCTIONS"
+    }
+  ],
+  "sparse_object_rule": "Single-source eligibility/context claims do not require a fabricated EvidenceSynthesis object; their EvidenceBody and contribution appraisal are sufficient."
+}

@@ -31,7 +31,14 @@
     "runs/NDF/D2/Case_0001/NutritionDecisionCaseBundle_v0.2.json"
   ],
   "next_stage": {
-    "id": "NDS-R1-P0",
-    "title": "First Human Focus × Agent Breadth Reference Construction Pilot Intake"
+    "id": "NDS-R1-P0.1",
+    "title": "Expert Qualification, Slot Binding, Pre-AI Capture & Exposure Lock"
+  },
+  "handoff_to_nds_r1": {
+    "status": "HANDOFF_COMPLETE",
+    "entered_stage": "NDS-R1-P0",
+    "p0_status": "PASS_PILOT_INTAKE_READY_FOR_REAL_EXPERT_BINDING",
+    "next_owner": "NDS-R1",
+    "next_stage": "NDS-R1-P0.1"
   }
 }

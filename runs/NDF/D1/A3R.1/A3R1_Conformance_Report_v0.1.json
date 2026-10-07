@@ -1,0 +1,61 @@
+{
+  "stage": "NDF-D1-A3R.1",
+  "artifact": "Conformance Report",
+  "version": "v0.1",
+  "status": "PASS_D1_G6_FIRST_THIN_SLICE_KNOWLEDGE_READY",
+  "date": "2026-10-07",
+  "scope": "TS-D1-A1R-001 / EP-NHANES-L-0001 only",
+  "counts": {
+    "frozen_claim_support_snapshots": 6,
+    "claims_replayed": 7,
+    "claim_replay_pass": 7,
+    "claim_replay_fail": 0,
+    "correction_families_closed": 1,
+    "active_scientific_gaps": 5,
+    "resolved_reproducibility_gaps": 1,
+    "scientific_reference_states_qualified": 1
+  },
+  "gates": {
+    "D1-G1 Source identity": "PASS",
+    "D1-G2 Evidence reconstruction": "PASS",
+    "D1-G3 Source-span support": "PASS",
+    "D1-G4 Temporal fidelity": "PASS_AT_DATE_PRECISION",
+    "D1-G5 Conflict preservation": "PASS",
+    "D1-G6 Reference-state reproducibility": "PASS"
+  },
+  "audit_result": {
+    "role_separated_replay": "PASS",
+    "same_base_model_allowed_by_spec": true,
+    "external_independent_human_review": false,
+    "session_context_isolation": "PARTIAL_NOT_FULL_FRESH_CONTEXT",
+    "consequence": "Does not block D1-G6 because reproducibility is established by frozen support snapshots + deterministic case replay + fresh current-source reconstruction; does block any claim of independent human validation."
+  },
+  "D1_readiness": {
+    "first_thin_slice": "PASS_D1_KNOWLEDGE_READY",
+    "entire_D1_program": "NOT_CLAIMED_COMPLETE",
+    "r1_activation": "BLOCKED",
+    "blockers": [
+      "NDF-D2 case-specific readiness is not yet qualified",
+      "NDS-R1 expert pre-AI / agent expansion / reconciliation / meta-audit workflow has not yet been executed",
+      "mandatory human review is still required before any R1/P1 qualified reference use"
+    ]
+  },
+  "invariants": [
+    "D1-qualified SRS != QualifiedDecisionReference",
+    "D1-G6 PASS != NDS-R1 activation",
+    "role-separated same-base-model replay != independent human validation",
+    "resolved reproducibility gap does not erase substantive evidence gaps"
+  ],
+  "next_stage_options": [
+    {
+      "id": "NDF-D2-READINESS",
+      "priority": "REQUIRED_BEFORE_R1",
+      "title": "Case-Specific D2 Readiness, Observation Completion & Projection Qualification"
+    },
+    {
+      "id": "NDS-R1-P0",
+      "priority": "AFTER_D1_AND_D2_READY",
+      "title": "Human Focus × Agent Breadth Reference Construction Execution"
+    }
+  ]
+}

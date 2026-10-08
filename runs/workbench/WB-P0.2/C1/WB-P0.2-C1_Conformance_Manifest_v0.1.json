@@ -1,0 +1,54 @@
+{
+  "stage": "Workbench WB-P0.2-C1",
+  "date": "2026-10-09",
+  "decision": "PASS_C1_ENGINEERING_VERTICAL_SLICE",
+  "scope": "SYNTHETIC_ENGINEERING_ONLY",
+  "base": {
+    "branch": "ndf-d1-scientific-core-thin-slice",
+    "sha": "2259fdac9502541909a70d5d79c3460cecb6f657"
+  },
+  "implementation_commit_tested": "2533afd07f258b97d62ecc27030509e59ec44b43",
+  "source_fixture": "apps/workbench/c1/fixtures/5_2_diet.AnnotationSourcePackage.v0.1.zip",
+  "evidence": {
+    "real_pdf_pages": 16,
+    "canonical_units": 154,
+    "decision_fields": 19,
+    "reference_set_categories": 7,
+    "python_tests": {
+      "passed": 11,
+      "failed": 0
+    },
+    "offline_chromium_bridge": "PASS",
+    "backend_durable_sqlite_restart": "PASS",
+    "source_anchor_field_binding": "PASS",
+    "pdf_page_bbox_reverse_replay": "PASS",
+    "optimistic_revision_conflict": "REJECT_409",
+    "stale_source_sha": "REJECT",
+    "forged_anchor": "REJECT",
+    "separate_synthetic_demo_tasks": "PASS",
+    "native_pdfjs_ci": {
+      "run_id": 37808073261,
+      "conclusion": "success",
+      "url": "https://github.com/gitzhangcd/NutriFoundation/actions/runs/37808073261",
+      "commit": "2533afd07f258b97d62ecc27030509e59ec44b43",
+      "screenshot_artifact_id": 11563089198,
+      "artifact_name": "wb-p0-2-c1-native-pdfjs"
+    }
+  },
+  "science_nonregression": {
+    "protected_NDF_NDS_files_mutated": 0,
+    "NDS_R1_P0_1_empirical_capture_status": "PENDING_REAL_EXPERTS",
+    "real_expert_judgments_created": 0,
+    "real_J_preAI_created": 0,
+    "QualifiedDecisionReference_created": false
+  },
+  "limitations": [
+    "No server-side scientific authorization or role/arm phase projection",
+    "No real expert qualification or Pre-AI immutable freeze",
+    "No R1 Agent-first or R2 post-AI candidate vault",
+    "No multi-user production privacy/security review",
+    "5:2 paper is an engineering source fixture, not an NDS-R1 human allowed packet",
+    "C0.1 UX prototype has local-only acceptance; C1 embeds its decision profile independently"
+  ],
+  "next_stage": "WB-P0.2-C2 scientific contract adapter, role-phase projection, qualification gate, freeze and candidate exposure negative tests"
+}

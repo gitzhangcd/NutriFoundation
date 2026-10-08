@@ -1,0 +1,35 @@
+{
+  "stage": "WB-P0.2-C2.2",
+  "date": "2026-10-09",
+  "decision": "ENGINEERING_LOCAL_PASS_REMOTE_CI_PENDING",
+  "live_real_person_usability_pilot": "NO_GO_PENDING_EXTERNAL_EVIDENCE",
+  "formal_NDS_R1_human_capture": "NO_GO_EMPIRICAL_PENDING",
+  "authority": {
+    "scientific_base": "2259fdac9502541909a70d5d79c3460cecb6f657",
+    "source_packet": "Human_Baseline_Source_Packet_v0.2.json",
+    "source_packet_git_blob": "a38d000f9962dac35e00d407f1d984721bc031ef",
+    "source_count": 6,
+    "R0_R2_bounded_projection_consistency": "PASS_SYNTHETIC_LOCAL_EXPECT_OFFICIAL_CI"
+  },
+  "scientific_version_conflict": {
+    "referenced_view": "Materialized_Projection_Views_v0.2.json",
+    "view_declared_case": "D2-NHANES-L-0001:r2",
+    "current_workpack_case": "D2-NHANES-L-0001:r3",
+    "decision": "BLOCK_SCIENTIFIC_OWNER_RECONCILIATION"
+  },
+  "tests": {
+    "local_python_passed": 24,
+    "local_official_skipped": 2,
+    "local_chromium_bridge": "PASS",
+    "remote_ci": "PENDING"
+  },
+  "production_controls": {
+    "trusted_idp": "NOT_CONNECTED",
+    "real_expert_license_verification": "NOT_STARTED",
+    "consent_and_ethics": "NOT_EVIDENCED",
+    "production_security_review": "NOT_EVIDENCED",
+    "fulltext_source_snapshot": "NOT_VERIFIED"
+  },
+  "no_actual_human_capture": true,
+  "next_action": "Scientific owner resolve r2/r3 reference, bind source snapshots, connect reviewed identity/qualification/consent/deployment gate before real UX study"
+}

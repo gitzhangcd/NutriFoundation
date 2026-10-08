@@ -1,0 +1,57 @@
+name: Workbench WB-P0.2-C2.2 Expert Pilot Readiness
+on:
+  push:
+    branches: [workbench-wb-p0.2-real-paper-roundtrip]
+    paths:
+      - 'apps/workbench/c2_2/**'
+      - 'docs/workbench/WB-P0.2-C2.2_*'
+      - '.github/workflows/workbench-wb-p0-2-c2-2.yml'
+  workflow_dispatch:
+jobs:
+  pilot-preflight-engineering:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/workbench/c2_2
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Install Chromium
+        run: python -m playwright install --with-deps chromium
+      - name: All source, credential and NO-GO tests (official scientific checkout)
+        run: python -m pytest tests -q -rs
+      - name: Official source/projection binding gate (zero skipped)
+        run: |
+          test -f ../../../runs/NDS/R1/P0.1/Human_Baseline_Source_Packet_v0.2.json
+          test -f ../../../runs/NDF/D2/Case_0001/Materialized_Projection_Views_v0.2.json
+          python -m pytest tests/test_official.py -q -rs
+      - name: Materialize signed-source metadata readiness (no scientific data writes)
+        run: python scripts/build_readiness.py --repo-root ../../../ --output ../../../runs/workbench/WB-P0.2/C2.2/ci_readiness_local.json
+      - name: Chromium real-readiness NO-GO dashboard
+        run: python tests/browser_readiness.py
+      - name: Frozen scientific path non-regression
+        working-directory: .
+        run: |
+          set -euo pipefail
+          CHANGED=$(git diff --name-only 2259fdac9502541909a70d5d79c3460cecb6f657 HEAD -- runs/NDF runs/NDS/R1/P0 runs/NDS/R1/P0.1 src/nutrifoundation)
+          test -z "$CHANGED" || { echo "$CHANGED"; exit 1; }
+      - name: Preflight report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wb-p0-2-c2-2-scientific-preflight
+          path: runs/workbench/WB-P0.2/C2.2/ci_readiness_local.json
+          if-no-files-found: ignore
+      - name: Screenshot archive
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wb-p0-2-c2-2-no-go-dashboard
+          path: apps/workbench/c2_2/screenshots/*.png
+          if-no-files-found: ignore

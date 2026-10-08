@@ -1,0 +1,12 @@
+{
+  "fixture_type": "SYNTHETIC_TRAINING_ONLY",
+  "not_a_real_person": true,
+  "profile": "nutrition-expert-preflight",
+  "credential_proof_state": "NOT_COLLECTED",
+  "license_verification": "NOT_COLLECTED",
+  "ethics_and_consent": "NOT_COLLECTED",
+  "prior_case_exposure": "UNDETERMINED",
+  "intended_task": "test the usability of a synthetic case, not the frozen NHANES pilot",
+  "science_qualification": "NEVER_BY_FIXTURE",
+  "scientific_case": "NO_REAL_CASE_ASSIGNED"
+}

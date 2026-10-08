@@ -1,0 +1,7 @@
+[Unit]
+Description=Encrypted synthetic Workbench backup and restoration check
+[Service]
+Type=oneshot
+User=root
+UMask=0077
+ExecStart=/opt/nutriwb/venv/bin/python /opt/nutriwb/current/apps/workbench/d0/backup_server.py

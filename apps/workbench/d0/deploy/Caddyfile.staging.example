@@ -1,0 +1,16 @@
+# INACTIVE. Only activate after supported-OS migration and private ingress approval.
+# Keep the existing :8000 download service. Append a separate vhost; do not replace it.
+# Set application --origin https://nutri.logicgene.com to issue Secure cookies.
+nutri.logicgene.com {
+    basic_auth {
+        {$NUTRI_GATEWAY_USER} {$NUTRI_GATEWAY_PASSWORD_HASH}
+    }
+    reverse_proxy 127.0.0.1:8793
+    header {
+        Strict-Transport-Security "max-age=31536000"
+        X-Content-Type-Options nosniff
+        Referrer-Policy no-referrer
+        -Server
+    }
+    # No credential-bearing access logs or public registration.
+}

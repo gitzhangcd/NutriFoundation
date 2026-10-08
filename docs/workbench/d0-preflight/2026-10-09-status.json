@@ -1,0 +1,78 @@
+{
+  "stage": "WB-P0.2-C2.2",
+  "authority": "PINNED_10_NDS_BLOBS",
+  "scientific_case_ref": "D2-NHANES-L-0001:r3",
+  "scientific_source_packet_id": "HBSP-R1P0-001",
+  "source_count": 6,
+  "R0_R2_shared_packet_sha256": "fa29453fb081397fa7233b8b7ad795d3578f4bb8f470172c483531a58306dcd8",
+  "fulltext_qualified": false,
+  "bounded_projection_contract": "PASS",
+  "case_projection_binding": {
+    "source_path": "runs/NDF/D2/Case_0001/Materialized_Projection_Views_v0.2.json",
+    "source_git_blob_sha": "426be595f178408cab11191a3720cf12aea7703b",
+    "referenced_case_ref": "D2-NHANES-L-0001:r2",
+    "target_workpack_case_ref": "D2-NHANES-L-0001:r3",
+    "same_case_ref": false,
+    "decision": "BLOCK_REQUIRES_SCIENTIFIC_OWNER_RECONCILIATION"
+  },
+  "external_requirements": [
+    {
+      "gate": "IDENTITY_PROVIDER_PRODUCTION_CONFIGURATION",
+      "status": "PENDING_INDEPENDENT_EVIDENCE",
+      "requirement": "Verified IdP keys, audience, MFA and trusted token handling"
+    },
+    {
+      "gate": "REAL_EXPERT_CREDENTIALS_QUALIFIED",
+      "status": "PENDING_INDEPENDENT_EVIDENCE",
+      "requirement": "Reviewer-verified professional license/role and expertise, no sham identity"
+    },
+    {
+      "gate": "EXPERT_PRIOR_EXPOSURE_AND_ARM_BINDING",
+      "status": "PENDING_INDEPENDENT_EVIDENCE",
+      "requirement": "Signed screen and same-case cross-arm exclusion"
+    },
+    {
+      "gate": "IRB_ETHICS_CONSENT_APPLICABILITY",
+      "status": "PENDING_INDEPENDENT_EVIDENCE",
+      "requirement": "Research governance determination, informed consent and study approval where applicable"
+    },
+    {
+      "gate": "SOURCE_SNAPSHOT_AND_RIGHTS",
+      "status": "PENDING_INDEPENDENT_EVIDENCE",
+      "requirement": "Version-specific source excerpts, copyright/license, permission and date proof"
+    },
+    {
+      "gate": "SOURCE_CASE_VIEW_R3_RECONCILIATION",
+      "status": "BLOCK_UPSTREAM_SCIENTIFIC_VERSION_CONFLICT",
+      "requirement": "Scientific owner resolution of r2 referenced view versus r3 active workpacks"
+    },
+    {
+      "gate": "DEPLOYMENT_SECURITY_AND_PRIVACY",
+      "status": "PENDING_INDEPENDENT_EVIDENCE",
+      "requirement": "Production pen test, TLS, backup/recovery, data retention/privacy and logging controls"
+    },
+    {
+      "gate": "RESEARCH_SEPARATION_FROM_USABILITY",
+      "status": "PENDING_INDEPENDENT_EVIDENCE",
+      "requirement": "Separate UX synthetic cases/participants and formal scientific R0/R1/R2 eligibility"
+    }
+  ],
+  "engineering_prototype": "CAN_TEST_SYNTHETIC_WITHOUT_HUMAN_CAPTURE",
+  "real_person_ux_pilot": "NO_GO_PENDING_IDENTITY_ETHICS_DEPLOYMENT_EVIDENCE",
+  "formal_NDS_R1_experiment": "NO_GO_EMPIRICAL_CAPTURE_PENDING",
+  "real_expert_bindings_created": 0,
+  "real_j_preai_created": 0,
+  "warning": "Do not upload an extra 5:2 paper, fetch full website HTML or infer case-specific labels into this R0/R2 projection.",
+  "d0_preflight": {
+    "checked_date": "2026-10-09 Asia/Shanghai",
+    "head": "33e9704e64de0f740d0d7f5bcf81b33036039d90",
+    "server_connection": "NOT_PROVIDED",
+    "ssh_agent": "NO_IDENTITIES",
+    "github_repository": "gitzhangcd/NutriFoundation",
+    "github_access": "PULL_PUSH_ADMIN_CONFIRMED",
+    "baseline_test_suite": "NOT_RUN_MISSING_LOCAL_FASTAPI",
+    "deployment": "NOT_STARTED",
+    "e2e": "NOT_RUN",
+    "ci": "NOT_RUN_THIS_SESSION"
+  }
+}

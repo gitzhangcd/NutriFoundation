@@ -1,0 +1,24 @@
+[Unit]
+Description=NutriFoundation synthetic tunnel Workbench
+After=network.target
+
+[Service]
+Type=simple
+User=nutriwb
+Group=nutriwb
+WorkingDirectory=/opt/nutriwb/current/apps/workbench/d0
+Environment=PYTHONUTF8=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/nutriwb/venv/bin/python /opt/nutriwb/current/apps/workbench/d0/d0_app.py --repo-root /opt/nutriwb/current --root /var/lib/nutriwb/data --accounts /etc/nutriwb/accounts.json --auth-db /var/lib/nutriwb/auth/sessions.sqlite --origin http://127.0.0.1:18793 --port 8793 --allow-synthetic-execution
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=full
+ProtectHome=yes
+MemoryLimit=1073741824
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target

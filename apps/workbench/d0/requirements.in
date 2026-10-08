@@ -1,0 +1,11 @@
+# CentOS 7 tunnel-only compatibility; OS security acceptance remains NO-GO.
+fastapi==0.115.14
+uvicorn==0.34.3
+pydantic==2.11.7
+python-multipart==0.0.20
+markdown-it-py==4.0.0
+pymupdf==1.24.14
+PyJWT[crypto]==2.10.1
+cryptography==44.0.3
+# Portable wheel on glibc 2.17; no system package upgrade.
+cffi==1.17.1

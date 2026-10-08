@@ -1,0 +1,8 @@
+[Unit]
+Description=Daily synthetic Workbench backup
+[Timer]
+OnCalendar=*-*-* 03:15:00
+Persistent=true
+Unit=nutriwb-backup.service
+[Install]
+WantedBy=timers.target

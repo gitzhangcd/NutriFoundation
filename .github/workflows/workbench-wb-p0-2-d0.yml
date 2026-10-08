@@ -1,0 +1,68 @@
+name: Workbench D0 private synthetic staging
+on:
+  push:
+    branches: [workbench-wb-p0.2-d0-private-staging]
+  pull_request:
+    paths:
+      - apps/workbench/d0/**
+      - .github/workflows/workbench-wb-p0-2-d0.yml
+  workflow_dispatch:
+jobs:
+  engineering-acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked runtime and validation tools
+        run: |
+          python -m pip install --require-hashes -r apps/workbench/d0/requirements.lock
+          python -m pip install pytest==9.1.1 httpx==0.28.1 playwright==1.63.0 PyYAML typer
+          python -m playwright install --with-deps chromium
+      - name: Native PDF.js assets
+        run: bash apps/workbench/d0/install_pdfjs.sh
+      - name: Separate module suites (no module-name collisions)
+        run: |
+          for module in c1 c2 c2_1 c2_2 d0; do
+            (cd apps/workbench/$module && python -m pytest tests -q -rs)
+          done
+      - name: Official science checks with zero skips
+        run: |
+          test -f runs/NDS/R1/P0.1/Human_Baseline_Source_Packet_v0.2.json
+          (cd apps/workbench/c2_1 && python -m pytest tests/test_official_adapter.py -q -rs)
+          (cd apps/workbench/c2_2 && python -m pytest tests/test_official.py -q -rs)
+      - name: Native Chromium roundtrip and safety gates
+        env:
+          D0_QA_OUTPUT: ${{ runner.temp }}/d0-qa
+        run: python apps/workbench/d0/tests/browser_d0.py
+      - name: Frozen science non-regression
+        run: |
+          test -z "$(git diff --name-only 33e9704e64de0f740d0d7f5bcf81b33036039d90 HEAD -- runs/NDF runs/NDS src/nutrifoundation)"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: d0-synthetic-browser-evidence
+          path: ${{ runner.temp }}/d0-qa
+          if-no-files-found: ignore
+  existing-engine-suite:
+    name: Full engine suite (baseline has 4 known failures)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked environment and engine validation tools
+        run: |
+          python -m pip install --require-hashes -r apps/workbench/d0/requirements.lock
+          python -m pip install pytest==9.1.1 PyYAML typer
+      - name: Full engine regression (report failures without hiding them)
+        run: python -m pytest -q --junitxml=engine-results.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-engine-test-results
+          path: engine-results.xml

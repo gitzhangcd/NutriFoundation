@@ -1,0 +1,8 @@
+# Generated caches and workbench reader scratch data; never publish credentials.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+apps/workbench/*/data/
+apps/workbench/*/web/vendor/
+apps/workbench/*/screenshots/

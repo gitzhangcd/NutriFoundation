@@ -473,7 +473,9 @@ def make_app(root: Path = DOC_ROOT) -> FastAPI:
     return app
 
 
-app = make_app()
+# Library imports must not instantiate the legacy unprotected reader or write
+# a data workspace into the immutable application release. CLI serve below
+# still explicitly constructs its application with the selected runtime root.
 
 
 def main():

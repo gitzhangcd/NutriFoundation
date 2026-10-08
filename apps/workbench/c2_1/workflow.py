@@ -116,6 +116,9 @@ class Controller:
     def read_model(self,task,actor,role):
         # Read surfaces are created in service only. Never expose internal candidate store to R0/R2-preAI.
         with self.conn() as db:
+            # First candidate exposure and its audit receipt are one transaction.
+            # Reader and judgment panes may request this projection concurrently.
+            db.execute('BEGIN IMMEDIATE')
             row=self._binding(db,task,actor,role);arm=row['arm'];phase=self._phase(db,task)
             result={'task_id':task,'case_ref':CASE_REF,'arm':arm,'expert_slot':self.a.slots[arm],
                     'phase':phase,'synthetic':True,'protocol':'NDS-R1 adapter engineering v0.2',

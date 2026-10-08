@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-09 Asia/Shanghai",
+  "ssh_alias": "Aliyun",
+  "connection": "PASS_BATCH_MODE_EXISTING_SSH_CONFIGURATION",
+  "host": "47.96.175.215",
+  "user": "root",
+  "os": "CentOS Linux 7",
+  "python": "3.6.8",
+  "memory_mib": 7820,
+  "disk_available": "12G",
+  "caddy_version": "2.11.7",
+  "occupied_tcp_ports": [
+    22,
+    80,
+    111,
+    443,
+    7500,
+    8000,
+    17234,
+    2019
+  ],
+  "existing_caddy_site": "download file server on :8000 with basic_auth; secret hash redacted",
+  "domain": "nutri.logicgene.com",
+  "public_dns_a": "47.96.175.215",
+  "dns_check": "PASS_GOOGLE_DOH",
+  "local_dns_note": "local resolver returned 198.19.5.162; public DNS used for authoritative deployment assessment",
+  "os_security_acceptance": "NOT_PASS_EOL_OS",
+  "os_eol_source": "https://www.centos.org/centos-linux/",
+  "deployment": "NOT_STARTED",
+  "remote_mutations": 0,
+  "next_inputs": [
+    "host migration/deployment direction",
+    "team access restriction choice"
+  ],
+  "rollback": "No server change to roll back; preserve existing download service on :8000 during future deployment."
+}

@@ -1,0 +1,44 @@
+name: Workbench WB-P0.2-C2 Scientific Workflow Guards
+on:
+  push:
+    branches: [workbench-wb-p0.2-real-paper-roundtrip]
+    paths:
+      - 'apps/workbench/c2/**'
+      - 'docs/workbench/WB-P0.2-C2_*'
+      - '.github/workflows/workbench-wb-p0-2-c2.yml'
+  workflow_dispatch:
+jobs:
+  scientific-adapter-and-exposure-guards:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/workbench/c2
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Python dependencies and browser runner
+        run: python -m pip install -r requirements.txt playwright
+      - name: Install Chromium
+        run: python -m playwright install --with-deps chromium
+      - name: Validate exact 10 frozen NDS contracts and negative policy suite
+        run: python -m pytest tests -q -rs
+      - name: Run synthetic-only Chromium read-model guard E2E
+        run: python tests/browser_flow.py
+      - name: Verify protected scientific files unchanged
+        working-directory: .
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHANGED=$(git diff --name-only 2259fdac9502541909a70d5d79c3460cecb6f657 HEAD -- runs/NDF runs/NDS/R1/P0 runs/NDS/R1/P0.1 src/nutrifoundation)
+          test -z "$CHANGED" || { echo "PROTECTED SCIENTIFIC FILE CHANGED"; echo "$CHANGED"; exit 1; }
+      - name: Archive synthetic Chromium policy screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wb-p0-2-c2-synthetic-policy-chromium
+          path: apps/workbench/c2/screenshots/*.png
+          if-no-files-found: ignore

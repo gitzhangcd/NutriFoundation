@@ -1,0 +1,35 @@
+{
+  "profile_id": "NDS_R1_DECISION_CAPTURE",
+  "version": "C0.1_SYNTHETIC_UI_MAPPING_ONLY",
+  "scientific_payload_schema": "R0_Human_DeNovo_Workpack_v0.2 / R2_PreAI_Workpack_v0.2",
+  "field_groups": [
+    {"id":"facts","title":"01 · 专业焦点与已知事实","description":"只依据当前许可的事实形成判断，不补全隐藏数据。","fields":[
+      {"key":"decision_focus","label":"最需要解决的专业问题是什么？","type":"nullable_string"},
+      {"key":"salient_existing_facts","label":"哪些已知事实会影响判断？（逐行一项）","type":"ordered_string_list"}]},
+    {"id":"missing","title":"02 · 决策改变性缺失信息","description":"优先记录可能改变决策的信息，不追求罗列数量。","fields":[
+      {"key":"decision_changing_missing_information","label":"哪些缺失信息会影响后续决策？（逐行一项）","type":"ordered_string_list"}]},
+    {"id":"actions","title":"03 · 行动、条件与安全边界","description":"保留并行选项，禁止把“暂不适用”和“不安全”合并。","fields":[
+      {"key":"currently_acceptable_actions","label":"当前可接受的行动","type":"ordered_string_list"},
+      {"key":"conditional_actions","label":"符合条件时才可接受的行动","type":"ordered_string_list"},
+      {"key":"not_indicated_prohibited_or_unsafe","label":"暂不适用、禁止或不安全的行动（保持专家原句）","type":"ordered_string_list"},
+      {"key":"reference_set.preferred","label":"方案集 / preferred 首选","type":"ordered_string_list"},
+      {"key":"reference_set.acceptable","label":"方案集 / acceptable 可接受","type":"ordered_string_list"},
+      {"key":"reference_set.conditional","label":"方案集 / conditional 条件性","type":"ordered_string_list"},
+      {"key":"reference_set.not_currently_indicated","label":"方案集 / not_currently_indicated 暂不适用","type":"ordered_string_list"},
+      {"key":"reference_set.prohibited","label":"方案集 / prohibited 禁止","type":"ordered_string_list"},
+      {"key":"reference_set.unsafe","label":"方案集 / unsafe 不安全","type":"ordered_string_list"},
+      {"key":"reference_set.unresolved","label":"方案集 / unresolved 待定","type":"ordered_string_list"}]},
+    {"id":"monitoring","title":"04 · 过程、监测与不确定性","description":"明确当前行动所依赖的过程步骤与不确定性。","fields":[
+      {"key":"process_action","label":"下一步过程性行动","type":"ordered_string_list"},
+      {"key":"monitoring_needs","label":"监测与随访需求","type":"ordered_string_list"},
+      {"key":"uncertainty_notes","label":"不确定性、未知与安全弃权理由","type":"ordered_string_list"},
+      {"key":"rationale_notes","label":"专家原始理由","type":"ordered_string_list"}]},
+    {"id":"review","title":"05 · 完整性复核与提交预览","description":"计量字段与回放预览；此处不执行真实锁定。","fields":[
+      {"key":"active_expert_minutes","label":"有效专家工时（分钟，空值可保留）","type":"nullable_nonnegative_number"},
+      {"key":"clarification_count","label":"专家澄清次数","type":"nonnegative_integer"}]}
+  ],
+  "field_count":19,
+  "reference_set_categories":["preferred","acceptable","conditional","not_currently_indicated","prohibited","unsafe","unresolved"],
+  "ui_sidecars":["FieldAnchorBinding","unknown_reason","stage_completion_state"],
+  "freeze_is_simulated":true
+}

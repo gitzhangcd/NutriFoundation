@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-08  
 **Authority:** Workbench engineering branch derived from `ndf-d1-scientific-core-thin-slice@2259fdac9502541909a70d5d79c3460cecb6f657`  
-**Overall decision:** `PASS_LOCATOR_AND_OFFLINE_BROWSER / NATIVE_PDFJS_E2E_PENDING`
+**Overall decision:** `PASS_NATIVE_PDFJS_E2E_AND_LOCATOR_CONFORMANCE`
 
 ## 1. Delivered
 
@@ -21,7 +21,7 @@
 - New PDF locator cases: 12 / 12 PASS.
 - Total backend unit/integration: **21 / 21 PASS**.
 - Offline Chromium E2E: **PASS** on actual FastAPI endpoints through browser bridge; page 1 BBox visible, text box clickable, return to structured anchor, zero JS exceptions.
-- Native PDF.js E2E: **PENDING / NOT CLAIMED**. The chat container has no access to npm/CDN and localhost is blocked for Chromium. Run after installing pinned PDF.js on a conventional development/CI runner.
+- Native PDF.js E2E: **PASS — GitHub Actions run 37739834099**, completed successfully at commit `4659fbcddfadc6aaf472c4b1840d8d0ccbb963d0`. The runner installed pinned `pdfjs-dist@4.10.38`, executed Python tests and Playwright/Chromium, asserted the real PDF.js canvas and bidirectional bbox replay, and uploaded a screenshot artifact. The constrained chat container itself used the distinct raster fallback mode.
 - Scientific expert/evaluator/NDS-R1 experimental gates: **NOT PART OF THIS ENGINEERING SLICE**.
 
 ## 3. Negative tests and safety
@@ -49,3 +49,10 @@
 ## 5. Next gate
 
 `WB-P0.2-B1｜Native PDF.js E2E, BBox Rendering Conformance & Adversarial PDF Layout Validation`, focusing on true PDF.js/browser acceptance, rotations/cropbox, scans and duplicate-text edge cases before any experiment-grade integration.
+## 6. Remote native integration acceptance evidence
+
+- Workflow run: https://github.com/gitzhangcd/NutriFoundation/actions/runs/37739834099
+- Conclusion: `success` on implementation commit `4659fbcddfadc6aaf472c4b1840d8d0ccbb963d0`.
+- Steps `Install pinned PDF.js assets`, `Run backend and locator regressions`, and `Run native PDF.js Chromium E2E`: **SUCCESS**.
+- Screenshot artifact: `wb-p0-2-b-pdfjs-e2e`, artifact ID `11533510985`.
+- No NDF/NDS scientific contract or frozen run artifact was modified for this gate.

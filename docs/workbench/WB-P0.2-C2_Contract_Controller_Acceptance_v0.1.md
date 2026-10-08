@@ -41,3 +41,16 @@ SQLite local engineering tables `bindings`, `drafts`, `snapshots`, `candidates`,
 ## 5. Next necessary integration
 
 C2.1 (or C3 controlled integration) must wrap **all** C1 Reader, PDF, figure, SourceAnchor, search, thumbnail, export and cached routes in server-side task/phase authorization. Do not make C1 public alongside C2 in any deployment. Add real identity/credential verification + human independent screening before any empirical use. Independent security review and end-user/clinician usability testing remain mandatory.
+## 6. GitHub Actions independent conformance receipt
+
+**Engineering gate: PASS_SYNTHETIC_CONTROLLER_ENGINEERING_CONFORMANCE**
+
+- Tested implementation commit: `3e1992cb690a791fb3beb9fd5ceb651cdfeec2c8`.
+- GitHub Actions: https://github.com/gitzhangcd/NutriFoundation/actions/runs/37811025796 — **SUCCESS**.
+- Python: **18 passed, 0 skipped** on full repository checkout, including the two exact official-NDS-blob tests.
+- Chromium read-model E2E: **PASS**, including R0 never-agent, R1 wait-for-agent, and R2 pre-AI deny; JavaScript errors: **0**.
+- Protected scientific paths: **no modifications** relative to pinned scientific base.
+- Screenshot artifact: `wb-p0-2-c2-synthetic-policy-chromium`, id `11565585377`.
+- Frozen engineering manifest: `runs/workbench/WB-P0.2/C2/WB-P0.2-C2_Conformance_Manifest_v0.1.json`.
+
+**Do not confuse this with** real expert credentials, a complete secure C1 reader adapter or NDS-R1 empirical capture. All C2 identities and records remain synthetic. Formal scientific qualification remains 0/3.

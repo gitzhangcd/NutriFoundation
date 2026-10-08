@@ -57,3 +57,20 @@ The 5:2 diet PLOS ONE 16-page PDF and its 154 canonical units are **an independe
 ## 6. Acceptance decision procedure
 
 `PASS_SYNTHETIC_SECURE_READER_ENGINEERING` only after all of the following: remote Python tests report zero failure/skip; native PDF.js and Chromium browser test passes (raster fallback explicitly rejected); protected upstream scientific paths diff remains empty; report + manifest are committed to Workbench engineering namespace. Regardless of engineering PASS, NDS-R1 stays `EMPIRICAL_CAPTURE_PENDING_REAL_EXPERTS`.
+
+## 7. Final remote engineering acceptance (2026-10-09)
+
+**Final gate:** `PASS_SYNTHETIC_SECURE_READER_ENGINEERING`.
+
+- Authoritative full checkout tested by GitHub Actions **run 37814568559** on commit `e3531632839b4ffc4ebad4eba818fb785a304819`:
+  https://github.com/gitzhangcd/NutriFoundation/actions/runs/37814568559
+- Python security/adapter/controller suite: **30 passed, 0 skipped**.
+- Original real-paper PDF with pinned `pdfjs-dist@4.10.38` loaded in Chromium over authenticated task routes: **PASS**.
+- Interactive synthetic R2 reader → typed-quote locator → task-owned SourceAnchor → field binding → PDF verified BBox → reverse replay: **PASS**.
+- R1 pre-freeze source hold + R0 never-Agent denial: **PASS** in the browser.
+- Protected scientific file diff: **empty**.
+- Native Chromium screenshot artifact: `wb-p0-2-c2-1-secure-reader-chromium`, artifact ID `11566691983`.
+
+The first remote CI attempt (run `37813962618`) failed due a browser-test-only `page.wait_for_function()` call being disallowed by the deliberately strict Content Security Policy. It did **not** demonstrate a reader access bypass. That test was replaced by normal Playwright locator assertions and a visible, server-validated typed-quote selection control, without relaxing CSP. The second run passed.
+
+**Scientific status remains unchanged:** 0/3 real qualified expert slots, 0 real R0 judgments, 0 real R2 `J_preAI` judgments, no QualifiedDecisionReference. Engineering PASS is not production security certification.

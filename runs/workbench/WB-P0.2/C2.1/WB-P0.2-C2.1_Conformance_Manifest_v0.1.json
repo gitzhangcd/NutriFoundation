@@ -1,0 +1,77 @@
+{
+  "stage": "WB-P0.2-C2.1",
+  "version": "v0.1",
+  "date": "2026-10-09",
+  "decision": "PASS_SYNTHETIC_SECURE_READER_ENGINEERING",
+  "scientific_status": "NDS_R1_P0_1_EMPIRICAL_CAPTURE_PENDING_REAL_EXPERTS",
+  "scientific_base_sha": "2259fdac9502541909a70d5d79c3460cecb6f657",
+  "implementation_commit_tested": "e3531632839b4ffc4ebad4eba818fb785a304819",
+  "contract_adapter": {
+    "official_scientific_files": 10,
+    "version_bound": true,
+    "all_files_git_blob_verified": true,
+    "source_allowlist_scientific_ownership_unchanged": true
+  },
+  "test_evidence": {
+    "local": {
+      "pytest_passed": 28,
+      "pytest_skipped_official_checkout": 2,
+      "chromium_testclient_bridge": "PASS_RASTER_FALLBACK"
+    },
+    "remote": {
+      "github_actions_run_id": 37814568559,
+      "conclusion": "success",
+      "url": "https://github.com/gitzhangcd/NutriFoundation/actions/runs/37814568559",
+      "pytest_passed": 30,
+      "pytest_skipped": 0,
+      "native_pdfjs_chromium": "PASS",
+      "pdfjs_version": "4.10.38",
+      "task_scoped_source_pdf": "PASS",
+      "anchor_field_binding": "PASS",
+      "bbox_reverse_replay": "PASS",
+      "R1_hold": "PASS",
+      "R0_agent_permanent_deny": "PASS",
+      "scientific_protected_diff": "EMPTY",
+      "screenshot_artifact_id": 11566691983,
+      "screenshot_artifact_name": "wb-p0-2-c2-1-secure-reader-chromium"
+    }
+  },
+  "source_fixture": {
+    "source_id": "SYN-5-2-PAPER",
+    "git_blob_sha": "fe9d476f52981c7c1d536b8578559b109a5fcbec",
+    "pdf_pages": 16,
+    "canonical_units": 154,
+    "test_only": true,
+    "not_a_scientific_human_baseline_source": true
+  },
+  "security_guards": [
+    "task_owner_and_arm_phase_per_route",
+    "r1_candidate_referenced_snippets_only",
+    "no_legacy_public_reader_mount",
+    "plain_text_units_no_injected_html",
+    "no_store_with_token_vary",
+    "csp_without_unsafe_eval",
+    "sha_checked_pdf_and_markdown",
+    "unique_quote_pdf_bbox",
+    "task_private_anchor_ids",
+    "append_only_anchor_and_binding_triggers",
+    "preai_freeze_binding_digest_audit",
+    "r0_never_agent",
+    "r2_no_agent_before_j_preai"
+  ],
+  "production_limitations": [
+    "test_tokens_are_not_identity_provider",
+    "no_real_expert_qualification_or_case_capture",
+    "fixture_grant_is_synthetic_not_NDS_scientific_approval",
+    "no_clinical_PII_workflow",
+    "no_independent_penetration_testing",
+    "no_production_multitenant_hosting"
+  ],
+  "scientific_nonregression": {
+    "protected_scientific_files_modified": 0,
+    "real_expert_bindings_added": 0,
+    "real_J_preAI_added": 0,
+    "qualified_reference_created": false
+  },
+  "next_gate": "Secure scientific packet materialization, credentialed expert pilot-readiness and production privacy/security gate"
+}

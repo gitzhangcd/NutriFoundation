@@ -69,4 +69,4 @@ def verify():
     print('M0 STATIC CONFORMANCE: PASS; 5/5 docs and 10 authoritative SHA bindings verified')
 
 if __name__=='__main__':
-    build();verify()
+    verify()

@@ -1,0 +1,51 @@
+name: Workbench WB-P0.2-C2.1 Secure Reader and Leakage Gates
+on:
+  push:
+    branches: [workbench-wb-p0.2-real-paper-roundtrip]
+    paths:
+      - 'apps/workbench/c2_1/**'
+      - 'docs/workbench/WB-P0.2-C2.1_*'
+      - '.github/workflows/workbench-wb-p0-2-c2-1.yml'
+  workflow_dispatch:
+jobs:
+  scoped-reader-leakage-tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/workbench/c2_1
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Python and Chromium dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Install pinned local PDF.js assets
+        run: bash install_pdfjs.sh
+      - name: Install Playwright Chromium
+        run: python -m playwright install --with-deps chromium
+      - name: Official NDS contract, secure reader and leakage kill tests
+        run: python -m pytest tests -q -rs
+      - name: Native PDF.js secure original-PDF and anchor browser E2E
+        env:
+          C21_REQUIRE_NATIVE_PDFJS: '1'
+        run: python tests/browser_secure.py
+      - name: Verify protected scientific paths are unchanged
+        working-directory: .
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHANGED=$(git diff --name-only 2259fdac9502541909a70d5d79c3460cecb6f657 HEAD -- runs/NDF runs/NDS/R1/P0 runs/NDS/R1/P0.1 src/nutrifoundation)
+          test -z "$CHANGED" || { echo 'PROTECTED NDF/NDS SCIENCE FILE MODIFIED'; echo "$CHANGED"; exit 1; }
+      - name: Upload Chromium screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wb-p0-2-c2-1-secure-reader-chromium
+          path: apps/workbench/c2_1/screenshots/*.png
+          if-no-files-found: ignore

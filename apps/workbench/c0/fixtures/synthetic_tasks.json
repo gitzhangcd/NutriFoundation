@@ -1,0 +1,10 @@
+{
+  "schema_version":"WB-C0-SYNTHETIC/0.1","provenance":"GENERATED_UI_FIXTURE_NOT_SCIENTIFIC_EVIDENCE","experts_are_real":false,
+  "tasks":[
+    {"id":"DEMO-R0-001","arm":"R0","mode":"human_de_novo","title":"合成任务｜营养决策独立判断","case_ref":"SYNTH-CASE-001","phase":"draft","allowed_sources":["SYNTH-CASE-VIEW","SYNTH-HUMAN-PACKET"],"agent_candidate":null,"questions":["decision_focus","salient_existing_facts","decision_changing_missing_information","currently_acceptable_actions","conditional_actions","not_indicated_prohibited_or_unsafe","process_action","monitoring_needs","reference_set","uncertainty_notes","rationale_notes"]},
+    {"id":"DEMO-R1-HOLD","arm":"R1","mode":"agent_first_verify","title":"合成任务｜Agent-first 验证（待解锁）","case_ref":"SYNTH-CASE-002","phase":"agent_set_pending","allowed_sources":["SYNTH-CASE-VIEW"],"agent_candidate":null,"questions":[]},
+    {"id":"DEMO-R1-VERIFY","arm":"R1","mode":"agent_first_verify","title":"合成任务｜候选验证演示","case_ref":"SYNTH-CASE-003","phase":"agent_set_frozen","allowed_sources":["SYNTH-CASE-VIEW","SYNTH-FROZEN-CANDIDATE","SYNTH-REFERENCED-SPANS"],"agent_candidate":{"label":"仅用于演示的虚构候选","claims":["请先确认决策所需的缺失信息"]},"questions":["disposition","rationale"]},
+    {"id":"DEMO-R2-PRE","arm":"R2","mode":"focus_first","title":"合成任务｜Pre-AI 独立判断","case_ref":"SYNTH-CASE-004","phase":"pre_ai_draft","allowed_sources":["SYNTH-CASE-VIEW","SYNTH-HUMAN-PACKET"],"agent_candidate":null,"questions":["decision_focus","decision_changing_missing_information","reference_set","uncertainty_notes"]},
+    {"id":"DEMO-R2-POST","arm":"R2","mode":"reconciliation","title":"合成任务｜Pre-AI 冻结后对比","case_ref":"SYNTH-CASE-005","phase":"post_ai_frozen_candidate","allowed_sources":["SYNTH-CASE-VIEW","SYNTH-PREAI-SNAPSHOT","SYNTH-FROZEN-CANDIDATE"],"agent_candidate":{"label":"仅用于演示的虚构候选","claims":["可能需要进一步询问饮食资料"]},"questions":["reconciliation_disposition","reconciliation_rationale"]}
+  ]
+}

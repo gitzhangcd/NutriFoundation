@@ -1,0 +1,43 @@
+name: Workbench WB-P0.2-B1 Adversarial PDF Layout
+on:
+  push:
+    branches: [workbench-wb-p0.2-real-paper-roundtrip]
+    paths:
+      - 'apps/workbench/wb-p0.2-b1/**'
+      - '.github/workflows/workbench-wb-p0-2-b1.yml'
+  workflow_dispatch:
+jobs:
+  adversarial-layout-and-native-reader:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/workbench/wb-p0.2-b1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt playwright
+      - name: Install pinned PDF.js, no runtime CDN
+        run: bash scripts/install_pdfjs.sh
+      - name: Install browser
+        run: python -m playwright install --with-deps chromium
+      - name: 5:2 real-paper regression and adversarial layout suite
+        run: python -m pytest tests/test_wb_a.py tests/test_pdf_locator.py tests/test_adversarial_layout.py -q
+      - name: Real-paper native PDF.js regression
+        run: PYTHONPATH=. python tests/browser_native_pdfjs.py
+      - name: Rotated/cropped synthetic PDF.js overlay and reverse replay
+        run: PYTHONPATH=. python tests/browser_native_b1.py
+      - name: Archive acceptance screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wb-p0-2-b1-adversarial-native-pdfjs
+          path: |
+            apps/workbench/wb-p0.2-b1/screenshots/04-native-pdfjs-bbox.png
+            apps/workbench/wb-p0.2-b1/screenshots/05-b1-native-pdfjs-crop-rotate-bbox.png
+          if-no-files-found: ignore

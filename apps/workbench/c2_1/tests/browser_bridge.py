@@ -53,7 +53,9 @@ with sync_playwright() as pw:
     page.wait_for_function("document.querySelector('#pdfEngine')?.textContent?.includes('页图')",timeout=30000)
     assert page.locator('.unit').count()==154
     quote='Three hundred adults with obesity were randomised'
-    r=page.evaluate('''(q)=>{const d=[...document.querySelectorAll('.unit')].find(e=>e.textContent.includes(q));const t=d.firstChild,i=t.textContent.indexOf(q),r=document.createRange();r.setStart(t,i);r.setEnd(t,i+q.length);getSelection().removeAllRanges();getSelection().addRange(r);d.dispatchEvent(new MouseEvent('mouseup',{bubbles:true}));return document.querySelector('#quote').value}''',quote)
+    page.locator('#quote').fill(quote)
+    page.locator('#locateQuote').click()
+    r=page.locator('#quote').input_value()
     assert r==quote
     page.locator('#makeAnchor').click()
     page.wait_for_function("document.querySelectorAll('.anchor').length===1",timeout=15000)

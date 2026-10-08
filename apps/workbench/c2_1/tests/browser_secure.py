@@ -6,7 +6,7 @@ from __future__ import annotations
 import os, socket, sys, tempfile, threading, time
 from pathlib import Path
 from urllib.request import urlopen
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, expect
 import uvicorn
 
 BASE=Path(__file__).resolve().parents[1]
@@ -41,19 +41,21 @@ def run():
             page.locator('#token').fill(keys['SYN-EXPERT-C'])
             page.locator('#task').select_option('SYN-R2')
             page.locator('#load').click()
-            page.wait_for_function("document.querySelector('#sourceBadge')?.textContent?.includes('154')",timeout=40000)
-            page.wait_for_function("document.querySelector('#pdfEngine')?.textContent?.includes('PDF.js') || document.querySelector('#pdfEngine')?.textContent?.includes('页图')",timeout=40000)
+            expect(page.locator('#sourceBadge')).to_contain_text('154',timeout=40000)
+            expect(page.locator('#pdfEngine')).not_to_contain_text('未载入',timeout=40000)
             if os.getenv('C21_REQUIRE_NATIVE_PDFJS')=='1':
                 assert page.locator('#pdfEngine').inner_text().startswith('PDF.js'),page.locator('#status').inner_text()
-                assert page.locator('#pdfCanvas').evaluate('(e)=>e.width>500&&e.height>500')
+                assert int(page.locator('#pdfCanvas').get_attribute('width') or '0')>500
             assert page.locator('.unit').count()==154
             assert page.context.request.get(base+'/v1/tasks/SYN-R2/sources/SYN-5-2-PAPER/original.pdf').status==401
             # Select exact quote from structured reader using DOM Range.
             quote='Three hundred adults with obesity were randomised'
-            result=page.evaluate('''(q)=>{const d=[...document.querySelectorAll('.unit')].find(e=>e.textContent.includes(q));let t=d.firstChild,pos=t.textContent.indexOf(q),r=document.createRange();r.setStart(t,pos);r.setEnd(t,pos+q.length);getSelection().removeAllRanges();getSelection().addRange(r);d.dispatchEvent(new MouseEvent('mouseup',{bubbles:true}));return document.querySelector('#quote').value}''',quote)
+            page.locator('#quote').fill(quote)
+            page.locator('#locateQuote').click()
+            result=page.locator('#quote').input_value()
             assert result==quote,result
             page.locator('#makeAnchor').click()
-            page.wait_for_function("document.querySelectorAll('.anchor').length===1",timeout=20000)
+            expect(page.locator('.anchor')).to_have_count(1,timeout=20000)
             page.wait_for_selector('.pdf-highlight',timeout=20000)
             page.locator('.pdf-highlight').first.click()
             page.wait_for_selector('.unit.selected',timeout=15000)
@@ -61,13 +63,13 @@ def run():
             page.screenshot(path=str(out/'01-task-scoped-anchor-bbox.png'),full_page=True)
             # R1 before candidates must not return documents or even search hits.
             page.locator('#task').select_option('SYN-R1');page.locator('#token').fill(keys['SYN-EXPERT-B']);page.locator('#load').click()
-            page.wait_for_function("document.querySelector('#phase')?.textContent==='WAIT_AGENT_FREEZE'",timeout=15000)
+            expect(page.locator('#phase')).to_have_text('WAIT_AGENT_FREEZE',timeout=15000)
             assert page.locator('.unit').count()==0
             page.screenshot(path=str(out/'02-r1-source-hold.png'),full_page=True)
             page.locator('#task').select_option('SYN-R0');page.locator('#token').fill(keys['SYN-EXPERT-A']);page.locator('#load').click()
-            page.wait_for_function("document.querySelector('#sourceBadge')?.textContent?.includes('154')",timeout=15000)
+            expect(page.locator('#sourceBadge')).to_contain_text('154',timeout=15000)
             page.locator('#candidate').click()
-            page.wait_for_function("document.querySelector('#status')?.textContent?.includes('CANDIDATE DENIED')",timeout=15000)
+            expect(page.locator('#status')).to_contain_text('CANDIDATE DENIED',timeout=15000)
             assert not errors,errors
             print('C21_SECURE_READER_CHROMIUM PASS; native_pdfjs='+str(bool('PDF.js' in page.locator('#pdfEngine').inner_text())))
             browser.close()

@@ -1,0 +1,124 @@
+{
+  "stage": "Workbench WB-P0.2-P0",
+  "artifact": "Scientific Base Binding, Contract Reuse Map, Repository Boundary & Non-Regression Freeze",
+  "version": "v0.1",
+  "date": "2026-10-08",
+  "status": "PASS_WITH_EXPLICIT_COMPATIBILITY_BINDING",
+  "engineering_branch": "workbench-wb-p0.2-real-paper-roundtrip",
+  "scientific_base": {
+    "branch": "ndf-d1-scientific-core-thin-slice",
+    "commit": "2259fdac9502541909a70d5d79c3460cecb6f657",
+    "immutable_for_gate": true
+  },
+  "namespace_rule": {
+    "workbench_stage": "WB-P0.2",
+    "scientific_stage": "NDS-R1-P0.2",
+    "invariant": "WB-P0.2 != NDS-R1-P0.2"
+  },
+  "reused_authority": [
+    {
+      "path": "runs/NDS/R1/P0/Role_Input_Surface_Contract_v0.1.json",
+      "blob_sha": "6ff4acdd45ba0d750ad362f41cdf1f817fc1bb47",
+      "mutation": "PROHIBITED"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/Exposure_Lock_Registry_v0.1.json",
+      "blob_sha": "ba43d882ac85bd63c61c008ee8ddddc6f787d36c",
+      "mutation": "PROHIBITED"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/Judgment_Freeze_Contract_v0.1.json",
+      "blob_sha": "adcf4f3c1a67354bf26438f53b6ab585d941f9d5",
+      "mutation": "PROHIBITED"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/Expert_Slot_Binding_Registry_v0.1.json",
+      "blob_sha": "2c4eac75204d0a6f9b3283d6561bb82837f680e2",
+      "mutation": "PROHIBITED"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/Expert_Qualification_Instance_Registry_v0.1.json",
+      "blob_sha": "0ddcd6f9672fb78109db4f49fa6e3e3683034e63",
+      "mutation": "PROHIBITED"
+    },
+    {
+      "path": "runs/NDS/R1/P0/Reconciliation_Exposure_Templates_v0.1.json",
+      "blob_sha": "b69d2987f88b073927f21f82ad6685496473f09a",
+      "mutation": "PROHIBITED"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/Human_Baseline_Source_Packet_v0.2.json",
+      "blob_sha": "a38d000f9962dac35e00d407f1d984721bc031ef",
+      "mutation": "PROHIBITED"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/R0_Human_DeNovo_Workpack_v0.2.json",
+      "blob_sha": "4cbf9830e1f6b02c0414374fd4c964141ea59974",
+      "mutation": "PROHIBITED"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/R2_PreAI_Workpack_v0.2.json",
+      "blob_sha": "3f0a06daa90562b79660d8423e5832caf20ff289",
+      "mutation": "PROHIBITED"
+    }
+  ],
+  "compatibility_binding": {
+    "issue": "Judgment_Freeze_Contract_v0.1 references superseded v0.1 R0/R2 workpack paths while current operational workpacks are v0.2.",
+    "resolution": "Reuse freeze semantics from frozen v0.1 contract and payload/schema binding from current v0.2 workpacks through an explicit versioned Workbench adapter.",
+    "upstream_rewrite": false,
+    "silent_reconciliation_allowed": false,
+    "conflict_policy": "FAIL_GATE"
+  },
+  "workbench_owned_objects": [
+    "AnnotationSourcePackage",
+    "CanonicalDocument",
+    "DocumentUnit",
+    "ParseRun",
+    "SourceAnchor",
+    "PdfLocator",
+    "WorkbenchDraft",
+    "LockSnapshot",
+    "WorkbenchAuditEvent"
+  ],
+  "protected_paths": [
+    "runs/NDF/**",
+    "runs/NDS/R1/P0/**",
+    "runs/NDS/R1/P0.1/**"
+  ],
+  "preferred_workbench_paths": [
+    "apps/workbench/",
+    "packages/workbench_contracts/",
+    "fixtures/workbench/",
+    "tests/workbench/",
+    "docs/workbench/",
+    "runs/workbench/"
+  ],
+  "non_regression_invariants": [
+    "NDS-R1-P0.1 remains empirical-capture-pending.",
+    "No synthetic UI/test data may count as real expert qualification, binding, judgment, QualifiedReference or Gold.",
+    "R2 Agent exposure remains prohibited before immutable J_preAI freeze.",
+    "Frozen pre-AI judgment cannot be overwritten by post-AI reconciliation.",
+    "Same-case expert identity cannot occupy more than one arm.",
+    "Forbidden input-surface leakage remains prohibited.",
+    "Parser/canonicalization success is not scientific verification.",
+    "Workbench infrastructure cannot promote scientific Gold.",
+    "Replay must be version/hash bound.",
+    "Integrity or exposure-order mismatch fails closed."
+  ],
+  "next_stage": {
+    "id": "WB-P0.2-A",
+    "title": "Real-Paper AnnotationSourcePackage -> CanonicalDocument -> Reader Vertical Slice",
+    "scope": [
+      "real-paper source package import",
+      "canonical structured reading",
+      "SourceAnchor round-trip",
+      "original-PDF traceability"
+    ],
+    "excluded": [
+      "NDS-R1-P0.2 scientific stage promotion",
+      "real expert empirical completion",
+      "full team dashboard",
+      "full AI reconciliation product surface"
+    ]
+  }
+}

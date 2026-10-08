@@ -42,7 +42,7 @@ The stage validates whether an actual PDF original can be used as reliable *tech
 
 - Python backend + adversarial tests: **37 passed** at initial acceptance run.
 - Chromium offline fallback/real FastAPI bridge on original 5:2 study: **PASS**, with JavaScript errors `[]`.
-- Native PDF.js/Chromium job: **pending remote CI** until corresponding GitHub Actions run completes. Local degraded browser pass does not substitute for this check.
+- Native PDF.js/Chromium job: **PASS**, GitHub Actions run `37750463593` on commit `b053e47d1baac9b5b777cd871261476c8e1db59a`. Real-paper replay and synthetic rotated+cropped overlay/reverse replay each passed in Chromium with pinned `pdfjs-dist@4.10.38`. Screenshot artifact: `wb-p0-2-b1-adversarial-native-pdfjs` (ID `11536979958`).
 
 ## Acceptance criteria
 
@@ -53,3 +53,6 @@ The B1 acceptance gate requires that the same committed code/fixtures be used fo
 - No OCR correctness claim, no proof of scientific statement validity, no high-confidence semantics for all adversarial PDF encodings.
 - No UI for expert credential binding, R0/R1/R2 exposure, pre-AI lock or post-AI reconciliation; these are separate future slices.
 - All NDF/NDS scientific sources remain read-only.
+## Final gate decision
+
+**WB-P0.2-B1 = PASS_TECHNICAL_READER_ACCEPTANCE**, supported by 37 Python passes, offline Chromium replay, and completed native PDF.js GitHub CI. This is **not** a scientific annotation/Gold or a healthcare deployment readiness claim. Remote CI: https://github.com/gitzhangcd/NutriFoundation/actions/runs/37750463593.

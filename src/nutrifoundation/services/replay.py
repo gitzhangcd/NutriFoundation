@@ -44,6 +44,7 @@ def replay_batch001(
         connector,
         store,
         mode=mode,
+        legacy_source_types=True,
     ).ingest(mapping)
 
     saved = {source.source_id: source for source in store.list_sources()}

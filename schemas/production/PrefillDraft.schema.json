@@ -1,0 +1,236 @@
+{
+  "$defs": {
+    "ExtractionTask": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "D0-production-v0.1",
+          "default": "D0-production-v0.1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "task_id": {
+          "title": "Task Id",
+          "type": "string"
+        },
+        "snapshot_id": {
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "snapshot_sha256": {
+          "title": "Snapshot Sha256",
+          "type": "string"
+        },
+        "parsed_id": {
+          "title": "Parsed Id",
+          "type": "string"
+        },
+        "parsed_sha256": {
+          "title": "Parsed Sha256",
+          "type": "string"
+        },
+        "authority_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Authority Sha256",
+          "type": "string"
+        },
+        "extractor_id": {
+          "title": "Extractor Id",
+          "type": "string"
+        },
+        "model_version": {
+          "title": "Model Version",
+          "type": "string"
+        },
+        "prompt_version": {
+          "title": "Prompt Version",
+          "type": "string"
+        },
+        "coverage_request": {
+          "title": "Coverage Request",
+          "type": "string"
+        },
+        "budget_tokens": {
+          "exclusiveMinimum": 0,
+          "title": "Budget Tokens",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "task_id",
+        "snapshot_id",
+        "snapshot_sha256",
+        "parsed_id",
+        "parsed_sha256",
+        "authority_sha256",
+        "extractor_id",
+        "model_version",
+        "prompt_version",
+        "coverage_request",
+        "budget_tokens"
+      ],
+      "title": "ExtractionTask",
+      "type": "object"
+    },
+    "FieldAssertion": {
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "enum": [
+            "PRESENT",
+            "NOT_REPORTED",
+            "NOT_APPLICABLE",
+            "NOT_ACQUIRED",
+            "EXTRACTION_FAILED",
+            "UNRESOLVED"
+          ],
+          "title": "State",
+          "type": "string"
+        },
+        "source_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Value"
+        },
+        "normalized_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Normalized Value"
+        },
+        "anchor_refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Anchor Refs",
+          "type": "array"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "state"
+      ],
+      "title": "FieldAssertion",
+      "type": "object"
+    },
+    "ResultDraft": {
+      "additionalProperties": false,
+      "properties": {
+        "result_id": {
+          "title": "Result Id",
+          "type": "string"
+        },
+        "object_type": {
+          "enum": [
+            "EvidenceUnit",
+            "Recommendation",
+            "ScientificClaim"
+          ],
+          "title": "Object Type",
+          "type": "string"
+        },
+        "fields": {
+          "additionalProperties": {
+            "$ref": "#/$defs/FieldAssertion"
+          },
+          "title": "Fields",
+          "type": "object"
+        },
+        "issues": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Issues",
+          "type": "array"
+        }
+      },
+      "required": [
+        "result_id",
+        "object_type",
+        "fields"
+      ],
+      "title": "ResultDraft",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "D0-production-v0.1",
+      "default": "D0-production-v0.1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "draft_id": {
+      "title": "Draft Id",
+      "type": "string"
+    },
+    "task": {
+      "$ref": "#/$defs/ExtractionTask"
+    },
+    "task_sha256": {
+      "title": "Task Sha256",
+      "type": "string"
+    },
+    "results": {
+      "items": {
+        "$ref": "#/$defs/ResultDraft"
+      },
+      "title": "Results",
+      "type": "array"
+    },
+    "coverage_completed": {
+      "title": "Coverage Completed",
+      "type": "string"
+    },
+    "coverage_omissions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Coverage Omissions",
+      "type": "array"
+    },
+    "status": {
+      "const": "STAGING",
+      "default": "STAGING",
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "draft_id",
+    "task",
+    "task_sha256",
+    "results",
+    "coverage_completed",
+    "coverage_omissions"
+  ],
+  "title": "PrefillDraft",
+  "type": "object"
+}

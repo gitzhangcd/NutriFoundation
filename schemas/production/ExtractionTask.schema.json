@@ -1,0 +1,72 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "D0-production-v0.1",
+      "default": "D0-production-v0.1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "task_id": {
+      "title": "Task Id",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "snapshot_sha256": {
+      "title": "Snapshot Sha256",
+      "type": "string"
+    },
+    "parsed_id": {
+      "title": "Parsed Id",
+      "type": "string"
+    },
+    "parsed_sha256": {
+      "title": "Parsed Sha256",
+      "type": "string"
+    },
+    "authority_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Authority Sha256",
+      "type": "string"
+    },
+    "extractor_id": {
+      "title": "Extractor Id",
+      "type": "string"
+    },
+    "model_version": {
+      "title": "Model Version",
+      "type": "string"
+    },
+    "prompt_version": {
+      "title": "Prompt Version",
+      "type": "string"
+    },
+    "coverage_request": {
+      "title": "Coverage Request",
+      "type": "string"
+    },
+    "budget_tokens": {
+      "exclusiveMinimum": 0,
+      "title": "Budget Tokens",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "task_id",
+    "snapshot_id",
+    "snapshot_sha256",
+    "parsed_id",
+    "parsed_sha256",
+    "authority_sha256",
+    "extractor_id",
+    "model_version",
+    "prompt_version",
+    "coverage_request",
+    "budget_tokens"
+  ],
+  "title": "ExtractionTask",
+  "type": "object"
+}

@@ -55,6 +55,7 @@ class SemanticIngestionResult:
     evidence_id: str | None = None
     f0_frozen: bool = False
     errors: tuple[str, ...] = ()
+    verification_scope: str = "legacy_mechanical_checks_only"
 
     def as_dict(self):
         return asdict(self)
@@ -180,12 +181,14 @@ class SemanticResponseIngestionService:
         store: SQLiteStore,
         *,
         verifier: IndependentEvidenceVerifier | None = None,
+        legacy_f0: bool = False,
     ):
         self.store = store
         self.verifier = verifier or IndependentEvidenceVerifier(
             verifier_id="IndependentEvidenceVerifier-v0.1"
         )
         self.freeze_engine = F0FreezeEngine()
+        self.legacy_f0 = legacy_f0
 
     def _candidate_from_response(
         self,
@@ -371,6 +374,16 @@ class SemanticResponseIngestionService:
             task.task_id,
             SemanticTaskState.INGESTED,
         )
+
+        if not self.legacy_f0:
+            return SemanticIngestionResult(
+                task_id=task.task_id,
+                task_state=SemanticTaskState.INGESTED.value,
+                response_id=response.response_id,
+                candidate_id=candidate.candidate_id,
+                verification_id=verification.verification_id,
+                evidence_id=task.evidence_id,
+            )
 
         evidence, freeze = self.freeze_engine.freeze(
             candidate,

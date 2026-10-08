@@ -5,6 +5,7 @@ import urllib.parse
 import urllib.request
 from dataclasses import dataclass
 from datetime import date
+import calendar
 from typing import Protocol
 from xml.etree import ElementTree as ET
 
@@ -20,6 +21,10 @@ class PubMedArticle:
     pmcid: str | None
     publication_types: tuple[str, ...]
     abstract: str | None = None
+    publication_date_raw: str | None = None
+    publication_date_precision: str = "unknown"
+    publication_date_start: date | None = None
+    publication_date_end: date | None = None
 
 
 class PubMedProvider(Protocol):
@@ -39,35 +44,37 @@ def _text(node: ET.Element | None) -> str | None:
     return value or None
 
 
-def _pub_date(article: ET.Element) -> date | None:
+def _date_details(article: ET.Element) -> tuple[date | None, str | None, str, date | None, date | None]:
     pd = article.find(".//JournalIssue/PubDate")
     if pd is None:
-        return None
+        return None, None, "unknown", None, None
 
     year = _text(pd.find("Year"))
     month = _text(pd.find("Month"))
     day = _text(pd.find("Day"))
 
-    if not year:
-        medline = _text(pd.find("MedlineDate"))
-        if medline and len(medline) >= 4 and medline[:4].isdigit():
-            year = medline[:4]
+    raw = ET.tostring(pd, encoding="unicode")
 
     if not year or not year.isdigit():
-        return None
-
-    m = 1
-    if month:
-        if month.isdigit():
-            m = max(1, min(12, int(month)))
-        else:
-            m = _MONTHS.get(month[:3].title(), 1)
-
-    d = int(day) if day and day.isdigit() else 1
+        # Seasonal/ranged MedlineDate is preserved, never coerced to January 1.
+        return None, raw, "unresolved", None, None
     try:
-        return date(int(year), m, d)
-    except ValueError:
-        return date(int(year), m, 1)
+        y = int(year)
+        if not month:
+            if day:
+                return None, raw, "unresolved", None, None
+            return None, raw, "year", date(y, 1, 1), date(y, 12, 31)
+        m = int(month) if month.isdigit() else _MONTHS[month[:3].title()]
+        if not day:
+            return None, raw, "month", date(y, m, 1), date(y, m, calendar.monthrange(y, m)[1])
+        exact = date(y, m, int(day))
+        return exact, raw, "day", exact, exact
+    except (ValueError, KeyError):
+        return None, raw, "unresolved", None, None
+
+
+def _pub_date(article: ET.Element) -> date | None:
+    return _date_details(article)[0]
 
 
 def parse_pubmed_xml(xml_text: str) -> list[PubMedArticle]:
@@ -114,17 +121,22 @@ def parse_pubmed_xml(xml_text: str) -> list[PubMedArticle]:
             if value
         ]
 
+        exact_date, date_raw, precision, start, end = _date_details(item)
         out.append(
             PubMedArticle(
                 pmid=pmid,
                 title=title,
                 journal=journal,
-                publication_date=_pub_date(item),
+                publication_date=exact_date,
                 authors=tuple(authors),
                 doi=identifiers.get("doi"),
                 pmcid=identifiers.get("pmc"),
                 publication_types=publication_types,
                 abstract="\n".join(abstract_parts) if abstract_parts else None,
+                publication_date_raw=date_raw,
+                publication_date_precision=precision,
+                publication_date_start=start,
+                publication_date_end=end,
             )
         )
 

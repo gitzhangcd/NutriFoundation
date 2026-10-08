@@ -1,0 +1,84 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "snapshot_id": {
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "source_id": {
+      "title": "Source Id",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "source_version": {
+      "title": "Source Version",
+      "type": "string"
+    },
+    "format": {
+      "enum": [
+        "JATS_XML",
+        "TEXT",
+        "PDF",
+        "HTML",
+        "XPT",
+        "OTHER"
+      ],
+      "title": "Format",
+      "type": "string"
+    },
+    "content_scope": {
+      "enum": [
+        "metadata",
+        "abstract",
+        "fulltext",
+        "supplement",
+        "observation",
+        "grounding",
+        "experiment"
+      ],
+      "title": "Content Scope",
+      "type": "string"
+    },
+    "lane": {
+      "default": "scientific",
+      "enum": [
+        "scientific",
+        "observation",
+        "grounding",
+        "experiment"
+      ],
+      "title": "Lane",
+      "type": "string"
+    },
+    "license": {
+      "title": "License",
+      "type": "string"
+    },
+    "byte_count": {
+      "minimum": 0,
+      "title": "Byte Count",
+      "type": "integer"
+    },
+    "blob_path": {
+      "title": "Blob Path",
+      "type": "string"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "source_id",
+    "content_sha256",
+    "source_version",
+    "format",
+    "content_scope",
+    "license",
+    "byte_count",
+    "blob_path"
+  ],
+  "title": "RawSnapshot",
+  "type": "object"
+}

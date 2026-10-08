@@ -1,5 +1,19 @@
 # NutriFoundation Engine v0.4.2a0
 
+## D0 production execution v0.1
+
+The new `nutri production` commands provide version-bound raw snapshots,
+JATS/text anchors, multiple-result prefill drafts, field/readout checks,
+assisted/source-only review exports, immutable review patches, durable jobs,
+dependency invalidation and staging release manifests. Canonical and Gold
+promotion remain disabled pending D0 qualification.
+
+`produce-evidence` and `ingest-chat-response` now stop before F0 by default.
+Historical replay explicitly opts into the legacy mechanical F0 contract;
+frozen scientific/evaluation artifacts are unchanged.
+
+See [D0 implementation and command guide](docs/D0_Production_Implementation_v0.1.md).
+
 Executable reference implementation for the AI Nutri Data Foundation scientific evidence pipeline.
 
 ## E0.1–E0.3.1 foundation

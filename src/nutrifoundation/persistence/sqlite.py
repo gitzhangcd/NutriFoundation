@@ -353,16 +353,34 @@ class SQLiteStore:
         source_id: str,
         *,
         preferred_kinds: tuple[str, ...] = ("pmc_fulltext", "pubmed_abstract"),
+        snapshot_id: str | None = None,
+        expected_sha256: str | None = None,
     ) -> tuple[str, str, str] | None:
         with self.connect() as connection:
+            if snapshot_id is not None:
+                row = connection.execute(
+                    "SELECT text_kind,content,content_sha256 FROM source_text_snapshot "
+                    "WHERE source_id=? AND text_id=?", (source_id, snapshot_id),
+                ).fetchone()
+                if row is None:
+                    raise ValueError("Bound source snapshot not found")
+                if expected_sha256 is not None and row["content_sha256"] != expected_sha256:
+                    raise ValueError("Bound source snapshot hash mismatch")
+                return row["content"], row["text_kind"], row["content_sha256"]
             rows = connection.execute(
                 """SELECT text_kind,content,content_sha256
                 FROM source_text_snapshot
                 WHERE source_id=?
-                ORDER BY retrieved_at DESC""",
+                ORDER BY retrieved_at DESC,text_id DESC""",
                 (source_id,),
             ).fetchall()
-        by_kind = {row["text_kind"]: row for row in rows}
+        if expected_sha256 is not None:
+            rows = [row for row in rows if row["content_sha256"] == expected_sha256]
+            if not rows:
+                raise ValueError("Bound source snapshot hash not found")
+        by_kind = {}
+        for row in rows:
+            by_kind.setdefault(row["text_kind"], row)
         for kind in preferred_kinds:
             if kind in by_kind:
                 row = by_kind[kind]

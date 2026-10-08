@@ -4,7 +4,7 @@
 
 **Scientific authority:** `ndf-d1-scientific-core-thin-slice@2259fdac9502541909a70d5d79c3460cecb6f657` — no scientific files modified.
 
-**Status:** `LOCAL_API_AND_BROWSER_PASS / NATIVE_PDFJS_CI_PENDING` (updated only after remote CI conclusively passes).
+**Status:** `PASS_C1_ENGINEERING_VERTICAL_SLICE / SCIENTIFIC_CAPTURE_DISABLED`.
 
 ## Scope and data ownership
 
@@ -30,9 +30,19 @@ The original B1 importer, Markdown canonicalizer, SourceAnchor validation and `P
 - No formal R0/R1/R2 server-side permissions, expert identity or participant consent.
 - No preAI `J_preAI` freeze or Agent expansion; no scientific adjudication/QualifiedDecisionReference.
 - No multi-user production auth, encryption, tenant boundary, backup/retention or regulated-data review.
-- True native PDF.js E2E runs only on CI with pinned browser modules, separately from local raster fallback.
+- True native PDF.js E2E **passed** on GitHub Actions (run `37808073261`, successful). Local Chromium was separately tested with raster fallback and a real FastAPI TestClient bridge.
 
 ## Progression criteria
 
 Only a passing remote native PDF.js E2E plus upstream protected-path diff=0 warrants `PASS_C1_ENGINEERING_VERTICAL_SLICE`.
 Next work (`C2`) must implement the server-side contract adapter and leakage-safe role/phase projections *before* any real scientific capture.
+## Remote conformance receipt (2026-10-09)
+
+- GitHub Actions: https://github.com/gitzhangcd/NutriFoundation/actions/runs/37808073261
+- Tested code commit: `2533afd07f258b97d62ecc27030509e59ec44b43`
+- `Unit and API regressions (11 contracts)`: SUCCESS.
+- `True native PDF.js, real-paper anchor and durable draft E2E`: SUCCESS.
+- Native browser artifact: `wb-p0-2-c1-native-pdfjs` (ID `11563089198`).
+- Science lineage remains untouched; no qualified human/Gold data or formal J_preAI freeze was generated.
+
+**Final engineering gate:** `PASS_C1_ENGINEERING_VERTICAL_SLICE`. This is not the C2 server-side authorization/exposure freeze and not a research stage promotion.

@@ -1,0 +1,36 @@
+{
+  "stage": "WB-P0.2-B",
+  "date": "2026-10-08",
+  "status": "PASS_NATIVE_PDFJS_E2E_AND_VERIFIED_BBOX",
+  "scientific_status": "NOT_SCIENTIFICALLY_VERIFIED",
+  "scientific_base_commit": "2259fdac9502541909a70d5d79c3460cecb6f657",
+  "implementation_commit_tested": "4659fbcddfadc6aaf472c4b1840d8d0ccbb963d0",
+  "real_paper_fixture": "5_2_diet.AnnotationSourcePackage.v0.1.zip",
+  "source_pdf_pages": 16,
+  "canonical_document_units": 154,
+  "test_evidence": {
+    "backend_tests": {
+      "passed": 21,
+      "failed": 0
+    },
+    "offline_browser_bidirectional_bbox": "PASS",
+    "native_pdfjs_browser_bidirectional_bbox": "PASS",
+    "github_actions_run_id": 37739834099,
+    "github_actions_url": "https://github.com/gitzhangcd/NutriFoundation/actions/runs/37739834099",
+    "github_actions_conclusion": "success",
+    "pdfjs_pinned_version": "4.10.38",
+    "browser_artifact_id": 11533510985
+  },
+  "non_regression": {
+    "upstream_scientific_artifacts_modified": false,
+    "no_expert_empirical_output_fabricated": true,
+    "NDS_R1_P0_1_remains_empirical_capture_pending": true
+  },
+  "known_limitations": [
+    "Only text-layer PDFs can create verified PDF bbox locators.",
+    "Ambiguous/unmatched quote refuses exact bbox and retains page hint only.",
+    "No identity/role-specific NDS-R1 human experiment gate or QualifiedReference production.",
+    "Rotation/cropbox and adversarial PDF layout need additional dedicated fixtures."
+  ],
+  "next_gate": "WB-P0.2-B1 adversarial-layout & native PDF.js conformance expansion"
+}

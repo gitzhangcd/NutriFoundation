@@ -1,0 +1,39 @@
+name: Workbench WB-P0.2-B PDF.js E2E
+on:
+  push:
+    branches: [workbench-wb-p0.2-real-paper-roundtrip]
+    paths:
+      - 'apps/workbench/wb-p0.2-b/**'
+      - '.github/workflows/workbench-wb-p0-2-b.yml'
+  workflow_dispatch:
+jobs:
+  native-pdfjs-check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/workbench/wb-p0.2-b
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Workbench Python dependencies
+        run: python -m pip install -r requirements.txt playwright
+      - name: Install pinned PDF.js assets
+        run: bash scripts/install_pdfjs.sh
+      - name: Install Chromium for Playwright
+        run: python -m playwright install --with-deps chromium
+      - name: Run backend and locator regressions
+        run: python -m pytest tests/test_wb_a.py tests/test_pdf_locator.py -q
+      - name: Run native PDF.js Chromium E2E
+        run: PYTHONPATH=. python tests/browser_native_pdfjs.py
+      - name: Upload browser screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wb-p0-2-b-pdfjs-e2e
+          path: apps/workbench/wb-p0.2-b/screenshots/04-native-pdfjs-bbox.png
+          if-no-files-found: ignore

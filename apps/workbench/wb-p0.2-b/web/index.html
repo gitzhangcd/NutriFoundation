@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Workbench · WB-P0.2-B</title>
+<style>
+:root{--ink:#19314b;--sub:#71849a;--primary:#276dd4;--soft:#eaf2ff;--line:#e5ebf3;--surface:#fff;--bg:#f4f7fb;--good:#19846d}
+*{box-sizing:border-box}html,body{height:100%;margin:0;font:14px/1.58 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
+button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}.shell{height:100vh;display:flex;flex-direction:column;min-height:630px}
+.top{height:66px;flex:none;display:flex;align-items:center;justify-content:space-between;background:white;border-bottom:1px solid var(--line);padding:0 24px;gap:20px}.mark{display:flex;gap:11px;align-items:center;font-weight:750;font-size:18px;letter-spacing:-.3px}.logo{width:33px;height:33px;border-radius:10px;background:#276dd4;color:white;display:grid;place-items:center;font-weight:800}.muted{color:var(--sub)}.micro{font-size:11px;letter-spacing:.2px}.top-right{display:flex;gap:12px;align-items:center}.pill{font-size:11px;color:#4a6a95;background:#eff5fe;border:1px solid #dce8fa;border-radius:30px;padding:6px 10px;font-weight:650}.btn{padding:9px 14px;border:1px solid #d6e1f1;border-radius:8px;background:white;color:#245b9e;font-weight:650}.btn.primary{background:var(--primary);border-color:var(--primary);color:white}.btn.danger{background:#f9eef0;border-color:#f1cbd1;color:#a23b4c}.btn:hover{filter:brightness(.97)}
+.banner{padding:7px 26px;border-bottom:1px solid #dce9f9;background:#f1f6ff;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px;color:#53769e}
+.main{flex:1;min-height:0;display:grid;grid-template-columns:239px minmax(400px,1fr) 318px}.nav{border-right:1px solid var(--line);background:white;overflow:auto;padding:17px 13px}.label{font-weight:700;font-size:11px;color:#97a5b5;text-transform:uppercase;margin:12px 11px 9px;letter-spacing:.9px}.navitem{display:flex;gap:11px;align-items:center;padding:11px 12px;border-radius:10px;color:#60748e;font-weight:600;margin:3px 0}.navitem.active{background:#eaf2ff;color:#2162bc}.navitem .sym{font-size:17px;min-width:20px}.line{height:1px;background:var(--line);margin:16px 8px}.docname{font-weight:750;padding:0 11px 6px;font-size:13px;line-height:1.45}.toc{max-height:52vh;overflow:auto}.tocentry{display:block;background:none;border:0;width:100%;text-align:left;color:#68798d;padding:5px 11px;border-left:2px solid transparent;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tocentry:hover{color:var(--primary);background:#f6f9ff}.tocentry.active{color:var(--primary);border-left-color:var(--primary);background:#f4f8ff}
+.workspace{overflow:auto;min-height:0}.head{padding:23px 38px 18px;background:white;border-bottom:1px solid var(--line)}.headrow{display:flex;align-items:center;justify-content:space-between;gap:12px}.head h1{font-size:22px;line-height:1.32;letter-spacing:-.5px;margin:5px 0 7px}.docmeta{font-size:12px;color:var(--sub)}.tabs{display:flex;gap:21px;margin:23px 0 -18px}.tab{padding:0 0 14px;border:0;background:none;border-bottom:2px solid transparent;color:#74879a;font-size:13px;font-weight:650}.tab.active{border-color:var(--primary);color:var(--primary)}.toolbar{padding:16px 38px;display:flex;gap:12px;align-items:center}.search{border:1px solid var(--line);border-radius:9px;padding:10px 13px;flex:1;outline:none;background:white;color:var(--ink)}.search:focus{border-color:#aacaf8}.helper{font-size:12px;color:var(--sub)}.paper{background:white;border:1px solid var(--line);margin:0 38px 36px;box-shadow:0 10px 40px #32548d08;border-radius:11px;padding:33px 44px 45px;max-width:1050px;min-height:480px}.section-title{font-weight:750}.unit{position:relative;border-radius:6px;padding:3px 6px;margin:2px -6px;scroll-margin-top:22px}.unit.has-anchor{background:linear-gradient(90deg,#f0f8ff,transparent);border-left:3px solid #6ca1ea;margin-left:-9px}.unit.focused{outline:2px solid #afcfff}.unit h1{font-size:24px;margin:14px 0}.unit h2{font-size:20px;margin:24px 0 10px}.unit h3{font-size:16px;margin:22px 0 7px}.unit h4{font-size:14px;margin:15px 0}.unit p,.unit li{font:14px/1.87 Georgia,"Times New Roman",serif;color:#35445a}.unit p{margin:9px 0 15px}.unit blockquote{border-left:3px solid #d2deef;padding:1px 14px;color:#597087}.unit table{border-collapse:collapse;width:100%;margin:16px 0 22px;font:12px/1.5 Georgia,serif;display:block;overflow:auto}.unit th,.unit td{border:1px solid #dfe7f0;padding:8px 10px;vertical-align:top;min-width:100px}.unit th{background:#f4f8fe;color:#446080}.unit img{max-width:100%;border-radius:5px;max-height:470px;object-fit:contain}.pageTag{display:inline-flex;background:#eff4fd;color:#7890ae;border-radius:4px;font:10px -apple-system,sans-serif;padding:3px 6px;margin-bottom:5px}.empty{color:#8292a6;text-align:center;padding:65px 15px}.tooltip{background:#1d548e;color:white;border-radius:8px;padding:9px 13px;position:fixed;z-index:20;display:none;box-shadow:0 8px 28px #1d426b40}
+.side{overflow:auto;background:#fff;border-left:1px solid var(--line);display:flex;flex-direction:column}.sidehead{padding:23px 20px 14px;border-bottom:1px solid var(--line)}.sidehead strong{font-size:16px}.stage{display:flex;align-items:center;gap:8px;margin-top:14px}.step{border:0;background:#eaf2ff;color:#276bd0;padding:7px 12px;border-radius:7px;font-weight:700;font-size:12px}.sidebody{padding:18px 19px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:21px}.stat{padding:15px 13px;border:1px solid var(--line);background:#f9fbff;border-radius:11px}.stat .val{font-size:24px;font-weight:750;line-height:1.3}.stat .sub{font-size:11px;color:#8292aa}.sTitle{font-size:13px;font-weight:750;margin:18px 0 10px;display:flex;justify-content:space-between}.anchorcard{border:1px solid var(--line);padding:12px 12px 9px;border-radius:10px;background:#fff;margin:9px 0}.anchorcard:hover{border-color:#bed6fa}.quote{font-family:Georgia,serif;font-size:12px;line-height:1.6;color:#586b83;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin:6px 0}.anchor-meta{font-size:11px;color:#8495a8}.smalllink{border:0;background:transparent;color:var(--primary);padding:4px 0;font-size:12px;font-weight:750}.notice{padding:14px;background:#f5f9ff;border:1px solid #e4edfd;border-radius:10px;color:#667f9b;font-size:12px;line-height:1.6}.footer{padding:9px 23px;border-top:1px solid var(--line);display:flex;justify-content:space-between;background:#fff;gap:10px;font-size:11px;color:#8194a7}.pdfpanel{display:none;height:70vh;min-height:570px;margin:0 38px 32px;background:white;border:1px solid var(--line);border-radius:10px;overflow:hidden}.pdfpanel iframe{width:100%;height:100%;border:0}.pdf-top{padding:8px 15px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);font-size:12px;color:#758aa0}.pdf-top input{max-width:58px;padding:4px;border-radius:4px;border:1px solid #d4dfed}.pdfviewer{height:calc(100% - 44px)}.pdfviewer iframe{height:100%}
+#toast{position:fixed;bottom:50px;left:50%;transform:translateX(-50%);background:#1e3d59;color:white;padding:10px 17px;border-radius:8px;display:none;z-index:35;box-shadow:0 10px 25px #1e3d592f}.importframe{border:2px dashed #d8e7fa;border-radius:12px;text-align:center;padding:35px;background:#f8fbff;margin-top:24px}#upload{max-width:300px}body.pdf-mode .pdfpanel{display:block}body.pdf-mode .paper{display:none}@media(max-width:1180px){.main{grid-template-columns:205px minmax(350px,1fr) 280px}.paper{margin:0 18px 28px;padding:25px}.head,.toolbar{padding-left:22px;padding-right:22px}}@media(max-width:880px){.main{grid-template-columns:1fr}.nav{display:none}.side{border-left:0;border-top:1px solid var(--line);max-height:300px}.head h1{font-size:18px}.top{padding:0 13px}.paper{margin:0 13px 25px}.banner{padding:7px 12px}.footer{display:none}}
+
+/* WB-P0.2-B: responsive split evidence comparison */
+.doc-body{display:block}.readerArea{min-width:0}.pdf-panel{} .pdfpanel{height:calc(100vh - 220px);min-height:500px}
+.pdf-top{display:flex;flex-direction:column;align-items:stretch;gap:5px;padding:9px 11px}.pdf-toolbar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:11px}.pdf-toolbar .btn{padding:3px 8px}.pdfviewer{height:calc(100% - 79px);overflow:auto;background:#dce4ee;padding:17px}
+.pdf-stage{position:relative;max-width:none;margin:0 auto;box-shadow:0 6px 25px #2645683b;background:white;line-height:0}
+.pdf-stage canvas,.pdf-stage img{display:block;width:100%;height:auto}.pdf-overlay{position:absolute;inset:0;pointer-events:none}
+.pdf-highlight{position:absolute;pointer-events:auto;background:#facc15a6;border:2px solid #e09b00;border-radius:2px;box-shadow:0 0 0 2px #fff6;cursor:pointer;padding:0}
+.pdf-highlight:hover{background:#ffaf3ac9;border-color:#b36800}
+::highlight(source-anchor){background:#b7ddfe;color:#172f4e}
+body.split-mode .pdfpanel{display:block;margin:0;border-radius:0;height:calc(100vh - 220px)}
+body.split-mode .doc-body{display:grid;grid-template-columns:minmax(340px,1fr) minmax(360px,1fr);gap:0}
+body.split-mode .readerArea{height:calc(100vh - 220px);overflow:auto;border-right:1px solid var(--line)}
+body.split-mode .paper{margin:0 12px 20px;padding:18px 18px}
+body.split-mode .toolbar{padding:10px 12px}
+body.split-mode .unit table{max-width:100%}
+body.pdf-mode .readerArea{display:none}
+body.pdf-mode .pdfpanel{display:block}
+@media(max-width:1320px){body.split-mode .doc-body{display:flex;flex-direction:column}body.split-mode .readerArea{height:55vh}body.split-mode .pdfpanel{height:65vh}}
+</style></head>
+<body><div class="shell">
+<header class="top"><div class="mark"><div class="logo">W</div><div>Workbench<div class="muted micro" style="font-weight:500">Scientific Expert Annotation</div></div></div><div class="top-right"><span class="pill">WB-P0.2-B · 工程验证</span><button class="btn" onclick="downloadAnchors()">导出锚点 JSON</button><button class="btn primary" onclick="showImport()">导入来源包</button></div></header>
+<div class="banner"><span>基于 NDF / NDS 科学基线 · 仅供来源解析与证据定位技术验收；转换内容未获科学验证</span><span id="status">等待导入</span></div>
+<div class="main">
+<aside class="nav"><div class="label">工作空间 Workspace</div><div class="navitem" onclick="showImport()"><span class="sym">▣</span> 来源导入</div><div class="navitem active" onclick="changeTab('reader')"><span class="sym">▤</span> 结构化阅读</div><div class="navitem" onclick="changeTab('pdf')"><span class="sym">◫</span> 原始 PDF</div><div class="navitem" onclick="document.getElementById('anchorList').scrollIntoView({behavior:'smooth'})"><span class="sym">⌁</span> 证据锚点</div><div class="line"></div><div class="label">当前论文</div><div class="docname" id="sidebarTitle">尚无来源包</div><div class="muted micro" style="padding:0 11px">PDF / CanonicalDocument</div><div class="line"></div><div class="label">章节目录 Contents</div><div class="toc" id="toc"></div></aside>
+<main class="workspace"><div class="head"><div class="docmeta">EXPERT SOURCE READER · SCIENTIFIC PAPER</div><div class="headrow"><h1 id="docTitle">等待导入论文</h1><span id="sourceMeta" class="pill">尚未创建文档</span></div><div class="docmeta" id="docDesc">保留原始文献字节与 SHA-256；结构化文档用于阅读，PDF 用于页级核查。</div><div class="tabs"><button class="tab active" id="tab-reader" onclick="changeTab('reader')">结构化文档阅读</button><button class="tab" id="tab-pdf" onclick="changeTab('pdf')">原始 PDF · 精准定位</button><button class="tab" id="tab-split" onclick="changeTab('split')">结构化 + PDF 双栏校验</button></div></div>
+<div class="doc-body"><div class="readerArea"><div class="toolbar"><input id="search" class="search" placeholder="⌕  搜索正文、研究结果、图表…" oninput="filterUnits()"><span class="helper" id="searchCount">—</span></div>
+<div class="paper" id="paper"><div class="empty"><h2>导入后开始阅读</h2><p>请选择 AnnotationSourcePackage v0.1 ZIP；或者使用 CLI 将旧 ZIP 与原 PDF 升级。</p><button class="btn primary" onclick="showImport()">导入正式来源包</button></div></div>
+</div><div class="pdfpanel"><div class="pdf-top"><div class="pdf-toolbar"><span id="pdfEngine">正在检测 PDF.js…</span><button class="btn" aria-label="上一页" onclick="goPDF(Number($('pdfPage').value)-1)">‹</button><span>第 <input type="number" id="pdfPage" min="1" value="1" onchange="goPDF(this.value)"> 页</span><button class="btn" aria-label="下一页" onclick="goPDF(Number($('pdfPage').value)+1)">›</button><button class="btn" onclick="WBPDF.zoomBy(-.15)">－</button><span id="pdfZoom">128%</span><button class="btn" onclick="WBPDF.zoomBy(.15)">＋</button></div><div class="micro muted" id="pdfLocatorStatus">暂无已验证的 PDF_PAGE_BBOX</div></div><div class="pdfviewer" id="pdfScroller"><div id="pdfStage" class="pdf-stage"><canvas id="pdfCanvas"></canvas><img id="pdfRaster" alt="来自原始 PDF 的页面图像"><div class="pdf-overlay" id="pdfOverlay"></div></div></div></div></div>
+</main>
+<aside class="side"><div class="sidehead"><strong>证据锚点</strong><div class="muted micro">Evidence Anchors · Version-bound</div><div class="stage"><span class="step">1 / 3 结构化阅读</span><span class="micro muted">原件可核查</span></div></div><div class="sidebody"><div class="stats"><div class="stat"><div class="val" id="unitCount">0</div><div class="sub">文档单元 Units</div></div><div class="stat"><div class="val" id="anchorCount">0</div><div class="sub">已建锚点 Anchors</div></div></div>
+<div class="sTitle">创建锚点 <span class="muted micro">从正文选中文本</span></div><div class="notice" id="selectionInfo">在左侧结构化论文中选中一段原文，然后点击弹出的“绑定 SourceAnchor”。系统将校验 Markdown 原文、UTF-16 偏移和版本；点击定位 PDF 时再严格解析 PDF_PAGE_BBOX。</div><div class="sTitle">当前锚点 <span class="muted micro" id="anchorListCount">0 条</span></div><div id="anchorList"><div class="muted micro">暂无锚点</div></div><div class="sTitle">科学边界</div><div class="notice"><b>坐标真值边界：</b>只有与原始 PDF 文字层唯一匹配的 quote 才获得 PDF_PAGE_BBOX。未匹配或多处匹配的锚点只能页级查看，不呈现虚假的精确高亮。</div></div></aside>
+</div><div class="footer"><span>Science contract pinned · Source SHA-256 / Canonical revision / No Agent exposure</span><span id="footerStatus">WB-P0.2-B · Preview build</span></div></div>
+<div class="tooltip" id="tooltip"><button class="btn primary" onclick="createSelectedAnchor()">＋ 绑定 SourceAnchor</button></div><div id="toast"></div>
+<script src="/static/pdf-reader.js"></script>
+<script>
+let doc=null,anchors=[],locators={},tab='reader',selection=null;const $=s=>document.getElementById(s);
+const getJSON=async (url,opts)=>{const r=await fetch(url,opts);let j=await r.json();if(!r.ok)throw new Error(typeof j.detail==='string'?j.detail:JSON.stringify(j));return j};
+function toast(msg){let e=$('toast');e.textContent=msg;e.style.display='block';setTimeout(()=>e.style.display='none',4000)}
+function escapeTxt(s){return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;')}
+async function refresh(){doc=await getJSON('/api/document');anchors=await getJSON('/api/anchors');if(!doc.units){doc=null;window.doc=null;return}window.doc=doc;locators={};render();await WBPDF.reloadDocument()}
+function render(){ $('docTitle').textContent=doc.title;$('sidebarTitle').textContent=doc.title;$('sourceMeta').textContent=doc.source_pages+' 页 · '+doc.unit_count+' 单元';$('status').textContent='✓ '+doc.revision;$('unitCount').textContent=doc.unit_count;$('anchorCount').textContent=anchors.length;$('docDesc').textContent='SHA-256 '+doc.source_pdf_sha256.substring(0,20)+'… · '+doc.source_status;$('footerStatus').textContent=doc.revision;
+let toc=doc.units.filter(u=>u.type==='SECTION' && !u.raw.startsWith('# '));$('toc').innerHTML=toc.map(u=>`<button class="tocentry" data-target="${u.unit_id}" onclick="jumpUnit('${u.unit_id}')">${escapeTxt(u.heading)}</button>`).join('');
+filterUnits();renderAnchors()}
+function filterUnits(){if(!doc)return;let q=$('search').value.toLowerCase().trim();let selected=doc.units.filter(u=>!q||u.raw.toLowerCase().includes(q));$('searchCount').textContent=selected.length+' 个单元';$('paper').innerHTML=selected.map(u=>`<div class="unit ${anchors.some(a=>a.unit_id===u.unit_id)?'has-anchor':''}" data-unit="${u.unit_id}" id="unit-${u.unit_id}">${u.pdf_page_hint?'<span class="pageTag">PDF p.'+u.pdf_page_hint+'</span>':''}${u.html}</div>`).join('')||'<div class="empty">没有匹配的文本</div>'}
+function jumpUnit(id){changeTab('reader');if($('search').value){$('search').value='';filterUnits()}setTimeout(()=>{let e=$('unit-'+id);e?.scrollIntoView({behavior:'smooth',block:'center'});e?.classList.add('focused');setTimeout(()=>e?.classList.remove('focused'),1400)},70)}
+function changeTab(next){
+  tab=next;document.body.classList.toggle('pdf-mode',next==='pdf');document.body.classList.toggle('split-mode',next==='split');
+  ['reader','pdf','split'].forEach(t=>{let node=$('tab-'+t);node?.classList.toggle('active',next===t)});
+  if((next==='pdf'||next==='split')&&doc){let state=WBPDF.current();WBPDF.showPage(state.page,state.locator)}
+}
+function goPDF(n){
+  if(!doc){toast('请先导入');return}
+  let page=Math.max(1,Math.min(doc.source_pages,Number(n)||1));
+  if(tab==='reader')changeTab('pdf');
+  let active=WBPDF.current();WBPDF.showPage(page,active.locator?.pdf_locator?.page===page?active.locator:null);
+}
+async function replayToPDF(anchorId){
+  if(!doc)return;let anchor=anchors.find(a=>a.anchor_id===anchorId);if(!anchor){toast('找不到锚点');return}
+  let verified=null;
+  try{
+    verified=locators[anchorId]||await getJSON('/api/locators/'+encodeURIComponent(anchorId));
+  }catch(err){
+    try{
+      verified=await getJSON('/api/locators/'+encodeURIComponent(anchorId)+'/resolve',{
+        method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({expected_revision:doc.revision,expected_source_pdf_sha256:doc.source_pdf_sha256})
+      });
+    }catch(error){
+      $('selectionInfo').textContent='精确 PDF 锚点尚未解析：'+error.message+'。仅保留 Markdown 页码提示。';
+      if(anchor.pdf_page_hint)goPDF(anchor.pdf_page_hint);else toast('没有可核查的 PDF 页码');
+      toast('精确匹配失败：未生成 PDF_PAGE_BBOX');renderAnchors();return;
+    }
+  }
+  locators[anchorId]=verified;
+  if(tab==='reader')changeTab('split');
+  await WBPDF.showPage(verified.pdf_locator.page,verified);
+  renderAnchors();toast('PDF_PAGE_BBOX 已由原始 PDF 文字验证 · 单击黄色框返回结构化文档');
+}
+function replayToStructured(anchorId){
+  let anchor=anchors.find(a=>a.anchor_id===anchorId);if(!anchor)return;
+  changeTab('split');
+  if($('search').value){$('search').value='';filterUnits()}
+  setTimeout(()=>{
+    let unit=$('unit-'+anchor.unit_id);if(!unit)return;
+    unit.scrollIntoView({behavior:'smooth',block:'center'});unit.classList.add('focused');
+    const text=unit.textContent;const start=text.indexOf(anchor.quote);
+    if(start>=0){
+      const walker=document.createTreeWalker(unit,NodeFilter.SHOW_TEXT);let nodes=[],sum=0,node;
+      while((node=walker.nextNode())){nodes.push({node,start:sum,end:sum+node.textContent.length});sum+=node.textContent.length}
+      let begin=nodes.find(n=>n.start<=start&&n.end>start);
+      let finish=nodes.find(n=>n.start<start+anchor.quote.length&&n.end>=start+anchor.quote.length);
+      if(begin&&finish){let range=document.createRange();range.setStart(begin.node,start-begin.start);range.setEnd(finish.node,start+anchor.quote.length-finish.start);
+        if(CSS.highlights){CSS.highlights.clear();CSS.highlights.set('source-anchor',new Highlight(range))}
+        else {const sel=window.getSelection();sel.removeAllRanges();sel.addRange(range)}
+      }
+    }
+    setTimeout(()=>unit.classList.remove('focused'),2500);
+  },130)
+}
+window.replayToStructured=replayToStructured;
+function renderAnchors(){
+  $('anchorListCount').textContent=anchors.length+' 条';$('anchorCount').textContent=anchors.length;
+  $('anchorList').innerHTML=anchors.length?anchors.map(a=>{
+    let precise=Boolean(locators[a.anchor_id]);
+    return `<div class="anchorcard"><div class="micro muted">${escapeTxt(a.anchor_id)} · PDF p.${a.pdf_page_hint||'—'}</div><div class="quote">“${escapeTxt(a.quote)}”</div><div class="anchor-meta">${escapeTxt(a.unit_id)} · ${escapeTxt(a.canonical_revision)}</div><div class="anchor-meta">${precise?'✓ PDF_PAGE_BBOX 已验证':'精确 PDF 位置待解析'}</div><div style="display:flex;gap:12px"><button class="smalllink" onclick="replayToStructured('${a.anchor_id}')">返回原文</button><button class="smalllink" onclick="replayToPDF('${a.anchor_id}')">定位 PDF ↗</button></div></div>`
+  }).join(''):'<div class="muted micro">暂无锚点</div>';
+}
+document.addEventListener('mouseup',e=>{if(!doc||tab!=='reader'||e.target.closest('button,input'))return;let sel=window.getSelection();let quote=sel?.toString().trim();let anchor=sel?.anchorNode?.parentElement?.closest('.unit');if(!quote||!anchor){$('tooltip').style.display='none';return}let unit=doc.units.find(u=>u.unit_id===anchor.dataset.unit);let first=unit?.raw.indexOf(quote);if(first===undefined||first<0){$('tooltip').style.display='none';$('selectionInfo').textContent='选择的显示文本无法与 Markdown 原文进行精确字面匹配；请选择连续原文片段，不能自动猜测锚点。';return}selection={unit_id:unit.unit_id,quote,start_utf16:Array.from(unit.raw.slice(0,first)).reduce((n,c)=>n+(c.length===2?2:1),0),end_utf16:Array.from(unit.raw.slice(0,first+quote.length)).reduce((n,c)=>n+(c.length===2?2:1),0),expected_revision:doc.revision,expected_source_markdown_sha256:doc.source_markdown_sha256};$('selectionInfo').textContent='已选中：'+quote.slice(0,140);let tip=$('tooltip');tip.style.left=Math.max(10,Math.min(window.innerWidth-210,e.clientX-65))+'px';tip.style.top=Math.max(85,e.clientY-58)+'px';tip.style.display='block'});
+async function createSelectedAnchor(){if(!selection)return;try{let a=await getJSON('/api/anchors',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(selection)});anchors=await getJSON('/api/anchors');renderAnchors();filterUnits();$('tooltip').style.display='none';window.getSelection()?.removeAllRanges();toast('锚点保存成功 · '+a.anchor_id)}catch(e){toast('未保存：'+e.message)}}
+function showImport(){$('paper').innerHTML='<h2>导入正式 AnnotationSourcePackage v0.1</h2><div class="importframe"><div style="font-size:35px;color:#387bd5">⇧</div><h3>选择来源 ZIP</h3><p class="muted">必须包含 original.pdf、document.md、conversion_manifest.json 和完整性哈希。<br>旧 ZIP 请先使用 CLI package 命令与原始 PDF 合并。</p><input id="upload" type="file" accept=".zip"><p><button class="btn primary" onclick="importZip()">校验并导入</button></p><div id="uploadStatus" class="micro muted"></div></div>';$('search').value='';$('searchCount').textContent='导入';changeTab('reader')}
+async function importZip(){let f=$('upload')?.files?.[0];if(!f){toast('先选择 ZIP');return}let fd=new FormData();fd.append('file',f);$('uploadStatus').textContent='正在校验 SHA、PDF 页数和文档结构…';try{let r=await getJSON('/api/import',{method:'POST',body:fd});await refresh();toast('导入成功：'+r.units+' 个单元')}catch(e){$('uploadStatus').textContent='导入失败：'+e.message;toast('来源包未通过校验')}}
+function downloadAnchors(){let blob=new Blob([JSON.stringify({document_id:doc?.document_id||null,revision:doc?.revision||null,anchors},null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='workbench_source_anchors.json';a.click();URL.revokeObjectURL(a.href)}
+refresh().catch(e=>toast(e.message));
+</script></body></html>

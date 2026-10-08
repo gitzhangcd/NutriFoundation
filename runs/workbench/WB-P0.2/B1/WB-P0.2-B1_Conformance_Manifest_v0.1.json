@@ -1,0 +1,57 @@
+{
+  "stage": "Workbench WB-P0.2-B1",
+  "date": "2026-10-08",
+  "status": "PASS_TECHNICAL_READER_ACCEPTANCE",
+  "scientific_status": "NO_SCIENTIFIC_TRUTH_OR_HUMAN_CAPTURE_CREATED",
+  "scientific_base": {
+    "branch": "ndf-d1-scientific-core-thin-slice",
+    "sha": "2259fdac9502541909a70d5d79c3460cecb6f657"
+  },
+  "accepted_code_commit": "b053e47d1baac9b5b777cd871261476c8e1db59a",
+  "locator_schema": "PDF_PAGE_BBOX/0.2",
+  "fixture_source": "REAL_5_2_DIET_PAPER_PLUS_SYNTHETIC_ADVERSARIAL",
+  "evidence": {
+    "python_tests": {
+      "passed": 37,
+      "failed": 0
+    },
+    "offline_chromium_fallback": "PASS",
+    "github_actions": {
+      "id": 37750463593,
+      "conclusion": "success",
+      "url": "https://github.com/gitzhangcd/NutriFoundation/actions/runs/37750463593",
+      "artifact_id": 11536979958,
+      "artifact_name": "wb-p0-2-b1-adversarial-native-pdfjs"
+    },
+    "real_paper_native_pdfjs": "PASS",
+    "crop_rotate_90_native_pdfjs": "PASS",
+    "rotated_ink_overlap_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "crop_box_and_rotation": "PASS",
+    "cross_column_stitch": "REJECT",
+    "cross_table_cell_stitch": "REJECT",
+    "duplicate_quote_same_page": "REJECT",
+    "duplicate_quote_cross_page": "REJECT",
+    "scan_without_pdf_text_layer": "REJECT",
+    "stale_source_sha": "REJECT"
+  },
+  "invariants": [
+    "Unique original PDF text-layer match is required for exact BBox",
+    "Geometry must be coherent within PDF text block and not join distant table cells",
+    "Crop/rotation-aware displayed page coordinates",
+    "PDF.js viewport must agree with geometry prior to precise overlay",
+    "No source/quote/revision mismatch allowed",
+    "No NDF/NDS scientific stage promotion, Gold or expert qualification"
+  ],
+  "limitations": [
+    "No OCR engine or clinical truth qualification",
+    "Exotic embedded-font and semantic visual parity beyond the test matrix not established",
+    "Existing v0.1 BBox persistence is not silently migrated",
+    "Workbench scientific role exposure/PreAI Lock are future separate stages"
+  ],
+  "next_recommended_gate": "WB-P0.2-C Expert Annotation Interface and Pre-AI Contract Adapter (after separate normative and leakage gate)"
+}

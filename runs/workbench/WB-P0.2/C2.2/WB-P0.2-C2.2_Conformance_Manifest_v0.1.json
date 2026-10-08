@@ -1,7 +1,7 @@
 {
   "stage": "WB-P0.2-C2.2",
   "date": "2026-10-09",
-  "decision": "ENGINEERING_LOCAL_PASS_REMOTE_CI_PENDING",
+  "decision": "PASS_ENGINEERING_READINESS_GATES_REAL_EXPERT_NO_GO",
   "live_real_person_usability_pilot": "NO_GO_PENDING_EXTERNAL_EVIDENCE",
   "formal_NDS_R1_human_capture": "NO_GO_EMPIRICAL_PENDING",
   "authority": {
@@ -9,7 +9,7 @@
     "source_packet": "Human_Baseline_Source_Packet_v0.2.json",
     "source_packet_git_blob": "a38d000f9962dac35e00d407f1d984721bc031ef",
     "source_count": 6,
-    "R0_R2_bounded_projection_consistency": "PASS_SYNTHETIC_LOCAL_EXPECT_OFFICIAL_CI"
+    "R0_R2_bounded_projection_consistency": "PASS_OFFICIAL_FULL_CHECKOUT"
   },
   "scientific_version_conflict": {
     "referenced_view": "Materialized_Projection_Views_v0.2.json",
@@ -21,7 +21,20 @@
     "local_python_passed": 24,
     "local_official_skipped": 2,
     "local_chromium_bridge": "PASS",
-    "remote_ci": "PENDING"
+    "remote_ci": {
+      "run_id": 37817615465,
+      "conclusion": "success",
+      "tested_code_commit": "7ff70f15705de50e3a3b13133c42e15fba35e1c6",
+      "url": "https://github.com/gitzhangcd/NutriFoundation/actions/runs/37817615465",
+      "python_tests_passed": 26,
+      "official_contract_tests_passed": 2,
+      "skipped": 0,
+      "chromium": "PASS_REAL_HTTP_STRICT_CSP",
+      "javascript_errors": 0,
+      "source_projection_receipt_artifact": 11567518440,
+      "browser_screenshot_artifact": 11568695231,
+      "scientific_protected_diff": 0
+    }
   },
   "production_controls": {
     "trusted_idp": "NOT_CONNECTED",
@@ -31,5 +44,6 @@
     "fulltext_source_snapshot": "NOT_VERIFIED"
   },
   "no_actual_human_capture": true,
-  "next_action": "Scientific owner resolve r2/r3 reference, bind source snapshots, connect reviewed identity/qualification/consent/deployment gate before real UX study"
+  "next_action": "Scientific owner resolve r2/r3 reference, bind source snapshots, connect reviewed identity/qualification/consent/deployment gate before real UX study",
+  "related_worksheet": "docs/workbench/WB-P0.2-C2.2_Real_Expert_Preflight_Worksheet_v0.1.md"
 }

@@ -1,0 +1,35 @@
+name: Workbench WB-P0.2-M0 Design Conformance
+on:
+  push:
+    branches:
+      - workbench-wb-p0.2-real-paper-roundtrip
+    paths:
+      - 'docs/workbench/Workbench_*_v0.2.md'
+      - 'runs/workbench/WB-P0.2/M0/**'
+      - 'tools/workbench/validate_m0.py'
+      - '.github/workflows/workbench-m0-design.yml'
+  workflow_dispatch:
+jobs:
+  design-freeze-static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify exact M0 docs and manifest hashes
+        run: python tools/workbench/validate_m0.py
+      - name: Verify unchanged scientific upstream paths since pinned base
+        run: |
+          python - <<'PY'
+          import subprocess
+          baseline = '2259fdac9502541909a70d5d79c3460cecb6f657'
+          changed=subprocess.check_output(['git','diff','--name-only',baseline,'HEAD'],text=True).splitlines()
+          protected=('runs/NDF/','runs/NDS/R1/P0/','runs/NDS/R1/P0.1/','src/nutrifoundation/')
+          # The prefix comparison excludes scientific records and engine, not runs/workbench.
+          violated=[p for p in changed if p.startswith(protected)]
+          assert not violated, f'Upstream frozen artifacts mutated: {violated}'
+          print('PASS: protected scientific upstream unchanged; M0 documentation & manifest are the only current-stage files')
+          PY

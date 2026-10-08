@@ -1,0 +1,85 @@
+{
+  "stage": "WB-P0.2-C2",
+  "full_title": "Scientific Contract Adapter, Expert Qualification & Assignment, Pre-AI Immutable Freeze & Exposure-Safe Workflow Controller",
+  "version": "v0.1",
+  "date": "2026-10-09",
+  "status": "PASS_SYNTHETIC_CONTROLLER_ENGINEERING_CONFORMANCE",
+  "strictly_not": "REAL_EXPERT_AUTHORIZATION_OR_EMPIRICAL_NDS_R1_COMPLETE",
+  "mode": "SYNTHETIC_ENGINEERING_ONLY",
+  "scientific_base": {
+    "branch": "ndf-d1-scientific-core-thin-slice",
+    "commit": "2259fdac9502541909a70d5d79c3460cecb6f657",
+    "frozen_upstream_files": 10
+  },
+  "tested_implementation_commit": "3e1992cb690a791fb3beb9fd5ceb651cdfeec2c8",
+  "contract_adapter": {
+    "source": "10 pinned official Git blob SHA files",
+    "exact_freeze_semantics": "Judgment_Freeze_Contract_v0.1",
+    "active_payloads": [
+      "R0_Human_DeNovo_Workpack_v0.2",
+      "R2_PreAI_Workpack_v0.2",
+      "R1_AgentFirst_Verification_HoldPack_v0.1"
+    ],
+    "compatibility_validation": "explicit supersedes and schema equality; conflict fails closed",
+    "source_surface": "Human_Baseline_Source_Packet_v0.2 and approved arm phase read model"
+  },
+  "tests": {
+    "local_backend": {
+      "passed": 16,
+      "skipped_official_without_repo": 2
+    },
+    "github_actions": {
+      "id": 37811025796,
+      "url": "https://github.com/gitzhangcd/NutriFoundation/actions/runs/37811025796",
+      "status": "completed",
+      "conclusion": "success",
+      "backend_tests": {
+        "passed": 18,
+        "skipped": 0
+      },
+      "native_chromium_policy_smoke": "PASS",
+      "official_git_blob_binding_and_tamper": "PASS",
+      "protected_scientific_file_diff": "PASS",
+      "screenshot_artifact": {
+        "id": 11565585377,
+        "name": "wb-p0-2-c2-synthetic-policy-chromium"
+      }
+    }
+  },
+  "controls": [
+    "R0 permanent Agent denial",
+    "R1 AgentFirst hold and source spans required before verify",
+    "R2 immutably frozen J_preAI before Agent exposure",
+    "Same-case cross-arm expert identity exclusion",
+    "Explicit synthetic screening and assignment",
+    "Optimistic draft revision and authoritative packet digest checks",
+    "SQLite immutable update/delete triggers for snapshots,candidates,bindings,exposure,audit",
+    "Canonical SHA-256 receipts and frozen snapshot restart recovery",
+    "Candidate exposure logged before payload projection",
+    "Idempotency payload-bound no redefinition",
+    "Auditor-only hash-chain log with read validation",
+    "No unguarded C1 raw PDF / reader / source route mount"
+  ],
+  "security_scope": {
+    "synthetic_tokens_are_not_identity_provider": true,
+    "real_identity_verification": false,
+    "real_expert_capture": false,
+    "scientific_Gold_promotion": false,
+    "production_multi_tenant_security": false,
+    "clinical_data_enabled": false
+  },
+  "non_regression": {
+    "NDS_R1_P0_1": "PASS_OPERATIONAL_READINESS_EMPIRICAL_CAPTURE_PENDING_REAL_EXPERTS",
+    "real_expert_bindings_new": 0,
+    "real_J_preAI_submitted": 0,
+    "qualified_reference_created": false,
+    "modified_frozen_NDF_NDS_scientific_files": 0
+  },
+  "remaining_gates": [
+    "Credential/qualification evidence from real identity provider",
+    "Task-phase gated reader and PDF/SourceAnchor integration with C1",
+    "Independent end-to-end authorization and exposure penetration testing",
+    "Production storage, clinical privacy, security and tamper-evident backup",
+    "Real expert pilot after scientific program approval"
+  ]
+}

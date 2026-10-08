@@ -1,0 +1,10 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+curl: (7) Failed connect to 127.0.0.1:8793; Connection refused
+curl: (7) Failed connect to 127.0.0.1:8793; Connection refused
+{"stage":"WB-P0.2-D0","mode":"SYNTHETIC_ENGINEERING_ONLY","scientific_capture":"DISABLED","live_pilot":"NO_GO","public_https":"NOT_ACTIVATED_SSH_TUNNEL_ONLY","os_security_acceptance":"NOT_PASSED"}
+RELEASE_ACTIVE=b664b891d90792a8c1f2cdb9b2a1ab623a5cf8c1

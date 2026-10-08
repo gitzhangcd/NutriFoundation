@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-09 Asia/Shanghai",
+  "stage": "WB-P0.2-D0",
+  "result": "PASS_TUNNEL_INTERNAL_SYNTHETIC_ENGINEERING",
+  "deployed_commit": "b664b891d90792a8c1f2cdb9b2a1ab623a5cf8c1",
+  "deployment_archive_sha256": "540a05737d1d7811e04cd39b0b6e123a14f0e2fe5587349397078f8fd9915f5b",
+  "github_branch": "workbench-wb-p0.2-d0-private-staging",
+  "ci": {
+    "url": "https://github.com/gitzhangcd/NutriFoundation/actions/runs/37822586582",
+    "conclusion": "success",
+    "workbench_tests": 99,
+    "engine_tests": 144,
+    "official_binding_zero_skip_checks": 4,
+    "browser_checks": 17,
+    "page_errors": 0
+  },
+  "local_tests": {
+    "C1": 11,
+    "C2": 18,
+    "C2_1": 30,
+    "C2_2": 26,
+    "D0": 14,
+    "skipped": 0,
+    "python311_engine": 144,
+    "python313_engine_initial": {
+      "passed": 140,
+      "failed": 4,
+      "also_reproduced_on_pristine_baseline": true,
+      "resolution": "Python3.11 locked environment; no science-file changes"
+    }
+  },
+  "remote_browser": {
+    "status": "PASS",
+    "checks": [
+      "native_pdfjs",
+      "19_field_profile",
+      "save_reload",
+      "cross_task_denial",
+      "R2_preAI_candidate_denial",
+      "anchor_bind_original_pdf_highlight",
+      "R2_preAI_freeze",
+      "producer_phase_gate",
+      "R2_postAI_reconcile_reload_immutable",
+      "R1_candidate_excerpt_only",
+      "R1_full_pdf_denied",
+      "R1_verification_reload",
+      "R0_permanent_candidate_denial",
+      "R0_freeze_reload_immutable",
+      "manager_NO_GO",
+      "auditor_integrity_chain",
+      "logout_revocation"
+    ],
+    "page_errors": [],
+    "native_pdfjs": true,
+    "browser": "Chromium",
+    "browser_plugin": "NOT_AVAILABLE_REGULAR_PLAYWRIGHT",
+    "viewports": [
+      "1440x1000",
+      "390x844"
+    ],
+    "scientific_capture": false,
+    "url": "http://127.0.0.1:18794"
+  },
+  "remote_persistence": {
+    "session_restart": "PASS",
+    "preAI_and_postAI_record_integrity_after_restart": "PASS",
+    "live_r2_draft_revision": 0
+  },
+  "remote_restore": {
+    "encrypted_live_data_backup_and_restore": "PASS",
+    "populated_acceptance_restore_frozen_records": 4,
+    "immutability_after_restore": "PASS",
+    "daily_backup_local_time": "03:15 Asia/Shanghai",
+    "retention_deletion": "NOT_SCHEDULED"
+  },
+  "remote_rollback": {
+    "initial_deployment_stop_and_recover": "PASS",
+    "existing_download_401_before_and_after": "PASS",
+    "code_and_accounts_configuration_readonly_to_service": "PASS"
+  },
+  "access": {
+    "ssh_alias": "Aliyun",
+    "host": "47.96.175.215",
+    "service_user": "nutriwb",
+    "listen": "127.0.0.1:8793",
+    "local_url": "http://127.0.0.1:18793",
+    "domain": "nutri.logicgene.com",
+    "public_https": "NOT_ACTIVATED",
+    "secrets": "OUTSIDE_REPOSITORY_PRIVATE_LOCAL_AND_SERVER_FILES",
+    "acceptance_service": "STOPPED_AFTER_TESTS"
+  },
+  "existing_services": {
+    "FRP": [
+      80,
+      443
+    ],
+    "Caddy_download": 8000,
+    "Caddy_config_sha256": "7a67038c13ec5b59b900515fa8a720567a3fb94ee07f92937f081fae97b905cf",
+    "modified": false
+  },
+  "ingress_evidence": {
+    "server_loopback_bind": "CONFIRMED",
+    "nat_forwarding_rules": "NONE",
+    "route_localnet": 0,
+    "external_tcp_probe": "HANDSHAKE_ACCEPTED_BUT_HTTP_RETURNED_EMPTY_REPLY",
+    "external_application_response": "NONE",
+    "independent_network_penetration_test": "NOT_PERFORMED"
+  },
+  "not_accepted": {
+    "os_security": "NOT_PASS_CENTOS7_EOL",
+    "public_https_and_gateway": "DEFERRED",
+    "real_expert_pilot": "NO_GO",
+    "formal_NDS_R1": "NO_GO",
+    "r2_r3_scientific_conflict": "UNCHANGED_BLOCK_REQUIRES_SCIENTIFIC_OWNER_RECONCILIATION"
+  },
+  "frozen_scientific_files_modified": 0,
+  "review": {
+    "independent_review": "NO_BLOCKING_FINDINGS_AFTER_FIXES",
+    "fixed": [
+      "async-save stale freeze",
+      "missing/empty backup root",
+      "parallel first exposure",
+      "reader import runtime writes"
+    ]
+  }
+}

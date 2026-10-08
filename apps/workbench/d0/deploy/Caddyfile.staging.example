@@ -1,4 +1,6 @@
 # INACTIVE. Only activate after supported-OS migration and private ingress approval.
+# Current Aliyun host: FRP owns 80/443. Do not activate this in place.
+# Use a supported dedicated host or a reviewed FRP/gateway topology.
 # Keep the existing :8000 download service. Append a separate vhost; do not replace it.
 # Set application --origin https://nutri.logicgene.com to issue Secure cookies.
 nutri.logicgene.com {

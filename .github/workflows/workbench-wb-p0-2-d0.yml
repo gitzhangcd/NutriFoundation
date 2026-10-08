@@ -48,7 +48,7 @@ jobs:
           path: ${{ runner.temp }}/d0-qa
           if-no-files-found: ignore
   existing-engine-suite:
-    name: Full engine suite (baseline has 4 known failures)
+    name: Full engine regression (Python 3.11)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

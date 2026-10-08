@@ -1,0 +1,18 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+-- Logs begin at Thu 2026-10-08 02:41:40 CST, end at Fri 2026-10-09 02:14:49 CST. --
+Oct 09 02:14:49 iZ8vb1tumqespc6nqo5gleZ systemd[1]: Starting Encrypted synthetic Workbench backup and restoration check...
+Oct 09 02:14:49 iZ8vb1tumqespc6nqo5gleZ python[25053]: ENCRYPTED_BACKUP_AND_RESTORE_VERIFIED 20261008T181449310819Z.fernet
+Created symlink from /etc/systemd/system/multi-user.target.wants/nutriwb.service to /etc/systemd/system/nutriwb.service.
+Created symlink from /etc/systemd/system/timers.target.wants/nutriwb-backup.timer to /etc/systemd/system/nutriwb-backup.timer.
+NEXT                         LEFT         LAST PASSED UNIT                 ACTIVATES
+Fri 2026-10-09 03:15:00 CST  1h 0min left n/a  n/a    nutriwb-backup.timer nutriwb-backup.service
+
+1 timers listed.
+Pass --all to see loaded but inactive timers, too.
+       Time zone: n/a (CST, +0800)
+LISTEN     0      128    127.0.0.1:8794                     *:*                  
+600 root root /var/backups/nutriwb/20261008T181449310819Z.fernet

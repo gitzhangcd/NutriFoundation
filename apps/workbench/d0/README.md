@@ -6,7 +6,7 @@ One task center and three-pane reader/judgment/evidence workflow, reusing C2.1's
 
 ## Current deployment boundary
 
-Aliyun is CentOS 7. User explicitly chose SSH tunnel-only internal testing and accepted that D0 OS/security acceptance does not pass. Application always listens on `127.0.0.1:8793`, runs as non-login `nutriwb`, and has no public Workbench Caddy vhost. Existing download service is preserved. Domain `nutri.logicgene.com` is reserved for a later supported-OS HTTPS deployment; the included password-protected Caddy example is inactive.
+Aliyun is CentOS 7. User explicitly chose SSH tunnel-only internal testing and accepted that D0 OS/security acceptance does not pass. Application always listens on `127.0.0.1:8793`, runs as non-login `nutriwb`, and has no public Workbench Caddy vhost. FRP owns ports 80/443; Caddy owns download port 8000. Both are preserved. Do not activate a new Caddy vhost in place while FRP owns those ports. Domain `nutri.logicgene.com` is reserved for a later supported-OS HTTPS deployment; the included password-protected Caddy example is inactive.
 
 Open a local encrypted tunnel:
 
@@ -74,6 +74,6 @@ python apps/workbench/d0/tests/browser_d0.py
 
 The browser runner uses disposable synthetic identities/data and a real local HTTP server, requiring native PDF.js, 19 fields, save/reload, anchors/PDF BBox highlights, freeze, R1 verification, R2 reconciliation, source denial, manager NO-GO and audit/logout checks. It records runtime errors and desktop/mobile screenshots. Browser plugin was unavailable; regular Playwright was used. Python tests require Node for the asynchronous save regression.
 
-The D0 workflow has separate Workbench acceptance and full-engine jobs. Current full engine baseline has four pre-existing `tests/evaluation_v2/test_consolidation.py` failures, reproduced on pristine `33e9704`. They are not hidden or repaired by altering frozen science, and full CI cannot be called entirely green while they remain.
+The D0 workflow has separate Workbench acceptance and full-engine jobs, both passed for deployed `b664b89`: 99 Workbench tests and 144 engine tests, plus native browser acceptance. Initial local Python 3.13 produced four consolidation/serialization failures, also on pristine `33e9704`; using the same locked libraries under Python 3.11 passed all 144 on macOS and Linux CI. Use Python 3.11 for this frozen scientific serialization validation; no frozen science was edited.
 
 Known exclusions: no public HTTPS activation, supported OS/security PASS, external pen test, real identity provider, expert credential verification, formal scientific r2/r3 reconciliation, study enrollment or NDS empirical outputs.

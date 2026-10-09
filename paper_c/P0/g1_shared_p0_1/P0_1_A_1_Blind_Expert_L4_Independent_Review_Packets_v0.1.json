@@ -1,0 +1,1730 @@
+{
+  "stage": "G1-Shared P0.1-A.1",
+  "version": "v0.1",
+  "status": "INDEPENDENT_REVIEW_FORM_SCAFFOLD_UNASSIGNED_NOT_ADJUDICATED",
+  "purpose": "Five-source G1-Shared L4 human review, not Paper C confirmatory Gold",
+  "annotators_per_source": 2,
+  "created_assignments": 10,
+  "active_experts": 0,
+  "expert_submissions": 0,
+  "controller_requirement": "Do not serve from public GitHub directly to experts with access to team-side answer keys; enforce task-scoped original-only source and hidden Agent candidates in Workbench.",
+  "redaction_boundary": [
+    "No model expected answers or numeric anomaly alerts in this packet",
+    "Do not render team-side scientific QA fixtures before expert initial freeze",
+    "Source title and task questions are not hidden",
+    "Keep dual independent reviewers separated until submissions immutable",
+    "Adjudicator sees both only after immutable submission"
+  ],
+  "assignments": [
+    {
+      "assignment_id": "G1-A1-L4-A-01",
+      "candidate_ref": "CAND-G100-004",
+      "reviewer_slot": "A",
+      "real_expert_id": null,
+      "assignment_status": "UNASSIGNED",
+      "view_role": "INDEPENDENT_HUMAN_NO_AGENT_CANDIDATE_VISIBLE",
+      "source": {
+        "PMID": "35194047",
+        "PMCID": "PMC8864028",
+        "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35194047/",
+        "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8864028/",
+        "title": "Randomized controlled trial for time-restricted eating in healthy volunteers without obesity.",
+        "source_type": "RCT"
+      },
+      "question": "该试验的随机化设计和主要结局是什么？其人群与时间范围允许何种科学推断？",
+      "fields": [
+        {
+          "field_id": "source_version",
+          "prompt_cn": "本次审核的是哪一版本的原始材料？",
+          "required": true,
+          "answer_type": "text",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_type",
+          "prompt_cn": "原始资料属于何种科学文献类型？",
+          "required": true,
+          "answer_type": "categorical",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "question_applicability",
+          "prompt_cn": "该资料能否回答分配的科学问题？请说明人群、干预/暴露、比较对象、结局、时间及适用边界。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "evidence_unit_span",
+          "prompt_cn": "请在原文中独立定位至少一个支持关键判断的段落、表格单元或推荐声明，并提供可重建定位符。",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "identity_dependency",
+          "prompt_cn": "与其他论文/版本/研究是否共享试验、队列、指南家族、二次分析或更正关系？",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "scientific_limitation",
+          "prompt_cn": "最重要的偏倚、方法局限、证据不确定性及禁止外推事项是什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "l4_decision",
+          "prompt_cn": "对指定问题给出科学使用资格决定：QUALIFY / CONDITIONAL / DEFER / REJECT；请说明根据。",
+          "required": true,
+          "answer_type": "enum",
+          "allowed": [
+            "QUALIFY",
+            "CONDITIONAL",
+            "DEFER",
+            "REJECT"
+          ],
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_fidelity_check",
+          "prompt_cn": "原始 PDF/网页、表格、图像、补充材料是否逐项见过并比对？缺失什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "reviewer_signature",
+          "prompt_cn": "审核人身份、审核时间、专业背景及版本确认。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "allocation",
+          "prompt_cn": "请核对随机分配方法、随机人数、分组数、完成/分析人数及原因",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "outcomes",
+          "prompt_cn": "请核对预设主要终点、结局测量时间及分析方法",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "risk_of_bias",
+          "prompt_cn": "请评价分配隐藏、盲法、脱落、选择性报告和潜在偏倚",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "numeric_table",
+          "prompt_cn": "请选择一项关键结果，查验其原始图/表、组别、单位和置信区间/显著性指标",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "supplement",
+          "prompt_cn": "试验注册与方案、报告摘要和补充图表是否一致",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        }
+      ],
+      "expert_decision": null,
+      "expert_started_at": null,
+      "expert_submitted_at": null,
+      "independence_proof": null,
+      "original_view_only": true,
+      "agent_preannotation_exposed": false
+    },
+    {
+      "assignment_id": "G1-A1-L4-A-02",
+      "candidate_ref": "CAND-G100-029",
+      "reviewer_slot": "A",
+      "real_expert_id": null,
+      "assignment_status": "UNASSIGNED",
+      "view_role": "INDEPENDENT_HUMAN_NO_AGENT_CANDIDATE_VISIBLE",
+      "source": {
+        "PMID": "31142457",
+        "PMCID": "PMC6538975",
+        "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/31142457/",
+        "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6538975/",
+        "title": "Ultra-processed food intake and risk of cardiovascular disease: prospective cohort study (NutriNet-Santé).",
+        "source_type": "COHORT"
+      },
+      "question": "如何定义饮食暴露和 CVD 结局；相关性估计的可解释范围、关键协变量及局限是什么？",
+      "fields": [
+        {
+          "field_id": "source_version",
+          "prompt_cn": "本次审核的是哪一版本的原始材料？",
+          "required": true,
+          "answer_type": "text",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_type",
+          "prompt_cn": "原始资料属于何种科学文献类型？",
+          "required": true,
+          "answer_type": "categorical",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "question_applicability",
+          "prompt_cn": "该资料能否回答分配的科学问题？请说明人群、干预/暴露、比较对象、结局、时间及适用边界。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "evidence_unit_span",
+          "prompt_cn": "请在原文中独立定位至少一个支持关键判断的段落、表格单元或推荐声明，并提供可重建定位符。",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "identity_dependency",
+          "prompt_cn": "与其他论文/版本/研究是否共享试验、队列、指南家族、二次分析或更正关系？",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "scientific_limitation",
+          "prompt_cn": "最重要的偏倚、方法局限、证据不确定性及禁止外推事项是什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "l4_decision",
+          "prompt_cn": "对指定问题给出科学使用资格决定：QUALIFY / CONDITIONAL / DEFER / REJECT；请说明根据。",
+          "required": true,
+          "answer_type": "enum",
+          "allowed": [
+            "QUALIFY",
+            "CONDITIONAL",
+            "DEFER",
+            "REJECT"
+          ],
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_fidelity_check",
+          "prompt_cn": "原始 PDF/网页、表格、图像、补充材料是否逐项见过并比对？缺失什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "reviewer_signature",
+          "prompt_cn": "审核人身份、审核时间、专业背景及版本确认。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "eligibility",
+          "prompt_cn": "核查纳入/排除、人群基线、失访、随访时间",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "exposure_measurement",
+          "prompt_cn": "核查 NOVA 分类、24h 饮食回忆记录数量及暴露单位",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "association_estimand",
+          "prompt_cn": "核查 Cox 模型、HR/CI、调整协变量及对应表格行列",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "confounding",
+          "prompt_cn": "核查剩余混杂、逆向因果、测量误差、选择偏倚",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "consistency",
+          "prompt_cn": "检索并复核正文、附表与敏感性分析结果的一致性",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        }
+      ],
+      "expert_decision": null,
+      "expert_started_at": null,
+      "expert_submitted_at": null,
+      "independence_proof": null,
+      "original_view_only": true,
+      "agent_preannotation_exposed": false
+    },
+    {
+      "assignment_id": "G1-A1-L4-A-03",
+      "candidate_ref": "CAND-G100-048",
+      "reviewer_slot": "A",
+      "real_expert_id": null,
+      "assignment_status": "UNASSIGNED",
+      "view_role": "INDEPENDENT_HUMAN_NO_AGENT_CANDIDATE_VISIBLE",
+      "source": {
+        "PMID": "40533200",
+        "PMCID": "PMC12175170",
+        "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/40533200/",
+        "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12175170/",
+        "title": "Intermittent fasting strategies and their effects on body weight and other cardiometabolic risk factors.",
+        "source_type": "NETWORK_META"
+      },
+      "question": "有哪些干预比较、纳入独立试验与结局；合并效应与 GRADE 确定性的精确限定是什么？",
+      "fields": [
+        {
+          "field_id": "source_version",
+          "prompt_cn": "本次审核的是哪一版本的原始材料？",
+          "required": true,
+          "answer_type": "text",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_type",
+          "prompt_cn": "原始资料属于何种科学文献类型？",
+          "required": true,
+          "answer_type": "categorical",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "question_applicability",
+          "prompt_cn": "该资料能否回答分配的科学问题？请说明人群、干预/暴露、比较对象、结局、时间及适用边界。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "evidence_unit_span",
+          "prompt_cn": "请在原文中独立定位至少一个支持关键判断的段落、表格单元或推荐声明，并提供可重建定位符。",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "identity_dependency",
+          "prompt_cn": "与其他论文/版本/研究是否共享试验、队列、指南家族、二次分析或更正关系？",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "scientific_limitation",
+          "prompt_cn": "最重要的偏倚、方法局限、证据不确定性及禁止外推事项是什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "l4_decision",
+          "prompt_cn": "对指定问题给出科学使用资格决定：QUALIFY / CONDITIONAL / DEFER / REJECT；请说明根据。",
+          "required": true,
+          "answer_type": "enum",
+          "allowed": [
+            "QUALIFY",
+            "CONDITIONAL",
+            "DEFER",
+            "REJECT"
+          ],
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_fidelity_check",
+          "prompt_cn": "原始 PDF/网页、表格、图像、补充材料是否逐项见过并比对？缺失什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "reviewer_signature",
+          "prompt_cn": "审核人身份、审核时间、专业背景及版本确认。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "search_and_selection",
+          "prompt_cn": "核查数据库、检索截止、纳排标准和完整附录",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "studyidentity",
+          "prompt_cn": "核查纳入文献/研究报告的 StudyIdentity 和重复队列风险",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "network_estimand",
+          "prompt_cn": "核查网络比较、效应量、单位、时间窗、异质性与一致性",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "certainty",
+          "prompt_cn": "核查 GRADE 比较级确定性、风险偏倚和敏感性分析",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "correction_lineage",
+          "prompt_cn": "核查发布日期、随后更正内容及效应数值是否受影响",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        }
+      ],
+      "expert_decision": null,
+      "expert_started_at": null,
+      "expert_submitted_at": null,
+      "independence_proof": null,
+      "original_view_only": true,
+      "agent_preannotation_exposed": false
+    },
+    {
+      "assignment_id": "G1-A1-L4-A-04",
+      "candidate_ref": "CAND-G100-071",
+      "reviewer_slot": "A",
+      "real_expert_id": null,
+      "assignment_status": "UNASSIGNED",
+      "view_role": "INDEPENDENT_HUMAN_NO_AGENT_CANDIDATE_VISIBLE",
+      "source": {
+        "PMID": "36462613",
+        "PMCID": "PMC12646719",
+        "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/36462613/",
+        "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12646719/",
+        "title": "Medical Nutrition Therapy Interventions Provided by Dietitians for Adult Overweight and Obesity Management.",
+        "source_type": "PRACTICE_GUIDELINE"
+      },
+      "question": "完整指南中的推荐声明、评级、强制性标签、适用范围和例外条件是什么？",
+      "fields": [
+        {
+          "field_id": "source_version",
+          "prompt_cn": "本次审核的是哪一版本的原始材料？",
+          "required": true,
+          "answer_type": "text",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_type",
+          "prompt_cn": "原始资料属于何种科学文献类型？",
+          "required": true,
+          "answer_type": "categorical",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "question_applicability",
+          "prompt_cn": "该资料能否回答分配的科学问题？请说明人群、干预/暴露、比较对象、结局、时间及适用边界。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "evidence_unit_span",
+          "prompt_cn": "请在原文中独立定位至少一个支持关键判断的段落、表格单元或推荐声明，并提供可重建定位符。",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "identity_dependency",
+          "prompt_cn": "与其他论文/版本/研究是否共享试验、队列、指南家族、二次分析或更正关系？",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "scientific_limitation",
+          "prompt_cn": "最重要的偏倚、方法局限、证据不确定性及禁止外推事项是什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "l4_decision",
+          "prompt_cn": "对指定问题给出科学使用资格决定：QUALIFY / CONDITIONAL / DEFER / REJECT；请说明根据。",
+          "required": true,
+          "answer_type": "enum",
+          "allowed": [
+            "QUALIFY",
+            "CONDITIONAL",
+            "DEFER",
+            "REJECT"
+          ],
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_fidelity_check",
+          "prompt_cn": "原始 PDF/网页、表格、图像、补充材料是否逐项见过并比对？缺失什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "reviewer_signature",
+          "prompt_cn": "审核人身份、审核时间、专业背景及版本确认。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "authority",
+          "prompt_cn": "确认完整官方指南与缩略期刊论文的权威/版本关系",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "exact_recommendation",
+          "prompt_cn": "抄录或精确锚定一条官方推荐及推荐编号",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "rating",
+          "prompt_cn": "核查原文评级、Imperative/Conditional 标签及其含义",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "evidence_to_decision",
+          "prompt_cn": "核查支持的系统综述、效益风险、证据确定性",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "exceptions",
+          "prompt_cn": "核查临床禁忌、受众偏好、个人化适用条件",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        }
+      ],
+      "expert_decision": null,
+      "expert_started_at": null,
+      "expert_submitted_at": null,
+      "independence_proof": null,
+      "original_view_only": true,
+      "agent_preannotation_exposed": false
+    },
+    {
+      "assignment_id": "G1-A1-L4-A-05",
+      "candidate_ref": "CAND-G100-096",
+      "reviewer_slot": "A",
+      "real_expert_id": null,
+      "assignment_status": "UNASSIGNED",
+      "view_role": "INDEPENDENT_HUMAN_NO_AGENT_CANDIDATE_VISIBLE",
+      "source": {
+        "PMID": "38869255",
+        "PMCID": "PMC11170495",
+        "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/38869255/",
+        "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11170495/",
+        "title": "Expert consensus statements and summary of proceedings from the International Safety and Quality of Parenteral Nutrition Summit.",
+        "source_type": "EXPERT_CONSENSUS"
+      },
+      "question": "专家共识如何形成；其协商规则、权威边界与可引用声明是什么？",
+      "fields": [
+        {
+          "field_id": "source_version",
+          "prompt_cn": "本次审核的是哪一版本的原始材料？",
+          "required": true,
+          "answer_type": "text",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_type",
+          "prompt_cn": "原始资料属于何种科学文献类型？",
+          "required": true,
+          "answer_type": "categorical",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "question_applicability",
+          "prompt_cn": "该资料能否回答分配的科学问题？请说明人群、干预/暴露、比较对象、结局、时间及适用边界。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "evidence_unit_span",
+          "prompt_cn": "请在原文中独立定位至少一个支持关键判断的段落、表格单元或推荐声明，并提供可重建定位符。",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "identity_dependency",
+          "prompt_cn": "与其他论文/版本/研究是否共享试验、队列、指南家族、二次分析或更正关系？",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "scientific_limitation",
+          "prompt_cn": "最重要的偏倚、方法局限、证据不确定性及禁止外推事项是什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "l4_decision",
+          "prompt_cn": "对指定问题给出科学使用资格决定：QUALIFY / CONDITIONAL / DEFER / REJECT；请说明根据。",
+          "required": true,
+          "answer_type": "enum",
+          "allowed": [
+            "QUALIFY",
+            "CONDITIONAL",
+            "DEFER",
+            "REJECT"
+          ],
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_fidelity_check",
+          "prompt_cn": "原始 PDF/网页、表格、图像、补充材料是否逐项见过并比对？缺失什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "reviewer_signature",
+          "prompt_cn": "审核人身份、审核时间、专业背景及版本确认。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "panel_and_method",
+          "prompt_cn": "核查专家组成、适用临床范围、共识形成方法",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "voting",
+          "prompt_cn": "核查实际投票人/分母、同意率、弃权/异议处理",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "exact_statement",
+          "prompt_cn": "定位一条完整共识声明与原始表格位置",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "authority_boundary",
+          "prompt_cn": "核查正式指南与专家建议的权威区别",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "evidence_support",
+          "prompt_cn": "明确引用的证据与专家意见来源，不自动视为临床试验确定性",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        }
+      ],
+      "expert_decision": null,
+      "expert_started_at": null,
+      "expert_submitted_at": null,
+      "independence_proof": null,
+      "original_view_only": true,
+      "agent_preannotation_exposed": false
+    },
+    {
+      "assignment_id": "G1-A1-L4-B-01",
+      "candidate_ref": "CAND-G100-004",
+      "reviewer_slot": "B",
+      "real_expert_id": null,
+      "assignment_status": "UNASSIGNED",
+      "view_role": "INDEPENDENT_HUMAN_NO_AGENT_CANDIDATE_VISIBLE",
+      "source": {
+        "PMID": "35194047",
+        "PMCID": "PMC8864028",
+        "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35194047/",
+        "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8864028/",
+        "title": "Randomized controlled trial for time-restricted eating in healthy volunteers without obesity.",
+        "source_type": "RCT"
+      },
+      "question": "该试验的随机化设计和主要结局是什么？其人群与时间范围允许何种科学推断？",
+      "fields": [
+        {
+          "field_id": "source_version",
+          "prompt_cn": "本次审核的是哪一版本的原始材料？",
+          "required": true,
+          "answer_type": "text",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_type",
+          "prompt_cn": "原始资料属于何种科学文献类型？",
+          "required": true,
+          "answer_type": "categorical",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "question_applicability",
+          "prompt_cn": "该资料能否回答分配的科学问题？请说明人群、干预/暴露、比较对象、结局、时间及适用边界。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "evidence_unit_span",
+          "prompt_cn": "请在原文中独立定位至少一个支持关键判断的段落、表格单元或推荐声明，并提供可重建定位符。",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "identity_dependency",
+          "prompt_cn": "与其他论文/版本/研究是否共享试验、队列、指南家族、二次分析或更正关系？",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "scientific_limitation",
+          "prompt_cn": "最重要的偏倚、方法局限、证据不确定性及禁止外推事项是什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "l4_decision",
+          "prompt_cn": "对指定问题给出科学使用资格决定：QUALIFY / CONDITIONAL / DEFER / REJECT；请说明根据。",
+          "required": true,
+          "answer_type": "enum",
+          "allowed": [
+            "QUALIFY",
+            "CONDITIONAL",
+            "DEFER",
+            "REJECT"
+          ],
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_fidelity_check",
+          "prompt_cn": "原始 PDF/网页、表格、图像、补充材料是否逐项见过并比对？缺失什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "reviewer_signature",
+          "prompt_cn": "审核人身份、审核时间、专业背景及版本确认。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "allocation",
+          "prompt_cn": "请核对随机分配方法、随机人数、分组数、完成/分析人数及原因",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "outcomes",
+          "prompt_cn": "请核对预设主要终点、结局测量时间及分析方法",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "risk_of_bias",
+          "prompt_cn": "请评价分配隐藏、盲法、脱落、选择性报告和潜在偏倚",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "numeric_table",
+          "prompt_cn": "请选择一项关键结果，查验其原始图/表、组别、单位和置信区间/显著性指标",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "supplement",
+          "prompt_cn": "试验注册与方案、报告摘要和补充图表是否一致",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        }
+      ],
+      "expert_decision": null,
+      "expert_started_at": null,
+      "expert_submitted_at": null,
+      "independence_proof": null,
+      "original_view_only": true,
+      "agent_preannotation_exposed": false
+    },
+    {
+      "assignment_id": "G1-A1-L4-B-02",
+      "candidate_ref": "CAND-G100-029",
+      "reviewer_slot": "B",
+      "real_expert_id": null,
+      "assignment_status": "UNASSIGNED",
+      "view_role": "INDEPENDENT_HUMAN_NO_AGENT_CANDIDATE_VISIBLE",
+      "source": {
+        "PMID": "31142457",
+        "PMCID": "PMC6538975",
+        "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/31142457/",
+        "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6538975/",
+        "title": "Ultra-processed food intake and risk of cardiovascular disease: prospective cohort study (NutriNet-Santé).",
+        "source_type": "COHORT"
+      },
+      "question": "如何定义饮食暴露和 CVD 结局；相关性估计的可解释范围、关键协变量及局限是什么？",
+      "fields": [
+        {
+          "field_id": "source_version",
+          "prompt_cn": "本次审核的是哪一版本的原始材料？",
+          "required": true,
+          "answer_type": "text",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_type",
+          "prompt_cn": "原始资料属于何种科学文献类型？",
+          "required": true,
+          "answer_type": "categorical",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "question_applicability",
+          "prompt_cn": "该资料能否回答分配的科学问题？请说明人群、干预/暴露、比较对象、结局、时间及适用边界。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "evidence_unit_span",
+          "prompt_cn": "请在原文中独立定位至少一个支持关键判断的段落、表格单元或推荐声明，并提供可重建定位符。",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "identity_dependency",
+          "prompt_cn": "与其他论文/版本/研究是否共享试验、队列、指南家族、二次分析或更正关系？",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "scientific_limitation",
+          "prompt_cn": "最重要的偏倚、方法局限、证据不确定性及禁止外推事项是什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "l4_decision",
+          "prompt_cn": "对指定问题给出科学使用资格决定：QUALIFY / CONDITIONAL / DEFER / REJECT；请说明根据。",
+          "required": true,
+          "answer_type": "enum",
+          "allowed": [
+            "QUALIFY",
+            "CONDITIONAL",
+            "DEFER",
+            "REJECT"
+          ],
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_fidelity_check",
+          "prompt_cn": "原始 PDF/网页、表格、图像、补充材料是否逐项见过并比对？缺失什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "reviewer_signature",
+          "prompt_cn": "审核人身份、审核时间、专业背景及版本确认。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "eligibility",
+          "prompt_cn": "核查纳入/排除、人群基线、失访、随访时间",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "exposure_measurement",
+          "prompt_cn": "核查 NOVA 分类、24h 饮食回忆记录数量及暴露单位",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "association_estimand",
+          "prompt_cn": "核查 Cox 模型、HR/CI、调整协变量及对应表格行列",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "confounding",
+          "prompt_cn": "核查剩余混杂、逆向因果、测量误差、选择偏倚",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "consistency",
+          "prompt_cn": "检索并复核正文、附表与敏感性分析结果的一致性",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        }
+      ],
+      "expert_decision": null,
+      "expert_started_at": null,
+      "expert_submitted_at": null,
+      "independence_proof": null,
+      "original_view_only": true,
+      "agent_preannotation_exposed": false
+    },
+    {
+      "assignment_id": "G1-A1-L4-B-03",
+      "candidate_ref": "CAND-G100-048",
+      "reviewer_slot": "B",
+      "real_expert_id": null,
+      "assignment_status": "UNASSIGNED",
+      "view_role": "INDEPENDENT_HUMAN_NO_AGENT_CANDIDATE_VISIBLE",
+      "source": {
+        "PMID": "40533200",
+        "PMCID": "PMC12175170",
+        "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/40533200/",
+        "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12175170/",
+        "title": "Intermittent fasting strategies and their effects on body weight and other cardiometabolic risk factors.",
+        "source_type": "NETWORK_META"
+      },
+      "question": "有哪些干预比较、纳入独立试验与结局；合并效应与 GRADE 确定性的精确限定是什么？",
+      "fields": [
+        {
+          "field_id": "source_version",
+          "prompt_cn": "本次审核的是哪一版本的原始材料？",
+          "required": true,
+          "answer_type": "text",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_type",
+          "prompt_cn": "原始资料属于何种科学文献类型？",
+          "required": true,
+          "answer_type": "categorical",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "question_applicability",
+          "prompt_cn": "该资料能否回答分配的科学问题？请说明人群、干预/暴露、比较对象、结局、时间及适用边界。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "evidence_unit_span",
+          "prompt_cn": "请在原文中独立定位至少一个支持关键判断的段落、表格单元或推荐声明，并提供可重建定位符。",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "identity_dependency",
+          "prompt_cn": "与其他论文/版本/研究是否共享试验、队列、指南家族、二次分析或更正关系？",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "scientific_limitation",
+          "prompt_cn": "最重要的偏倚、方法局限、证据不确定性及禁止外推事项是什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "l4_decision",
+          "prompt_cn": "对指定问题给出科学使用资格决定：QUALIFY / CONDITIONAL / DEFER / REJECT；请说明根据。",
+          "required": true,
+          "answer_type": "enum",
+          "allowed": [
+            "QUALIFY",
+            "CONDITIONAL",
+            "DEFER",
+            "REJECT"
+          ],
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_fidelity_check",
+          "prompt_cn": "原始 PDF/网页、表格、图像、补充材料是否逐项见过并比对？缺失什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "reviewer_signature",
+          "prompt_cn": "审核人身份、审核时间、专业背景及版本确认。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "search_and_selection",
+          "prompt_cn": "核查数据库、检索截止、纳排标准和完整附录",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "studyidentity",
+          "prompt_cn": "核查纳入文献/研究报告的 StudyIdentity 和重复队列风险",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "network_estimand",
+          "prompt_cn": "核查网络比较、效应量、单位、时间窗、异质性与一致性",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "certainty",
+          "prompt_cn": "核查 GRADE 比较级确定性、风险偏倚和敏感性分析",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "correction_lineage",
+          "prompt_cn": "核查发布日期、随后更正内容及效应数值是否受影响",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        }
+      ],
+      "expert_decision": null,
+      "expert_started_at": null,
+      "expert_submitted_at": null,
+      "independence_proof": null,
+      "original_view_only": true,
+      "agent_preannotation_exposed": false
+    },
+    {
+      "assignment_id": "G1-A1-L4-B-04",
+      "candidate_ref": "CAND-G100-071",
+      "reviewer_slot": "B",
+      "real_expert_id": null,
+      "assignment_status": "UNASSIGNED",
+      "view_role": "INDEPENDENT_HUMAN_NO_AGENT_CANDIDATE_VISIBLE",
+      "source": {
+        "PMID": "36462613",
+        "PMCID": "PMC12646719",
+        "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/36462613/",
+        "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12646719/",
+        "title": "Medical Nutrition Therapy Interventions Provided by Dietitians for Adult Overweight and Obesity Management.",
+        "source_type": "PRACTICE_GUIDELINE"
+      },
+      "question": "完整指南中的推荐声明、评级、强制性标签、适用范围和例外条件是什么？",
+      "fields": [
+        {
+          "field_id": "source_version",
+          "prompt_cn": "本次审核的是哪一版本的原始材料？",
+          "required": true,
+          "answer_type": "text",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_type",
+          "prompt_cn": "原始资料属于何种科学文献类型？",
+          "required": true,
+          "answer_type": "categorical",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "question_applicability",
+          "prompt_cn": "该资料能否回答分配的科学问题？请说明人群、干预/暴露、比较对象、结局、时间及适用边界。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "evidence_unit_span",
+          "prompt_cn": "请在原文中独立定位至少一个支持关键判断的段落、表格单元或推荐声明，并提供可重建定位符。",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "identity_dependency",
+          "prompt_cn": "与其他论文/版本/研究是否共享试验、队列、指南家族、二次分析或更正关系？",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "scientific_limitation",
+          "prompt_cn": "最重要的偏倚、方法局限、证据不确定性及禁止外推事项是什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "l4_decision",
+          "prompt_cn": "对指定问题给出科学使用资格决定：QUALIFY / CONDITIONAL / DEFER / REJECT；请说明根据。",
+          "required": true,
+          "answer_type": "enum",
+          "allowed": [
+            "QUALIFY",
+            "CONDITIONAL",
+            "DEFER",
+            "REJECT"
+          ],
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_fidelity_check",
+          "prompt_cn": "原始 PDF/网页、表格、图像、补充材料是否逐项见过并比对？缺失什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "reviewer_signature",
+          "prompt_cn": "审核人身份、审核时间、专业背景及版本确认。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "authority",
+          "prompt_cn": "确认完整官方指南与缩略期刊论文的权威/版本关系",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "exact_recommendation",
+          "prompt_cn": "抄录或精确锚定一条官方推荐及推荐编号",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "rating",
+          "prompt_cn": "核查原文评级、Imperative/Conditional 标签及其含义",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "evidence_to_decision",
+          "prompt_cn": "核查支持的系统综述、效益风险、证据确定性",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "exceptions",
+          "prompt_cn": "核查临床禁忌、受众偏好、个人化适用条件",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        }
+      ],
+      "expert_decision": null,
+      "expert_started_at": null,
+      "expert_submitted_at": null,
+      "independence_proof": null,
+      "original_view_only": true,
+      "agent_preannotation_exposed": false
+    },
+    {
+      "assignment_id": "G1-A1-L4-B-05",
+      "candidate_ref": "CAND-G100-096",
+      "reviewer_slot": "B",
+      "real_expert_id": null,
+      "assignment_status": "UNASSIGNED",
+      "view_role": "INDEPENDENT_HUMAN_NO_AGENT_CANDIDATE_VISIBLE",
+      "source": {
+        "PMID": "38869255",
+        "PMCID": "PMC11170495",
+        "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/38869255/",
+        "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11170495/",
+        "title": "Expert consensus statements and summary of proceedings from the International Safety and Quality of Parenteral Nutrition Summit.",
+        "source_type": "EXPERT_CONSENSUS"
+      },
+      "question": "专家共识如何形成；其协商规则、权威边界与可引用声明是什么？",
+      "fields": [
+        {
+          "field_id": "source_version",
+          "prompt_cn": "本次审核的是哪一版本的原始材料？",
+          "required": true,
+          "answer_type": "text",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_type",
+          "prompt_cn": "原始资料属于何种科学文献类型？",
+          "required": true,
+          "answer_type": "categorical",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "question_applicability",
+          "prompt_cn": "该资料能否回答分配的科学问题？请说明人群、干预/暴露、比较对象、结局、时间及适用边界。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "evidence_unit_span",
+          "prompt_cn": "请在原文中独立定位至少一个支持关键判断的段落、表格单元或推荐声明，并提供可重建定位符。",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "identity_dependency",
+          "prompt_cn": "与其他论文/版本/研究是否共享试验、队列、指南家族、二次分析或更正关系？",
+          "required": true,
+          "answer_type": "list",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "scientific_limitation",
+          "prompt_cn": "最重要的偏倚、方法局限、证据不确定性及禁止外推事项是什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "l4_decision",
+          "prompt_cn": "对指定问题给出科学使用资格决定：QUALIFY / CONDITIONAL / DEFER / REJECT；请说明根据。",
+          "required": true,
+          "answer_type": "enum",
+          "allowed": [
+            "QUALIFY",
+            "CONDITIONAL",
+            "DEFER",
+            "REJECT"
+          ],
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "source_fidelity_check",
+          "prompt_cn": "原始 PDF/网页、表格、图像、补充材料是否逐项见过并比对？缺失什么？",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "reviewer_signature",
+          "prompt_cn": "审核人身份、审核时间、专业背景及版本确认。",
+          "required": true,
+          "answer_type": "structured",
+          "must_anchor": false,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "panel_and_method",
+          "prompt_cn": "核查专家组成、适用临床范围、共识形成方法",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "voting",
+          "prompt_cn": "核查实际投票人/分母、同意率、弃权/异议处理",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "exact_statement",
+          "prompt_cn": "定位一条完整共识声明与原始表格位置",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "authority_boundary",
+          "prompt_cn": "核查正式指南与专家建议的权威区别",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        },
+        {
+          "field_id": "evidence_support",
+          "prompt_cn": "明确引用的证据与专家意见来源，不自动视为临床试验确定性",
+          "required": true,
+          "answer_type": "scientific_review",
+          "must_anchor": true,
+          "response": null,
+          "source_anchors": [],
+          "source_version": null
+        }
+      ],
+      "expert_decision": null,
+      "expert_started_at": null,
+      "expert_submitted_at": null,
+      "independence_proof": null,
+      "original_view_only": true,
+      "agent_preannotation_exposed": false
+    }
+  ]
+}

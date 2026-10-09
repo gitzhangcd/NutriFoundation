@@ -1,0 +1,30 @@
+{
+  "schema_id": "G1-SHARED-ORIGINAL-SOURCE-RECEIPT-v0.1",
+  "candidate_id": "CAND-G100-___",
+  "source_title": null,
+  "identifiers": {
+    "PMID": null,
+    "PMCID": null,
+    "DOI": null
+  },
+  "format": "PDF|HTML|JATS_XML|MARKDOWN_DERIVATIVE|SUPPLEMENT|OTHER",
+  "original_vs_derivative": "ORIGINAL|DERIVED",
+  "canonical_source_page": null,
+  "original_download_url": null,
+  "original_publisher_or_archive": null,
+  "license_or_access_basis": null,
+  "reuse_and_publication_rights": "UNVERIFIED",
+  "retrieved_at": null,
+  "file_sha256": null,
+  "file_size_bytes": null,
+  "local_private_storage_ref": null,
+  "public_repo_artifact_path": null,
+  "download_method": null,
+  "http_status": null,
+  "source_version": null,
+  "related_source_file_sha256": null,
+  "content_type_verified": false,
+  "file_signature_verified": false,
+  "integrity_verified": false,
+  "notes": "No receipt is valid without real file bytes or an immutable object hash; preserve source format."
+}

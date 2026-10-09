@@ -206,3 +206,28 @@ def test_publishing_idempotency_and_role_denial(app):
     assert p.post(f"/v1/tpa/tasks/{tid}/publish",headers=h,json=key).status_code==403
     auditor,_=login(app,"auditor")
     assert auditor.get("/v1/tpa/audit").json()["valid"] is True
+
+
+def test_revoke_preserves_read_history_and_blocks_new_access(app):
+    tid="TPA-SYN-REVOKE-005"
+    setup_ready(app,tid)
+    manager,mh=login(app,"manager")
+    assert manager.post(f"/v1/tpa/tasks/{tid}/assign",headers=mh,json={
+        "expert_actor":"SYN-EA-EXPERT-A","idempotency_key":"revocation-assign-005"}).status_code==200
+    assert manager.post(f"/v1/tpa/tasks/{tid}/publish",headers=mh,json={
+        "idempotency_key":"revocation-pub-005"}).status_code==200
+    expert,_=login(app,"ea1")
+    assert expert.get(f"/v1/ea/tasks/{tid}/sources/RCT-001/r1").status_code==200
+    revoked=manager.post(f"/v1/tpa/tasks/{tid}/revoke",headers=mh)
+    assert revoked.status_code==200,revoked.text
+    assert revoked.json()["historical_exposure_remains"] is True
+    assert expert.get(f"/v1/ea/tasks/{tid}/sources/RCT-001/r1").status_code==403
+    assert expert.get(f"/v1/ea/tasks/{tid}/workpack").status_code==403
+    assert tid not in [x["task_id"] for x in expert.get("/v1/ea/tasks").json()["tasks"]]
+    assert manager.post(f"/v1/tpa/tasks/{tid}/publish",headers=mh,
+                        json={"idempotency_key":"new-epoch-005"}).status_code==409
+    auditor,_=login(app,"auditor")
+    history=auditor.get("/v1/tpa/audit").json()
+    assert history["valid"] is True
+    assert any(x["event"]=="SOURCE_UNIT_VIEWED" for x in history["recent_events"])
+    assert any(x["event"]=="ACCESS_REVOKED" for x in history["recent_events"])

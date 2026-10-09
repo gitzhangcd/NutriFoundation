@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from fastapi import FastAPI, HTTPException, Request
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, ValidationError
 
 from tpa_runtime import TPAError, TaskProduction
 from ea_runtime import EAError
@@ -39,6 +39,12 @@ class Publish(StrictBody):
 
 
 def install_tpa_routes(app: FastAPI, controller: TaskProduction):
+    def validate_body(cls, value):
+        try:
+            return cls.model_validate(value).model_dump()
+        except (ValidationError,TypeError,ValueError) as exc:
+            raise HTTPException(422,detail={"code":"INVALID_TPA_REQUEST"}) from exc
+
     def person(request, allowed):
         p = getattr(request.state, "principal", None)
         if p is None:
@@ -75,9 +81,9 @@ def install_tpa_routes(app: FastAPI, controller: TaskProduction):
         return call(controller.sources,role=p["role"])
 
     @app.post("/v1/tpa/source-imports/validate")
-    def check_import(request:Request,body:ImportCheck):
+    def check_import(request:Request,body:dict):
         p=person(request,("producer",))
-        return call(controller.validate_import,role=p["role"],body=body.model_dump())
+        return call(controller.validate_import,role=p["role"],body=validate_body(ImportCheck,body))
 
     @app.get("/v1/tpa/tasks")
     def list_tasks(request:Request):
@@ -85,9 +91,9 @@ def install_tpa_routes(app: FastAPI, controller: TaskProduction):
         return call(controller.listing,role=p["role"],actor=p["actor"])
 
     @app.post("/v1/tpa/tasks/drafts")
-    def drafts(request:Request,body:Draft):
+    def drafts(request:Request,body:dict):
         p=person(request,("producer",))
-        return call(controller.draft,role=p["role"],actor=p["actor"],body=body.model_dump())
+        return call(controller.draft,role=p["role"],actor=p["actor"],body=validate_body(Draft,body))
 
     @app.post("/v1/tpa/tasks/{task_id}/validate")
     def validate(task_id:str,request:Request):
@@ -107,16 +113,16 @@ def install_tpa_routes(app: FastAPI, controller: TaskProduction):
         return call(controller.prepare,role=p["role"],actor=p["actor"],task_id=task_id)
 
     @app.post("/v1/tpa/tasks/{task_id}/assign")
-    def assign(task_id:str,request:Request,body:Assignment):
+    def assign(task_id:str,request:Request,body:dict):
         p=person(request,("manager",))
         return call(controller.assign,role=p["role"],actor=p["actor"],
-                    task_id=task_id,body=body.model_dump())
+                    task_id=task_id,body=validate_body(Assignment,body))
 
     @app.post("/v1/tpa/tasks/{task_id}/publish")
-    def publish(task_id:str,request:Request,body:Publish):
+    def publish(task_id:str,request:Request,body:dict):
         p=person(request,("manager",))
         return call(controller.publish,role=p["role"],actor=p["actor"],
-                    task_id=task_id,body=body.model_dump())
+                    task_id=task_id,body=validate_body(Publish,body))
 
     @app.get("/v1/tpa/audit")
     def audit(request:Request):

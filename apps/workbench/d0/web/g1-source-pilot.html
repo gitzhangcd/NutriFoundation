@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>G1-Shared｜科学来源独立审核 · 工程试点</title>
+<style>
+:root{font:15px/1.55 system-ui,-apple-system,"PingFang SC",sans-serif;color:#1f2937;background:#f5f7f8}
+*{box-sizing:border-box}body{margin:0}header{display:flex;gap:20px;align-items:center;justify-content:space-between;background:#152b3b;color:#fff;padding:12px 24px}header small{color:#d4dce5}button,select,textarea{font:inherit}button{cursor:pointer;border:1px solid #ccd5dd;border-radius:8px;padding:9px 14px;background:#fff}button.primary{color:#fff;border-color:#155f66;background:#155f66}button:disabled{opacity:.45}a{color:#126a76}
+main{display:grid;grid-template-columns:250px minmax(340px,1fr) minmax(330px,0.9fr);height:calc(100vh - 68px);gap:12px;padding:12px}aside,section{border:1px solid #dde3e9;border-radius:12px;background:#fff;overflow:auto;padding:16px}.muted{color:#64748b}.warning{background:#fff7e8;border-left:3px solid #bb7d21;padding:9px;border-radius:4px}.pill{font-size:12px;padding:3px 9px;background:#e6f3f1;color:#1a6666;border-radius:25px}
+h1{margin:0;font-size:18px}h2{font-size:16px;margin:4px 0 12px}h3{font-size:14px;margin:16px 0 8px}#sourceText{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;line-height:1.7}label{display:block;font-weight:600;margin-top:14px}.field-note{font-weight:400;color:#66717c;font-size:12px}textarea{display:block;width:100%;min-height:88px;border:1px solid #c8d0d8;border-radius:7px;padding:9px;resize:vertical;background:#fff}#taskButtons button{width:100%;text-align:left;margin:5px 0}#taskButtons button.active{background:#e8f5f4;border-color:#1b7983}#actions{position:sticky;bottom:-16px;background:#fff;padding:12px 0;display:flex;align-items:center;gap:8px;border-top:1px solid #ddd}#feedback{font-size:13px}#sourceMeta{font-size:12px;word-wrap:break-word}#sourceMeta a{word-break:break-all}
+@media(max-width:1000px){main{display:flex;flex-direction:column;height:auto}aside,section{overflow:visible;max-height:none}#sourceText{max-height:45vh;overflow:auto}}
+</style></head><body>
+<header><div><h1>G1-Shared｜异质科学来源独立审核</h1><small>仅内部工程试点 · 不产生专家 Gold · 原文为权威层</small></div><span class="pill">Strict-Blind：隐藏 Agent 候选</span></header>
+<main>
+<aside><h2>我的 5 个来源任务</h2><p class="muted">每位审核者只看自己的原文与草稿，不显示另一位的答案。</p><div id="taskButtons">正在认证…</div></aside>
+<section><h2 id="sourceTitle">选择一个来源</h2><div id="sourceMeta" class="muted"></div><p class="warning">正文仅用于文献结构工程调试；原始 PDF、表格和附件保真尚未通过。严禁把工程填写当作真人 L4 Gold。</p><div id="sourceText"></div></section>
+<section><h2>专家自然判断</h2><div id="reviewIntro" class="muted">选择来源后独立回答。未取得原文的资料可以 DEFER，不应补猜。</div><div id="form"></div><div id="actions" hidden><button id="save" class="primary">保存独立草稿</button><button id="freeze">冻结工程答卷</button><span id="feedback" class="muted"></span></div></section>
+</main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+let tasks=[],task=null,state=null,csrf=null,slot=null;
+async function api(path,method="GET",body){
+ const h={"Accept":"application/json"};
+ if(method!=="GET"){h["Content-Type"]="application/json";h["X-CSRF-Token"]=csrf;}
+ const r=await fetch(path,{method,headers:h,body:body?JSON.stringify(body):undefined,credentials:"same-origin",cache:"no-store"});
+ let v;try{v=await r.json()}catch{throw Error("HTTP_"+r.status)}
+ if(!r.ok)throw Error(v.detail?.code||v.detail||"HTTP_"+r.status);
+ return v;
+}
+const path=id=>"/v1/g1/pilot/tasks/"+encodeURIComponent(id);
+function feedback(m){$("feedback").textContent=m;}
+function fieldValues(){let a={};$("form").querySelectorAll("textarea[data-field]").forEach(e=>{a[e.dataset.field]=e.value;});return a;}
+function renderForm(){
+ $("form").replaceChildren();
+ for(const f of task.fields){
+  const wrap=document.createElement("div"),label=document.createElement("label"),area=document.createElement("textarea");
+  label.textContent=f.prompt_cn;
+  area.dataset.field=f.field_id;area.value=state.answers[f.field_id]||"";
+  area.disabled=state.frozen;area.setAttribute("aria-label",f.prompt_cn);
+  const hint=document.createElement("div");hint.className="field-note";
+  hint.textContent=(f.must_anchor?"请绑定原始证据位置；":"")+(f.required?"必填":"可选");
+  wrap.append(label,hint,area);$("form").append(wrap);
+ }
+ $("actions").hidden=false;$("save").disabled=state.frozen;$("freeze").disabled=state.frozen;feedback(state.frozen?"已冻结：只读（非 Gold）":"未冻结；草稿仅自己可见");
+}
+async function openTask(id){
+ task=tasks.find(t=>t.candidate_id===id);if(!task)throw Error("SOURCE_NOT_AUTHORIZED");
+ document.querySelectorAll("#taskButtons button").forEach(b=>b.classList.toggle("active",b.dataset.id===id));
+ state=await api(path(id)+"/review");const source=await api(path(id)+"/source");
+ $("sourceTitle").textContent=task.role+"｜"+task.candidate_id;
+ $("sourceMeta").replaceChildren();const link=document.createElement("a");link.href=task.original_source_uri;link.target="_blank";link.rel="noopener noreferrer";link.textContent="打开 PMC 原始资料 ↗";$("sourceMeta").append(link);
+ const p=document.createElement("p");p.textContent="PMID "+task.source_pmid+" · PMCID "+task.source_pmcid+" · "+source.availability;$("sourceMeta").append(p);
+ $("sourceText").textContent=source.source_body||"原文正文未按许可进入本地试点。请使用上方官方链接，在审核中明确记录无法验证的原文结构。";
+ $("reviewIntro").textContent=task.question;
+ renderForm();
+}
+async function init(){
+ try{
+  const s=await api("/v1/session");csrf=s.csrf_token;if(!csrf)throw Error("SESSION_NOT_AUTHORIZED");
+  const health=await api("/v1/g1/pilot/health");if(health.status!=="ENGINEERING_ONLY")throw Error("MODE_ERROR");
+  tasks=(await api("/v1/g1/pilot/tasks")).items;
+  $("taskButtons").replaceChildren();
+  for(const x of tasks){const b=document.createElement("button");b.type="button";b.dataset.id=x.candidate_id;b.textContent=x.role+" · "+x.candidate_id;b.addEventListener("click",()=>openTask(x.candidate_id).catch(e=>feedback(e.message)));$("taskButtons").append(b)}
+  if(tasks.length)await openTask(tasks[0].candidate_id);
+ }catch(e){$("taskButtons").textContent="访问拒绝："+e.message;}
+}
+$("save").addEventListener("click",async()=>{
+ try{const r=await api(path(task.candidate_id)+"/review","PUT",{expected_revision:state.revision,answers:fieldValues()});state.revision=r.revision;state.answers=fieldValues();feedback("草稿已保存 · 修订 "+r.revision);}catch(e){feedback("保存失败："+e.message)}
+});
+$("freeze").addEventListener("click",async()=>{
+ if(!confirm("冻结后不可修改，仅冻结工程答卷，不是专家 Gold。确定吗？"))return;
+ try{const r=await api(path(task.candidate_id)+"/freeze","POST",{expected_revision:state.revision});state.frozen=true;renderForm();feedback("工程冻结成功（非 Gold）· "+r.freeze_digest.slice(0,16));}catch(e){feedback("冻结失败："+e.message)}
+});
+init();
+</script></body></html>

@@ -1,7 +1,9 @@
+import {CJK,normalizeQuery,queryProblem,matchRanges,snippetParts,sectionIndex,translationMatches,searchSummary} from './search_core.js';
 const $ = id=>document.getElementById(id);
 const SOURCE='SYN-5-2-PAPER';
 let doc=null,sourceURL='',currentPage=1,selected=null,selectedUnit=null,pdfjs=null,pdfDoc=null,activeLocator=null;
 let selectionRect=null,citeTargetLabel='';
+let search={q:'',items:[],total:0,serverTotal:0,next:0,more:false,current:-1,translationOnly:0};
 let translationMap=new Map(),selectedOffsets=null,originalOffsets=null,selectionAlignment=false,selectionContext='',bindingPending=false,confirmedBinding=null;
 function plainMarkdown(raw){
  let text='',offsets=[];
@@ -141,14 +143,15 @@ async function renderSyntheticBilingualExercise(){
  }
  $('units').dataset.readingMode=$('readerMode').value;
  $('units').scrollTop=0;$('modeHint').hidden=true;
+ setSearchAvailability(false,'练习资料不支持搜索（仅论文原文可搜）');
  show('正在查看完整双语合成演练。此资料不能引用到正式或合成任务的科学证据链。');
 }
 async function load(){return scheduleReading(loadDocument);}
-async function loadDocument(){try{clearQuoteSelection();$('manualQuote').open=false;window.CSS?.highlights?.delete('evidence-source');$('readerSource').hidden=true;selected=null;selectedUnit=null;selectedOffsets=null;doc=null;translationMap.clear();$('bilingualToolbar').hidden=true;$('selectionToolbar').hidden=true;pdfDoc=null;pdfjs=null;sourceURL='';$('units').replaceChildren();$('anchors').replaceChildren();$('outline').replaceChildren();$('translationVersion').textContent='';$('translationStatus').textContent='翻译未就绪';togglePDF(false);window.dispatchEvent(new CustomEvent('nutri-evidence',{detail:{items:[],bindings:[],itemBindings:[]}}));$('pdfCanvas').width=0;$('pdfOverlay').replaceChildren();$('pdfRaster').style.display='none';
+async function loadDocument(){try{clearQuoteSelection();clearSearch();$('manualQuote').open=false;window.CSS?.highlights?.delete('evidence-source');$('readerSource').hidden=true;selected=null;selectedUnit=null;selectedOffsets=null;doc=null;translationMap.clear();$('bilingualToolbar').hidden=true;$('selectionToolbar').hidden=true;pdfDoc=null;pdfjs=null;sourceURL='';$('units').replaceChildren();$('anchors').replaceChildren();$('outline').replaceChildren();$('translationVersion').textContent='';$('translationStatus').textContent='翻译未就绪';togglePDF(false);window.dispatchEvent(new CustomEvent('nutri-evidence',{detail:{items:[],bindings:[],itemBindings:[]}}));$('pdfCanvas').width=0;$('pdfOverlay').replaceChildren();$('pdfRaster').style.display='none';
  const projection=await json(`/v1/tasks/${task()}/read-model`);$('phase').textContent=window.nutriPhaseLabel?window.nutriPhaseLabel(projection.phase):projection.phase;
- if(projection.arm==='R1') {$('readerSource').value='paper'; $('readerTitle').textContent='候选证据 · 授权摘录';$('sourceTitle').textContent='R1 候选引用片段';$('readerMeta').textContent='仅限任务许可的候选证据；不提供全文与原始 PDF。';$('sourceVersion').textContent='来源权限：候选摘录';$('translationStatus').textContent='此任务不提供全文译文';$('pdfToggle').hidden=true;$('pdfDetails').hidden=true;$('query').disabled=true;$('searchBtn').disabled=true; $('sourceBadge').textContent='候选引用片段'; if(projection.phase==='EXPERT_VERIFY'){const fragments=await json(base()+'/candidate-spans'); for(const x of fragments.candidate_spans){const div=document.createElement('div');div.className='unit';div.textContent=x.quote; $('units').append(div)}show('R1：仅可见已验证的候选引用片段，不提供整篇原文/PDF');}else{show('R1 门禁：候选尚未冻结，来源不可访问。');const empty=document.createElement('div');empty.className='empty-state';empty.textContent='候选摘录尚未准备好。生产方冻结合成候选后，这里会显示需要你复核的原文片段；请稍后点击左侧“打开任务 / 重新载入”。';$('units').append(empty);}return;}
+ if(projection.arm==='R1') {$('readerSource').value='paper'; $('readerTitle').textContent='候选证据 · 授权摘录';$('sourceTitle').textContent='R1 候选引用片段';$('readerMeta').textContent='仅限任务许可的候选证据；不提供全文与原始 PDF。';$('sourceVersion').textContent='来源权限：候选摘录';$('translationStatus').textContent='此任务不提供全文译文';$('pdfToggle').hidden=true;$('pdfDetails').hidden=true;setSearchAvailability(false,'此任务不提供全文搜索'); $('sourceBadge').textContent='候选引用片段'; if(projection.phase==='EXPERT_VERIFY'){const fragments=await json(base()+'/candidate-spans'); for(const x of fragments.candidate_spans){const div=document.createElement('div');div.className='unit';div.textContent=x.quote; $('units').append(div)}show('R1：仅可见已验证的候选引用片段，不提供整篇原文/PDF');}else{show('R1 门禁：候选尚未冻结，来源不可访问。');const empty=document.createElement('div');empty.className='empty-state';empty.textContent='候选摘录尚未准备好。生产方冻结合成候选后，这里会显示需要你复核的原文片段；请稍后点击左侧“打开任务 / 重新载入”。';$('units').append(empty);}return;}
  $('readerSource').hidden=false;
- $('pdfToggle').hidden=false;$('pdfDetails').hidden=false;$('query').disabled=false;$('searchBtn').disabled=false;
+ $('pdfToggle').hidden=false;$('pdfDetails').hidden=false;setSearchAvailability(true,'搜索原文（英文≥3字母，中文≥2字）');
  const src=await json(`/v1/tasks/${task()}/sources`);const d=await json(base()+'/document');doc=d;sourceURL=base();$('readerTitle').textContent=d.title;$('sourceTitle').textContent=d.title;$('readerMeta').textContent='公开论文阅读器练习 · 仅用于合成流程验证 · 英文原文与中文辅助';$('sourceVersion').textContent=`原文版本：${d.revision} · 文档 ${d.document_id}`;$('sourceBadge').textContent=`${d.unit_count} 单元 · PDF ${d.source_pages} 页`;
  // Never use a public static translation manifest: R1 could otherwise read
  // otherwise-forbidden source paragraphs. This task-authorized endpoint returns
@@ -288,7 +291,9 @@ function locateTypedQuote(){const q=$('quote').value.trim();if(!doc||q.length<20
 if(selectedUnit.raw.split(q).length!==2){show('引文在原文单元中不唯一：请选中准确原文范围');return;}
 const begin=selectedUnit.raw.indexOf(q);setQuoteSelection(selectedUnit,begin,begin+q.length);
 const el=document.querySelector(`[data-uid="${selectedUnit.unit_id}"]`);if(el){el.classList.add('selected');el.scrollIntoView({block:'center'});}show('已定位输入的准确引文；创建 SourceAnchor 时仍由服务端再次校验。')}
-$('readerMode').addEventListener('change',()=>{ $('units').dataset.readingMode=$('readerMode').value;updateModeHint();for(const button of document.querySelectorAll('[data-mode]')){button.classList.toggle('active',button.dataset.mode===$('readerMode').value);button.setAttribute('aria-pressed',String(button.dataset.mode===$('readerMode').value));} });
+$('readerMode').addEventListener('change',()=>{ $('units').dataset.readingMode=$('readerMode').value;updateModeHint();for(const button of document.querySelectorAll('[data-mode]')){button.classList.toggle('active',button.dataset.mode===$('readerMode').value);button.setAttribute('aria-pressed',String(button.dataset.mode===$('readerMode').value));}
+ if(search.current>=0)requestAnimationFrame(()=>goToSearch(search.current,{smooth:false}));
+});
 for(const button of document.querySelectorAll('[data-mode]'))button.onclick=()=>{$('readerMode').value=button.dataset.mode;$('readerMode').dispatchEvent(new Event('change'));};
 $('pdfToggle').onclick=()=>togglePDF(!$('pdfDetails').open);
 $('pdfDetails').addEventListener('toggle',()=>{$('pdfToggle').setAttribute('aria-expanded',String($('pdfDetails').open));$('pdfToggle').textContent=$('pdfDetails').open?'返回结构化正文':'核验原始 PDF';});
@@ -297,30 +302,169 @@ $('selectionBind').onclick=()=>{window.nutriReader.setCiteTarget('');if(selected
 $('locateQuote').onclick=locateTypedQuote;
 $('load').onclick=load;$('makeAnchor').onclick=makeAnchor;$('prev').onclick=()=>showPage(currentPage-1);$('next').onclick=()=>showPage(currentPage+1);
 $('candidate').onclick=async()=>{try{const c=await json(`/v1/tasks/${task()}/candidate-set`);show({exposure:'AUTHORIZED',candidate_set_sha:c.candidate_set_sha})}catch(e){show('CANDIDATE DENIED: '+e.message)}};
-function searchSnippet(raw,q){
- const text=plainMarkdown(raw).text.replace(/\s+/g,' '),i=text.toLowerCase().indexOf(q.toLowerCase());
- if(i<0)return text.slice(0,90)+(text.length>90?'…':'');
- const from=Math.max(0,i-40),to=Math.min(text.length,i+q.length+50);
- return (from?'…':'')+text.slice(from,to)+(to<text.length?'…':'');
+const SEARCH_EXAMPLES='weight、adherence、randomised';
+function unitElement(id){return [...$('units').querySelectorAll('[data-uid]')].find(x=>x.dataset.uid===id);}
+function textNodes(root){const out=[],walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);while(walk.nextNode())out.push(walk.currentNode);return out;}
+function rangesIn(el,selector,q){
+ const out=[];
+ for(const part of el.querySelectorAll(selector))for(const node of textNodes(part))for(const [a,b] of matchRanges(node.data,q)){const r=document.createRange();r.setStart(node,a);r.setEnd(node,b);out.push(r);}
+ return out;
+}
+function searchMessage(text,tips=''){
+ $('searchResults').hidden=false;$('searchStatus').textContent=text;$('searchList').replaceChildren();
+ $('searchTips').hidden=!tips;$('searchTips').textContent=tips;
+ for(const id of ['searchPrev','searchNext','searchToggle','searchMore'])$(id).hidden=true;$('searchPosition').textContent='';
+}
+function clearSearchHighlights(){
+ window.CSS?.highlights?.delete('search-hit');window.CSS?.highlights?.delete('search-current');
+ for(const el of $('units').querySelectorAll('.search-current'))el.classList.remove('search-current');
+}
+function clearSearch({keepQuery=false}={}){
+ search={q:'',items:[],total:0,serverTotal:0,next:0,more:false,current:-1,translationOnly:0};
+ clearSearchHighlights();$('searchResults').hidden=true;$('searchList').replaceChildren();$('searchStatus').textContent='';$('searchTips').hidden=true;$('searchPosition').textContent='';
+ if(!keepQuery)$('query').value='';
+ $('searchClear').hidden=!$('query').value;
+}
+function setSearchAvailability(enabled,placeholder){
+ $('query').disabled=!enabled;$('searchBtn').disabled=!enabled;$('query').placeholder=placeholder;clearSearch();
+}
+function searchItem(unit_id,source){
+ const el=unitElement(unit_id),item={unit_id,source,section:search.sections?.get(unit_id)||'',ranges:[]};
+ if(el){item.ranges=rangesIn(el,'.unit-original',search.q);item.translationRanges=rangesIn(el,'.unit-translation',search.q);}
+ return item;
+}
+function itemText(item){
+ if(item.source==='translation')return (translationMap.get(item.unit_id)||[]).map(r=>r.translated_excerpt||'').join(' ');
+ return unitElement(item.unit_id)?.querySelector('.unit-original')?.textContent||'';
+}
+function renderSearchList(){
+ const list=$('searchList');list.replaceChildren();
+ search.items.forEach((item,i)=>{
+  const li=document.createElement('li'),button=document.createElement('button');button.type='button';button.className='search-hit';button.dataset.index=String(i);
+  if(item.section){const chip=document.createElement('span');chip.className='search-section';chip.textContent=item.section.length>32?item.section.slice(0,31)+'…':item.section;button.append(chip);}
+  if(item.source==='translation'){const chip=document.createElement('span');chip.className='search-source';chip.textContent='中文译文';button.append(chip);}
+  const parts=snippetParts(itemText(item),search.q),mark=document.createElement('mark');mark.textContent=parts.match;
+  button.append(document.createTextNode(parts.before),mark,document.createTextNode(parts.after));
+  button.title='跳到原文单元 '+item.unit_id;
+  button.onclick=()=>goToSearch(i,{focusUnit:true});
+  li.append(button);list.append(li);
+ });
+ $('searchMore').hidden=!search.more;
+}
+function paintSearchHighlights(){
+ if(!window.CSS?.highlights||typeof Highlight==='undefined')return;
+ const all=search.items.flatMap(item=>[...item.ranges,...(item.translationRanges||[])]);
+ if(all.length)CSS.highlights.set('search-hit',new Highlight(...all));else CSS.highlights.delete('search-hit');
+ const item=search.items[search.current],current=item&&(item.source==='translation'?item.translationRanges?.[0]:item.ranges[0]);
+ if(current){const h=new Highlight(current);h.priority=1;CSS.highlights.set('search-current',h);}else CSS.highlights.delete('search-current');
+}
+function updateSearchPosition(){
+ const n=search.items.length,has=n>0;
+ $('searchPosition').textContent=has&&search.current>=0?`${search.current+1} / ${search.total}`:'';
+ $('searchPrev').hidden=$('searchNext').hidden=$('searchToggle').hidden=!has;
+ for(const button of $('searchList').querySelectorAll('.search-hit')){
+  const active=Number(button.dataset.index)===search.current;
+  if(active)button.setAttribute('aria-current','true');else button.removeAttribute('aria-current');
+ }
+}
+function revealInList(button){
+ const list=$('searchList');if(!button||list.hidden)return;
+ const top=button.offsetTop-list.offsetTop,bottom=top+button.offsetHeight;
+ if(top<list.scrollTop)list.scrollTop=top;else if(bottom>list.scrollTop+list.clientHeight)list.scrollTop=bottom-list.clientHeight;
+}
+function bringReaderIntoView(){
+ const box=$('units').getBoundingClientRect(),view=window.innerHeight;
+ if(box.top>view*0.35||box.bottom<80)window.scrollBy({top:box.top-12,behavior:'instant'});
+}
+function goToSearch(index,{focusUnit=false,smooth=true}={}){
+ const item=search.items[index];if(!item)return;
+ search.current=index;togglePDF(false);
+ for(const el of $('units').querySelectorAll('.search-current'))el.classList.remove('search-current');
+ const el=unitElement(item.unit_id);if(!el)return;
+ el.classList.add('search-current');paintSearchHighlights();updateSearchPosition();
+ bringReaderIntoView();
+ const container=$('units'),cbox=container.getBoundingClientRect();
+ const target=(item.source==='translation'?item.translationRanges?.[0]:item.ranges[0])||el;
+ const rect=target.getBoundingClientRect();
+ container.scrollTo({top:container.scrollTop+rect.top-cbox.top-container.clientHeight/3,behavior:smooth?'smooth':'instant'});
+ for(const button of $('outline').querySelectorAll('button'))button.classList.toggle('active',button.dataset.uid===(search.sectionIds?.get(item.unit_id)||item.unit_id));
+ revealInList($('searchList').querySelector('[aria-current="true"]'));
+ $('searchStatus').textContent=`第 ${index+1} / ${search.total} 处`+(item.section?` · ${item.section}`:'')+(item.source==='translation'?' · 中文译文':'');
+ if(focusUnit){el.tabIndex=-1;el.focus({preventScroll:true});}
+}
+async function loadMoreSearch(){
+ if(!search.more)return false;
+ const q=search.q,s=await json(base()+'/search?q='+encodeURIComponent(q)+'&offset='+search.next);
+ if(q!==search.q)return false;
+ const seen=new Set(search.items.map(x=>x.unit_id));
+ for(const r of s.results)if(!seen.has(r.unit_id))search.items.push(searchItem(r.unit_id,'original'));
+ search.next=s.offset+s.results.length;search.more=s.truncated;
+ renderSearchList();paintSearchHighlights();updateSearchPosition();
+ $('searchStatus').textContent=searchSummary(search.total,search.items.length,search.translationOnly);
+ return true;
+}
+async function stepSearch(delta){
+ if(!search.items.length)return;
+ let next=search.current+delta;
+ if(search.current<0)next=delta>0?0:search.items.length-1;
+ if(next>=search.items.length&&search.more&&await loadMoreSearch())return goToSearch(next);
+ goToSearch((next+search.items.length)%search.items.length);
 }
 async function runSearch(){
- const q=$('query').value.trim();$('searchResults').replaceChildren();
- if(!doc){$('searchResults').textContent='当前资料不支持搜索，请切换到“真实论文原文”。';return;}
- if(q.length<3){$('searchResults').textContent='请输入至少 3 个字符再搜索。';return;}
- try{const s=await json(base()+'/search?q='+encodeURIComponent(q));
-  const count=document.createElement('p');count.className='small';count.textContent=s.results.length?`找到 ${s.results.length} 处：`:'没有匹配的授权原文';$('searchResults').append(count);
-  for(const result of s.results){const unit=doc.units.find(u=>u.unit_id===result.unit_id);const button=document.createElement('button');button.type='button';button.className='search-hit';button.textContent=searchSnippet(unit?.raw||result.snippet||'',q);button.title='跳到原文单元 '+result.unit_id;button.onclick=()=>scrollUnit(result.unit_id);$('searchResults').append(button);}
- }catch(e){$('searchResults').textContent='搜索失败：'+e.message;}
+ const q=normalizeQuery($('query').value);
+ if(!doc){searchMessage('当前资料不支持搜索，请切换到“真实论文原文”。');return;}
+ const problem=queryProblem(q);
+ if(problem){clearSearch({keepQuery:true});searchMessage(problem==='EMPTY'?'请输入要查找的词。':'关键词太短：英文至少 3 个字母，中文至少 2 个字。');return;}
+ clearSearch({keepQuery:true});
+ try{
+  const s=await json(base()+'/search?q='+encodeURIComponent(q));
+  const units=doc.units.map(u=>({unit_id:u.unit_id,type:u.type,text:plainMarkdown(u.raw).text}));
+  search.q=q;search.sections=sectionIndex(units);
+  search.sectionIds=new Map();let sec=null;for(const u of doc.units){if(u.type==='SECTION')sec=u.unit_id;search.sectionIds.set(u.unit_id,sec);}
+  const plainById=new Map(units.map(u=>[u.unit_id,u.text]));
+  const translated=[...translationMap].map(([id,records])=>[id,records.map(r=>r.translated_excerpt||'')]);
+  const translationOnly=translationMatches(translated,q).filter(id=>!matchRanges(plainById.get(id)||'',q).length);
+  search.items=[...translationOnly.map(id=>searchItem(id,'translation')),...s.results.map(r=>searchItem(r.unit_id,'original'))];
+  search.serverTotal=s.total??s.results.length;search.translationOnly=translationOnly.length;search.total=search.serverTotal+translationOnly.length;
+  search.next=(s.offset||0)+s.results.length;search.more=!!s.truncated;
+  $('searchResults').hidden=false;$('searchList').hidden=false;$('searchToggle').textContent='收起列表';$('searchToggle').setAttribute('aria-expanded','true');
+  renderSearchList();paintSearchHighlights();updateSearchPosition();
+  $('searchStatus').textContent=searchSummary(search.total,search.items.length,search.translationOnly);
+  const tips=[];
+  if(CJK.test(q))tips.push(`英文原文中不含中文；中文只在本论文 ${[...translationMap.values()].reduce((n,a)=>n+a.length,0)} 处演练译文中查找。可改用英文关键词，例如 ${SEARCH_EXAMPLES}。`);
+  if(!search.total)tips.push('可以试试：换同义词或词形（如 effect / effective），缩短关键词，或改用论文中的英文术语。');
+  $('searchTips').hidden=!tips.length;$('searchTips').textContent=tips.join(' ');
+ }catch(e){searchMessage('搜索失败：'+(e.message==='SEARCH_QUERY_TOO_SHORT'?'关键词太短':e.message));}
 }
-$('searchBtn').onclick=runSearch;
-$('query').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();runSearch();}});
+$('searchBtn').onclick=()=>{search.q='';runSearch();};
+$('searchClear').onclick=()=>{clearSearch();$('query').focus();};
+$('searchPrev').onclick=()=>stepSearch(-1);
+$('searchNext').onclick=()=>stepSearch(1);
+$('searchMore').onclick=()=>loadMoreSearch().catch(e=>searchMessage('加载失败：'+e.message));
+$('searchToggle').onclick=()=>{const open=$('searchList').hidden;$('searchList').hidden=!open;$('searchMore').hidden=!open||!search.more;$('searchToggle').textContent=open?'收起列表':'展开列表';$('searchToggle').setAttribute('aria-expanded',String(open));};
+$('query').addEventListener('input',()=>{$('searchClear').hidden=!$('query').value;if(!normalizeQuery($('query').value))clearSearch({keepQuery:true});});
+function escapeSearch(){
+ if(!$('searchResults').hidden){clearSearch({keepQuery:true});return true;}
+ if($('query').value){clearSearch();return true;}
+ return false;
+}
+$('query').addEventListener('keydown',e=>{
+ if(e.key==='Enter'){e.preventDefault();if(search.items.length&&normalizeQuery($('query').value)===search.q)stepSearch(e.shiftKey?-1:1);else runSearch();}
+ else if(e.key==='Escape'){if(escapeSearch())e.preventDefault();}
+ else if(e.key==='ArrowDown'&&search.items.length){e.preventDefault();$('searchList').querySelector('[aria-current="true"]')?.focus()||$('searchList').querySelector('.search-hit')?.focus();}
+});
+$('searchResults').addEventListener('keydown',e=>{
+ const hits=[...$('searchList').querySelectorAll('.search-hit')],i=hits.indexOf(document.activeElement);
+ if(e.key==='Escape'){e.preventDefault();clearSearch({keepQuery:true});$('query').focus();}
+ else if(i>=0&&(e.key==='ArrowDown'||e.key==='ArrowUp')){e.preventDefault();const next=hits[Math.min(hits.length-1,Math.max(0,i+(e.key==='ArrowDown'?1:-1)))];next.focus();if(e.key==='ArrowUp'&&i===0)$('query').focus();}
+});
 
 $('readerSource').addEventListener('change',async()=>{
  const picker=$('readerSource');
  const requested=picker.value;
  picker.disabled=true;
  picker.dataset.readySource='';
- $('translationStatus').textContent='正在切换阅读资料…';$('searchResults').replaceChildren();$('query').value='';
+ $('translationStatus').textContent='正在切换阅读资料…';clearSearch();
  try{
    if(requested==='demo')await showSyntheticBilingualExercise();
    else await load();
@@ -443,13 +587,19 @@ $('units').addEventListener('scroll',()=>{
  const el=[...$('units').querySelectorAll('[data-uid]')].find(x=>x.dataset.uid===selectedUnit.unit_id);
  if(el)placeToolbar(el);
 });
+// scrollIntoView would also scroll the page on mobile and pull the reader away from a search hit.
+function revealInOutline(button){
+ const nav=$('outline'),b=button.getBoundingClientRect(),n=nav.getBoundingClientRect();
+ if(b.top<n.top)nav.scrollTop-=n.top-b.top;else if(b.bottom>n.bottom)nav.scrollTop+=b.bottom-n.bottom;
+ if(b.left<n.left)nav.scrollLeft-=n.left-b.left;else if(b.right>n.right)nav.scrollLeft+=b.right-n.right;
+}
 function updateOutlineActive(){
  const container=$('units'),top=container.getBoundingClientRect().top+40;let current=null;
  for(const section of container.querySelectorAll('.unit.section')){if(section.getBoundingClientRect().top<=top)current=section.dataset.uid;else break;}
  if(!current)return;
  for(const button of $('outline').querySelectorAll('button')){
   const active=button.dataset.uid===current;
-  if(active&&!button.classList.contains('active'))button.scrollIntoView({block:'nearest'});
+  if(active&&!button.classList.contains('active'))revealInOutline(button);
   button.classList.toggle('active',active);
  }
 }

@@ -23,6 +23,55 @@ from provision import NAMES
 
 SELECT_JS="""([s,a,b])=>{const el=[...document.querySelectorAll('.unit-original')].find(x=>x.textContent.startsWith(s));el.scrollIntoView({block:'center'});const r=document.createRange();r.setStart(el.firstChild,a);r.setEnd(el.firstChild,b);const sel=getSelection();sel.removeAllRanges();sel.addRange(r);window.__selRect=JSON.parse(JSON.stringify(r.getBoundingClientRect()));document.querySelector('#units').dispatchEvent(new Event('pointerup',{bubbles:true}));}"""
 
+CURRENT_HIT_JS="""()=>{const h=CSS.highlights.get('search-current');if(!h)return null;const r=[...h][0].getBoundingClientRect(),u=document.getElementById('units').getBoundingClientRect();return {inUnits:r.top>=u.top&&r.bottom<=u.bottom,inView:r.top>=0&&r.bottom<=innerHeight,text:[...h][0].toString()}}"""
+
+def search_regressions(p,output):
+    """Reader search plan P0-P2 on the real paper (R0, 1440x1000)."""
+    q=p.locator('#query');hits=p.locator('#searchList .search-hit')
+    q.fill('adherence');q.press('Enter')
+    expect(p.locator('#searchStatus')).to_contain_text('共找到');assert hits.count()>0
+    expect(hits.first.locator('mark')).to_have_text(re.compile('^adherence$',re.I))
+    q.fill('');p.locator('#searchBtn').click();expect(p.locator('#searchStatus')).to_have_text('请输入要查找的词。')
+    q.fill('effect');p.locator('#searchBtn').click()
+    expect(p.locator('#searchStatus')).to_have_text(re.compile(r'^共找到 17 处，已列出 16 处$'))
+    expect(p.locator('#searchMore')).to_be_visible();assert hits.count()==16
+    box=p.locator('#units').bounding_box();assert box['height']>=190 and box['y']+box['height']<=1000,box
+    assert p.locator('#searchList').bounding_box()['height']<=140
+    assert p.evaluate("CSS.highlights.get('search-hit').size")>=17
+    hits.nth(5).click()
+    expect(p.locator('#searchPosition')).to_have_text('6 / 17');expect(hits.nth(5)).to_have_attribute('aria-current','true')
+    expect(p.locator('#searchStatus')).to_contain_text('第 6 / 17 处')
+    p.wait_for_timeout(700);current=p.evaluate(CURRENT_HIT_JS)
+    assert current and current['inUnits'] and current['inView'] and current['text'].lower()=='effect',current
+    assert p.evaluate('scrollY')==0
+    expect(p.locator('#units .unit.search-current')).to_be_focused()
+    output.mkdir(parents=True,exist_ok=True);p.screenshot(path=str(output/'search-current-hit.png'))
+    q.press('Enter');expect(p.locator('#searchPosition')).to_have_text('7 / 17')
+    q.press('Shift+Enter');expect(p.locator('#searchPosition')).to_have_text('6 / 17')
+    for mode in ('chinese','parallel','english','immersive'):
+        p.locator(f'[data-mode="{mode}"]').click();p.wait_for_timeout(500)
+        current=p.evaluate(CURRENT_HIT_JS);assert current and current['inUnits'],(mode,current)
+    p.locator('#searchMore').click();expect(hits).to_have_count(17);expect(p.locator('#searchMore')).to_be_hidden()
+    expect(p.locator('#searchStatus')).to_have_text('共找到 17 处')
+    p.locator('#searchToggle').click();expect(p.locator('#searchList')).to_be_hidden();expect(p.locator('#searchToggle')).to_have_attribute('aria-expanded','false')
+    p.locator('#searchToggle').click();expect(p.locator('#searchList')).to_be_visible()
+    q.focus();q.press('ArrowDown');expect(hits.first).to_be_focused();p.keyboard.press('ArrowDown');expect(hits.nth(1)).to_be_focused()
+    p.keyboard.press('Escape');expect(p.locator('#searchResults')).to_be_hidden();expect(q).to_be_focused();expect(q).to_have_value('effect')
+    assert p.evaluate('[...CSS.highlights.keys()].filter(k=>k.startsWith("search"))')==[]
+    q.press('Escape');expect(q).to_have_value('')
+    q.fill('weight \n loss');q.press('Enter');expect(p.locator('#searchStatus')).to_contain_text('共找到 22 处')
+    expect(p.locator('#searchClear')).to_be_visible();p.locator('#searchClear').click()
+    expect(q).to_have_value('');expect(p.locator('#searchResults')).to_be_hidden();expect(q).to_be_focused()
+    q.fill('effect');q.press('Enter');expect(hits).to_have_count(16);q.fill('');expect(p.locator('#searchResults')).to_be_hidden()
+    q.fill('ab');q.press('Enter');expect(p.locator('#searchStatus')).to_contain_text('英文至少 3 个字母，中文至少 2 个字')
+    q.fill('血糖');q.press('Enter');expect(p.locator('#searchStatus')).to_have_text('没有找到匹配的原文或译文')
+    expect(p.locator('#searchTips')).to_contain_text('英文原文中不含中文')
+    q.fill('随机分配');q.press('Enter');expect(p.locator('#searchStatus')).to_contain_text('仅在中文译文')
+    expect(hits.first.locator('.search-source')).to_have_text('中文译文');expect(hits.first.locator('mark')).to_have_text('随机分配')
+    expect(hits.first.locator('.search-section')).to_have_text('Methods')
+    q.fill('zzzzqx');q.press('Enter');expect(p.locator('#searchTips')).to_contain_text('换同义词')
+    p.locator('#searchClear').click()
+
 def ux_regressions(sign_in,browser,url,credentials,checks,output):
     """UX review findings (P0/P1/P2) on fresh synthetic R0/R1 tasks."""
     page=browser.new_page();page.goto(url)
@@ -37,11 +86,7 @@ def ux_regressions(sign_in,browser,url,credentials,checks,output):
     assert p.locator('.skip-links a').count()==3
     expect(p.locator('[data-mode="immersive"]')).to_have_attribute('aria-pressed','true')
     expect(p.locator('#modeHint')).to_contain_text('只有 3 处演练译文')
-    # Search: Enter key, readable snippets, empty query guidance.
-    p.locator('#query').fill('adherence');p.locator('#query').press('Enter')
-    expect(p.locator('#searchResults')).to_contain_text('找到');assert p.locator('#searchResults .search-hit').count()>0
-    expect(p.locator('#searchResults .search-hit').first).to_contain_text('dherence')
-    p.locator('#query').fill('');p.locator('#searchBtn').click();expect(p.locator('#searchResults')).to_contain_text('至少 3 个字符')
+    search_regressions(p,output)
     # Outline follows reading position.
     p.evaluate("document.getElementById('units').scrollTop=document.getElementById('units').scrollHeight/2");p.wait_for_timeout(300)
     active=p.locator('#outline button.active').first.text_content()
@@ -114,11 +159,19 @@ def ux_regressions(sign_in,browser,url,credentials,checks,output):
     p.set_viewport_size({'width':390,'height':844})
     expect(p.locator('#task')).to_be_visible();expect(p.locator('#outline')).to_be_visible()
     assert p.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
-    p.screenshot(path=str(output/'ux-mobile-navigation.png'));ctx.close()
+    p.screenshot(path=str(output/'ux-mobile-navigation.png'))
+    p.locator('#query').fill('effect');p.locator('#query').press('Enter');expect(p.locator('#searchStatus')).to_contain_text('共找到 17 处')
+    assert p.locator('#searchList').bounding_box()['height']<=0.31*844
+    p.locator('#searchList .search-hit').nth(3).click();p.wait_for_timeout(900)
+    current=p.evaluate(CURRENT_HIT_JS);assert current and current['inView'] and current['inUnits'],current
+    p.screenshot(path=str(output/'ux-mobile-search-hit.png'));ctx.close()
     checks.extend(['ux_login_message','ux_r1_empty_state','ux_search_enter_snippets','ux_outline_scroll_spy',
       'ux_markdown_free_preview','ux_drawer_beside_reader','ux_light_secondary_hover','ux_sentence_decimal','ux_reader_first_citation',
       'ux_toolbar_not_over_selection','ux_word_snapping','ux_bind_success_state','ux_saved_edit_invalidates_link',
-      'ux_stale_binding_quote_listed','ux_freeze_reason_visible','ux_demo_not_citable','ux_conflict_keeps_input','ux_mobile_navigation'])
+      'ux_stale_binding_quote_listed','ux_freeze_reason_visible','ux_demo_not_citable','ux_conflict_keeps_input','ux_mobile_navigation',
+      'search_bounded_list_reader_visible','search_body_and_snippet_highlight','search_total_and_load_more','search_prev_next_counter',
+      'search_clear_and_escape','search_cjk_and_translation_hits','search_aria_status_only','search_whitespace_normalised',
+      'search_section_labels','search_no_hit_tips','search_modes_keep_current_hit','search_mobile_hit_in_view','search_demo_disabled'])
 
 def run(url,credentials,output):
     errors=[];checks=[]
@@ -150,9 +203,10 @@ def run(url,credentials,output):
         assert r2.locator('.scientific-table').count()==4
         assert r2.locator('#units .unit-translation').count()==16
         expect(r2.locator('#readerMeta')).to_contain_text('不可建立 SourceAnchor')
+        expect(r2.locator('#query')).to_be_disabled();expect(r2.locator('#query')).to_have_attribute('placeholder',re.compile('练习资料不支持搜索'))
         r2.locator('#readerSource').select_option('paper')
         expect(r2.locator('#readerSource')).to_have_attribute('data-ready-source','paper',timeout=30000)
-        expect(r2.locator('#units')).to_contain_text('randomised')
+        expect(r2.locator('#units')).to_contain_text('randomised');expect(r2.locator('#query')).to_be_enabled()
         expect(r2.locator('#outline button').first).to_have_text('A randomised controlled trial of the 5:2 diet')
         expect(r2.locator('#pdfEngine')).to_contain_text('PDF.js',timeout=30000)
         checks.append('complete_synthetic_bilingual_document_and_tables')

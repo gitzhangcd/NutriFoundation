@@ -216,7 +216,7 @@ def ea_integrated_browser(sign_in, checks):
     checks.append('ea_original_quote_binding_to_frozen_review')
 
     # No EA actor may acquire NDS R0 source/case information.
-    assert context.request.get(page.url+'/v1/tasks/SYN-R0/read-model').status==404
+    assert context.request.get(page.url.rstrip('/')+'/v1/tasks/SYN-R0/read-model').status==404
     page.locator('#logout').click()
     expect(page.locator('#loginPanel')).to_be_visible()
     context.close()

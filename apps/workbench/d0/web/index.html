@@ -22,6 +22,8 @@
   <aside class="panel sidebar">
    <div><h4>我的任务</h4><label class="task-label"><span class="sr-only">选择我的任务</span><select id="task"></select></label><button id="load" class="ghost mini">打开任务 / 重新载入</button></div>
    <div class="sourcebox"><b id="sourceTitle">正在载入资料</b><small id="sourceBadge">无授权来源</small><span class="badge">阅读器练习资料</span></div>
+    <div class="ea-mode-toggle" id="eaModeBox" hidden><button type="button" id="eaModeBtn" class="ghost mini" aria-pressed="false">切换到科学证据标注</button><p class="small">在原 Workbench 内切换，不切换登录或页面。</p></div>
+    <div id="eaTaskBox" class="ea-task-picker" hidden><h4>科学证据任务</h4><label>选择类型化任务<select id="eaTask"></select></label><button type="button" id="eaLoad" class="ghost mini">打开证据任务</button><label>已授权的参考原文<select id="eaSource"></select></label><p class="small">仅限自编合成资料；源版本、原文与候选均由服务器验证。</p></div>
    <div class="outline-block"><h4>章节导航</h4><nav class="outline" id="outline" aria-label="文献章节"></nav></div>
    <div class="source-trace"><h4>文献与翻译溯源</h4><p class="small" id="sourceVersion">仅展示当前任务授权资料</p><p class="small" id="translationVersion"></p></div>
    <div class="boundary"><b>内部合成练习</b><p>当前资料仅用于阅读器与流程验证。真实专家接入 NO-GO，正式 NDS-R1 采集关闭。</p><span id="phase" class="pill muted">尚未打开</span></div>
@@ -44,6 +46,15 @@
    <div class="judgment-scroll"><p id="judgmentNote" class="small"></p><div id="judgmentForm"></div><section id="judgmentItemList" class="judgment-items" aria-label="逐条判断与证据"> <h3>逐条判断 · 逐条关联证据</h3><p class="small">先保存草稿，再选择某条判断进行原文证据绑定；旧的字段级证据不自动视为支持某句话。</p><div id="judgmentItemRows"></div></section>
     <details id="nativeComposer" class="native-composer" hidden><summary>快速追加一条专业判断</summary><p class="small">保留你的原话，由你明确选择所属类别。</p><label for="nativeCategory">这条判断属于</label><select id="nativeCategory" aria-label="选择原始专业判断所属字段"><option value="salient_existing_facts">影响判断的已知事实</option><option value="decision_changing_missing_information">可能改变判断的缺失信息</option><option value="currently_acceptable_actions">当前建议的行动</option><option value="uncertainty_notes">不确定性或暂不作答理由</option><option value="rationale_notes">其他专业判断理由</option><option value="monitoring_needs">监测和随访</option></select><label for="nativeStatement">专家原话（每次录入一条）</label><textarea id="nativeStatement" rows="2" placeholder="直接写下你的专业判断…"></textarea><button id="nativeAdd" class="ghost mini">加入当前判断</button><span id="nativeMappingStatus" role="status" class="small"></span></details>
     <div id="candidateForm"></div><div class="candidate-actions"><button id="submitCandidates" hidden>提交候选复核</button></div><details id="receiptDetails" class="receipt-details"><summary>查看服务端提交回执</summary><pre id="receipt"></pre></details>
+     <section id="eaReview" class="ea-review" aria-label="类型化科学证据标注" hidden>
+      <p class="small">Evidence Annotation｜与 NDS-R1 的 19 字段决策参考相互独立</p>
+      <p id="eaProfile" class="small"></p><div id="eaGroups"></div><div id="eaCandidates"></div>
+      <section id="eaIndependent" hidden><label>独立判断（不能查看 Agent 候选）<textarea id="eaStatement" rows="4" placeholder="请保留自己的原话；不确定时如实说明。"></textarea></label></section>
+      <p id="eaQuoteStatus" class="small" role="status">从左侧原文选取片段，可以逐条关联到候选判断。</p>
+      <button type="button" id="eaFreeze" class="primary" disabled>冻结专家证据审核</button>
+      <p id="eaFeedback" role="status" class="small"></p>
+      <details><summary>不可变审查回执</summary><pre id="eaReceipt"></pre></details>
+     </section>
    </div>
   </section>
   <section class="review-pane" id="reviewPane" hidden>
@@ -56,5 +67,5 @@
  </div>
  <footer class="sticky-footer" id="workFooter" hidden><div class="save-state"><span class="circle"></span><span id="saveStatus" role="status"></span><span id="revision" class="small">尚无草稿</span></div><span id="draftProgress" class="small">尚未填写</span><button id="saveDraft" class="ghost">保存草稿</button><button id="footerBack" class="ghost" hidden>← 返回修改</button><button id="nextReview" class="primary">核查并提交 →</button></footer>
 </div>
-<script type="module" src="/static/reader.js"></script><script type="module" src="/static/workbench.js"></script>
+<script type="module" src="/static/reader.js"></script><script type="module" src="/static/workbench.js"></script><script type="module" src="/static/ea_mode.js"></script>
 </body></html>

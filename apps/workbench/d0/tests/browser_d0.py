@@ -38,7 +38,7 @@ def run(url,credentials,output):
         assert r2.locator('#judgmentForm [data-key]').count()==19
         expect(r2.locator('#units')).to_contain_text('randomised')
         expect(r2.locator('#bilingualToolbar')).to_be_visible()
-        expect(r2.locator('#translationStatus')).to_contain_text('示例译文')
+        expect(r2.locator('#translationStatus')).to_contain_text('未经科学核查')
         assert r2.locator('.unit-translation').count() >= 1
         for mode in ('parallel', 'english', 'chinese', 'immersive'):
             r2.locator('#readerMode').select_option(mode)
@@ -62,17 +62,26 @@ def run(url,credentials,output):
         expect(r2.locator('#status')).to_contain_text('已通过服务端证据验证并绑定',timeout=30000)
         checks.extend(['bilingual_four_modes','expert_focus_layout','translated_excerpt_source_binding'])
 
+        expect(r2.locator('#nativeComposer')).to_be_visible()
+        r2.locator('#nativeCategory').select_option('salient_existing_facts')
+        r2.locator('#nativeStatement').fill('Expert-written synthetic fact with no model inference')
+        r2.locator('#nativeAdd').click()
+        expect(r2.locator('[id="f-salient_existing_facts"]')).to_have_value('Expert-written synthetic fact with no model inference')
+        expect(r2.locator('#nativeMappingStatus')).to_contain_text('19个科学字段')
+        expect(r2.locator('#nativeStatement')).to_have_value('')
+        checks.append('expert_native_19_field_roundtrip')
         r2.locator('[id="f-decision_focus"]').fill('Synthetic D0 independent judgment only')
         r2.locator('#saveDraft').click();expect(r2.locator('#saveStatus')).to_have_text('已保存')
         r2.reload();expect(r2.locator('#saveStatus')).to_have_text('已载入')
         expect(r2.locator('[id="f-decision_focus"]')).to_have_value('Synthetic D0 independent judgment only')
+        expect(r2.locator('[id="f-salient_existing_facts"]')).to_have_value('Expert-written synthetic fact with no model inference')
         assert r2ctx.request.get(url+'/v1/tasks/SYN-R0/read-model').status==404
         assert r2ctx.request.get(url+'/v1/tasks/SYN-R2/candidate-set').status==403
         checks.extend(['native_pdfjs','19_field_profile','save_reload','cross_task_denial','R2_preAI_candidate_denial'])
         r2.locator('#quote').fill('Three hundred adults with obesity were randomised')
         r2.locator('#locateQuote').click();expect(r2.locator('#status')).to_contain_text('已定位输入的准确引文')
         r2.locator('#makeAnchor').click();expect(r2.locator('#status')).to_contain_text('已通过服务端证据验证并绑定',timeout=30000)
-        assert r2.locator('.pdf-highlight').count()>0
+        expect(r2.locator('.pdf-highlight')).not_to_have_count(0,timeout=30000)
         expect(r2.locator('#pdfLocatorStatus')).to_contain_text('PDF_PAGE_BBOX/0.2')
         output.mkdir(parents=True,exist_ok=True);r2.screenshot(path=str(output/'workbench-desktop.png'),full_page=False)
         r2.set_viewport_size({'width':390,'height':844});r2.screenshot(path=str(output/'workbench-mobile.png'),full_page=False)

@@ -15,6 +15,23 @@
 <span id="translationStatus" class="small" role="status">翻译未就绪</span></div>
 <div id="selectionToolbar" hidden><span id="selectionStatus">选取原文建立证据</span><button id="selectionBind" type="button">引用到当前判断</button></div>
 <div id="units" class="scroll" data-reading-mode="immersive"></div><details open><summary>原始 PDF · <span id="pdfEngine">未载入</span></summary><div class="paging"><button id="prev">←</button><span id="pdfPage">第 1 页</span><button id="next">→</button></div><div id="pdfStage" class="pdfstage"><div class="pdfpageframe"><canvas id="pdfCanvas"></canvas><img id="pdfRaster" alt="授权 PDF 页图"><div id="pdfOverlay"></div></div></div><p class="small" id="pdfLocatorStatus">选择证据后回放原文。</p></details></section>
-<section class="panel judgment"><div class="ph"><h2>02 · 我的专业判断</h2><span id="revision">尚无草稿</span></div><p id="judgmentNote" class="small"></p><div id="judgmentForm"></div><div id="candidateForm"></div><div class="actions"><button id="saveDraft">保存草稿</button><label id="freezeConfirm"><input type="checkbox" id="unexposed">确认尚未看过 Agent、他人判断、最终参考、隐藏饮食值或审计标签</label><button id="freeze">冻结并提交独立判断</button><button id="submitCandidates" hidden>提交候选复核</button></div><pre id="receipt"></pre></section>
+<section class="panel judgment"><div class="ph"><h2>02 · 我的专业判断</h2><span id="revision">尚无草稿</span></div><p id="judgmentNote" class="small"></p>
+<div id="nativeComposer" class="native-composer" hidden>
+  <div class="composer-title"><strong>快速记录一条专业判断</strong><span class="small">原话保存 · 明确分类 · 不使用 AI 自动归类</span></div>
+  <label for="nativeCategory">这条判断属于</label>
+  <select id="nativeCategory" aria-label="选择原始专业判断所属字段">
+    <option value="salient_existing_facts">影响判断的已知事实</option>
+    <option value="decision_changing_missing_information">可能改变判断的缺失信息</option>
+    <option value="currently_acceptable_actions">当前建议的行动</option>
+    <option value="uncertainty_notes">不确定性或暂不作答理由</option>
+    <option value="rationale_notes">其他专业判断理由</option>
+    <option value="monitoring_needs">监测和随访</option>
+  </select>
+  <label for="nativeStatement">专家原话（每次录入一条）</label>
+  <textarea id="nativeStatement" rows="2" placeholder="直接输入你的专业判断，不需要填写研究本体术语。"></textarea>
+  <button id="nativeAdd" type="button">加入当前判断</button>
+  <span id="nativeMappingStatus" role="status" class="small"></span>
+</div>
+<div id="judgmentForm"></div><div id="candidateForm"></div><div class="actions"><button id="saveDraft">保存草稿</button><label id="freezeConfirm"><input type="checkbox" id="unexposed">确认尚未看过 Agent、他人判断、最终参考、隐藏饮食值或审计标签</label><button id="freeze">冻结并提交独立判断</button><button id="submitCandidates" hidden>提交候选复核</button></div><pre id="receipt"></pre></section>
 <section class="panel evidence"><div class="ph"><h2>03 · 证据与状态</h2></div><label>判断字段<select id="field"></select></label><label>原文引文<textarea id="quote" rows="3" placeholder="在左侧选中文字，或输入完整原文句子"></textarea></label><button id="locateQuote">定位引文</button><button id="makeAnchor">创建并绑定证据</button><div class="subheading">我的证据锚点</div><div id="anchors" class="scroll"></div><button id="candidate">检查候选权限</button><pre id="status" role="status">等待打开任务</pre></section>
 </div></div><script type="module" src="/static/reader.js"></script><script type="module" src="/static/workbench.js"></script></body></html>

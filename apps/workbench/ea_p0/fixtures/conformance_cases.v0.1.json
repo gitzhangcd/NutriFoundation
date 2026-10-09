@@ -1,0 +1,243 @@
+{
+  "fixture_id": "WB_EA_P0_CONFORMANCE",
+  "version": "0.1.0",
+  "status": "DESIGN_TEST_VECTORS_NOT_RUNTIME_TEST_EVIDENCE",
+  "source_commit": "54b4c2eba844f39c07575573a3e834e0bc00c261",
+  "cases": [
+    {
+      "id": "P-01",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "RANDOMIZED_TRIAL",
+      "profile_id": "WB_EA_RCT_V0_1",
+      "expected": "ROUTE_PROPOSED",
+      "label": "5:2 source reader example, synthetic use only"
+    },
+    {
+      "id": "P-02",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "OBSERVATIONAL_STUDY",
+      "profile_id": "WB_EA_OBSERVATIONAL_V0_1",
+      "expected": "ROUTE_PROPOSED"
+    },
+    {
+      "id": "P-03",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "SYSTEMATIC_REVIEW_META",
+      "profile_id": "WB_EA_META_V0_1",
+      "expected": "ROUTE_PROPOSED"
+    },
+    {
+      "id": "P-04",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "GUIDELINE",
+      "profile_id": "WB_EA_GUIDELINE_V0_1",
+      "expected": "ROUTE_PROPOSED"
+    },
+    {
+      "id": "P-05",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "CONSENSUS",
+      "profile_id": "WB_EA_CONSENSUS_V0_1",
+      "expected": "ROUTE_PROPOSED"
+    },
+    {
+      "id": "P-06",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "NARRATIVE_REVIEW",
+      "profile_id": "WB_EA_NARRATIVE_V0_1",
+      "expected": "ROUTE_PROPOSED"
+    },
+    {
+      "id": "P-07",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "CORRECTION_RETRACTION",
+      "profile_id": "WB_EA_CORRECTION_V0_1",
+      "expected": "ROUTE_PROPOSED"
+    },
+    {
+      "id": "P-08",
+      "task_kind": "DECISION_CASE",
+      "source_type": "GUIDELINE",
+      "profile_id": "NDS_R1_DECISION_CAPTURE",
+      "expected": "DELEGATE_EXISTING_NDS_R1"
+    },
+    {
+      "id": "N-01",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "UNREGISTERED_ARTICLE",
+      "profile_id": "WB_EA_RCT_V0_1",
+      "expected": "TYPE_UNRESOLVED_HOLD"
+    },
+    {
+      "id": "N-02",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "GUIDELINE",
+      "profile_id": "NDS_R1_DECISION_CAPTURE",
+      "expected": "BLOCK_PROFILE_TASK_MISMATCH"
+    },
+    {
+      "id": "N-03",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "CONSENSUS",
+      "profile_id": "WB_EA_GUIDELINE_V0_1",
+      "expected": "BLOCK_PROFILE_TASK_MISMATCH"
+    },
+    {
+      "id": "N-04",
+      "task_kind": "UNDEFINED",
+      "source_type": "RANDOMIZED_TRIAL",
+      "profile_id": "WB_EA_RCT_V0_1",
+      "expected": "HOLD"
+    },
+    {
+      "id": "N-05",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "GUIDELINE",
+      "profile_id": "WB_EA_GUIDELINE_V0_1",
+      "flags": [
+        "SOURCE_NOT_ALLOWLISTED"
+      ],
+      "expected": "DENY_SOURCE_NOT_ALLOWED"
+    },
+    {
+      "id": "N-06",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "GUIDELINE",
+      "profile_id": "WB_EA_GUIDELINE_V0_1",
+      "flags": [
+        "SOURCE_REVISION_MISMATCH"
+      ],
+      "expected": "DENY_SOURCE_REVISION_MISMATCH"
+    },
+    {
+      "id": "N-07",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "RANDOMIZED_TRIAL",
+      "profile_id": "WB_EA_RCT_V0_1",
+      "flags": [
+        "CANDIDATE_MISSING_ANCHOR"
+      ],
+      "expected": "BLOCK_UNVERIFIED_CANDIDATE"
+    },
+    {
+      "id": "N-08",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "RANDOMIZED_TRIAL",
+      "profile_id": "WB_EA_RCT_V0_1",
+      "flags": [
+        "CANDIDATE_NOT_FROZEN"
+      ],
+      "expected": "BLOCK_UNVERIFIED_CANDIDATE"
+    },
+    {
+      "id": "N-09",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "RANDOMIZED_TRIAL",
+      "profile_id": "WB_EA_RCT_V0_1",
+      "flags": [
+        "TRANSLATION_AS_ORIGINAL"
+      ],
+      "expected": "BLOCK_TRANSLATION_AS_SOURCE"
+    },
+    {
+      "id": "N-10",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "RANDOMIZED_TRIAL",
+      "profile_id": "WB_EA_RCT_V0_1",
+      "flags": [
+        "PDF_PAGE_HINT_AS_VERIFIED"
+      ],
+      "expected": "BLOCK_UNVERIFIED_PDF_LOCATOR"
+    },
+    {
+      "id": "N-11",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "GUIDELINE",
+      "profile_id": "WB_EA_GUIDELINE_V0_1",
+      "flags": [
+        "INDEPENDENT_VIEWED_AGENT"
+      ],
+      "expected": "DENY_EXPOSURE"
+    },
+    {
+      "id": "N-12",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "GUIDELINE",
+      "profile_id": "WB_EA_GUIDELINE_V0_1",
+      "flags": [
+        "AUTO_GOLD_PROMOTION"
+      ],
+      "expected": "BLOCK_UNAUTHORIZED_PROMOTION"
+    },
+    {
+      "id": "N-13",
+      "task_kind": "EVIDENCE_ECOSYSTEM_CASE",
+      "source_type": "CORRECTION_RETRACTION",
+      "profile_id": "WB_EA_CORRECTION_V0_1",
+      "flags": [
+        "FUTURE_EVIDENCE"
+      ],
+      "expected": "DENY_FUTURE_EVIDENCE"
+    },
+    {
+      "id": "N-14",
+      "task_kind": "DECISION_CASE",
+      "source_type": "GUIDELINE",
+      "profile_id": "NDS_R1_DECISION_CAPTURE",
+      "flags": [
+        "R0_AGENT_VIEW"
+      ],
+      "expected": "DENY_EXPOSURE"
+    },
+    {
+      "id": "N-15",
+      "task_kind": "DECISION_CASE",
+      "source_type": "GUIDELINE",
+      "profile_id": "NDS_R1_DECISION_CAPTURE",
+      "flags": [
+        "R2_PREAI_AGENT_VIEW"
+      ],
+      "expected": "DENY_EXPOSURE"
+    },
+    {
+      "id": "N-16",
+      "task_kind": "DECISION_CASE",
+      "source_type": "GUIDELINE",
+      "profile_id": "WB_EA_GUIDELINE_V0_1",
+      "expected": "BLOCK_PROFILE_TASK_MISMATCH"
+    }
+  ],
+  "scientific_kill_tests": [
+    {
+      "id": "K-01",
+      "type": "RANDOMIZED_TRIAL",
+      "attempt": "NONSIGNIFICANCE_AS_EQUIVALENCE",
+      "expected": "SCIENTIFIC_REVIEW_FLAG"
+    },
+    {
+      "id": "K-02",
+      "type": "OBSERVATIONAL_STUDY",
+      "attempt": "ASSOCIATION_AS_CAUSALITY",
+      "expected": "SCIENTIFIC_REVIEW_FLAG"
+    },
+    {
+      "id": "K-03",
+      "type": "SYSTEMATIC_REVIEW_META",
+      "attempt": "DOUBLE_COUNT_PRIMARY_STUDY",
+      "expected": "SCIENTIFIC_REVIEW_FLAG"
+    },
+    {
+      "id": "K-04",
+      "type": "GUIDELINE",
+      "attempt": "RECOMMENDATION_EXCEPTION_DROPPED",
+      "expected": "SCIENTIFIC_REVIEW_FLAG"
+    },
+    {
+      "id": "K-05",
+      "type": "CONSENSUS",
+      "attempt": "VOTE_AS_HIGH_CERTAINTY",
+      "expected": "SCIENTIFIC_REVIEW_FLAG"
+    }
+  ],
+  "caveat": "Deterministic routing vectors are for proposed P0 adapter only. Scientific kill tests require independent scientific evidence/adjudication; these vectors do not prove scientific detection accuracy."
+}

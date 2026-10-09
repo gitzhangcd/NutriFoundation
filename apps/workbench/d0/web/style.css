@@ -1325,3 +1325,31 @@ pre {
   #searchResults .search-hit{white-space:normal}
   #searchResults{padding:0 12px}
 }
+
+
+/* WB-EA-P1 additive mode: original 54b4c2e 3-pane D0, no parallel app. */
+body.ea-mode #ndsTaskSlot,
+body.ea-mode #workflowNav,
+body.ea-mode #workFooter,
+body.ea-mode #reviewPane,
+body.ea-mode #evidencePane,
+body.ea-mode #evidenceToggle,
+body.ea-mode .source-mode,
+body.ea-mode #judgmentPane .judgment-scroll > :not(#eaReview) {
+  display:none !important;
+}
+.ea-mode-toggle,.ea-task-picker{border-top:1px solid var(--line,#dde4df);padding-top:12px;margin-top:8px}
+.ea-task-picker label{display:block;margin:8px 0;font-size:12px}
+.ea-task-picker select{max-width:100%;width:100%;padding:7px;border-radius:7px}
+.ea-review{padding:10px 4px;display:grid;gap:12px}
+.ea-review[hidden]{display:none}
+.ea-profile-groups{display:flex;flex-wrap:wrap;gap:6px}
+.ea-profile-group{border:1px solid #bdd9c8;background:#f2f8f3;border-radius:7px;font-size:11px;padding:6px 9px}
+.ea-candidate{border:1px solid #dfeae3;border-radius:11px;padding:13px;margin:10px 0;background:#fcfdfc}
+.ea-candidate h4{margin:0 0 9px;font-size:13px}
+.ea-candidate label{display:block;margin:10px 0 3px;font-size:12px}
+.ea-candidate select,.ea-candidate textarea,.ea-review textarea{width:100%;padding:8px;border-radius:8px;max-width:100%}
+.ea-candidate textarea{min-height:65px}
+.ea-candidate p{overflow-wrap:anywhere}
+#eaFeedback,#eaQuoteStatus{overflow-wrap:anywhere}
+#eaReceipt{white-space:pre-wrap;overflow-wrap:anywhere;font-size:11px}

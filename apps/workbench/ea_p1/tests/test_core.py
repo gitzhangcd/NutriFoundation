@@ -59,6 +59,7 @@ class EngineTest(unittest.TestCase):
         review = self.engine.freeze_review(**self.e, task_id="EA-P1-SYN-01",
             candidate_set_digest=set_["content_sha256"],
             items=[{"candidate_id": cand["candidate_id"], "disposition": "MODIFY",
+                    "field_group": cand["field_group"], "source_support_status": "PARTIAL",
                     "reason": "Clarify that all content is fabricated",
                     "corrected_candidate_payload": {"training_note": "This is invented."}}])
         self.assertTrue(review["immutable"])
@@ -145,7 +146,8 @@ class EngineTest(unittest.TestCase):
                        candidate_set_digest="invalid")
         self.fail_code("REVIEW_REASON_REQUIRED", self.engine.freeze_review,
                        **self.e, task_id=task,
-                       items=[{"candidate_id": item["candidate_id"], "disposition": "REJECT"}],
+                       items=[{"candidate_id": item["candidate_id"], "disposition": "REJECT",
+                               "field_group": item["field_group"], "source_support_status": "UNSUPPORTED"}],
                        candidate_set_digest=set_["content_sha256"])
         self.fail_code("REVIEW_ITEMS_EMPTY", self.engine.freeze_review,
                        **self.e, task_id=task, items=[],

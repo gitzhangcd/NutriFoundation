@@ -1,0 +1,95 @@
+{
+  "stage": "G1-Shared P0.1-A.1",
+  "date": "2026-10-10",
+  "version": "v0.1",
+  "status": "SOURCE_NATIVE_INCONSISTENCY_AND_VERSION_EVENTS_LOGGED_NO_SILENT_REPAIR",
+  "events": [
+    {
+      "event_id": "G1-A1-ERR-001",
+      "source_ref": "CAND-G100-029",
+      "doi": "10.1136/bmj.l1451",
+      "pmcid": "PMC6538975",
+      "source_kind": "PUBLISHER_ARTICLE_BODY_PROSE",
+      "severity": "HIGH",
+      "status": "SOURCE_NATIVE_ANOMALY_CONFIRMED_IN_PMC_TEXT_NEEDS_PUBLISHER_ADJUDICATION",
+      "type": "POINT_ESTIMATE_OUTSIDE_REPORTED_CONFIDENCE_INTERVAL",
+      "values": [
+        {
+          "followup_exclusion": "first_3_years",
+          "point_estimate": 1.44,
+          "CI_low": 1.05,
+          "CI_high": 1.25,
+          "extract_literal": "1.44 (1.05 to 1.25)"
+        },
+        {
+          "followup_exclusion": "first_4_years",
+          "point_estimate": 1.44,
+          "CI_low": 1.03,
+          "CI_high": 1.25,
+          "extract_literal": "1.44 (1.03 to 1.25)"
+        }
+      ],
+      "method": "Explicit adjacent main-body sensitivity-analysis narrative at PMC UTF16 offsets 38423 and 38499; BMJ indexed publisher body shows same numbers",
+      "validation": "For conventional confidence interval of the reported estimate, 1.44 is greater than upper 1.25; cannot both be a coherent estimate and CI",
+      "action": "EXACT_SOURCE_REVIEW_REQUIRED_CHECK_APPENDIX_9_AND_PUBLISHER_ERRATUM; NEVER_AUTOCORRECT",
+      "source_span_candidates": [
+        {
+          "source": "PMC_BODY_TEXT",
+          "start": 38423,
+          "end": 38442
+        },
+        {
+          "source": "PMC_BODY_TEXT",
+          "start": 38499,
+          "end": 38518
+        }
+      ],
+      "affected_fields": [
+        "hazard_ratio_sensitivity_3_years",
+        "hazard_ratio_sensitivity_4_years"
+      ],
+      "safe_output": "DEFER_NUMERIC_FIELD",
+      "model_error_attribution": "NOT_AGENT_ERROR; SCIENTIFIC_SOURCE_NATIVE"
+    },
+    {
+      "event_id": "G1-A1-VERSION-002",
+      "source_ref": "CAND-G100-048",
+      "doi": "10.1136/bmj-2024-082007",
+      "related_doi": "10.1136/bmj.r1737",
+      "related_pmid": "40825602",
+      "related_pmcid": "PMC12359177",
+      "event_date": "2025-08-18",
+      "type": "AUTHOR_AFFILIATION_CORRECTION",
+      "severity": "MEDIUM",
+      "status": "OFFICIAL_PUBLISHER_CORRECTION_LINK_RESOLVED",
+      "validation": "BMJ correction states Dario Rahelic affiliation updated in article and PDF; no numeric outcome amendment stated",
+      "impact_on_results": "NO_RESULT_AMENDMENT_REPORTED_IN_CORRECTION; NOT_FULL_DOCUMENT_DIFF_VERIFIED",
+      "action": "ATTACH_CORRECTION_TO_ORIGINAL_AND_AUDIT_VERSION_TIMELINE"
+    },
+    {
+      "event_id": "G1-A1-LINEAGE-003",
+      "source_ref": "CAND-G100-071",
+      "type": "ABRIDGED_JOURNAL_TO_FULL_GUIDELINE_AUTHORITY",
+      "severity": "HIGH",
+      "status": "OFFICIAL_RECOMMENDATION_PAGE_IDENTIFIED_FULL_DOCUMENT_SNAPSHOT_MISSING",
+      "related_url": "https://www.andeal.org/template.cfm?key=4888&template=guide_summary",
+      "validation": "EAL official Recommendation Summary has both Level 1(B)/Imperative and Consensus/Conditional ratings; journal article says it is abbreviated",
+      "action": "CAPTURE_UNALTERED_RECOMMENDATION_VERSION_AND_SUPPORTING_EVIDENCE_LINKAGE_WITH_EXPLICIT_LICENSE"
+    },
+    {
+      "event_id": "G1-A1-NORMATIVITY-004",
+      "source_ref": "CAND-G100-096",
+      "type": "CONSENSUS_NOT_FORMAL_GUIDELINE",
+      "severity": "HIGH",
+      "status": "NATIVE_ARTICLE_STATEMENT_VERIFIED",
+      "validation": "Article says 13 participants voted 100% agreement, and panel is not authorized guideline committee",
+      "action": "LABEL_AS_EXPERT_CONSENSUS_EXPLICITLY; DO_NOT_UPGRADE_TO_FORMAL_GUIDELINE_OR_RCT_EVIDENCE"
+    }
+  ],
+  "policy": [
+    "Preserve raw original verbatim numeric fields separately from candidate normalized values",
+    "Human scientific adjudication must reference original source version and alternative source spans",
+    "Agent cannot resolve source-native numerical discrepancy by guessing",
+    "Official parent-child version relations do not imply altered scientific estimands"
+  ]
+}

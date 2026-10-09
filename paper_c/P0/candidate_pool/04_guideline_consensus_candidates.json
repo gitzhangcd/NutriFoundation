@@ -136,14 +136,16 @@
     {
       "proposed_stratum": "guideline_or_consensus",
       "topic": "nutritional_consensus",
-      "title": "Hyperglycemic Crises in Adults With Diabetes: A Consensus Report.",
-      "pmid": "39052901",
-      "doi": "10.2337/dci24-0032",
-      "pmcid": "PMC11272983",
-      "date": "2024 Aug 01",
-      "journal": "Diabetes care",
-      "publication_types": "Journal Article",
-      "query": "(\"consensus report\"[ti] OR \"consensus statement\"[ti]) AND (nutrition[tiab] OR diabetes[tiab] OR diet[tiab] OR sarcopenia[tiab]) AND (2020:2026[dp])"
+      "title": "Exercise/Physical Activity in Individuals with Type 2 Diabetes: A Consensus Statement from the American College of Sports Medicine.",
+      "pmid": "35029593",
+      "doi": "10.1249/MSS.0000000000002800",
+      "pmcid": "PMC8802999",
+      "date": "2022 Feb 01",
+      "journal": "Medicine and science in sports and exercise",
+      "publication_types": "Consensus Statement",
+      "query": "curated replacement after failed topical/source-type match",
+      "qa_replaced_from_pmid": "39052901",
+      "qa_source": "PubMed get_articles"
     }
   ],
   "diagnostics": [
@@ -171,5 +173,6 @@
       "selected": 2,
       "pubmed_returned": 40
     }
-  ]
+  ],
+  "qa_revision": "2026-10-09 manual topical relevance pre-screen; still no human eligibility"
 }

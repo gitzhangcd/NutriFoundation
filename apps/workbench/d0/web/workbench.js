@@ -112,7 +112,7 @@ function selectEvidenceItem(field,index,open=false){
  chooseEvidenceField(field);
  evidenceItemIndex=String(index);
  for(const id of ['evidenceItem','selectionItem'])if($(id))$(id).value=evidenceItemIndex;
- if(open)$('evidenceToggle').click();
+ if(open)openEvidence();
 }
 function renderJudgmentItemRows(){
  const root=$('judgmentItemRows');if(!root||!draft)return;
@@ -170,9 +170,20 @@ $('focusMode').onclick=()=>{
  $('evidenceToggle').setAttribute('aria-expanded','false');
  $('focusMode').textContent=active?'退出专注':'专注阅读';
 };
+let evidenceReturnFocus=null;
+const modalBackground=['#expertPanel > .sidebar','#expertPanel > .reader',
+                        '#expertPanel > .judgment','#reviewPane','#workflowNav','#workFooter'];
+function openEvidence(){
+ if(!$('evidencePane').hidden)return;
+ evidenceReturnFocus=document.activeElement;
+ $('expertPanel').classList.add('evidence-open');
+ $('evidencePane').hidden=false;
+ $('evidenceToggle').setAttribute('aria-expanded','true');
+ for(const q of modalBackground){const element=document.querySelector(q);if(element)element.inert=true;}
+ $('closeEvidence').focus();
+}
 $('evidenceToggle').onclick=()=>{
- const opened=$('expertPanel').classList.toggle('evidence-open');
- $('evidenceToggle').setAttribute('aria-expanded',String(opened));$('evidencePane').hidden=!opened;
+ if($('evidencePane').hidden)openEvidence();else closeEvidence();
 };
 // P1.2 explicit human-chosen classification; lossless within the canonical schema.
 $('nativeAdd').onclick=()=>{
@@ -293,7 +304,16 @@ function renderReview(){
   const quote=document.createElement('div');quote.textContent=anchor.quote;const target=document.createElement('small');target.textContent='关联判断：'+([...$('field').options].find(o=>o.value===binding.field)?.textContent||binding.field);box.append(quote,target);$('reviewAnchors').append(box);
  }
 }
-function closeEvidence(){$('evidencePane').hidden=true;$('expertPanel').classList.remove('evidence-open');$('evidenceToggle').setAttribute('aria-expanded','false');}
+function closeEvidence(){
+ const wasOpen=!$('evidencePane').hidden;
+ $('evidencePane').hidden=true;
+ $('expertPanel').classList.remove('evidence-open');
+ $('evidenceToggle').setAttribute('aria-expanded','false');
+ for(const q of modalBackground){const element=document.querySelector(q);if(element)element.inert=false;}
+ if(wasOpen&&evidenceReturnFocus?.isConnected&&!evidenceReturnFocus.inert)
+   evidenceReturnFocus.focus({preventScroll:true});
+ evidenceReturnFocus=null;
+}
 $('closeEvidence').onclick=closeEvidence;
 $('field').addEventListener('change',()=>chooseEvidenceField($('field').value));
 $('selectionField').addEventListener('change',()=>chooseEvidenceField($('selectionField').value));
@@ -306,5 +326,18 @@ for(const id of ['evidenceItem','selectionItem'])$(id).addEventListener('change'
   evidenceItemIndex=$(id).value;
   for(const other of ['evidenceItem','selectionItem'])$(other).value=evidenceItemIndex;
 });
-window.addEventListener('keydown',e=>{if(e.key==='Escape')closeEvidence();});
+window.addEventListener('keydown',e=>{
+ if($('evidencePane').hidden)return;
+ if(e.key==='Escape'){e.preventDefault();closeEvidence();return;}
+ if(e.key!=='Tab')return;
+ const focusables=[...$('evidencePane').querySelectorAll('button:not(:disabled),input:not(:disabled),select:not(:disabled),textarea:not(:disabled),a[href]')]
+  .filter(el=>el.getClientRects().length>0&&!el.closest('details:not([open])'));
+ if(!focusables.length){e.preventDefault();$('closeEvidence').focus();return;}
+ const first=focusables[0],last=focusables.at(-1);
+ if(e.shiftKey&&(document.activeElement===first||!$('evidencePane').contains(document.activeElement))){
+  e.preventDefault();last.focus();
+ }else if(!e.shiftKey&&(document.activeElement===last||!$('evidencePane').contains(document.activeElement))){
+  e.preventDefault();first.focus();
+ }
+});
 window.addEventListener('beforeunload',e=>{if(model?.allowed_actions.includes('draft')&&draft&&JSON.stringify(payload())!==JSON.stringify(draft.payload)){e.preventDefault();e.returnValue='';}});

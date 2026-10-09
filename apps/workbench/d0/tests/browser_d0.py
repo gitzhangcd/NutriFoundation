@@ -175,6 +175,56 @@ def ux_regressions(sign_in,browser,url,credentials,checks,output):
       'search_clear_and_escape','search_cjk_and_translation_hits','search_aria_status_only','search_whitespace_normalised',
       'search_section_labels','search_no_hit_tips','search_modes_keep_current_hit','search_mobile_hit_in_view','search_demo_disabled'])
 
+def ea_integrated_browser(sign_in, checks):
+    """Exercise EA in the actual v0.3 D0 layout, then return to NDS R0."""
+    context, page = sign_in('r0')
+    expect(page.locator('#eaModeBtn')).to_be_visible()
+    page.locator('#eaModeBtn').click()
+    expect(page.locator('#eaReview')).to_be_visible()
+    expect(page.locator('#eaTaskBox')).to_be_visible()
+    expect(page.locator('#judgmentPane')).to_be_visible()
+    expect(page.locator('#eaProfile')).to_contain_text('WB_EA_RCT_V0_1')
+    expect(page.locator('#readerTitle')).to_contain_text('5:2 diet')
+    assert page.locator('#eaTask option').count() == 7
+    assert page.locator('#eaSource option').count() == 2
+    assert page.locator('#eaCandidates .ea-candidate').count() == 1
+    checks.append('ea_same_d0_login_layout_and_seven_profiles')
+
+    # Source selection must remain within a server-issued two-version allowlist.
+    page.locator('#eaSource').select_option('GUIDE-001:r1')
+    expect(page.locator('#readerTitle')).to_contain_text('nutrition guidance')
+    expect(page.locator('#sourceVersion')).to_contain_text('GUIDE-001:r1')
+    page.locator('#eaSource').select_option('RCT-001:r1')
+    expect(page.locator('#readerTitle')).to_contain_text('5:2 diet')
+    expect(page.locator('#units')).to_contain_text('fictional 6-month comparison')
+    checks.append('ea_switch_2_source_versions_in_original_reader')
+
+    # Reuse original D0 quote-selection behavior and bind to typed candidate.
+    page.locator('#units .unit-footer button').last.click()
+    expect(page.locator('#eaQuoteStatus')).to_contain_text('已选原文')
+    page.locator('#eaCandidates .ea-candidate button').first.click()
+    expect(page.locator('#eaCandidates .ea-candidate')).to_contain_text('已绑定 1 条')
+    page.locator('#eaCandidates .ea-disposition').select_option('MODIFY')
+    page.locator('#eaCandidates .ea-support').select_option('PARTIAL')
+    page.locator('#eaCandidates .ea-reason').fill('Synthetic trial only; no real scientific interpretation.')
+    page.locator('#eaCandidates .ea-correction').fill('{"training_note":"Not real 5:2 effect data"}')
+    page.once('dialog',lambda dialog:dialog.accept())
+    page.locator('#eaFreeze').click()
+    expect(page.locator('#eaFeedback')).to_contain_text('审核已冻结')
+    expect(page.locator('#eaFreeze')).to_be_disabled()
+    expect(page.locator('#eaReceipt')).to_contain_text('content_sha256')
+    checks.append('ea_original_quote_binding_to_frozen_review')
+
+    # Switching back must restore original NDS R0 profile/reader/PDF path.
+    page.locator('#eaModeBtn').click()
+    expect(page.locator('#eaReview')).to_be_hidden()
+    expect(page.locator('#judgmentForm [data-key]')).to_have_count(19)
+    expect(page.locator('#readerTitle')).to_have_text('A randomised controlled trial of the 5:2 diet')
+    expect(page.locator('#pdfEngine')).to_contain_text('PDF.js',timeout=30000)
+    checks.append('ea_return_to_original_nds_r0_pdf_bilingual_reader')
+    context.close()
+
+
 def run(url,credentials,output):
     errors=[];checks=[]
     with sync_playwright() as pw:
@@ -188,6 +238,7 @@ def run(url,credentials,output):
             page.locator('#loginForm button').click();expect(page.locator('#workspace')).to_be_visible()
             return context,page
         output.mkdir(parents=True,exist_ok=True)
+        ea_integrated_browser(sign_in,checks)
         ux_regressions(sign_in,browser,url,credentials,checks,output)
         r2ctx,r2=sign_in('r2')
         expect(r2.locator('#saveStatus')).to_have_text('已载入')

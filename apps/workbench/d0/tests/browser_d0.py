@@ -231,6 +231,65 @@ def ea_integrated_browser(sign_in, checks):
     nds_context.close()
 
 
+
+def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors):
+    """Real Chromium sequence through the NEW /manage page and ORIGINAL EA reader."""
+    def manager_login(name):
+        ctx=browser.new_context(viewport={'width':1440,'height':1000})
+        page=ctx.new_page()
+        page.on('pageerror',lambda e:errors.append('TPA: '+str(e)))
+        page.goto(url+'/manage')
+        expect(page.locator('#loginScreen')).to_be_visible()
+        page.locator('#username').fill(name)
+        page.locator('#password').fill(credentials['accounts'][name]['password'])
+        page.locator('#loginForm button').click()
+        expect(page.locator('#workspace')).to_be_visible(timeout=30000)
+        return ctx,page
+    producer_context,p=manager_login('producer')
+    expect(p.locator('#sourceInfo')).to_contain_text('RANDOMIZED_TRIAL')
+    expect(p.locator('#sourcesList .source-row')).to_have_count(7)
+    p.locator('#taskId').fill('TPA-SYN-BROWSER-001')
+    p.locator('#primarySource').select_option('RCT-001:r1')
+    p.locator('#extraSource').select_option('GUIDE-001:r1')
+    p.locator('#workflowStrategy').select_option('AGENT_PROPOSE_EXPERT_VERIFY')
+    p.locator('#createDraft').click()
+    expect(p.locator('#receipt')).to_contain_text('"state": "DRAFT"',timeout=30000)
+    row=p.locator('.task-row').filter(has_text='TPA-SYN-BROWSER-001')
+    expect(row).to_contain_text('DRAFT')
+    row.get_by_role('button',name=re.compile('检查资料与任务')).click()
+    expect(row).to_contain_text('VALIDATED')
+    row.get_by_role('button',name=re.compile('冻结任务定义')).click()
+    expect(row).to_contain_text('DEFINITION_FROZEN')
+    row.get_by_role('button',name=re.compile('准备工作包')).click()
+    expect(row).to_contain_text('READY_FOR_ASSIGNMENT')
+    checks.extend(['tpa_same_origin_management_login','tpa_seven_synthetic_source_library',
+                   'tpa_real_ui_draft_validation_freeze_prepare','tpa_agent_fixture_not_llm'])
+    manager_context,m=manager_login('manager')
+    row=m.locator('.task-row').filter(has_text='TPA-SYN-BROWSER-001')
+    expect(row).to_contain_text('READY_FOR_ASSIGNMENT')
+    assert manager_context.request.get(url+'/v1/ea/tasks/TPA-SYN-BROWSER-001/sources/RCT-001/r1').status==403
+    row.get_by_role('button',name=re.compile('分配合成专家')).click()
+    expect(row).to_contain_text('ASSIGNED')
+    row.get_by_role('button',name=re.compile('授权发布任务')).click()
+    expect(row).to_contain_text('PUBLISHED')
+    checks.extend(['tpa_manager_no_original_source_read','tpa_expert_assignment_publish_via_UI'])
+    ea_context,ea=sign_in('ea1')
+    expect(ea.locator('#eaTask')).to_contain_text('TPA-SYN-BROWSER-001')
+    ea.locator('#eaTask').select_option('TPA-SYN-BROWSER-001')
+    ea.locator('#eaLoad').click()
+    expect(ea.locator('#eaProfile')).to_contain_text('2 个获授权来源版本')
+    expect(ea.locator('#eaCandidates')).to_contain_text('SYNTHETIC')
+    ea.locator('#eaSource').select_option('GUIDE-001:r1')
+    expect(ea.locator('#units')).to_contain_text('fabricated guideline')
+    checks.append('tpa_published_task_delivered_to_original_ea_reader')
+    p.set_viewport_size({'width':390,'height':844})
+    assert p.evaluate('document.documentElement.scrollWidth <= innerWidth')
+    p.screenshot(path=str(output/'tpa-management-mobile.png'))
+    p.set_viewport_size({'width':1440,'height':1000})
+    p.screenshot(path=str(output/'tpa-management-desktop.png'))
+    checks.append('tpa_responsive_admin_desktop_mobile')
+    ea_context.close();manager_context.close();producer_context.close()
+
 def run(url,credentials,output):
     errors=[];checks=[]
     with sync_playwright() as pw:
@@ -464,6 +523,7 @@ def run(url,credentials,output):
         r2.locator('#logout').click();expect(r2.locator('#loginPanel')).to_be_visible()
         assert r2ctx.request.get(url+'/v1/tasks').status==401
         checks.extend(['manager_NO_GO','auditor_integrity_chain','logout_revocation','ux_post_freeze_state','ux_readable_manager_auditor'])
+        tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
         browser.close()
     assert not errors,errors
     result={'status':'PASS','checks':checks,'page_errors':errors,'native_pdfjs':True,'browser':'Chromium',

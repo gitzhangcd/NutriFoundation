@@ -55,6 +55,13 @@ def install_evidence_routes(app: FastAPI, engine: EvidenceEngine):
             raise HTTPException(401, detail={"code": "UNAUTHENTICATED"})
         return {"actor": p["actor"], "role": p["role"]}
 
+    def task_reader(request: Request):
+        p = auth(request)
+        # Preserve original D0 role surface: auditor receives audit, never source.
+        if p["role"] not in ("expert", "producer"):
+            raise HTTPException(403, detail={"code": "ROLE_FORBIDDEN"})
+        return p
+
     def perform(func, **kwargs):
         try:
             return func(**kwargs)
@@ -86,7 +93,7 @@ def install_evidence_routes(app: FastAPI, engine: EvidenceEngine):
     @app.get("/v1/ea/tasks")
     def list_tasks(request: Request):
         p = auth(request)
-        if p["role"] not in ("expert", "producer", "auditor", "manager"):
+        if p["role"] not in ("expert", "producer"):
             raise HTTPException(403, detail={"code": "ROLE_FORBIDDEN"})
         with engine.connect() as db:
             rows = db.execute("SELECT task_id,record,state FROM tasks ORDER BY task_id")
@@ -105,42 +112,42 @@ def install_evidence_routes(app: FastAPI, engine: EvidenceEngine):
 
     @app.get("/v1/ea/tasks/{task_id}/workpack")
     def workpack(task_id: str, request: Request):
-        return perform(engine.workpack, **auth(request), task_id=task_id)
+        return perform(engine.workpack, **task_reader(request), task_id=task_id)
 
     @app.get("/v1/ea/tasks/{task_id}/sources")
     def sources(task_id: str, request: Request):
-        return perform(engine.list_sources, **auth(request), task_id=task_id)
+        return perform(engine.list_sources, **task_reader(request), task_id=task_id)
 
     @app.get("/v1/ea/tasks/{task_id}/sources/{source_id}/{revision_id}")
     def read_source(task_id: str, source_id: str, revision_id: str, request: Request):
-        return perform(engine.read_source, **auth(request), task_id=task_id,
+        return perform(engine.read_source, **task_reader(request), task_id=task_id,
                        source_id=source_id, revision_id=revision_id)
 
     @app.get("/v1/ea/tasks/{task_id}/candidates")
     def candidates(task_id: str, request: Request):
-        return perform(engine.read_candidates, **auth(request), task_id=task_id)
+        return perform(engine.read_candidates, **task_reader(request), task_id=task_id)
 
     @app.post("/v1/ea/tasks/{task_id}/candidates/freeze")
     def freeze_candidates(task_id: str, request: Request, body: CandidateRequest):
-        return perform(engine.freeze_candidates, **auth(request), task_id=task_id,
+        return perform(engine.freeze_candidates, **task_reader(request), task_id=task_id,
                        items=body.items)
 
     @app.post("/v1/ea/tasks/{task_id}/review/freeze")
     def freeze_review(task_id: str, request: Request, body: ReviewRequest):
-        return perform(engine.freeze_review, **auth(request), task_id=task_id,
+        return perform(engine.freeze_review, **task_reader(request), task_id=task_id,
                        items=body.items, candidate_set_digest=body.candidate_set_digest)
 
     @app.get("/v1/ea/tasks/{task_id}/export")
     def export(task_id: str, request: Request):
-        return perform(engine.export_record, **auth(request), task_id=task_id)
+        return perform(engine.export_record, **task_reader(request), task_id=task_id)
 
     @app.post("/v1/ea/sources")
     def add_source(body: NewSource, request: Request):
-        return perform(engine.register_source, **auth(request), source=body.model_dump())
+        return perform(engine.register_source, **task_reader(request), source=body.model_dump())
 
     @app.post("/v1/ea/tasks")
     def add_task(body: NewTask, request: Request):
-        return perform(engine.create_task, **auth(request), task=body.model_dump())
+        return perform(engine.create_task, **task_reader(request), task=body.model_dump())
 
     @app.get("/v1/ea/audit")
     def audit(request: Request):

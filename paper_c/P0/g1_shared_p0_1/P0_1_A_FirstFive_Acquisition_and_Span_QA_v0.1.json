@@ -1,0 +1,361 @@
+{
+  "stage": "G1-Shared P0.1-A",
+  "version": "v0.1",
+  "audit_date": "2026-10-10",
+  "authority": "PubMed PMC OAI-PMH rights-checked retrieved body; spans are offsets in content-only returned body, not offsets in persisted Markdown header or PDF",
+  "status": "FIVE_FULL_PMC_BODY_READS_VALIDATED_NARROW_SPAN_EXTRACTION_COMPLETED_SCIENTIFIC_GOLD_HOLD",
+  "successful_complete_pmc_body_reads": 5,
+  "exact_short_span_anchors": 10,
+  "original_pdf_full_fidelity_pass": 0,
+  "source_level_L4_expert_gold_pass": 0,
+  "results": [
+    {
+      "id": "CAND-G100-004",
+      "pmid": "35194047",
+      "pmcid": "PMC8864028",
+      "role": "RCT",
+      "question": "How were trial arms assigned and what primary outcome was prespecified?",
+      "science_scope": "Five-week trial of healthy volunteers without obesity; not evidence for general obesity treatment",
+      "checks": {
+        "source_body_complete": true,
+        "read_chars": 40271,
+        "expected_chars": 40271,
+        "chunks": [
+          {
+            "start": 0,
+            "chars": 40271,
+            "was_truncated": false
+          }
+        ],
+        "metadata_pmid_matches": true,
+        "metadata_pmcid_matches": true,
+        "metadata_doi_matches": true,
+        "pmc_rights_allowed": true,
+        "license": "https://creativecommons.org/licenses/by/4.0/Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
+        "license_kind": "CC_BY_4_0",
+        "table_mentions": 1,
+        "figure_mentions": 2,
+        "supplement_mentions": 2,
+        "original_pdf_retrieved": false,
+        "supplementary_materials_retrieved": false,
+        "table_cell_geometry_verified": false,
+        "bilingual_span_alignment_verified": false,
+        "source_body_persisted_in_public_repo": true
+      },
+      "typed_anchors": [
+        {
+          "kind": "RCT_RANDOMIZATION_SAMPLE",
+          "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+          "start": 3332,
+          "end": 3382,
+          "verbatim_short_needle": "Ninety volunteers who met the eligibility criteria",
+          "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+          "source_span_verified_by_machine": true
+        },
+        {
+          "kind": "RCT_PRIMARY_OUTCOME",
+          "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+          "start": 27402,
+          "end": 27447,
+          "verbatim_short_needle": "The primary outcome was the change in HOMA-IR",
+          "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+          "source_span_verified_by_machine": true
+        }
+      ],
+      "required_followups": [
+        "Randomization 90/90; completion 82/90",
+        "Full trial protocol and Table 1 must be checked"
+      ],
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8864028/",
+      "source_pdf_status": "NO_PDF_VERIFICATION",
+      "L1": "PASS_PUBMED_PMC_BODY_INTEGRITY_ONLY",
+      "L2": "PASS_NARROW_EXACT_TEXT_SPAN_NOT_TABLE_CELL",
+      "L3": "PROVISIONAL_SCOPE_REVIEW_NOT_HUMAN_ADJUDICATED",
+      "L4": "HOLD_SCIENTIFIC_QUALIFICATION_REQUIRES_EXPERT_AND_DOCUMENT_FIDELITY",
+      "expert_gold": false,
+      "workbench_task_usable": "ENGINEERING_ONLY_WITH_ORIGINAL_SOURCE_LINK_AND_VISIBLE_WARNINGS"
+    },
+    {
+      "id": "CAND-G100-029",
+      "pmid": "31142457",
+      "pmcid": "PMC6538975",
+      "role": "PROSPECTIVE_COHORT",
+      "question": "Who was observed and what is the observational exposure/outcome, without upgrading association to causation?",
+      "science_scope": "Prospective NutriNet-Santé association between ultraprocessed food intake and CVD, not intervention causality",
+      "checks": {
+        "source_body_complete": true,
+        "read_chars": 59562,
+        "expected_chars": 59562,
+        "chunks": [
+          {
+            "start": 0,
+            "chars": 50000,
+            "was_truncated": true
+          },
+          {
+            "start": 50000,
+            "chars": 9562,
+            "was_truncated": false
+          }
+        ],
+        "metadata_pmid_matches": true,
+        "metadata_pmcid_matches": true,
+        "metadata_doi_matches": true,
+        "pmc_rights_allowed": true,
+        "license": "https://creativecommons.org/licenses/by-nc/4.0/This is an Open Access article distributed in accordance with the Creative Commons Attribution Non Commercial (CC BY-NC 4.0) license, which permits others to distribute, remix, adapt, build upon this work non-commercially, and license their derivative works on different terms, provided the original work is properly cited and the use is non-commercial. See: http://creativecommons.org/licenses/by-nc/4.0/.",
+        "license_kind": "CC_BY_NC_4_0",
+        "table_mentions": 2,
+        "figure_mentions": 3,
+        "supplement_mentions": 29,
+        "original_pdf_retrieved": false,
+        "supplementary_materials_retrieved": false,
+        "table_cell_geometry_verified": false,
+        "bilingual_span_alignment_verified": false,
+        "source_body_persisted_in_public_repo": false
+      },
+      "typed_anchors": [
+        {
+          "kind": "COHORT_SAMPLE_POPULATION",
+          "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+          "start": 12730,
+          "end": 12774,
+          "verbatim_short_needle": "105 159 participants without CVD at baseline",
+          "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+          "source_span_verified_by_machine": true
+        },
+        {
+          "kind": "COHORT_ASSOCIATIONAL_ESTIMAND",
+          "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+          "start": 16409,
+          "end": 16465,
+          "verbatim_short_needle": "Hazard ratios and 95% confidence intervals were computed",
+          "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+          "source_span_verified_by_machine": true
+        }
+      ],
+      "required_followups": [
+        "Model adjusted covariates, missingness, confounding risk",
+        "Table 2 numerical effect is not qualified by prose anchor alone"
+      ],
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6538975/",
+      "source_pdf_status": "NO_PDF_VERIFICATION",
+      "L1": "PASS_PUBMED_PMC_BODY_INTEGRITY_ONLY",
+      "L2": "PASS_NARROW_EXACT_TEXT_SPAN_NOT_TABLE_CELL",
+      "L3": "PROVISIONAL_SCOPE_REVIEW_NOT_HUMAN_ADJUDICATED",
+      "L4": "HOLD_SCIENTIFIC_QUALIFICATION_REQUIRES_EXPERT_AND_DOCUMENT_FIDELITY",
+      "expert_gold": false,
+      "workbench_task_usable": "ENGINEERING_ONLY_WITH_ORIGINAL_SOURCE_LINK_AND_VISIBLE_WARNINGS"
+    },
+    {
+      "id": "CAND-G100-048",
+      "pmid": "40533200",
+      "pmcid": "PMC12175170",
+      "role": "SYSTEMATIC_REVIEW_NETWORK_META",
+      "question": "What evidence synthesis was performed, and what is the scope of effect/certainty? Include correction/version lineage.",
+      "science_scope": "Network evidence of short-to-medium-term cardiometabolic outcomes; no automatic long-term event or universal-superiority claim",
+      "checks": {
+        "source_body_complete": true,
+        "read_chars": 45559,
+        "expected_chars": 45559,
+        "chunks": [
+          {
+            "start": 0,
+            "chars": 45559,
+            "was_truncated": false
+          }
+        ],
+        "metadata_pmid_matches": true,
+        "metadata_pmcid_matches": true,
+        "metadata_doi_matches": true,
+        "pmc_rights_allowed": true,
+        "license": "https://creativecommons.org/licenses/by-nc/4.0/This is an Open Access article distributed in accordance with the Creative Commons Attribution Non Commercial (CC BY-NC 4.0) license, which permits others to distribute, remix, adapt, build upon this work non-commercially, and license their derivative works on different terms, provided the original work is properly cited and the use is non-commercial. See: http://creativecommons.org/licenses/by-nc/4.0/.",
+        "license_kind": "CC_BY_NC_4_0",
+        "table_mentions": 1,
+        "figure_mentions": 11,
+        "supplement_mentions": 18,
+        "original_pdf_retrieved": false,
+        "supplementary_materials_retrieved": false,
+        "table_cell_geometry_verified": false,
+        "bilingual_span_alignment_verified": false,
+        "source_body_persisted_in_public_repo": false
+      },
+      "typed_anchors": [
+        {
+          "kind": "SYNTHESIS_INCLUDED_ARTICLES",
+          "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+          "start": 13927,
+          "end": 13965,
+          "verbatim_short_needle": "99 articles met our inclusion criteria",
+          "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+          "source_span_verified_by_machine": true
+        },
+        {
+          "kind": "SYNTHESIS_CERTAINTY_METHOD",
+          "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+          "start": 18634,
+          "end": 18696,
+          "verbatim_short_needle": "The GRADE certainty of evidence for all diet group comparisons",
+          "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+          "source_span_verified_by_machine": true
+        }
+      ],
+      "required_followups": [
+        "99 articles versus unique trials: StudyIdentity overlap check",
+        "BMJ 2025-08-18 affiliation correction DOI 10.1136/bmj.r1737",
+        "Supplementary network/GRADE tables needed for numerical field qualification"
+      ],
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12175170/",
+      "source_pdf_status": "NO_PDF_VERIFICATION",
+      "L1": "PASS_PUBMED_PMC_BODY_INTEGRITY_ONLY",
+      "L2": "PASS_NARROW_EXACT_TEXT_SPAN_NOT_TABLE_CELL",
+      "L3": "PROVISIONAL_SCOPE_REVIEW_NOT_HUMAN_ADJUDICATED",
+      "L4": "HOLD_SCIENTIFIC_QUALIFICATION_REQUIRES_EXPERT_AND_DOCUMENT_FIDELITY",
+      "expert_gold": false,
+      "workbench_task_usable": "ENGINEERING_ONLY_WITH_ORIGINAL_SOURCE_LINK_AND_VISIBLE_WARNINGS"
+    },
+    {
+      "id": "CAND-G100-071",
+      "pmid": "36462613",
+      "pmcid": "PMC12646719",
+      "role": "EVIDENCE_BASED_PRACTICE_GUIDELINE",
+      "question": "Identify the guideline's target population, recommendation strength and exclusions, retaining its authoritative full-EAL dependency.",
+      "science_scope": "Dietitian-provided medical nutrition therapy for adults with overweight or obesity, subject to contraindications and client preferences",
+      "checks": {
+        "source_body_complete": true,
+        "read_chars": 73139,
+        "expected_chars": 73139,
+        "chunks": [
+          {
+            "start": 0,
+            "chars": 50000,
+            "was_truncated": true
+          },
+          {
+            "start": 50000,
+            "chars": 23139,
+            "was_truncated": false
+          }
+        ],
+        "metadata_pmid_matches": true,
+        "metadata_pmcid_matches": true,
+        "metadata_doi_matches": true,
+        "pmc_rights_allowed": true,
+        "license": "This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law.",
+        "license_kind": "TEXT_MINING_RESEARCH_ONLY_OR_UNCERTAIN",
+        "table_mentions": 0,
+        "figure_mentions": 13,
+        "supplement_mentions": 2,
+        "original_pdf_retrieved": false,
+        "supplementary_materials_retrieved": false,
+        "table_cell_geometry_verified": false,
+        "bilingual_span_alignment_verified": false,
+        "source_body_persisted_in_public_repo": false
+      },
+      "typed_anchors": [
+        {
+          "kind": "GUIDELINE_ABRIDGEMENT",
+          "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+          "start": 2317,
+          "end": 2377,
+          "verbatim_short_needle": "This article is an abbreviated version of the full guideline",
+          "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+          "source_span_verified_by_machine": true
+        },
+        {
+          "kind": "GUIDELINE_CONSENSUS_RATING",
+          "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+          "start": 6636,
+          "end": 6678,
+          "verbatim_short_needle": "recommendations were graded as “Consensus”",
+          "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+          "source_span_verified_by_machine": true
+        }
+      ],
+      "required_followups": [
+        "Official full Evidence Analysis Library is separate authoritative source",
+        "Do not treat 'Consensus' as quantitative research certainty",
+        "EAL original statement, strength, exception and grade must be linked"
+      ],
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12646719/",
+      "source_pdf_status": "NO_PDF_VERIFICATION",
+      "L1": "PASS_PUBMED_PMC_BODY_INTEGRITY_ONLY",
+      "L2": "PASS_NARROW_EXACT_TEXT_SPAN_NOT_TABLE_CELL",
+      "L3": "PROVISIONAL_SCOPE_REVIEW_NOT_HUMAN_ADJUDICATED",
+      "L4": "HOLD_SCIENTIFIC_QUALIFICATION_REQUIRES_EXPERT_AND_DOCUMENT_FIDELITY",
+      "expert_gold": false,
+      "workbench_task_usable": "ENGINEERING_ONLY_WITH_ORIGINAL_SOURCE_LINK_AND_VISIBLE_WARNINGS"
+    },
+    {
+      "id": "CAND-G100-096",
+      "pmid": "38869255",
+      "pmcid": "PMC11170495",
+      "role": "EXPERT_CONSENSUS",
+      "question": "Describe expert consensus formation and distinguish it from formal guideline authority and independent certainty of evidence.",
+      "science_scope": "Adult parenteral nutrition safety/quality practice processes; not nutrition intervention efficacy RCT and not formal guideline",
+      "checks": {
+        "source_body_complete": true,
+        "read_chars": 58335,
+        "expected_chars": 58335,
+        "chunks": [
+          {
+            "start": 0,
+            "chars": 50000,
+            "was_truncated": true
+          },
+          {
+            "start": 50000,
+            "chars": 8335,
+            "was_truncated": false
+          }
+        ],
+        "metadata_pmid_matches": true,
+        "metadata_pmcid_matches": true,
+        "metadata_doi_matches": true,
+        "pmc_rights_allowed": true,
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/This is an Open Access article distributed under the terms of the Creative Commons Attribution-NonCommercial-NoDerivs licence (https://creativecommons.org/licenses/by-nc-nd/4.0/), which permits non-commercial reproduction and distribution of the work, in any medium, provided the original work is not altered or transformed in any way, and that the work is properly cited. For commercial re-use, please contact journals.permissions@oup.com",
+        "license_kind": "CC_BY_NC_ND_4_0",
+        "table_mentions": 18,
+        "figure_mentions": 0,
+        "supplement_mentions": 0,
+        "original_pdf_retrieved": false,
+        "supplementary_materials_retrieved": false,
+        "table_cell_geometry_verified": false,
+        "bilingual_span_alignment_verified": false,
+        "source_body_persisted_in_public_repo": false
+      },
+      "typed_anchors": [
+        {
+          "kind": "CONSENSUS_NOT_FORMAL_GUIDELINE",
+          "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+          "start": 4360,
+          "end": 4426,
+          "verbatim_short_needle": "neither a formal guideline committee nor an authorized voting body",
+          "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+          "source_span_verified_by_machine": true
+        },
+        {
+          "kind": "CONSENSUS_DELIBERATION_METHOD",
+          "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+          "start": 6084,
+          "end": 6111,
+          "verbatim_short_needle": "an adapted Delphi technique",
+          "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+          "source_span_verified_by_machine": true
+        }
+      ],
+      "required_followups": [
+        "Check expert panel voting and consensus threshold from original text",
+        "Consensus agreement != independent research certainty",
+        "CC BY-NC-ND redistribution/derivatives restrictions"
+      ],
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11170495/",
+      "source_pdf_status": "NO_PDF_VERIFICATION",
+      "L1": "PASS_PUBMED_PMC_BODY_INTEGRITY_ONLY",
+      "L2": "PASS_NARROW_EXACT_TEXT_SPAN_NOT_TABLE_CELL",
+      "L3": "PROVISIONAL_SCOPE_REVIEW_NOT_HUMAN_ADJUDICATED",
+      "L4": "HOLD_SCIENTIFIC_QUALIFICATION_REQUIRES_EXPERT_AND_DOCUMENT_FIDELITY",
+      "expert_gold": false,
+      "workbench_task_usable": "ENGINEERING_ONLY_WITH_ORIGINAL_SOURCE_LINK_AND_VISIBLE_WARNINGS"
+    }
+  ]
+}

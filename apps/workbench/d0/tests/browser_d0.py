@@ -38,7 +38,7 @@ def run(url,credentials,output):
         assert r2.locator('#judgmentForm [data-key]').count()==19
         expect(r2.locator('#units')).to_contain_text('randomised')
         expect(r2.locator('#bilingualToolbar')).to_be_visible()
-        expect(r2.locator('#translationStatus')).to_contain_text('示例译文')
+        expect(r2.locator('#translationStatus')).to_contain_text('未经科学核查')
         assert r2.locator('.unit-translation').count() >= 1
         for mode in ('parallel', 'english', 'chinese', 'immersive'):
             r2.locator('#readerMode').select_option(mode)

@@ -53,6 +53,8 @@ def ux_regressions(sign_in,browser,url,credentials,checks,output):
     # The drawer replaces the judgment column instead of covering the reader.
     pane=p.locator('#evidencePane').bounding_box();reader=p.locator('.reader').bounding_box()
     assert pane['x']>=reader['x']+reader['width']-1,(pane,reader)
+    p.locator('#tabJudgment').hover();p.wait_for_timeout(250)
+    assert p.locator('#tabJudgment').evaluate('e=>getComputedStyle(e).backgroundColor')=='rgb(238, 246, 241)'
     p.locator('#closeEvidence').click()
     # Sentence range does not stop at decimal points.
     p.locator('[data-mode="english"]').click()
@@ -114,7 +116,7 @@ def ux_regressions(sign_in,browser,url,credentials,checks,output):
     assert p.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
     p.screenshot(path=str(output/'ux-mobile-navigation.png'));ctx.close()
     checks.extend(['ux_login_message','ux_r1_empty_state','ux_search_enter_snippets','ux_outline_scroll_spy',
-      'ux_markdown_free_preview','ux_drawer_beside_reader','ux_sentence_decimal','ux_reader_first_citation',
+      'ux_markdown_free_preview','ux_drawer_beside_reader','ux_light_secondary_hover','ux_sentence_decimal','ux_reader_first_citation',
       'ux_toolbar_not_over_selection','ux_word_snapping','ux_bind_success_state','ux_saved_edit_invalidates_link',
       'ux_stale_binding_quote_listed','ux_freeze_reason_visible','ux_demo_not_citable','ux_conflict_keeps_input','ux_mobile_navigation'])
 

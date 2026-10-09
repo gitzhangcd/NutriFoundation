@@ -1288,3 +1288,7 @@ pre {
  .layout .sidebar,.layout.focus-mode .sidebar{display:flex}
  .top #who{font-size:11px}
 }
+/* Secondary drawer controls stay light on hover instead of inheriting the filled button hover. */
+.evidence-tabs button:hover:not(:disabled),.quote-range button:hover:not(:disabled){background:#eef6f1;color:var(--green);border-color:#9fcbb5}
+.evidence-tabs button.active:hover:not(:disabled),.quote-range button.active:hover:not(:disabled){background:#dcefe4;border-color:var(--green)}
+.evidence-tabs button:active:not(:disabled),.quote-range button:active:not(:disabled){background:#d4eadd}

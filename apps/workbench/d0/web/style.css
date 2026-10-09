@@ -30,3 +30,18 @@ button{white-space:nowrap;flex-shrink:0}
 #evidenceToggle{background:#eef5ef;color:#1e5a46}
 @media(max-width:1100px){.layout.focus-mode{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.layout.focus-mode{grid-template-columns:1fr}.layout.focus-mode .judgment{max-height:none}.layout.focus-mode.evidence-open .evidence{top:80px}}
+
+
+/* P1.2: preserve original scientific fields while making primary judgments easy to enter. */
+.native-composer{background:#f7faf7;border:1px solid #d5e3d8;padding:14px;border-radius:11px;margin:12px 0 18px}
+.native-composer .composer-title{display:flex;align-items:center;flex-wrap:wrap;justify-content:space-between;gap:8px}
+.native-composer label{font-size:13px;font-weight:600;margin:9px 0 4px}
+.native-composer #nativeCategory{max-width:100%}
+.native-composer #nativeStatement{min-height:65px}
+.native-composer #nativeAdd{margin:5px 0}
+#nativeMappingStatus{display:inline-block;padding:4px 7px}
+.advanced-fields{border:1px dashed #dae4dd;border-radius:8px;padding:8px 12px;margin-top:12px}
+.advanced-fields summary{font-size:13px;font-weight:550;color:#50695c}
+.advanced-fields[open]{background:#fcfdfc}
+.advanced-fields label{padding-top:5px}
+#translationStatus{max-width:400px}

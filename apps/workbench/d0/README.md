@@ -95,3 +95,29 @@ python apps/workbench/d0/tests/browser_d0.py
 \`\`\`
 
 本模块未获正式科研专家、原始来源版权、伦理、生产安全和 Gold 晋级授权；服务端继续保持 \`SYNTHETIC_ENGINEERING_ONLY\`。
+
+
+## WB-TPA-P1 · Task Production & Assignment (strictly synthetic)
+
+This P1 extension is **on the exact D0 server**, using its cookie, CSRF, exact Origin/Host checks and original expert UI. Do not deploy it separately or treat the synthetic actor account list as a credentialed clinician roster.
+
+- Management UI: same origin \`/manage\` (login using private synthetic \`producer\` or \`manager\`).
+- Producer: select one of seven **pre-seeded fictional structured sources**, optionally add an authorized supplemental source, choose Agent-review vs independent human, create DRAFT → VALIDATED → DEFINITION_FROZEN → READY_FOR_ASSIGNMENT. The Agent-review candidate is **SYN-FIXTURE-NOT-AN-LLM**, not a model extraction.
+- Manager: choose the mode-specific synthetic expert (review arm = \`SYN-EA-EXPERT-A\` / \`ea1\`; independent arm = \`SYN-EA-EXPERT-B\` / \`ea2\`), ASSIGN → PUBLISH, or REVOKE. Manager receives **only source metadata**, never raw evidence units.
+- Producer can also atomically create exactly one task draft for each of all seven registered source types (UI: **批量生成七类合成草稿**). The batch request/receipt is idempotent and a rejected item prevents all inserts; tasks are **not** auto-prepared or auto-published.
+- New tasks use \`TPA-SYN-*\` IDs and are **server-hidden** from EA expert task lists, workpack, original source and candidate routes until publication. Revocation denies future access while preserving historic source-view events.
+- After publication, \`ea1\`/\`ea2\` log into the **unchanged original** three-pane D0 Workbench and see authorized TPA tasks in their existing EA task selector. NDS \`r0/r1/r2\` accounts cannot see EA tasks and vice versa.
+- Original EA seed tasks still exist and remain available to their existing synthetic expert test users. A separate \`tpa_synthetic.sqlite\` stores operational task records, batch receipts, idempotency and append-only exposure audit, in the same private D0 runtime data root.
+- Only synthetic source metadata is accepted by \`POST /v1/tpa/source-imports/validate\`. It validates **already registered synthetic fixture versions**. This is not a real PDF upload or MinerU backend. Real source/parser/translation pipelines remain P2.
+- No formal SourceQualificationRecord / ExpertQualificationRecord for real research is generated. No real LLM/Agent, Gold, scientific capture, external HTTPS production approval, OS/security acceptance or human pilot.
+
+Run locally in an **isolated disposable** environment using the existing instructions. Then visit \`/manage\` and \`/\` on the same configured origin. Do not point browser QA at a study workspace: it mutates synthetic tasks.
+
+Verify:
+\`\`\`sh
+python -m pytest apps/workbench/d0/tests/test_d0.py apps/workbench/d0/tests/test_ea_integrated.py apps/workbench/d0/tests/test_tpa_integrated.py -q
+node --check apps/workbench/d0/web/tpa_manage.js
+python apps/workbench/d0/tests/browser_d0.py
+\`\`\`
+
+Study owner, security and source qualification are separate GO/NO-GO gates. See \`docs/workbench/WB-TPA-P0_Design_Freeze_Verification_Receipt_v0.1.md\` and new P1 receipt; neither draft PR #26, #27 nor #28 is authorized for merge or production deployment.

@@ -127,20 +127,40 @@ def install_evidence_routes(app: FastAPI, engine: EvidenceEngine, tpa=None):
 
     @app.get("/v1/ea/tasks/{task_id}/workpack")
     def workpack(task_id: str, request: Request):
-        return perform(engine.workpack, **task_reader(request, task_id, "TASK_OPENED"), task_id=task_id)
+
+        p=task_reader(request, task_id)
+        result=perform(engine.workpack, **p, task_id=task_id)
+        if tpa is not None and p["role"]=="expert":
+            tpa.expert_gate(task_id,p["actor"],p["role"],"TASK_OPENED")
+        return result
 
     @app.get("/v1/ea/tasks/{task_id}/sources")
     def sources(task_id: str, request: Request):
-        return perform(engine.list_sources, **task_reader(request, task_id, "SOURCE_LIST_OPENED"), task_id=task_id)
+
+        p=task_reader(request, task_id)
+        result=perform(engine.list_sources, **p, task_id=task_id)
+        if tpa is not None and p["role"]=="expert":
+            tpa.expert_gate(task_id,p["actor"],p["role"],"SOURCE_LIST_OPENED")
+        return result
 
     @app.get("/v1/ea/tasks/{task_id}/sources/{source_id}/{revision_id}")
     def read_source(task_id: str, source_id: str, revision_id: str, request: Request):
-        return perform(engine.read_source, **task_reader(request, task_id, "SOURCE_UNIT_VIEWED", (source_id,revision_id)), task_id=task_id,
+
+        p=task_reader(request, task_id)
+        result=perform(engine.read_source, **p, task_id=task_id,
                        source_id=source_id, revision_id=revision_id)
+        if tpa is not None and p["role"]=="expert":
+            tpa.expert_gate(task_id,p["actor"],p["role"],"SOURCE_UNIT_VIEWED",(source_id,revision_id))
+        return result
 
     @app.get("/v1/ea/tasks/{task_id}/candidates")
     def candidates(task_id: str, request: Request):
-        return perform(engine.read_candidates, **task_reader(request, task_id, "AGENT_CANDIDATE_VIEWED"), task_id=task_id)
+
+        p=task_reader(request, task_id)
+        result=perform(engine.read_candidates, **p, task_id=task_id)
+        if tpa is not None and p["role"]=="expert":
+            tpa.expert_gate(task_id,p["actor"],p["role"],"AGENT_CANDIDATE_VIEWED")
+        return result
 
     @app.post("/v1/ea/tasks/{task_id}/candidates/freeze")
     def freeze_candidates(task_id: str, request: Request, body: CandidateRequest):

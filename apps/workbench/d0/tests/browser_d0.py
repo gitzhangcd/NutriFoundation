@@ -177,9 +177,9 @@ def ux_regressions(sign_in,browser,url,credentials,checks,output):
 
 def ea_integrated_browser(sign_in, checks):
     """Exercise EA in the actual v0.3 D0 layout, then return to NDS R0."""
-    context, page = sign_in('r0')
+    context, page = sign_in('ea1')
     expect(page.locator('#eaModeBtn')).to_be_visible()
-    page.locator('#eaModeBtn').click()
+    expect(page.locator('#eaModeBtn')).to_be_disabled()
     expect(page.locator('#eaReview')).to_be_visible()
     expect(page.locator('#eaTaskBox')).to_be_visible()
     expect(page.locator('#judgmentPane')).to_be_visible()
@@ -215,14 +215,20 @@ def ea_integrated_browser(sign_in, checks):
     expect(page.locator('#eaReceipt')).to_contain_text('content_sha256')
     checks.append('ea_original_quote_binding_to_frozen_review')
 
-    # Switching back must restore original NDS R0 profile/reader/PDF path.
-    page.locator('#eaModeBtn').click()
-    expect(page.locator('#eaReview')).to_be_hidden()
-    expect(page.locator('#judgmentForm [data-key]')).to_have_count(19)
-    expect(page.locator('#readerTitle')).to_have_text('A randomised controlled trial of the 5:2 diet')
-    expect(page.locator('#pdfEngine')).to_contain_text('PDF.js',timeout=30000)
-    checks.append('ea_return_to_original_nds_r0_pdf_bilingual_reader')
+    # No EA actor may acquire NDS R0 source/case information.
+    assert context.request.get(page.url+'/v1/tasks/SYN-R0/read-model').status==404
+    page.locator('#logout').click()
+    expect(page.locator('#loginPanel')).to_be_visible()
     context.close()
+
+    # The original separate R0 expert session remains intact and sees no EA.
+    nds_context, nds=sign_in('r0')
+    expect(nds.locator('#eaModeBtn')).to_be_hidden()
+    expect(nds.locator('#judgmentForm [data-key]')).to_have_count(19)
+    expect(nds.locator('#readerTitle')).to_have_text('A randomised controlled trial of the 5:2 diet')
+    expect(nds.locator('#pdfEngine')).to_contain_text('PDF.js',timeout=30000)
+    checks.append('ea_expert_credential_isolation_and_original_nds_r0_pdf_unchanged')
+    nds_context.close()
 
 
 def run(url,credentials,output):

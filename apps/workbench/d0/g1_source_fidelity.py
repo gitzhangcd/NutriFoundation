@@ -98,12 +98,13 @@ def inspect_local_pdf(source_id: str, original: Path, private_dir: Path,
         raise ValueError("INVALID_SOURCE_ID")
     if rights_attestation != "AUTHORIZED_LOCAL_RESEARCH_USE":
         raise ValueError("SOURCE_RIGHTS_ATTESTATION_REQUIRED")
-    original = Path(original).resolve(strict=True)
+    original_input = Path(original)
+    if original_input.is_symlink():
+        raise ValueError("SYMLINK_NOT_ALLOWED")
+    original = original_input.resolve(strict=True)
     private_dir = Path(private_dir).resolve(strict=True)
     if not original.is_file() or original.suffix.lower() != ".pdf":
         raise ValueError("SOURCE_NOT_A_LOCAL_PDF")
-    if original.is_symlink():
-        raise ValueError("SYMLINK_NOT_ALLOWED")
     if not source_uri.startswith("https://") or not any(
         source_uri.startswith(p) for p in (
             "https://pmc.ncbi.nlm.nih.gov/articles/",

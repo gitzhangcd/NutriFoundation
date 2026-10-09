@@ -118,6 +118,9 @@ def run(url,credentials,output):
         assert item_links.status==200
         assert any(x['field']=='decision_focus' and x['item_index']==0 and x['current_statement_matches'] for x in item_links.json()['items'])
         checks.append('item_level_judgment_evidence_bind')
+        r2.locator('#closeEvidence').click()
+        expect(r2.locator('#evidencePane')).to_be_hidden()
+        assert r2.evaluate("document.querySelector('.reader').inert") is False
         assert r2ctx.request.get(url+'/v1/tasks/SYN-R0/read-model').status==404
         assert r2ctx.request.get(url+'/v1/tasks/SYN-R2/candidate-set').status==403
         checks.extend(['native_pdfjs','19_field_profile','save_reload','cross_task_denial','R2_preAI_candidate_denial'])

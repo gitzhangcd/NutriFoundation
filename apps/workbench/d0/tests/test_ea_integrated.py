@@ -18,9 +18,15 @@ REPO = Path(__file__).resolve().parents[4]
 
 @pytest.fixture
 def app(tmp_path):
+    dedicated = accounts()
+    for username, actor in (("ea1", "SYN-EA-EXPERT-A"), ("ea2", "SYN-EA-EXPERT-B")):
+        dedicated[username] = {
+            "actor": actor, "role": "expert",
+            "password_hash": dedicated["r0"]["password_hash"]
+        }
     return make_app(
         tmp_path / "data", REPO,
-        accounts=accounts(),
+        accounts=dedicated,
         auth_path=tmp_path / "auth.sqlite",
         origin="http://testserver",
         allow_synthetic=True,
@@ -42,7 +48,7 @@ def test_original_three_pane_ui_and_evidence_mode_share_same_login(app):
 
 
 def test_evidence_multi_source_profile_and_frozen_review(app):
-    client, head = login(app, "r0")
+    client, head = login(app, "ea1")
     tasks = client.get("/v1/ea/tasks").json()["tasks"]
     assert len(tasks) == 7
     task = "EA-P1-SYN-01"
@@ -81,8 +87,8 @@ def test_evidence_multi_source_profile_and_frozen_review(app):
 
 
 def test_login_roles_no_cross_task_or_auditor_source(app):
-    a, _ = login(app, "r0")
-    b, h = login(app, "r1")
+    a, _ = login(app, "ea1")
+    b, h = login(app, "ea2")
     auditor, _ = login(app, "auditor")
     manager, _ = login(app, "manager")
     assert b.get("/v1/ea/tasks/EA-P1-SYN-01/workpack").status_code == 403

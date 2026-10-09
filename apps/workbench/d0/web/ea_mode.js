@@ -195,6 +195,7 @@ function reset(){
  document.body.classList.remove('ea-mode');
  $('eaModeBox').hidden=true;$('eaTaskBox').hidden=true;$('eaReview').hidden=true;
  $('eaModeBtn').textContent='切换到科学证据标注';
+ $('eaModeBtn').disabled=false;
  $('eaModeBtn').setAttribute('aria-pressed','false');
  taskId='';pack=null;sources=[];currentSource=null;candidates=null;resetQuote();
 }
@@ -203,7 +204,14 @@ window.nutriEvidence={active:false,api,
  reset};
 window.addEventListener('nutri-session-start',e=>{
  reset();
- if(e.detail.role==='expert')$('eaModeBox').hidden=false;
+ // Never expose scientific source library in an R0/R1/R2 decision session.
+ if(e.detail.program==='EVIDENCE_ANNOTATION'&&e.detail.role==='expert'){
+  $('eaModeBox').hidden=false;
+  $('eaModeBtn').disabled=true;
+  switchMode().then(()=>{
+   $('eaModeBtn').textContent='证据审核专用会话（不可切到 NDS 盲法任务）';
+  }).catch(e=>msg('证据任务启动失败：'+e.message));
+ }
 });
 $('eaModeBtn').onclick=()=>switchMode().catch(e=>msg('切换证据模式失败：'+e.message));
 $('eaLoad').onclick=()=>openTask().catch(e=>msg('加载失败：'+e.message));

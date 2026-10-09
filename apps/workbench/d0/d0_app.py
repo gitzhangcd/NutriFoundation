@@ -94,13 +94,15 @@ def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,
         value,error=auth.login(body.username,body.password,request.client.host)
         if error:return failure(error,429 if error=='RATE_LIMITED' else 401)
         auth.logout(request.cookies.get('nutri_session'))
-        response=JSONResponse({k:v for k,v in value.items() if k!='id'})
+        session_payload={k:v for k,v in value.items() if k!='id'}
+        session_payload['program']='EVIDENCE_ANNOTATION' if auth.accounts[value['username']]['actor'].startswith('SYN-EA-') else 'NDS_DECISION'
+        response=JSONResponse(session_payload)
         response.set_cookie('nutri_session',value['id'],httponly=True,secure=secure,samesite='strict',max_age=auth.ttl,path='/')
         return response
     @app.get('/v1/session')
     def session(request:Request):
         p=request.state.principal
-        return {'username':p['username'],'role':p['role'],'csrf_token':p['csrf'],'synthetic':True}
+        return {'username':p['username'],'role':p['role'],'csrf_token':p['csrf'],'synthetic':True,'program':'EVIDENCE_ANNOTATION' if p['actor'].startswith('SYN-EA-') else 'NDS_DECISION'}
     @app.post('/v1/logout')
     def logout(request:Request):
         auth.logout(request.cookies.get('nutri_session'))

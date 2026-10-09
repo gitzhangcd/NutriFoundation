@@ -81,7 +81,7 @@ def run(url,credentials,output):
         r2.locator('#quote').fill('Three hundred adults with obesity were randomised')
         r2.locator('#locateQuote').click();expect(r2.locator('#status')).to_contain_text('已定位输入的准确引文')
         r2.locator('#makeAnchor').click();expect(r2.locator('#status')).to_contain_text('已通过服务端证据验证并绑定',timeout=30000)
-        assert r2.locator('.pdf-highlight').count()>0
+        expect(r2.locator('.pdf-highlight')).not_to_have_count(0,timeout=30000)
         expect(r2.locator('#pdfLocatorStatus')).to_contain_text('PDF_PAGE_BBOX/0.2')
         output.mkdir(parents=True,exist_ok=True);r2.screenshot(path=str(output/'workbench-desktop.png'),full_page=False)
         r2.set_viewport_size({'width':390,'height':844});r2.screenshot(path=str(output/'workbench-mobile.png'),full_page=False)

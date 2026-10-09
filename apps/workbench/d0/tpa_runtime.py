@@ -49,8 +49,11 @@ class TaskProduction:
                 CREATE TABLE IF NOT EXISTS tpa_idempotency (
                   key TEXT PRIMARY KEY, action TEXT NOT NULL, task_id TEXT NOT NULL,
                   request_hash TEXT NOT NULL, receipt TEXT NOT NULL);
+                CREATE TABLE IF NOT EXISTS tpa_batches (
+                  batch_id TEXT PRIMARY KEY, request_key TEXT UNIQUE NOT NULL,
+                  request_hash TEXT NOT NULL, receipt TEXT NOT NULL, actor TEXT NOT NULL);
             """)
-            for table in ("tpa_events", "tpa_idempotency"):
+            for table in ("tpa_events", "tpa_idempotency", "tpa_batches"):
                 for op in ("UPDATE", "DELETE"):
                     db.execute("CREATE TRIGGER IF NOT EXISTS tpa_{}_{}_lock "
                                "BEFORE {} ON {} BEGIN SELECT RAISE(ABORT, 'IMMUTABLE'); END"
@@ -146,8 +149,7 @@ class TaskProduction:
             })
         return {"tasks":data,"synthetic_only":True,"real_experts":False}
 
-    def draft(self, role, actor, body):
-        self.role(role,("producer",))
+    def build_draft_record(self, actor, body):
         ident = body.get("task_id")
         if not isinstance(ident,str) or not re.fullmatch(r"TPA-SYN-[A-Z0-9-]{3,50}",ident):
             block("INVALID_TPA_SYNTHETIC_TASK_ID")
@@ -189,6 +191,12 @@ class TaskProduction:
             "scientific_capture":False,"gold_qualification":"NOT_ELIGIBLE",
             "created_by":actor,"created_at":utcnow()
         }
+        return record
+
+    def draft(self, role, actor, body):
+        self.role(role,("producer",))
+        record=self.build_draft_record(actor,body)
+        ident=record["task_id"]
         with self.lock, self.connect() as db:
             db.execute("BEGIN IMMEDIATE")
             if db.execute("SELECT 1 FROM tpa_tasks WHERE task_id=?",(ident,)).fetchone():
@@ -197,6 +205,58 @@ class TaskProduction:
                        (ident,encoded(record).decode(),"DRAFT"))
             self.event(db,ident,actor,"TASK_DRAFT_CREATED",{"definition_digest":digest(record)})
         return {"task":record,"state":"DRAFT"}
+
+    def batch_drafts(self,role,actor,body):
+        """One atomic transaction for a fully validated set of synthetic drafts."""
+        self.role(role,("producer",))
+        batch_id=body.get("batch_id")
+        key=body.get("idempotency_key")
+        items=body.get("items")
+        if not isinstance(batch_id,str) or not re.fullmatch(r"TPA-BATCH-[A-Z0-9-]{3,40}",batch_id):
+            block("INVALID_BATCH_ID")
+        if not isinstance(key,str) or not re.fullmatch(r"[A-Za-z0-9_.:-]{8,100}",key):
+            block("INVALID_IDEMPOTENCY_KEY")
+        if not isinstance(items,list) or not 1<=len(items)<=7:
+            block("INVALID_BATCH_SIZE")
+        request_hash=digest({"batch_id":batch_id,"items":items})
+        with self.lock,self.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            old=db.execute("SELECT * FROM tpa_batches WHERE request_key=? OR batch_id=?",
+                           (key,batch_id)).fetchone()
+            if old:
+                if old["request_hash"]!=request_hash or old["actor"]!=actor or old["request_key"]!=key:
+                    block("IDEMPOTENCY_CONFLICT")
+                return json.loads(old["receipt"])
+            # Validate *all* records before creating even one task.
+            records=[self.build_draft_record(actor,item) for item in items]
+            ids=[r["task_id"] for r in records]
+            if len(set(ids))!=len(ids):
+                block("DUPLICATE_BATCH_TASK_ID")
+            placeholders=",".join("?" for _ in ids)
+            if db.execute("SELECT 1 FROM tpa_tasks WHERE task_id IN ("+placeholders+") LIMIT 1",
+                          ids).fetchone():
+                block("TASK_ALREADY_EXISTS")
+            for record in records:
+                ident=record["task_id"]
+                db.execute("INSERT INTO tpa_tasks(task_id,record,state) VALUES(?,?,?)",
+                           (ident,encoded(record).decode(),"DRAFT"))
+                self.event(db,ident,actor,"TASK_DRAFT_CREATED",
+                           {"definition_digest":digest(record),"batch_id":batch_id})
+            receipt={"batch_id":batch_id,"task_ids":ids,"created_count":len(ids),
+                     "state":"DRAFT","all_or_nothing":True,
+                     "scientific_capture":False}
+            db.execute("INSERT INTO tpa_batches VALUES(?,?,?,?,?)",
+                       (batch_id,key,request_hash,encoded(receipt).decode(),actor))
+            self.event(db,batch_id,actor,"BATCH_DRAFTS_FROZEN",
+                       {"task_count":len(ids),"request_hash":request_hash})
+            return receipt
+
+    def batches(self,role):
+        self.role(role,("manager","producer"))
+        with self.connect() as db:
+            rows=db.execute("SELECT receipt FROM tpa_batches ORDER BY batch_id DESC").fetchall()
+        return {"batches":[json.loads(r["receipt"]) for r in rows],
+                "synthetic_only":True}
 
     def transition(self, role, actor, task_id, action):
         self.role(role,("producer",))

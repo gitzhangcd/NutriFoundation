@@ -357,7 +357,7 @@ class TaskProduction:
         if role!="expert":block("ROLE_FORBIDDEN")
         with self.lock,self.connect() as db:
             db.execute("BEGIN IMMEDIATE")
-            row=db.execute("SELECT state,assignment_actor FROM tpa_tasks WHERE task_id=?",
+            row=db.execute("SELECT state,assignment_actor,record FROM tpa_tasks WHERE task_id=?",
                            (task_id,)).fetchone()
             if not row or row["state"]!="PUBLISHED" or row["assignment_actor"]!=actor:
                 block("TASK_NOT_DELIVERED_OR_ASSIGNED")
@@ -369,7 +369,7 @@ class TaskProduction:
                     if not src:
                         block("SOURCE_NOT_REGISTERED")
                     content=json.loads(src["record"])
-                    task=self.record(row) if "record" in row.keys() else self.get(task_id)
+                    task=self.record(row)
                     if not any(x["source_id"]==source_ref[0] and x["revision_id"]==source_ref[1]
                                for x in task["allowed_source_versions"]):
                         block("SOURCE_NOT_ALLOWLISTED")

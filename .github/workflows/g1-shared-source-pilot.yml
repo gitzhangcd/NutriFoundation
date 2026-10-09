@@ -1,0 +1,48 @@
+name: G1-Shared source pilot engineering and source fidelity
+
+on:
+  push:
+    branches:
+      - research/gold100-bibliography-candidates-20261009
+    paths:
+      - apps/workbench/d0/**
+      - paper_c/P0/g1_shared_p0_1/**
+      - .github/workflows/g1-shared-source-pilot.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pilot-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch and actual source fixtures
+        uses: actions/checkout@v4
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked Workbench runtime and test runner
+        run: |
+          python -m pip install --require-hashes -r apps/workbench/d0/requirements.lock
+          python -m pip install pytest==9.1.1 httpx==0.28.1
+      - name: G1 explicit opt-in read-only source and independent review tests
+        run: |
+          cd apps/workbench/d0
+          python -m pytest tests/test_g1_source_pilot.py tests/test_g1_source_fidelity.py -q -rs
+      - name: Ensure original Paper C Gold100 has no source assignments
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          s = json.loads(Path('paper_c/P0/Gold100_Source_Slot_Manifest_v0.1.json').read_text())
+          assert len(s['slots']) == 100
+          assert all(x['source_ref'] is None for x in s['slots'])
+          print('PASS: independent confirmatory Gold100 source assignments unchanged')
+          PY
+      - name: Clearly distinguish experiment purpose
+        run: |
+          grep -q 'ENGINEERING_ONLY' apps/workbench/d0/g1_source_pilot.py
+          grep -q 'enable-g1-pilot-engineering' apps/workbench/d0/d0_app.py
+          echo 'PASS: explicit opt-in and non-Gold source review routing'

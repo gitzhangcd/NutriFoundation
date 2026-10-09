@@ -21,6 +21,7 @@ from workflow import ARMS, deny, sha
 from models import canonical_json
 from bilingual import projection as bilingual_projection
 from translation_contract import validate as validate_translation_pack
+from ux_bilingual_demo import projection as synthetic_ux_demo
 
 SOURCE_ID = 'SYN-5-2-PAPER'
 GIT_BLOB_SHA = 'fe9d476f52981c7c1d536b8578559b109a5fcbec'
@@ -198,6 +199,13 @@ def install_secure_reader(app: FastAPI, controller, root: Path, principal, fixtu
         CREATE TRIGGER IF NOT EXISTS immut_item_bind_delete BEFORE DELETE ON source_item_bindings
           BEGIN SELECT RAISE(ABORT,'IMMUTABLE_ITEM_BINDING'); END;
         """)
+
+    @app.get('/v1/tasks/{task}/reading-demo')
+    def bilingual_reading_demo(task:str,p=Depends(principal)):
+        # Independently authored self-contained UX sample; no PDF or anchors,
+        # no access for R1, administrators or unbound identities.
+        allowed(task,*p,full=True)
+        return synthetic_ux_demo()
 
     @app.get('/v1/tasks/{task}/sources')
     def sources(task: str, p=Depends(principal)):

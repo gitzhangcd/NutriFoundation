@@ -37,6 +37,31 @@ def run(url,credentials,output):
         expect(r2.locator('#pdfEngine')).to_contain_text('PDF.js',timeout=30000)
         assert r2.locator('#judgmentForm [data-key]').count()==19
         expect(r2.locator('#units')).to_contain_text('randomised')
+        expect(r2.locator('#bilingualToolbar')).to_be_visible()
+        expect(r2.locator('#translationStatus')).to_contain_text('示例译文')
+        assert r2.locator('.unit-translation').count() >= 1
+        for mode in ('parallel', 'english', 'chinese', 'immersive'):
+            r2.locator('#readerMode').select_option(mode)
+            assert r2.locator('#units').get_attribute('data-reading-mode') == mode
+        r2.locator('#focusMode').click()
+        assert 'focus-mode' in (r2.locator('#expertPanel').get_attribute('class') or '')
+        r2.locator('#evidenceToggle').click()
+        assert 'evidence-open' in (r2.locator('#expertPanel').get_attribute('class') or '')
+        r2.locator('#focusMode').click()
+        translated=r2.locator('.unit-translation').first
+        translated.evaluate('''el => {
+            const range=document.createRange();
+            range.selectNodeContents(el);
+            const sel=window.getSelection();
+            sel.removeAllRanges();sel.addRange(range);
+            el.dispatchEvent(new MouseEvent('mouseup',{bubbles:true}));
+        }''')
+        expect(r2.locator('#selectionToolbar')).to_be_visible()
+        expect(r2.locator('#selectionStatus')).to_contain_text('L1')
+        r2.locator('#selectionBind').click()
+        expect(r2.locator('#status')).to_contain_text('已通过服务端证据验证并绑定',timeout=30000)
+        checks.extend(['bilingual_four_modes','expert_focus_layout','translated_excerpt_source_binding'])
+
         r2.locator('[id="f-decision_focus"]').fill('Synthetic D0 independent judgment only')
         r2.locator('#saveDraft').click();expect(r2.locator('#saveStatus')).to_have_text('已保存')
         r2.reload();expect(r2.locator('#saveStatus')).to_have_text('已载入')
@@ -72,6 +97,9 @@ def run(url,credentials,output):
         r1ctx,r1=sign_in('r1');expect(r1.locator('#saveStatus')).to_have_text('已载入')
         expect(r1.locator('#units')).to_contain_text('Three hundred adults')
         assert r1ctx.request.get(url+'/v1/tasks/SYN-R1/sources/SYN-5-2-PAPER/original.pdf').status==404
+        assert r1ctx.request.get(url+'/v1/tasks/SYN-R1/sources/SYN-5-2-PAPER/translations').status==404
+        expect(r1.locator('#bilingualToolbar')).to_be_hidden()
+        checks.append('R1_bilingual_source_denied')
         r1.locator('.rationale').fill('Synthetic R1 verification only');r1.locator('#submitCandidates').click()
         expect(r1.locator('#saveStatus')).to_have_text('复核提交已锁定 · 合成工程记录')
         r1.reload();expect(r1.locator('#receipt')).to_contain_text('R1_verified')

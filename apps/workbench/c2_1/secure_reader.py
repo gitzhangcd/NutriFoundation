@@ -20,6 +20,7 @@ from pdf_locator import LocatorError, locate_pdf_quote
 from workflow import ARMS, deny, sha
 from models import canonical_json
 from bilingual import projection as bilingual_projection
+from translation_contract import validate as validate_translation_pack
 
 SOURCE_ID = 'SYN-5-2-PAPER'
 GIT_BLOB_SHA = 'fe9d476f52981c7c1d536b8578559b109a5fcbec'
@@ -200,6 +201,20 @@ def install_secure_reader(app: FastAPI, controller, root: Path, principal, fixtu
         allowed(task,*p,full=True);exact_source(source_id);pdf_integrity()
         return safe_doc()
 
+    def source_bound_translation_projection():
+        # Operators may provision a *synthetic*, unverified full-unit pack in a
+        # private runtime folder, not an API upload or publicly served asset.
+        p = Path(root) / 'translation_sidecars' / (doc['document_id'] + '.json')
+        if not p.exists():
+            return bilingual_projection(doc)
+        if not p.is_file() or p.is_symlink() or p.stat().st_size > 8_000_000:
+            deny('TRANSLATION_SIDECAR_INVALID',409)
+        try:
+            pack = json.loads(p.read_text(encoding='utf-8'))
+            return validate_translation_pack(doc, pack)
+        except (ValueError, TypeError, KeyError, UnicodeError, OSError):
+            deny('TRANSLATION_SIDECAR_INVALID',409)
+
     @app.get('/v1/tasks/{task}/sources/{source_id}/translations')
     def translations(task: str, source_id: str, p=Depends(principal)):
         # Delivery of translation can affect independent expert understanding:
@@ -208,13 +223,21 @@ def install_secure_reader(app: FastAPI, controller, root: Path, principal, fixtu
         allowed(task, *p, full=True)
         exact_source(source_id)
         pdf_integrity()
-        result = bilingual_projection(doc)
+        result = source_bound_translation_projection()
         from datetime import datetime, timezone
         with controller.conn() as db:
             db.execute('BEGIN IMMEDIATE')
             controller._binding(db, task, p[0], p[1])
             identity = (task, p[0], result['translation_version'],
                         result['translation_fixture_sha256'], doc['source_markdown_sha256'])
+            previous = db.execute(
+                'SELECT translation_version,fixture_sha,source_sha FROM '
+                'translation_projections_served WHERE task=? AND actor=? LIMIT 1',
+                (task,p[0])).fetchone()
+            if previous and (previous['translation_version'] != result['translation_version'] or
+                             previous['fixture_sha'] != result['translation_fixture_sha256'] or
+                             previous['source_sha'] != doc['source_markdown_sha256']):
+                deny('TRANSLATION_VERSION_CHANGED_AFTER_EXPOSURE',409)
             row = db.execute(
                 'SELECT 1 FROM translation_projections_served WHERE '
                 'task=? AND actor=? AND translation_version=? AND fixture_sha=? AND source_sha=?',

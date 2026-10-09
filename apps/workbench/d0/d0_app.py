@@ -16,6 +16,8 @@ from bootstrap import bootstrap
 from ea_runtime import EvidenceEngine
 from ea_seed import populate as seed_evidence_synthetic
 from ea_adapter import install_evidence_routes
+from tpa_runtime import TaskProduction
+from tpa_adapter import install_tpa_routes
 
 BASE=Path(__file__).resolve().parent
 C21=BASE.parent/'c2_1';C22=BASE.parent/'c2_2'
@@ -55,7 +57,10 @@ def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,
     if not has_demo:
         seed_evidence_synthetic(ea)
     app.state.evidence_engine=ea
-    install_evidence_routes(app,ea)
+    tpa=TaskProduction(Path(root)/'tpa_synthetic.sqlite',ea)
+    app.state.task_production=tpa
+    install_evidence_routes(app,ea,tpa=tpa)
+    install_tpa_routes(app,tpa)
     secure=parsed.scheme=='https'
     def failure(code,status):return JSONResponse({'detail':{'code':code}},status_code=status)
     @app.middleware('http')
@@ -135,6 +140,12 @@ def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,
             'candidate_ref':'SYN-DEMO-CANDIDATE-1','text':'Synthetic engineering candidate; assess the quoted study design. Not a clinical recommendation.',
             'source_spans':[{'source_ref':'SYN-5-2-PAPER','quote':'Three hundred adults with obesity were randomised'}]}],
             'D0-SYNTHETIC-CANDIDATES-v1')
+    @app.get('/manage')
+    def manager_index(request:Request):
+        p=request.state.principal
+        if p['role'] not in ('manager','producer') or p['actor'].startswith('SYN-EA-'):
+            raise HTTPException(403,detail={'code':'ROLE_FORBIDDEN'})
+        return FileResponse(BASE/'web/manage.html')
     app.mount('/static',StaticFiles(directory=BASE/'web'),name='ui')
     @app.get('/')
     def index():return FileResponse(BASE/'web/index.html')

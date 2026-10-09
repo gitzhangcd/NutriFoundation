@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Python
         uses: actions/setup-python@v5
         with:
@@ -42,6 +44,8 @@ jobs:
         run: node --check apps/workbench/ea_p1/web/ea_p1.js
       - name: Protected path non-regression
         run: |
+          set -o pipefail
+          git cat-file -e 54b4c2eba844f39c07575573a3e834e0bc00c261^{commit}
           if git diff --name-only 54b4c2eba844f39c07575573a3e834e0bc00c261 HEAD | grep -E '^(runs/NDF/|runs/NDS/|src/nutrifoundation/|apps/workbench/c1/|apps/workbench/c2_1/|apps/workbench/d0/)'; then
             echo "Protected scientific / existing Workbench path modified" >&2
             exit 1

@@ -67,7 +67,7 @@ let pdfRenderChain=Promise.resolve();
 function identity(){return {'X-CSRF-Token':window.nutriSession?.csrf_token||''}}
 function task(){return $('task').value}
 function base(){return `/v1/tasks/${encodeURIComponent(task())}/sources/${SOURCE}`}
-function show(s){$('status').textContent=typeof s==='string'?s:JSON.stringify(s,null,2)}
+function show(s){const text=typeof s==='string'?s:JSON.stringify(s,null,2);$('status').textContent=text;$('evidenceFeedback').textContent=text;}
 async function call(url,opts={}){const r=await fetch(url,{...opts,headers:{...identity(),...(opts.headers||{})},cache:'no-store'});if(!r.ok){const data=await r.json().catch(()=>({}));throw Error(data.detail?.code||data.detail||`HTTP ${r.status}`)}return r}
 async function json(url,opts={}){return (await call(url,opts)).json()}
 function escapeToText(el,s){el.textContent=s}
@@ -120,7 +120,7 @@ async function renderSyntheticBilingualExercise(){
  show('正在查看完整双语合成演练。此资料不能引用到正式或合成任务的科学证据链。');
 }
 async function load(){return scheduleReading(loadDocument);}
-async function loadDocument(){try{$('readerSource').hidden=true;selected=null;selectedUnit=null;selectedOffsets=null;doc=null;translationMap.clear();$('bilingualToolbar').hidden=true;$('selectionToolbar').hidden=true;pdfDoc=null;pdfjs=null;sourceURL='';$('units').replaceChildren();$('anchors').replaceChildren();$('outline').replaceChildren();$('translationVersion').textContent='';$('translationStatus').textContent='翻译未就绪';togglePDF(false);window.dispatchEvent(new CustomEvent('nutri-evidence',{detail:{items:[],bindings:[],itemBindings:[]}}));$('pdfCanvas').width=0;$('pdfOverlay').replaceChildren();$('pdfRaster').style.display='none';
+async function loadDocument(){try{window.CSS?.highlights?.delete('evidence-source');$('readerSource').hidden=true;selected=null;selectedUnit=null;selectedOffsets=null;doc=null;translationMap.clear();$('bilingualToolbar').hidden=true;$('selectionToolbar').hidden=true;pdfDoc=null;pdfjs=null;sourceURL='';$('units').replaceChildren();$('anchors').replaceChildren();$('outline').replaceChildren();$('translationVersion').textContent='';$('translationStatus').textContent='翻译未就绪';togglePDF(false);window.dispatchEvent(new CustomEvent('nutri-evidence',{detail:{items:[],bindings:[],itemBindings:[]}}));$('pdfCanvas').width=0;$('pdfOverlay').replaceChildren();$('pdfRaster').style.display='none';
  const projection=await json(`/v1/tasks/${task()}/read-model`);$('phase').textContent=projection.phase;
  if(projection.arm==='R1') {$('readerSource').value='paper'; $('readerTitle').textContent='候选证据 · 授权摘录';$('sourceTitle').textContent='R1 候选引用片段';$('readerMeta').textContent='仅限任务许可的候选证据；不提供全文与原始 PDF。';$('sourceVersion').textContent='来源权限：候选摘录';$('translationStatus').textContent='此任务不提供全文译文';$('pdfToggle').hidden=true;$('pdfDetails').hidden=true;$('query').disabled=true;$('searchBtn').disabled=true; $('sourceBadge').textContent='候选引用片段'; if(projection.phase==='EXPERT_VERIFY'){const fragments=await json(base()+'/candidate-spans'); for(const x of fragments.candidate_spans){const div=document.createElement('div');div.className='unit';div.textContent=x.quote; $('units').append(div)}show('R1：仅可见已验证的候选引用片段，不提供整篇原文/PDF');}else{show('R1 门禁：候选尚未冻结，来源不可访问。')}return;}
  $('readerSource').hidden=false;
@@ -226,6 +226,7 @@ async function sourceHash(text){
 async function makeAnchor(){
  try{
   if(!doc||!selectedUnit||!selected)throw Error('请先在左侧选取有明确出处的英文原文');
+  if($('quote').value!==selected)throw Error('引文已修改，请重新定位后再关联');
   const target=window.nutriJudgment?.getBindingTarget?.();
   if(!target)throw Error('请先打开专家判断并选择目标条目');
   const raw=selectedUnit.raw;let start,end;
@@ -261,7 +262,8 @@ async function openPDF(){try{pdfjs=await import('/static/vendor/pdfjs/pdf.min.mj
 async function showPage(number){pdfRenderChain=pdfRenderChain.catch(()=>{}).then(()=>renderPage(number));return pdfRenderChain;}
 async function renderPage(number){if(!doc)return;currentPage=Math.min(Math.max(number,1),doc.source_pages);$('pdfPage').textContent=`第 ${currentPage} / ${doc.source_pages} 页`;$('pdfOverlay').replaceChildren();const cnv=$('pdfCanvas'),img=$('pdfRaster');if(pdfDoc){img.style.display='none';const page=await pdfDoc.getPage(currentPage),viewport=page.getViewport({scale:1.3});cnv.width=viewport.width;cnv.height=viewport.height;const ctx=cnv.getContext('2d');await page.render({canvas:cnv,canvasContext:ctx,viewport}).promise;}else{cnv.style.display='none';img.style.display='block';const png=await call(base()+`/pages/${currentPage}/png`);const blob=await png.blob();if(img.dataset.objecturl)URL.revokeObjectURL(img.dataset.objecturl);img.dataset.objecturl=URL.createObjectURL(blob);img.src=img.dataset.objecturl;}if(activeLocator&&activeLocator.pdf_locator.page===currentPage)highlight(activeLocator)}
 function highlight(loc){if(loc.source_pdf_sha256!==doc?.source_pdf_sha256||loc.canonical_revision!==doc.revision)return;const p=loc.pdf_locator;if(p.match_status!=='VERIFIED_UNIQUE_PDF_TEXT'||p.page!==currentPage)return;for(const v of p.rects){const rect=v.rect_normalized;if(rect.length!==4||rect.some(x=>!Number.isFinite(x)||x<0||x>1)||rect[2]<=rect[0]||rect[3]<=rect[1])continue;const b=document.createElement('button');b.className='pdf-highlight';b.style.left=(rect[0]*100)+'%';b.style.top=(rect[1]*100)+'%';b.style.width=((rect[2]-rect[0])*100)+'%';b.style.height=((rect[3]-rect[1])*100)+'%';b.title='返回已授权结构化正文';b.onclick=()=>{const el=document.querySelector(`[data-uid="${loc.unit_id}"]`);if(el){el.classList.add('selected');el.scrollIntoView({block:'center'})}};$('pdfOverlay').append(b)}$('pdfLocatorStatus').textContent='PDF_PAGE_BBOX/0.2 · 原始 PDF 文字层唯一匹配 · 可反向回放'}
-async function openAnchor(a){try{const url=base()+`/anchors/${encodeURIComponent(a.anchor_id)}`;const loc=await json(url+'/resolve',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({expected_revision:doc.revision,expected_source_pdf_sha256:doc.source_pdf_sha256})});activeLocator=loc;await showPage(loc.pdf_locator.page);const verified=loc.pdf_locator.match_status==='VERIFIED_UNIQUE_PDF_TEXT' && $('pdfOverlay').querySelector('.pdf-highlight')!==null;if(!verified)throw Error('PDF_BOUNDING_BOX_NOT_VERIFIED');show('已校验原始 PDF 的 SHA-256、引文和文本框。');return true;}catch(e){
+async function openAnchor(a){try{const url=base()+`/anchors/${encodeURIComponent(a.anchor_id)}`;const loc=await json(url+'/resolve',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({expected_revision:doc.revision,expected_source_pdf_sha256:doc.source_pdf_sha256})});activeLocator=loc;await showPage(loc.pdf_locator.page);const verified=loc.pdf_locator.match_status==='VERIFIED_UNIQUE_PDF_TEXT' && $('pdfOverlay').querySelector('.pdf-highlight')!==null;if(!verified)throw Error('PDF_BOUNDING_BOX_NOT_VERIFIED');window.dispatchEvent(new CustomEvent('nutri-pdf-verification',{detail:{anchor_id:a.anchor_id,verified:true}}));show('已校验原始 PDF 的 SHA-256、引文和文本框。');return true;}catch(e){
+  window.dispatchEvent(new CustomEvent('nutri-pdf-verification',{detail:{anchor_id:a.anchor_id,verified:false}}));
   const hint=a.pdf_page_hint;
   if(Number.isInteger(hint)&&hint>=1&&hint<=doc.source_pages){
     try{togglePDF(true);await showPage(hint);}catch(_){}
@@ -302,3 +304,27 @@ $('readerSource').addEventListener('change',async()=>{
  finally{picker.disabled=false;}
 });
 window.nutriReader={load};
+
+window.addEventListener('nutri-replay-source',async e=>{
+ const {anchor,view}=e.detail;if(!doc)return;
+ if(view==='pdf'){togglePDF(true);await openAnchor(anchor);return;}
+ scrollUnit(anchor.unit_id);
+ for(const el of $('units').querySelectorAll('.selected'))el.classList.remove('selected');
+ const el=[...$('units').querySelectorAll('[data-uid]')].find(x=>x.dataset.uid===anchor.unit_id);
+ if(el){el.classList.add('selected');highlightSourceRange(el,anchor);el.tabIndex=-1;el.focus({preventScroll:true});}
+});
+
+function highlightSourceRange(el,anchor){
+ if(!window.CSS?.highlights||typeof Highlight==='undefined')return;
+ CSS.highlights.delete('evidence-source');
+ const unit=doc.units.find(x=>x.unit_id===anchor.unit_id);if(!unit)return;
+ const start=anchor.start_utf16,end=anchor.end_utf16;
+ if(unit.raw.slice(start,end)!==anchor.quote)return;
+ const original=el.querySelector('.unit-original');let node,from,to;
+ const cell=[...original.querySelectorAll('[data-raw-start]')].find(c=>Number(c.dataset.rawStart)<=start&&Number(c.dataset.rawEnd)>=end);
+ if(cell){node=cell.firstChild;from=start-Number(cell.dataset.rawStart);to=end-Number(cell.dataset.rawStart);}
+ else{const plain=plainMarkdown(unit.raw);node=original.firstChild;from=plain.offsets.indexOf(start);to=plain.offsets.indexOf(end-1)+1;}
+ if(node?.nodeType!==Node.TEXT_NODE||from<0||to<=from)return;
+ const range=document.createRange();range.setStart(node,from);range.setEnd(node,to);
+ CSS.highlights.set('evidence-source',new Highlight(range));
+}

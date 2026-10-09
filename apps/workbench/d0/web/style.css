@@ -1190,3 +1190,16 @@ pre {
  .judgment-item-row{flex-direction:column;align-items:stretch}
  .judgment-item-row button{align-self:flex-start}
 }
+
+/* On-demand review keeps the document available alongside the drawer. */
+.evidence{width:min(460px,calc(100vw - 32px))}
+.evidence-review-card{border-bottom:1px solid #dce8e2;padding:14px 0}
+.evidence-review-card h4{margin:0;color:var(--muted);font-size:11px}
+.evidence-review-card p{white-space:pre-wrap;overflow-wrap:anywhere}
+.evidence-review-card blockquote{margin:12px 0;padding:10px 14px;border-left:3px solid var(--green);background:#f4f8f4;font-family:Georgia,serif;line-height:1.7}
+.evidence-review-card button{margin:4px 6px 4px 0}
+.evidence-state{display:block;color:#806631}
+.evidence-composer{margin-top:20px;border-top:1px solid #dce8e2;padding-top:14px}
+#evidenceFeedback{white-space:pre-wrap;overflow-wrap:anywhere;padding:10px;background:#f4f8f4}
+#drawerSubmitReview{margin-top:12px;width:100%}
+::highlight(evidence-source){background:#cdeedf;color:#153e32}

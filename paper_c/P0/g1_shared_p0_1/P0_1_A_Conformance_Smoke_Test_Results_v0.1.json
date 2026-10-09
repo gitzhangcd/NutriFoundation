@@ -1,0 +1,65 @@
+{
+  "stage": "G1-Shared P0.1-A",
+  "version": "v0.1",
+  "date": "2026-10-10",
+  "state": "TECHNICAL_ACQUISITION_AND_NARROW_ANCHOR_QA_EXECUTED_FINAL_SCIENTIFIC_NO_GO",
+  "tests": [
+    {
+      "name": "all_five_pmc_body_segments_complete",
+      "status": "PASS",
+      "detail": "PMC service reported source-body total equals retrieved concatenation for each of five sources"
+    },
+    {
+      "name": "two_exact_text_anchors_per_source",
+      "status": "PASS",
+      "detail": "10 text-offset needle matches; original PDF positions are not verified"
+    },
+    {
+      "name": "source_reference_joins",
+      "status": "PASS",
+      "detail": "Five task source IDs resolve to five QA source IDs"
+    },
+    {
+      "name": "external_authority_version_relations",
+      "status": "PARTIAL",
+      "detail": "7 provenance hypotheses/references recorded; parent/child source snapshots and revision impact not all resolved"
+    },
+    {
+      "name": "workbench_executable_multi_source_loader",
+      "status": "BLOCKED",
+      "detail": "54b4c2e reader uses hardcoded SYN-5-2-PAPER; TaskPack is adapter-ready design, not integrated executable production workflow"
+    },
+    {
+      "name": "original_pdf_tables_figures_supplements",
+      "status": "BLOCKED",
+      "detail": "No five-source original PDF/table-cell/supplement fidelity sign-off"
+    },
+    {
+      "name": "expert_scientific_L4_and_gold",
+      "status": "NOT_STARTED",
+      "detail": "Expert scientific adjudication absent; all L4 held"
+    },
+    {
+      "name": "copyright_public_redistribution",
+      "status": "PASS_WITH_RESTRICTIONS",
+      "detail": "Only CC-BY full RCT projection publicly persisted of selected five; restricted source text not embedded in TaskPack"
+    },
+    {
+      "name": "confirmatory_pool_no_mutation",
+      "status": "PASS",
+      "detail": "Gold100 frozen slot manifest remains 0/100 bound"
+    }
+  ],
+  "errors": [],
+  "repo_baseline": "54b4c2e",
+  "branch": "research/gold100-bibliography-candidates-20261009",
+  "original_gold100_filled": 0,
+  "unit_counts": {
+    "five_pmc_bodies_retrieved": 5,
+    "narrow_source_spans_verified": 10,
+    "full_original_pdf_fidelity": 0,
+    "formally_scientifically_qualified_sources": 0,
+    "expert_gold": 0
+  },
+  "reportable_result": "P0.1-A source technical pilot complete at PMC-body layer; scientific full-fidelity acceptance incomplete and blocked"
+}

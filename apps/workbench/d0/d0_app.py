@@ -13,6 +13,9 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel,ConfigDict,Field
 from auth import Auth,ACTORS
 from bootstrap import bootstrap
+from ea_runtime import EvidenceEngine
+from ea_seed import populate as seed_evidence_synthetic
+from ea_adapter import install_evidence_routes
 
 BASE=Path(__file__).resolve().parent
 C21=BASE.parent/'c2_1';C22=BASE.parent/'c2_2'
@@ -43,6 +46,16 @@ def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,
     readiness=assess(repo_root)
     app=FastAPI(title='NutriFoundation private synthetic Workbench',docs_url=None,redoc_url=None,openapi_url=None)
     app.state.inner=inner;app.state.auth=auth
+    # Additive evidence annotation. Reuses this app's authenticated D0 session,
+    # existing visual Workbench and read-only NDS science controller.
+    # Only self-authored, explicitly synthetic fixtures; never auto-load real files.
+    ea=EvidenceEngine(Path(root)/'ea_synthetic.sqlite', BASE/'ea_contract.v0.1.json')
+    with ea.connect() as ea_db:
+        has_demo=ea_db.execute('SELECT 1 FROM tasks LIMIT 1').fetchone() is not None
+    if not has_demo:
+        seed_evidence_synthetic(ea)
+    app.state.evidence_engine=ea
+    install_evidence_routes(app,ea)
     secure=parsed.scheme=='https'
     def failure(code,status):return JSONResponse({'detail':{'code':code}},status_code=status)
     @app.middleware('http')
@@ -81,13 +94,15 @@ def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,
         value,error=auth.login(body.username,body.password,request.client.host)
         if error:return failure(error,429 if error=='RATE_LIMITED' else 401)
         auth.logout(request.cookies.get('nutri_session'))
-        response=JSONResponse({k:v for k,v in value.items() if k!='id'})
+        session_payload={k:v for k,v in value.items() if k!='id'}
+        session_payload['program']='EVIDENCE_ANNOTATION' if auth.accounts[value['username']]['actor'].startswith('SYN-EA-') else 'NDS_DECISION'
+        response=JSONResponse(session_payload)
         response.set_cookie('nutri_session',value['id'],httponly=True,secure=secure,samesite='strict',max_age=auth.ttl,path='/')
         return response
     @app.get('/v1/session')
     def session(request:Request):
         p=request.state.principal
-        return {'username':p['username'],'role':p['role'],'csrf_token':p['csrf'],'synthetic':True}
+        return {'username':p['username'],'role':p['role'],'csrf_token':p['csrf'],'synthetic':True,'program':'EVIDENCE_ANNOTATION' if p['actor'].startswith('SYN-EA-') else 'NDS_DECISION'}
     @app.post('/v1/logout')
     def logout(request:Request):
         auth.logout(request.cookies.get('nutri_session'))

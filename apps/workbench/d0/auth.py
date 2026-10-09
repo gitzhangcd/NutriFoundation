@@ -9,7 +9,8 @@ import time
 from pathlib import Path
 
 ACTORS={'SYN-ADMIN':'manager','SYN-PRODUCER-1':'producer','SYN-EXPERT-A':'expert',
-        'SYN-EXPERT-B':'expert','SYN-EXPERT-C':'expert','SYN-AUDITOR':'auditor'}
+        'SYN-EXPERT-B':'expert','SYN-EXPERT-C':'expert','SYN-AUDITOR':'auditor',
+        'SYN-EA-EXPERT-A':'expert','SYN-EA-EXPERT-B':'expert'}
 
 def password_hash(password:str)->str:
     if len(password)<16:raise ValueError('PASSWORD_TOO_SHORT')

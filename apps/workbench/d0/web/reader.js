@@ -417,7 +417,11 @@ async function runSearch(){
  if(problem){clearSearch({keepQuery:true});searchMessage(problem==='EMPTY'?'请输入要查找的词。':'关键词太短：英文至少 3 个字母，中文至少 2 个字。');return;}
  clearSearch({keepQuery:true});
  try{
-  const s=await json(base()+'/search?q='+encodeURIComponent(q));
+  const s=window.nutriEvidence?.active
+    ? {results:doc.units.filter(u=>matchRanges(plainMarkdown(u.raw).text,q).length).map(u=>({unit_id:u.unit_id})),
+       total:0,offset:0,truncated:false}
+    : await json(base()+'/search?q='+encodeURIComponent(q));
+   if(window.nutriEvidence?.active)s.total=s.results.length;
   const units=doc.units.map(u=>({unit_id:u.unit_id,type:u.type,text:plainMarkdown(u.raw).text}));
   search.q=q;search.sections=sectionIndex(units);
   search.sectionIds=new Map();let sec=null;for(const u of doc.units){if(u.type==='SECTION')sec=u.unit_id;search.sectionIds.set(u.unit_id,sec);}
@@ -477,7 +481,61 @@ function updateModeHint(){
  $('modeHint').hidden=!(partial&&mode!=='english');
  $('modeHint').textContent=`本论文只有 ${[...translationMap.values()].reduce((n,a)=>n+a.length,0)} 处演练译文，其余段落仅显示英文原文。完整中英对照请切换到“完整双语练习”。`;
 }
-window.nutriReader={load,updateConfirmation,refreshEvidence:()=>doc?listAnchors().catch(()=>{}):null,setCiteTarget:label=>{citeTargetLabel=label;$('citeTargetHint').hidden=!label;$('citeTargetHint').textContent=label?'正在为「'+label+'」找原文：请在下方原文中选中支撑这条判断的文字。':'';}};
+// Additive evidence adapter using the ORIGINAL 54b4c2e reader, not a new app.
+async function loadEvidenceSource(source){
+ return scheduleReading(async()=>{
+  if(!window.nutriEvidence?.active)throw Error('EA_MODE_NOT_ACTIVE');
+  const granted=await window.nutriEvidence.readSource(source);
+  clearQuoteSelection();clearSearch();translationMap.clear();activeLocator=null;
+  if(pdfDoc){try{await pdfDoc.destroy()}catch(_){}}
+  pdfDoc=null;pdfjs=null;sourceURL='';doc=null;
+  $('units').replaceChildren();$('outline').replaceChildren();$('anchors').replaceChildren();
+  $('selectionToolbar').hidden=true;$('pdfDetails').hidden=true;$('pdfToggle').hidden=true;
+  $('bilingualToolbar').hidden=true;$('readerSource').hidden=true;
+  $('pdfCanvas').width=0;$('pdfOverlay').replaceChildren();$('pdfRaster').style.display='none';
+  $('manualQuote').open=false;
+  doc={document_id:granted.source_id,revision:granted.revision_id,
+       title:granted.title,source_pages:0,source_pdf_sha256:null,
+       source_markdown_sha256:granted.canonical_document_sha256,
+       units:granted.units.map(u=>({unit_id:u.unit_id,raw:u.text,type:u.type||'PARAGRAPH'}))};
+  $('readerTitle').textContent=doc.title;$('sourceTitle').textContent=doc.title;
+  $('sourceBadge').textContent=granted.source_type+' · '+doc.units.length+' 原文单元';
+  $('readerMeta').textContent='原有 D0 阅读器 · EA 合成结构化原文 · 科学资格未获批准';
+  $('sourceVersion').textContent='Source '+granted.source_id+':'+granted.revision_id+
+    ' · SHA256 '+granted.canonical_document_sha256.slice(0,16)+'…';
+  $('translationVersion').textContent='无经过核验的翻译 sidecar';
+  $('translationStatus').textContent='仅原文；本合成样例无原始 PDF/已审校译文，不能作为真实科学证据。';
+  $('readerMode').value='english';$('units').dataset.readingMode='english';
+  let tableTitle='';
+  for(const u of doc.units){
+    const div=document.createElement('div');div.className='unit'+(u.type==='SECTION'?' section':'');
+    div.dataset.uid=u.unit_id;
+    if(u.type==='SECTION'){
+      const b=document.createElement('button');b.type='button';b.dataset.uid=u.unit_id;
+      b.textContent=plainMarkdown(u.raw).text;b.onclick=()=>scrollUnit(u.unit_id);$('outline').append(b);
+      if(/^Table\s+\d+/i.test(u.raw))tableTitle=u.raw;
+    }
+    const original=document.createElement('div');original.className='unit-original';
+    const rows=u.type==='TABLE'?parseSourceTable(u.raw):null;
+    if(rows)original.append(sourceTableElement(u,rows,(a,b)=>setQuoteSelection(u,a,b),tableTitle));
+    else original.textContent=plainMarkdown(u.raw).text;
+    div.append(original);
+    if(u.type!=='SECTION'){
+      const foot=document.createElement('div');foot.className='unit-footer';
+      const id=document.createElement('span');id.className='unit-id';id.textContent='原文单元 · '+u.unit_id;
+      const cite=document.createElement('button');cite.type='button';cite.className='text-button';
+      cite.textContent='＋ 引用此段';cite.onclick=()=>setQuoteSelection(u,0,u.raw.length);
+      foot.append(id,cite);div.append(foot);
+    }
+    $('units').append(div);
+  }
+  if(!$('outline').children.length)$('outline').textContent='当前资料无章节目录';
+  $('phase').textContent='EA · 科学证据标注（仅合成）';
+  setSearchAvailability(true,'搜索当前授权的结构化原文');$('modeHint').hidden=true;
+  show('EA 原文已在原 D0 阅读器加载；可选中文字或引用段落。');
+ });
+}
+window.nutriReader={load,loadEvidenceSource,updateConfirmation,refreshEvidence:()=>doc?listAnchors().catch(()=>{}):null,setCiteTarget:label=>{citeTargetLabel=label;$('citeTargetHint').hidden=!label;$('citeTargetHint').textContent=label?'正在为「'+label+'」找原文：请在下方原文中选中支撑这条判断的文字。':'';}};
 
 window.addEventListener('nutri-replay-source',async e=>{
  const {anchor,view}=e.detail;if(!doc)return;
@@ -525,6 +583,17 @@ function setQuoteSelection(unit,start,end,alignment=false,context=''){
  updateConfirmation();
 }
 function updateConfirmation(){
+ if(window.nutriEvidence?.active){
+  $('selectionToolbar').hidden=true;$('makeAnchor').disabled=true;
+  $('quoteConfirmation').hidden=true;$('quoteEmpty').hidden=true;
+  if(selectedUnit&&selectedOffsets&&selected)window.nutriEvidence.onQuote({
+    unit_id:selectedUnit.unit_id,start_utf16:selectedOffsets.start,
+    end_utf16:selectedOffsets.end,source_quote:selected,
+    document_id:doc?.document_id,revision_id:doc?.revision,
+    canonical_sha256:doc?.source_markdown_sha256
+  });
+  return;
+ }
  const valid=!!doc&&!!selectedUnit&&!!selected&&$('quote').value===selected;
  $('quoteEmpty').hidden=valid;$('quoteConfirmation').hidden=!valid;
  if(valid){const shown=plainMarkdown(selected).text;$('quotePreview').textContent=shown;$('quoteMarkupNote').hidden=shown===selected;$('quoteContext').textContent=selectedUnit.raw;

@@ -1,0 +1,362 @@
+{
+  "contract_id": "WB_EA_P0_HETEROGENEOUS_ANNOTATION",
+  "version": "0.1.0",
+  "authority": {
+    "repository": "gitzhangcd/NutriFoundation",
+    "source_commit": "54b4c2eba844f39c07575573a3e834e0bc00c261",
+    "status": "PROPOSED_DESIGN_ONLY",
+    "scientific_owner_signoff": "PENDING",
+    "runtime_implemented": false,
+    "upstream_immutability": [
+      "runs/NDF/**",
+      "runs/NDS/**",
+      "src/nutrifoundation/**",
+      "apps/workbench/c1/specs/decision_profile.json"
+    ]
+  },
+  "task_kinds": {
+    "EVIDENCE_ECOSYSTEM_CASE": {
+      "profile_namespace": "WB_EA",
+      "routing_rule": "EXACT_TYPE_AND_VERSION",
+      "allowed_workflows": [
+        "AGENT_PROPOSE_EXPERT_VERIFY",
+        "HUMAN_INDEPENDENT",
+        "DOUBLE_BLIND_GOLD"
+      ],
+      "canonical_payload_owner": "UPSTREAM_SCIENTIFIC_ECOSYSTEM",
+      "gold_owner": "INDEPENDENT_SCIENTIFIC_REFERENCE_AUTHORITY",
+      "legacy_decision_fields": "FORBIDDEN_BY_DEFAULT"
+    },
+    "DECISION_CASE": {
+      "profile_id": "NDS_R1_DECISION_CAPTURE",
+      "field_count": 19,
+      "reference_set": [
+        "preferred",
+        "acceptable",
+        "conditional",
+        "not_currently_indicated",
+        "prohibited",
+        "unsafe",
+        "unresolved"
+      ],
+      "allowed_workflows": [
+        "NDS_R1_EXISTING"
+      ],
+      "policy": "PASS_THROUGH_UNMODIFIED",
+      "upstream_state": "PRESERVE_R0_R1_R2_EXPOSURE_AND_FREEZE"
+    }
+  },
+  "source_types": [
+    "RANDOMIZED_TRIAL",
+    "OBSERVATIONAL_STUDY",
+    "SYSTEMATIC_REVIEW_META",
+    "GUIDELINE",
+    "CONSENSUS",
+    "NARRATIVE_REVIEW",
+    "CORRECTION_RETRACTION"
+  ],
+  "field_rules": {
+    "unknown_source_type": "TYPE_UNRESOLVED_HOLD",
+    "unknown_task_kind": "HOLD",
+    "missing_profile": "HOLD",
+    "ambiguous_profile": "HOLD",
+    "source_not_allowlisted": "DENY",
+    "source_revision_mismatch": "DENY",
+    "missing_source_anchor": "NOT_QUALIFIABLE",
+    "unverified_pdf_bbox": "KEEP_UNVERIFIED",
+    "unreviewed_translation": "AUXILIARY_ONLY",
+    "invalid_rights": "HOLD",
+    "candidate_without_freeze_receipt": "DENY",
+    "independent_reviewer_agent_exposure": "DENY",
+    "auto_gold_promotion": "DENY",
+    "future_source_at_past_cutoff": "DENY"
+  },
+  "task_requirements": [
+    "task_id",
+    "task_kind",
+    "protocol_version",
+    "profile_id",
+    "profile_version",
+    "source_type",
+    "knowledge_cutoff",
+    "allowed_source_versions",
+    "allowed_roles",
+    "exposure_policy_ref",
+    "workflow_strategy",
+    "gold_qualification"
+  ],
+  "source_projection_requirements": [
+    "source_id",
+    "revision_id",
+    "source_type",
+    "original_sha256",
+    "canonical_document_sha256",
+    "publicly_available_at",
+    "fetched_at",
+    "rights_decision_ref",
+    "authorized_units"
+  ],
+  "anchor_requirements": [
+    "task_id",
+    "source_id",
+    "revision_id",
+    "canonical_document_sha256",
+    "unit_id",
+    "start_utf16",
+    "end_utf16",
+    "source_quote",
+    "source_quote_sha256",
+    "pdf_locator.status"
+  ],
+  "candidate_requirements": [
+    "candidate_id",
+    "source_ref",
+    "profile_ref",
+    "target_canonical_object_type",
+    "candidate_payload",
+    "original_anchors",
+    "extraction_run_ref",
+    "provenance_status"
+  ],
+  "review_dispositions": [
+    "ACCEPT",
+    "MODIFY",
+    "REJECT",
+    "NEEDS_MORE_EVIDENCE",
+    "IRRELEVANT",
+    "UNCERTAIN"
+  ],
+  "source_support_status": [
+    "SUPPORTED",
+    "PARTIAL",
+    "UNSUPPORTED",
+    "NOT_VERIFIED"
+  ],
+  "pdf_locator_states": [
+    "VERIFIED_UNIQUE_PDF_TEXT",
+    "PAGE_HINT_ONLY",
+    "UNRESOLVED"
+  ],
+  "provenance_status": [
+    "VERIFIED_SPAN",
+    "UNVERIFIED",
+    "MISSING"
+  ],
+  "science_object_candidate_types": [
+    "SourceArtifact",
+    "StudyIdentity",
+    "EvidenceUnit",
+    "ScientificClaim",
+    "ScientificRelation",
+    "EvidenceSynthesis",
+    "Recommendation",
+    "EtDAssessment",
+    "DeliberationProcess",
+    "ConsensusJudgment",
+    "ProvenanceRecord",
+    "VerificationRecord"
+  ],
+  "lifecycle": [
+    "REGISTERED",
+    "SOURCE_QUALIFIED",
+    "PROFILE_LOCKED",
+    "INDEPENDENT_CAPTURE",
+    "AGENT_CANDIDATE_GENERATION",
+    "CANDIDATE_FROZEN",
+    "EXPERT_VERIFICATION",
+    "INDEPENDENT_REVIEW",
+    "EXPERT_REVIEW_FROZEN",
+    "QUALIFICATION_PENDING",
+    "QUALIFIED",
+    "REJECTED",
+    "UNRESOLVED",
+    "PROMOTED"
+  ],
+  "profiles": [
+    {
+      "profile_id": "WB_EA_RCT_V0_1",
+      "source_type": "RANDOMIZED_TRIAL",
+      "required_groups": [
+        "trial_identity",
+        "population_eligibility",
+        "arms_interventions_comparators",
+        "outcomes_and_timepoints",
+        "numerical_results_and_analysis",
+        "risk_of_bias_and_missingness",
+        "claim_support",
+        "applicability",
+        "source_spans"
+      ],
+      "canonical_object_candidates": [
+        "StudyIdentity",
+        "EvidenceUnit",
+        "ScientificClaim"
+      ],
+      "kill_tests": [
+        "WITHIN_VS_BETWEEN_ARM",
+        "NONSIGNIFICANCE_NOT_EQUIVALENCE",
+        "EFFECT_DIRECTION",
+        "TIMEPOINT_AND_ESTIMAND",
+        "ATTRITION"
+      ]
+    },
+    {
+      "profile_id": "WB_EA_OBSERVATIONAL_V0_1",
+      "source_type": "OBSERVATIONAL_STUDY",
+      "required_groups": [
+        "study_identity",
+        "population_and_sampling",
+        "exposure",
+        "outcome",
+        "temporality",
+        "adjustment_and_confounding",
+        "effect_estimates",
+        "bias_and_missingness",
+        "claim_support",
+        "source_spans"
+      ],
+      "canonical_object_candidates": [
+        "StudyIdentity",
+        "EvidenceUnit",
+        "ScientificClaim"
+      ],
+      "kill_tests": [
+        "ASSOCIATION_NOT_CAUSATION",
+        "CONFOUNDING_LOSS",
+        "TEMPORAL_DIRECTION"
+      ]
+    },
+    {
+      "profile_id": "WB_EA_META_V0_1",
+      "source_type": "SYSTEMATIC_REVIEW_META",
+      "required_groups": [
+        "review_identity",
+        "protocol_and_search",
+        "eligibility",
+        "included_study_identity",
+        "overlap_and_lineage",
+        "synthesis_methods",
+        "pooled_effect_and_heterogeneity",
+        "risk_of_bias_certainty",
+        "source_spans"
+      ],
+      "canonical_object_candidates": [
+        "EvidenceSynthesis",
+        "ScientificRelation"
+      ],
+      "kill_tests": [
+        "STUDY_DOUBLE_COUNT",
+        "PARENT_REVIEW_NOT_RAW_STUDY",
+        "SYNTHESIS_ESTIMATE_MISMATCH"
+      ]
+    },
+    {
+      "profile_id": "WB_EA_GUIDELINE_V0_1",
+      "source_type": "GUIDELINE",
+      "required_groups": [
+        "issuing_authority_and_version",
+        "recommendation_original_statement",
+        "statement_class",
+        "population_and_context",
+        "action_and_direction",
+        "strength_original_scale",
+        "exceptions_and_conditions",
+        "evidence_dependencies",
+        "etd_and_uncertainty",
+        "source_spans"
+      ],
+      "canonical_object_candidates": [
+        "Recommendation",
+        "EtDAssessment",
+        "ScientificClaim"
+      ],
+      "kill_tests": [
+        "FALSE_FORMAL_RECOMMENDATION",
+        "EXCEPTION_DROPPED",
+        "GRADE_FORCE_MAP",
+        "RECOMMENDATION_AS_EFFECT_ESTIMATE"
+      ]
+    },
+    {
+      "profile_id": "WB_EA_CONSENSUS_V0_1",
+      "source_type": "CONSENSUS",
+      "required_groups": [
+        "consensus_identity",
+        "panel_qualification",
+        "deliberation_method",
+        "voting_or_delphi",
+        "consensus_statement",
+        "dissent_and_uncertainty",
+        "evidence_support_or_gap",
+        "source_spans"
+      ],
+      "canonical_object_candidates": [
+        "DeliberationProcess",
+        "ConsensusJudgment"
+      ],
+      "kill_tests": [
+        "VOTE_NOT_EVIDENCE_CERTAINTY",
+        "UNRECORDED_DISSENT",
+        "CONSENSUS_AS_RCT"
+      ]
+    },
+    {
+      "profile_id": "WB_EA_NARRATIVE_V0_1",
+      "source_type": "NARRATIVE_REVIEW",
+      "required_groups": [
+        "author_claims",
+        "cited_primary_source_lineage",
+        "mechanism_hypotheses",
+        "evidence_limits",
+        "source_spans"
+      ],
+      "canonical_object_candidates": [
+        "ScientificClaim",
+        "ScientificRelation"
+      ],
+      "kill_tests": [
+        "CITATION_LAUNDERING",
+        "HYPOTHESIS_AS_CONFIRMED_EFFECT"
+      ]
+    },
+    {
+      "profile_id": "WB_EA_CORRECTION_V0_1",
+      "source_type": "CORRECTION_RETRACTION",
+      "required_groups": [
+        "affected_artifact_version",
+        "correction_event",
+        "event_availability_time",
+        "affected_claim_relations",
+        "dependency_impact",
+        "source_spans"
+      ],
+      "canonical_object_candidates": [
+        "ProvenanceRecord",
+        "VerificationRecord"
+      ],
+      "kill_tests": [
+        "PAST_CUTOFF_FUTURE_EVENT",
+        "HISTORY_DELETED",
+        "DEPENDENCY_ORPHAN"
+      ]
+    }
+  ],
+  "fixture_policy": {
+    "paper_5_2": {
+      "source_id": "SYN-5-2-PAPER",
+      "source_type": "RANDOMIZED_TRIAL",
+      "is_real_published_work": true,
+      "is_authorized_synthetic_reader_fixture": true,
+      "is_qualified_evidence": false,
+      "scientific_capture": false,
+      "authoritative_nds_source": false,
+      "profile_demo_only": true
+    }
+  },
+  "phase_boundaries": {
+    "P0": "DESIGN_AND_MACHINE_READABLE_CONTRACT_ONLY",
+    "P1": "RUNTIME_SOURCE_REGISTRY_TYPED_PROFILES_AGENT_PIPELINE",
+    "P2": "INDEPENDENT_REFERENCE_VALIDATION_AND_PILOT",
+    "production_go": "SEPARATE_SCIENTIFIC_SOURCE_EXPERT_SECURITY_ETHICS_APPROVAL"
+  }
+}

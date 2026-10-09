@@ -1,0 +1,259 @@
+{
+  "status": "EXPLORATORY_PUBMED_BIBLIOGRAPHY_NOT_GOLD100",
+  "rows": [
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "fasting",
+      "title": "Intermittent fasting and weight loss: Systematic review.",
+      "pmid": "32060194",
+      "doi": "",
+      "pmcid": "PMC7021351",
+      "date": "2020 Feb",
+      "journal": "Canadian family physician Medecin de famille canadien",
+      "publication_types": "Journal Article",
+      "query": "(\"intermittent fasting\"[ti] OR \"time-restricted eating\"[ti]) AND (systematic review[ti] OR meta-analysis[ti]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "fasting",
+      "title": "Intermittent fasting strategies and their effects on body weight and other cardiometabolic risk factors: systematic review and network meta-analysis of randomised clinical trials.",
+      "pmid": "40533200",
+      "doi": "10.1136/bmj-2024-082007",
+      "pmcid": "PMC12175170",
+      "date": "2025 Jun 18",
+      "journal": "BMJ (Clinical research ed.)",
+      "publication_types": "Journal Article",
+      "query": "(\"intermittent fasting\"[ti] OR \"time-restricted eating\"[ti]) AND (systematic review[ti] OR meta-analysis[ti]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "fasting",
+      "title": "Intermittent Fasting: Does It Affect Sports Performance? A Systematic Review.",
+      "pmid": "38201996",
+      "doi": "10.3390/nu16010168",
+      "pmcid": "PMC10780856",
+      "date": "2024 Jan 04",
+      "journal": "Nutrients",
+      "publication_types": "Systematic Review",
+      "query": "(\"intermittent fasting\"[ti] OR \"time-restricted eating\"[ti]) AND (systematic review[ti] OR meta-analysis[ti]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "fasting",
+      "title": "The effects of intermittent fasting on body composition and cardiometabolic health in adults with prediabetes or type 2 diabetes: A systematic review and meta-analysis.",
+      "pmid": "38956175",
+      "doi": "10.1111/dom.15730",
+      "pmcid": "",
+      "date": "2024 Sep",
+      "journal": "Diabetes, obesity & metabolism",
+      "publication_types": "Journal Article",
+      "query": "(\"intermittent fasting\"[ti] OR \"time-restricted eating\"[ti]) AND (systematic review[ti] OR meta-analysis[ti]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "cardiovascular",
+      "title": "Dietary Approaches to Stop Hypertension (DASH) Diet and Blood Pressure Reduction in Adults with and without Hypertension: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "pmid": "32330233",
+      "doi": "10.1093/advances/nmaa041",
+      "pmcid": "PMC7490167",
+      "date": "2020 Sep 01",
+      "journal": "Advances in nutrition (Bethesda, Md.)",
+      "publication_types": "Journal Article",
+      "query": "(\"Mediterranean diet\"[ti] OR \"DASH diet\"[ti]) AND (systematic review[ti] OR meta-analysis[ti]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "cardiovascular",
+      "title": "Adherence to the DASH Diet and Risk of Hypertension: A Systematic Review and Meta-Analysis.",
+      "pmid": "37513679",
+      "doi": "10.3390/nu15143261",
+      "pmcid": "PMC10383418",
+      "date": "2023 Jul 24",
+      "journal": "Nutrients",
+      "publication_types": "Meta-Analysis",
+      "query": "(\"Mediterranean diet\"[ti] OR \"DASH diet\"[ti]) AND (systematic review[ti] OR meta-analysis[ti]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "cardiovascular",
+      "title": "Mediterranean diet and female reproductive health over lifespan: a systematic review and meta-analysis.",
+      "pmid": "37506751",
+      "doi": "10.1016/j.ajog.2023.05.030",
+      "pmcid": "",
+      "date": "2023 Dec",
+      "journal": "American journal of obstetrics and gynecology",
+      "publication_types": "Meta-Analysis",
+      "query": "(\"Mediterranean diet\"[ti] OR \"DASH diet\"[ti]) AND (systematic review[ti] OR meta-analysis[ti]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "type2_diabetes",
+      "title": "Effect of low glycaemic index or load dietary patterns on glycaemic control and cardiometabolic risk factors in diabetes: systematic review and meta-analysis of randomised controlled trials.",
+      "pmid": "34348965",
+      "doi": "10.1136/bmj.n1651",
+      "pmcid": "PMC8336013",
+      "date": "2021 Aug 04",
+      "journal": "BMJ (Clinical research ed.)",
+      "publication_types": "Journal Article",
+      "query": "(\"low carbohydrate\"[ti] OR \"dietary patterns\"[ti] OR \"low glycaemic\"[ti]) AND (\"meta-analysis\"[ti] OR \"systematic review\"[ti]) AND (2021:2026[dp])"
+    },
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "type2_diabetes",
+      "title": "Efficacy and safety of low and very low carbohydrate diets for type 2 diabetes remission: systematic review and meta-analysis of published and unpublished randomized trial data.",
+      "pmid": "33441384",
+      "doi": "10.1136/bmj.m4743",
+      "pmcid": "PMC7804828",
+      "date": "2021 Jan 13",
+      "journal": "BMJ (Clinical research ed.)",
+      "publication_types": "Journal Article",
+      "query": "(\"low carbohydrate\"[ti] OR \"dietary patterns\"[ti] OR \"low glycaemic\"[ti]) AND (\"meta-analysis\"[ti] OR \"systematic review\"[ti]) AND (2021:2026[dp])"
+    },
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "type2_diabetes",
+      "title": "Can Dietary Patterns Impact Fertility Outcomes? A Systematic Review and Meta-Analysis.",
+      "pmid": "37299551",
+      "doi": "10.3390/nu15112589",
+      "pmcid": "PMC10255613",
+      "date": "2023 May 31",
+      "journal": "Nutrients",
+      "publication_types": "Meta-Analysis",
+      "query": "(\"low carbohydrate\"[ti] OR \"dietary patterns\"[ti] OR \"low glycaemic\"[ti]) AND (\"meta-analysis\"[ti] OR \"systematic review\"[ti]) AND (2021:2026[dp])"
+    },
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "type2_diabetes",
+      "title": "The Role of Diet in Prognosis among Cancer Survivors: A Systematic Review and Meta-Analysis of Dietary Patterns and Diet Interventions.",
+      "pmid": "35057525",
+      "doi": "10.3390/nu14020348",
+      "pmcid": "PMC8779048",
+      "date": "2022 Jan 14",
+      "journal": "Nutrients",
+      "publication_types": "Journal Article",
+      "query": "(\"low carbohydrate\"[ti] OR \"dietary patterns\"[ti] OR \"low glycaemic\"[ti]) AND (\"meta-analysis\"[ti] OR \"systematic review\"[ti]) AND (2021:2026[dp])"
+    },
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "sarcopenia",
+      "title": "Systematic review and meta-analysis of protein intake to support muscle mass and function in healthy adults.",
+      "pmid": "35187864",
+      "doi": "10.1002/jcsm.12922",
+      "pmcid": "PMC8978023",
+      "date": "2022 Apr",
+      "journal": "Journal of cachexia, sarcopenia and muscle",
+      "publication_types": "Journal Article",
+      "query": "(\"sarcopenia\"[ti] OR \"muscle mass\"[ti]) AND (\"meta-analysis\"[ti] OR \"systematic review\"[ti]) AND (protein[tiab] OR nutrition[tiab]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "sarcopenia",
+      "title": "Exercise for sarcopenia in older people: A systematic review and network meta-analysis.",
+      "pmid": "37057640",
+      "doi": "10.1002/jcsm.13225",
+      "pmcid": "PMC10235889",
+      "date": "2023 Jun",
+      "journal": "Journal of cachexia, sarcopenia and muscle",
+      "publication_types": "Systematic Review",
+      "query": "(\"sarcopenia\"[ti] OR \"muscle mass\"[ti]) AND (\"meta-analysis\"[ti] OR \"systematic review\"[ti]) AND (protein[tiab] OR nutrition[tiab]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "sarcopenia",
+      "title": "Effect of Plant Versus Animal Protein on Muscle Mass, Strength, Physical Performance, and Sarcopenia: A Systematic Review and Meta-analysis of Randomized Controlled Trials.",
+      "pmid": "39813010",
+      "doi": "10.1093/nutrit/nuae200",
+      "pmcid": "PMC12166177",
+      "date": "2025 Jul 01",
+      "journal": "Nutrition reviews",
+      "publication_types": "Journal Article",
+      "query": "(\"sarcopenia\"[ti] OR \"muscle mass\"[ti]) AND (\"meta-analysis\"[ti] OR \"systematic review\"[ti]) AND (protein[tiab] OR nutrition[tiab]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "cancer_nutrition",
+      "title": "Association of food groups and dietary pattern with breast cancer risk: A systematic review and meta-analysis.",
+      "pmid": "36731160",
+      "doi": "10.1016/j.clnu.2023.01.003",
+      "pmcid": "",
+      "date": "2023 Mar",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "publication_types": "Systematic Review",
+      "query": "(cancer[ti] OR oncology[ti]) AND (\"nutrition support\"[ti] OR \"nutritional intervention\"[ti] OR \"dietary pattern\"[ti]) AND (\"meta-analysis\"[ti] OR \"systematic review\"[ti]) AND (2019:2026[dp])"
+    },
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "cancer_nutrition",
+      "title": "The effect of timing of enteral nutrition support on feeding outcomes and dysphagia in patients with head and neck cancer undergoing radiotherapy or chemoradiotherapy: A systematic review.",
+      "pmid": "34330518",
+      "doi": "10.1016/j.clnesp.2021.05.017",
+      "pmcid": "",
+      "date": "2021 Aug",
+      "journal": "Clinical nutrition ESPEN",
+      "publication_types": "Journal Article",
+      "query": "(cancer[ti] OR oncology[ti]) AND (\"nutrition support\"[ti] OR \"nutritional intervention\"[ti] OR \"dietary pattern\"[ti]) AND (\"meta-analysis\"[ti] OR \"systematic review\"[ti]) AND (2019:2026[dp])"
+    },
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "renal_nutrition",
+      "title": "Conversion of Urine Protein-Creatinine Ratio or Urine Dipstick Protein to Urine Albumin-Creatinine Ratio for Use in Chronic Kidney Disease Screening and Prognosis : An Individual Participant-Based Meta-analysis.",
+      "pmid": "32658569",
+      "doi": "10.7326/M20-0529",
+      "pmcid": "PMC7780415",
+      "date": "2020 Sep 15",
+      "journal": "Annals of internal medicine",
+      "publication_types": "Journal Article",
+      "query": "(\"chronic kidney disease\"[ti] OR renal[ti]) AND (protein[ti] OR dietary[ti] OR nutrition[ti]) AND (\"systematic review\"[ti] OR \"meta-analysis\"[ti]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "evidence_synthesis",
+      "topic": "renal_nutrition",
+      "title": "Efficacy and safety of ketoanalogue supplementation combined with protein-restricted diets in advanced chronic kidney disease: a systematic review and meta-analysis.",
+      "pmid": "39340710",
+      "doi": "10.1007/s40620-024-02065-9",
+      "pmcid": "",
+      "date": "2024 Nov",
+      "journal": "Journal of nephrology",
+      "publication_types": "Journal Article",
+      "query": "(\"chronic kidney disease\"[ti] OR renal[ti]) AND (protein[ti] OR dietary[ti] OR nutrition[ti]) AND (\"systematic review\"[ti] OR \"meta-analysis\"[ti]) AND (2020:2026[dp])"
+    }
+  ],
+  "diagnostics": [
+    {
+      "topic": "fasting",
+      "target": 4,
+      "selected": 4,
+      "pubmed_returned": 40
+    },
+    {
+      "topic": "cardiovascular",
+      "target": 3,
+      "selected": 3,
+      "pubmed_returned": 40
+    },
+    {
+      "topic": "type2_diabetes",
+      "target": 4,
+      "selected": 4,
+      "pubmed_returned": 39
+    },
+    {
+      "topic": "sarcopenia",
+      "target": 3,
+      "selected": 3,
+      "pubmed_returned": 39
+    },
+    {
+      "topic": "cancer_nutrition",
+      "target": 2,
+      "selected": 2,
+      "pubmed_returned": 16
+    },
+    {
+      "topic": "renal_nutrition",
+      "target": 2,
+      "selected": 2,
+      "pubmed_returned": 40
+    }
+  ]
+}

@@ -80,9 +80,6 @@ class EngineTest(unittest.TestCase):
         self.fail_code("CANDIDATES_ALREADY_FROZEN", self.engine.freeze_candidates, **self.p,
                        task_id="EA-P1-SYN-01", items=[candidate])
         bad = dict(candidate, original_anchors=[])
-        with self.engine.connect() as db:
-            # Build new eligible task from the same source, without changing source bytes.
-            pass
         task = self._new_rct_task("FRESH-01")
         self.fail_code("BLOCK_UNVERIFIED_CANDIDATE", self.engine.freeze_candidates, **self.p,
                        task_id=task, items=[bad])
@@ -150,9 +147,9 @@ class EngineTest(unittest.TestCase):
                        **self.e, task_id=task,
                        items=[{"candidate_id": item["candidate_id"], "disposition": "REJECT"}],
                        candidate_set_digest=set_["content_sha256"])
-        self.fail_code("INCOMPLETE_EXPERT_REVIEW", self.engine.freeze_review,
+        self.fail_code("REVIEW_ITEMS_EMPTY", self.engine.freeze_review,
                        **self.e, task_id=task, items=[],
-                       candidate_set_digest=set_["content_sha256"]) if False else None
+                       candidate_set_digest=set_["content_sha256"])
 
     def test_reject_revision_conflict(self):
         src = dict(self.rct)

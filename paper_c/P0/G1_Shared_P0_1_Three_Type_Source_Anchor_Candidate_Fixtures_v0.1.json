@@ -1,0 +1,56 @@
+{
+  "stage": "G1-Shared P0.1",
+  "status": "LOW_RISK_SOURCE_CANDIDATES_NOT_VERIFIED",
+  "scope": "Demonstration of direct text-projection anchoring for RCT, consensus, correction; NOT EvidenceUnit Gold",
+  "fixture_count": 3,
+  "records": [
+    {
+      "candidate_id": "CAND-G100-004",
+      "kind": "RCT_STUDY_DESIGN",
+      "source_projection_ref": "paper_c/P0/g1_shared_p0_1/source_projections/CAND-G100-004_PMC8864028_PMC_body_CC-BY-4.0.md",
+      "projection_blob_sha": "bf58378d849ab4a780aa752a0fa4e78c951d28ac",
+      "anchor_locator": {
+        "type": "PMC_TEXT_PROJECTION_UTF16_OFFSET",
+        "start": 4406,
+        "end": 4556
+      },
+      "anchor_text": "Ninety volunteers who met the eligibility criteria participated in the trial and were randomized at a ratio of 1:1:1 to eTRF, mTRF, and control groups",
+      "candidate_interpretation": "Pilot RCT randomized 90 participants among early-TRF, mid-TRF, and control groups (three-way 1:1:1).",
+      "review_status": "AGENT_ASSISTED_CANDIDATE_UNVERIFIED",
+      "original_pdf_table_anchor_status": "NOT_VERIFIED",
+      "independent_expert_gold": false
+    },
+    {
+      "candidate_id": "CAND-G100-075",
+      "kind": "CONSENSUS_SCOPE",
+      "source_projection_ref": "paper_c/P0/g1_shared_p0_1/source_projections/CAND-G100-075_PMC11343900_PMC_body_CC-BY-4.0.md",
+      "projection_blob_sha": "0b08a8516f6c575bf2ceef76778ad8e03e94bc6d",
+      "anchor_locator": {
+        "type": "PMC_TEXT_PROJECTION_UTF16_OFFSET",
+        "start": 3419,
+        "end": 3645
+      },
+      "anchor_text": "The objective of this consensus report is to provide up-to-date knowledge about the epidemiology, pathophysiology, clinical presentation, and recommendations for the diagnosis, treatment and prevention of DKA and HHS in adults",
+      "candidate_interpretation": "Consensus addresses adult hyperglycaemic crises (DKA/HHS), rather than general dietary pattern guidance.",
+      "review_status": "AGENT_ASSISTED_CANDIDATE_UNVERIFIED",
+      "original_pdf_table_anchor_status": "NOT_VERIFIED",
+      "independent_expert_gold": false
+    },
+    {
+      "candidate_id": "CAND-G100-081",
+      "kind": "CORRECTION_VERSION_SCOPE",
+      "source_projection_ref": "paper_c/P0/g1_shared_p0_1/source_projections/CAND-G100-081_PMC12457591_PMC_body_CC-BY-4.0.md",
+      "projection_blob_sha": "498ed67727b31ddbef03729a230231f990a6432f",
+      "anchor_locator": {
+        "type": "PMC_TEXT_PROJECTION_UTF16_OFFSET",
+        "start": 1318,
+        "end": 1438
+      },
+      "anchor_text": "In this article, there are amendments to the Methods, Discussion, Author contributions and Competing interests sections.",
+      "candidate_interpretation": "Correction affects multiple sections of the original article, including Methods and Discussion; downstream claims require impact check.",
+      "review_status": "AGENT_ASSISTED_CANDIDATE_UNVERIFIED",
+      "original_pdf_table_anchor_status": "NOT_VERIFIED",
+      "independent_expert_gold": false
+    }
+  ]
+}

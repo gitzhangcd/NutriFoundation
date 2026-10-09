@@ -157,6 +157,24 @@ def install_secure_reader(app: FastAPI, controller, root: Path, principal, fixtu
             PRIMARY KEY(task,anchor_id)
         )''')
 
+    # Append-only audit of source-bound translation bytes DELIVERED, not proof
+    # that a human saw or accepted the translation. NEVER stores text in logs.
+    with controller.conn() as db:
+        db.executescript("""
+        CREATE TABLE IF NOT EXISTS translation_projections_served (
+          task TEXT NOT NULL, actor TEXT NOT NULL,
+          translation_version TEXT NOT NULL, fixture_sha TEXT NOT NULL,
+          source_sha TEXT NOT NULL, first_delivered_at TEXT NOT NULL,
+          PRIMARY KEY(task,actor,translation_version,fixture_sha,source_sha)
+        );
+        CREATE TRIGGER IF NOT EXISTS protect_translation_served_update
+          BEFORE UPDATE ON translation_projections_served
+          BEGIN SELECT RAISE(ABORT,'IMMUTABLE_TRANSLATION_EXPOSURE'); END;
+        CREATE TRIGGER IF NOT EXISTS protect_translation_served_delete
+          BEFORE DELETE ON translation_projections_served
+          BEGIN SELECT RAISE(ABORT,'IMMUTABLE_TRANSLATION_EXPOSURE'); END;
+        """)
+
     @app.get('/v1/tasks/{task}/sources')
     def sources(task: str, p=Depends(principal)):
         phase=allowed(task,*p,full=True)
@@ -184,12 +202,33 @@ def install_secure_reader(app: FastAPI, controller, root: Path, principal, fixtu
 
     @app.get('/v1/tasks/{task}/sources/{source_id}/translations')
     def translations(task: str, source_id: str, p=Depends(principal)):
-        # Same full-document allowlist as /document: R1 must never be sent
-        # even translations of unapproved paragraphs; no external translation API.
+        # Delivery of translation can affect independent expert understanding:
+        # serve only after exact task authorization AND record delivery atomically.
+        # R1 is never allowed full-source translation.
         allowed(task, *p, full=True)
         exact_source(source_id)
         pdf_integrity()
-        return bilingual_projection(doc)
+        result = bilingual_projection(doc)
+        from datetime import datetime, timezone
+        with controller.conn() as db:
+            db.execute('BEGIN IMMEDIATE')
+            controller._binding(db, task, p[0], p[1])
+            identity = (task, p[0], result['translation_version'],
+                        result['translation_fixture_sha256'], doc['source_markdown_sha256'])
+            row = db.execute(
+                'SELECT 1 FROM translation_projections_served WHERE '
+                'task=? AND actor=? AND translation_version=? AND fixture_sha=? AND source_sha=?',
+                identity).fetchone()
+            if row is None:
+                db.execute('INSERT INTO translation_projections_served VALUES (?,?,?,?,?,?)',
+                           (*identity, datetime.now(timezone.utc).isoformat()))
+                controller._log(db, task, 'TRANSLATION_PROJECTION_DELIVERED', p[0], {
+                    'translation_version': result['translation_version'],
+                    'fixture_sha': result['translation_fixture_sha256'],
+                    'source_sha': doc['source_markdown_sha256'],
+                    'qualified_translation': False})
+        result['delivery_audit'] = 'RECORDED_NOT_PROOF_OF_HUMAN_VIEWING'
+        return result
 
     @app.get('/v1/tasks/{task}/sources/{source_id}/search')
     def search(task: str, source_id: str, q: str=Query(min_length=3,max_length=100), p=Depends(principal)):

@@ -246,6 +246,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
         expect(page.locator('#workspace')).to_be_visible(timeout=30000)
         return ctx,page
     producer_context,p=manager_login('producer')
+    p.locator('#primarySource').select_option('RCT-001:r1')
     expect(p.locator('#sourceInfo')).to_contain_text('RANDOMIZED_TRIAL')
     expect(p.locator('#sourcesList .source-row')).to_have_count(7)
     p.locator('#taskId').fill('TPA-SYN-BROWSER-001')

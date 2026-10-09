@@ -186,7 +186,11 @@ def install_g1_source_pilot(app, repo_root: Path, runtime_root: Path) -> None:
         if not path.is_relative_to(canonical_repo):
             _fail("G1_SOURCE_PATH_ESCAPES_REPO", 409)
         projection = path.read_text(encoding="utf-8")
-        delimiter = "## PMC article-body text projection\n\n"
+        raw_bytes = projection.encode("utf-8")
+        git_blob = hashlib.sha1(b"blob " + str(len(raw_bytes)).encode("ascii") + b"\\0" + raw_bytes).hexdigest()
+        if git_blob != "bf58378d849ab4a780aa752a0fa4e78c951d28ac":
+            _fail("G1_PINNED_SOURCE_BLOB_MISMATCH", 409)
+        delimiter = "## PMC article-body text projection\\n\\n"
         if projection.count(delimiter) != 1:
             _fail("G1_SOURCE_BODY_FORMAT_MISMATCH", 409)
         body = projection.split(delimiter, 1)[1].rstrip("\n")

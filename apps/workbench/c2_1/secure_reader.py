@@ -41,6 +41,7 @@ class BindAnchor(Strict):
 class BindAnchorItem(BindAnchor):
     item_index: int = Field(ge=0, le=1000)
     item_sha256: str = Field(min_length=64, max_length=64)
+    expected_draft_revision: int = Field(ge=1)
 
 def gitblob(raw: bytes) -> str:
     return hashlib.sha1(b'blob ' + str(len(raw)).encode() + b'\x00' + raw).hexdigest()

@@ -46,7 +46,7 @@ function renderForm(record,editable){
      const label=document.createElement('label');label.textContent=expertFieldTitles[field.key]||field.label;
      const el=document.createElement(field.type.includes('number')||field.type==='nonnegative_integer'?'input':'textarea');
      el.id='f-'+field.key;el.dataset.key=field.key;el.dataset.type=field.type;el.disabled=!editable;
-     const value=get(record,field.key);el.value=Array.isArray(value)?value.join('\\n'):value??'';
+     const value=get(record,field.key);el.value=Array.isArray(value)?value.join('\n'):value??'';
      if(el.tagName==='TEXTAREA')el.rows=2;
      else{el.type='number';el.min='0';el.step=field.type==='nonnegative_integer'?'1':'any';}
      label.append(el);div.append(label);

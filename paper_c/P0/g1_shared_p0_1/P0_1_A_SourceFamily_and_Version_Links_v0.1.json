@@ -1,0 +1,61 @@
+{
+  "stage": "G1-Shared P0.1-A",
+  "state": "PROVISIONAL_STUDY_FAMILY_ROUTING_NOT_FINAL_STUDY_IDENTITY_GOLD",
+  "relations": [
+    {
+      "id": "G1A-REL-01",
+      "from": "CAND-G100-004",
+      "to": "ChiCTR2000029797",
+      "relation": "TRIAL_REGISTRATION_REPORTED_BY_ARTICLE",
+      "verification": "RTC/PubMed+PMC article study design; not registry record independent verified"
+    },
+    {
+      "id": "G1A-REL-02",
+      "from": "CAND-G100-029",
+      "to": "CAND-G100-031",
+      "relation": "SHARED_NUTRINET_SANTE_COHORT_FAMILY",
+      "verification": "PubMed abstract evidence; outcome fields CVD vs cancer distinct",
+      "independent_study_counting": "DO_NOT_ASSUME_INDEPENDENT_PARTICIPANT_SAMPLES"
+    },
+    {
+      "id": "G1A-REL-03",
+      "from": "CAND-G100-048",
+      "to": "https://www.bmj.com/content/390/bmj.r1737",
+      "relation": "HAS_PUBLISHED_METADATA_CORRECTION",
+      "verification": "BMJ 2025 Aug 18 erratum lists co-author affiliation; original outcomes not described as corrected",
+      "impact_status": "AUTHOR_AFFILIATION_ONLY_FROM_CORRECTION; numeric effect impact not claimed"
+    },
+    {
+      "id": "G1A-REL-04",
+      "from": "CAND-G100-071",
+      "to": "https://www.andeal.org/topic.cfm?cat=6109&menu=5276",
+      "relation": "ABRIDGED_JOURNAL_SUMMARY_OF_OFFICIAL_GUIDELINE_FAMILY",
+      "verification": "Journal PMC article notes abbreviated version; official EAL 2021–22 guideline accessed",
+      "republication_rights": "ACADEMY_COPYRIGHT_RESERVED"
+    },
+    {
+      "id": "G1A-REL-05",
+      "from": "CAND-G100-071",
+      "to": "https://www.andeal.org/template.cfm?key=4888&template=guide_summary",
+      "relation": "OFFICIAL_RECOMMENDATION_DETAILS",
+      "verification": "Official EAL page rating 1(B) Imperative; separate Consensus Conditional statements",
+      "scope_caveat": "Full recommendation, not universal individual-level decision"
+    },
+    {
+      "id": "G1A-REL-06",
+      "from": "CAND-G100-096",
+      "to": "PARENTERAL_NUTRITION_SUMMIT_EXPERT_PANEL",
+      "relation": "DELIBERATION_PROCESS_OF",
+      "verification": "PMC source article describes adapted Delphi and explicitly says panel is not official voting guideline committee"
+    },
+    {
+      "id": "G1A-REL-07",
+      "from": "CAND-G100-081",
+      "to": "10.1038/s44324-023-00002-1",
+      "relation": "CORRECTS_PUBLISHED_ARTICLE",
+      "verification": "PMC correction body link; title variant Publisher vs Author Correction held unresolved",
+      "impact_status": "Methods, Discussion, contributor and competing-interest amendments; not safe to claim no science impact without original comparison"
+    }
+  ],
+  "no_study_merges_automatically_completed": true
+}

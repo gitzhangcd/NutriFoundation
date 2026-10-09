@@ -1,0 +1,1696 @@
+{
+  "stage": "G1-Shared P0.1",
+  "version": "v0.1",
+  "status": "BIBLIOGRAPHIC_REVALIDATION_COMPLETED_OTHER_GATES_OPEN",
+  "input_ref": "paper_c/P0/candidate_pool/Gold100_Exploratory_Candidate_Registry_100.json",
+  "input_version": "exploratory_2026-10-09",
+  "cutoff_date": "2026-10-10",
+  "method": "PubMed get_articles exact PMID requests in two bounded batches, title and DOI/PMCID matching; not full-text or expert scientific validation",
+  "expected_count": 100,
+  "returned_count": 100,
+  "unique_count": 100,
+  "issues": [],
+  "flag_count": {
+    "COMPANION_PARENT_LINK_REQUIRED": 9,
+    "VERSION_EVENT_VERIFY_PARENT": 3
+  },
+  "records": [
+    {
+      "candidate_id": "CAND-G100-001",
+      "PMID": "39348690",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Time-Restricted Eating in Adults With Metabolic Syndrome : A Randomized Controlled Trial.",
+      "canonical_doi": "10.7326/M24-0859",
+      "canonical_pmcid": "PMC11929607",
+      "canonical_publication_date": "2024 Nov",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "journal": "Annals of internal medicine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39348690/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-002",
+      "PMID": "32986097",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Effects of Time-Restricted Eating on Weight Loss and Other Metabolic Parameters in Women and Men With Overweight and Obesity: The TREAT Randomized Clinical Trial.",
+      "canonical_doi": "10.1001/jamainternmed.2020.4153",
+      "canonical_pmcid": "PMC7522780",
+      "canonical_publication_date": "2020 Nov 01",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "journal": "JAMA internal medicine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/32986097/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-003",
+      "PMID": "36220069",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Time-restricted eating with or without low-carbohydrate diet reduces visceral fat and improves metabolic syndrome: A randomized trial.",
+      "canonical_doi": "10.1016/j.xcrm.2022.100777",
+      "canonical_pmcid": "PMC9589024",
+      "canonical_publication_date": "2022 Oct 18",
+      "canonical_publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Cell reports. Medicine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36220069/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-004",
+      "PMID": "35194047",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Randomized controlled trial for time-restricted eating in healthy volunteers without obesity.",
+      "canonical_doi": "10.1038/s41467-022-28662-5",
+      "canonical_pmcid": "PMC8864028",
+      "canonical_publication_date": "2022 Feb 22",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Nature communications",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35194047/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-005",
+      "PMID": "37889487",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Effect of Time-Restricted Eating on Weight Loss in Adults With Type 2 Diabetes: A Randomized Clinical Trial.",
+      "canonical_doi": "10.1001/jamanetworkopen.2023.39337",
+      "canonical_pmcid": "PMC10611992",
+      "canonical_publication_date": "2023 Oct 02",
+      "canonical_publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "journal": "JAMA network open",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37889487/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-006",
+      "PMID": "38886740",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Effects of DASH diet with or without time-restricted eating in the management of stage 1 primary hypertension: a randomized controlled trial.",
+      "canonical_doi": "10.1186/s12937-024-00967-9",
+      "canonical_pmcid": "PMC11181626",
+      "canonical_publication_date": "2024 Jun 17",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "journal": "Nutrition journal",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38886740/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-007",
+      "PMID": "35525255",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Long-term secondary prevention of cardiovascular disease with a Mediterranean diet and a low-fat diet (CORDIOPREV): a randomised controlled trial.",
+      "canonical_doi": "10.1016/S0140-6736(22)00122-2",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2022 May 14",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "journal": "Lancet (London, England)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35525255/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-008",
+      "PMID": "36508737",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Effect of Calorie-Unrestricted Low-Carbohydrate, High-Fat Diet Versus High-Carbohydrate, Low-Fat Diet on Type 2 Diabetes and Nonalcoholic Fatty Liver Disease : A Randomized Controlled Trial.",
+      "canonical_doi": "10.7326/M22-1787",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2023 Jan",
+      "canonical_publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Annals of internal medicine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36508737/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-009",
+      "PMID": "34582545",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Effects of a low-carbohydrate diet on insulin-resistant dyslipoproteinemia-a randomized controlled feeding trial.",
+      "canonical_doi": "10.1093/ajcn/nqab287",
+      "canonical_pmcid": "PMC8755039",
+      "canonical_publication_date": "2022 Jan 11",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "journal": "The American journal of clinical nutrition",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/34582545/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-010",
+      "PMID": "36287562",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Effects of a Low-Carbohydrate Dietary Intervention on Hemoglobin A1c: A Randomized Clinical Trial.",
+      "canonical_doi": "10.1001/jamanetworkopen.2022.38645",
+      "canonical_pmcid": "PMC9606840",
+      "canonical_publication_date": "2022 Oct 03",
+      "canonical_publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "JAMA network open",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36287562/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-011",
+      "PMID": "36156115",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Low-carbohydrate vegan diets in diabetes for weight loss and sustainability: a randomized controlled trial.",
+      "canonical_doi": "10.1093/ajcn/nqac203",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2022 Nov",
+      "canonical_publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "The American journal of clinical nutrition",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36156115/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-012",
+      "PMID": "39054440",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "The effect of dietary approaches to stop hypertension (DASH) diet on fatty liver and cardiovascular risk factors in subjects with metabolic syndrome: a randomized controlled trial.",
+      "canonical_doi": "10.1186/s12902-024-01661-x",
+      "canonical_pmcid": "PMC11270781",
+      "canonical_publication_date": "2024 Jul 25",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "journal": "BMC endocrine disorders",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39054440/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-013",
+      "PMID": "37625311",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "DASH vs. Mediterranean diet on a salt restriction background in adults with high normal blood pressure or grade 1 hypertension: A randomized controlled trial.",
+      "canonical_doi": "10.1016/j.clnu.2023.08.011",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2023 Oct",
+      "canonical_publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article"
+      ],
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37625311/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-014",
+      "PMID": "38578692",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Development of a Health Behavioral Digital Intervention for Patients With Hypertension Based on an Intelligent Health Promotion System and WeChat: Randomized Controlled Trial.",
+      "canonical_doi": "10.2196/53006",
+      "canonical_pmcid": "PMC11031705",
+      "canonical_publication_date": "2024 Apr 05",
+      "canonical_publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "JMIR mHealth and uHealth",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38578692/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-015",
+      "PMID": "35641199",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Effect of a ketogenic diet versus Mediterranean diet on glycated hemoglobin in individuals with prediabetes and type 2 diabetes mellitus: The interventional Keto-Med randomized crossover trial.",
+      "canonical_doi": "10.1093/ajcn/nqac154",
+      "canonical_pmcid": "PMC9437985",
+      "canonical_publication_date": "2022 Sep 02",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "The American journal of clinical nutrition",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35641199/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-016",
+      "PMID": "34052278",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "A Randomized Trial Comparing the Specific Carbohydrate Diet to a Mediterranean Diet in Adults With Crohn's Disease.",
+      "canonical_doi": "10.1053/j.gastro.2021.05.047",
+      "canonical_pmcid": "PMC8396394",
+      "canonical_publication_date": "2021 Sep",
+      "canonical_publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study"
+      ],
+      "journal": "Gastroenterology",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/34052278/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-017",
+      "PMID": "40991259",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Mediterranean Diet and Patients With Psoriasis: The MEDIPSO Randomized Clinical Trial.",
+      "canonical_doi": "10.1001/jamadermatol.2025.3410",
+      "canonical_pmcid": "PMC12461594",
+      "canonical_publication_date": "2025 Dec 01",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "journal": "JAMA dermatology",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40991259/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-018",
+      "PMID": "33461965",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Effect of green-Mediterranean diet on intrahepatic fat: the DIRECT PLUS randomised controlled trial.",
+      "canonical_doi": "10.1136/gutjnl-2020-323106",
+      "canonical_pmcid": "PMC8515100",
+      "canonical_publication_date": "2021 Nov",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Gut",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33461965/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-019",
+      "PMID": "41144242",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "An AI-Powered Lifestyle Intervention vs Human Coaching in the Diabetes Prevention Program: A Randomized Clinical Trial.",
+      "canonical_doi": "10.1001/jama.2025.19563",
+      "canonical_pmcid": "PMC12560030",
+      "canonical_publication_date": "2025 Dec 16",
+      "canonical_publication_types": [
+        "Clinical Trial, Phase III",
+        "Equivalence Trial",
+        "Journal Article"
+      ],
+      "journal": "JAMA",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41144242/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-020",
+      "PMID": "34531293",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Different Effects of Lifestyle Intervention in High- and Low-Risk Prediabetes: Results of the Randomized Controlled Prediabetes Lifestyle Intervention Study (PLIS).",
+      "canonical_doi": "10.2337/db21-0526",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2021 Dec",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
+      ],
+      "journal": "Diabetes",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/34531293/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-021",
+      "PMID": "35135549",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Effects of personalized diets by prediction of glycemic responses on glycemic control and metabolic health in newly diagnosed T2DM: a randomized dietary intervention pilot trial.",
+      "canonical_doi": "10.1186/s12916-022-02254-y",
+      "canonical_pmcid": "PMC8826661",
+      "canonical_publication_date": "2022 Feb 09",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "BMC medicine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35135549/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-022",
+      "PMID": "33564844",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "The effect of daily protein supplementation, with or without resistance training for 1 year, on muscle size, strength, and function in healthy older adults: A randomized controlled trial.",
+      "canonical_doi": "10.1093/ajcn/nqaa372",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2021 Apr 06",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "The American journal of clinical nutrition",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33564844/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-023",
+      "PMID": "36437767",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "De-Training Effects Following Leucine-Enriched Whey Protein Supplementation and Resistance Training in Older Adults with Sarcopenia: A Randomized Controlled Trial with 24 Weeks of Follow-Up.",
+      "canonical_doi": "10.1007/s12603-022-1853-1",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2022",
+      "canonical_publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "The journal of nutrition, health & aging",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36437767/",
+      "flags": [
+        "COMPANION_PARENT_LINK_REQUIRED"
+      ]
+    },
+    {
+      "candidate_id": "CAND-G100-024",
+      "PMID": "38762187",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "The effects of whey, pea, and collagen protein supplementation beyond the recommended dietary allowance on integrated myofibrillar protein synthetic rates in older males: a randomized controlled trial.",
+      "canonical_doi": "10.1016/j.ajcnut.2024.05.009",
+      "canonical_pmcid": "PMC11291473",
+      "canonical_publication_date": "2024 Jul",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "The American journal of clinical nutrition",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38762187/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-025",
+      "PMID": "33655799",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Effects of an Exercise and Nutritional Intervention on Circulating Biomarkers and Metabolomic Profiling During Adjuvant Treatment for Localized Breast Cancer: Results From the PASAPAS Feasibility Randomized Controlled Trial.",
+      "canonical_doi": "10.1177/1534735420977666",
+      "canonical_pmcid": "PMC7934026",
+      "canonical_publication_date": "2021",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Integrative cancer therapies",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33655799/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-026",
+      "PMID": "34441942",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Effect of Early Peripheral Parenteral Nutrition Support in an Enhanced Recovery Program for Colorectal Cancer Surgery: A Randomized Open Trial.",
+      "canonical_doi": "10.3390/jcm10163647",
+      "canonical_pmcid": "PMC8396922",
+      "canonical_publication_date": "2021 Aug 18",
+      "canonical_publication_types": [
+        "Journal Article"
+      ],
+      "journal": "Journal of clinical medicine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/34441942/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-027",
+      "PMID": "32090186",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "A population health dietary intervention for African American adults with chronic kidney disease: The Fruit and Veggies for Kidney Health randomized study.",
+      "canonical_doi": "10.1016/j.conctc.2020.100540",
+      "canonical_pmcid": "PMC7026290",
+      "canonical_publication_date": "2020 Mar",
+      "canonical_publication_types": [
+        "Journal Article"
+      ],
+      "journal": "Contemporary clinical trials communications",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/32090186/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-028",
+      "PMID": "29948444",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Effect of essential amino acid кetoanalogues and protein restriction diet on morphogenetic proteins (FGF-23 and Кlotho) in 3b-4 stages chronic кidney disease patients: a randomized pilot study.",
+      "canonical_doi": "10.1007/s10157-018-1591-1",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2018 Dec",
+      "canonical_publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "journal": "Clinical and experimental nephrology",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/29948444/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-029",
+      "PMID": "31142457",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Ultra-processed food intake and risk of cardiovascular disease: prospective cohort study (NutriNet-Santé).",
+      "canonical_doi": "10.1136/bmj.l1451",
+      "canonical_pmcid": "PMC6538975",
+      "canonical_publication_date": "2019 May 29",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Observational Study",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "BMJ (Clinical research ed.)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/31142457/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-030",
+      "PMID": "36854188",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Ultra-Processed Food Consumption and Risk of Type 2 Diabetes: Three Large Prospective U.S. Cohort Studies.",
+      "canonical_doi": "10.2337/dc22-1993",
+      "canonical_pmcid": "PMC10300524",
+      "canonical_publication_date": "2023 Jul 01",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "journal": "Diabetes care",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36854188/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-031",
+      "PMID": "29444771",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Consumption of ultra-processed foods and cancer risk: results from NutriNet-Santé prospective cohort.",
+      "canonical_doi": "10.1136/bmj.k322",
+      "canonical_pmcid": "PMC5811844",
+      "canonical_publication_date": "2018 Feb 14",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "BMJ (Clinical research ed.)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/29444771/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-032",
+      "PMID": "33388205",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Ultra-processed food consumption and type 2 diabetes incidence: A prospective cohort study.",
+      "canonical_doi": "10.1016/j.clnu.2020.12.018",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2021 May",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33388205/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-033",
+      "PMID": "33070213",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Ultra-processed food consumption and risk of obesity: a prospective cohort study of UK Biobank.",
+      "canonical_doi": "10.1007/s00394-020-02367-1",
+      "canonical_pmcid": "PMC8137628",
+      "canonical_publication_date": "2021 Jun",
+      "canonical_publication_types": [
+        "Journal Article"
+      ],
+      "journal": "European journal of nutrition",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33070213/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-034",
+      "PMID": "38309825",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Dietary protein intake in midlife in relation to healthy aging - results from the prospective Nurses' Health Study cohort.",
+      "canonical_doi": "10.1016/j.ajcnut.2023.11.010",
+      "canonical_pmcid": "PMC10884611",
+      "canonical_publication_date": "2024 Feb",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, U.S. Gov't, Non-P.H.S."
+      ],
+      "journal": "The American journal of clinical nutrition",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38309825/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-035",
+      "PMID": "40845421",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Dietary protein intake and body composition, sarcopenia and sarcopenic obesity: A prospective population-based study.",
+      "canonical_doi": "10.1016/j.clnu.2025.07.033",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2025 Oct",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40845421/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-036",
+      "PMID": "30517767",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Protein Intake and Risk of Falls: A Prospective Analysis in Older Adults.",
+      "canonical_doi": "10.1111/jgs.15681",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2019 Feb",
+      "canonical_publication_types": [
+        "Evaluation Study",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Journal of the American Geriatrics Society",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30517767/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-037",
+      "PMID": "35202009",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Use of Insoluble Dietary Fiber and Probiotics for Bowel Preparation Before Colonoscopy: A Prospective Study.",
+      "canonical_doi": "10.1097/SLE.0000000000000995",
+      "canonical_pmcid": "PMC8969843",
+      "canonical_publication_date": "2022 Feb 24",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "journal": "Surgical laparoscopy, endoscopy & percutaneous techniques",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35202009/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-038",
+      "PMID": "37251456",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Dietary fiber intake and mortality among survivors of liver cirrhosis: A prospective cohort study.",
+      "canonical_doi": "10.1016/j.heliyon.2023.e16170",
+      "canonical_pmcid": "PMC10220317",
+      "canonical_publication_date": "2023 Jun",
+      "canonical_publication_types": [
+        "Journal Article"
+      ],
+      "journal": "Heliyon",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37251456/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-039",
+      "PMID": "40583481",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Maternal Dietary Fiber Intake During Lactation and Human Milk Oligosaccharide Fucosylation: a PRIMA Birth Cohort Study.",
+      "canonical_doi": "10.1002/mnfr.70165",
+      "canonical_pmcid": "PMC12538538",
+      "canonical_publication_date": "2025 Oct",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Molecular nutrition & food research",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40583481/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-040",
+      "PMID": "36988689",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Sodium intake and urinary losses in children on dialysis: a European multicenter prospective study.",
+      "canonical_doi": "10.1007/s00467-023-05932-y",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2023 Oct",
+      "canonical_publication_types": [
+        "Multicenter Study",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Pediatric nephrology (Berlin, Germany)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36988689/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-041",
+      "PMID": "31562419",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Multiple measurements of the urinary sodium-to-potassium ratio strongly related home hypertension: TMM Cohort Study.",
+      "canonical_doi": "10.1038/s41440-019-0335-2",
+      "canonical_pmcid": "PMC8076007",
+      "canonical_publication_date": "2020 Jan",
+      "canonical_publication_types": [
+        "Journal Article"
+      ],
+      "journal": "Hypertension research : official journal of the Japanese Society of Hypertension",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/31562419/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-042",
+      "PMID": "38042409",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Healthy dietary patterns, genetic risk, and gastrointestinal cancer incident risk: a large-scale prospective cohort study.",
+      "canonical_doi": "10.1016/j.ajcnut.2023.11.015",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2024 Feb",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "The American journal of clinical nutrition",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38042409/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-043",
+      "PMID": "40845891",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Plant-based dietary patterns and age-specific risk of multimorbidity of cancer and cardiometabolic diseases: a prospective analysis.",
+      "canonical_doi": "10.1016/j.lanhl.2025.100742",
+      "canonical_pmcid": "PMC12408430",
+      "canonical_publication_date": "2025 Aug",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "The lancet. Healthy longevity",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40845891/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-044",
+      "PMID": "32966976",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Inflammatory Dietary Patterns and Risk of Keratinocyte Cancers in Kidney Transplant Recipients: Prospective Cohort Study.",
+      "canonical_doi": "10.1159/000509875",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2021",
+      "canonical_publication_types": [
+        "Journal Article"
+      ],
+      "journal": "Dermatology (Basel, Switzerland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/32966976/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-045",
+      "PMID": "40879470",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Mediterranean diet and associated metabolite signatures in relation to MASLD progression: A prospective cohort study.",
+      "canonical_doi": "10.1097/HC9.0000000000000791",
+      "canonical_pmcid": "PMC12401285",
+      "canonical_publication_date": "2025 Sep 01",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Hepatology communications",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40879470/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-046",
+      "PMID": "36293616",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Mediterranean Diet versus Very Low-Calorie Ketogenic Diet: Effects of Reaching 5% Body Weight Loss on Body Composition in Subjects with Overweight and with Obesity-A Cohort Study.",
+      "canonical_doi": "10.3390/ijerph192013040",
+      "canonical_pmcid": "PMC9603454",
+      "canonical_publication_date": "2022 Oct 11",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "journal": "International journal of environmental research and public health",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36293616/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-047",
+      "PMID": "32060194",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Intermittent fasting and weight loss: Systematic review.",
+      "canonical_doi": "",
+      "canonical_pmcid": "PMC7021351",
+      "canonical_publication_date": "2020 Feb",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "journal": "Canadian family physician Medecin de famille canadien",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/32060194/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-048",
+      "PMID": "40533200",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Intermittent fasting strategies and their effects on body weight and other cardiometabolic risk factors: systematic review and network meta-analysis of randomised clinical trials.",
+      "canonical_doi": "10.1136/bmj-2024-082007",
+      "canonical_pmcid": "PMC12175170",
+      "canonical_publication_date": "2025 Jun 18",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Network Meta-Analysis",
+        "Systematic Review"
+      ],
+      "journal": "BMJ (Clinical research ed.)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40533200/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-049",
+      "PMID": "38201996",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Intermittent Fasting: Does It Affect Sports Performance? A Systematic Review.",
+      "canonical_doi": "10.3390/nu16010168",
+      "canonical_pmcid": "PMC10780856",
+      "canonical_publication_date": "2024 Jan 04",
+      "canonical_publication_types": [
+        "Systematic Review",
+        "Journal Article"
+      ],
+      "journal": "Nutrients",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38201996/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-050",
+      "PMID": "38956175",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "The effects of intermittent fasting on body composition and cardiometabolic health in adults with prediabetes or type 2 diabetes: A systematic review and meta-analysis.",
+      "canonical_doi": "10.1111/dom.15730",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2024 Sep",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "journal": "Diabetes, obesity & metabolism",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38956175/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-051",
+      "PMID": "32330233",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Dietary Approaches to Stop Hypertension (DASH) Diet and Blood Pressure Reduction in Adults with and without Hypertension: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "canonical_doi": "10.1093/advances/nmaa041",
+      "canonical_pmcid": "PMC7490167",
+      "canonical_publication_date": "2020 Sep 01",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "journal": "Advances in nutrition (Bethesda, Md.)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/32330233/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-052",
+      "PMID": "37513679",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Adherence to the DASH Diet and Risk of Hypertension: A Systematic Review and Meta-Analysis.",
+      "canonical_doi": "10.3390/nu15143261",
+      "canonical_pmcid": "PMC10383418",
+      "canonical_publication_date": "2023 Jul 24",
+      "canonical_publication_types": [
+        "Meta-Analysis",
+        "Systematic Review",
+        "Journal Article"
+      ],
+      "journal": "Nutrients",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37513679/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-053",
+      "PMID": "37506751",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Mediterranean diet and female reproductive health over lifespan: a systematic review and meta-analysis.",
+      "canonical_doi": "10.1016/j.ajog.2023.05.030",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2023 Dec",
+      "canonical_publication_types": [
+        "Meta-Analysis",
+        "Systematic Review",
+        "Journal Article"
+      ],
+      "journal": "American journal of obstetrics and gynecology",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37506751/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-054",
+      "PMID": "34348965",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Effect of low glycaemic index or load dietary patterns on glycaemic control and cardiometabolic risk factors in diabetes: systematic review and meta-analysis of randomised controlled trials.",
+      "canonical_doi": "10.1136/bmj.n1651",
+      "canonical_pmcid": "PMC8336013",
+      "canonical_publication_date": "2021 Aug 04",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "BMJ (Clinical research ed.)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/34348965/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-055",
+      "PMID": "33441384",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Efficacy and safety of low and very low carbohydrate diets for type 2 diabetes remission: systematic review and meta-analysis of published and unpublished randomized trial data.",
+      "canonical_doi": "10.1136/bmj.m4743",
+      "canonical_pmcid": "PMC7804828",
+      "canonical_publication_date": "2021 Jan 13",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "BMJ (Clinical research ed.)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33441384/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-056",
+      "PMID": "37299551",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Can Dietary Patterns Impact Fertility Outcomes? A Systematic Review and Meta-Analysis.",
+      "canonical_doi": "10.3390/nu15112589",
+      "canonical_pmcid": "PMC10255613",
+      "canonical_publication_date": "2023 May 31",
+      "canonical_publication_types": [
+        "Meta-Analysis",
+        "Systematic Review",
+        "Journal Article"
+      ],
+      "journal": "Nutrients",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37299551/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-057",
+      "PMID": "35057525",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "The Role of Diet in Prognosis among Cancer Survivors: A Systematic Review and Meta-Analysis of Dietary Patterns and Diet Interventions.",
+      "canonical_doi": "10.3390/nu14020348",
+      "canonical_pmcid": "PMC8779048",
+      "canonical_publication_date": "2022 Jan 14",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "journal": "Nutrients",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35057525/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-058",
+      "PMID": "35187864",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Systematic review and meta-analysis of protein intake to support muscle mass and function in healthy adults.",
+      "canonical_doi": "10.1002/jcsm.12922",
+      "canonical_pmcid": "PMC8978023",
+      "canonical_publication_date": "2022 Apr",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "journal": "Journal of cachexia, sarcopenia and muscle",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35187864/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-059",
+      "PMID": "37057640",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Exercise for sarcopenia in older people: A systematic review and network meta-analysis.",
+      "canonical_doi": "10.1002/jcsm.13225",
+      "canonical_pmcid": "PMC10235889",
+      "canonical_publication_date": "2023 Jun",
+      "canonical_publication_types": [
+        "Systematic Review",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Journal of cachexia, sarcopenia and muscle",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37057640/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-060",
+      "PMID": "39813010",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Effect of Plant Versus Animal Protein on Muscle Mass, Strength, Physical Performance, and Sarcopenia: A Systematic Review and Meta-analysis of Randomized Controlled Trials.",
+      "canonical_doi": "10.1093/nutrit/nuae200",
+      "canonical_pmcid": "PMC12166177",
+      "canonical_publication_date": "2025 Jul 01",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Systematic Review",
+        "Meta-Analysis"
+      ],
+      "journal": "Nutrition reviews",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39813010/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-061",
+      "PMID": "36731160",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Association of food groups and dietary pattern with breast cancer risk: A systematic review and meta-analysis.",
+      "canonical_doi": "10.1016/j.clnu.2023.01.003",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2023 Mar",
+      "canonical_publication_types": [
+        "Systematic Review",
+        "Meta-Analysis",
+        "Journal Article"
+      ],
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36731160/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-062",
+      "PMID": "34330518",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "The effect of timing of enteral nutrition support on feeding outcomes and dysphagia in patients with head and neck cancer undergoing radiotherapy or chemoradiotherapy: A systematic review.",
+      "canonical_doi": "10.1016/j.clnesp.2021.05.017",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2021 Aug",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "journal": "Clinical nutrition ESPEN",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/34330518/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-063",
+      "PMID": "32658569",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Conversion of Urine Protein-Creatinine Ratio or Urine Dipstick Protein to Urine Albumin-Creatinine Ratio for Use in Chronic Kidney Disease Screening and Prognosis : An Individual Participant-Based Meta-analysis.",
+      "canonical_doi": "10.7326/M20-0529",
+      "canonical_pmcid": "PMC7780415",
+      "canonical_publication_date": "2020 Sep 15",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "journal": "Annals of internal medicine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/32658569/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-064",
+      "PMID": "39340710",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Efficacy and safety of ketoanalogue supplementation combined with protein-restricted diets in advanced chronic kidney disease: a systematic review and meta-analysis.",
+      "canonical_doi": "10.1007/s40620-024-02065-9",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2024 Nov",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Systematic Review",
+        "Meta-Analysis"
+      ],
+      "journal": "Journal of nephrology",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39340710/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-065",
+      "PMID": "33946039",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "ESPEN practical guideline: Clinical Nutrition in cancer.",
+      "canonical_doi": "10.1016/j.clnu.2021.02.005",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2021 May",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Practice Guideline"
+      ],
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33946039/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-066",
+      "PMID": "37517372",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "ESPEN practical and partially revised guideline: Clinical nutrition in the intensive care unit.",
+      "canonical_doi": "10.1016/j.clnu.2023.07.011",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2023 Sep",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Practice Guideline"
+      ],
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37517372/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-067",
+      "PMID": "40957230",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "ESPEN guideline on clinical nutrition in surgery - Update 2025.",
+      "canonical_doi": "10.1016/j.clnu.2025.08.029",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2025 Oct",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Practice Guideline"
+      ],
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40957230/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-068",
+      "PMID": "38169174",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "ESPEN practical guideline on clinical nutrition in acute and chronic pancreatitis.",
+      "canonical_doi": "10.1016/j.clnu.2023.12.019",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2024 Feb",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Practice Guideline"
+      ],
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38169174/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-069",
+      "PMID": "34742138",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "ESPEN guideline on hospital nutrition.",
+      "canonical_doi": "10.1016/j.clnu.2021.09.039",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2021 Dec",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Practice Guideline",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/34742138/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-070",
+      "PMID": "35365361",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "ESPEN micronutrient guideline.",
+      "canonical_doi": "10.1016/j.clnu.2022.02.015",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2022 Jun",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35365361/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-071",
+      "PMID": "36462613",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Medical Nutrition Therapy Interventions Provided by Dietitians for Adult Overweight and Obesity Management: An Academy of Nutrition and Dietetics Evidence-Based Practice Guideline.",
+      "canonical_doi": "10.1016/j.jand.2022.11.014",
+      "canonical_pmcid": "PMC12646719",
+      "canonical_publication_date": "2023 Mar",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Practice Guideline",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Journal of the Academy of Nutrition and Dietetics",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36462613/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-072",
+      "PMID": "41895152",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "ESPEN practical guideline on ethical aspects of medical nutrition therapy.",
+      "canonical_doi": "10.1016/j.clnu.2026.106622",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2026 May",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Practice Guideline"
+      ],
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41895152/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-073",
+      "PMID": "33640205",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "ESPEN guideline on clinical nutrition in hospitalized patients with acute or chronic kidney disease.",
+      "canonical_doi": "10.1016/j.clnu.2021.01.028",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2021 Apr",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Practice Guideline"
+      ],
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33640205/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-074",
+      "PMID": "39178492",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "ESPEN practical guideline on clinical nutrition in hospitalized patients with acute or chronic kidney disease.",
+      "canonical_doi": "10.1016/j.clnu.2024.08.002",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2024 Sep",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Practice Guideline"
+      ],
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39178492/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-075",
+      "PMID": "38907161",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Hyperglycaemic crises in adults with diabetes: a consensus report.",
+      "canonical_doi": "10.1007/s00125-024-06183-8",
+      "canonical_pmcid": "PMC11343900",
+      "canonical_publication_date": "2024 Aug",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Consensus Statement"
+      ],
+      "journal": "Diabetologia",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38907161/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-076",
+      "PMID": "35029593",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Exercise/Physical Activity in Individuals with Type 2 Diabetes: A Consensus Statement from the American College of Sports Medicine.",
+      "canonical_doi": "10.1249/MSS.0000000000002800",
+      "canonical_pmcid": "PMC8802999",
+      "canonical_publication_date": "2022 Feb 01",
+      "canonical_publication_types": [
+        "Consensus Statement",
+        "Journal Article",
+        "Practice Guideline"
+      ],
+      "journal": "Medicine and science in sports and exercise",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35029593/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-077",
+      "PMID": "31746327",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Safety of High-Dose Vitamin D Supplementation: Secondary Analysis of a Randomized Controlled Trial.",
+      "canonical_doi": "10.1210/clinem/dgz212",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2020 Apr 01",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "The Journal of clinical endocrinology and metabolism",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/31746327/",
+      "flags": [
+        "COMPANION_PARENT_LINK_REQUIRED"
+      ]
+    },
+    {
+      "candidate_id": "CAND-G100-078",
+      "PMID": "40560588",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Time-Restricted Eating and Sleep, Mood, and Quality of Life in Adults With Overweight or Obesity: A Secondary Analysis of a Randomized Clinical Trial.",
+      "canonical_doi": "10.1001/jamanetworkopen.2025.17268",
+      "canonical_pmcid": "PMC12199060",
+      "canonical_publication_date": "2025 Jun 02",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "JAMA network open",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40560588/",
+      "flags": [
+        "COMPANION_PARENT_LINK_REQUIRED"
+      ]
+    },
+    {
+      "candidate_id": "CAND-G100-079",
+      "PMID": "38423026",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "5-year follow-up of the randomised Diabetes Remission Clinical Trial (DiRECT) of continued support for weight loss maintenance in the UK: an extension study.",
+      "canonical_doi": "10.1016/S2213-8587(23)00385-6",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2024 Apr",
+      "canonical_publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "The lancet. Diabetes & endocrinology",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38423026/",
+      "flags": [
+        "COMPANION_PARENT_LINK_REQUIRED"
+      ]
+    },
+    {
+      "candidate_id": "CAND-G100-080",
+      "PMID": "40733010",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Effects of 4:3 Intermittent Fasting on Eating Behaviors and Appetite Hormones: A Secondary Analysis of a 12-Month Behavioral Weight Loss Intervention.",
+      "canonical_doi": "10.3390/nu17142385",
+      "canonical_pmcid": "PMC12298406",
+      "canonical_publication_date": "2025 Jul 21",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "journal": "Nutrients",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40733010/",
+      "flags": [
+        "COMPANION_PARENT_LINK_REQUIRED"
+      ]
+    },
+    {
+      "candidate_id": "CAND-G100-081",
+      "PMID": "40987812",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Author Correction: Fasting mimicking diet cycles versus a Mediterranean diet and cardiometabolic risk in overweight and obese hypertensive subjects: a randomized clinical trial.",
+      "canonical_doi": "10.1038/s44324-025-00084-z",
+      "canonical_pmcid": "PMC12457591",
+      "canonical_publication_date": "2025 Sep 23",
+      "canonical_publication_types": [
+        "Published Erratum"
+      ],
+      "journal": "npj metabolic health and disease",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40987812/",
+      "flags": [
+        "VERSION_EVENT_VERIFY_PARENT"
+      ]
+    },
+    {
+      "candidate_id": "CAND-G100-082",
+      "PMID": "32873338",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Correction to: PKU dietary handbook to accompany PKU guidelines.",
+      "canonical_doi": "10.1186/s13023-020-01486-6",
+      "canonical_pmcid": "PMC7465324",
+      "canonical_publication_date": "2020 Sep 01",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Published Erratum"
+      ],
+      "journal": "Orphanet journal of rare diseases",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/32873338/",
+      "flags": [
+        "VERSION_EVENT_VERIFY_PARENT"
+      ]
+    },
+    {
+      "candidate_id": "CAND-G100-083",
+      "PMID": "38527138",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Correction to: Cardiovascular-Kidney-Metabolic Health: A Presidential Advisory From the American Heart Association.",
+      "canonical_doi": "10.1161/CIR.0000000000001241",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2024 Mar 26",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Published Erratum"
+      ],
+      "journal": "Circulation",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38527138/",
+      "flags": [
+        "VERSION_EVENT_VERIFY_PARENT"
+      ]
+    },
+    {
+      "candidate_id": "CAND-G100-084",
+      "PMID": "40528309",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Management of paediatric ulcerative colitis, part 2: Acute severe colitis-An updated evidence-based consensus guideline from the European Society of Paediatric Gastroenterology, Hepatology and Nutrition and the European Crohn's and Colitis Organization.",
+      "canonical_doi": "10.1002/jpn3.70096",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2025 Sep",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Practice Guideline"
+      ],
+      "journal": "Journal of pediatric gastroenterology and nutrition",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40528309/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-085",
+      "PMID": "37639741",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "ESPEN guideline on chronic intestinal failure in adults - Update 2023.",
+      "canonical_doi": "10.1016/j.clnu.2023.07.019",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2023 Oct",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Practice Guideline"
+      ],
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37639741/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-086",
+      "PMID": "33026087",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "The Medical Management of Paediatric Crohn's Disease: an ECCO-ESPGHAN Guideline Update.",
+      "canonical_doi": "10.1093/ecco-jcc/jjaa161",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2021 Feb 01",
+      "canonical_publication_types": [
+        "Journal Article"
+      ],
+      "journal": "Journal of Crohn's & colitis",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33026087/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-087",
+      "PMID": "38755195",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Mediterranean diet as a strategy for preserving kidney function in patients with coronary heart disease with type 2 diabetes and obesity: a secondary analysis of CORDIOPREV randomized controlled trial.",
+      "canonical_doi": "10.1038/s41387-024-00285-3",
+      "canonical_pmcid": "PMC11099022",
+      "canonical_publication_date": "2024 May 16",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Nutrition & diabetes",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38755195/",
+      "flags": [
+        "COMPANION_PARENT_LINK_REQUIRED"
+      ]
+    },
+    {
+      "candidate_id": "CAND-G100-088",
+      "PMID": "40198072",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Mediterranean Diet, Physical Activity, and Bone Health in Older Adults: A Secondary Analysis of a Randomized Clinical Trial.",
+      "canonical_doi": "10.1001/jamanetworkopen.2025.3710",
+      "canonical_pmcid": "PMC11979728",
+      "canonical_publication_date": "2025 Apr 01",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Multicenter Study"
+      ],
+      "journal": "JAMA network open",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40198072/",
+      "flags": [
+        "COMPANION_PARENT_LINK_REQUIRED"
+      ]
+    },
+    {
+      "candidate_id": "CAND-G100-089",
+      "PMID": "40854218",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Comparison of an Energy-Reduced Mediterranean Diet and Physical Activity Versus an Ad Libitum Mediterranean Diet in the Prevention of Type 2 Diabetes : A Secondary Analysis of a Randomized Controlled Trial.",
+      "canonical_doi": "10.7326/ANNALS-25-00388",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2025 Oct",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Multicenter Study"
+      ],
+      "journal": "Annals of internal medicine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40854218/",
+      "flags": [
+        "COMPANION_PARENT_LINK_REQUIRED"
+      ]
+    },
+    {
+      "candidate_id": "CAND-G100-090",
+      "PMID": "39226719",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Effects of time-restricted eating and low-carbohydrate diet on psychosocial health and appetite in individuals with metabolic syndrome: A secondary analysis of a randomized controlled trial.",
+      "canonical_doi": "10.1016/j.clnu.2024.08.029",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2024 Oct",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39226719/",
+      "flags": [
+        "COMPANION_PARENT_LINK_REQUIRED"
+      ]
+    },
+    {
+      "candidate_id": "CAND-G100-091",
+      "PMID": "35443107",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Calorie Restriction with or without Time-Restricted Eating in Weight Loss.",
+      "canonical_doi": "10.1056/NEJMoa2114833",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2022 Apr 21",
+      "canonical_publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "journal": "The New England journal of medicine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35443107/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-092",
+      "PMID": "38639542",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Effect of Isocaloric, Time-Restricted Eating on Body Weight in Adults With Obesity : A Randomized Controlled Trial.",
+      "canonical_doi": "10.7326/M23-3132",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2024 May",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "journal": "Annals of internal medicine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38639542/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-093",
+      "PMID": "37024596",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Intermittent fasting plus early time-restricted eating versus calorie restriction and standard care in adults at risk of type 2 diabetes: a randomized controlled trial.",
+      "canonical_doi": "10.1038/s41591-023-02287-7",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2023 Apr",
+      "canonical_publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Nature medicine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37024596/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-094",
+      "PMID": "38904963",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "A 5:2 Intermittent Fasting Meal Replacement Diet and Glycemic Control for Adults With Diabetes: The EARLY Randomized Clinical Trial.",
+      "canonical_doi": "10.1001/jamanetworkopen.2024.16786",
+      "canonical_pmcid": "PMC11193124",
+      "canonical_publication_date": "2024 Jun 03",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Multicenter Study"
+      ],
+      "journal": "JAMA network open",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38904963/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-095",
+      "PMID": "35196654",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Definition and Diagnostic Criteria for Sarcopenic Obesity: ESPEN and EASO Consensus Statement.",
+      "canonical_doi": "10.1159/000521241",
+      "canonical_pmcid": "PMC9210010",
+      "canonical_publication_date": "2022",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Consensus Statement"
+      ],
+      "journal": "Obesity facts",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35196654/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-096",
+      "PMID": "38869255",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Expert consensus statements and summary of proceedings from the International Safety and Quality of Parenteral Nutrition Summit.",
+      "canonical_doi": "10.1093/ajhp/zxae078",
+      "canonical_pmcid": "PMC11170495",
+      "canonical_publication_date": "2024 Jun 13",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Consensus Statement",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "American journal of health-system pharmacy : AJHP : official journal of the American Society of Health-System Pharmacists",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38869255/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-097",
+      "PMID": "38772068",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "ESPEN guideline on nutrition and hydration in dementia - Update 2024.",
+      "canonical_doi": "10.1016/j.clnu.2024.04.039",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2024 Jun",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Practice Guideline",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38772068/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-098",
+      "PMID": "40677018",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Management of paediatric ulcerative colitis, part 1: Ambulatory care-An updated evidence-based consensus guideline from the European Society of Paediatric Gastroenterology, Hepatology and Nutrition and the European Crohn's and Colitis Organisation.",
+      "canonical_doi": "10.1002/jpn3.70097",
+      "canonical_pmcid": "PMC12408984",
+      "canonical_publication_date": "2025 Sep",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Practice Guideline"
+      ],
+      "journal": "Journal of pediatric gastroenterology and nutrition",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40677018/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-099",
+      "PMID": "36599304",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Cardiometabolic health improvements upon dietary intervention are driven by tissue-specific insulin resistance phenotype: A precision nutrition trial.",
+      "canonical_doi": "10.1016/j.cmet.2022.12.002",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2023 Jan 03",
+      "canonical_publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Cell metabolism",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36599304/",
+      "flags": []
+    },
+    {
+      "candidate_id": "CAND-G100-100",
+      "PMID": "39418832",
+      "bibliographic_match": "PUBMED_INDEX_CONFIRMED",
+      "canonical_title": "Short-term intermittent fasting and energy restriction do not impair rates of muscle protein synthesis: A randomised, controlled dietary intervention.",
+      "canonical_doi": "10.1016/j.clnu.2024.09.034",
+      "canonical_pmcid": "",
+      "canonical_publication_date": "2024 Nov",
+      "canonical_publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39418832/",
+      "flags": []
+    }
+  ]
+}

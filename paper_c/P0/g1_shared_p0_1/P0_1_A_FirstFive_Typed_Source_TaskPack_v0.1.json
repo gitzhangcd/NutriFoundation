@@ -1,0 +1,381 @@
+{
+  "stage": "G1-Shared P0.1-A",
+  "version": "v0.1",
+  "status": "FIRST_FIVE_TYPED_SOURCE_PACK_READY_FOR_ENGINEERING_REVIEW_NOT_HUMAN_GOLD",
+  "freeze_boundary": "SEPARATE_FROM_PAPER_C_GOLD100",
+  "source_count": 5,
+  "source_package_type": "TASK_SCOPED_REFERENTIAL_PACKAGE",
+  "server_loader_support": "NOT_SUPPORTED_BY_54b4c2e_HARDCODED_SYN_5_2_PAPER",
+  "strict_blind_rules": [
+    "No agent candidate shown to independent expert Gold annotators",
+    "No R0/R2 pre-AI exposure or hidden score reference",
+    "Store source versions and exact span anchors in restricted store",
+    "Human decision cannot be inferred from evidence-source review"
+  ],
+  "records": [
+    {
+      "task_id": "G1-P0.1-A-CAND-G100-004",
+      "source_candidate_ref": "CAND-G100-004",
+      "scientific_task_kind": "HETEROGENEOUS_SOURCE_SCIENCE_REVIEW",
+      "source_role": "RCT",
+      "evidence_question": "How were trial arms assigned and what primary outcome was prespecified?",
+      "candidate_extraction_for_dev_only": "A five-week three-arm randomized study (90 allocated) in healthy volunteers without obesity; primary endpoint change in HOMA-IR; 82 completed.",
+      "agent_extraction_view": "DEVELOPMENT_ONLY_VISIBLE_IF_NOT_IN_INDEPENDENT_GOLD_ARM",
+      "expert_gold_view": "AGENT_OUTPUT_HIDDEN",
+      "scientific_requirements": [
+        "Verify allocation in Methods and CONSORT; reconcile 90 assigned vs 82 analyzed",
+        "Confirm primary endpoint HOMA-IR and differential time windows",
+        "Review supplement/protocol and risks of bias before impact inference"
+      ],
+      "overgeneralization_guard": "No proof of long-term obesity or diabetes outcome efficacy; non-obese source population",
+      "authoritative_links": {
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8864028/",
+        "source_projection": "paper_c/P0/g1_shared_p0_1/source_projections/CAND-G100-004_PMC8864028_PMC_body_CC-BY-4.0.md"
+      },
+      "provenance": {
+        "PMID": "35194047",
+        "PMCID": "PMC8864028",
+        "exact_text_source": "PMC_OAI_BODY",
+        "retrieved_body_chars": 40271,
+        "source_anchors": [
+          {
+            "kind": "RCT_RANDOMIZATION_SAMPLE",
+            "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+            "start": 3332,
+            "end": 3382,
+            "verbatim_short_needle": "Ninety volunteers who met the eligibility criteria",
+            "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+            "source_span_verified_by_machine": true
+          },
+          {
+            "kind": "RCT_PRIMARY_OUTCOME",
+            "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+            "start": 27402,
+            "end": 27447,
+            "verbatim_short_needle": "The primary outcome was the change in HOMA-IR",
+            "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+            "source_span_verified_by_machine": true
+          }
+        ],
+        "source_language": "en",
+        "translated_text_status": "NOT_GENERATED"
+      },
+      "source_licensing": {
+        "license_class": "CC_BY_4_0",
+        "source_body_public_persistence_permitted_and_done": true,
+        "source_projection_access": "LINK_TO_AUTHORIZED_ORIGINAL_UNLESS_RELICENSED",
+        "copy_of_restricted_source_in_pack": false
+      },
+      "structural_fidelity": {
+        "retrieval_complete": true,
+        "source_pdf_fidelity": "NOT_VERIFIED",
+        "table_cells": "NOT_QUALIFIED",
+        "figures": "NOT_QUALIFIED",
+        "supplements": "NOT_QUALIFIED",
+        "eal_document_family": "NOT_APPLICABLE"
+      },
+      "decision": {
+        "L1": "PASS_METADATA_AND_CONTIGUOUS_PMC_BODY",
+        "L2": "PASS_NARROW_TEXT_SPAN_ONLY",
+        "L3": "AGENT_PRELIMINARY_REVIEW",
+        "L4": "HOLD_PENDING_EXPERT_AND_FULL_FIDELITY",
+        "gold": "NOT_GOLD",
+        "production_expert_acceptance": "NO_GO",
+        "workflow_use": "CANDIDATE_ANNOTATION_IN_ENGINEERING_ENV_ONLY"
+      },
+      "expert_approval_required": true
+    },
+    {
+      "task_id": "G1-P0.1-A-CAND-G100-029",
+      "source_candidate_ref": "CAND-G100-029",
+      "scientific_task_kind": "HETEROGENEOUS_SOURCE_SCIENCE_REVIEW",
+      "source_role": "PROSPECTIVE_COHORT",
+      "evidence_question": "Who was observed and what is the observational exposure/outcome, without upgrading association to causation?",
+      "candidate_extraction_for_dev_only": "NutriNet-Santé population-based cohort assessed the association of ultra-processed foods with CVD using 105,159 participants without baseline CVD; effect measures are HRs, not randomized causal effects.",
+      "agent_extraction_view": "DEVELOPMENT_ONLY_VISIBLE_IF_NOT_IN_INDEPENDENT_GOLD_ARM",
+      "expert_gold_view": "AGENT_OUTPUT_HIDDEN",
+      "scientific_requirements": [
+        "Verify cohort eligibility, repeated dietary records and exposure denominator",
+        "Reconstruct exact adjusted model and HR numeric cell from original Table 2",
+        "Assess confounding, selection and measurement-error limits"
+      ],
+      "overgeneralization_guard": "Association is not intervention causality; cohorts sharing participants should be family-linked",
+      "authoritative_links": {
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6538975/",
+        "source_projection": null
+      },
+      "provenance": {
+        "PMID": "31142457",
+        "PMCID": "PMC6538975",
+        "exact_text_source": "PMC_OAI_BODY",
+        "retrieved_body_chars": 59562,
+        "source_anchors": [
+          {
+            "kind": "COHORT_SAMPLE_POPULATION",
+            "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+            "start": 12730,
+            "end": 12774,
+            "verbatim_short_needle": "105 159 participants without CVD at baseline",
+            "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+            "source_span_verified_by_machine": true
+          },
+          {
+            "kind": "COHORT_ASSOCIATIONAL_ESTIMAND",
+            "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+            "start": 16409,
+            "end": 16465,
+            "verbatim_short_needle": "Hazard ratios and 95% confidence intervals were computed",
+            "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+            "source_span_verified_by_machine": true
+          }
+        ],
+        "source_language": "en",
+        "translated_text_status": "NOT_GENERATED"
+      },
+      "source_licensing": {
+        "license_class": "CC_BY_NC_4_0",
+        "source_body_public_persistence_permitted_and_done": false,
+        "source_projection_access": "LINK_TO_AUTHORIZED_ORIGINAL_UNLESS_RELICENSED",
+        "copy_of_restricted_source_in_pack": false
+      },
+      "structural_fidelity": {
+        "retrieval_complete": true,
+        "source_pdf_fidelity": "NOT_VERIFIED",
+        "table_cells": "NOT_QUALIFIED",
+        "figures": "NOT_QUALIFIED",
+        "supplements": "NOT_QUALIFIED",
+        "eal_document_family": "NOT_APPLICABLE"
+      },
+      "decision": {
+        "L1": "PASS_METADATA_AND_CONTIGUOUS_PMC_BODY",
+        "L2": "PASS_NARROW_TEXT_SPAN_ONLY",
+        "L3": "AGENT_PRELIMINARY_REVIEW",
+        "L4": "HOLD_PENDING_EXPERT_AND_FULL_FIDELITY",
+        "gold": "NOT_GOLD",
+        "production_expert_acceptance": "NO_GO",
+        "workflow_use": "CANDIDATE_ANNOTATION_IN_ENGINEERING_ENV_ONLY"
+      },
+      "expert_approval_required": true
+    },
+    {
+      "task_id": "G1-P0.1-A-CAND-G100-048",
+      "source_candidate_ref": "CAND-G100-048",
+      "scientific_task_kind": "HETEROGENEOUS_SOURCE_SCIENCE_REVIEW",
+      "source_role": "SYSTEMATIC_REVIEW_NETWORK_META",
+      "evidence_question": "What evidence synthesis was performed, and what is the scope of effect/certainty? Include correction/version lineage.",
+      "candidate_extraction_for_dev_only": "BMJ 2025 network meta-analysis screened and included 99 articles/RCT reports; GRADE certainty was assessed by comparison; effect units, comparators and study-family overlap require source-level review.",
+      "agent_extraction_view": "DEVELOPMENT_ONLY_VISIBLE_IF_NOT_IN_INDEPENDENT_GOLD_ARM",
+      "expert_gold_view": "AGENT_OUTPUT_HIDDEN",
+      "scientific_requirements": [
+        "Verify included-study list, trial overlaps, search cutoff, and supplementary tables",
+        "Verify ADF vs CER MD -1.29 kg (95% CI -1.99 to -0.59) in authoritative figure/table",
+        "Add 2025-08-18 affiliation-only BMJ correction to document version history"
+      ],
+      "overgeneralization_guard": "No universal long-term superiority or hard-outcome benefit extrapolation; correction affiliation not effect estimate",
+      "authoritative_links": {
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12175170/",
+        "source_projection": null,
+        "related_edition": "https://www.bmj.com/content/390/bmj.r1737"
+      },
+      "provenance": {
+        "PMID": "40533200",
+        "PMCID": "PMC12175170",
+        "exact_text_source": "PMC_OAI_BODY",
+        "retrieved_body_chars": 45559,
+        "source_anchors": [
+          {
+            "kind": "SYNTHESIS_INCLUDED_ARTICLES",
+            "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+            "start": 13927,
+            "end": 13965,
+            "verbatim_short_needle": "99 articles met our inclusion criteria",
+            "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+            "source_span_verified_by_machine": true
+          },
+          {
+            "kind": "SYNTHESIS_CERTAINTY_METHOD",
+            "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+            "start": 18634,
+            "end": 18696,
+            "verbatim_short_needle": "The GRADE certainty of evidence for all diet group comparisons",
+            "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+            "source_span_verified_by_machine": true
+          }
+        ],
+        "source_language": "en",
+        "translated_text_status": "NOT_GENERATED"
+      },
+      "source_licensing": {
+        "license_class": "CC_BY_NC_4_0",
+        "source_body_public_persistence_permitted_and_done": false,
+        "source_projection_access": "LINK_TO_AUTHORIZED_ORIGINAL_UNLESS_RELICENSED",
+        "copy_of_restricted_source_in_pack": false
+      },
+      "structural_fidelity": {
+        "retrieval_complete": true,
+        "source_pdf_fidelity": "NOT_VERIFIED",
+        "table_cells": "NOT_QUALIFIED",
+        "figures": "NOT_QUALIFIED",
+        "supplements": "NOT_QUALIFIED",
+        "eal_document_family": "NOT_APPLICABLE"
+      },
+      "decision": {
+        "L1": "PASS_METADATA_AND_CONTIGUOUS_PMC_BODY",
+        "L2": "PASS_NARROW_TEXT_SPAN_ONLY",
+        "L3": "AGENT_PRELIMINARY_REVIEW",
+        "L4": "HOLD_PENDING_EXPERT_AND_FULL_FIDELITY",
+        "gold": "NOT_GOLD",
+        "production_expert_acceptance": "NO_GO",
+        "workflow_use": "CANDIDATE_ANNOTATION_IN_ENGINEERING_ENV_ONLY"
+      },
+      "expert_approval_required": true
+    },
+    {
+      "task_id": "G1-P0.1-A-CAND-G100-071",
+      "source_candidate_ref": "CAND-G100-071",
+      "scientific_task_kind": "HETEROGENEOUS_SOURCE_SCIENCE_REVIEW",
+      "source_role": "EVIDENCE_BASED_PRACTICE_GUIDELINE",
+      "evidence_question": "Identify the guideline's target population, recommendation strength and exclusions, retaining its authoritative full-EAL dependency.",
+      "candidate_extraction_for_dev_only": "2023 abbreviated journal report belongs to the official 2021–22 Academy AWM guideline family; official EAL details Recommendation 'Provide Medical Nutrition Therapy' as rating Level 1(B), Imperative, with 'as appropriate and desired' scope; other best-practice recommendations can be Consensus, Conditional.",
+      "agent_extraction_view": "DEVELOPMENT_ONLY_VISIBLE_IF_NOT_IN_INDEPENDENT_GOLD_ARM",
+      "expert_gold_view": "AGENT_OUTPUT_HIDDEN",
+      "scientific_requirements": [
+        "Link official EAL full recommendations and statement/grade/label to journal summary",
+        "Preserve exception screening: e.g. active eating disorder, pregnancy, chemotherapy per EAL application caveats",
+        "Reconstruct Evidence-to-Decision and supporting systematic-review links before recommendation Gold"
+      ],
+      "overgeneralization_guard": "Original labels may be Imperative despite clinically scoped conditions. Consensus rating is not independent effect certainty.",
+      "authoritative_links": {
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12646719/",
+        "source_projection": null,
+        "official_family": "https://www.andeal.org/topic.cfm?cat=6109&menu=5276",
+        "official_recommendations_index": "https://www.andeal.org/topic.cfm?cat=6246&menu=5276",
+        "official_recommendation_page": "https://www.andeal.org/template.cfm?key=4888&template=guide_summary"
+      },
+      "provenance": {
+        "PMID": "36462613",
+        "PMCID": "PMC12646719",
+        "exact_text_source": "PMC_OAI_BODY",
+        "retrieved_body_chars": 73139,
+        "source_anchors": [
+          {
+            "kind": "GUIDELINE_ABRIDGEMENT",
+            "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+            "start": 2317,
+            "end": 2377,
+            "verbatim_short_needle": "This article is an abbreviated version of the full guideline",
+            "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+            "source_span_verified_by_machine": true
+          },
+          {
+            "kind": "GUIDELINE_CONSENSUS_RATING",
+            "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+            "start": 6636,
+            "end": 6678,
+            "verbatim_short_needle": "recommendations were graded as “Consensus”",
+            "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+            "source_span_verified_by_machine": true
+          }
+        ],
+        "source_language": "en",
+        "translated_text_status": "NOT_GENERATED"
+      },
+      "source_licensing": {
+        "license_class": "TEXT_MINING_RESEARCH_ONLY_OR_UNCERTAIN",
+        "source_body_public_persistence_permitted_and_done": false,
+        "source_projection_access": "LINK_TO_AUTHORIZED_ORIGINAL_UNLESS_RELICENSED",
+        "copy_of_restricted_source_in_pack": false
+      },
+      "structural_fidelity": {
+        "retrieval_complete": true,
+        "source_pdf_fidelity": "NOT_VERIFIED",
+        "table_cells": "NOT_QUALIFIED",
+        "figures": "NOT_QUALIFIED",
+        "supplements": "NOT_QUALIFIED",
+        "eal_document_family": "AUTHORITATIVE_FULL_GUIDELINE_RELATED_NOT_SNAPSHOTTED"
+      },
+      "decision": {
+        "L1": "PASS_METADATA_AND_CONTIGUOUS_PMC_BODY",
+        "L2": "PASS_NARROW_TEXT_SPAN_ONLY",
+        "L3": "AGENT_PRELIMINARY_REVIEW",
+        "L4": "HOLD_PENDING_EXPERT_AND_FULL_FIDELITY",
+        "gold": "NOT_GOLD",
+        "production_expert_acceptance": "NO_GO",
+        "workflow_use": "CANDIDATE_ANNOTATION_IN_ENGINEERING_ENV_ONLY"
+      },
+      "expert_approval_required": true
+    },
+    {
+      "task_id": "G1-P0.1-A-CAND-G100-096",
+      "source_candidate_ref": "CAND-G100-096",
+      "scientific_task_kind": "HETEROGENEOUS_SOURCE_SCIENCE_REVIEW",
+      "source_role": "EXPERT_CONSENSUS",
+      "evidence_question": "Describe expert consensus formation and distinguish it from formal guideline authority and independent certainty of evidence.",
+      "candidate_extraction_for_dev_only": "International PN summit produced expert consensus statements using adapted Delphi communication; the authors state the panel was not a formal guideline committee/authorized voting body.",
+      "agent_extraction_view": "DEVELOPMENT_ONLY_VISIBLE_IF_NOT_IN_INDEPENDENT_GOLD_ARM",
+      "expert_gold_view": "AGENT_OUTPUT_HIDDEN",
+      "scientific_requirements": [
+        "Rebuild panel membership, voting methods, thresholds, objections, and exact statements",
+        "Distinguish practice agreement from evidence certainty and clinical guideline authority",
+        "Respect CC BY-NC-ND no-adaptation/public redistribution limitations"
+      ],
+      "overgeneralization_guard": "Not a formal international guideline; no RCT-level certainty can be inferred from consensus",
+      "authoritative_links": {
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11170495/",
+        "source_projection": null
+      },
+      "provenance": {
+        "PMID": "38869255",
+        "PMCID": "PMC11170495",
+        "exact_text_source": "PMC_OAI_BODY",
+        "retrieved_body_chars": 58335,
+        "source_anchors": [
+          {
+            "kind": "CONSENSUS_NOT_FORMAL_GUIDELINE",
+            "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+            "start": 4360,
+            "end": 4426,
+            "verbatim_short_needle": "neither a formal guideline committee nor an authorized voting body",
+            "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+            "source_span_verified_by_machine": true
+          },
+          {
+            "kind": "CONSENSUS_DELIBERATION_METHOD",
+            "locator_type": "PMC_OAI_BODY_TEXT_UTF16_OFFSET",
+            "start": 6084,
+            "end": 6111,
+            "verbatim_short_needle": "an adapted Delphi technique",
+            "claim_role": "SOURCE_GROUNDED_EXTRACTION_CANDIDATE_NOT_EXPERT_GOLD",
+            "source_span_verified_by_machine": true
+          }
+        ],
+        "source_language": "en",
+        "translated_text_status": "NOT_GENERATED"
+      },
+      "source_licensing": {
+        "license_class": "CC_BY_NC_ND_4_0",
+        "source_body_public_persistence_permitted_and_done": false,
+        "source_projection_access": "LINK_TO_AUTHORIZED_ORIGINAL_UNLESS_RELICENSED",
+        "copy_of_restricted_source_in_pack": false
+      },
+      "structural_fidelity": {
+        "retrieval_complete": true,
+        "source_pdf_fidelity": "NOT_VERIFIED",
+        "table_cells": "NOT_QUALIFIED",
+        "figures": "NOT_QUALIFIED",
+        "supplements": "NOT_QUALIFIED",
+        "eal_document_family": "NOT_APPLICABLE"
+      },
+      "decision": {
+        "L1": "PASS_METADATA_AND_CONTIGUOUS_PMC_BODY",
+        "L2": "PASS_NARROW_TEXT_SPAN_ONLY",
+        "L3": "AGENT_PRELIMINARY_REVIEW",
+        "L4": "HOLD_PENDING_EXPERT_AND_FULL_FIDELITY",
+        "gold": "NOT_GOLD",
+        "production_expert_acceptance": "NO_GO",
+        "workflow_use": "CANDIDATE_ANNOTATION_IN_ENGINEERING_ENV_ONLY"
+      },
+      "expert_approval_required": true
+    }
+  ]
+}

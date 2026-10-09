@@ -428,7 +428,7 @@ async function runSearch(){
   search.serverTotal=s.total??s.results.length;search.translationOnly=translationOnly.length;search.total=search.serverTotal+translationOnly.length;
   search.next=(s.offset||0)+s.results.length;search.more=!!s.truncated;
   $('searchResults').hidden=false;$('searchList').hidden=false;$('searchToggle').textContent='收起列表';$('searchToggle').setAttribute('aria-expanded','true');
-  renderSearchList();paintSearchHighlights();updateSearchPosition();
+  renderSearchList();$('searchList').scrollTop=0;paintSearchHighlights();updateSearchPosition();
   $('searchStatus').textContent=searchSummary(search.total,search.items.length,search.translationOnly);
   const tips=[];
   if(CJK.test(q))tips.push(`英文原文中不含中文；中文只在本论文 ${[...translationMap.values()].reduce((n,a)=>n+a.length,0)} 处演练译文中查找。可改用英文关键词，例如 ${SEARCH_EXAMPLES}。`);

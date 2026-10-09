@@ -55,6 +55,8 @@ def search_regressions(p,output):
     expect(p.locator('#searchStatus')).to_have_text('共找到 17 处')
     p.locator('#searchToggle').click();expect(p.locator('#searchList')).to_be_hidden();expect(p.locator('#searchToggle')).to_have_attribute('aria-expanded','false')
     p.locator('#searchToggle').click();expect(p.locator('#searchList')).to_be_visible()
+    p.locator('#searchList').evaluate('e=>{e.scrollTop=e.scrollHeight}');p.locator('#searchBtn').click()
+    expect(hits).to_have_count(16);assert p.locator('#searchList').evaluate('e=>e.scrollTop')==0
     q.focus();q.press('ArrowDown');expect(hits.first).to_be_focused();p.keyboard.press('ArrowDown');expect(hits.nth(1)).to_be_focused()
     p.keyboard.press('Escape');expect(p.locator('#searchResults')).to_be_hidden();expect(q).to_be_focused();expect(q).to_have_value('effect')
     assert p.evaluate('[...CSS.highlights.keys()].filter(k=>k.startsWith("search"))')==[]

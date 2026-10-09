@@ -38,7 +38,7 @@ def test_markdown_scientific_table_preserves_cell_source_ranges():
     script=r"""
 const assert=require('assert');
 MAPPER
-const raw='| Outcome | Group A | Group B |\\n|:---|---:|---:|\\n| Records | 60 | 60 |\\n| Mean | 31 | 29 |';
+const raw='| Outcome | Group A | Group B |\n|:---|---:|---:|\n| Records | 60 | 60 |\n| Mean | 31 | 29 |';
 const rows=parseSourceTable(raw);
 assert.equal(rows.length,3);
 assert.equal(rows[0].length,3);

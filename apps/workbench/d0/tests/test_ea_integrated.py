@@ -83,7 +83,11 @@ def test_evidence_multi_source_profile_and_frozen_review(app):
     assert exported["export_kind"] == "UNQUALIFIED_EXPERT_REVIEW"
     assert exported["promotion_authorized"] is False
     # The unchanged NDS R0 authorizations must continue to operate after EA freeze.
-    assert client.get("/v1/tasks/SYN-R0/read-model").status_code == 200
+    # Evidence-only user must fail closed, while separately logged R0 still works.
+    assert client.get("/v1/tasks/SYN-R0/read-model").status_code == 404
+    r0client, _ = login(app, "r0")
+    assert r0client.get("/v1/tasks/SYN-R0/read-model").status_code == 200
+    assert r0client.get("/v1/ea/tasks").status_code == 403
 
 
 def test_login_roles_no_cross_task_or_auditor_source(app):

@@ -30,8 +30,8 @@ The corrected branch is forked **directly** from \`54b4c2eba844f39c07575573a3e83
 
 ## 3. What the user actually sees
 
-1. Log into **the existing D0 page** with a synthetic expert account.
-2. Click **切换到科学证据标注** in the existing left sidebar.
+1. Log into **the existing D0 page** using a dedicated evidence-only test expert account `ea1` or `ea2`. Do not use the existing `r0/r1/r2` clinical-decision experiment accounts.
+2. The existing Workbench automatically opens its science-evidence mode for the evidence-only test account. The UI mode remains distinct from NDS R0/R1/R2.
 3. Select a typed scientific annotation task (RCT, observational, Meta, guideline, consensus, narrative, correction).
 4. Select one of the task's **explicitly authorized source versions**. A multi-source RCT-plus-guideline fixture tests versioned selection.
 5. Read original synthetic text in the **unchanged original D0 reader panel** with D0 paragraph selection, original span highlight and in-document search. Source version and SHA appear in the old provenance area.
@@ -49,7 +49,9 @@ The corrected branch is forked **directly** from \`54b4c2eba844f39c07575573a3e83
 
 ## 5. Execution and acceptance
 
-This is an **in-place additive D0 deployment source change**, not a live production deployment. Run the original D0 command in \`apps/workbench/d0/README.md\`. The synthetic evidence fixture initializes once into \`<root>/ea_synthetic.sqlite\`.
+This is an **in-place additive D0 deployment source change**, not a live production deployment.
+
+**IMPORTANT ROLE SEPARATION:** Dedicated engineering identities `SYN-EA-EXPERT-A` / `SYN-EA-EXPERT-B` are provisioned as `ea1` / `ea2`. Original NDS `r0`/`r1`/`r2` accounts cannot list or open evidence-annotation tasks; EA accounts cannot open NDS DecisionCase source/read-model. The original D0 authentication/cookie/CSRF infrastructure is shared, **not the experimental expert account or exposure state**. Evidence reviewer sessions open EA mode automatically; no UI toggle back to a blinded DecisionCase is permitted within the same account. Logout and authenticate with a distinct test account to inspect NDS. Run the original D0 command in \`apps/workbench/d0/README.md\`. The synthetic evidence fixture initializes once into \`<root>/ea_synthetic.sqlite\`.
 
 Automated checks:
 
@@ -69,8 +71,12 @@ Do not claim UI E2E or full D0 browser regression solely from HTTP tests. Scient
 - **G0**: Source history exact \`54b4c2e\`, compare shows additive D0 changes only, no science authority mutations.
 - **G1**: Original D0 login/read-model/R0/R1/R2 tests PASS.
 - **G2**: EA multi-source/read ACL/typed tasks/candidate review tests PASS.
-- **G3**: D0 browser E2E of switching, original source selection, per-candidate evidence binding, restoring PDF/bilingual, keyboard & mobile usability.
+- **G3**: Original D0 Chromium E2E of evidence-only login, source selection, per-candidate evidence binding, logout, independent NDS login and original PDF/bilingual rendering; keyboard/mobile acceptance remains separate.
 - **G4**: Domain-specific scientific source qualification, translation fidelity, statistical interpretation, consensus/guideline relationships, independent expert adjudication—**NOT DONE**.
 - **G5**: Deployment, security, ethics, real expert/real evidence Gold—**NO GO**.
 
 P1 implementation is an engineering thin-slice; P1.1 science-ready PDF/document ingestion is the next distinct piece of work.
+
+## 7. Remediation audit trail
+
+The first Chromium run after integration failed an asynchronous assertion which checked candidate count before rendering completed. The suite was corrected to wait for the real UI state. A subsequent semantic audit required separate evidence-only accounts: without them, the same R0/R2 user could acquire additional source exposure while participating in a strict-blind decision experiment. The final state forbids that cross-program access through the server actor grants, not merely by hiding UI elements. CI and live browser results must be attached separately and must not be extrapolated to real expert/Gold validation.

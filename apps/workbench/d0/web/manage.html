@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NutriFoundation · 科研任务管理中心</title>
+<link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/tpa_manage.css">
+<script src="/static/tpa_manage.js" defer></script>
+</head>
+<body class="tpa-page">
+<a class="skip-tpa" href="#main">跳到任务配置</a>
+<header class="tpa-header">
+  <div class="tpa-brand"><span class="logo" aria-hidden="true">❧</span><div><strong>NutriFoundation</strong><small>Workbench · Task Production & Assignment</small></div></div>
+  <div class="tpa-header-actions"><span class="synthetic">SYNTHETIC ENGINEERING ONLY</span><span id="userBadge">未登录</span><button id="logoutButton" type="button" hidden>退出</button></div>
+</header>
+<main id="main">
+<section id="loginScreen" class="login-card" hidden>
+ <h1>科研任务管理中心</h1><p>与专家 Workbench 共享会话基础设施，但管理端权限独立。仅允许合成工程任务。</p>
+ <form id="loginForm">
+ <label>测试账号 <input id="username" autocomplete="username" required placeholder="producer / manager"></label>
+ <label>密码 <input id="password" type="password" autocomplete="current-password" required></label>
+ <button type="submit">登录管理工作台</button>
+ </form><p id="loginError" role="alert" class="error"></p>
+</section>
+<div id="workspace" hidden>
+ <div class="tpa-heading"><div><p class="eyebrow">WB-TPA-P1 · 原 D0 同源管理端</p><h1>科研任务管理中心</h1><p>注册合成来源 → 冻结定义 → 准备候选或独立工作包 → 分配与发布</p></div><div class="tpa-heading-actions"><button id="reload" class="secondary">刷新任务</button><a href="/">原 Workbench</a></div></div>
+ <div class="tpa-stats" aria-label="工程任务统计">
+ <div><strong id="countSource">—</strong><span>合成来源版本</span></div>
+ <div><strong id="countDraft">—</strong><span>准备中任务</span></div>
+ <div><strong id="countReady">—</strong><span>待管理分配</span></div>
+ <div><strong id="countPublished">—</strong><span>已发布任务</span></div>
+ </div>
+ <div class="tpa-columns">
+  <aside class="tpa-card source-column" aria-label="科学资料库">
+   <div class="section-head"><div><small>STAGE 01</small><h2>科学来源库</h2></div><span class="hint">只读元数据</span></div>
+   <p class="fine">当前仅显示 7 类自编合成资料。不提供真实 PDF 上传。管理员无法从此页面取得完整原文。</p>
+   <div id="sourcesList" class="source-list" aria-live="polite"></div>
+  </aside>
+  <section class="tpa-card builder-column" aria-label="任务生产配置">
+   <div class="section-head"><div><small>STAGE 02–03</small><h2>任务生产</h2></div><span id="roleLabel" class="hint">未授权</span></div>
+   <form id="taskForm">
+    <fieldset><legend>1 · 选择已登记来源</legend>
+      <label>主来源版本<select id="primarySource" required></select></label>
+      <label>附加授权来源（可选）<select id="extraSource"><option value="">不增加</option></select></label>
+      <div class="tpa-info" id="sourceInfo">请先选择一份资料</div>
+    </fieldset>
+    <fieldset><legend>2 · 配置标注任务</legend>
+      <label>任务编号<input id="taskId" required pattern="TPA-SYN-[A-Z0-9-]{3,50}" aria-describedby="idHint"></label>
+      <small id="idHint" class="fine">仅生成合成证据任务；编号创建后不可更改。</small>
+      <label>科学 Profile<input id="profileId" readonly></label>
+      <label>标注工作模式<select id="workflowStrategy">
+        <option value="AGENT_PROPOSE_EXPERT_VERIFY">Agent 候选复核（合成预置候选，不是真实 LLM）</option>
+        <option value="HUMAN_INDEPENDENT">专家独立判断（禁止任何 Agent 候选暴露）</option>
+      </select></label>
+      <label>知识截止时间（UTC，必须带时区）<input id="knowledgeCutoff" required></label>
+    </fieldset>
+    <fieldset><legend>3 · 准备与冻结</legend>
+      <p class="fine">点击“创建草稿”后，在右侧任务队列依次执行验证、定义冻结与准备。每一步均由服务器检查权限和原文版本。</p>
+      <button id="createDraft" type="submit">创建合成任务草稿</button> <button id="createBatch" class="secondary" type="button">批量生成七类合成草稿</button>
+    </fieldset>
+   </form>
+   <div class="operator-note"><strong>严格盲法边界</strong><p>独立任务无候选集；Agent 复核任务必须先冻结候选。EA 专家账号与原 NDS R0/R1/R2 账号不互通。</p></div>
+  </section>
+  <section class="tpa-card ops-column" aria-label="任务分配与进度">
+   <div class="section-head"><div><small>STAGE 04</small><h2>任务分配与进度</h2></div><span class="hint">冻结后只读</span></div>
+   <label>筛选状态<select id="stateFilter"><option value="">全部任务</option><option value="DRAFT">DRAFT</option><option value="VALIDATED">VALIDATED</option><option value="DEFINITION_FROZEN">DEFINITION_FROZEN</option><option value="READY_FOR_ASSIGNMENT">READY_FOR_ASSIGNMENT</option><option value="ASSIGNED">ASSIGNED</option><option value="PUBLISHED">PUBLISHED</option></select></label>
+   <div id="taskList" class="task-list" aria-live="polite"></div>
+  </section>
+ </div>
+ <section class="tpa-card activity"><div class="section-head"><div><small>OPERATION RECEIPT</small><h2>操作回执</h2></div><span class="hint">不属于 Gold / 正式科研结果</span></div>
+ <pre id="receipt" role="status" aria-live="polite">仅供合成工程验收。尚无操作。</pre></section>
+</div>
+</main>
+</body></html>

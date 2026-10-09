@@ -9,6 +9,7 @@ from __future__ import annotations
 from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel, ConfigDict, Field
 from ea_runtime import EAError, EvidenceEngine
+from tpa_runtime import TPAError
 
 
 class CandidateRequest(BaseModel):
@@ -47,7 +48,7 @@ class NewSource(BaseModel):
     source_family_refs: list[str] = Field(default_factory=list)
 
 
-def install_evidence_routes(app: FastAPI, engine: EvidenceEngine):
+def install_evidence_routes(app: FastAPI, engine: EvidenceEngine, tpa=None):
     def auth(request: Request):
         # D0's existing cookie/CSRF middleware already authenticated this.
         p = getattr(request.state, "principal", None)
@@ -55,13 +56,18 @@ def install_evidence_routes(app: FastAPI, engine: EvidenceEngine):
             raise HTTPException(401, detail={"code": "UNAUTHENTICATED"})
         return {"actor": p["actor"], "role": p["role"]}
 
-    def task_reader(request: Request):
+    def task_reader(request: Request, task_id=None, exposure_event=None, source_ref=None):
         p = auth(request)
         # Preserve original D0 role surface: auditor receives audit, never source.
         if p["role"] not in ("expert", "producer") or (
             p["role"] == "expert" and not p["actor"].startswith("SYN-EA-")
         ):
             raise HTTPException(403, detail={"code": "ROLE_FORBIDDEN"})
+        if task_id and tpa is not None and p["role"] == "expert":
+            try:
+                tpa.expert_gate(task_id,p["actor"],p["role"],exposure_event,source_ref)
+            except TPAError as exc:
+                raise HTTPException(403,detail={"code":exc.code}) from exc
         return p
 
     def perform(func, **kwargs):
@@ -107,6 +113,11 @@ def install_evidence_routes(app: FastAPI, engine: EvidenceEngine):
                 t = json.loads(r["record"])
                 if p["role"] == "expert" and t["expert_actor"] != p["actor"]:
                     continue
+                if tpa is not None and p["role"] == "expert" and t["task_id"].startswith("TPA-SYN-"):
+                    try:
+                        tpa.expert_gate(t["task_id"],p["actor"],p["role"])
+                    except TPAError:
+                        continue
                 if p["role"] == "producer" and t["producer_actor"] != p["actor"]:
                     continue
                 out.append({"task_id": r["task_id"], "state": r["state"],
@@ -116,20 +127,40 @@ def install_evidence_routes(app: FastAPI, engine: EvidenceEngine):
 
     @app.get("/v1/ea/tasks/{task_id}/workpack")
     def workpack(task_id: str, request: Request):
-        return perform(engine.workpack, **task_reader(request), task_id=task_id)
+
+        p=task_reader(request, task_id)
+        result=perform(engine.workpack, **p, task_id=task_id)
+        if tpa is not None and p["role"]=="expert":
+            tpa.expert_gate(task_id,p["actor"],p["role"],"TASK_OPENED")
+        return result
 
     @app.get("/v1/ea/tasks/{task_id}/sources")
     def sources(task_id: str, request: Request):
-        return perform(engine.list_sources, **task_reader(request), task_id=task_id)
+
+        p=task_reader(request, task_id)
+        result=perform(engine.list_sources, **p, task_id=task_id)
+        if tpa is not None and p["role"]=="expert":
+            tpa.expert_gate(task_id,p["actor"],p["role"],"SOURCE_LIST_OPENED")
+        return result
 
     @app.get("/v1/ea/tasks/{task_id}/sources/{source_id}/{revision_id}")
     def read_source(task_id: str, source_id: str, revision_id: str, request: Request):
-        return perform(engine.read_source, **task_reader(request), task_id=task_id,
+
+        p=task_reader(request, task_id)
+        result=perform(engine.read_source, **p, task_id=task_id,
                        source_id=source_id, revision_id=revision_id)
+        if tpa is not None and p["role"]=="expert":
+            tpa.expert_gate(task_id,p["actor"],p["role"],"SOURCE_UNIT_VIEWED",(source_id,revision_id))
+        return result
 
     @app.get("/v1/ea/tasks/{task_id}/candidates")
     def candidates(task_id: str, request: Request):
-        return perform(engine.read_candidates, **task_reader(request), task_id=task_id)
+
+        p=task_reader(request, task_id)
+        result=perform(engine.read_candidates, **p, task_id=task_id)
+        if tpa is not None and p["role"]=="expert":
+            tpa.expert_gate(task_id,p["actor"],p["role"],"AGENT_CANDIDATE_VIEWED")
+        return result
 
     @app.post("/v1/ea/tasks/{task_id}/candidates/freeze")
     def freeze_candidates(task_id: str, request: Request, body: CandidateRequest):
@@ -138,12 +169,12 @@ def install_evidence_routes(app: FastAPI, engine: EvidenceEngine):
 
     @app.post("/v1/ea/tasks/{task_id}/review/freeze")
     def freeze_review(task_id: str, request: Request, body: ReviewRequest):
-        return perform(engine.freeze_review, **task_reader(request), task_id=task_id,
+        return perform(engine.freeze_review, **task_reader(request, task_id), task_id=task_id,
                        items=body.items, candidate_set_digest=body.candidate_set_digest)
 
     @app.get("/v1/ea/tasks/{task_id}/export")
     def export(task_id: str, request: Request):
-        return perform(engine.export_record, **task_reader(request), task_id=task_id)
+        return perform(engine.export_record, **task_reader(request, task_id), task_id=task_id)
 
     @app.post("/v1/ea/sources")
     def add_source(body: NewSource, request: Request):

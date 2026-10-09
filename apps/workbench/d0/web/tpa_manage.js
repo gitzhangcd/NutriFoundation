@@ -168,8 +168,21 @@ function renderTasks(){
    button.addEventListener('click',()=>action(t.task_id,entry[0],t.workflow_strategy));
    actions.append(button);
   }
+  if(auth?.role==='manager'&&['ASSIGNED','PUBLISHED'].includes(t.state)){
+   const revoke=el('button','撤销未来访问权限');revoke.type='button';
+   revoke.setAttribute('aria-label',t.task_id+' 撤销未来访问权限');
+   revoke.className='secondary';
+   revoke.onclick=async()=>{
+    if(!window.confirm('撤销后不会抹除专家已经看过的资料。确定？'))return;
+    await action(t.task_id,'revoke',t.workflow_strategy);
+   };
+   actions.append(revoke);
+  }
   if(t.state==='PUBLISHED'){
    const note=el('small','已授权专家账号查看；本管理端不读取专家原文。','fine');card.append(note);
+  }
+  if(t.state==='REVOKED'){
+   card.append(el('small','已撤销后续访问；历史阅读与投放记录仍保留。','fine'));
   }
   card.append(actions);$('taskList').append(card);
  }

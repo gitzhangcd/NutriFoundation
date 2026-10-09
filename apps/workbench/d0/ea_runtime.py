@@ -194,7 +194,7 @@ class EvidenceEngine:
             deny("WORKFLOW_NOT_IMPLEMENTED")
         if not isinstance(task["allowed_source_versions"], list) or not task["allowed_source_versions"]:
             deny("EMPTY_TASK_SOURCE_ALLOWLIST")
-        if not isinstance(task["expert_actor"], str) or not task["expert_actor"].startswith("SYN-EXPERT-"):
+        if not isinstance(task["expert_actor"], str) or not task["expert_actor"].startswith("SYN-EA-EXPERT-"):
             deny("UNQUALIFIED_SYNTHETIC_ACTOR")
         cutoff = when(task["knowledge_cutoff"])
         primary = task["primary_source"]

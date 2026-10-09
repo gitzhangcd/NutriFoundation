@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import sqlite3
 from pathlib import Path
 
@@ -26,6 +27,13 @@ from ux_bilingual_demo import projection as synthetic_ux_demo
 SOURCE_ID = 'SYN-5-2-PAPER'
 GIT_BLOB_SHA = 'fe9d476f52981c7c1d536b8578559b109a5fcbec'
 MAX_SEARCH_RESULTS = 16
+CJK = re.compile(r'[\u3400-\u9fff\uf900-\ufaff]')
+MARKDOWN_MARKUP = re.compile(r'\*\*|__|^#{1,6}\s+', re.M)
+
+
+def search_text(value: str) -> str:
+    """Same visible text as the reader's plainMarkdown(), whitespace collapsed."""
+    return ' '.join(MARKDOWN_MARKUP.sub('', value).split()).casefold()
 
 
 class Strict(BaseModel):
@@ -284,13 +292,20 @@ def install_secure_reader(app: FastAPI, controller, root: Path, principal, fixtu
         result['delivery_audit'] = 'RECORDED_NOT_PROOF_OF_HUMAN_VIEWING'
         return result
 
+    searchable={u['unit_id']:search_text(u['raw']) for u in doc['units']}
+
     @app.get('/v1/tasks/{task}/sources/{source_id}/search')
-    def search(task: str, source_id: str, q: str=Query(min_length=3,max_length=100), p=Depends(principal)):
+    def search(task: str, source_id: str, q: str=Query(min_length=2,max_length=100),
+               offset: int=Query(0,ge=0,le=10_000), p=Depends(principal)):
         allowed(task,*p,full=True);exact_source(source_id);pdf_integrity()
+        needle=search_text(q)
+        if len(needle)<(2 if CJK.search(needle) else 3):deny('SEARCH_QUERY_TOO_SHORT',422)
         # No source search across other tasks; only this fixed allowlisted document.
         results=[{'unit_id':u['unit_id'],'snippet':u['raw'][:450],
-                  'pdf_page_hint':u['pdf_page_hint']} for u in doc['units'] if q.casefold() in u['raw'].casefold()]
-        return {'results':results[:MAX_SEARCH_RESULTS], 'truncated':len(results)>MAX_SEARCH_RESULTS}
+                  'pdf_page_hint':u['pdf_page_hint']} for u in doc['units'] if needle in searchable[u['unit_id']]]
+        page=results[offset:offset+MAX_SEARCH_RESULTS]
+        return {'results':page,'total':len(results),'offset':offset,
+                'truncated':offset+len(page)<len(results)}
 
     @app.get('/v1/tasks/{task}/sources/{source_id}/original.pdf')
     def original(task:str,source_id:str,p=Depends(principal)):

@@ -19,7 +19,7 @@ function show(s){$('status').textContent=typeof s==='string'?s:JSON.stringify(s,
 async function call(url,opts={}){const r=await fetch(url,{...opts,headers:{...identity(),...(opts.headers||{})},cache:'no-store'});if(!r.ok){const data=await r.json().catch(()=>({}));throw Error(data.detail?.code||data.detail||`HTTP ${r.status}`)}return r}
 async function json(url,opts={}){return (await call(url,opts)).json()}
 function escapeToText(el,s){el.textContent=s}
-async function load(){try{selected=null;selectedUnit=null;selectedOffsets=null;doc=null;translationMap.clear();$('bilingualToolbar').hidden=true;$('selectionToolbar').hidden=true;pdfDoc=null;pdfjs=null;sourceURL='';$('units').replaceChildren();$('anchors').replaceChildren();$('outline').replaceChildren();$('translationVersion').textContent='';$('translationStatus').textContent='翻译未就绪';togglePDF(false);window.dispatchEvent(new CustomEvent('nutri-evidence',{detail:{items:[],bindings:[]}}));$('pdfCanvas').width=0;$('pdfOverlay').replaceChildren();$('pdfRaster').style.display='none';
+async function load(){try{selected=null;selectedUnit=null;selectedOffsets=null;doc=null;translationMap.clear();$('bilingualToolbar').hidden=true;$('selectionToolbar').hidden=true;pdfDoc=null;pdfjs=null;sourceURL='';$('units').replaceChildren();$('anchors').replaceChildren();$('outline').replaceChildren();$('translationVersion').textContent='';$('translationStatus').textContent='翻译未就绪';togglePDF(false);window.dispatchEvent(new CustomEvent('nutri-evidence',{detail:{items:[],bindings:[],itemBindings:[]}}));$('pdfCanvas').width=0;$('pdfOverlay').replaceChildren();$('pdfRaster').style.display='none';
  const projection=await json(`/v1/tasks/${task()}/read-model`);$('phase').textContent=projection.phase;
  if(projection.arm==='R1') { $('readerTitle').textContent='候选证据 · 授权摘录';$('sourceTitle').textContent='R1 候选引用片段';$('readerMeta').textContent='仅限任务许可的候选证据；不提供全文与原始 PDF。';$('sourceVersion').textContent='来源权限：候选摘录';$('translationStatus').textContent='此任务不提供全文译文';$('pdfToggle').hidden=true;$('pdfDetails').hidden=true;$('query').disabled=true;$('searchBtn').disabled=true; $('sourceBadge').textContent='候选引用片段'; if(projection.phase==='EXPERT_VERIFY'){const fragments=await json(base()+'/candidate-spans'); for(const x of fragments.candidate_spans){const div=document.createElement('div');div.className='unit';div.textContent=x.quote; $('units').append(div)}show('R1：仅可见已验证的候选引用片段，不提供整篇原文/PDF');}else{show('R1 门禁：候选尚未冻结，来源不可访问。')}return;}
  $('pdfToggle').hidden=false;$('pdfDetails').hidden=false;$('query').disabled=false;$('searchBtn').disabled=false;
@@ -93,6 +93,7 @@ async function load(){try{selected=null;selectedUnit=null;selectedOffsets=null;d
  await listAnchors();show('任务级来源投影已验证；任何原件读取都携带同一任务令牌。');await openPDF();}catch(e){$('phase').textContent='拒绝访问';show('ACCESS DENIED: '+e.message);$('sourceBadge').textContent='无授权来源';}}
 async function listAnchors(){
  const r=await json(base()+'/anchors'),bindings=await json(base()+'/bindings');
+ const itemResult=await json(base()+'/item-bindings');
  $('anchors').replaceChildren();
  for(const a of r.items){
   const el=document.createElement('div');el.className='anchor';el.tabIndex=0;el.setAttribute('role','button');
@@ -102,23 +103,63 @@ async function listAnchors(){
   el.onclick=()=>{togglePDF(true);openAnchor(a)};el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click();}};$('anchors').append(el);
   const unit=[...$('units').querySelectorAll('[data-uid]')].find(x=>x.dataset.uid===a.unit_id);if(unit)unit.classList.add('has-anchor');
  }
- window.dispatchEvent(new CustomEvent('nutri-evidence',{detail:{items:r.items,bindings:bindings.items||bindings.bindings||[]}}));
+ window.dispatchEvent(new CustomEvent('nutri-evidence',{detail:{items:r.items,bindings:bindings.items||bindings.bindings||[],itemBindings:itemResult.items||[]}}));
 }
-async function makeAnchor(){try{if(!doc||!selectedUnit||!selected)throw Error('请先在左侧选中文字');const raw=selectedUnit.raw;let start,end;
-if(selectedOffsets && selectedOffsets.unit_id===selectedUnit.unit_id &&
-    raw.slice(selectedOffsets.start,selectedOffsets.end)===selected){
-  start=selectedOffsets.start;end=selectedOffsets.end;
-}else{
-  if(raw.split(selected).length!==2)throw Error('引文不存在或重复出现：请直接从原文选取精确范围');
-  start=raw.indexOf(selected);end=start+selected.length;
+async function sourceHash(text){
+ const raw=new TextEncoder().encode(text);
+ const buf=await crypto.subtle.digest('SHA-256',raw);
+ return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('');
 }
-if(raw.slice(start,end)!==selected)throw Error('SOURCE_SELECTION_MISMATCH');
-const a=await json(base()+'/anchors',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({unit_id:selectedUnit.unit_id,quote:selected,start_utf16:start,end_utf16:end,expected_revision:doc.revision,expected_source_markdown_sha256:doc.source_markdown_sha256})});await json(base()+'/bind-anchor',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({anchor_id:a.anchor_id,field:$('field').value,expected_document_revision:doc.revision,expected_pdf_sha256:doc.source_pdf_sha256})});await listAnchors();const verified=await openAnchor(a);show(verified?`已通过服务端证据验证并绑定到字段 ${$('field').value}；PDF 定位已核查。`:`原文证据已绑定到字段 ${$('field').value}，但 PDF 精确定位尚未核实。`)}catch(e){show('ANCHOR DENIED: '+e.message)}}
+async function makeAnchor(){
+ try{
+  if(!doc||!selectedUnit||!selected)throw Error('请先在左侧选取有明确出处的英文原文');
+  const target=window.nutriJudgment?.getBindingTarget?.();
+  if(!target)throw Error('请先打开专家判断并选择目标条目');
+  const raw=selectedUnit.raw;let start,end;
+  if(selectedOffsets&&selectedOffsets.unit_id===selectedUnit.unit_id&&raw.slice(selectedOffsets.start,selectedOffsets.end)===selected){
+    start=selectedOffsets.start;end=selectedOffsets.end;
+  }else{
+    if(raw.split(selected).length!==2)throw Error('此引文出现多次，请从原文中精确选取，勿猜测位置');
+    start=raw.indexOf(selected);end=start+selected.length;
+  }
+  if(raw.slice(start,end)!==selected)throw Error('SOURCE_SELECTION_MISMATCH');
+  const a=await json(base()+'/anchors',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({unit_id:selectedUnit.unit_id,quote:selected,start_utf16:start,end_utf16:end,
+      expected_revision:doc.revision,expected_source_markdown_sha256:doc.source_markdown_sha256})});
+  const data={anchor_id:a.anchor_id,field:target.field,
+    expected_document_revision:doc.revision,expected_pdf_sha256:doc.source_pdf_sha256};
+  let exact=false;
+  if(target.legacy){
+    await json(base()+'/bind-anchor',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+  }else{
+    await json(base()+'/bind-anchor-item',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({...data,item_index:target.index,
+        item_sha256:await sourceHash(target.text),expected_draft_revision:target.revision})});
+    exact=true;
+  }
+  await listAnchors();
+  const pdfVerified=await openAnchor(a);
+  const category=exact?`第 ${target.index+1} 条独立判断`:'当前科学字段（尚未关联到具体判断）';
+  show(pdfVerified?`已绑定到${category}，且已核验原始 PDF 精确位置。`:
+     `已绑定到${category}；PDF 精确定位尚未验证。请缩小引文并核查 PDF。`);
+ }catch(e){show('无法创建或绑定证据：'+e.message);}
+}
 async function openPDF(){try{pdfjs=await import('/static/vendor/pdfjs/pdf.min.mjs');pdfjs.GlobalWorkerOptions.workerSrc='/static/vendor/pdfjs/pdf.worker.min.mjs';pdfDoc=await pdfjs.getDocument({url:base()+'/original.pdf',httpHeaders:identity(),disableRange:true,disableStream:true,useSystemFonts:true}).promise;$('pdfEngine').textContent='PDF.js · authenticated';await showPage(1)}catch(e){pdfjs=null;pdfDoc=null;$('pdfEngine').textContent='授权页图模式';await showPage(1)}}
 async function showPage(number){pdfRenderChain=pdfRenderChain.catch(()=>{}).then(()=>renderPage(number));return pdfRenderChain;}
 async function renderPage(number){if(!doc)return;currentPage=Math.min(Math.max(number,1),doc.source_pages);$('pdfPage').textContent=`第 ${currentPage} / ${doc.source_pages} 页`;$('pdfOverlay').replaceChildren();const cnv=$('pdfCanvas'),img=$('pdfRaster');if(pdfDoc){img.style.display='none';const page=await pdfDoc.getPage(currentPage),viewport=page.getViewport({scale:1.3});cnv.width=viewport.width;cnv.height=viewport.height;const ctx=cnv.getContext('2d');await page.render({canvas:cnv,canvasContext:ctx,viewport}).promise;}else{cnv.style.display='none';img.style.display='block';const png=await call(base()+`/pages/${currentPage}/png`);const blob=await png.blob();if(img.dataset.objecturl)URL.revokeObjectURL(img.dataset.objecturl);img.dataset.objecturl=URL.createObjectURL(blob);img.src=img.dataset.objecturl;}if(activeLocator&&activeLocator.pdf_locator.page===currentPage)highlight(activeLocator)}
 function highlight(loc){if(loc.source_pdf_sha256!==doc?.source_pdf_sha256||loc.canonical_revision!==doc.revision)return;const p=loc.pdf_locator;if(p.match_status!=='VERIFIED_UNIQUE_PDF_TEXT'||p.page!==currentPage)return;for(const v of p.rects){const rect=v.rect_normalized;if(rect.length!==4||rect.some(x=>!Number.isFinite(x)||x<0||x>1)||rect[2]<=rect[0]||rect[3]<=rect[1])continue;const b=document.createElement('button');b.className='pdf-highlight';b.style.left=(rect[0]*100)+'%';b.style.top=(rect[1]*100)+'%';b.style.width=((rect[2]-rect[0])*100)+'%';b.style.height=((rect[3]-rect[1])*100)+'%';b.title='返回已授权结构化正文';b.onclick=()=>{const el=document.querySelector(`[data-uid="${loc.unit_id}"]`);if(el){el.classList.add('selected');el.scrollIntoView({block:'center'})}};$('pdfOverlay').append(b)}$('pdfLocatorStatus').textContent='PDF_PAGE_BBOX/0.2 · 原始 PDF 文字层唯一匹配 · 可反向回放'}
-async function openAnchor(a){try{const url=base()+`/anchors/${encodeURIComponent(a.anchor_id)}`;const loc=await json(url+'/resolve',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({expected_revision:doc.revision,expected_source_pdf_sha256:doc.source_pdf_sha256})});activeLocator=loc;await showPage(loc.pdf_locator.page);const verified=loc.pdf_locator.match_status==='VERIFIED_UNIQUE_PDF_TEXT' && $('pdfOverlay').querySelector('.pdf-highlight')!==null;if(!verified)throw Error('PDF_BOUNDING_BOX_NOT_VERIFIED');show('已校验原始 PDF 的 SHA-256、引文和文本框。');return true;}catch(e){$('pdfLocatorStatus').textContent='PDF 位置尚未核实：'+e.message;show('PDF LOCATION UNRESOLVED: '+e.message);return false;}}
+async function openAnchor(a){try{const url=base()+`/anchors/${encodeURIComponent(a.anchor_id)}`;const loc=await json(url+'/resolve',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({expected_revision:doc.revision,expected_source_pdf_sha256:doc.source_pdf_sha256})});activeLocator=loc;await showPage(loc.pdf_locator.page);const verified=loc.pdf_locator.match_status==='VERIFIED_UNIQUE_PDF_TEXT' && $('pdfOverlay').querySelector('.pdf-highlight')!==null;if(!verified)throw Error('PDF_BOUNDING_BOX_NOT_VERIFIED');show('已校验原始 PDF 的 SHA-256、引文和文本框。');return true;}catch(e){
+  const hint=a.pdf_page_hint;
+  if(Number.isInteger(hint)&&hint>=1&&hint<=doc.source_pages){
+    try{togglePDF(true);await showPage(hint);}catch(_){}
+  }else togglePDF(true);
+  $('pdfLocatorStatus').textContent='PDF 未能唯一定位原文范围。'+
+    (hint?'已打开来源提示页（不构成精确定位证明）。':'可在原始 PDF 中人工查看。')+
+    ' 建议缩短引文为可唯一识别的句子或短语，再重新引用。';
+  show('原文锚点可独立保存，但 PDF 精确框未验证：'+e.message+
+       '。请缩小引文、核查上下文，并在确认前不要视为精确 PDF 证据。');
+  return false;
+}}
 function locateTypedQuote(){const q=$('quote').value.trim();if(!doc||q.length<20){show('请先读取任务文档，并输入完整原文引文');return;}const matches=doc.units.filter(u=>u.raw.includes(q));if(matches.length!==1){show('引文在当前授权文档中不存在或不唯一；拒绝猜测定位');return;}selectedUnit=matches[0];selected=q;
 if(selectedUnit.raw.split(q).length!==2){show('引文在原文单元中不唯一：请选中准确原文范围');return;}
 const begin=selectedUnit.raw.indexOf(q);selectedOffsets={unit_id:selectedUnit.unit_id,start:begin,end:begin+q.length};

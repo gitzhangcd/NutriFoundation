@@ -1,0 +1,162 @@
+{
+  "stage": "G1-Shared P0.1",
+  "version": "v0.1",
+  "state": "INITIAL_RELATION_GRAPH_BUILT_NOT_SCIENTIFICALLY_RESOLVED",
+  "scope": "100 exploratory candidate sources, no Gold slot binding",
+  "distinct_dois_pmid_not_equivalent_to_distinct_studies": true,
+  "internal_edges": [
+    {
+      "edge_id": "G1-IDENTITY-EDGE-01",
+      "source_a": "CAND-G100-007",
+      "source_b": "CAND-G100-087",
+      "relation": "SAME_TRIAL_FAMILY_CANDIDATE",
+      "evidence_basis": "CORDIOPREV; PubMed abstracts identify 1002 coronary-heart-disease patients and secondary renal analysis",
+      "confidence_screen": "HIGH",
+      "resolution_status": "PROVISIONAL_NEEDS_FULL_SOURCE_AND_REGISTRY_RECONCILIATION",
+      "merge_counting_rule": "DO_NOT_AUTOMATICALLY_COUNT_AS_INDEPENDENT_STUDIES",
+      "owner": "research_team_scientific_identity_review"
+    },
+    {
+      "edge_id": "G1-IDENTITY-EDGE-02",
+      "source_a": "CAND-G100-003",
+      "source_b": "CAND-G100-090",
+      "relation": "LIKELY_SAME_RANDOMIZED_TRIAL",
+      "evidence_basis": "TRE + low-carbohydrate diet and 3-month MetS randomized trial; abstract-based similarity",
+      "confidence_screen": "MEDIUM_HIGH",
+      "resolution_status": "PROVISIONAL_NEEDS_FULL_SOURCE_AND_REGISTRY_RECONCILIATION",
+      "merge_counting_rule": "DO_NOT_AUTOMATICALLY_COUNT_AS_INDEPENDENT_STUDIES",
+      "owner": "research_team_scientific_identity_review"
+    },
+    {
+      "edge_id": "G1-IDENTITY-EDGE-03",
+      "source_a": "CAND-G100-088",
+      "source_b": "CAND-G100-089",
+      "relation": "SAME_PARENT_TRIAL_CANDIDATE",
+      "evidence_basis": "Both explicitly identify PREDIMED-Plus; compare trial registration, site subsets and endpoints",
+      "confidence_screen": "HIGH",
+      "resolution_status": "PROVISIONAL_NEEDS_FULL_SOURCE_AND_REGISTRY_RECONCILIATION",
+      "merge_counting_rule": "DO_NOT_AUTOMATICALLY_COUNT_AS_INDEPENDENT_STUDIES",
+      "owner": "research_team_scientific_identity_review"
+    },
+    {
+      "edge_id": "G1-IDENTITY-EDGE-04",
+      "source_a": "CAND-G100-073",
+      "source_b": "CAND-G100-074",
+      "relation": "RELATED_GUIDELINE_FAMILY",
+      "evidence_basis": "ESPEN hospital kidney nutrition 2021 guideline vs 2024 practical guideline; verify revised/derivative relation",
+      "confidence_screen": "MEDIUM",
+      "resolution_status": "PROVISIONAL_NEEDS_FULL_SOURCE_AND_REGISTRY_RECONCILIATION",
+      "merge_counting_rule": "DO_NOT_AUTOMATICALLY_COUNT_AS_INDEPENDENT_STUDIES",
+      "owner": "research_team_scientific_identity_review"
+    },
+    {
+      "edge_id": "G1-IDENTITY-EDGE-05",
+      "source_a": "CAND-G100-029",
+      "source_b": "CAND-G100-031",
+      "relation": "SHARED_COHORT_PARTICIPANT_DEPENDENCY",
+      "evidence_basis": "Both cite French NutriNet-Santé prospective cohort; CVD vs cancer outcomes; not duplicate publications",
+      "confidence_screen": "HIGH",
+      "resolution_status": "PROVISIONAL_NEEDS_FULL_SOURCE_AND_REGISTRY_RECONCILIATION",
+      "merge_counting_rule": "DO_NOT_AUTOMATICALLY_COUNT_AS_INDEPENDENT_STUDIES",
+      "owner": "research_team_scientific_identity_review"
+    },
+    {
+      "edge_id": "G1-IDENTITY-EDGE-06",
+      "source_a": "CAND-G100-084",
+      "source_b": "CAND-G100-098",
+      "relation": "COMPANION_GUIDELINE_SERIES",
+      "evidence_basis": "2025 pediatric ulcerative colitis guidelines Part 2 vs Part 1; separate scopes within linked update",
+      "confidence_screen": "HIGH",
+      "resolution_status": "PROVISIONAL_NEEDS_FULL_SOURCE_AND_REGISTRY_RECONCILIATION",
+      "merge_counting_rule": "DO_NOT_AUTOMATICALLY_COUNT_AS_INDEPENDENT_STUDIES",
+      "owner": "research_team_scientific_identity_review"
+    },
+    {
+      "edge_id": "G1-IDENTITY-EDGE-07",
+      "source_a": "CAND-G100-018",
+      "source_b": "CAND-G100-079",
+      "relation": "NEGATIVE_CONTROL_DIFFERENT_STUDIES",
+      "evidence_basis": "DIRECT-PLUS green Mediterranean diet vs DiRECT diabetes remission in UK; similar acronyms do not imply identity",
+      "confidence_screen": "HIGH",
+      "resolution_status": "PROVISIONAL_NEEDS_FULL_SOURCE_AND_REGISTRY_RECONCILIATION",
+      "merge_counting_rule": "DO_NOT_AUTOMATICALLY_COUNT_AS_INDEPENDENT_STUDIES",
+      "owner": "research_team_scientific_identity_review"
+    },
+    {
+      "edge_id": "G1-IDENTITY-EDGE-08",
+      "source_a": "CAND-G100-001",
+      "source_b": "CAND-G100-002",
+      "relation": "NEGATIVE_CONTROL_DIFFERENT_STUDIES",
+      "evidence_basis": "TIMET vs TREAT time-restricted eating; must not merge by topic/acronym resemblance",
+      "confidence_screen": "MEDIUM_HIGH",
+      "resolution_status": "PROVISIONAL_NEEDS_FULL_SOURCE_AND_REGISTRY_RECONCILIATION",
+      "merge_counting_rule": "DO_NOT_AUTOMATICALLY_COUNT_AS_INDEPENDENT_STUDIES",
+      "owner": "research_team_scientific_identity_review"
+    }
+  ],
+  "external_dependency_queue": [
+    {
+      "candidate_id": "CAND-G100-081",
+      "relation": "PUBLISHED_CORRECTION_OF",
+      "parent_doi": "10.1038/s44324-023-00002-1",
+      "parent_pmid": null,
+      "verification": "PARENT_DOI_FROM_PMC_CORRECTION_BODY",
+      "caution": "PubMed title Author Correction vs PMC title Publisher Correction; verify version before freeze"
+    },
+    {
+      "candidate_id": "CAND-G100-082",
+      "relation": "PUBLISHED_CORRECTION_OF",
+      "parent_doi": null,
+      "parent_pmid": null,
+      "verification": "PARENT_RESOLUTION_REQUIRED",
+      "caution": "PKU dietary handbook source citation required"
+    },
+    {
+      "candidate_id": "CAND-G100-083",
+      "relation": "PUBLISHED_CORRECTION_OF",
+      "parent_doi": null,
+      "parent_pmid": null,
+      "verification": "PARENT_RESOLUTION_REQUIRED",
+      "caution": "AHA CKM Presidential Advisory correction; identify original statement"
+    },
+    {
+      "candidate_id": "CAND-G100-077",
+      "relation": "SECONDARY_ANALYSIS_OF",
+      "parent_doi": null,
+      "parent_pmid": null,
+      "verification": "PARENT_TRIAL_RESOLUTION_REQUIRED"
+    },
+    {
+      "candidate_id": "CAND-G100-078",
+      "relation": "SECONDARY_ANALYSIS_OF",
+      "parent_doi": null,
+      "parent_pmid": null,
+      "verification": "PARENT_TRIAL_RESOLUTION_REQUIRED"
+    },
+    {
+      "candidate_id": "CAND-G100-079",
+      "relation": "FIVE_YEAR_EXTENSION_OF",
+      "parent_doi": null,
+      "parent_pmid": null,
+      "verification": "PARENT_DiRECT_TRIAL_RESOLUTION_REQUIRED"
+    },
+    {
+      "candidate_id": "CAND-G100-080",
+      "relation": "SECONDARY_ANALYSIS_OF",
+      "parent_doi": null,
+      "parent_pmid": null,
+      "verification": "PARENT_TRIAL_RESOLUTION_REQUIRED"
+    }
+  ],
+  "verification_rules": [
+    "Crosswalk PMID DOI PMCID clinical trial registry",
+    "Check parent/secondary trial ID and enrollment cohort",
+    "Distinguish study family vs source artifact vs cohort vs guideline version",
+    "Resolve correction/retraction parent impact via original source",
+    "Never merge different trials by acronym similarity",
+    "Record source-time and document-version snapshots",
+    "Preserve uncertainty pending licensed full source review"
+  ],
+  "direct_independent_study_count": null,
+  "verified_study_family_count": 0
+}

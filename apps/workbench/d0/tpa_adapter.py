@@ -124,6 +124,11 @@ def install_tpa_routes(app: FastAPI, controller: TaskProduction):
         return call(controller.publish,role=p["role"],actor=p["actor"],
                     task_id=task_id,body=validate_body(Publish,body))
 
+    @app.post("/v1/tpa/tasks/{task_id}/revoke")
+    def revoke(task_id:str,request:Request):
+        p=person(request,("manager",))
+        return call(controller.revoke,role=p["role"],actor=p["actor"],task_id=task_id)
+
     @app.get("/v1/tpa/audit")
     def audit(request:Request):
         p=person(request,("auditor",))

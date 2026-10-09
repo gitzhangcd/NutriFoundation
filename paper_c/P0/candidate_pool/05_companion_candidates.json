@@ -1,0 +1,67 @@
+{
+  "status": "EXPLORATORY_PUBMED_BIBLIOGRAPHY_NOT_GOLD100",
+  "rows": [
+    {
+      "proposed_stratum": "companion_or_secondary",
+      "topic": "dietary_secondary",
+      "title": "Safety of High-Dose Vitamin D Supplementation: Secondary Analysis of a Randomized Controlled Trial.",
+      "pmid": "31746327",
+      "doi": "10.1210/clinem/dgz212",
+      "pmcid": "",
+      "date": "2020 Apr 01",
+      "journal": "The Journal of clinical endocrinology and metabolism",
+      "publication_types": "Journal Article",
+      "query": "(\"secondary analysis\"[Title] OR \"post hoc analysis\"[Title]) AND (diet[tiab] OR nutrition[tiab] OR dietary[tiab]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "companion_or_secondary",
+      "topic": "dietary_secondary",
+      "title": "Early-Onset Type 2 Diabetes and Tirzepatide Treatment: A Post Hoc Analysis From the SURPASS Clinical Trial Program.",
+      "pmid": "38639997",
+      "doi": "10.2337/dc23-2356",
+      "pmcid": "PMC11116907",
+      "date": "2024 Jun 01",
+      "journal": "Diabetes care",
+      "publication_types": "Journal Article",
+      "query": "(\"secondary analysis\"[Title] OR \"post hoc analysis\"[Title]) AND (diet[tiab] OR nutrition[tiab] OR dietary[tiab]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "companion_or_secondary",
+      "topic": "nutrition_followup",
+      "title": "5-year follow-up of the randomised Diabetes Remission Clinical Trial (DiRECT) of continued support for weight loss maintenance in the UK: an extension study.",
+      "pmid": "38423026",
+      "doi": "10.1016/S2213-8587(23)00385-6",
+      "pmcid": "",
+      "date": "2024 Apr",
+      "journal": "The lancet. Diabetes & endocrinology",
+      "publication_types": "Randomized Controlled Trial",
+      "query": "(\"long-term follow-up\"[Title] OR \"follow-up study\"[Title] OR \"extension study\"[Title]) AND (diet[tiab] OR nutrition[tiab] OR lifestyle[tiab]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "companion_or_secondary",
+      "topic": "nutrition_followup",
+      "title": "Nutrition and Intestinal Rehabilitation of Children With Short Bowel Syndrome: A Position Paper of the ESPGHAN Committee on Nutrition. Part 2: Long-Term Follow-Up on Home Parenteral Nutrition.",
+      "pmid": "37256821",
+      "doi": "10.1097/MPG.0000000000003850",
+      "pmcid": "",
+      "date": "2023 Aug 01",
+      "journal": "Journal of pediatric gastroenterology and nutrition",
+      "publication_types": "Journal Article",
+      "query": "(\"long-term follow-up\"[Title] OR \"follow-up study\"[Title] OR \"extension study\"[Title]) AND (diet[tiab] OR nutrition[tiab] OR lifestyle[tiab]) AND (2018:2026[dp])"
+    }
+  ],
+  "diagnostics": [
+    {
+      "topic": "dietary_secondary",
+      "target": 2,
+      "selected": 2,
+      "pubmed_returned": 40
+    },
+    {
+      "topic": "nutrition_followup",
+      "target": 2,
+      "selected": 2,
+      "pubmed_returned": 40
+    }
+  ]
+}

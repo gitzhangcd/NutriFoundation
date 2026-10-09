@@ -49,6 +49,9 @@ def run(url,credentials,output):
         assert r2.locator('#units .unit-translation').count()==16
         expect(r2.locator('#readerMeta')).to_contain_text('不可建立 SourceAnchor')
         r2.locator('#readerSource').select_option('paper')
+        expect(r2.locator('#readerSource')).to_have_attribute('data-ready-source','paper',timeout=30000)
+        expect(r2.locator('#units')).to_contain_text('randomised')
+        expect(r2.locator('#outline button').first).to_have_text('A randomised controlled trial of the 5:2 diet')
         expect(r2.locator('#pdfEngine')).to_contain_text('PDF.js',timeout=30000)
         checks.append('complete_synthetic_bilingual_document_and_tables')
         expect(r2.locator('#pdfEngine')).to_contain_text('PDF.js',timeout=30000)

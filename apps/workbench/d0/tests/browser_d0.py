@@ -185,9 +185,9 @@ def ea_integrated_browser(sign_in, checks):
     expect(page.locator('#judgmentPane')).to_be_visible()
     expect(page.locator('#eaProfile')).to_contain_text('WB_EA_RCT_V0_1')
     expect(page.locator('#readerTitle')).to_contain_text('5:2 diet')
-    assert page.locator('#eaTask option').count() == 7
-    assert page.locator('#eaSource option').count() == 2
-    assert page.locator('#eaCandidates .ea-candidate').count() == 1
+    expect(page.locator('#eaTask option')).to_have_count(7)
+    expect(page.locator('#eaSource option')).to_have_count(2)
+    expect(page.locator('#eaCandidates .ea-candidate')).to_have_count(1)
     checks.append('ea_same_d0_login_layout_and_seven_profiles')
 
     # Source selection must remain within a server-issued two-version allowlist.

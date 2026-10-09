@@ -58,7 +58,9 @@ def install_evidence_routes(app: FastAPI, engine: EvidenceEngine):
     def task_reader(request: Request):
         p = auth(request)
         # Preserve original D0 role surface: auditor receives audit, never source.
-        if p["role"] not in ("expert", "producer"):
+        if p["role"] not in ("expert", "producer") or (
+            p["role"] == "expert" and not p["actor"].startswith("SYN-EA-")
+        ):
             raise HTTPException(403, detail={"code": "ROLE_FORBIDDEN"})
         return p
 
@@ -93,7 +95,9 @@ def install_evidence_routes(app: FastAPI, engine: EvidenceEngine):
     @app.get("/v1/ea/tasks")
     def list_tasks(request: Request):
         p = auth(request)
-        if p["role"] not in ("expert", "producer"):
+        if p["role"] not in ("expert", "producer") or (
+            p["role"] == "expert" and not p["actor"].startswith("SYN-EA-")
+        ):
             raise HTTPException(403, detail={"code": "ROLE_FORBIDDEN"})
         with engine.connect() as db:
             rows = db.execute("SELECT task_id,record,state FROM tasks ORDER BY task_id")

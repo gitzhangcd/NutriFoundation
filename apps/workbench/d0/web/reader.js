@@ -71,7 +71,16 @@ function show(s){$('status').textContent=typeof s==='string'?s:JSON.stringify(s,
 async function call(url,opts={}){const r=await fetch(url,{...opts,headers:{...identity(),...(opts.headers||{})},cache:'no-store'});if(!r.ok){const data=await r.json().catch(()=>({}));throw Error(data.detail?.code||data.detail||`HTTP ${r.status}`)}return r}
 async function json(url,opts={}){return (await call(url,opts)).json()}
 function escapeToText(el,s){el.textContent=s}
-async function showSyntheticBilingualExercise(){
+// One queue for initial task load and subsequent source switches prevents
+// half-rendered paper/demo DOM from being mixed by concurrent HTTP/PDF tasks.
+let readerSequence=Promise.resolve();
+function scheduleReading(operation){
+ const result=readerSequence.catch(()=>{}).then(operation);
+ readerSequence=result;
+ return result;
+}
+async function showSyntheticBilingualExercise(){return scheduleReading(renderSyntheticBilingualExercise);}
+async function renderSyntheticBilingualExercise(){
  const p=await json(`/v1/tasks/${encodeURIComponent(task())}/reading-demo`);
  if(p.source_anchor_eligible!==false || p.scientific_capture!==false || p.coverage?.bilingual_units!==p.coverage?.units)
    throw Error('INVALID_SYNTHETIC_READING_SCOPE');
@@ -110,7 +119,8 @@ async function showSyntheticBilingualExercise(){
  $('units').scrollTop=0;
  show('正在查看完整双语合成演练。此资料不能引用到正式或合成任务的科学证据链。');
 }
-async function load(){try{$('readerSource').hidden=true;selected=null;selectedUnit=null;selectedOffsets=null;doc=null;translationMap.clear();$('bilingualToolbar').hidden=true;$('selectionToolbar').hidden=true;pdfDoc=null;pdfjs=null;sourceURL='';$('units').replaceChildren();$('anchors').replaceChildren();$('outline').replaceChildren();$('translationVersion').textContent='';$('translationStatus').textContent='翻译未就绪';togglePDF(false);window.dispatchEvent(new CustomEvent('nutri-evidence',{detail:{items:[],bindings:[],itemBindings:[]}}));$('pdfCanvas').width=0;$('pdfOverlay').replaceChildren();$('pdfRaster').style.display='none';
+async function load(){return scheduleReading(loadDocument);}
+async function loadDocument(){try{$('readerSource').hidden=true;selected=null;selectedUnit=null;selectedOffsets=null;doc=null;translationMap.clear();$('bilingualToolbar').hidden=true;$('selectionToolbar').hidden=true;pdfDoc=null;pdfjs=null;sourceURL='';$('units').replaceChildren();$('anchors').replaceChildren();$('outline').replaceChildren();$('translationVersion').textContent='';$('translationStatus').textContent='翻译未就绪';togglePDF(false);window.dispatchEvent(new CustomEvent('nutri-evidence',{detail:{items:[],bindings:[],itemBindings:[]}}));$('pdfCanvas').width=0;$('pdfOverlay').replaceChildren();$('pdfRaster').style.display='none';
  const projection=await json(`/v1/tasks/${task()}/read-model`);$('phase').textContent=projection.phase;
  if(projection.arm==='R1') {$('readerSource').value='paper'; $('readerTitle').textContent='候选证据 · 授权摘录';$('sourceTitle').textContent='R1 候选引用片段';$('readerMeta').textContent='仅限任务许可的候选证据；不提供全文与原始 PDF。';$('sourceVersion').textContent='来源权限：候选摘录';$('translationStatus').textContent='此任务不提供全文译文';$('pdfToggle').hidden=true;$('pdfDetails').hidden=true;$('query').disabled=true;$('searchBtn').disabled=true; $('sourceBadge').textContent='候选引用片段'; if(projection.phase==='EXPERT_VERIFY'){const fragments=await json(base()+'/candidate-spans'); for(const x of fragments.candidate_spans){const div=document.createElement('div');div.className='unit';div.textContent=x.quote; $('units').append(div)}show('R1：仅可见已验证的候选引用片段，不提供整篇原文/PDF');}else{show('R1 门禁：候选尚未冻结，来源不可访问。')}return;}
  $('readerSource').hidden=false;
@@ -192,7 +202,7 @@ async function load(){try{$('readerSource').hidden=true;selected=null;selectedUn
  const sections=[...$('outline').querySelectorAll('button')];if(!sections.length)$('outline').textContent='当前来源没有章节标题';
  const first=sections.find(button=>/abstract/i.test(button.textContent))||sections[0];if(first)scrollUnit(first.dataset.uid,false);
  await listAnchors();show('任务级来源投影已验证；任何原件读取都携带同一任务令牌。');await openPDF();
- if($('readerSource').value==='demo')await showSyntheticBilingualExercise();
+ if($('readerSource').value==='demo')await renderSyntheticBilingualExercise();
  }catch(e){$('phase').textContent='拒绝访问';show('ACCESS DENIED: '+e.message);$('sourceBadge').textContent='无授权来源';}}
 async function listAnchors(){
  const r=await json(base()+'/anchors'),bindings=await json(base()+'/bindings');
@@ -243,8 +253,8 @@ async function makeAnchor(){
   await listAnchors();
   const pdfVerified=await openAnchor(a);
   const category=exact?`第 ${target.index+1} 条独立判断`:'当前科学字段（尚未关联到具体判断）';
-  show(pdfVerified?`已绑定到${category}，且已核验原始 PDF 精确位置。`:
-     `已绑定到${category}；PDF 精确定位尚未验证。请缩小引文并核查 PDF。`);
+  show(pdfVerified?`已通过服务端证据验证并绑定到${category}；PDF 精确定位已核验。`:
+     `已通过服务端证据验证并绑定到${category}；PDF 精确定位尚未验证。请缩小引文并核查 PDF。`);
  }catch(e){show('无法创建或绑定证据：'+e.message);}
 }
 async function openPDF(){try{pdfjs=await import('/static/vendor/pdfjs/pdf.min.mjs');pdfjs.GlobalWorkerOptions.workerSrc='/static/vendor/pdfjs/pdf.worker.min.mjs';pdfDoc=await pdfjs.getDocument({url:base()+'/original.pdf',httpHeaders:identity(),disableRange:true,disableStream:true,useSystemFonts:true}).promise;$('pdfEngine').textContent='PDF.js · authenticated';await showPage(1)}catch(e){pdfjs=null;pdfDoc=null;$('pdfEngine').textContent='授权页图模式';await showPage(1)}}
@@ -279,9 +289,16 @@ $('candidate').onclick=async()=>{try{const c=await json(`/v1/tasks/${task()}/can
 $('searchBtn').onclick=async()=>{try{const s=await json(base()+'/search?q='+encodeURIComponent($('query').value));$('searchResults').replaceChildren();for(const result of s.results){const button=document.createElement('button');button.type='button';button.className='text-button';button.textContent='跳转：'+result.unit_id;button.onclick=()=>scrollUnit(result.unit_id);$('searchResults').append(button);}if(!s.results.length)$('searchResults').textContent='没有匹配的授权原文'}catch(e){$('searchResults').textContent='SEARCH DENIED'}};
 
 $('readerSource').addEventListener('change',async()=>{
+ const picker=$('readerSource');
+ const requested=picker.value;
+ picker.disabled=true;
+ picker.dataset.readySource='';
+ $('translationStatus').textContent='正在切换阅读资料…';
  try{
-   if($('readerSource').value==='demo')await showSyntheticBilingualExercise();
+   if(requested==='demo')await showSyntheticBilingualExercise();
    else await load();
+   if(picker.value===requested)picker.dataset.readySource=requested;
  }catch(e){$('translationStatus').textContent='阅读资料无法切换：'+e.message;}
+ finally{picker.disabled=false;}
 });
 window.nutriReader={load};

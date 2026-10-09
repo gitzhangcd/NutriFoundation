@@ -1,0 +1,222 @@
+{
+  "stage": "G1-Shared P0.1-A.1",
+  "version": "v0.1",
+  "date": "2026-10-10",
+  "scope": "FIVE_G1_SHARED_EXPOSED_DEVELOPMENT_SOURCES_NOT_PAPER_C_GOLD100",
+  "identity_unit": "SourceArtifact",
+  "source_validity_unit": "OriginalDocumentVersionAndVersionedSourceSpan",
+  "status": "PRIMARY_WEB_IDENTITY_CROSSCHECKED_FULL_ORIGINAL_PDF_FIDELITY_NOT_VERIFIED",
+  "technical_body_retrieved": 5,
+  "original_pdf_visual_confirmed": 0,
+  "supplementary_binary_acquired": 0,
+  "structural_fidelity_L2_original_table_exact_pass": 0,
+  "records": [
+    {
+      "id": "CAND-G100-004",
+      "kind": "INTERVENTIONAL_RCT",
+      "pmid": "35194047",
+      "pmcid": "PMC8864028",
+      "doi": "10.1038/s41467-022-28662-5",
+      "publisher": "https://www.nature.com/articles/s41467-022-28662-5",
+      "bodychars": 40271,
+      "rights": "CC_BY_4_0",
+      "source_resources": [
+        {
+          "type": "PUBLISHER_HTML_VERSION_OF_RECORD",
+          "url": "https://www.nature.com/articles/s41467-022-28662-5",
+          "status": "PUBLISHER_HTML_ACCESSED",
+          "purpose": "Crosscheck trial identity, allocation, CONSORT flow and primary endpoint"
+        },
+        {
+          "type": "SUPPLEMENTARY_INFORMATION_PDF",
+          "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-022-28662-5/MediaObjects/41467_2022_28662_MOESM1_ESM.pdf",
+          "status": "LISTED_BY_PUBLISHER_DOWNLOAD_FAILED",
+          "purpose": "supplementary study methods and result checks"
+        },
+        {
+          "type": "REPORTING_SUMMARY_PDF",
+          "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-022-28662-5/MediaObjects/41467_2022_28662_MOESM3_ESM.pdf",
+          "status": "LISTED_BY_PUBLISHER_DOWNLOAD_FAILED"
+        },
+        {
+          "type": "SOURCE_DATA_XLSX",
+          "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-022-28662-5/MediaObjects/41467_2022_28662_MOESM4_ESM.xlsx",
+          "status": "LISTED_BY_PUBLISHER_DOWNLOAD_FAILED"
+        }
+      ],
+      "native_crosscheck": {
+        "trial_registry": "ChiCTR2000029797",
+        "randomized_total": 90,
+        "arms": {
+          "eTRF": 30,
+          "mTRF": 30,
+          "control": 30
+        },
+        "analyzed": 82,
+        "endpoint": "change in HOMA-IR",
+        "publishers_html_support": "PUBLISHER_HTML_CONFIRMS_STUDY_IDENTITY_AND_ABSTRACT_FACTS",
+        "table1_state": "TABLE_TITLE_IDENTIFIED_CELL_PARITY_NOT_CHECKED",
+        "figure1": "CONSORT flow visible as image link; visual extracted cells not reviewed"
+      },
+      "fidelity_decision": "HOLD_PRIMARY_PDF_AND_SUPPLEMENTS_NOT_CAPTURED"
+    },
+    {
+      "id": "CAND-G100-029",
+      "kind": "PROSPECTIVE_COHORT",
+      "pmid": "31142457",
+      "pmcid": "PMC6538975",
+      "doi": "10.1136/bmj.l1451",
+      "publisher": "https://www.bmj.com/content/365/bmj.l1451",
+      "bodychars": 59562,
+      "rights": "CC_BY_NC_4_0",
+      "source_resources": [
+        {
+          "type": "PUBLISHER_HTML",
+          "url": "https://www.bmj.com/content/365/bmj.l1451",
+          "status": "SEARCH_INDEX_CONTENT_VERIFIED_DIRECT_OPEN_403"
+        },
+        {
+          "type": "ORIGINAL_PDF",
+          "url": "https://www.bmj.com/content/bmj/365/bmj.l1451.full.pdf",
+          "status": "DIRECT_OPEN_403"
+        },
+        {
+          "type": "SUPPLEMENTARY_APPENDICES",
+          "url": "https://www.bmj.com/content/365/bmj.l1451",
+          "status": "MENTIONED_IN_BODY_NOT_ACQUIRED",
+          "purpose": "Appendix 9 and supplemental sensitivity analyses"
+        }
+      ],
+      "native_crosscheck": {
+        "cohort": "NutriNet-Santé",
+        "sample": 105159,
+        "design": "observational prospective",
+        "source_article_effect": "model 1 HR 1.12, CI 1.05–1.20 per 10-percentage-point absolute increase in diet weight fraction",
+        "table2": "MODEL_ROW_TEXT_PRESENT_BUT_NATIVE_TABLE_CELL_PARITY_NOT_VERIFIED",
+        "numeric_anomaly": "In sensitivity analysis HR 1.44 with confidence intervals 1.05–1.25 and 1.03–1.25; point estimate lies outside both stated intervals; must query publisher correction/supplements, not autocorrect"
+      },
+      "fidelity_decision": "HOLD_ORIGINAL_TABLE_AND_NUMERIC_ANOMALY"
+    },
+    {
+      "id": "CAND-G100-048",
+      "kind": "SYSTEMATIC_REVIEW_NETWORK_META",
+      "pmid": "40533200",
+      "pmcid": "PMC12175170",
+      "doi": "10.1136/bmj-2024-082007",
+      "publisher": "https://www.bmj.com/content/389/bmj-2024-082007.full",
+      "bodychars": 45559,
+      "rights": "CC_BY_NC_4_0",
+      "source_resources": [
+        {
+          "type": "PUBLISHER_HTML",
+          "url": "https://www.bmj.com/content/389/bmj-2024-082007.full",
+          "status": "SEARCH_INDEX_CONTENT_VERIFIED_DIRECT_OPEN_403"
+        },
+        {
+          "type": "ORIGINAL_PDF",
+          "url": "https://www.bmj.com/content/bmj/389/bmj-2024-082007.full.pdf",
+          "status": "DIRECT_OPEN_403"
+        },
+        {
+          "type": "SUPPLEMENTARY_APPENDICES",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12175170/",
+          "status": "MAIN_BODY_REFERENCES_APPENDICES_A_AND_GRADE_TABLES_5_TO_21_FILES_NOT_ACQUIRED"
+        },
+        {
+          "type": "OFFICIAL_CORRECTION",
+          "url": "https://www.bmj.com/content/390/bmj.r1737",
+          "status": "PUBLISHER_CORRECTION_RECORD_VERIFIED"
+        }
+      ],
+      "native_crosscheck": {
+        "search_cutoff": "2024-11-14",
+        "included": "99 articles/trial reports; 6582 participants per abstract; independent trial-family count not verified",
+        "reported_result": "ADF vs continuous energy restriction −1.29kg (CI −1.99 to −0.59), graded moderate",
+        "version_correction": "2025-08-18 BMJ 390:r1737, PMID 40825602; coauthor affiliation corrected in PDF and article; not stated outcome recalculation",
+        "network_graph": "SUPPLEMENTARY_RISK_OF_BIAS_AND_NETWORK_TABLES_NOT_VERIFIED"
+      },
+      "fidelity_decision": "HOLD_NETWORK_AND_GRADE_TABLES_AND_INCLUDED_STUDY_DEDUP"
+    },
+    {
+      "id": "CAND-G100-071",
+      "kind": "ACADEMY_NUTRITION_EBPG",
+      "pmid": "36462613",
+      "pmcid": "PMC12646719",
+      "doi": "10.1016/j.jand.2022.11.014",
+      "publisher": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12646719/",
+      "bodychars": 73139,
+      "rights": "PMC_TEXT_MINING_FAIR_USE_ONLY",
+      "source_resources": [
+        {
+          "type": "JOURNAL_ABRIDGED_BODY",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12646719/",
+          "status": "PMC_BODY_FULLY_READ_BUT_NOT_PUBLICLY_REPUBLISHED"
+        },
+        {
+          "type": "AUTHORITATIVE_EAL_RECOMMENDATION",
+          "url": "https://www.andeal.org/template.cfm?key=4888&template=guide_summary",
+          "status": "OFFICIAL_WEB_PAGE_VERIFIED"
+        },
+        {
+          "type": "EAL_FULL_GUIDELINE",
+          "url": "https://www.andeal.org/topic.cfm?cat=6109&menu=5276",
+          "status": "RELATED_AUTHORITY_IDENTIFIED_NOT_FULL_SOURCE_SNAPSHOTTED"
+        },
+        {
+          "type": "NIHMS_SUPPLEMENT_PDF",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12646719/",
+          "status": "NIHMS2114703-supplement-1.pdf_LISTED_NOT_DOWNLOADED"
+        },
+        {
+          "type": "FULL_GUIDELINE_FIGURES_TABLES",
+          "url": "https://www.jandonline.org/",
+          "status": "JOURNAL_SUPPLEMENT_REFERENCED_NOT_VERIFIED"
+        }
+      ],
+      "native_crosscheck": {
+        "full_vs_abridged": "Article explicitly abbreviated version of Academy EAL guideline",
+        "official_EAL_MNT_rating": "Level 1(B), Imperative",
+        "official_EAL_NCP_rating": "Consensus, Conditional",
+        "application_condition": "as appropriate for and desired by individual client; contraindication screen matters",
+        "evidence": "67 RCT + 3 nonRCT described across 83 article records; do not double count as 83 studies",
+        "full_guideline_integrity": "NOT_RECONSTRUCTED_OFFICIAL_EAL_SNAPSHOT_AND_TABLES"
+      },
+      "fidelity_decision": "HOLD_FULL_GUIDELINE_AUTHORITY_VERSION_AND_RECOMMENDATION_MAP"
+    },
+    {
+      "id": "CAND-G100-096",
+      "kind": "EXPERT_CONSENSUS",
+      "pmid": "38869255",
+      "pmcid": "PMC11170495",
+      "doi": "10.1093/ajhp/zxae078",
+      "publisher": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11170495/",
+      "bodychars": 58335,
+      "rights": "CC_BY_NC_ND_4_0",
+      "source_resources": [
+        {
+          "type": "PMC_BODY",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11170495/",
+          "status": "PMC_BODY_FULLY_READ_NOT_REPUBLISHED"
+        },
+        {
+          "type": "CONSENSUS_STATEMENT_TABLES",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11170495/",
+          "status": "IN_PMC_BODY_TABULAR_CONTENT_EXTRACTABLE_NATIVE_CELL_PARITY_PENDING"
+        },
+        {
+          "type": "SUPPLEMENTAL_ARTICLES",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11170495/",
+          "status": "ACCOMPANYING_SUPPLEMENT_ARTICLES_MENTIONED_NOT_RECONCILED"
+        }
+      ],
+      "native_crosscheck": {
+        "participants": "13 expert panel members",
+        "voting": "100% agree for each statement according to article",
+        "method": "adapted Delphi",
+        "authority": "authors expressly not a formal guideline committee or authorized voting body",
+        "tables": "Table 1 and 2 contain consensus statements; direct native cell parity not assessed"
+      },
+      "fidelity_decision": "HOLD_NATIVE_TABLE_CELLS_AND_EXPERT_VOTING_METHOD_REVIEW"
+    }
+  ]
+}

@@ -34,6 +34,23 @@ def run(url,credentials,output):
             return context,page
         r2ctx,r2=sign_in('r2')
         expect(r2.locator('#saveStatus')).to_have_text('已载入')
+        # A review click is not a scientific completion receipt.
+        expect(r2.locator('#draftProgress')).to_contain_text('0/5')
+        r2.locator('#nextReview').click()
+        expect(r2.locator('#reviewChecks')).to_contain_text('尚不能冻结')
+        expect(r2.locator('#freeze')).to_be_disabled()
+        assert r2.locator('#workflowNav .done').count()==0
+        r2.locator('#backEdit').click()
+        checks.append('empty_unsaved_review_not_submittable')
+        # Full bilingual reading UX is self-authored synthetic and not citable.
+        r2.locator('#readerSource').select_option('demo')
+        expect(r2.locator('#translationStatus')).to_contain_text('15/15 双语覆盖')
+        assert r2.locator('.scientific-table').count()==4
+        assert r2.locator('#units .unit-translation').count()==15
+        expect(r2.locator('#readerMeta')).to_contain_text('不可建立 SourceAnchor')
+        r2.locator('#readerSource').select_option('paper')
+        expect(r2.locator('#pdfEngine')).to_contain_text('PDF.js',timeout=30000)
+        checks.append('complete_synthetic_bilingual_document_and_tables')
         expect(r2.locator('#pdfEngine')).to_contain_text('PDF.js',timeout=30000)
         assert r2.locator('#judgmentForm [data-key]').count()==19
         expect(r2.locator('#units')).to_contain_text('randomised')
@@ -47,6 +64,13 @@ def run(url,credentials,output):
         assert 'focus-mode' in (r2.locator('#expertPanel').get_attribute('class') or '')
         r2.locator('#evidenceToggle').click()
         assert 'evidence-open' in (r2.locator('#expertPanel').get_attribute('class') or '')
+        assert r2.evaluate("document.querySelector('.reader').inert") is True
+        expect(r2.locator('#closeEvidence')).to_be_focused()
+        r2.locator('#closeEvidence').press('Shift+Tab')
+        assert r2.evaluate("document.querySelector('#evidencePane').contains(document.activeElement)")
+        r2.keyboard.press('Escape')
+        expect(r2.locator('#evidencePane')).to_be_hidden()
+        expect(r2.locator('#evidenceToggle')).to_be_focused()
         r2.locator('#focusMode').click()
         translated=r2.locator('.unit-translation').first
         translated.evaluate('''el => {
@@ -79,6 +103,18 @@ def run(url,credentials,output):
         r2.reload();expect(r2.locator('#saveStatus')).to_have_text('已载入')
         expect(r2.locator('[id="f-decision_focus"]')).to_have_value('Synthetic D0 independent judgment only')
         expect(r2.locator('[id="f-salient_existing_facts"]')).to_have_value('Expert-written synthetic fact with no model inference')
+        # Item-level links require a saved canonical revision, not UI-only field selection.
+        r2.locator('#evidenceToggle').click()
+        r2.locator('#field').select_option('decision_focus')
+        r2.locator('#evidenceItem').select_option('0')
+        r2.locator('#quote').fill('Three hundred adults with obesity were randomised')
+        r2.locator('#locateQuote').click()
+        r2.locator('#makeAnchor').click()
+        expect(r2.locator('#status')).to_contain_text('第 1 条独立判断',timeout=30000)
+        item_links=r2ctx.request.get(url+'/v1/tasks/SYN-R2/sources/SYN-5-2-PAPER/item-bindings')
+        assert item_links.status==200
+        assert any(x['field']=='decision_focus' and x['item_index']==0 and x['current_statement_matches'] for x in item_links.json()['items'])
+        checks.append('item_level_judgment_evidence_bind')
         assert r2ctx.request.get(url+'/v1/tasks/SYN-R0/read-model').status==404
         assert r2ctx.request.get(url+'/v1/tasks/SYN-R2/candidate-set').status==403
         checks.extend(['native_pdfjs','19_field_profile','save_reload','cross_task_denial','R2_preAI_candidate_denial'])

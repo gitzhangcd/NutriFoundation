@@ -9,6 +9,58 @@ function plainMarkdown(raw){
  for(let i=0;i<raw.length;i++){if(!skip.has(i)){offsets.push(i);text+=raw[i];}}
  return {text,offsets};
 }
+// Structured Markdown TABLE renderer: textContent only, never injected HTML.
+// Preserve original raw UTF-16 offsets for per-cell source citation.
+function parseSourceTable(raw){
+ const lines=raw.split('\n');if(lines.length<2)return null;
+ const rows=[];let offset=0;
+ for(const line of lines){
+   if(!line.trim().startsWith('|'))return null;
+   const cells=[];let begin=0,escaped=false;
+   for(let i=0;i<=line.length;i++){
+     const ch=line[i];
+     if(i===line.length || (ch==='|'&&!escaped)){
+       const original=line.slice(begin,i),t=original.trim();
+       const shift=original.indexOf(t);
+       if(t)cells.push({text:t,start:offset+begin+Math.max(0,shift),end:offset+begin+Math.max(0,shift)+t.length});
+       begin=i+1;
+     }
+     if(ch==='\\'&&!escaped)escaped=true;else escaped=false;
+   }
+   offset+=line.length+1;
+   rows.push(cells);
+ }
+ if(rows.length<3)return null;
+ if(!rows[1].length||!rows[1].every(x=>/^:?-{3,}:?$/.test(x.text)))return null;
+ const width=rows[0].length;
+ if(width<2||rows.some(x=>x.length!==width))return null;
+ return [rows[0],...rows.slice(2)];
+}
+function sourceTableElement(u,rows,onChoose){
+ const container=document.createElement('div');container.className='table-scroll';
+ const table=document.createElement('table');table.className='scientific-table';
+ const caption=document.createElement('caption');caption.textContent='科学资料表格 · 原文值（未经独立核查）';table.append(caption);
+ for(let j=0;j<rows.length;j++){
+   const region=document.createElement(j===0?'thead':'tbody');
+   const tr=document.createElement('tr');
+   for(const cell of rows[j]){
+     const el=document.createElement(j===0?'th':'td');
+     el.textContent=cell.text;el.dataset.rawStart=String(cell.start);el.dataset.rawEnd=String(cell.end);
+     if(j===0)el.scope='col';
+     el.addEventListener('mouseup',()=>{
+       const sel=window.getSelection();
+       if(!sel || sel.isCollapsed || !el.contains(sel.anchorNode) || !el.contains(sel.focusNode))return;
+       const range=sel.getRangeAt(0);
+       if(range.startContainer!==el.firstChild || range.endContainer!==el.firstChild)return;
+       const start=cell.start+range.startOffset,end=cell.start+range.endOffset;
+       if(u.raw.slice(start,end)===range.toString())onChoose(start,end);
+     });
+     tr.append(el);
+   }
+   region.append(tr);table.append(region);
+ }
+ container.append(table);return container;
+}
 function togglePDF(open){$('pdfDetails').open=open;$('pdfToggle').setAttribute('aria-expanded',String(open));$('pdfToggle').textContent=open?'返回结构化正文':'核验原始 PDF';}
 function scrollUnit(id,smooth=true){togglePDF(false);const el=[...$('units').querySelectorAll('[data-uid]')].find(x=>x.dataset.uid===id);if(el){const container=$('units');container.scrollTo({top:container.scrollTop+el.getBoundingClientRect().top-container.getBoundingClientRect().top-18,behavior:smooth?'smooth':'instant'});for(const button of $('outline').querySelectorAll('button'))button.classList.toggle('active',button.dataset.uid===id);}}
 let pdfRenderChain=Promise.resolve();
@@ -56,7 +108,16 @@ async function load(){try{selected=null;selectedUnit=null;selectedOffsets=null;d
  div.className='unit'+(u.type==='SECTION'?' section':'')+(records.length?' translated':'');
  div.dataset.uid=u.unit_id;
  if(u.type==='SECTION'){const button=document.createElement('button');button.type='button';button.dataset.uid=u.unit_id;button.textContent=plainMarkdown(u.raw).text;button.onclick=()=>scrollUnit(u.unit_id);$('outline').append(button);}
- const original=document.createElement('div');original.className='unit-original';const plain=plainMarkdown(u.raw);original.textContent=plain.text;div.append(original);
+ const original=document.createElement('div');original.className='unit-original';const plain=plainMarkdown(u.raw);
+ const chooseRange=(start,end)=>{
+   selectedUnit=u;selected=u.raw.slice(start,end);selectedOffsets={unit_id:u.unit_id,start,end};
+   $('quote').value=selected;$('selectionStatus').textContent='原文精确范围已选取 · 服务端仍需校验';
+   $('selectionToolbar').hidden=false;
+ };
+ const parsed=u.type==='TABLE'?parseSourceTable(u.raw):null;
+ if(parsed)original.append(sourceTableElement(u,parsed,chooseRange));
+ else original.textContent=plain.text;
+ div.append(original);
  original.addEventListener('mouseup',()=>{
    const s=window.getSelection();
    if(s && !s.isCollapsed && original.contains(s.anchorNode) && original.contains(s.focusNode)){

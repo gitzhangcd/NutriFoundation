@@ -29,6 +29,12 @@ class Draft(StrictBody):
     workflow_strategy: str
 
 
+class BatchDraft(StrictBody):
+    batch_id: str
+    idempotency_key: str
+    items: list[Draft]
+
+
 class Assignment(StrictBody):
     expert_actor: str
     idempotency_key: str
@@ -94,6 +100,17 @@ def install_tpa_routes(app: FastAPI, controller: TaskProduction):
     def drafts(request:Request,body:dict):
         p=person(request,("producer",))
         return call(controller.draft,role=p["role"],actor=p["actor"],body=validate_body(Draft,body))
+
+    @app.post("/v1/tpa/batches/drafts")
+    def batch_drafts(request:Request,body:dict):
+        p=person(request,("producer",))
+        return call(controller.batch_drafts,role=p["role"],actor=p["actor"],
+                    body=validate_body(BatchDraft,body))
+
+    @app.get("/v1/tpa/batches")
+    def batches(request:Request):
+        p=person(request,("manager","producer"))
+        return call(controller.batches,role=p["role"])
 
     @app.post("/v1/tpa/tasks/{task_id}/validate")
     def validate(task_id:str,request:Request):

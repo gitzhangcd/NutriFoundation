@@ -2,7 +2,7 @@
 
 ## Repository-bound integration, Synthetic Pilot Preflight & Non-Regression
 
-**Status:** IMPLEMENTED_ON_REVIEW_BRANCH / CI_PENDING / REAL_EXPERT_NO_GO  
+**Status:** IMPLEMENTED_ON_REVIEW_BRANCH / ENGINEERING_CI_PASS / REAL_EXPERT_NO_GO  
 **Date:** 2026-10-09  
 **Authority:** `gitzhangcd/NutriFoundation`  
 **Base:** `workbench-wb-p0.2-d0-private-staging@d2fd1643a9eb48b5a6582fbc490d4f7f88fec8f4`  
@@ -79,7 +79,7 @@ Task-authorized English SourceDocument
 | Source code located and baseline pinned | VERIFIED |
 | Additive cross-language integration | IMPLEMENTED_ON_BRANCH |
 | JavaScript syntax parsing | LOCAL_V8_PARSE_PASS |
-| Browser and backend regression | PENDING_GITHUB_CI |
+| Browser and backend regression | PASS (102 Workbench tests; 21 browser checks) |
 | UX translation completeness/accuracy | NOT_QUALIFIED (demo excerpt only) |
 | Real-world user usability | NOT_EXECUTED |
 | Production deploy/security acceptance | NOT_EXECUTED |
@@ -96,3 +96,16 @@ After branch CI passes, an independent operator may roll out to a **separate syn
 - Introduce safe debounced autosave with optimistic concurrency and explicit submitted revision; preserve edit-during-save regression tests.
 - Carry translation version / language exposure through the draft, final freeze receipt and audit subject to an approved additive backend contract.
 - Reconcile official case `r2/r3` scientific view before real enrollment; obtain all independent readiness receipts and supported-OS deployment for any approved human test.
+
+### 8. Verified CI execution and first-failure repair
+
+GitHub Actions: [Workbench D0 run #37874471974](https://github.com/gitzhangcd/NutriFoundation/actions/runs/37874471974), head `89d6a331dfe63d41d36d8c7852757edc913ab6c6`.
+
+- C1 11 + C2 18 + C2.1 33 + C2.2 26 + D0 14 = **102 module tests PASS**; two additional official binding commands passed 2+2 (these overlap with module tests).
+- **144 engine tests PASS**, Python 3.11.
+- Native Chromium **21 checks PASS**, with zero page errors and 1440×1000 / 390×844 captures.
+- Existing frozen `runs/NDF`, `runs/NDS`, `src/nutrifoundation` regression diff: **PASS**, unchanged.
+- Initial PR run #37874280158 had a **frontend asynchronous PDF startup status race**: a late 'source loaded' status overwrote a new anchor success notice. The failure was **not ignored**; source loading status was moved before awaiting PDF rasterization, and the whole CI was rerun successfully.
+- Browser screenshots and log: [D0 synthetic browser artifacts](https://github.com/gitzhangcd/NutriFoundation/actions/runs/37874471974/artifacts/11591792522).
+
+**Disposition:** engineering synthetic code review may proceed. Production migration and real expert pilot still **NO-GO**.

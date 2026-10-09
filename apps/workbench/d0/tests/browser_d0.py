@@ -137,7 +137,7 @@ def run(url,credentials,output):
         r2.locator('#closeEvidence').click()
         r2.locator('#nextReview').click()
         expect(r2.locator('#reviewFields')).to_contain_text('Synthetic D0 independent judgment only')
-        expect(r2.locator('#reviewChecks')).to_contain_text('已保存到服务端')
+        expect(r2.locator('#reviewChecks')).to_contain_text('已由服务端保存')
         r2.locator('#backEdit').click()
         expect(r2.locator('[id=\"f-decision_focus\"]')).to_have_value('Synthetic D0 independent judgment only')
         r2.locator('#nextReview').click()

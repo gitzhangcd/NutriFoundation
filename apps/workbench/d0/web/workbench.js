@@ -83,6 +83,7 @@ function chooseEvidenceField(key){
  $('field').value=key;$('selectionField').value=key;
  for(const button of $('judgmentForm').querySelectorAll('[data-target]'))button.setAttribute('aria-pressed',String(button.dataset.target===key));
  refreshItemOptions();
+ window.nutriReader?.updateConfirmation?.();
 }
 function entriesForField(key, data){
  const value=get(data,key);
@@ -98,13 +99,13 @@ function refreshItemOptions(){
    const select=$(id);
    if(!select)continue;
    select.replaceChildren();
-   const initial=document.createElement('option');initial.value='';initial.textContent='仅字段级（不代表支持某条判断）';select.append(initial);
+   const initial=document.createElement('option');initial.value='';initial.textContent='请选择具体判断（没有条目时请先填写）';select.append(initial);
    for(const item of entries){
      const opt=document.createElement('option');opt.value=String(item.index);
      opt.textContent=`第 ${item.index+1} 条 · ${item.text.slice(0,65)}`;select.append(opt);
    }
    if(entries.some(x=>String(x.index)===String(evidenceItemIndex)))select.value=String(evidenceItemIndex);
-   else {evidenceItemIndex='';select.value='';}
+   else {evidenceItemIndex=entries.length?String(entries[0].index):'';select.value=evidenceItemIndex;}
  }
  if($('evidenceItemNotice'))$('evidenceItemNotice').textContent=
    submissionReadiness().saved?'可选择已保存的具体判断；更改判断后须重新核查绑定。':
@@ -114,7 +115,7 @@ function selectEvidenceItem(field,index,open=false){
  chooseEvidenceField(field);
  evidenceItemIndex=String(index);
  for(const id of ['evidenceItem','selectionItem'])if($(id))$(id).value=evidenceItemIndex;
- if(open){openEvidence();renderEvidenceReview(field,index);}
+ if(open){openEvidence();showEvidenceTab('linked');renderEvidenceReview(field,index);}
 }
 function renderJudgmentItemRows(){
  const root=$('judgmentItemRows');if(!root||!draft)return;
@@ -147,7 +148,7 @@ window.nutriJudgment={
     const key=$('field').value;
     const data=payload();
     const item=entriesForField(key,data).find(x=>String(x.index)===String(evidenceItemIndex));
-    if(!item)return {field:key,legacy:true};
+    if(!item)throw Error('请先填写并保存具体判断；字段级引用不代表判断证据');
     const state=submissionReadiness();
     if(!state.saved)throw Error('请先保存当前判断，再关联这条证据');
     return {field:key,index:item.index,text:item.text,revision:draft.revision,legacy:false};
@@ -185,7 +186,7 @@ function openEvidence(){
  $('expertPanel').classList.add('evidence-open');
  $('evidencePane').hidden=false;
  $('evidenceToggle').setAttribute('aria-expanded','true');
- renderEvidenceReview();
+ renderEvidenceReview();showEvidenceTab('linked');
  $('closeEvidence').focus();
 }
 $('evidenceToggle').onclick=()=>{
@@ -271,6 +272,7 @@ function refreshPresentation(){
    if(index===3){step.disabled=!state.eligible&&!frozen;step.title=state.eligible?'可进入冻结确认':'需先完成并保存独立判断';}
  }
  refreshItemOptions();
+ window.nutriReader?.updateConfirmation?.();
  renderJudgmentItemRows();
  if(!$('evidencePane').hidden)renderEvidenceReview();
  if(viewStage==='review')renderReview();
@@ -335,6 +337,7 @@ window.addEventListener('nutri-evidence',e=>{if(!e.detail.items.length)pdfVerifi
 for(const id of ['evidenceItem','selectionItem'])$(id).addEventListener('change',()=>{
   evidenceItemIndex=$(id).value;
   for(const other of ['evidenceItem','selectionItem'])$(other).value=evidenceItemIndex;
+  window.nutriReader?.updateConfirmation?.();
 });
 window.addEventListener('keydown',e=>{
  if($('evidencePane').hidden)return;
@@ -371,7 +374,7 @@ function renderEvidenceReview(field=null,index=null,root=$('evidenceReviewList')
     card.append(quote,label,replay,pdf);
    }
    const edit=document.createElement('button');edit.className='text-button';edit.textContent=status.links.length?'补充证据关联':'选择原文并关联';
-   edit.onclick=()=>{showStage('reader');selectEvidenceItem(f.key,item.index,true);$('quote').focus();};card.append(edit);root.append(card);
+   edit.onclick=()=>{showStage('reader');selectEvidenceItem(f.key,item.index,true);showEvidenceTab('quote');$('manualQuote').open=true;$('quote').focus();};card.append(edit);root.append(card);
   }
  }
  if(!root.children.length){const empty=document.createElement('p');empty.className='small';empty.textContent='还没有可核查的判断。填写并保存判断后，可逐条关联原文。';root.append(empty);}
@@ -379,3 +382,14 @@ function renderEvidenceReview(field=null,index=null,root=$('evidenceReviewList')
   stale=evidenceItemBindings.filter(b=>{const item=entriesForField(b.field,data).find(x=>x.index===b.item_index);return !item||!itemEvidence(b.field,item.index,item.text).links.some(x=>x.binding===b);}).length;
   const issues=document.createElement('p');issues.className='check-line';issues.textContent=`待核查：${missing} 条判断缺少来源；${stale} 条旧关联需确认；${pending} 条证据 PDF 待核验。`;root.prepend(issues);}
 }
+
+function showEvidenceTab(tab){
+ $('evidenceReviewList').hidden=tab!=='linked';$('quoteComposer').hidden=tab!=='quote';
+ $('drawerSubmitReview').hidden=tab!=='linked';
+ $('evidenceDialogTitle').textContent=tab==='quote'?'引文确认':'判断与证据核查';
+ $('tabQuote').classList.toggle('active',tab==='quote');$('tabLinked').classList.toggle('active',tab==='linked');
+ if(tab==='quote'){$('quoteComposer').open=true;window.nutriReader?.updateConfirmation?.();}
+}
+$('tabQuote').onclick=()=>showEvidenceTab('quote');$('tabLinked').onclick=()=>showEvidenceTab('linked');
+$('tabJudgment').onclick=()=>showStage('judgment');
+window.addEventListener('nutri-confirm-quote',()=>{openEvidence();showEvidenceTab('quote');});

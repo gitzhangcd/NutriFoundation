@@ -12,3 +12,6 @@ Use a shared pure status helper for inline rows, drawer cards and submission rev
 
 ## Validation
 19 D0/item-binding tests passed; 30 Chromium desktop/mobile checks passed with no page errors. Source replay verifies exact saved quote highlighting; editing or removing a judgment flags its previous links. Screenshot layout reviewed. GitHub sync targets existing PR #23; no Aliyun deployment in this change.
+
+## Reference correction validation
+19 D0/item-binding tests and 32 Chromium checks passed, no page errors. Verified select -> floating action -> side quote confirmation -> original/sentence range adjustment -> saved judgment binding. Cross-paragraph and cross-cell selections clear old quotes, table context is shown, translated excerpt displays actual English, source replay retains precise highlight. Desktop 1440x1000 and mobile 390x844 reviewed. Browser plugin not available; regular Playwright used.

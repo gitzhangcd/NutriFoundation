@@ -63,6 +63,32 @@ def run(url,credentials,output):
         for mode in ('parallel', 'english', 'chinese', 'immersive'):
             r2.locator('#readerMode').select_option(mode)
             assert r2.locator('#units').get_attribute('data-reading-mode') == mode
+        # Reference interaction: select -> quote confirmation -> range adjustment.
+        r2.locator('#readerMode').select_option('english')
+        r2.evaluate("""()=>{const el=[...document.querySelectorAll('.unit-original')].find(x=>x.textContent.startsWith('Ratings of interventions'));el.scrollIntoView();const r=document.createRange();r.setStart(el.firstChild,11);r.setEnd(el.firstChild,24);const s=getSelection();s.removeAllRanges();s.addRange(r);document.querySelector('#units').dispatchEvent(new Event('pointerup',{bubbles:true}));}""")
+        expect(r2.locator('#selectionBind')).to_have_text('引用所选文字 →')
+        r2.locator('#selectionBind').click()
+        expect(r2.locator('#quotePreview')).to_have_text('interventions')
+        expect(r2.locator('#makeAnchor')).to_be_disabled()
+        output.mkdir(parents=True,exist_ok=True)
+        r2.screenshot(path=str(output/'reference-quote-confirmation.png'))
+        r2.locator('[data-quote-range="sentence"]').click()
+        expect(r2.locator('#quotePreview')).to_have_text('Ratings of interventions are presented using median and IQR.')
+        r2.locator('[data-quote-range="original"]').click()
+        expect(r2.locator('#quotePreview')).to_have_text('interventions')
+        # Cross-paragraph selection invalidates the previous citation immediately.
+        r2.evaluate("""()=>{const els=[...document.querySelectorAll('.unit-original')];const i=els.findIndex(x=>x.textContent.startsWith('Ratings of interventions'));const r=document.createRange();r.setStart(els[i].firstChild,0);r.setEnd(els[i+1].firstChild,10);getSelection().removeAllRanges();getSelection().addRange(r);document.querySelector('#units').dispatchEvent(new Event('pointerup',{bubbles:true}));}""")
+        expect(r2.locator('#makeAnchor')).to_be_disabled()
+        expect(r2.locator('#quote')).to_have_value('')
+        expect(r2.locator('#selectionError')).to_contain_text('跨越')
+        r2.evaluate("""()=>{const cell=document.querySelector('.unit-original td');cell.scrollIntoView();const r=document.createRange();r.selectNodeContents(cell);getSelection().removeAllRanges();getSelection().addRange(r);document.querySelector('#units').dispatchEvent(new Event('pointerup',{bubbles:true}));}""")
+        expect(r2.locator('#quoteTableContext')).to_be_visible()
+        expect(r2.locator('[data-quote-range="paragraph"]')).to_be_disabled()
+        r2.evaluate("""()=>{const cells=document.querySelectorAll('.unit-original td');const r=document.createRange();r.setStart(cells[0].firstChild,0);r.setEnd(cells[1].firstChild,1);getSelection().removeAllRanges();getSelection().addRange(r);document.querySelector('#units').dispatchEvent(new Event('pointerup',{bubbles:true}));}""")
+        expect(r2.locator('#selectionError')).to_contain_text('跨越表格单元格')
+        expect(r2.locator('#quote')).to_have_value('')
+        r2.locator('#closeEvidence').click()
+        checks.extend(['reference_selection_confirmation_range_and_invalidation','table_selection_context_and_invalidation'])
         r2.locator('#focusMode').click()
         assert 'focus-mode' in (r2.locator('#expertPanel').get_attribute('class') or '')
         r2.locator('#evidenceToggle').click()
@@ -80,12 +106,15 @@ def run(url,credentials,output):
             range.selectNodeContents(el);
             const sel=window.getSelection();
             sel.removeAllRanges();sel.addRange(range);
-            el.dispatchEvent(new MouseEvent('mouseup',{bubbles:true}));
+            el.dispatchEvent(new Event('pointerup',{bubbles:true}));
         }''')
         expect(r2.locator('#selectionToolbar')).to_be_visible()
-        expect(r2.locator('#selectionStatus')).to_contain_text('L1')
         r2.locator('#selectionBind').click()
-        expect(r2.locator('#status')).to_contain_text('已通过服务端证据验证并绑定',timeout=30000)
+        expect(r2.locator('#quoteAlignment')).to_be_visible()
+        expect(r2.locator('#quotePreview')).not_to_be_empty()
+        expect(r2.locator('#makeAnchor')).to_be_disabled()
+        r2.locator('#closeEvidence').click()
+        r2.locator('#dismissSelection').evaluate('(el)=>el.click()')
         checks.extend(['bilingual_four_modes','expert_focus_layout','translated_excerpt_source_binding'])
 
         expect(r2.locator('#workflowNav')).to_be_visible()
@@ -107,8 +136,11 @@ def run(url,credentials,output):
         expect(r2.locator('[id="f-salient_existing_facts"]')).to_have_value('Expert-written synthetic fact with no model inference')
         # Item-level links require a saved canonical revision, not UI-only field selection.
         r2.locator('#evidenceToggle').click()
+        r2.locator('#tabQuote').click()
         r2.locator('#field').select_option('decision_focus')
         r2.locator('#evidenceItem').select_option('0')
+        r2.locator('#tabQuote').click()
+        r2.locator('#manualQuote').evaluate('(el)=>{el.open=true}')
         r2.locator('#quote').fill('Three hundred adults with obesity were randomised')
         r2.locator('#locateQuote').click()
         r2.locator('#makeAnchor').click()
@@ -116,6 +148,7 @@ def run(url,credentials,output):
         item_links=r2ctx.request.get(url+'/v1/tasks/SYN-R2/sources/SYN-5-2-PAPER/item-bindings')
         assert item_links.status==200
         assert any(x['field']=='decision_focus' and x['item_index']==0 and x['current_statement_matches'] for x in item_links.json()['items'])
+        r2.locator('#tabLinked').click()
         expect(r2.locator('#evidenceReviewList')).to_contain_text('原文范围：服务端已校验')
         expect(r2.locator('#evidenceReviewList')).to_contain_text('判断关联：当前有效')
         expect(r2.locator('#evidenceReviewList')).to_contain_text('PDF：已核验')
@@ -148,6 +181,8 @@ def run(url,credentials,output):
         assert r2ctx.request.get(url+'/v1/tasks/SYN-R2/candidate-set').status==403
         checks.extend(['native_pdfjs','19_field_profile','save_reload','cross_task_denial','R2_preAI_candidate_denial'])
         r2.locator('#evidenceToggle').click()
+        r2.locator('#tabQuote').click()
+        r2.locator('#manualQuote').evaluate('(el)=>{el.open=true}')
         r2.locator('#quote').fill('Three hundred adults with obesity were randomised')
         r2.locator('#locateQuote').click();expect(r2.locator('#status')).to_contain_text('已定位输入的准确引文')
         r2.locator('#makeAnchor').click();expect(r2.locator('#status')).to_contain_text('已通过服务端证据验证并绑定',timeout=30000)

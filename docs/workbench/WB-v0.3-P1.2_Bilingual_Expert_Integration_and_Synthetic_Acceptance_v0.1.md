@@ -83,4 +83,28 @@ Suggested 2–3 independent domain experts only **after** required institutional
 5. Real IdP/MFA, credential verification, institutional ethics/consent, source rights and production TLS/supported OS/security acceptance remain unmet.
 6. All changes must remain on isolated branches until the code review, CI, manual usability review and independent scientific-owner permissions pass.
 
-**P1.2 scientific disposition:** ENGINEERING IMPLEMENTATION UNDER REVIEW; qualified bilingual reading and real expert pilot **NOT YET APPROVED**. CI results must be appended after execution, not presumed.
+**P1.2 scientific disposition:** ENGINEERING NON-REGRESSION PASS / SYNTHETIC MANUAL PILOT PENDING; qualified bilingual reading and real expert pilot **NOT YET APPROVED**.
+
+## Verified CI execution — 2026-10-09
+
+Workflow: [WB-v0.3 P1.2 GitHub Actions #37876968271](https://github.com/gitzhangcd/NutriFoundation/actions/runs/37876968271), tested commit `7e51e542e1ef6937d17d27a7b1739b6502ac0083`.
+
+- **114 Workbench module tests PASS**: C1 11, C2 18, C2.1 45, C2.2 26, D0 14. An additional 2+2 official scientific-source adapter commands also passed; do not double-count them as unique module tests.
+- **144 frozen scientific-engine regression tests PASS**, Python 3.11.
+- **22 native Chromium checks PASS**, zero page exceptions, desktop 1440×1000 and mobile 390×844.
+- Frozen scientific path non-regression step PASS (no changes in `runs/NDF`, `runs/NDS`, or `src/nutrifoundation`).
+- The first P1.2 CI iterations did *not* pass. Test-fixture serialization vs projection input schema was corrected without weakening strict validation. Another regression check was updated to assert the correct unverified coverage label.
+- Native browser exposed an async PDF.js rendering/highlight collision during sequential anchoring. Rendering is now serialized; the interface distinguishes successful English SourceAnchor binding from independently verified PDF BBox. The final CI rerun passed.
+
+**Engineering acceptance for isolated synthetic QA:** PASS.  
+**Real full-paper Chinese translation qualification:** NOT DONE.  
+**Human expert usability observations:** NOT DONE.  
+**Formal NDS-R1 source/version reconciliation and expert admission:** NO-GO.
+
+### Operator review checklist before *separate* synthetic staging
+
+1. Review PR #21, including all field-sidecar data-flow and task isolation tests.
+2. Provision a separate synthetic D0 instance with a fresh data/auth root; never rerun destructive E2E in a person's existing workspace.
+3. Test a local versioned FULL_UNIT translation manifest. Ensure the pack file is private, non-web-accessible, and no automatic external translation of restricted source occurs.
+4. Repeat S1–S8 manually and record evidence when the language translation coverage is partial.
+5. Obtain separate approval for real-user usability or formal science; none is provided by this CI.

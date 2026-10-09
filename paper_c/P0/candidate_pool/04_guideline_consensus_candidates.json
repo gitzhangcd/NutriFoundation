@@ -1,0 +1,175 @@
+{
+  "status": "EXPLORATORY_PUBMED_BIBLIOGRAPHY_NOT_GOLD100",
+  "rows": [
+    {
+      "proposed_stratum": "guideline_or_consensus",
+      "topic": "ESPEN",
+      "title": "ESPEN practical guideline: Clinical Nutrition in cancer.",
+      "pmid": "33946039",
+      "doi": "10.1016/j.clnu.2021.02.005",
+      "pmcid": "",
+      "date": "2021 May",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "publication_types": "Journal Article",
+      "query": "ESPEN[Title] AND (guideline[Title] OR practical guideline[Title]) AND (2021:2026[dp])"
+    },
+    {
+      "proposed_stratum": "guideline_or_consensus",
+      "topic": "ESPEN",
+      "title": "ESPEN practical and partially revised guideline: Clinical nutrition in the intensive care unit.",
+      "pmid": "37517372",
+      "doi": "10.1016/j.clnu.2023.07.011",
+      "pmcid": "",
+      "date": "2023 Sep",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "publication_types": "Journal Article",
+      "query": "ESPEN[Title] AND (guideline[Title] OR practical guideline[Title]) AND (2021:2026[dp])"
+    },
+    {
+      "proposed_stratum": "guideline_or_consensus",
+      "topic": "ESPEN",
+      "title": "ESPEN guideline on clinical nutrition in surgery - Update 2025.",
+      "pmid": "40957230",
+      "doi": "10.1016/j.clnu.2025.08.029",
+      "pmcid": "",
+      "date": "2025 Oct",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "publication_types": "Journal Article",
+      "query": "ESPEN[Title] AND (guideline[Title] OR practical guideline[Title]) AND (2021:2026[dp])"
+    },
+    {
+      "proposed_stratum": "guideline_or_consensus",
+      "topic": "ESPEN",
+      "title": "ESPEN practical guideline on clinical nutrition in acute and chronic pancreatitis.",
+      "pmid": "38169174",
+      "doi": "10.1016/j.clnu.2023.12.019",
+      "pmcid": "",
+      "date": "2024 Feb",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "publication_types": "Journal Article",
+      "query": "ESPEN[Title] AND (guideline[Title] OR practical guideline[Title]) AND (2021:2026[dp])"
+    },
+    {
+      "proposed_stratum": "guideline_or_consensus",
+      "topic": "ESPEN",
+      "title": "ESPEN guideline on hospital nutrition.",
+      "pmid": "34742138",
+      "doi": "10.1016/j.clnu.2021.09.039",
+      "pmcid": "",
+      "date": "2021 Dec",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "publication_types": "Journal Article",
+      "query": "ESPEN[Title] AND (guideline[Title] OR practical guideline[Title]) AND (2021:2026[dp])"
+    },
+    {
+      "proposed_stratum": "guideline_or_consensus",
+      "topic": "ESPEN",
+      "title": "ESPEN micronutrient guideline.",
+      "pmid": "35365361",
+      "doi": "10.1016/j.clnu.2022.02.015",
+      "pmcid": "",
+      "date": "2022 Jun",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "publication_types": "Journal Article",
+      "query": "ESPEN[Title] AND (guideline[Title] OR practical guideline[Title]) AND (2021:2026[dp])"
+    },
+    {
+      "proposed_stratum": "guideline_or_consensus",
+      "topic": "dietitian",
+      "title": "Medical Nutrition Therapy Interventions Provided by Dietitians for Adult Overweight and Obesity Management: An Academy of Nutrition and Dietetics Evidence-Based Practice Guideline.",
+      "pmid": "36462613",
+      "doi": "10.1016/j.jand.2022.11.014",
+      "pmcid": "PMC12646719",
+      "date": "2023 Mar",
+      "journal": "Journal of the Academy of Nutrition and Dietetics",
+      "publication_types": "Journal Article",
+      "query": "(\"Dietary Guidelines\"[Title] OR \"AHA dietary guidance\"[Title] OR \"Nutrition Therapy\"[Title]) AND (guideline[Title] OR consensus[Title] OR scientific statement[Title]) AND (2019:2026[dp])"
+    },
+    {
+      "proposed_stratum": "guideline_or_consensus",
+      "topic": "dietitian",
+      "title": "ESPEN practical guideline on ethical aspects of medical nutrition therapy.",
+      "pmid": "41895152",
+      "doi": "10.1016/j.clnu.2026.106622",
+      "pmcid": "",
+      "date": "2026 May",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "publication_types": "Journal Article",
+      "query": "(\"Dietary Guidelines\"[Title] OR \"AHA dietary guidance\"[Title] OR \"Nutrition Therapy\"[Title]) AND (guideline[Title] OR consensus[Title] OR scientific statement[Title]) AND (2019:2026[dp])"
+    },
+    {
+      "proposed_stratum": "guideline_or_consensus",
+      "topic": "kidney_guidance",
+      "title": "ESPEN guideline on clinical nutrition in hospitalized patients with acute or chronic kidney disease.",
+      "pmid": "33640205",
+      "doi": "10.1016/j.clnu.2021.01.028",
+      "pmcid": "",
+      "date": "2021 Apr",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "publication_types": "Journal Article",
+      "query": "(\"chronic kidney disease\"[Title] OR CKD[Title]) AND (nutrition[Title] OR diet[Title]) AND (guideline[Title] OR consensus[Title]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "guideline_or_consensus",
+      "topic": "kidney_guidance",
+      "title": "ESPEN practical guideline on clinical nutrition in hospitalized patients with acute or chronic kidney disease.",
+      "pmid": "39178492",
+      "doi": "10.1016/j.clnu.2024.08.002",
+      "pmcid": "",
+      "date": "2024 Sep",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "publication_types": "Journal Article",
+      "query": "(\"chronic kidney disease\"[Title] OR CKD[Title]) AND (nutrition[Title] OR diet[Title]) AND (guideline[Title] OR consensus[Title]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "guideline_or_consensus",
+      "topic": "nutritional_consensus",
+      "title": "Hyperglycaemic crises in adults with diabetes: a consensus report.",
+      "pmid": "38907161",
+      "doi": "10.1007/s00125-024-06183-8",
+      "pmcid": "PMC11343900",
+      "date": "2024 Aug",
+      "journal": "Diabetologia",
+      "publication_types": "Journal Article",
+      "query": "(\"consensus report\"[ti] OR \"consensus statement\"[ti]) AND (nutrition[tiab] OR diabetes[tiab] OR diet[tiab] OR sarcopenia[tiab]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "guideline_or_consensus",
+      "topic": "nutritional_consensus",
+      "title": "Hyperglycemic Crises in Adults With Diabetes: A Consensus Report.",
+      "pmid": "39052901",
+      "doi": "10.2337/dci24-0032",
+      "pmcid": "PMC11272983",
+      "date": "2024 Aug 01",
+      "journal": "Diabetes care",
+      "publication_types": "Journal Article",
+      "query": "(\"consensus report\"[ti] OR \"consensus statement\"[ti]) AND (nutrition[tiab] OR diabetes[tiab] OR diet[tiab] OR sarcopenia[tiab]) AND (2020:2026[dp])"
+    }
+  ],
+  "diagnostics": [
+    {
+      "topic": "ESPEN",
+      "target": 6,
+      "selected": 6,
+      "pubmed_returned": 40
+    },
+    {
+      "topic": "dietitian",
+      "target": 2,
+      "selected": 2,
+      "pubmed_returned": 16
+    },
+    {
+      "topic": "kidney_guidance",
+      "target": 2,
+      "selected": 2,
+      "pubmed_returned": 12
+    },
+    {
+      "topic": "nutritional_consensus",
+      "target": 2,
+      "selected": 2,
+      "pubmed_returned": 40
+    }
+  ]
+}

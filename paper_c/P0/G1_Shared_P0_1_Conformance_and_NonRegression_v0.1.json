@@ -1,0 +1,82 @@
+{
+  "stage": "G1-Shared P0.1",
+  "version": "v0.1",
+  "status": "L1_PLUS_RIGHTS_SCREEN_PASS_L2_TO_L4_NO_GO",
+  "checks": [
+    {
+      "check_id": "BIBLIOGRAPHIC",
+      "result": "PASS",
+      "detail": "100 PMID, 0 title/DOI/PMCID mismatches"
+    },
+    {
+      "check_id": "BATCH001_EXCLUSION",
+      "result": "PASS",
+      "detail": "20 legacy development PMID/DOI exclusions"
+    },
+    {
+      "check_id": "RIGHTS",
+      "result": "PARTIAL",
+      "detail": "51 PMC retrieval allowed; 49 restrictions/uncertainty"
+    },
+    {
+      "check_id": "TEXT_PROJECTIONS",
+      "result": "PARTIAL",
+      "detail": "3 licensed CC-BY PMC bodies persisted; PDF/tables/supplements unchecked"
+    },
+    {
+      "check_id": "STUDY_IDENTITY",
+      "result": "BLOCKED",
+      "detail": "8 provisional internal edges, 7 external family dependencies"
+    },
+    {
+      "check_id": "SCIENTIFIC_QUALIFICATION",
+      "result": "BLOCKED",
+      "detail": "L2=0 L3=0 L4=0; all require domain/source-span/expert validation"
+    },
+    {
+      "check_id": "DOMAIN_AND_CHALLENGE",
+      "result": "BLOCKED",
+      "detail": "Domain 80/20 and challenge flags not yet qualified"
+    },
+    {
+      "check_id": "EXPERT_GOLD",
+      "result": "NOT_STARTED",
+      "detail": "No dual-blind independent expert adjudication"
+    },
+    {
+      "check_id": "CONFIRMATORY_SEPARATION",
+      "result": "PASS_WITH_EXPOSURE_WARNING",
+      "detail": "Official frozen Gold100 source_ref slots remain empty; exposed source catalogue cannot be treated as blinded confirmatory"
+    }
+  ],
+  "errors": [],
+  "counts": {
+    "primary_interventional": 28,
+    "primary_observational": 18,
+    "evidence_synthesis": 18,
+    "guideline_or_consensus": 12,
+    "companion_or_secondary": 4,
+    "correction_republication_retraction_or_living_version": 6,
+    "study_identity_or_companion_dependency": 4,
+    "conflicting_evidence": 4,
+    "recommendation_exception_or_normative_boundary": 2,
+    "temporal_cutoff_sensitive": 2,
+    "incomplete_or_missing_source_text": 2
+  },
+  "source_count": 100,
+  "metadata_count": 100,
+  "rights_allowed": 51,
+  "body_persisted": 3,
+  "official_gold100_filled": 0,
+  "overall_decision": "NO_GO_SCIENTIFIC_GOLD_OR_CONFIRMATORY",
+  "regression_decision": "PASS_FOR_NO_OVERWRITE_OR_SOURCE_ID_COLLISION",
+  "unresolved_gates": [
+    "full original source acquisition and license evidence",
+    "StudyIdentity family/parent/version resolution",
+    "L2 source-span and tables QA",
+    "L3 semantic applicability review",
+    "L4 question-specific scientific qualification",
+    "eligible-pool freeze and domain/challenge coverage",
+    "independent blinded gold expert adjudication"
+  ]
+}

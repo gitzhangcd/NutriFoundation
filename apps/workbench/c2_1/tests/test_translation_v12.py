@@ -14,7 +14,10 @@ KEYS = ("schema_version", "source_document_id", "source_revision",
 
 def raw_pack(doc):
     p = projection(doc)
-    return {k: copy.deepcopy(p[k]) for k in KEYS}
+    pack={k: copy.deepcopy(p[k]) for k in KEYS}
+    for item in pack['items']:
+        item.pop('quality_warnings',None)  # projection-only, not authorized input
+    return pack
 
 def test_versioned_manifest_and_coverage_truthfulness(env):
     c, keys, _ = env

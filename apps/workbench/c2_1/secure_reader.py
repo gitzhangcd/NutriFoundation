@@ -19,6 +19,7 @@ from reader_core import Store, AnchorRequest, LocatorResolveRequest, substring_u
 from pdf_locator import LocatorError, locate_pdf_quote
 from workflow import ARMS, deny, sha
 from models import canonical_json
+from bilingual import projection as bilingual_projection
 
 SOURCE_ID = 'SYN-5-2-PAPER'
 GIT_BLOB_SHA = 'fe9d476f52981c7c1d536b8578559b109a5fcbec'
@@ -180,6 +181,15 @@ def install_secure_reader(app: FastAPI, controller, root: Path, principal, fixtu
     def document(task: str, source_id: str, p=Depends(principal)):
         allowed(task,*p,full=True);exact_source(source_id);pdf_integrity()
         return safe_doc()
+
+    @app.get('/v1/tasks/{task}/sources/{source_id}/translations')
+    def translations(task: str, source_id: str, p=Depends(principal)):
+        # Same full-document allowlist as /document: R1 must never be sent
+        # even translations of unapproved paragraphs; no external translation API.
+        allowed(task, *p, full=True)
+        exact_source(source_id)
+        pdf_integrity()
+        return bilingual_projection(doc)
 
     @app.get('/v1/tasks/{task}/sources/{source_id}/search')
     def search(task: str, source_id: str, q: str=Query(min_length=3,max_length=100), p=Depends(principal)):

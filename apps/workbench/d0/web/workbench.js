@@ -253,10 +253,10 @@ function refreshPresentation(){
  $('nextReview').textContent=model?.allowed_actions.includes('draft')?'核查判断与证据 →':'查看判断与证据 →';
  $('freeze').disabled=!state.eligible || !$('unexposed').checked;
  const stages=['reader','judgment','review','freeze'];
- const progress=[true,state.filled>0,state.saved&&state.filled>0,
-                  false]; // Never mark frozen before immutable server receipt.
+ // Navigation is NOT evidence of stage completion; scientific freeze is
+ // the only authoritative completion receipt for the workflow stepper.
  const frozen=!!model?.phase?.endsWith('LOCKED');
- if(frozen)progress[3]=true;
+ const progress=[frozen,frozen,frozen,frozen];
  for(const step of $('workflowNav').querySelectorAll('[data-stage]')){
    const index=stages.indexOf(step.dataset.stage);
    step.classList.toggle('active',step.dataset.stage===viewStage);

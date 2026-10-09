@@ -71,3 +71,16 @@ Existing field-level bindings remain for legacy compatibility.
 - 让判断条目编辑成为真正独立的卡片，而不是仅提供单条引用视图和原始多行文本；保留无损往返 19 字段。
 - 增加支持长引用的多 BBox/人工核查确认 workflow，区分准确失败、节选和上下文。
 - 在独立合成 staging（不得覆写阿里云现有 D0）执行 P1 回访，记录非静态数据：任务耗时、定位失败、逐条绑定错误率、认知负担和键盘可用性。
+
+## 7. 已验证自动化执行（2026-10-09）
+
+- 代码提交：`1b32650db1189386a79c772e352e61a8c5cd47ea`
+- CI：[GitHub Actions #37884242639](https://github.com/gitzhangcd/NutriFoundation/actions/runs/37884242639)
+- Workbench 独立模块共 **118 tests PASS**：C1 11、C2 18、C2.1 47、C2.2 26、D0 16。另有两组正式绑定专项 2+2 PASS，未重复计入模块总数。
+- 科学引擎 **144 tests PASS**（Python 3.11）。
+- Chromium **26 checks PASS**，包括 0/5 未保存阻断、16/16 自编双语练习及表格、原文切换、聚焦、中文到英文选取、逐条绑定、PDF.js、保存/重载、前后 AI 分离、R0/R1/R2 隔离、冻结和审计；`page_errors=[]`。覆盖 1440×1000 与 390×844。
+- 冻结科研代码和 NDF/NDS 路径 Non-Regression 检查 PASS。
+- 浏览器证据：[synthetic-only screenshots and log](https://github.com/gitzhangcd/NutriFoundation/actions/runs/37884242639/artifacts/11596045905)。
+- 前几轮失败分别涉及错误代码替换造成重复源码、表格测试转义、来源切换竞态、模态抽屉测试、旧 UI 文案断言。全部据失败日志修复，最终整套测试绿灯。不得隐瞒此前失败。
+
+**结论**：合成工程验收 PASS；**P1 科学/真实专家使用体验仍为 PARTIAL / PENDING**。需实机人工可用性试测和真实论文权威双语文本资格，才允许任何正式科研阶段转换。不要直接合并 `main` 或覆盖阿里云现运行服务。

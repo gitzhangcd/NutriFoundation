@@ -383,13 +383,25 @@ class EvidenceEngine:
                 if len(items) != len(refs) or {x.get("candidate_id") for x in items} != refs:
                     deny("INCOMPLETE_EXPERT_REVIEW")
                 allowed = set(self.contract["review_dispositions"])
+                candidate_by_id = {c["candidate_id"]: c for c in candidates}
+                source_states = set(self.contract["source_support_status"])
                 for item in items:
                     if item.get("disposition") not in allowed:
                         deny("INVALID_REVIEW_DISPOSITION")
+                    if item.get("source_support_status") not in source_states:
+                        deny("SOURCE_SUPPORT_REVIEW_REQUIRED")
+                    if item.get("field_group") != candidate_by_id[item["candidate_id"]]["field_group"]:
+                        deny("REVIEW_FIELD_GROUP_MISMATCH")
+                    if item["disposition"] == "ACCEPT" and item["source_support_status"] not in ("SUPPORTED", "PARTIAL"):
+                        deny("UNSUPPORTED_CANDIDATE_CANNOT_BE_ACCEPTED")
                     if item["disposition"] in ("REJECT", "MODIFY") and not item.get("reason"):
                         deny("REVIEW_REASON_REQUIRED")
                     if item["disposition"] == "MODIFY" and not item.get("corrected_candidate_payload"):
                         deny("CORRECTION_REQUIRED")
+                    if not isinstance(item.get("expert_anchors", []), list):
+                        deny("INVALID_EXPERT_ANCHORS")
+                    for anchor in item.get("expert_anchors", []):
+                        self._verify_anchor(db, task, anchor)
             else:
                 if candidate_set_digest is not None or state != "REGISTERED":
                     deny("DENY_INDEPENDENT_AGENT_EXPOSURE")

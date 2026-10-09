@@ -348,6 +348,24 @@ class TaskProduction:
                        (key,"PUBLISH",task_id,request_hash,encoded(receipt).decode()))
             return receipt
 
+    def revoke(self,role,actor,task_id):
+        """Revocation denies future deliveries, never erases already served material."""
+        self.role(role,("manager",))
+        with self.lock,self.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            row=db.execute("SELECT * FROM tpa_tasks WHERE task_id=?",(task_id,)).fetchone()
+            self.record(row)
+            if row["state"] not in ("ASSIGNED","PUBLISHED"):
+                block("INVALID_TASK_TRANSITION")
+            previous=row["state"]
+            db.execute("UPDATE tpa_tasks SET state='REVOKED' WHERE task_id=?",(task_id,))
+            detail={"task_id":task_id,"state":"REVOKED","prior_state":previous,
+                    "assigned_expert":row["assignment_actor"],
+                    "historical_exposure_remains":True,
+                    "revoked_at":utcnow()}
+            self.event(db,task_id,actor,"ACCESS_REVOKED",detail)
+            return detail
+
     def expert_gate(self,task_id, actor, role, exposure_event=None, source_ref=None):
         """Called from EA source/workpack/candidate endpoints before data is returned."""
         if not task_id.startswith("TPA-SYN-"):

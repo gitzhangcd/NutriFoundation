@@ -242,3 +242,31 @@ def test_locator_metadata_mutation_is_denied_by_db_trigger(env):
         with sqlite3.connect(app.state.source_store.db) as db:
             db.execute('UPDATE pdf_locators SET locator_payload=? WHERE anchor_id=?',('{}',a['anchor_id']))
     assert c.get(url+'/locator',headers=headers).status_code==200
+
+
+def test_search_reports_total_pages_and_normalises_query(env):
+    c,k,_=env
+    bind(env,'SYN-R0','SYN-EXPERT-A')
+    doc,headers=setup_r2(env)
+    first=c.get(scope()+'/search?q=the',headers=headers).json()
+    assert first['total']>16 and len(first['results'])==16 and first['truncated'] and first['offset']==0
+    ids=[r['unit_id'] for r in first['results']]
+    pages=[]
+    for offset in range(0,first['total'],16):
+        page=c.get(scope()+f'/search?q=the&offset={offset}',headers=headers).json()
+        assert page['total']==first['total'] and page['offset']==offset
+        pages+=[r['unit_id'] for r in page['results']]
+    assert pages[:16]==ids and len(pages)==len(set(pages))==first['total'] and not page['truncated']
+    single=c.get(scope()+'/search?q=weight%20loss',headers=headers).json()
+    assert c.get(scope()+'/search?q=weight%20%20%0Aloss',headers=headers).json()['total']==single['total']>0
+    assert c.get(scope()+'/search?q=WEIGHT%20LOSS',headers=headers).json()['total']==single['total']
+    bold=next(u for u in doc['units'] if '**' in u['raw'])
+    words=[w for w in bold['raw'].split('**')[1].split() if w][:2]
+    assert c.get(scope()+'/search',params={'q':' '.join(words)},headers=headers).json()['total']>0
+    for q in ('ab','  ab  '):
+        r=c.get(scope()+'/search',params={'q':q},headers=headers)
+        assert r.status_code==422 and r.json()['detail']['code']=='SEARCH_QUERY_TOO_SHORT'
+    zh=c.get(scope()+'/search',params={'q':'体重'},headers=headers)
+    assert zh.status_code==200 and zh.json()['total']==0
+    assert c.get(scope()+'/search',params={'q':'体重'},headers=h(k,'SYN-EXPERT-A')).status_code in (401,404)
+    assert c.get(scope()+'/search?q=the&offset=-1',headers=headers).status_code==422

@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import sqlite3
 from pathlib import Path
 
@@ -21,10 +22,18 @@ from workflow import ARMS, deny, sha
 from models import canonical_json
 from bilingual import projection as bilingual_projection
 from translation_contract import validate as validate_translation_pack
+from ux_bilingual_demo import projection as synthetic_ux_demo
 
 SOURCE_ID = 'SYN-5-2-PAPER'
 GIT_BLOB_SHA = 'fe9d476f52981c7c1d536b8578559b109a5fcbec'
 MAX_SEARCH_RESULTS = 16
+CJK = re.compile(r'[\u3400-\u9fff\uf900-\ufaff]')
+MARKDOWN_MARKUP = re.compile(r'\*\*|__|^#{1,6}\s+', re.M)
+
+
+def search_text(value: str) -> str:
+    """Same visible text as the reader's plainMarkdown(), whitespace collapsed."""
+    return ' '.join(MARKDOWN_MARKUP.sub('', value).split()).casefold()
 
 
 class Strict(BaseModel):
@@ -37,6 +46,10 @@ class BindAnchor(Strict):
     expected_document_revision: str
     expected_pdf_sha256: str
 
+class BindAnchorItem(BindAnchor):
+    item_index: int = Field(ge=0, le=1000)
+    item_sha256: str = Field(min_length=64, max_length=64)
+    expected_draft_revision: int = Field(ge=1)
 
 def gitblob(raw: bytes) -> str:
     return hashlib.sha1(b'blob ' + str(len(raw)).encode() + b'\x00' + raw).hexdigest()
@@ -176,6 +189,32 @@ def install_secure_reader(app: FastAPI, controller, root: Path, principal, fixtu
           BEGIN SELECT RAISE(ABORT,'IMMUTABLE_TRANSLATION_EXPOSURE'); END;
         """)
 
+    # Additive item-level provenance. Original scientific 19-field schema and
+    # existing field bindings remain unchanged. Link is immutable and is
+    # rejected at read time if the referenced statement has since changed.
+    with controller.conn() as db:
+        db.executescript("""
+        CREATE TABLE IF NOT EXISTS source_item_bindings (
+          task TEXT NOT NULL, anchor_id TEXT NOT NULL, field TEXT NOT NULL,
+          item_index INTEGER NOT NULL, item_sha256 TEXT NOT NULL,
+          draft_revision INTEGER NOT NULL, actor TEXT NOT NULL,
+          source_revision TEXT NOT NULL, pdf_sha256 TEXT NOT NULL,
+          created_at TEXT NOT NULL,
+          PRIMARY KEY(task, anchor_id, field, item_index, item_sha256)
+        );
+        CREATE TRIGGER IF NOT EXISTS immut_item_bind_update BEFORE UPDATE ON source_item_bindings
+          BEGIN SELECT RAISE(ABORT,'IMMUTABLE_ITEM_BINDING'); END;
+        CREATE TRIGGER IF NOT EXISTS immut_item_bind_delete BEFORE DELETE ON source_item_bindings
+          BEGIN SELECT RAISE(ABORT,'IMMUTABLE_ITEM_BINDING'); END;
+        """)
+
+    @app.get('/v1/tasks/{task}/reading-demo')
+    def bilingual_reading_demo(task:str,p=Depends(principal)):
+        # Independently authored self-contained UX sample; no PDF or anchors,
+        # no access for R1, administrators or unbound identities.
+        allowed(task,*p,full=True)
+        return synthetic_ux_demo()
+
     @app.get('/v1/tasks/{task}/sources')
     def sources(task: str, p=Depends(principal)):
         phase=allowed(task,*p,full=True)
@@ -253,13 +292,20 @@ def install_secure_reader(app: FastAPI, controller, root: Path, principal, fixtu
         result['delivery_audit'] = 'RECORDED_NOT_PROOF_OF_HUMAN_VIEWING'
         return result
 
+    searchable={u['unit_id']:search_text(u['raw']) for u in doc['units']}
+
     @app.get('/v1/tasks/{task}/sources/{source_id}/search')
-    def search(task: str, source_id: str, q: str=Query(min_length=3,max_length=100), p=Depends(principal)):
+    def search(task: str, source_id: str, q: str=Query(min_length=2,max_length=100),
+               offset: int=Query(0,ge=0,le=10_000), p=Depends(principal)):
         allowed(task,*p,full=True);exact_source(source_id);pdf_integrity()
+        needle=search_text(q)
+        if len(needle)<(2 if CJK.search(needle) else 3):deny('SEARCH_QUERY_TOO_SHORT',422)
         # No source search across other tasks; only this fixed allowlisted document.
         results=[{'unit_id':u['unit_id'],'snippet':u['raw'][:450],
-                  'pdf_page_hint':u['pdf_page_hint']} for u in doc['units'] if q.casefold() in u['raw'].casefold()]
-        return {'results':results[:MAX_SEARCH_RESULTS], 'truncated':len(results)>MAX_SEARCH_RESULTS}
+                  'pdf_page_hint':u['pdf_page_hint']} for u in doc['units'] if needle in searchable[u['unit_id']]]
+        page=results[offset:offset+MAX_SEARCH_RESULTS]
+        return {'results':page,'total':len(results),'offset':offset,
+                'truncated':offset+len(page)<len(results)}
 
     @app.get('/v1/tasks/{task}/sources/{source_id}/original.pdf')
     def original(task:str,source_id:str,p=Depends(principal)):
@@ -345,6 +391,74 @@ def install_secure_reader(app: FastAPI, controller, root: Path, principal, fixtu
                        (task,req.anchor_id,req.field,p[0],doc['revision'],doc['source_pdf_sha256'],__import__('datetime').datetime.now(__import__('datetime').timezone.utc).isoformat()))
             controller._log(db,task,'SOURCE_ANCHOR_FIELD_BOUND',p[0],{'field':req.field,'anchor_id':req.anchor_id})
         return {'field':req.field,'anchor_id':req.anchor_id,'synthetic':True}
+
+    def item_text(payload, field, index):
+        value=payload
+        for part in field.split('.'):
+            if not isinstance(value,dict) or part not in value:
+                deny('ITEM_FIELD_NOT_IN_DRAFT',422)
+            value=value[part]
+        if isinstance(value,str):
+            if index!=0 or not value.strip():deny('ITEM_INDEX_NOT_FOUND',422)
+            return value
+        if isinstance(value,list) and 0<=index<len(value) and isinstance(value[index],str) and value[index].strip():
+            return value[index]
+        deny('ITEM_INDEX_NOT_FOUND',422)
+
+    @app.post('/v1/tasks/{task}/sources/{source_id}/bind-anchor-item')
+    def bind_anchor_item(task:str,source_id:str,req:BindAnchorItem,p=Depends(principal)):
+        phase=allowed(task,*p,full=True);exact_source(source_id);pdf_integrity()
+        if phase not in ('PRE_AI','HUMAN_DE_NOVO'):deny('SOURCE_BINDINGS_FROZEN',409)
+        if req.field not in approved:deny('INVALID_PROFILE_FIELD',422)
+        if req.expected_document_revision!=doc['revision'] or req.expected_pdf_sha256!=doc['source_pdf_sha256']:
+            deny('STALE_SOURCE_BINDING',409)
+        with controller.conn() as db:
+            db.execute('BEGIN IMMEDIATE')
+            controller._binding(db,task,p[0],p[1]);task_anchor(db,task,req.anchor_id)
+            checked_anchor(req.anchor_id)
+            if controller._phase(db,task) not in ('PRE_AI','HUMAN_DE_NOVO'):deny('SOURCE_BINDINGS_FROZEN',409)
+            draft=db.execute('SELECT revision,payload FROM drafts WHERE task=?',(task,)).fetchone()
+            if not draft or draft['revision']!=req.expected_draft_revision:
+                deny('STALE_DRAFT_REVISION',409)
+            statement=item_text(json.loads(draft['payload']),req.field,req.item_index)
+            if hashlib.sha256(statement.encode('utf-8')).hexdigest()!=req.item_sha256:
+                deny('JUDGMENT_ITEM_CHANGED',409)
+            import datetime
+            db.execute('INSERT OR IGNORE INTO source_bindings VALUES(?,?,?,?,?,?,?)',
+                       (task,req.anchor_id,req.field,p[0],doc['revision'],doc['source_pdf_sha256'],
+                        datetime.datetime.now(datetime.timezone.utc).isoformat()))
+            db.execute('INSERT OR IGNORE INTO source_item_bindings VALUES(?,?,?,?,?,?,?,?,?,?)',
+                       (task,req.anchor_id,req.field,req.item_index,req.item_sha256,draft['revision'],
+                        p[0],doc['revision'],doc['source_pdf_sha256'],datetime.datetime.now(datetime.timezone.utc).isoformat()))
+            controller._log(db,task,'SOURCE_ANCHOR_ITEM_BOUND',p[0],
+                            {'field':req.field,'item_index':req.item_index,
+                             'item_sha256':req.item_sha256,'anchor_id':req.anchor_id,
+                             'draft_revision':req.expected_draft_revision})
+        return {'anchor_id':req.anchor_id,'field':req.field,'item_index':req.item_index,
+                'item_sha256':req.item_sha256,'draft_revision':req.expected_draft_revision,'synthetic':True}
+
+    @app.get('/v1/tasks/{task}/sources/{source_id}/item-bindings')
+    def item_bindings(task:str,source_id:str,p=Depends(principal)):
+        allowed(task,*p,full=True);exact_source(source_id);pdf_integrity()
+        with controller.conn() as db:
+            controller._binding(db,task,p[0],p[1])
+            draft=db.execute('SELECT payload FROM drafts WHERE task=?',(task,)).fetchone()
+            stored=json.loads(draft['payload']) if draft else None
+            rows=db.execute('SELECT anchor_id,field,item_index,item_sha256,draft_revision,source_revision,pdf_sha256 '
+                            'FROM source_item_bindings WHERE task=? ORDER BY field,item_index,anchor_id',(task,)).fetchall()
+            result=[]
+            for row in rows:
+                entry=dict(row); task_anchor(db,task,entry['anchor_id'])
+                checked_anchor(entry['anchor_id'])
+                valid=False
+                if stored is not None:
+                    try:
+                        st=item_text(stored,entry['field'],entry['item_index'])
+                        valid=hashlib.sha256(st.encode('utf-8')).hexdigest()==entry['item_sha256']
+                    except HTTPException:pass
+                entry['current_statement_matches']=valid
+                result.append(entry)
+        return {'items':result,'synthetic':True}
 
     @app.get('/v1/tasks/{task}/sources/{source_id}/bindings')
     def bindings(task:str,source_id:str,p=Depends(principal)):

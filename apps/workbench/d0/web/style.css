@@ -1151,3 +1151,177 @@ pre {
     scroll-behavior:auto!important
   }
 }
+
+
+/* P1 expert walkthrough remediation: accurate scientific tables and traceable items */
+.source-mode{display:flex;align-items:center;gap:6px;font-size:11px;white-space:nowrap}
+.source-mode select{max-width:230px;font-size:11px;padding:7px;border:1px solid var(--line);border-radius:7px}
+.table-scroll{overflow-x:auto;max-width:100%;margin:12px 0;border:1px solid #dae4dd;border-radius:8px}
+.scientific-table{border-collapse:collapse;min-width:100%;font-variant-numeric:tabular-nums;font-size:12px;line-height:1.65;text-align:left}
+.scientific-table caption{font-size:11px;color:#697970;text-align:left;padding:8px;background:#f7faf8}
+.scientific-table th{background:#eaf4ed;color:#295846;font-weight:700}
+.scientific-table th,.scientific-table td{padding:10px 13px;border-right:1px solid #e1e8e3;border-bottom:1px solid #e1e8e3;min-width:96px;white-space:normal;vertical-align:top}
+.scientific-table tbody tr:nth-child(even){background:#f8faf8}
+.scientific-table td::selection,.scientific-table th::selection{background:#b4dbc5}
+.judgment-items{border-top:1px solid var(--line);margin-top:17px;padding:14px 0}
+.judgment-items h3{font-size:14px}
+.judgment-item-row{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid #dfe9e2;border-radius:8px;margin:8px 0;padding:10px;background:#fafcfb}
+.judgment-item-row>div{min-width:0;flex:1;display:flex;flex-direction:column;gap:5px}
+.judgment-item-row small{color:#637b6c;font-size:10px}
+.judgment-item-row span{font-size:12px;overflow-wrap:anywhere;line-height:1.6}
+.judgment-item-row button{flex-shrink:0}
+#reviewItemLinks{background:#f3f8f5;padding:12px;border-radius:8px;line-height:1.65}
+#evidencePane[role=dialog]{outline:none}
+#evidencePane :focus-visible{outline:2px solid #1e7753;outline-offset:2px}
+.sidebar .outline-block{min-height:150px;flex:2;overscroll-behavior:contain}
+.sidebar .outline{max-height:100%;overflow:auto}
+.sidebar .source-trace,.sidebar .boundary{flex-shrink:0}
+.review-pane button:disabled,.stepper button:disabled{opacity:.55;cursor:not-allowed}
+@media (max-height:820px) and (min-width:1051px){
+ .sidebar{gap:8px;padding:10px 12px}
+ .sidebar .outline-block{min-height:125px;flex:3}
+ .sidebar .source-trace{max-height:80px;overflow:auto}
+ .sidebar .boundary{max-height:96px;overflow:auto}
+ .sidebar .sourcebox{padding:8px}
+}
+@media(max-width:760px){
+ .reader-toolbar .source-mode{flex:1 1 100%}
+ .reader-toolbar .source-mode select{width:100%;max-width:none}
+ .judgment-item-row{flex-direction:column;align-items:stretch}
+ .judgment-item-row button{align-self:flex-start}
+}
+
+/* On-demand review keeps the document available alongside the drawer. */
+.evidence{width:min(460px,calc(100vw - 32px))}
+.evidence-review-card{border-bottom:1px solid #dce8e2;padding:14px 0}
+.evidence-review-card h4{margin:0;color:var(--muted);font-size:11px}
+.evidence-review-card p{white-space:pre-wrap;overflow-wrap:anywhere}
+.evidence-review-card blockquote{margin:12px 0;padding:10px 14px;border-left:3px solid var(--green);background:#f4f8f4;font-family:Georgia,serif;line-height:1.7}
+.evidence-review-card button{margin:4px 6px 4px 0}
+.evidence-state{display:block;color:#806631}
+.evidence-composer{margin-top:20px;border-top:1px solid #dce8e2;padding-top:14px}
+#evidenceFeedback{white-space:pre-wrap;overflow-wrap:anywhere;padding:10px;background:#f4f8f4}
+#drawerSubmitReview{margin-top:12px;width:100%}
+::highlight(evidence-source){background:#cdeedf;color:#153e32}
+
+/* Reference flow: a small citation action, followed by explicit side confirmation. */
+.selection-tools{position:fixed;z-index:25;border:1px solid #c8dfd4;border-radius:9px;box-shadow:0 6px 20px #163d3520;padding:7px 10px;flex-wrap:nowrap}
+.selection-tools [hidden]{display:none!important}
+#selectionError{padding:10px 18px;color:#8d482b;background:#fff8ee}
+.evidence-tabs{display:flex;gap:4px;padding:10px 0;border-bottom:1px solid #deeadf}
+.evidence-tabs button,.quote-range button{font-size:12px;padding:7px 10px}
+.evidence-tabs .active,.quote-range .active{background:#e7f3ec;color:var(--green);border-color:var(--green)}
+#quotePreview{margin:12px 0;padding:14px;border-left:3px solid var(--green);background:#f0f7f2;font-family:Georgia,serif;line-height:1.8;overflow-wrap:anywhere}
+.quote-range{display:flex;gap:6px;flex-wrap:wrap}
+.quote-validation{font-size:11px;color:var(--muted);border-top:1px solid #deeadf;margin-top:12px}
+.target-statement{padding:10px;background:#f0f7f2;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}
+#quoteAlignment,#quoteTableContext{padding:10px;background:#fff8df}
+.evidence-tabs{position:sticky;top:56px;background:white;z-index:1}
+
+.evidence-tabs button,.quote-range button{background:white;color:var(--green);border:1px solid #c8dfd4}
+.evidence-tabs .active,.quote-range .active{background:#e7f3ec;border-color:var(--green)}
+
+/* P1.3 UX review remediation */
+.skip-links a{position:absolute;left:12px;top:-60px;z-index:50;background:var(--green);color:white;padding:8px 12px;border-radius:7px;font-size:13px}
+.skip-links a:focus{top:10px}
+.unit-id{font-size:11px;color:#5f746b}
+#translationStatus{font-size:11px}
+.save-state #revision{font-size:11px}
+.sticky-footer #draftProgress{font-size:12px;color:#435c53}
+.judgment-item-row small{font-size:11px;color:#4f6a5c}
+.field-caption{color:#5a7466}
+.sidebar .outline-block{min-height:220px;flex:3}
+.sidebar .source-trace,.sidebar .boundary{max-height:110px;overflow:auto}
+.reader-scroll:focus{outline:none}
+.cite-target-hint{margin:0;padding:10px 18px;background:#e8f4ee;color:#1d5c43;font-size:13px;border-bottom:1px solid #cfe4d8}
+.mode-hint{margin:0;padding:8px 18px;background:#fbf7ea;color:#6d5a2c}
+.empty-state{margin:30px auto;max-width:460px;padding:22px;border:1px dashed #c8dfd4;border-radius:10px;background:#f7fbf8;color:#476459;line-height:1.8;font-size:14px}
+#searchResults{padding:0 18px}
+#searchResults .search-hit{display:block;width:100%;text-align:left;background:#f7faf8;border:1px solid #e0ebe4;border-radius:7px;color:#2d4a40;font-size:12px;line-height:1.6;padding:6px 10px;margin:4px 0;font-weight:400}
+#searchResults .search-hit:hover{border-color:var(--green)}
+#evidenceFeedback.success{background:#e3f4ea;color:#14563a;border-left:3px solid #2a9a71;font-size:13px}
+.evidence-actions{position:sticky;bottom:0;background:white;padding:10px 0;z-index:1;border-top:1px solid #e3ede7}
+#quoteNext{margin-top:8px}
+.stale-bindings{margin:14px 0;padding:12px;border:1px solid #f0d9a8;background:#fffaf0;border-radius:8px}
+.stale-bindings h4{margin:0 0 6px;color:#7a5a1c;font-size:13px}
+.stale-row small{display:block;color:#7a5a1c;font-size:11px;margin-top:8px}
+.stale-row blockquote{margin:6px 0;padding:8px 12px;border-left:3px solid #d9a441;background:white;font-family:Georgia,serif;font-size:13px;line-height:1.6}
+.freeze-box{margin:8px 0 16px;padding-bottom:14px;border-bottom:1px solid #e3ede7}
+.freeze-reason{margin:0 0 8px;padding:10px;border-radius:8px;background:#fff4e5;color:#7a4b14;font-size:13px;line-height:1.6}
+.freeze-reason.ok{background:#e3f4ea;color:#14563a}
+.freeze-reason:empty{display:none}
+.review-evidence summary{cursor:pointer;font-size:13px;font-weight:600;padding:10px 0}
+.readiness-head{font-weight:600}
+.readiness-table{width:100%;border-collapse:collapse;font-size:13px}
+.readiness-table th,.readiness-table td{text-align:left;padding:9px 10px;border-bottom:1px solid #e3ede7;vertical-align:top}
+.readiness-table small{display:block;color:#7b8c84;font-size:10px;margin-top:2px;overflow-wrap:anywhere}
+.readiness-table .blocked{color:#a3392f}.readiness-table .pending{color:#7a5a1c}
+#auditResult{margin-top:14px}
+.audit-ok{color:#14563a;font-weight:600}.audit-broken{color:#a3392f;font-weight:600}
+.audit-timeline{list-style:none;padding:0;margin:10px 0;border-left:2px solid #cfe4d8}
+.audit-timeline li{position:relative;padding:8px 0 10px 16px}
+.audit-timeline li::before{content:'';position:absolute;left:-6px;top:13px;width:10px;height:10px;border-radius:50%;background:#2a9a71}
+.audit-timeline li.broken::before{background:#a3392f}
+.audit-timeline b{display:block;font-size:13px}
+.audit-timeline small{display:block;color:#5f746b;font-size:11px}
+.audit-timeline code{display:block;margin-top:4px;font-size:11px;color:#476459;overflow-wrap:anywhere;white-space:pre-wrap}
+@media(min-width:1051px){
+ /* The drawer takes the judgment column instead of covering the source text. */
+ .evidence{top:82px;bottom:82px;right:max(14px,calc((100vw - 2000px)/2 + 14px));width:395px}
+}
+@media(min-width:1051px) and (max-width:1250px){.evidence{width:350px}}
+@media(max-width:1050px){
+ .layout{grid-template-rows:auto minmax(0,1fr)}
+ .sidebar{display:flex;grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 12px;overflow:visible}
+ .sidebar>div:first-child{display:flex;gap:6px;align-items:center;flex:1 1 260px}
+ .sidebar>div:first-child h4{display:none}
+ .sidebar .task-label{flex:1;margin:0}
+ .sidebar #load{width:auto}
+ .sidebar .sourcebox,.sidebar .source-trace,.sidebar .boundary{display:none}
+ .sidebar .outline-block{flex:1 1 100%;min-height:0;display:flex;align-items:center;gap:6px}
+ .sidebar .outline-block h4{margin:0;white-space:nowrap}
+ .sidebar .outline{flex-direction:row;overflow-x:auto;max-height:none;gap:4px;scrollbar-width:thin}
+ .sidebar .outline button{white-space:nowrap;padding:6px 9px;border:1px solid #dbe8e0}
+ .top #who{display:inline}
+}
+@media(max-width:760px){
+ .layout .sidebar,.layout.focus-mode .sidebar{display:flex}
+ .top #who{font-size:11px}
+}
+/* Secondary drawer controls stay light on hover instead of inheriting the filled button hover. */
+.evidence-tabs button:hover:not(:disabled),.quote-range button:hover:not(:disabled){background:#eef6f1;color:var(--green);border-color:#9fcbb5}
+.evidence-tabs button.active:hover:not(:disabled),.quote-range button.active:hover:not(:disabled){background:#dcefe4;border-color:var(--green)}
+.evidence-tabs button:active:not(:disabled),.quote-range button:active:not(:disabled){background:#d4eadd}
+
+/* Reader search: bounded result list, visible hits, keyboard navigation */
+.reading-notice .search{max-width:300px;flex:0 1 300px;align-items:center}
+.search input{flex:1;min-width:0}
+.search input::-webkit-search-cancel-button{display:none}
+#searchClear{padding:4px 8px;line-height:1}
+#searchResults{padding:0 18px;background:#fcfdfb;border-bottom:1px solid #eef2ed}
+#searchResults[hidden],.search-list[hidden]{display:none}
+.search-bar{display:flex;align-items:center;gap:6px;padding:6px 0;min-height:34px}
+#searchStatus{margin:0;flex:1;min-width:0;font-size:12px;color:#2d4a40}
+#searchPosition{font-size:12px;font-weight:600;color:var(--green);font-variant-numeric:tabular-nums}
+.search-bar .mini{padding:4px 8px}
+.search-tips{margin:0 0 6px;padding:6px 10px;background:#fbf7ea;color:#6d5a2c;border-radius:7px;font-size:12px;line-height:1.6}
+.search-list{list-style:none;margin:0;padding:0 2px 6px 0;max-height:min(138px,18vh);overflow:auto;overscroll-behavior:contain}
+#searchResults .search-hit{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:3px 0;padding:5px 10px}
+#searchResults .search-hit[aria-current=true]{border-color:#c99a1e;background:#fff8dc;box-shadow:inset 3px 0 #e0a800}
+#searchResults .search-hit:focus-visible{outline:2px solid var(--green);outline-offset:1px}
+.search-hit mark{background:#ffe27a;color:#1f2a24;border-radius:2px;padding:0 1px;font-weight:600}
+.search-section,.search-source{display:inline-block;margin-right:6px;padding:0 6px;border-radius:9px;font-size:11px;line-height:18px;vertical-align:1px}
+.search-section{background:#e7f3ec;color:#1d5c43;max-width:16em;overflow:hidden;text-overflow:ellipsis;vertical-align:-4px}
+.search-source{background:#fff1d6;color:#7a5410}
+
+.reader-scroll{min-height:200px}
+::highlight(search-hit){background-color:#fff0a8;color:#1f2a24}
+::highlight(search-current){background-color:#ffc93c;color:#1f2a24}
+.unit.search-current{outline:2px solid #f0cf6a;outline-offset:6px;border-radius:4px}
+#units[data-reading-mode=chinese] .unit.translated.search-current .unit-original{display:block}
+@media(max-width:760px){
+  .reading-notice .search{max-width:none;flex:1 1 100%}
+  .search-list{max-height:30dvh}
+  #searchResults .search-hit{white-space:normal}
+  #searchResults{padding:0 12px}
+}

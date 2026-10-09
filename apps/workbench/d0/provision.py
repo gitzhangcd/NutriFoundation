@@ -7,6 +7,7 @@ from pathlib import Path
 from cryptography.fernet import Fernet
 from auth import password_hash
 NAMES=[('r0','SYN-EXPERT-A','expert'),('r1','SYN-EXPERT-B','expert'),('r2','SYN-EXPERT-C','expert'),
+       ('ea1','SYN-EA-EXPERT-A','expert'),('ea2','SYN-EA-EXPERT-B','expert'),
        ('manager','SYN-ADMIN','manager'),('producer','SYN-PRODUCER-1','producer'),('auditor','SYN-AUDITOR','auditor')]
 def provision(directory:Path):
     directory.mkdir(mode=0o700,parents=True,exist_ok=False)

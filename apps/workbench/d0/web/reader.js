@@ -338,13 +338,16 @@ function updateConfirmation(){
  $('quoteAlignment').hidden=!selectionAlignment;$('quoteTableContext').hidden=!selectionContext;$('quoteTableContext').textContent=selectionContext;
  for(const button of document.querySelectorAll('[data-quote-range]'))button.disabled=selectedUnit.type==='TABLE'&&button.dataset.quoteRange!=='original';}
  let target=null,error='';try{target=window.nutriJudgment?.getBindingTarget?.();}catch(e){error=e.message;}
- $('targetStatement').textContent=target&&!target.legacy?target.text:'请先填写并保存具体判断，再关联来源。';
- $('evidenceItemNotice').textContent=error||(target&&!target.legacy?'当前具体判断已保存，可确认关联。':'请选择已保存的具体判断。');
+ $('targetStatement').hidden=!(target&&!target.legacy);
+ $('targetStatement').textContent=target&&!target.legacy?'将关联到「'+target.label+'」：'+target.text:'';
+ $('evidenceItemNotice').textContent=error||'请核对上方引文和目标判断，再确认关联。';
  const bound=valid&&target&&!target.legacy&&confirmedBinding&&confirmedBinding.quote===selected&&confirmedBinding.field===target.field&&confirmedBinding.index===target.index&&confirmedBinding.text===target.text;
  $('rangeValidation').textContent=bound?'原文范围：服务端已校验':'原文范围：等待服务端校验';
  $('targetValidation').textContent=bound?'判断关联：已关联第 '+(target.index+1)+' 条判断':target&&!target.legacy?'判断关联：已选保存的判断，等待确认':'判断关联：请先填写并保存';
  $('quotePdfValidation').textContent=bound&&confirmedBinding.pdfVerified?'PDF 定位：已核验':'PDF 定位：待核验';
- $('makeAnchor').disabled=bindingPending||!valid||!target||target.legacy;
+ $('makeAnchor').disabled=bindingPending||!valid||!target||target.legacy||!!bound;
+ $('makeAnchor').textContent=bound?'已关联 ✓':target&&!target.legacy?'确认关联到「'+target.label+'」':'确认引文并关联判断';
+ $('quoteNext').hidden=!bound;
 }
 function captureQuoteSelection(){
  const s=window.getSelection();if(!s||s.isCollapsed||!s.rangeCount)return;

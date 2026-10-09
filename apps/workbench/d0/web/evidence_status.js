@@ -9,3 +9,12 @@ export function judgmentEvidence({field,index,text,savedText,bindings,anchors,pd
  }
  return {links,stale:relevant.length-links.length};
 }
+
+// A saved edit must invalidate links before the server listing is refetched;
+// otherwise the previous `current_statement_matches` would be shown as current.
+export function invalidateChangedBindings(bindings,before,after,itemText){
+ return bindings.map(b=>{
+  const old=itemText(before,b.field,b.item_index),now=itemText(after,b.field,b.item_index);
+  return old===now?b:{...b,current_statement_matches:false};
+ });
+}

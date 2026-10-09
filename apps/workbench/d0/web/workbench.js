@@ -1,4 +1,4 @@
-import {judgmentEvidence} from './evidence_status.js';
+import {judgmentEvidence,invalidateChangedBindings} from './evidence_status.js';
 import {appendNaturalEntry,confirmCanonicalCompleteness,canonicalPaths} from './expert_native.js';
 const $=id=>document.getElementById(id);
 window.nutriSession=null;
@@ -43,6 +43,32 @@ const expertFieldTitles={
  rationale_notes:'请补充你的专业判断理由'
 };
 const judgmentSections=[
+const fieldShortTitles={
+ decision_focus:'关键问题',salient_existing_facts:'已知事实',decision_changing_missing_information:'缺失信息',
+ currently_acceptable_actions:'当前行动',conditional_actions:'条件性行动',not_indicated_prohibited_or_unsafe:'不适用/禁止/风险',
+ process_action:'下一步',monitoring_needs:'监测随访',uncertainty_notes:'不确定性',rationale_notes:'判断理由'
+};
+// The case question itself does not need a supporting source.
+const sourceOptionalFields=new Set(['decision_focus']);
+const phaseTitles={
+ PRE_AI:'独立判断阶段（未接触 AI）',HUMAN_DE_NOVO:'独立判断阶段',WAIT_AGENT_FREEZE:'等待候选准备',
+ EXPERT_VERIFY:'候选复核阶段',POST_AI_RECONCILE:'AI 后复核阶段'
+};
+function phaseLabel(phase){if(!phase)return '尚未打开';if(phaseTitles[phase])return phaseTitles[phase];if(phase.endsWith('LOCKED'))return '已冻结（只读）';return phase;}
+window.nutriPhaseLabel=phaseLabel;
+function afterDraftSaved(before,after){
+ evidenceItemBindings=invalidateChangedBindings(evidenceItemBindings,before,after,(data,field,index)=>
+   entriesForField(field,data).find(x=>x.index===index)?.text);
+ window.nutriReader?.refreshEvidence?.();
+}
+let conflictPayload=null;
+function rememberConflict(submitted){conflictPayload=structuredClone(submitted);}
+function applyPayloadToForm(data){
+ for(const el of $('judgmentForm').querySelectorAll('[data-key]')){
+  const value=get(data,el.dataset.key);el.value=Array.isArray(value)?value.join('\n'):value??'';
+ }
+}
+function formDirty(){return !!(model?.allowed_actions?.includes('draft')&&draft&&$('judgmentForm').querySelector('[data-key]')&&JSON.stringify(payload())!==JSON.stringify(draft.payload));}
  {title:'这个案例最关键的专业问题是什么？',primary:['decision_focus'],extra:[],hint:'先表达自己的专业判断，无需填写研究术语。'},
  {title:'你作出判断主要依据哪些信息？',primary:['salient_existing_facts'],extra:[],hint:'每行一条依据；选中原文可关联到具体判断。'},
  {title:'还需要知道什么，才能进一步判断？',primary:['decision_changing_missing_information'],extra:[],hint:'优先记录可能改变决策的信息。'},
@@ -99,13 +125,13 @@ function refreshItemOptions(){
    const select=$(id);
    if(!select)continue;
    select.replaceChildren();
-   const initial=document.createElement('option');initial.value='';initial.textContent='请选择具体判断（没有条目时请先填写）';select.append(initial);
+   const initial=document.createElement('option');initial.value='';initial.textContent=entries.length?'请选择这段原文要支撑的判断':'这一类还没有判断，请先填写并保存';select.append(initial);
    for(const item of entries){
      const opt=document.createElement('option');opt.value=String(item.index);
      opt.textContent=`第 ${item.index+1} 条 · ${item.text.slice(0,65)}`;select.append(opt);
    }
    if(entries.some(x=>String(x.index)===String(evidenceItemIndex)))select.value=String(evidenceItemIndex);
-   else {evidenceItemIndex=entries.length?String(entries[0].index):'';select.value=evidenceItemIndex;}
+   else {evidenceItemIndex='';select.value='';}
  }
  if($('evidenceItemNotice'))$('evidenceItemNotice').textContent=
    submissionReadiness().saved?'可选择已保存的具体判断；更改判断后须重新核查绑定。':
@@ -147,11 +173,13 @@ window.nutriJudgment={
     if(!draft || !profile)return null;
     const key=$('field').value;
     const data=payload();
-    const item=entriesForField(key,data).find(x=>String(x.index)===String(evidenceItemIndex));
-    if(!item)throw Error('请先填写并保存具体判断；字段级引用不代表判断证据');
+    const entries=entriesForField(key,data);
+    const item=entries.find(x=>String(x.index)===String(evidenceItemIndex));
+    if(!item)throw Error(entries.length?'请选择这段原文要支撑哪一条判断':'这一类还没有判断，请先填写并保存');
     const state=submissionReadiness();
     if(!state.saved)throw Error('请先保存当前判断，再关联这条证据');
-    return {field:key,index:item.index,text:item.text,revision:draft.revision,legacy:false};
+    return {field:key,index:item.index,text:item.text,revision:draft.revision,legacy:false,
+            label:(fieldShortTitles[key]||expertFieldTitles[key]||key)+' 第 '+(item.index+1)+' 条'};
   }
 };
 function payload(){const p=structuredClone(draft.payload);for(const el of $('judgmentForm').querySelectorAll('[data-key]')){let v=el.value;const t=el.dataset.type;if(t==='ordered_string_list')v=v.split('\n').filter(x=>x.trim().length>0);else if(t==='nullable_nonnegative_number')v=v===''?null:Number(v);else if(t==='nonnegative_integer')v=Number(v);else if(t==='nullable_string')v=v.trim()||null;put(p,el.dataset.key,v);}confirmCanonicalCompleteness(profile,p);return p;}
@@ -163,9 +191,13 @@ if(canDraft)draft=await api(path('draft'));else if(model.J_preAI)draft={payload:
 if(model.phase.endsWith('LOCKED')){const records=await api(path('records'));const final=records.records.at(-1);if(final){draft={payload:final.payload.post_ai_judgment||final.payload,revision:null};$('receipt').textContent=JSON.stringify(final,null,2);}}
 $('freeze').disabled=!canDraft||!draft||draft.revision<1;if(draft?.payload?.reference_set)renderForm(draft.payload,canDraft||canReconcile);else $('judgmentForm').replaceChildren();$('nativeComposer').hidden=!canDraft;candidates();$('revision').textContent=draft?.revision!=null?`草稿版本 ${draft.revision}`:'只读 / 复核阶段';$('judgmentNote').textContent=canDraft?'每次保存由服务端校验版本；冻结后独立判断不可修改。':canReconcile?'独立判断已冻结；本表单记录新的 AI 后判断，不会覆盖 Pre-AI。':'当前阶段由服务端权限控制。';note('已载入');}catch(e){note('载入失败：'+e.message);}}
 $('load').addEventListener('click',loadJudgment);
-$('saveDraft').onclick=async()=>{if(saving)return;const submitted=payload(),revision=draft.revision,packet=draft.packet_digest;saving=true;$('saveDraft').disabled=true;$('freeze').disabled=true;$('load').disabled=true;try{const result=await mutation(path('draft'),{payload:submitted,expected_revision:revision,packet_digest:packet},'PUT');draft.payload=submitted;draft.revision=result.revision;$('revision').textContent=`草稿版本 ${draft.revision}`;note(JSON.stringify(payload())===JSON.stringify(submitted)?'已保存':'已保存上一版；当前修改尚未保存');}catch(e){note(e.message==='REVISION_CONFLICT'?'草稿版本冲突：请重新载入后核对，当前输入尚未保存。':'保存失败：'+e.message);}finally{saving=false;$('saveDraft').disabled=false;$('load').disabled=false;$('freeze').disabled=draft.revision<1||JSON.stringify(payload())!==JSON.stringify(draft.payload);if(typeof refreshPresentation==='function')refreshPresentation();}};
-$('freeze').onclick=async()=>{if(!submissionReadiness().eligible){note('冻结受阻：当前独立判断未保存或尚未填写');return;}if(saving){note('请等待保存完成');return;}if(!$('unexposed').checked){note('请确认未暴露条件后再冻结');return;}try{if(JSON.stringify(payload())!==JSON.stringify(draft.payload)){note('请先保存当前修改，再冻结');return;}const result=await mutation(path('freeze'),{expected_revision:draft.revision,idempotency_key:crypto.randomUUID(),exposure_assertions:Object.fromEntries(['agent_output_seen','other_expert_output_seen','final_reference_seen','hidden_diet_values_seen','meta_audit_labels_seen'].map(k=>[k,false]))});await loadJudgment();$('receipt').textContent=JSON.stringify(result,null,2);note('已冻结 · 合成工程记录');}catch(e){note('冻结失败：'+e.message);}};
-$('submitCandidates').onclick=async()=>{try{const items=[...$('candidateForm').querySelectorAll('[data-candidate]')].map(box=>({candidate_ref:box.dataset.candidate,expert_disposition:box.querySelector('.disposition').value,rationale:box.querySelector('.rationale').value,...(model.arm==='R2'?{changed_pre_ai_judgment:box.querySelector('.changed').checked,change_type:box.querySelector('.changed').checked?'SYNTHETIC_RECONCILIATION':null,source_refs:['SYN-5-2-PAPER']}:{} )}));const body={items,idempotency_key:crypto.randomUUID()};if(model.arm==='R2')body.post_ai_judgment=payload();const result=await mutation(path(model.arm==='R2'?'reconcile':'verify'),body);await loadJudgment();$('receipt').textContent=JSON.stringify(result,null,2);note('复核提交已锁定 · 合成工程记录');}catch(e){note('提交失败：'+e.message);}};
+document.addEventListener('click',e=>{
+ if(!e.target.closest?.('#load')||!formDirty()||conflictPayload)return;
+ if(!window.confirm('当前有未保存的修改，重新载入会丢失这些修改。确定继续？')){e.stopPropagation();e.preventDefault();}
+},true);
+$('saveDraft').onclick=async()=>{if(saving)return;const submitted=payload(),revision=draft.revision,packet=draft.packet_digest;saving=true;$('saveDraft').disabled=true;$('freeze').disabled=true;$('load').disabled=true;try{const result=await mutation(path('draft'),{payload:submitted,expected_revision:revision,packet_digest:packet},'PUT');const previous=draft.payload;draft.payload=submitted;draft.revision=result.revision;if(typeof afterDraftSaved==='function')afterDraftSaved(previous,submitted);$('revision').textContent=`草稿版本 ${draft.revision}`;note(JSON.stringify(payload())===JSON.stringify(submitted)?'已保存':'已保存上一版；当前修改尚未保存');}catch(e){if(e.message==='REVISION_CONFLICT'&&typeof rememberConflict==='function')rememberConflict(submitted);note(e.message==='REVISION_CONFLICT'?'草稿版本冲突：其他窗口已保存新版本。点“打开任务 / 重新载入”会载入最新版本，并恢复你这次的输入供核对。':'保存失败：'+e.message);}finally{saving=false;$('saveDraft').disabled=false;$('load').disabled=false;$('freeze').disabled=draft.revision<1||JSON.stringify(payload())!==JSON.stringify(draft.payload);if(typeof refreshPresentation==='function')refreshPresentation();}};
+$('freeze').onclick=async()=>{if(!submissionReadiness().eligible){note('冻结受阻：当前独立判断未保存或尚未填写');return;}if(saving){note('请等待保存完成');return;}if(!$('unexposed').checked){note('请确认未暴露条件后再冻结');return;}try{if(JSON.stringify(payload())!==JSON.stringify(draft.payload)){note('请先保存当前修改，再冻结');return;}const result=await mutation(path('freeze'),{expected_revision:draft.revision,idempotency_key:crypto.randomUUID(),exposure_assertions:Object.fromEntries(['agent_output_seen','other_expert_output_seen','final_reference_seen','hidden_diet_values_seen','meta_audit_labels_seen'].map(k=>[k,false]))});await loadJudgment();$('receipt').textContent=JSON.stringify(result,null,2);showStage('review');note('已冻结 · 合成工程记录');}catch(e){note('冻结失败：'+e.message);}};
+$('submitCandidates').onclick=async()=>{try{if([...$('candidateForm').querySelectorAll('.disposition')].some(x=>!x.value)){note('请先为每条候选选择处置');return;}const items=[...$('candidateForm').querySelectorAll('[data-candidate]')].map(box=>({candidate_ref:box.dataset.candidate,expert_disposition:box.querySelector('.disposition').value,rationale:box.querySelector('.rationale').value,...(model.arm==='R2'?{changed_pre_ai_judgment:box.querySelector('.changed').checked,change_type:box.querySelector('.changed').checked?'SYNTHETIC_RECONCILIATION':null,source_refs:['SYN-5-2-PAPER']}:{} )}));const body={items,idempotency_key:crypto.randomUUID()};if(model.arm==='R2')body.post_ai_judgment=payload();const result=await mutation(path(model.arm==='R2'?'reconcile':'verify'),body);await loadJudgment();$('receipt').textContent=JSON.stringify(result,null,2);note('复核提交已锁定 · 合成工程记录');}catch(e){note('提交失败：'+e.message);}};
 $('prepare').onclick=async()=>{try{$('producerStatus').textContent=JSON.stringify(await mutation(`/v1/demo/prepare/${$('prepareTask').value}`),null,2);}catch(e){$('producerStatus').textContent='拒绝：'+e.message;}};
 $('audit').onclick=async()=>{try{$('auditResult').textContent=JSON.stringify(await api(`/v1/tasks/${$('auditTask').value}/audit`),null,2);}catch(e){$('auditResult').textContent=e.message;}};
 // P1.1 expert-first presentation only. No change to the scientific 19-field payload.

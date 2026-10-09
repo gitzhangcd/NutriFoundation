@@ -68,7 +68,7 @@ def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,
         # Drop externally supplied synthetic bearer tokens: cookie is the only entry.
         request.scope['headers']=[(k,v) for k,v in request.scope['headers'] if k.lower()!=b'x-workbench-token']
         path=request.url.path
-        public=path in ('/','/health','/v1/login') or path.startswith('/static/')
+        public=path in ('/','/manage','/health','/v1/login') or path.startswith('/static/')
         session=auth.session(request.cookies.get('nutri_session'))
         response=None
         if request.headers.get('host')!=parsed.netloc:
@@ -142,8 +142,8 @@ def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,
             'D0-SYNTHETIC-CANDIDATES-v1')
     @app.get('/manage')
     def manager_index(request:Request):
-        p=request.state.principal
-        if p['role'] not in ('manager','producer') or p['actor'].startswith('SYN-EA-'):
+        p=getattr(request.state,'principal',None)
+        if p is not None and (p['role'] not in ('manager','producer') or p['actor'].startswith('SYN-EA-')):
             raise HTTPException(403,detail={'code':'ROLE_FORBIDDEN'})
         return FileResponse(BASE/'web/manage.html')
     app.mount('/static',StaticFiles(directory=BASE/'web'),name='ui')

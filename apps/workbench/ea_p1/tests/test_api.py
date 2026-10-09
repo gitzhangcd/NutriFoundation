@@ -52,7 +52,9 @@ class ApiTest(unittest.TestCase):
         self.assertEqual(frozen.status_code, 200)
         c = frozen.json()
         request = {"items": [{"candidate_id": c["items"][0]["candidate_id"],
-                              "disposition": "ACCEPT", "reason": "Synthetic acceptance only"}],
+                              "disposition": "ACCEPT", "field_group": c["items"][0]["field_group"],
+                              "source_support_status": "SUPPORTED",
+                              "reason": "Synthetic acceptance only"}],
                    "candidate_set_digest": c["content_sha256"]}
         reviewed = self.client.post("/v1/ea/tasks/EA-P1-SYN-01/review/freeze",
                                    headers=hdr, json=request)

@@ -121,6 +121,10 @@ def make_app(db_path: Path, *, allow_synthetic: bool = False):
     def script():
         return FileResponse(HERE / "web" / "ea_p1.js", media_type="text/javascript")
 
+    @app.get("/static/ea_p1.css")
+    def stylesheet():
+        return FileResponse(HERE / "web" / "ea_p1.css", media_type="text/css")
+
     @app.get("/v1/ea/profiles")
     def profiles(p=Depends(principal)):
         return {"profiles": engine.contract["profiles"],

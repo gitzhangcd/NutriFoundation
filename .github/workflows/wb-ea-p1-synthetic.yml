@@ -1,0 +1,48 @@
+name: WB-EA-P1 isolated synthetic acceptance
+
+on:
+  push:
+    branches:
+      - workbench-ea-p1-multisource-typed-roundtrip
+    paths:
+      - 'apps/workbench/ea_p0/**'
+      - 'apps/workbench/ea_p1/**'
+      - '.github/workflows/wb-ea-p1-synthetic.yml'
+  pull_request:
+    paths:
+      - 'apps/workbench/ea_p0/**'
+      - 'apps/workbench/ea_p1/**'
+      - '.github/workflows/wb-ea-p1-synthetic.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Runtime and test dependencies
+        run: |
+          python -m pip install --require-hashes -r apps/workbench/d0/requirements.lock
+          python -m pip install 'httpx==0.28.1'
+      - name: Static manifest validation
+        run: python apps/workbench/ea_p0/check_contract.py
+      - name: Syntax compilation
+        run: python -m compileall -q apps/workbench/ea_p1
+      - name: Core and API tests
+        run: python -m unittest discover -s apps/workbench/ea_p1/tests -p 'test_*.py' -v
+      - name: JavaScript syntax check
+        run: node --check apps/workbench/ea_p1/web/ea_p1.js
+      - name: Protected path non-regression
+        run: |
+          if git diff --name-only 54b4c2eba844f39c07575573a3e834e0bc00c261 HEAD | grep -E '^(runs/NDF/|runs/NDS/|src/nutrifoundation/|apps/workbench/c1/|apps/workbench/c2_1/|apps/workbench/d0/)'; then
+            echo "Protected scientific / existing Workbench path modified" >&2
+            exit 1
+          fi

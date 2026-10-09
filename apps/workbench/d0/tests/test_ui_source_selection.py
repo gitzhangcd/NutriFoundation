@@ -28,3 +28,24 @@ assert.equal(untouched.offsets.length, plain.length);
 '''.replace('MAPPER', mapper)
     result = subprocess.run([node, '-e', script], capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
+
+
+def test_markdown_scientific_table_preserves_cell_source_ranges():
+    node=shutil.which('node')
+    assert node, 'Node is required for scientific table test'
+    reader=(Path(__file__).resolve().parents[1]/'web/reader.js').read_text()
+    parser='function parseSourceTable(raw){'+reader.split('function parseSourceTable(raw){',1)[1].split('\nfunction sourceTableElement',1)[0]
+    script=r"""
+const assert=require('assert');
+MAPPER
+const raw='| Outcome | Group A | Group B |\\n|:---|---:|---:|\\n| Records | 60 | 60 |\\n| Mean | 31 | 29 |';
+const rows=parseSourceTable(raw);
+assert.equal(rows.length,3);
+assert.equal(rows[0].length,3);
+assert.equal(rows[2][1].text,'31');
+for(const row of rows)for(const cell of row)
+  assert.equal(raw.slice(cell.start,cell.end),cell.text);
+assert.equal(parseSourceTable('a paragraph with | symbols'),null);
+""".replace('MAPPER',parser)
+    p=subprocess.run([node,'-e',script],capture_output=True,text=True)
+    assert p.returncode==0,p.stderr

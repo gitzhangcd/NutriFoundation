@@ -62,10 +62,19 @@ def run(url,credentials,output):
         expect(r2.locator('#status')).to_contain_text('已通过服务端证据验证并绑定',timeout=30000)
         checks.extend(['bilingual_four_modes','expert_focus_layout','translated_excerpt_source_binding'])
 
+        expect(r2.locator('#nativeComposer')).to_be_visible()
+        r2.locator('#nativeCategory').select_option('salient_existing_facts')
+        r2.locator('#nativeStatement').fill('Expert-written synthetic fact with no model inference')
+        r2.locator('#nativeAdd').click()
+        expect(r2.locator('[id="f-salient_existing_facts"]')).to_have_value('Expert-written synthetic fact with no model inference')
+        expect(r2.locator('#nativeMappingStatus')).to_contain_text('19个科学字段')
+        expect(r2.locator('#nativeStatement')).to_have_value('')
+        checks.append('expert_native_19_field_roundtrip')
         r2.locator('[id="f-decision_focus"]').fill('Synthetic D0 independent judgment only')
         r2.locator('#saveDraft').click();expect(r2.locator('#saveStatus')).to_have_text('已保存')
         r2.reload();expect(r2.locator('#saveStatus')).to_have_text('已载入')
         expect(r2.locator('[id="f-decision_focus"]')).to_have_value('Synthetic D0 independent judgment only')
+        expect(r2.locator('[id="f-salient_existing_facts"]')).to_have_value('Expert-written synthetic fact with no model inference')
         assert r2ctx.request.get(url+'/v1/tasks/SYN-R0/read-model').status==404
         assert r2ctx.request.get(url+'/v1/tasks/SYN-R2/candidate-set').status==403
         checks.extend(['native_pdfjs','19_field_profile','save_reload','cross_task_denial','R2_preAI_candidate_denial'])

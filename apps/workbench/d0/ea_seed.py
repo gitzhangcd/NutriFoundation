@@ -77,7 +77,7 @@ def populate(engine: EvidenceEngine):
                       for s in allow],
                   "profile_id": profile["profile_id"], "knowledge_cutoff": now,
                   "workflow_strategy": "AGENT_PROPOSE_EXPERT_VERIFY",
-                  "expert_actor": "SYN-EXPERT-A"})
+                  "expert_actor": "SYN-EA-EXPERT-A"})
         candidate = {"candidate_id": "CAND-" + task["task_id"], "source_ref":
                 {"source_id": source["source_id"], "revision_id": "r1"},
             "field_group": next(x for x in profile["required_groups"] if x != "source_spans"),
@@ -96,7 +96,7 @@ def populate(engine: EvidenceEngine):
                    "canonical_document_sha256": independent["canonical_document_sha256"]}],
               "profile_id": engine.profiles["OBSERVATIONAL_STUDY"]["profile_id"],
               "knowledge_cutoff": now, "workflow_strategy": "HUMAN_INDEPENDENT",
-              "expert_actor": "SYN-EXPERT-B"})
+              "expert_actor": "SYN-EA-EXPERT-B"})
     return {"sources": len(result), "agent_verify_tasks": tasks,
             "independent_task": "EA-P1-SYN-INDEPENDENT",
             "note": "ALL SOURCE TEXT FABRICATED, NOT REAL EVIDENCE OR MODEL OUTPUT"}

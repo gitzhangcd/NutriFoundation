@@ -348,7 +348,7 @@ class TaskProduction:
                        (key,"PUBLISH",task_id,request_hash,encoded(receipt).decode()))
             return receipt
 
-    def expert_gate(self,task_id, actor, role, exposure_event=None):
+    def expert_gate(self,task_id, actor, role, exposure_event=None, source_ref=None):
         """Called from EA source/workpack/candidate endpoints before data is returned."""
         if not task_id.startswith("TPA-SYN-"):
             return True
@@ -362,7 +362,20 @@ class TaskProduction:
             if not row or row["state"]!="PUBLISHED" or row["assignment_actor"]!=actor:
                 block("TASK_NOT_DELIVERED_OR_ASSIGNED")
             if exposure_event:
-                self.event(db,task_id,actor,exposure_event,{"authorized":True,"scope":"TASK_AUTHORIZED_ONLY"})
+                detail={"authorized":True,"scope":"TASK_AUTHORIZED_ONLY"}
+                if source_ref:
+                    with self.evidence.connect() as source_db:
+                        src=source_db.execute("SELECT record FROM sources WHERE source_id=? AND revision_id=?",source_ref).fetchone()
+                    if not src:
+                        block("SOURCE_NOT_REGISTERED")
+                    content=json.loads(src["record"])
+                    task=self.record(row) if "record" in row.keys() else self.get(task_id)
+                    if not any(x["source_id"]==source_ref[0] and x["revision_id"]==source_ref[1]
+                               for x in task["allowed_source_versions"]):
+                        block("SOURCE_NOT_ALLOWLISTED")
+                    detail.update({"source_id":source_ref[0],"revision_id":source_ref[1],
+                                   "content_digest":content["canonical_document_sha256"]})
+                self.event(db,task_id,actor,exposure_event,detail)
         return True
 
     def audit(self,role):

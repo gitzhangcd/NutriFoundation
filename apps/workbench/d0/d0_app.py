@@ -27,7 +27,7 @@ class Login(BaseModel):
     username:str=Field(min_length=1,max_length=80)
     password:str=Field(min_length=1,max_length=256)
 
-def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,allow_synthetic:bool=False):
+def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,allow_synthetic:bool=False,enable_g1_pilot:bool=False):
     if allow_synthetic is not True:raise RuntimeError('SYNTHETIC_ONLY_EXPLICIT_OPT_IN_REQUIRED')
     parsed=urlsplit(origin)
     if parsed.scheme not in ('http','https') or not parsed.netloc or parsed.path or parsed.query or parsed.fragment:
@@ -120,6 +120,10 @@ def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,
             'candidate_ref':'SYN-DEMO-CANDIDATE-1','text':'Synthetic engineering candidate; assess the quoted study design. Not a clinical recommendation.',
             'source_spans':[{'source_ref':'SYN-5-2-PAPER','quote':'Three hundred adults with obesity were randomised'}]}],
             'D0-SYNTHETIC-CANDIDATES-v1')
+    if enable_g1_pilot:
+        # Independent opt-in non-Gold evidence-source exercise; NO change to NDS-R1 arms.
+        from g1_source_pilot import install_g1_source_pilot
+        install_g1_source_pilot(app,repo_root,root)
     app.mount('/static',StaticFiles(directory=BASE/'web'),name='ui')
     @app.get('/')
     def index():return FileResponse(BASE/'web/index.html')
@@ -132,10 +136,12 @@ def main():
     parser.add_argument('--accounts',type=Path,required=True);parser.add_argument('--auth-db',type=Path,required=True)
     parser.add_argument('--origin',required=True);parser.add_argument('--port',type=int,default=8793)
     parser.add_argument('--allow-synthetic-execution',action='store_true')
+    parser.add_argument('--enable-g1-pilot-engineering',action='store_true')
     args=parser.parse_args()
     if args.accounts.stat().st_mode & 0o037:raise SystemExit('ACCOUNTS_FILE_MUST_BE_PRIVATE_0600_OR_0640')
     app=make_app(args.root,args.repo_root,accounts=json.loads(args.accounts.read_text()),auth_path=args.auth_db,
-                 origin=args.origin,allow_synthetic=args.allow_synthetic_execution)
+                 origin=args.origin,allow_synthetic=args.allow_synthetic_execution,
+                 enable_g1_pilot=args.enable_g1_pilot_engineering)
     import uvicorn
     # One worker, loopback only, no forwarded-header trust and no credential-bearing access log.
     uvicorn.run(app,host='127.0.0.1',port=args.port,workers=1,proxy_headers=False,access_log=False)

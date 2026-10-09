@@ -1,0 +1,157 @@
+{
+  "stage": "G1-Shared P0.1-A.1",
+  "version": "v0.1",
+  "date": "2026-10-10",
+  "overall": "ACQUISITION_AND_SCIENTIFIC_PREAUDIT_EXECUTED_BUT_EXPERT_L4_AND_ORIGINAL_FIDELITY_NO_GO",
+  "sources": [
+    {
+      "id": "CAND-G100-004",
+      "kind": "RCT",
+      "L1": "PASS_BIBLIOGRAPHIC_AND_PMC_BODY",
+      "L2": "NARROW_TEXT_SPAN_PASS_TABLE_AND_FIGURE_HOLD",
+      "L3": "AGENT_SCOPE_PRECHECK_ONLY",
+      "L4": "HOLD_NO_INDEPENDENT_EXPERT",
+      "original_pdf": "NOT_OBTAINED",
+      "structural": "NO_GO",
+      "study_identity": "ARTICLE_STATES_REGISTRY_ID_NOT_INDEPENDENTLY_CROSSWALKED",
+      "source_version": "PUBLISHER_HTML_VERIFIED_SUPP_SOURCE_DATA_NOT_FETCHED",
+      "safety_flags": [
+        "trial protocol unavailable for parity",
+        "source data figure values not crosschecked"
+      ]
+    },
+    {
+      "id": "CAND-G100-029",
+      "kind": "COHORT",
+      "L1": "PASS_BIBLIOGRAPHIC_AND_PMC_BODY",
+      "L2": "NARROW_TEXT_SPAN_PASS_NUMERIC_ANOMALY_HOLD",
+      "L3": "AGENT_SCOPE_PRECHECK_ONLY",
+      "L4": "HOLD_SOURCE_NUMERIC_INCONSISTENCY",
+      "original_pdf": "DIRECT_PUBLISHER_PDF_403",
+      "structural": "NO_GO",
+      "study_identity": "NUTRINET_SANTE_COHORT_SHARED_WITH_031_PARTICIPANT_DEPENDENCY_UNRESOLVED",
+      "source_version": "PUBLISHER_INDEX_TEXT_VS_PMC_BODY_REPORTS_SAME_SENSITIVITY_CI_ANOMALY",
+      "safety_flags": [
+        "HR 1.44 > upper 1.25 in 3-year sensitivity CI",
+        "HR 1.44 > upper 1.25 in 4-year sensitivity CI",
+        "appendix 9 and erratum required"
+      ]
+    },
+    {
+      "id": "CAND-G100-048",
+      "kind": "NETWORK_META",
+      "L1": "PASS_BIBLIOGRAPHIC_AND_PMC_BODY",
+      "L2": "NARROW_TEXT_SPAN_PASS_GRADE_AND_NETWORK_TABLE_HOLD",
+      "L3": "AGENT_SCOPE_PRECHECK_ONLY",
+      "L4": "HOLD_DEPENDENCY_AND_SUPPLEMENT",
+      "original_pdf": "DIRECT_PUBLISHER_PDF_403",
+      "structural": "NO_GO",
+      "study_identity": "99_REPORTED_TRIALS_UNIQUE_FAMILY_DEDUP_NOT_COMPLETE",
+      "source_version": "PUBLISHER_CORRECTION_METADATA_AFFILIATION_RESOLVED",
+      "safety_flags": [
+        "uncertain unique trial count vs 99 article reports",
+        "GRADE supplementary tables 5-21 not captured",
+        "affiliation correction must attach to source version"
+      ]
+    },
+    {
+      "id": "CAND-G100-071",
+      "kind": "GUIDELINE",
+      "L1": "PASS_BIBLIOGRAPHIC_AND_PMC_BODY",
+      "L2": "NARROW_TEXT_SPAN_PASS_OFFICIAL_EAL_RECOMMENDATION_VERIFIED",
+      "L3": "AGENT_SCOPE_PRECHECK_ONLY",
+      "L4": "HOLD_FULL_AUTHORITY_AND_EXPERT",
+      "original_pdf": "OFFICIAL_FULL_EAL_PDF_NOT_ACQUIRED",
+      "structural": "NO_GO",
+      "study_identity": "ABRIDGED_JOURNAL_TO_OFFICIAL_EAL_LINK_VERIFIED_BUT_VERSION_SNAPSHOT_HOLD",
+      "source_version": "OFFICIAL_2022_RECOMMENDATION_PAGE_ACCESSED_NO_IMMUTABLE_HTML_HASH",
+      "safety_flags": [
+        "cannot substitute journal abridgment for full guideline",
+        "multiple rating and recommendation labels must stay distinct",
+        "patient-specific contraindications require expert interpretation"
+      ]
+    },
+    {
+      "id": "CAND-G100-096",
+      "kind": "CONSENSUS",
+      "L1": "PASS_BIBLIOGRAPHIC_AND_PMC_BODY",
+      "L2": "NARROW_TEXT_SPAN_PASS_TABLE_CELLS_HOLD",
+      "L3": "AGENT_SCOPE_PRECHECK_ONLY",
+      "L4": "HOLD_FULL_TABLE_AND_EXPERT",
+      "original_pdf": "NOT_ACQUIRED",
+      "structural": "NO_GO",
+      "study_identity": "CONSENSUS_PANEL_AND_STATEMENTS_IN_SAME_REPORT_NOT_GUIDELINE",
+      "source_version": "PMC_ARTICLE_RIGHTS_CC_BY_NC_ND_RESTRICT_PUBLIC_DERIVATIVES",
+      "safety_flags": [
+        "13 expert members and 100% vote recorded but voting Table 1/2 cells require original check",
+        "unanimity is not certainty of clinical efficacy",
+        "no-derivatives license restrictions"
+      ]
+    }
+  ],
+  "gatechecks": [
+    {
+      "gate": "AUTHORITATIVE_IDENTITY",
+      "decision": "PASS_5_OF_5",
+      "measurement": "PubMed/PMCID verified; publisher HTML cross-check sampled"
+    },
+    {
+      "gate": "SOURCE_BODY_COMPLETE",
+      "decision": "PASS_5_OF_5",
+      "measurement": "PMC authorized full body chunks concatenate to reported length, not full PDF"
+    },
+    {
+      "gate": "TEXT_ANCHOR_STABILITY",
+      "decision": "PASS_10_OF_10_NARROW",
+      "measurement": "Exact text needles and source-body UTF16 offsets; not PDF/table cells"
+    },
+    {
+      "gate": "ORIGINAL_PDF_VISUAL_FIDELITY",
+      "decision": "NO_GO_0_OF_5",
+      "measurement": "No fetched/rasterized primary PDF available for exact page parity"
+    },
+    {
+      "gate": "SUPPLEMENT_TABLE_FIGURE_SOURCE_DATA",
+      "decision": "NO_GO_0_OF_5",
+      "measurement": "No primary attachment binary verified with checksum and schema parity"
+    },
+    {
+      "gate": "PUBLISHER_VERSION_RELATIONS",
+      "decision": "PARTIAL",
+      "measurement": "BMJ affiliation correction and Academy EAL authority link resolved; full revision diffusion checks incomplete"
+    },
+    {
+      "gate": "IDENTITY_INDEPENDENCE",
+      "decision": "HOLD",
+      "measurement": "Internal source family/parent registries not fully reconciled"
+    },
+    {
+      "gate": "SCIENTIFIC_L4_INDEPENDENT_EXPERT",
+      "decision": "NOT_STARTED_0_OF_5",
+      "measurement": "10 reviewer assignment packets unassigned and no human signoff"
+    },
+    {
+      "gate": "BLIND_BARRIER_PRODUCTION",
+      "decision": "BLOCKED",
+      "measurement": "UI loader fixed SYN-5-2-PAPER in 54b4c2e; paper forms do not constitute enforced isolation"
+    },
+    {
+      "gate": "PAPER_C_GOLD100_NO_MUTATION",
+      "decision": "PASS",
+      "measurement": "Official Gold100 slots remain unassigned"
+    }
+  ],
+  "independent_review": {
+    "requested_reviewers_per_source": 2,
+    "source_count": 5,
+    "reviewer_tasks_created": 10,
+    "reviewer_tasks_assigned": 0,
+    "reviewer_submitted": 0,
+    "adjudications_complete": 0,
+    "declared_gold": 0
+  },
+  "qualification_rule": "PASS(L1) and narrow PASS(L2) do not imply source scientific qualification; L4 requires independent expert review and original-document scope and authoritativeness.",
+  "go_decision": "NO_GO_REAL_GOLD_OR_WORKBENCH_PRODUCTION",
+  "allowable_purpose": "G1_Shared_DEV_SOURCE_QUALITY_AND_ANNOTATION_PREP_ONLY",
+  "exposure_warning": "These selected sources and generated metadata already exposed to Agent/team; exclude from untouched Paper C confirmation"
+}

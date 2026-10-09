@@ -44,9 +44,9 @@ def run(url,credentials,output):
         checks.append('empty_unsaved_review_not_submittable')
         # Full bilingual reading UX is self-authored synthetic and not citable.
         r2.locator('#readerSource').select_option('demo')
-        expect(r2.locator('#translationStatus')).to_contain_text('15/15 双语覆盖')
+        expect(r2.locator('#translationStatus')).to_contain_text('16/16 双语覆盖')
         assert r2.locator('.scientific-table').count()==4
-        assert r2.locator('#units .unit-translation').count()==15
+        assert r2.locator('#units .unit-translation').count()==16
         expect(r2.locator('#readerMeta')).to_contain_text('不可建立 SourceAnchor')
         r2.locator('#readerSource').select_option('paper')
         expect(r2.locator('#pdfEngine')).to_contain_text('PDF.js',timeout=30000)

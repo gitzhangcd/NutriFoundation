@@ -16,14 +16,16 @@
     {
       "proposed_stratum": "companion_or_secondary",
       "topic": "dietary_secondary",
-      "title": "Early-Onset Type 2 Diabetes and Tirzepatide Treatment: A Post Hoc Analysis From the SURPASS Clinical Trial Program.",
-      "pmid": "38639997",
-      "doi": "10.2337/dc23-2356",
-      "pmcid": "PMC11116907",
-      "date": "2024 Jun 01",
-      "journal": "Diabetes care",
+      "title": "Time-Restricted Eating and Sleep, Mood, and Quality of Life in Adults With Overweight or Obesity: A Secondary Analysis of a Randomized Clinical Trial.",
+      "pmid": "40560588",
+      "doi": "10.1001/jamanetworkopen.2025.17268",
+      "pmcid": "PMC12199060",
+      "date": "2025 Jun 02",
+      "journal": "JAMA network open",
       "publication_types": "Journal Article",
-      "query": "(\"secondary analysis\"[Title] OR \"post hoc analysis\"[Title]) AND (diet[tiab] OR nutrition[tiab] OR dietary[tiab]) AND (2018:2026[dp])"
+      "query": "curated replacement after failed topical/source-type match",
+      "qa_replaced_from_pmid": "38639997",
+      "qa_source": "PubMed get_articles"
     },
     {
       "proposed_stratum": "companion_or_secondary",
@@ -40,14 +42,16 @@
     {
       "proposed_stratum": "companion_or_secondary",
       "topic": "nutrition_followup",
-      "title": "Nutrition and Intestinal Rehabilitation of Children With Short Bowel Syndrome: A Position Paper of the ESPGHAN Committee on Nutrition. Part 2: Long-Term Follow-Up on Home Parenteral Nutrition.",
-      "pmid": "37256821",
-      "doi": "10.1097/MPG.0000000000003850",
-      "pmcid": "",
-      "date": "2023 Aug 01",
-      "journal": "Journal of pediatric gastroenterology and nutrition",
+      "title": "Effects of 4:3 Intermittent Fasting on Eating Behaviors and Appetite Hormones: A Secondary Analysis of a 12-Month Behavioral Weight Loss Intervention.",
+      "pmid": "40733010",
+      "doi": "10.3390/nu17142385",
+      "pmcid": "PMC12298406",
+      "date": "2025 Jul 21",
+      "journal": "Nutrients",
       "publication_types": "Journal Article",
-      "query": "(\"long-term follow-up\"[Title] OR \"follow-up study\"[Title] OR \"extension study\"[Title]) AND (diet[tiab] OR nutrition[tiab] OR lifestyle[tiab]) AND (2018:2026[dp])"
+      "query": "curated replacement after failed topical/source-type match",
+      "qa_replaced_from_pmid": "37256821",
+      "qa_source": "PubMed get_articles"
     }
   ],
   "diagnostics": [
@@ -63,5 +67,6 @@
       "selected": 2,
       "pubmed_returned": 40
     }
-  ]
+  ],
+  "qa_revision": "2026-10-09 manual topical relevance pre-screen; still no human eligibility"
 }

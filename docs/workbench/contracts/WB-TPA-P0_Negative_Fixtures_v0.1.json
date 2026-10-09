@@ -1,0 +1,324 @@
+{
+  "contract_id": "WB_TPA_P0_TEST_MANIFEST",
+  "version": "0.1.0",
+  "date": "2026-10-10",
+  "status": "DESIGN_FROZEN_NOT_EXECUTED",
+  "test_engine_status": "NOT_IMPLEMENTED",
+  "fixture_data": "TO_BE_CONSTRUCTED_SYNTHETIC_ONLY",
+  "phase_definition": {
+    "P1": "SYNTHETIC_RUNTIME_ENGINEERING_TESTS",
+    "P2": "REAL_SOURCE_SCIENCE_GATE_TESTS",
+    "P3": "REAL_EXPERT_SECURITY_ETHICS_PILOT_TESTS"
+  },
+  "negative_cases": [
+    {
+      "id": "K01",
+      "attack": "NDS DecisionCase submitted to TPA task builder",
+      "expected": "DENY",
+      "phase": "P1",
+      "domain": "task_kinds",
+      "assertion": "NDS_SOURCE_OF_TRUTH_ONLY",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K02",
+      "attack": "Unqualified real PDF ImportPackage in synthetic-only P1",
+      "expected": "HOLD",
+      "phase": "P1",
+      "domain": "source_import",
+      "assertion": "SYNTHETIC_ONLY_REAL_SOURCE_DENY",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K03",
+      "attack": "GUIDELINE source requested with RCT profile",
+      "expected": "DENY",
+      "phase": "P1",
+      "domain": "task_validation",
+      "assertion": "PROFILE_SOURCE_TYPE_MISMATCH",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K04",
+      "attack": "Source revision or canonical SHA not in frozen allowlist",
+      "expected": "DENY",
+      "phase": "P1",
+      "domain": "source_projection",
+      "assertion": "SOURCE_REVISION_MISMATCH",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K05",
+      "attack": "Source publicly available after task knowledge cutoff",
+      "expected": "DENY",
+      "phase": "P1",
+      "domain": "time_gate",
+      "assertion": "FUTURE_SOURCE_AT_CUTOFF",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K06",
+      "attack": "Missing or expired source rights authorization",
+      "expected": "HOLD",
+      "phase": "P1",
+      "domain": "source_qualification",
+      "assertion": "RIGHTS_NOT_QUALIFIED",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K07",
+      "attack": "Translation-only source anchor without original quote verification",
+      "expected": "DENY",
+      "phase": "P2",
+      "domain": "evidence_anchor",
+      "assertion": "TRANSLATION_NOT_AUTHORITATIVE",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K08",
+      "attack": "Parser-reported PDF bbox without independent validation",
+      "expected": "UNVERIFIED",
+      "phase": "P2",
+      "domain": "source_parser",
+      "assertion": "PDF_BBOX_NOT_VERIFIED",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K09",
+      "attack": "Agent proposal lacks original hash/quote/run ref",
+      "expected": "DENY",
+      "phase": "P1",
+      "domain": "candidate_freeze",
+      "assertion": "BLOCK_UNVERIFIED_CANDIDATE",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K10",
+      "attack": "Attempt to publish Agent-review task before candidate frozen",
+      "expected": "DENY",
+      "phase": "P1",
+      "domain": "publish",
+      "assertion": "CANDIDATES_NOT_FROZEN",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K11",
+      "attack": "Independent expert can obtain candidate count or digest",
+      "expected": "DENY",
+      "phase": "P1",
+      "domain": "blind_projection",
+      "assertion": "DENY_INDEPENDENT_AGENT_EXPOSURE",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K12",
+      "attack": "R0/R1/R2 NDS identity reads EA source or EA identity reads NDS source",
+      "expected": "DENY",
+      "phase": "P1",
+      "domain": "auth",
+      "assertion": "CROSS_PROGRAM_EXPOSURE",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K13",
+      "attack": "Manager page/principal reads expert-only source without grant",
+      "expected": "DENY",
+      "phase": "P1",
+      "domain": "auth",
+      "assertion": "MANAGER_NO_SOURCE_READ",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K14",
+      "attack": "Expert previously saw answer-bearing material in conflicting arm",
+      "expected": "HOLD",
+      "phase": "P1",
+      "domain": "expert_eligibility",
+      "assertion": "CROSS_ARM_PRIOR_EXPOSURE",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K15",
+      "attack": "Post-OPENED grant revocation tries to erase exposure history",
+      "expected": "DENY",
+      "phase": "P1",
+      "domain": "exposure_ledger",
+      "assertion": "EXPOSURE_IMMUTABLE",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K16",
+      "attack": "Task revision reused after source correction/retraction",
+      "expected": "DENY",
+      "phase": "P1",
+      "domain": "revision_control",
+      "assertion": "IMMUTABLE_TASK_REVISION",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K17",
+      "attack": "Same idempotency key results in duplicate task/publish",
+      "expected": "DENY_DUPLICATE",
+      "phase": "P1",
+      "domain": "idempotency",
+      "assertion": "ONE_RECEIPT_ONLY",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K18",
+      "attack": "Frozen expert review automatically promoted to Gold reference",
+      "expected": "DENY",
+      "phase": "P1",
+      "domain": "scientific_boundary",
+      "assertion": "NO_TPA_GOLD_AUTHORITY",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K19",
+      "attack": "A future correction influences task with earlier knowledge cutoff",
+      "expected": "DENY",
+      "phase": "P2",
+      "domain": "time_gate",
+      "assertion": "HISTORICAL_FUTURE_EVENT",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K20",
+      "attack": "Baseline original D0 NDS R0/R1/R2/PDF.js/bilingual/19 fields regression",
+      "expected": "FAIL_NON_REGRESSION",
+      "phase": "P1",
+      "domain": "D0_browser",
+      "assertion": "PRESERVE_D0_BASELINE",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K21",
+      "attack": "Synthetic fixture contains personal data or patient identifiers",
+      "expected": "HOLD",
+      "phase": "P1",
+      "domain": "source_import",
+      "assertion": "SYNTHETIC_NO_PII_PHI",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K22",
+      "attack": "Unallowlisted source leaked via /static, cache, translation, search or metadata",
+      "expected": "DENY",
+      "phase": "P1",
+      "domain": "exposure",
+      "assertion": "ALL_CHANNELS_SCOPED",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K23",
+      "attack": "Concurrent assign/publish produces conflicting active expert grant",
+      "expected": "DENY_CONFLICT",
+      "phase": "P1",
+      "domain": "transactions",
+      "assertion": "ATOMIC_ASSIGNMENT",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    },
+    {
+      "id": "K24",
+      "attack": "Hidden UI action bypassed by direct API request",
+      "expected": "DENY",
+      "phase": "P1",
+      "domain": "backend_auth",
+      "assertion": "SERVER_GUARD_REQUIRED",
+      "side_effects": "NONE_IF_DENIED",
+      "audit_required": true
+    }
+  ],
+  "positive_cases": [
+    {
+      "id": "P01",
+      "scenario": "Authorized producer registers a synthetic qualified structured source and creates typed draft",
+      "expected": "DRAFT_CREATED",
+      "phase": "P1",
+      "audit_required": true
+    },
+    {
+      "id": "P02",
+      "scenario": "Agent synthetic fixture candidates freeze with valid anchored source quotes; eligible expert gets authorized task",
+      "expected": "TASK_AVAILABLE_AFTER_PREP_FREEZE",
+      "phase": "P1",
+      "audit_required": true
+    },
+    {
+      "id": "P03",
+      "scenario": "Independent synthetic task delivers source-only pack; response has zero Agent candidate data or metadata",
+      "expected": "BLIND_SOURCE_ONLY",
+      "phase": "P1",
+      "audit_required": true
+    },
+    {
+      "id": "P04",
+      "scenario": "Task with two explicit source versions allows switching without access to a third source",
+      "expected": "SCOPED_MULTISOURCE_DELIVERY",
+      "phase": "P1",
+      "audit_required": true
+    },
+    {
+      "id": "P05",
+      "scenario": "Repeated task publish with same idempotency key returns existing immutable receipt",
+      "expected": "ONE_PUBLISH_RECEIPT",
+      "phase": "P1",
+      "audit_required": true
+    },
+    {
+      "id": "P06",
+      "scenario": "Revoking delivered assignment denies future reads but retains prior SOURCE_OPENED exposure events",
+      "expected": "REVOCATION_WITH_HISTORY",
+      "phase": "P1",
+      "audit_required": true
+    },
+    {
+      "id": "P07",
+      "scenario": "Original R0/R1/R2 browser suite + integrated EA tests still pass after /manage implementation",
+      "expected": "NON_REGRESSION_PASS",
+      "phase": "P1",
+      "audit_required": true
+    }
+  ],
+  "suite_must_include": [
+    "PR26_D0_PYTHON_ORIGINAL_AND_EA_14_TESTS",
+    "PR26_D0_CHROMIUM_FULL_REGRESSION",
+    "HTTP_ROLE_CSRF_ORIGIN_AND_FORBIDDEN_DIRECT_ENDPOINTS",
+    "MULTI_SOURCE_VERSION_HASH_SCOPE",
+    "SYNTHETIC_ONLY_P1_SOURCE_IMPORT",
+    "INDEPENDENT_CANDIDATE_VISIBILITY_NETWORK_AND_UI",
+    "ASSIGNMENT_REVOCATION_EXPOSURE_AUDIT",
+    "IDEMPOTENCY_CONCURRENCY_TRANSACTION_KILL_TESTS"
+  ],
+  "criteria": {
+    "P0": "SCHEMA_CONTRACT_INTERNAL_VALIDITY_AND_REPO_DIFF_REVIEW_ONLY",
+    "P1": "ALL_P1_NEGATIVE_TESTS_PASS_AND_BROWSER_NO_REGRESSION",
+    "P2": "ALL_P2_NEGATIVE_TESTS_PASS_PLUS_FORMAL_SOURCE_APPROVAL",
+    "P3": "HUMAN_REVIEW_PROTOCOL_AND_SECURITY_ETHICS_APPROVAL_REQUIRED"
+  },
+  "no_science_claim": true,
+  "no_run_results_in_this_document": true
+}

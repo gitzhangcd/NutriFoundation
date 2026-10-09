@@ -1,0 +1,400 @@
+{
+  "contract_id": "WB_TPA_P0_TASK_PRODUCTION_ASSIGNMENT",
+  "contract_version": "0.1.0",
+  "date": "2026-10-10",
+  "status": "USER_APPROVED_DESIGN_FROZEN",
+  "scientific_owner_signoff": "PENDING",
+  "security_signoff": "PENDING",
+  "runtime_implemented": false,
+  "real_source_enabled": false,
+  "genuine_agent_enabled": false,
+  "real_expert_enabled": false,
+  "gold_promotion_enabled": false,
+  "lineage": {
+    "original_d0_commit": "54b4c2eba844f39c07575573a3e834e0bc00c261",
+    "parent_pr": 26,
+    "parent_branch": "workbench-ea-p1-d0-54b4c2e-integration",
+    "implementation_branch": "workbench-tpa-p0-contract-freeze"
+  },
+  "user_approved_decisions": {
+    "ui": "D0_SAME_ORIGIN_PROTECTED_/manage",
+    "task_scope": [
+      "EVIDENCE_ECOSYSTEM_CASE"
+    ],
+    "ingestion": "EXTERNAL_PARSER_IMPORT_VERIFIED",
+    "release_sequence": [
+      "P1_SYNTHETIC_MANAGEMENT",
+      "P2_REAL_SOURCE_QUALIFICATION",
+      "P3_AGENT_AND_EXPERT_PILOT"
+    ],
+    "merge_pr26": false,
+    "deploy_real_expert": false
+  },
+  "authority": {
+    "operation_layer_only": true,
+    "upstream_source_of_truth": [
+      "SIS_v0.3.1_R5",
+      "SIS_MED_v0.3.1_R6",
+      "AI_NUTRI",
+      "NUTRIFOUNDATION",
+      "NDS_R1"
+    ],
+    "protected_patterns": [
+      "runs/NDF/**",
+      "runs/NDS/**",
+      "src/nutrifoundation/**",
+      "apps/workbench/c1/**",
+      "apps/workbench/c2_1/**",
+      "apps/workbench/c2_2/**"
+    ],
+    "gold_owner": "INDEPENDENT_SCIENTIFIC_REFERENCE_AUTHORITY",
+    "promotion_outcome": "UNQUALIFIED_EXPERT_REVIEW"
+  },
+  "role_policy": {
+    "principals": [
+      "research_manager",
+      "source_curator",
+      "producer",
+      "expert_ea",
+      "scientific_adjudicator",
+      "auditor",
+      "expert_nds"
+    ],
+    "functions": {
+      "source_import": [
+        "source_curator"
+      ],
+      "source_qualification": [
+        "source_curator"
+      ],
+      "task_draft": [
+        "research_manager",
+        "producer"
+      ],
+      "task_freeze": [
+        "research_manager",
+        "producer"
+      ],
+      "agent_prepare": [
+        "producer"
+      ],
+      "assignment_issue": [
+        "research_manager"
+      ],
+      "evidence_source_read": [
+        "expert_ea",
+        "producer"
+      ],
+      "expert_review_freeze": [
+        "expert_ea"
+      ],
+      "audit_read": [
+        "auditor"
+      ],
+      "reference_adjudication": [
+        "scientific_adjudicator"
+      ],
+      "nds_decision_workflow": [
+        "expert_nds"
+      ]
+    },
+    "special": {
+      "manager_source_content": "DENY_UNLESS_EXPLICIT_TASK_SCOPED_GRANT",
+      "auditor_source_content": "DENY",
+      "expert_ea_nds": "DENY",
+      "expert_nds_ea": "DENY",
+      "expert_agent_candidate_independent": "DENY",
+      "producer_expert_truth_edit": "DENY",
+      "task_management_gold_promotion": "DENY",
+      "role_only_is_not_grant": true
+    }
+  },
+  "source_import_package": {
+    "required": [
+      "import_id",
+      "original_artifact_ref",
+      "original_sha256",
+      "parse_engine",
+      "parse_engine_version",
+      "parse_run_id",
+      "canonical_document_sha256",
+      "units",
+      "source_type",
+      "source_id",
+      "revision_id",
+      "publicly_available_at",
+      "fetched_at",
+      "rights_status",
+      "access_scope",
+      "source_family_refs"
+    ],
+    "optional": [
+      "bilingual_sidecar_ref",
+      "unit_to_original_map",
+      "pdf_locator_hints",
+      "rights_decision_ref",
+      "validation_receipt"
+    ],
+    "rules": {
+      "original_authoritative": true,
+      "translations": "AUXILIARY_ONLY",
+      "unverified_pdf_locator": "UNRESOLVED_OR_PAGE_HINT_ONLY",
+      "source_version": "IMMUTABLE",
+      "allow_real_source_phase": "P2_GATED_ONLY",
+      "p1_rights_status": [
+        "SYNTHETIC_FIXTURE"
+      ],
+      "pii_phi_in_synthetic": "HOLD"
+    }
+  },
+  "logical_objects": {
+    "SourceImportJob": [
+      "import_id",
+      "original_sha256",
+      "canonical_document_sha256",
+      "parse_run_id",
+      "parser_metadata",
+      "processing_state"
+    ],
+    "SourceQualificationRecord": [
+      "source_id",
+      "revision_id",
+      "qualification_status",
+      "rights_decision_ref",
+      "available_at",
+      "qualified_by",
+      "qualified_at",
+      "qualification_digest"
+    ],
+    "TaskDefinitionRevision": [
+      "task_id",
+      "task_revision_id",
+      "task_kind",
+      "profile_id",
+      "profile_version",
+      "primary_source",
+      "allowed_source_versions",
+      "knowledge_cutoff",
+      "workflow_strategy",
+      "exposure_policy_ref",
+      "protocol_version",
+      "definition_sha256",
+      "definition_frozen_at"
+    ],
+    "TaskSourceProjection": [
+      "task_id",
+      "task_revision_id",
+      "consumer_role",
+      "authorized_source_versions",
+      "authorized_unit_refs",
+      "translation_visibility",
+      "projection_digest"
+    ],
+    "AgentPreparationRun": [
+      "run_id",
+      "task_id",
+      "task_revision_id",
+      "model_id",
+      "prompt_version",
+      "input_projection_digest",
+      "candidate_set_digest",
+      "frozen_at",
+      "extraction_provenance"
+    ],
+    "ExpertQualificationRecord": [
+      "expert_actor",
+      "qualification_scope",
+      "qualifier_ref",
+      "validity",
+      "conflict_refs"
+    ],
+    "TaskAssignmentRevision": [
+      "assignment_id",
+      "assignment_revision_id",
+      "task_revision_id",
+      "expert_actor",
+      "eligibility_decision_ref",
+      "blind_arm",
+      "conflict_result",
+      "assignment_at",
+      "assignment_digest"
+    ],
+    "TaskDeliveryExposureRecord": [
+      "exposure_event_id",
+      "task_revision_id",
+      "assignment_revision_id",
+      "expert_actor",
+      "phase",
+      "content_digest",
+      "event_at",
+      "delivery_status"
+    ],
+    "TaskExecutionReceipt": [
+      "task_revision_id",
+      "expert_actor",
+      "workflow_strategy",
+      "candidate_set_digest",
+      "review_sha256",
+      "immutable_review_at",
+      "gold_qualification"
+    ],
+    "BatchProductionManifest": [
+      "batch_id",
+      "task_revisions",
+      "idempotency_key",
+      "publish_policy",
+      "per_task_receipts"
+    ]
+  },
+  "workflows": {
+    "AGENT_PROPOSE_EXPERT_VERIFY": {
+      "gate": "FROZEN_VERIFIED_CANDIDATE_REQUIRED",
+      "expert_candidate_visibility": "AFTER_CANDIDATE_FREEZE",
+      "allowed_in_p1": "FIXTURE_ONLY",
+      "expert_review_requires_all_candidate_resolutions": true
+    },
+    "HUMAN_INDEPENDENT": {
+      "gate": "INDEPENDENT_SOURCE_PACK_FROZEN",
+      "expert_candidate_visibility": "DENY_ALL_CANDIDATE_MATERIAL_AND_METADATA",
+      "allowed_in_p1": "SYNTHETIC_SOURCE_ONLY",
+      "expert_review_requires_candidate": false
+    }
+  },
+  "states": {
+    "source": [
+      "IMPORT_DRAFT",
+      "PARSE_RECEIVED",
+      "SOURCE_HOLD",
+      "SOURCE_VALIDATED",
+      "SOURCE_QUALIFIED"
+    ],
+    "definition": [
+      "DRAFT",
+      "SOURCE_HOLD",
+      "VALIDATED",
+      "DEFINITION_FROZEN",
+      "RETIRED"
+    ],
+    "preparation": [
+      "NOT_STARTED",
+      "PREPARATION_PENDING",
+      "CANDIDATE_FROZEN",
+      "INDEPENDENT_PACK_FROZEN",
+      "READY_FOR_ASSIGNMENT"
+    ],
+    "assignment": [
+      "UNASSIGNED",
+      "ELIGIBILITY_CHECKED",
+      "ASSIGNED",
+      "DELIVERED",
+      "REVOKED"
+    ],
+    "delivery": [
+      "NOT_ISSUED",
+      "AVAILABLE",
+      "OPENED",
+      "REVIEW_SUBMITTED"
+    ],
+    "legacy_ea_execution_agent": [
+      "REGISTERED",
+      "CANDIDATE_FROZEN",
+      "EXPERT_REVIEW_FROZEN"
+    ],
+    "legacy_ea_execution_independent": [
+      "REGISTERED",
+      "EXPERT_REVIEW_FROZEN"
+    ],
+    "reference": [
+      "NOT_EVALUATED",
+      "NOT_ELIGIBLE"
+    ],
+    "state_machine_invariants": [
+      "SOURCE_QUALIFIED_NEVER_IMPLES_GOLD",
+      "ASSIGNED_NEVER_IMPLIES_OPENED",
+      "OPENED_NEVER_IMPLIES_READ",
+      "EXPOSED_HISTORY_IMMUTABLE",
+      "NO_MUTATION_TO_FROZEN_SOURCE_TASK_REVIEW"
+    ]
+  },
+  "publish_gate": {
+    "all_of": [
+      "SOURCE_QUALIFICATION_VALID_FOR_PHASE",
+      "RIGHTS_AND_TEMPORAL_BOUNDARY_VALID",
+      "PROFILE_EXACT_TYPE_VERSION_MATCH",
+      "TASK_DEFINITION_IMMUTABLE",
+      "AUTHORIZED_SOURCE_PROJECTION_FROZEN",
+      "PREPARATION_FROZEN_FOR_WORKFLOW",
+      "EXPERT_QUALIFIED_CONFLICT_CHECKED",
+      "NO_PROHIBITED_PRIOR_EXPOSURE",
+      "SERVER_ACL_AND_CSRF_ORIGIN_PASS",
+      "EXPLICIT_PUBLISH_PERMISSION"
+    ],
+    "failure": "DENY_NO_SIDE_EFFECT",
+    "publish_idempotent": true,
+    "issued_grant_audited": true
+  },
+  "temporal_integrity": {
+    "must_distinguish": [
+      "source_publicly_available_at",
+      "source_fetched_at",
+      "source_canonicalized_at",
+      "task_knowledge_cutoff",
+      "assignment_at",
+      "delivery_at",
+      "opened_at"
+    ],
+    "future_source_at_cutoff": "DENY",
+    "correction_after_cutoff": "DENY_HISTORICAL_CONTAMINATION"
+  },
+  "blindness": {
+    "ea_nds_separate_principals": true,
+    "independent_excludes": [
+      "agent_candidate",
+      "candidate_count",
+      "candidate_digest",
+      "agent_output",
+      "feedback",
+      "candidate_metadata"
+    ],
+    "delivery_events": [
+      "GRANT_ISSUED",
+      "SOURCE_AVAILABLE",
+      "SOURCE_OPENED",
+      "SOURCE_UNIT_VIEWED",
+      "AGENT_CANDIDATE_VIEWED",
+      "REVIEW_SUBMITTED",
+      "ACCESS_REVOKED"
+    ],
+    "ui_hide_only_is_inadequate": true,
+    "caches_previews_translations_search_network_filtered": true
+  },
+  "api_proposals": {
+    "management_route": "GET /manage",
+    "source_list": "GET /v1/tpa/sources",
+    "import_validate": "POST /v1/tpa/source-imports/validate",
+    "draft_create": "POST /v1/tpa/tasks/drafts",
+    "task_validate": "POST /v1/tpa/tasks/{task_id}/validate",
+    "task_freeze": "POST /v1/tpa/tasks/{task_id}/freeze",
+    "task_prepare": "POST /v1/tpa/tasks/{task_id}/prepare",
+    "task_assign": "POST /v1/tpa/tasks/{task_id}/assign",
+    "task_publish": "POST /v1/tpa/tasks/{task_id}/publish",
+    "ops_list": "GET /v1/tpa/tasks",
+    "batch_list": "GET /v1/tpa/batches",
+    "receipt_list": "GET /v1/tpa/receipts",
+    "audit": "GET /v1/tpa/audit"
+  },
+  "phase_go": {
+    "P0": "USER_APPROVED_OPERATIONAL_DESIGN_ONLY",
+    "P1": "SYNTHETIC_ENGINEERING_GATE_ONLY",
+    "P2": "REAL_SOURCE_ACCESS_REQUIRES_SEPARATE_SCIENCE_SECURITY_RIGHTS_APPROVAL",
+    "P3": "EXPERT_PILOT_REQUIRES_SEPARATE_ETHICS_QUALIFICATION_SECURITY_APPROVAL"
+  },
+  "nonclaims": [
+    "NO_NEW_PRODUCTION_RUNTIME_IN_P0",
+    "NO_REAL_PDF_INGEST_IN_P0",
+    "NO_TRUE_LLM_AGENT_IN_P0",
+    "NO_GOLD_IN_P0",
+    "NO_PR26_MERGE",
+    "NO_DEPLOYMENT"
+  ]
+}

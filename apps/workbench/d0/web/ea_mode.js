@@ -151,6 +151,7 @@ async function switchMode(){
  }else{
   resetQuote();pack=null;taskId='';sources=[];currentSource=null;candidates=null;
   $('readerMode').value=readerModeBefore;
+  $('readerMode').dispatchEvent(new Event('change')); // Restore original bilingual presentation state.
   $('load').click(); // The ORIGINAL load path restores R0/R1/R2 and PDF/bilingual reader.
  }
 }

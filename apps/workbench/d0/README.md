@@ -77,3 +77,21 @@ The browser runner uses disposable synthetic identities/data and a real local HT
 The D0 workflow has separate Workbench acceptance and full-engine jobs, both passed for deployed `b664b89`: 99 Workbench tests and 144 engine tests, plus native browser acceptance. Initial local Python 3.13 produced four consolidation/serialization failures, also on pristine `33e9704`; using the same locked libraries under Python 3.11 passed all 144 on macOS and Linux CI. Use Python 3.11 for this frozen scientific serialization validation; no frozen science was edited.
 
 Known exclusions: no public HTTPS activation, supported OS/security PASS, external pen test, real identity provider, expert credential verification, formal scientific r2/r3 reconciliation, study enrollment or NDS empirical outputs.
+
+
+## WB-EA-P1 · 同一原始 D0 工作台的科学来源标注（合成工程版）
+
+修复版从原始 D0 UX commit \`54b4c2eba844f39c07575573a3e834e0bc00c261\` 直接派生。**不是第二套工作台、第二个 FastAPI 端口或独立 Token 登录。** \`d0_app.py\` 下的 \`/v1/ea/**\` 使用已有 cookie/Origin/CSRF 控制；\`reader.js\` 继续提供段落/表格渲染、原文选区高亮与当前文档检索，右侧原有专家面板新增类型化 Evidence Annotation 模式。旧 \`NDS_R1_DECISION_CAPTURE\`、R0/R1/R2、原 PDF.js、部分双语 sidecar 和所有既有来源权限不变。
+
+**必须使用新增独立账号**：新建测试凭据包时，\`provision.py\` 现在会生成 \`ea1\`、\`ea2\` 两个 evidence-only 合成专家账号。它们与现有 \`r0/r1/r2\` 完全分离，后者不能读取 EA 来源；前者不能读取 NDS 决策案例。切换科学任务不需要新网页或重新登录，但必须在 evidence-only 独立会话内操作；要查看 NDS，需要退出并使用另一授权账号。老版本私有账号配置**不会自动获得新账号**，只能在隔离测试环境按私密配置流程新建，不要覆盖生产凭据或在聊天中公开密码。
+
+初始 EA 数据包是七类**自编虚构**结构化材料（第一任务授权 RCT＋Guideline 两份来源），内含 Producer 固定工程候选和一项独立盲法任务；来源不属于真实 Hajek 5:2 RCT 或任何真实指南。记录状态 \`scientific_capture=false\`、\`gold_qualification=NOT_ELIGIBLE\`。EA 原文目前仅有结构化文本，尚未在本模式下集成真实原件 PDF 和具备授权的段落级全文译文。原 D0 PDF/双语能力仍为 NDS 合成阅读演练，不得误称 EA 已实现 PDF 科学核验。
+
+详见 [P1 修复与验收](../../../docs/workbench/WB-EA-P1_D0_54b4c2e_Integration_Remediation_v0.1.md)。
+
+\`\`\`bash
+python -m pytest apps/workbench/d0/tests/test_d0.py apps/workbench/d0/tests/test_ea_integrated.py -q
+python apps/workbench/d0/tests/browser_d0.py
+\`\`\`
+
+本模块未获正式科研专家、原始来源版权、伦理、生产安全和 Gold 晋级授权；服务端继续保持 \`SYNTHETIC_ENGINEERING_ONLY\`。

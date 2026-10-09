@@ -2,12 +2,13 @@ import {appendNaturalEntry,confirmCanonicalCompleteness,canonicalPaths} from './
 const $=id=>document.getElementById(id);
 window.nutriSession=null;
 let profile=null,draft=null,model=null,saving=false,viewStage='reader';
-let evidenceItems=[],evidenceBindings=[];
+let evidenceItems=[],evidenceBindings=[],evidenceItemBindings=[];
+let evidenceItemIndex='';
 async function api(path,options={}){const headers={...(options.headers||{})};if(options.method&&options.method!=='GET')headers['X-CSRF-Token']=window.nutriSession?.csrf_token||'';
 const r=await fetch(path,{...options,headers,cache:'no-store',credentials:'same-origin'});const data=await r.json().catch(()=>({}));if(!r.ok)throw Error(data.detail?.code||data.detail||`HTTP ${r.status}`);return data;}
 function mutation(path,body,method='POST'){return api(path,{method,headers:{'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body)});}
 function note(s){$('saveStatus').textContent=s;refreshPresentation();}
-function reset(){window.nutriSession=null;model=null;draft=null;profile=null;viewStage='reader';evidenceItems=[];evidenceBindings=[];for(const id of ['workflowNav','workFooter','evidencePane'])$(id).hidden=true;$('expertPanel').classList.remove('reviewing','evidence-open','focus-mode');$('reviewPane').hidden=true;$('workspace').hidden=true;$('loginPanel').hidden=false;$('logout').hidden=true;$('who').textContent='';$('judgmentForm').replaceChildren();$('candidateForm').replaceChildren();$('units').replaceChildren();$('anchors').replaceChildren();$('receipt').textContent='';$('readiness').replaceChildren();$('status').textContent='等待登录';}
+function reset(){window.nutriSession=null;model=null;draft=null;profile=null;viewStage='reader';evidenceItems=[];evidenceBindings=[];evidenceItemBindings=[];evidenceItemIndex='';for(const id of ['workflowNav','workFooter','evidencePane'])$(id).hidden=true;$('expertPanel').classList.remove('reviewing','evidence-open','focus-mode');$('reviewPane').hidden=true;$('workspace').hidden=true;$('loginPanel').hidden=false;$('logout').hidden=true;$('who').textContent='';$('judgmentForm').replaceChildren();$('candidateForm').replaceChildren();$('units').replaceChildren();$('anchors').replaceChildren();$('receipt').textContent='';$('readiness').replaceChildren();$('status').textContent='等待登录';}
 async function enter(session){window.nutriSession=session;$('who').textContent=`${session.username} · 合成测试`;$('logout').hidden=false;$('loginPanel').hidden=true;$('workspace').hidden=false;
 for(const [id,role] of [['expertPanel','expert'],['managerPanel','manager'],['producerPanel','producer'],['auditorPanel','auditor']])$(id).hidden=session.role!==role;
 $('load').hidden=session.role!=='expert';$('task').parentElement.hidden=session.role!=='expert';$('focusMode').hidden=session.role!=='expert';$('evidenceToggle').hidden=session.role!=='expert';$('workflowNav').hidden=session.role!=='expert';$('workFooter').hidden=session.role!=='expert';
@@ -76,9 +77,76 @@ function renderForm(record,editable){
  chooseEvidenceField($('field').value);
 }
 function chooseEvidenceField(key){
+ if($('field').value!==key)evidenceItemIndex='';
  $('field').value=key;$('selectionField').value=key;
  for(const button of $('judgmentForm').querySelectorAll('[data-target]'))button.setAttribute('aria-pressed',String(button.dataset.target===key));
+ refreshItemOptions();
 }
+function entriesForField(key, data){
+ const value=get(data,key);
+ return Array.isArray(value)?value.map((text,i)=>({text,index:i})).filter(x=>String(x.text).trim()):
+    typeof value==='string'&&value.trim()?[{text:value,index:0}]:[];
+}
+function refreshItemOptions(){
+ if(!draft||!profile)return;
+ const key=$('field').value;
+ const data=payload();
+ const entries=entriesForField(key,data);
+ for(const id of ['evidenceItem','selectionItem']){
+   const select=$(id);
+   if(!select)continue;
+   select.replaceChildren();
+   const initial=document.createElement('option');initial.value='';initial.textContent='仅字段级（不代表支持某条判断）';select.append(initial);
+   for(const item of entries){
+     const opt=document.createElement('option');opt.value=String(item.index);
+     opt.textContent=`第 ${item.index+1} 条 · ${item.text.slice(0,65)}`;select.append(opt);
+   }
+   if(entries.some(x=>String(x.index)===String(evidenceItemIndex)))select.value=String(evidenceItemIndex);
+   else {evidenceItemIndex='';select.value='';}
+ }
+ if($('evidenceItemNotice'))$('evidenceItemNotice').textContent=
+   submissionReadiness().saved?'可选择已保存的具体判断；更改判断后须重新核查绑定。':
+   '逐条证据绑定前请先保存当前草稿。';
+}
+function selectEvidenceItem(field,index,open=false){
+ chooseEvidenceField(field);
+ evidenceItemIndex=String(index);
+ for(const id of ['evidenceItem','selectionItem'])if($(id))$(id).value=evidenceItemIndex;
+ if(open)$('evidenceToggle').click();
+}
+function renderJudgmentItemRows(){
+ const root=$('judgmentItemRows');if(!root||!draft)return;
+ root.replaceChildren();
+ const data=payload();
+ for(const field of profile.field_groups.flatMap(g=>g.fields)){
+   if(field.type!=='ordered_string_list'&&field.type!=='nullable_string')continue;
+   for(const {text,index} of entriesForField(field.key,data)){
+     const row=document.createElement('div');row.className='judgment-item-row';
+     const item=document.createElement('div');
+     const heading=document.createElement('small');heading.textContent=expertFieldTitles[field.key]||field.label;
+     const body=document.createElement('span');body.textContent=text;
+     item.append(heading,body);
+     const links=evidenceItemBindings.filter(x=>x.field===field.key&&x.item_index===index&&x.current_statement_matches);
+     const cite=document.createElement('button');cite.type='button';cite.className='ghost mini';
+     cite.textContent=`关联原文证据 · ${links.length} 条`;
+     cite.onclick=()=>selectEvidenceItem(field.key,index,true);
+     row.append(item,cite);root.append(row);
+   }
+ }
+ if(!root.children.length){const none=document.createElement('p');none.className='small';none.textContent='还没有单条判断。先填写专业判断，再保存后关联来源证据。';root.append(none);}
+}
+window.nutriJudgment={
+  getBindingTarget:()=>{
+    if(!draft || !profile)return null;
+    const key=$('field').value;
+    const data=payload();
+    const item=entriesForField(key,data).find(x=>String(x.index)===String(evidenceItemIndex));
+    if(!item)return {field:key,legacy:true};
+    const state=submissionReadiness();
+    if(!state.saved)throw Error('请先保存当前判断，再关联这条证据');
+    return {field:key,index:item.index,text:item.text,revision:draft.revision,legacy:false};
+  }
+};
 function payload(){const p=structuredClone(draft.payload);for(const el of $('judgmentForm').querySelectorAll('[data-key]')){let v=el.value;const t=el.dataset.type;if(t==='ordered_string_list')v=v.split('\n').filter(x=>x.trim().length>0);else if(t==='nullable_nonnegative_number')v=v===''?null:Number(v);else if(t==='nonnegative_integer')v=Number(v);else if(t==='nullable_string')v=v.trim()||null;put(p,el.dataset.key,v);}confirmCanonicalCompleteness(profile,p);return p;}
 function path(suffix){return `/v1/tasks/${encodeURIComponent($('task').value)}/${suffix}`;}
 function candidates(){const editable=model.allowed_actions.includes('verify')||model.allowed_actions.includes('reconcile');$('candidateForm').replaceChildren();for(const c of model.candidate_set?.items||[]){const box=document.createElement('div');box.className='candidate-card';box.dataset.candidate=c.candidate_ref;const p=document.createElement('p');p.textContent=c.text;box.append(p);const select=document.createElement('select');select.className='disposition';for(const d of ['UNCERTAIN','ACCEPT','REJECT','MODIFY','IRRELEVANT','NEEDS_MORE_EVIDENCE']){const o=document.createElement('option');o.value=d;o.textContent=d;select.append(o);}select.disabled=!editable;const why=document.createElement('textarea');why.className='rationale';why.placeholder='复核理由';why.disabled=!editable;box.append(select,why);if(model.arm==='R2'){const l=document.createElement('label');l.textContent='是否改变独立判断？';const changed=document.createElement('input');changed.type='checkbox';changed.className='changed';l.prepend(changed);box.append(l);}$('candidateForm').append(box);}}
@@ -185,6 +253,8 @@ function refreshPresentation(){
    step.setAttribute('aria-current',step.dataset.stage===viewStage?'step':'false');
    if(index===3){step.disabled=!state.eligible&&!frozen;step.title=state.eligible?'可进入冻结确认':'需先完成并保存独立判断';}
  }
+ refreshItemOptions();
+ renderJudgmentItemRows();
  if(viewStage==='review')renderReview();
 }
 function renderReview(){
@@ -210,6 +280,13 @@ function renderReview(){
    ready.eligible?'满足前端最低检查；仍须确认盲法并通过服务端冻结验证。':`尚不能冻结：${ready.reasons.join('；')}`,
    '当前仅限合成练习；真实专家科研采集仍未开放。'];
  for(const text of checks){const p=document.createElement('div');p.className='check-line';p.textContent=text;$('reviewChecks').append(p);}
+ $('reviewItemLinks').replaceChildren();
+ const current=evidenceItemBindings.filter(x=>x.current_statement_matches);
+ const stale=evidenceItemBindings.filter(x=>!x.current_statement_matches);
+ const itemSummary=document.createElement('p');
+ itemSummary.textContent=`精确到判断条目的证据 ${current.length} 条；旧版字段级证据不能自动算作逐条证据。`+
+   (stale.length?` ⚠ ${stale.length} 条引用对应的判断已改变，需重新确认。`:'');
+ $('reviewItemLinks').append(itemSummary);
  for(const binding of evidenceBindings){
   const anchor=evidenceItems.find(a=>a.anchor_id===binding.anchor_id);if(!anchor)continue;
   const box=document.createElement('div');box.className='anchor';
@@ -224,6 +301,10 @@ $('nextReview').onclick=()=>showStage('review');$('backEdit').onclick=()=>showSt
 for(const step of $('workflowNav').querySelectorAll('[data-stage]'))step.onclick=()=>showStage(step.dataset.stage);
 $('unexposed').addEventListener('change',refreshPresentation);
 $('judgmentForm').addEventListener('input',refreshPresentation);
-window.addEventListener('nutri-evidence',e=>{evidenceItems=e.detail.items;evidenceBindings=e.detail.bindings;refreshPresentation();});
+window.addEventListener('nutri-evidence',e=>{evidenceItems=e.detail.items;evidenceBindings=e.detail.bindings;evidenceItemBindings=e.detail.itemBindings||[];refreshPresentation();});
+for(const id of ['evidenceItem','selectionItem'])$(id).addEventListener('change',()=>{
+  evidenceItemIndex=$(id).value;
+  for(const other of ['evidenceItem','selectionItem'])$(other).value=evidenceItemIndex;
+});
 window.addEventListener('keydown',e=>{if(e.key==='Escape')closeEvidence();});
 window.addEventListener('beforeunload',e=>{if(model?.allowed_actions.includes('draft')&&draft&&JSON.stringify(payload())!==JSON.stringify(draft.payload)){e.preventDefault();e.returnValue='';}});

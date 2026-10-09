@@ -28,6 +28,7 @@
   <section class="panel reader">
    <div class="reader-head"><span class="reader-label">科学资料阅读器 / Bilingual Scientific Reader</span><h2 id="readerTitle">阅读授权科学资料</h2><p class="small" id="readerMeta">英文原文 · 中文辅助 · 可追溯的原文证据</p></div>
    <div class="reader-toolbar">
+    <label class="source-mode">阅读资料<select id="readerSource" aria-label="选择阅读来源" hidden><option value="paper">真实论文原文（仅三处演练译文）</option><option value="demo">完整双语练习（自编合成，不可引用）</option></select></label>
     <div id="bilingualToolbar" hidden><span class="toolbar-label">阅读模式</span><div class="mode-buttons" role="group" aria-label="双语阅读模式"><button class="mode active" data-mode="immersive">沉浸式双语</button><button class="mode" data-mode="parallel">左右对照</button><button class="mode" data-mode="english">仅英文</button><button class="mode" data-mode="chinese">中文辅助</button></div><select id="readerMode" class="sr-only" aria-label="双语阅读模式"><option value="immersive">原文＋中文（沉浸式）</option><option value="parallel">中英文左右对照</option><option value="english">仅英文原文</option><option value="chinese">中文辅助阅读</option></select></div>
     <button id="pdfToggle" class="ghost mini" aria-expanded="false">核验原始 PDF</button>
     <button id="focusMode" class="ghost mini" aria-pressed="false">专注阅读</button>

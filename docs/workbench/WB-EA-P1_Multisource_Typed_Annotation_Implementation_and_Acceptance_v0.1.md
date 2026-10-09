@@ -1,6 +1,6 @@
 # WB-EA-P1｜Versioned Multi-Source Registry, Typed Annotation Workpacks & Agent Candidate Round-Trip
 
-> Status: **SYNTHETIC ENGINEERING IMPLEMENTATION / ACCEPTANCE PENDING CI / REAL-SOURCE SCIENCE NO-GO**  
+> Status: **SYNTHETIC ENGINEERING CI PASS / SCIENTIFIC-OWNER REVIEW PENDING / REAL-SOURCE SCIENCE NO-GO**  
 > Parent: \`WB-EA-P0_Heterogeneous_Source_Annotation_Architecture_v0.1.md\`, P0 proposed adapter \`0.1.0\`  
 > Lineage: P0 branch from frozen UI commit \`54b4c2eba844f39c07575573a3e834e0bc00c261\`.  
 > PR dependency: WB-EA-P0 Draft PR #24. P1 child branch must not merge into main until upstream review and non-regression signoff.
@@ -18,7 +18,7 @@
 | Independent blind mode | \`HUMAN_INDEPENDENT\` expert can read allowed sources and submit original answer; candidate API denies exposure | Not double-blind inter-rater Gold or adjudication |
 | UI | Separate responsive three-pane EA-P1 synthetic Workbench: source selection/read, profile groups, candidate review, quote selection | Does **not** replace existing D0 5:2 PDF.js bilingual reader; integration/deployment not authorized |
 | Audit | Append-only SHA-chained audit log, independently verified by auditor; immutable sources/candidate sets/reviews | No external attestation, signing HSM, production security certification |
-| Regression | Existing D0/NDF/NDS directories untouched on this child branch; automated tests proposed | Must confirm actual GitHub Actions statuses before calling CI PASS |
+| Regression | Existing D0/NDF/NDS directories untouched; GitHub Actions #37942431364 confirms 15/15 runtime/API tests and protected-path checks PASS | Not scientific approval or production conformance |
 
 ## 2. Source registration & version identity
 
@@ -97,3 +97,18 @@ UI is a standalone isolated engineering route at \`http://127.0.0.1:8795/\`. Exi
 ## 7. Scope boundary
 
 No source, dataset, expert response or science-object status is silently promoted. A fully green P1 synthetic test suite is **engineering readiness only**, not the start of Evidence Ecosystem Gold100 or NDS-R1 real reference capture. Never upload real patient/real expert or unauthorized copyright material into this isolated service.
+
+
+## 8. Verified CI acceptance receipt (2026-10-09)
+
+- **Verified code commit:** \`3bab5a304ee9597ccf2a79fcf5eb5579e5cfdaf2\` (includes typed source-support review and expert anchor UI).
+- **Workflow:** [WB-EA-P1 isolated synthetic acceptance, GitHub Actions run 37942431364](https://github.com/gitzhangcd/NutriFoundation/actions/runs/37942431364).
+- **Outcome:** \`conclusion=success\`; isolated job \`test=success\`.
+- **Runtime:** Python 3.11.17; pinned existing D0 hash-locked environment plus \`httpx==0.28.1\` for HTTP tests.
+- **Unit + HTTP integration:** 15 tests, all passed (\`Ran 15 tests in 0.835s / OK\`).
+- **Static P0 contract:** seven profiles, 24 routing/denial vectors, five scientific-review flags → lint PASS.
+- **JS parser:** Node syntax check PASS.
+- **Protected-path Git diff:** \`54b4c2e→head\` NDF/NDS/science/D0/C1/C2_1 zero protected changes; workflow uses full history and \`pipefail\` → PASS.
+- **Important exclusions:** No browser E2E for the new EA-P1 page, no authorized original 5:2 PDF use, no real LLM extraction, no qualified expert, no real paper scientific reliability/accuracy study and no Gold; none of those receives PASS by this receipt.
+
+**Status decision:** \`P1_SYNTHETIC_ENGINEERING_THIN_SLICE_CI_PASS\`, \`P1_RESEARCH_CAPTURE_NO_GO\`. The specific next implementation item is \`WB-EA-P1.1｜D0 Reader Multi-Source Auth Adapter & Original/PDF/Translation Non-Regression\`.

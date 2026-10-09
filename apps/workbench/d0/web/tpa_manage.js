@@ -138,6 +138,30 @@ async function createDraft(e){
   newId();await refresh();
  }catch(ex){receipt('创建失败 / 未发布：'+ex.message)}
 }
+async function createBatch(){
+ if(auth?.role!=='producer'||sourceData.length!==7)return;
+ if(!window.confirm('创建七类合成来源的任务草稿；不会自动分配或发布。确认？'))return;
+ const serial=crypto.randomUUID().replaceAll('-','').slice(0,10).toUpperCase();
+ const workflow=$('workflowStrategy').value;
+ const cutoff=$('knowledgeCutoff').value.trim();
+ const items=sourceData.map((src,i)=>({
+  task_id:'TPA-SYN-BATCH-'+serial+'-'+(i+1),
+  task_kind:'EVIDENCE_ECOSYSTEM_CASE',
+  primary_source:{source_id:src.source_id,revision_id:src.revision_id},
+  allowed_source_versions:[{
+   source_id:src.source_id,revision_id:src.revision_id,
+   canonical_document_sha256:src.canonical_document_sha256
+  }],
+  profile_id:src.profile_id,knowledge_cutoff:cutoff,workflow_strategy:workflow
+ }));
+ try{
+  const value=await api('/v1/tpa/batches/drafts',{method:'POST',body:JSON.stringify({
+   batch_id:'TPA-BATCH-'+serial,
+   idempotency_key:crypto.randomUUID(),items
+  })});
+  receipt(value);await refresh();
+ }catch(e){receipt('批量创建未成功：'+e.message)}
+}
 async function action(id,kind,mode){
  const path='/v1/tpa/tasks/'+encodeURIComponent(id)+'/'+kind;
  let body;
@@ -195,6 +219,8 @@ document.addEventListener('DOMContentLoaded',()=>{
  $('logoutButton').addEventListener('click',()=>logout().catch(e=>receipt(e.message)));
  $('reload').addEventListener('click',()=>refresh().catch(e=>receipt(e.message)));
  $('taskForm').addEventListener('submit',e=>createDraft(e).catch(x=>receipt(x.message)));
+ $('createBatch').addEventListener('click',()=>createBatch().catch(e=>receipt(e.message)));
+
  $('primarySource').addEventListener('change',showSourceInfo);
  $('stateFilter').addEventListener('change',e=>{selectedFilter=e.target.value;renderTasks()});
  newId();loadSession().catch(e=>receipt('访问失败：'+e.message));

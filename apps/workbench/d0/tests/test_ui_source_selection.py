@@ -49,3 +49,38 @@ assert.equal(parseSourceTable('a paragraph with | symbols'),null);
 """.replace('MAPPER',parser)
     p=subprocess.run([node,'-e',script],capture_output=True,text=True)
     assert p.returncode==0,p.stderr
+
+
+def _range_helpers():
+    reader=(Path(__file__).resolve().parents[1]/'web/reader.js').read_text()
+    return 'const ABBREVIATIONS'+reader.split('const ABBREVIATIONS',1)[1].split('\nfunction togglePDF',1)[0]
+
+
+def test_sentence_range_skips_decimals_and_abbreviations():
+    script=r'''
+const assert=require('assert');
+HELPERS
+const raw='Adherence was high. 5:2SH and SBA achieved similar weight-loss at six months (-1.8kg (SD = 3.5) vs -1.7kg; p = 0.7), e.g. in Fig. 2. Next sentence.';
+const at=raw.indexOf('similar');
+const r=sentenceBounds(raw,at,at+7);
+assert.equal(raw.slice(r.start,r.end),'5:2SH and SBA achieved similar weight-loss at six months (-1.8kg (SD = 3.5) vs -1.7kg; p = 0.7), e.g. in Fig. 2.');
+const whole=raw.indexOf('Adherence');
+assert.equal(raw.slice(...Object.values(sentenceBounds(raw,whole,whole+5))),'Adherence was high.');
+const last=raw.indexOf('Next');
+assert.equal(raw.slice(...Object.values(sentenceBounds(raw,last,last+4))),'Next sentence.');
+'''.replace('HELPERS',_range_helpers())
+    p=subprocess.run([shutil.which('node'),'-e',script],capture_output=True,text=True)
+    assert p.returncode==0,p.stderr
+
+
+def test_selection_snaps_to_whole_words_only_when_cut_mid_word():
+    script=r'''
+const assert=require('assert');
+HELPERS
+const text='Three hundred adults with obesity were randomised.';
+let r=snapToWords(text,0,40);assert.equal(text.slice(r.start,r.end),'Three hundred adults with obesity were randomised');
+r=snapToWords(text,text.indexOf('adults'),text.indexOf('adults')+6);assert.equal(text.slice(r.start,r.end),'adults');
+r=snapToWords(text,8,15);assert.equal(text.slice(r.start,r.end),'hundred adults');
+'''.replace('HELPERS',_range_helpers())
+    p=subprocess.run([shutil.which('node'),'-e',script],capture_output=True,text=True)
+    assert p.returncode==0,p.stderr

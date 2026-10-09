@@ -1,6 +1,7 @@
 const $ = id=>document.getElementById(id);
 const SOURCE='SYN-5-2-PAPER';
 let doc=null,sourceURL='',currentPage=1,selected=null,selectedUnit=null,pdfjs=null,pdfDoc=null,activeLocator=null;
+let selectionRect=null,citeTargetLabel='';
 let translationMap=new Map(),selectedOffsets=null,originalOffsets=null,selectionAlignment=false,selectionContext='',bindingPending=false,confirmedBinding=null;
 function plainMarkdown(raw){
  let text='',offsets=[];
@@ -36,10 +37,10 @@ function parseSourceTable(raw){
  if(width<2||rows.some(x=>x.length!==width))return null;
  return [rows[0],...rows.slice(2)];
 }
-function sourceTableElement(u,rows,onChoose){
+function sourceTableElement(u,rows,onChoose,title=''){
  const container=document.createElement('div');container.className='table-scroll';
  const table=document.createElement('table');table.className='scientific-table';
- const caption=document.createElement('caption');caption.textContent='科学资料表格 · 原文值（未经独立核查）';table.append(caption);
+ const caption=document.createElement('caption');caption.textContent=(title?title+' · ':'')+'原文值（未经独立核查）';table.append(caption);
  for(let j=0;j<rows.length;j++){
    const region=document.createElement(j===0?'thead':'tbody');
    const tr=document.createElement('tr');
@@ -60,6 +61,29 @@ function sourceTableElement(u,rows,onChoose){
    region.append(tr);table.append(region);
  }
  container.append(table);return container;
+}
+const ABBREVIATIONS=/(?:\b(?:e\.g|i\.e|vs|et al|Fig|Figs|approx|cf|No|ca|Dr|Mr|Ms|Prof))\.$/;
+// A period ends a sentence only when followed by whitespace/end, and is not a
+// decimal point (-1.8kg, p = 0.7) or a common scientific abbreviation.
+function isSentenceEnd(raw,i){
+ const ch=raw[i];if(!/[.!?]/.test(ch))return false;
+ if(i+1<raw.length&&!/\s/.test(raw[i+1])&&!/["'”’)\]]/.test(raw[i+1]))return false;
+ if(ch==='.'&&ABBREVIATIONS.test(raw.slice(Math.max(0,i-8),i+1)))return false;
+ return true;
+}
+function sentenceBounds(raw,start,end){
+ let s=start,e=end;
+ while(s>0&&!isSentenceEnd(raw,s-1)&&raw[s-1]!=='\n')s--;
+ while(s<raw.length&&/\s/.test(raw[s]))s++;
+ if(!(e>0&&isSentenceEnd(raw,e-1))){while(e<raw.length&&!isSentenceEnd(raw,e)&&raw[e]!=='\n')e++;if(e<raw.length&&raw[e]!=='\n')e++;}
+ return {start:s,end:Math.max(e,s+1)};
+}
+// Do not leave half words at the edges of a quote (e.g. "obesity were r").
+function snapToWords(text,from,to){
+ const word=/[\p{L}\p{N}]/u;let s=from,e=to;
+ while(s>0&&word.test(text[s-1])&&word.test(text[s]))s--;
+ while(e<text.length&&word.test(text[e-1])&&word.test(text[e]))e++;
+ return {start:s,end:e};
 }
 function togglePDF(open){$('pdfDetails').open=open;$('pdfToggle').setAttribute('aria-expanded',String(open));$('pdfToggle').textContent=open?'返回结构化正文':'核验原始 PDF';}
 function scrollUnit(id,smooth=true){togglePDF(false);const el=[...$('units').querySelectorAll('[data-uid]')].find(x=>x.dataset.uid===id);if(el){const container=$('units');container.scrollTo({top:container.scrollTop+el.getBoundingClientRect().top-container.getBoundingClientRect().top-18,behavior:smooth?'smooth':'instant'});for(const button of $('outline').querySelectorAll('button'))button.classList.toggle('active',button.dataset.uid===id);}}
@@ -116,13 +140,13 @@ async function renderSyntheticBilingualExercise(){
    $('units').append(div);
  }
  $('units').dataset.readingMode=$('readerMode').value;
- $('units').scrollTop=0;
+ $('units').scrollTop=0;$('modeHint').hidden=true;
  show('正在查看完整双语合成演练。此资料不能引用到正式或合成任务的科学证据链。');
 }
 async function load(){return scheduleReading(loadDocument);}
 async function loadDocument(){try{clearQuoteSelection();$('manualQuote').open=false;window.CSS?.highlights?.delete('evidence-source');$('readerSource').hidden=true;selected=null;selectedUnit=null;selectedOffsets=null;doc=null;translationMap.clear();$('bilingualToolbar').hidden=true;$('selectionToolbar').hidden=true;pdfDoc=null;pdfjs=null;sourceURL='';$('units').replaceChildren();$('anchors').replaceChildren();$('outline').replaceChildren();$('translationVersion').textContent='';$('translationStatus').textContent='翻译未就绪';togglePDF(false);window.dispatchEvent(new CustomEvent('nutri-evidence',{detail:{items:[],bindings:[],itemBindings:[]}}));$('pdfCanvas').width=0;$('pdfOverlay').replaceChildren();$('pdfRaster').style.display='none';
- const projection=await json(`/v1/tasks/${task()}/read-model`);$('phase').textContent=projection.phase;
- if(projection.arm==='R1') {$('readerSource').value='paper'; $('readerTitle').textContent='候选证据 · 授权摘录';$('sourceTitle').textContent='R1 候选引用片段';$('readerMeta').textContent='仅限任务许可的候选证据；不提供全文与原始 PDF。';$('sourceVersion').textContent='来源权限：候选摘录';$('translationStatus').textContent='此任务不提供全文译文';$('pdfToggle').hidden=true;$('pdfDetails').hidden=true;$('query').disabled=true;$('searchBtn').disabled=true; $('sourceBadge').textContent='候选引用片段'; if(projection.phase==='EXPERT_VERIFY'){const fragments=await json(base()+'/candidate-spans'); for(const x of fragments.candidate_spans){const div=document.createElement('div');div.className='unit';div.textContent=x.quote; $('units').append(div)}show('R1：仅可见已验证的候选引用片段，不提供整篇原文/PDF');}else{show('R1 门禁：候选尚未冻结，来源不可访问。')}return;}
+ const projection=await json(`/v1/tasks/${task()}/read-model`);$('phase').textContent=window.nutriPhaseLabel?window.nutriPhaseLabel(projection.phase):projection.phase;
+ if(projection.arm==='R1') {$('readerSource').value='paper'; $('readerTitle').textContent='候选证据 · 授权摘录';$('sourceTitle').textContent='R1 候选引用片段';$('readerMeta').textContent='仅限任务许可的候选证据；不提供全文与原始 PDF。';$('sourceVersion').textContent='来源权限：候选摘录';$('translationStatus').textContent='此任务不提供全文译文';$('pdfToggle').hidden=true;$('pdfDetails').hidden=true;$('query').disabled=true;$('searchBtn').disabled=true; $('sourceBadge').textContent='候选引用片段'; if(projection.phase==='EXPERT_VERIFY'){const fragments=await json(base()+'/candidate-spans'); for(const x of fragments.candidate_spans){const div=document.createElement('div');div.className='unit';div.textContent=x.quote; $('units').append(div)}show('R1：仅可见已验证的候选引用片段，不提供整篇原文/PDF');}else{show('R1 门禁：候选尚未冻结，来源不可访问。');const empty=document.createElement('div');empty.className='empty-state';empty.textContent='候选摘录尚未准备好。生产方冻结合成候选后，这里会显示需要你复核的原文片段；请稍后点击左侧“打开任务 / 重新载入”。';$('units').append(empty);}return;}
  $('readerSource').hidden=false;
  $('pdfToggle').hidden=false;$('pdfDetails').hidden=false;$('query').disabled=false;$('searchBtn').disabled=false;
  const src=await json(`/v1/tasks/${task()}/sources`);const d=await json(base()+'/document');doc=d;sourceURL=base();$('readerTitle').textContent=d.title;$('sourceTitle').textContent=d.title;$('readerMeta').textContent='公开论文阅读器练习 · 仅用于合成流程验证 · 英文原文与中文辅助';$('sourceVersion').textContent=`原文版本：${d.revision} · 文档 ${d.document_id}`;$('sourceBadge').textContent=`${d.unit_count} 单元 · PDF ${d.source_pages} 页`;
@@ -152,7 +176,7 @@ async function loadDocument(){try{clearQuoteSelection();$('manualQuote').open=fa
      $('translationStatus').textContent=`译文 ${translatedCount} 处 · 整段 ${full}/${d.unit_count} · 未经科学核查 · ${tr.translation_version}`;
    }
  }catch(e){$('translationStatus').textContent='翻译不可用，仅显示原文';}
- $('bilingualToolbar').hidden=false;for(const u of d.units){
+ $('bilingualToolbar').hidden=false;let tableTitle='';for(const u of d.units){
  const records=translationMap.get(u.unit_id)||[];
  const div=document.createElement('div');
  div.className='unit'+(u.type==='SECTION'?' section':'')+(records.length?' translated':'');
@@ -161,7 +185,8 @@ async function loadDocument(){try{clearQuoteSelection();$('manualQuote').open=fa
  const original=document.createElement('div');original.className='unit-original';const plain=plainMarkdown(u.raw);
  const chooseRange=(start,end)=>setQuoteSelection(u,start,end);
  const parsed=u.type==='TABLE'?parseSourceTable(u.raw):null;
- if(parsed)original.append(sourceTableElement(u,parsed,chooseRange));
+ if(u.type==='SECTION'&&/^Table\s+\d+/i.test(plain.text))tableTitle=plain.text;
+ if(parsed)original.append(sourceTableElement(u,parsed,chooseRange,tableTitle));
  else original.textContent=plain.text;
  div.append(original);
  for(const record of records){
@@ -171,11 +196,11 @@ async function loadDocument(){try{clearQuoteSelection();$('manualQuote').open=fa
    translated.title='仅原文摘录对齐；译文未经科学审定，不代表全文或精确句子对齐';
    div.append(translated);
  }
- const foot=document.createElement('div');foot.className='unit-footer';const id=document.createElement('span');id.className='unit-id';id.textContent='原文单元 · '+u.unit_id;const cite=document.createElement('button');cite.type='button';cite.className='text-button';cite.textContent='＋ 引用此段';cite.onclick=()=>{setQuoteSelection(u,0,u.raw.length);window.dispatchEvent(new Event('nutri-confirm-quote')); };foot.append(id,cite);if(u.type!=='SECTION')div.append(foot);$('units').append(div);
+ const foot=document.createElement('div');foot.className='unit-footer';const id=document.createElement('span');id.className='unit-id';id.textContent='原文单元 · '+u.unit_id;const cite=document.createElement('button');cite.type='button';cite.className='text-button';cite.textContent='＋ 引用此段';cite.onclick=()=>{setQuoteSelection(u,0,u.raw.length);$('selectionToolbar').hidden=true;window.dispatchEvent(new Event('nutri-confirm-quote')); };foot.append(id,cite);if(u.type!=='SECTION')div.append(foot);$('units').append(div);
 }
  const sections=[...$('outline').querySelectorAll('button')];if(!sections.length)$('outline').textContent='当前来源没有章节标题';
  const first=sections.find(button=>/abstract/i.test(button.textContent))||sections[0];if(first)scrollUnit(first.dataset.uid,false);
- await listAnchors();show('任务级来源投影已验证；任何原件读取都携带同一任务令牌。');await openPDF();
+ await listAnchors();updateModeHint();show('原文已载入，可选取文字作为证据。');await openPDF();
  if($('readerSource').value==='demo')await renderSyntheticBilingualExercise();
  }catch(e){$('phase').textContent='拒绝访问';show('ACCESS DENIED: '+e.message);$('sourceBadge').textContent='无授权来源';}}
 async function listAnchors(){
@@ -199,6 +224,7 @@ async function sourceHash(text){
 }
 async function makeAnchor(){
  if(bindingPending)return;
+ $('evidenceFeedback').classList.remove('success');
  try{
   updateConfirmation();if($('makeAnchor').disabled)throw Error('请确认有效引文并保存具体判断');
   bindingPending=true;$('makeAnchor').disabled=true;
@@ -237,6 +263,7 @@ async function makeAnchor(){
   const category=exact?`第 ${target.index+1} 条独立判断`:'当前科学字段（尚未关联到具体判断）';
   show(pdfVerified?`已通过服务端证据验证并绑定到${category}；PDF 精确定位已核验。`:
      `已通过服务端证据验证并绑定到${category}；PDF 精确定位尚未验证。请缩小引文并核查 PDF。`);
+  $('evidenceFeedback').classList.add('success');
  }catch(e){show('无法创建或绑定证据：'+e.message);}
  finally{bindingPending=false;updateConfirmation();}
 }
@@ -261,23 +288,39 @@ function locateTypedQuote(){const q=$('quote').value.trim();if(!doc||q.length<20
 if(selectedUnit.raw.split(q).length!==2){show('引文在原文单元中不唯一：请选中准确原文范围');return;}
 const begin=selectedUnit.raw.indexOf(q);setQuoteSelection(selectedUnit,begin,begin+q.length);
 const el=document.querySelector(`[data-uid="${selectedUnit.unit_id}"]`);if(el){el.classList.add('selected');el.scrollIntoView({block:'center'});}show('已定位输入的准确引文；创建 SourceAnchor 时仍由服务端再次校验。')}
-$('readerMode').addEventListener('change',()=>{ $('units').dataset.readingMode=$('readerMode').value;for(const button of document.querySelectorAll('[data-mode]')){button.classList.toggle('active',button.dataset.mode===$('readerMode').value);button.setAttribute('aria-pressed',String(button.dataset.mode===$('readerMode').value));} });
+$('readerMode').addEventListener('change',()=>{ $('units').dataset.readingMode=$('readerMode').value;updateModeHint();for(const button of document.querySelectorAll('[data-mode]')){button.classList.toggle('active',button.dataset.mode===$('readerMode').value);button.setAttribute('aria-pressed',String(button.dataset.mode===$('readerMode').value));} });
 for(const button of document.querySelectorAll('[data-mode]'))button.onclick=()=>{$('readerMode').value=button.dataset.mode;$('readerMode').dispatchEvent(new Event('change'));};
 $('pdfToggle').onclick=()=>togglePDF(!$('pdfDetails').open);
 $('pdfDetails').addEventListener('toggle',()=>{$('pdfToggle').setAttribute('aria-expanded',String($('pdfDetails').open));$('pdfToggle').textContent=$('pdfDetails').open?'返回结构化正文':'核验原始 PDF';});
 $('dismissSelection').onclick=()=>{clearQuoteSelection();window.getSelection()?.removeAllRanges();};
-$('selectionBind').onclick=()=>{if(selectedOffsets)scrollUnit(selectedOffsets.unit_id,false);$('selectionToolbar').hidden=true;window.dispatchEvent(new Event('nutri-confirm-quote'));};
+$('selectionBind').onclick=()=>{window.nutriReader.setCiteTarget('');if(selectedOffsets)scrollUnit(selectedOffsets.unit_id,false);$('selectionToolbar').hidden=true;window.dispatchEvent(new Event('nutri-confirm-quote'));};
 $('locateQuote').onclick=locateTypedQuote;
 $('load').onclick=load;$('makeAnchor').onclick=makeAnchor;$('prev').onclick=()=>showPage(currentPage-1);$('next').onclick=()=>showPage(currentPage+1);
 $('candidate').onclick=async()=>{try{const c=await json(`/v1/tasks/${task()}/candidate-set`);show({exposure:'AUTHORIZED',candidate_set_sha:c.candidate_set_sha})}catch(e){show('CANDIDATE DENIED: '+e.message)}};
-$('searchBtn').onclick=async()=>{try{const s=await json(base()+'/search?q='+encodeURIComponent($('query').value));$('searchResults').replaceChildren();for(const result of s.results){const button=document.createElement('button');button.type='button';button.className='text-button';button.textContent='跳转：'+result.unit_id;button.onclick=()=>scrollUnit(result.unit_id);$('searchResults').append(button);}if(!s.results.length)$('searchResults').textContent='没有匹配的授权原文'}catch(e){$('searchResults').textContent='SEARCH DENIED'}};
+function searchSnippet(raw,q){
+ const text=plainMarkdown(raw).text.replace(/\s+/g,' '),i=text.toLowerCase().indexOf(q.toLowerCase());
+ if(i<0)return text.slice(0,90)+(text.length>90?'…':'');
+ const from=Math.max(0,i-40),to=Math.min(text.length,i+q.length+50);
+ return (from?'…':'')+text.slice(from,to)+(to<text.length?'…':'');
+}
+async function runSearch(){
+ const q=$('query').value.trim();$('searchResults').replaceChildren();
+ if(!doc){$('searchResults').textContent='当前资料不支持搜索，请切换到“真实论文原文”。';return;}
+ if(q.length<3){$('searchResults').textContent='请输入至少 3 个字符再搜索。';return;}
+ try{const s=await json(base()+'/search?q='+encodeURIComponent(q));
+  const count=document.createElement('p');count.className='small';count.textContent=s.results.length?`找到 ${s.results.length} 处：`:'没有匹配的授权原文';$('searchResults').append(count);
+  for(const result of s.results){const unit=doc.units.find(u=>u.unit_id===result.unit_id);const button=document.createElement('button');button.type='button';button.className='search-hit';button.textContent=searchSnippet(unit?.raw||result.snippet||'',q);button.title='跳到原文单元 '+result.unit_id;button.onclick=()=>scrollUnit(result.unit_id);$('searchResults').append(button);}
+ }catch(e){$('searchResults').textContent='搜索失败：'+e.message;}
+}
+$('searchBtn').onclick=runSearch;
+$('query').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();runSearch();}});
 
 $('readerSource').addEventListener('change',async()=>{
  const picker=$('readerSource');
  const requested=picker.value;
  picker.disabled=true;
  picker.dataset.readySource='';
- $('translationStatus').textContent='正在切换阅读资料…';
+ $('translationStatus').textContent='正在切换阅读资料…';$('searchResults').replaceChildren();$('query').value='';
  try{
    if(requested==='demo')await showSyntheticBilingualExercise();
    else await load();
@@ -285,7 +328,12 @@ $('readerSource').addEventListener('change',async()=>{
  }catch(e){$('translationStatus').textContent='阅读资料无法切换：'+e.message;}
  finally{picker.disabled=false;}
 });
-window.nutriReader={load,updateConfirmation};
+function updateModeHint(){
+ const mode=$('readerMode').value,partial=!!doc&&translationMap.size<doc.units.length;
+ $('modeHint').hidden=!(partial&&mode!=='english');
+ $('modeHint').textContent=`本论文只有 ${[...translationMap.values()].reduce((n,a)=>n+a.length,0)} 处演练译文，其余段落仅显示英文原文。完整中英对照请切换到“完整双语练习”。`;
+}
+window.nutriReader={load,updateConfirmation,refreshEvidence:()=>doc?listAnchors().catch(()=>{}):null,setCiteTarget:label=>{citeTargetLabel=label;$('citeTargetHint').hidden=!label;$('citeTargetHint').textContent=label?'正在为「'+label+'」找原文：请在下方原文中选中支撑这条判断的文字。':'';}};
 
 window.addEventListener('nutri-replay-source',async e=>{
  const {anchor,view}=e.detail;if(!doc)return;
@@ -326,14 +374,16 @@ function setQuoteSelection(unit,start,end,alignment=false,context=''){
  $('rangeValidation').textContent='原文范围：等待服务端校验';$('quotePdfValidation').textContent='PDF 定位：待核验';
  const el=[...$('units').querySelectorAll('[data-uid]')].find(x=>x.dataset.uid===unit.unit_id);
  if(el){highlightSourceRange(el,{...selectedOffsets,start_utf16:start,end_utf16:end,quote:selected});
- const rect=el.getBoundingClientRect();const toolbar=$('selectionToolbar');toolbar.style.left=Math.max(12,Math.min(rect.left+20,window.innerWidth-300))+'px';toolbar.style.top=Math.max(80,Math.min(rect.top+35,window.innerHeight-140))+'px';toolbar.hidden=false;}
+ const rect=el.getBoundingClientRect(),anchorRect=selectionRect&&selectionRect.height?selectionRect:rect;selectionRect=null;
+ toolbarOffset={left:anchorRect.left,below:anchorRect.bottom-rect.top,above:anchorRect.top-rect.top};
+ placeToolbar(el);}
  for(const button of document.querySelectorAll('[data-quote-range]'))button.classList.toggle('active',button.dataset.quoteRange==='original');
  updateConfirmation();
 }
 function updateConfirmation(){
  const valid=!!doc&&!!selectedUnit&&!!selected&&$('quote').value===selected;
  $('quoteEmpty').hidden=valid;$('quoteConfirmation').hidden=!valid;
- if(valid){$('quotePreview').textContent=selected;$('quoteContext').textContent=selectedUnit.raw;
+ if(valid){const shown=plainMarkdown(selected).text;$('quotePreview').textContent=shown;$('quoteMarkupNote').hidden=shown===selected;$('quoteContext').textContent=selectedUnit.raw;
  $('quoteSource').textContent=`${selectedUnit.unit_id} · ${selected.length} 字符 · 英文原文`;
  $('quoteAlignment').hidden=!selectionAlignment;$('quoteTableContext').hidden=!selectionContext;$('quoteTableContext').textContent=selectionContext;
  for(const button of document.querySelectorAll('[data-quote-range]'))button.disabled=selectedUnit.type==='TABLE'&&button.dataset.quoteRange!=='original';}
@@ -351,11 +401,12 @@ function updateConfirmation(){
 }
 function captureQuoteSelection(){
  const s=window.getSelection();if(!s||s.isCollapsed||!s.rangeCount)return;
- const r=s.getRangeAt(0),element=n=>n.nodeType===1?n:n.parentElement;
+ const r=s.getRangeAt(0),element=n=>n.nodeType===1?n:n.parentElement;selectionRect=r.getBoundingClientRect();
  const a=element(r.startContainer),b=element(r.endContainer),units=$('units');
  if(!units.contains(a)&&!units.contains(b))return;
  const left=a.closest('.unit-original,.unit-translation'),right=b.closest('.unit-original,.unit-translation');
- if(!doc||!left||left!==right){s.removeAllRanges();clearQuoteSelection('这次选区跨越段落，已清除旧引文。请在同一段或单元格内重新选择。');return;}
+ if(!doc){s.removeAllRanges();clearQuoteSelection('当前是双语练习资料，仅供阅读练习，不能作为证据引用。请切换到“真实论文原文”后再选取。');return;}
+ if(!left||left!==right){s.removeAllRanges();clearQuoteSelection('这次选区跨越段落，已清除旧引文。请在同一段或单元格内重新选择。');return;}
  const unit=doc.units.find(u=>u.unit_id===left.closest('[data-uid]')?.dataset.uid);if(!unit){clearQuoteSelection('此来源不能引用。');return;}
  if(left.classList.contains('unit-translation')){
   const records=translationMap.get(unit.unit_id)||[],nodes=[...left.parentElement.querySelectorAll('.unit-translation')];
@@ -369,22 +420,44 @@ function captureQuoteSelection(){
  if(cellA){start=Number(cellA.dataset.rawStart)+from;end=Number(cellA.dataset.rawStart)+to;
  const table=cellA.closest('table'),col=[...cellA.parentElement.children].indexOf(cellA);
  context=[table.caption?.textContent,cellA.parentElement.children[0]?.textContent,table.querySelector('thead tr')?.children[col]?.textContent].filter(Boolean).join(' / ');
- }else{const plain=plainMarkdown(unit.raw);start=plain.offsets[from];end=plain.offsets[to-1]+1;}
+ }else{const plain=plainMarkdown(unit.raw);const snapped=snapToWords(plain.text,from,to);start=plain.offsets[snapped.start];end=plain.offsets[snapped.end-1]+1;}
  s.removeAllRanges();setQuoteSelection(unit,start,end,false,context);
 }
 $('units').addEventListener('pointerup',captureQuoteSelection);
-document.addEventListener('keyup',e=>{if(e.key.startsWith('Arrow'))captureQuoteSelection();});
+document.addEventListener('keyup',e=>{if(e.key.startsWith('Arrow')||e.key==='Shift'||(e.shiftKey&&['Home','End','PageUp','PageDown'].includes(e.key)))captureQuoteSelection();});
 $('quote').addEventListener('input',()=>{if($('quote').value!==selected){selected=null;selectedOffsets=null;originalOffsets=null;$('selectionToolbar').hidden=true;window.CSS?.highlights?.delete('evidence-source');}updateConfirmation();});
+let toolbarOffset=null;
+// Place the citation action next to, never over, the selected words.
+function placeToolbar(el){
+ const toolbar=$('selectionToolbar');if(!toolbarOffset)return;
+ toolbar.hidden=false;
+ const top=el.getBoundingClientRect().top,height=toolbar.offsetHeight||48;
+ let y=top+toolbarOffset.below+8;
+ if(y+height>window.innerHeight-90)y=top+toolbarOffset.above-height-8;
+ toolbar.style.left=Math.max(12,Math.min(toolbarOffset.left,window.innerWidth-(toolbar.offsetWidth||300)-12))+'px';
+ toolbar.style.top=Math.max(70,Math.min(y,window.innerHeight-height-12))+'px';
+}
 $('units').addEventListener('scroll',()=>{
+ updateOutlineActive();
  if($('selectionToolbar').hidden||!selectedUnit)return;
  const el=[...$('units').querySelectorAll('[data-uid]')].find(x=>x.dataset.uid===selectedUnit.unit_id);
- if(el)$('selectionToolbar').style.top=Math.max(80,Math.min(el.getBoundingClientRect().top+35,window.innerHeight-140))+'px';
+ if(el)placeToolbar(el);
 });
+function updateOutlineActive(){
+ const container=$('units'),top=container.getBoundingClientRect().top+40;let current=null;
+ for(const section of container.querySelectorAll('.unit.section')){if(section.getBoundingClientRect().top<=top)current=section.dataset.uid;else break;}
+ if(!current)return;
+ for(const button of $('outline').querySelectorAll('button')){
+  const active=button.dataset.uid===current;
+  if(active&&!button.classList.contains('active'))button.scrollIntoView({block:'nearest'});
+  button.classList.toggle('active',active);
+ }
+}
 for(const button of document.querySelectorAll('[data-quote-range]'))button.onclick=()=>{
  if(!selectedUnit||!originalOffsets)return;const unit=selectedUnit,raw=unit.raw,original={...originalOffsets};
  let start=original.start,end=original.end;const mode=button.dataset.quoteRange;
  if(mode==='paragraph'){start=0;end=raw.length;}
- else if(mode==='sentence'){while(start>0&&!/[.!?]/.test(raw[start-1]))start--;while(start<raw.length&&/\s/.test(raw[start]))start++;if(!/[.!?]/.test(raw[end-1])){while(end<raw.length&&!/[.!?]/.test(raw[end]))end++;if(end<raw.length)end++;}}
+ else if(mode==='sentence'){({start,end}=sentenceBounds(raw,start,end));}
  const alignment=selectionAlignment,context=selectionContext;setQuoteSelection(unit,start,end,alignment,context);originalOffsets=original;
  $('selectionToolbar').hidden=true;
  for(const b of document.querySelectorAll('[data-quote-range]'))b.classList.toggle('active',b===button);

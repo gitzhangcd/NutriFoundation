@@ -1,0 +1,393 @@
+{
+  "status": "EXPLORATORY_PUBMED_BIBLIOGRAPHY_NOT_GOLD100",
+  "source_commit": "54b4c2e",
+  "generated_date": "2026-10-09",
+  "rows": [
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "fasting",
+      "title": "Time-Restricted Eating in Adults With Metabolic Syndrome : A Randomized Controlled Trial.",
+      "pmid": "39348690",
+      "doi": "10.7326/M24-0859",
+      "pmcid": "PMC11929607",
+      "date": "2024 Nov",
+      "journal": "Annals of internal medicine",
+      "publication_types": "Journal Article",
+      "query": "(\"time-restricted eating\"[ti] OR \"time restricted feeding\"[ti]) AND (\"randomized controlled trial\"[pt] OR randomized[ti] OR randomised[ti]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "fasting",
+      "title": "Effects of Time-Restricted Eating on Weight Loss and Other Metabolic Parameters in Women and Men With Overweight and Obesity: The TREAT Randomized Clinical Trial.",
+      "pmid": "32986097",
+      "doi": "10.1001/jamainternmed.2020.4153",
+      "pmcid": "PMC7522780",
+      "date": "2020 Nov 01",
+      "journal": "JAMA internal medicine",
+      "publication_types": "Journal Article",
+      "query": "(\"time-restricted eating\"[ti] OR \"time restricted feeding\"[ti]) AND (\"randomized controlled trial\"[pt] OR randomized[ti] OR randomised[ti]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "fasting",
+      "title": "Time-restricted eating with or without low-carbohydrate diet reduces visceral fat and improves metabolic syndrome: A randomized trial.",
+      "pmid": "36220069",
+      "doi": "10.1016/j.xcrm.2022.100777",
+      "pmcid": "PMC9589024",
+      "date": "2022 Oct 18",
+      "journal": "Cell reports. Medicine",
+      "publication_types": "Randomized Controlled Trial",
+      "query": "(\"time-restricted eating\"[ti] OR \"time restricted feeding\"[ti]) AND (\"randomized controlled trial\"[pt] OR randomized[ti] OR randomised[ti]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "fasting",
+      "title": "Randomized controlled trial for time-restricted eating in healthy volunteers without obesity.",
+      "pmid": "35194047",
+      "doi": "10.1038/s41467-022-28662-5",
+      "pmcid": "PMC8864028",
+      "date": "2022 Feb 22",
+      "journal": "Nature communications",
+      "publication_types": "Journal Article",
+      "query": "(\"time-restricted eating\"[ti] OR \"time restricted feeding\"[ti]) AND (\"randomized controlled trial\"[pt] OR randomized[ti] OR randomised[ti]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "fasting",
+      "title": "Effect of Time-Restricted Eating on Weight Loss in Adults With Type 2 Diabetes: A Randomized Clinical Trial.",
+      "pmid": "37889487",
+      "doi": "10.1001/jamanetworkopen.2023.39337",
+      "pmcid": "PMC10611992",
+      "date": "2023 Oct 02",
+      "journal": "JAMA network open",
+      "publication_types": "Randomized Controlled Trial",
+      "query": "(\"time-restricted eating\"[ti] OR \"time restricted feeding\"[ti]) AND (\"randomized controlled trial\"[pt] OR randomized[ti] OR randomised[ti]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "fasting",
+      "title": "Effects of DASH diet with or without time-restricted eating in the management of stage 1 primary hypertension: a randomized controlled trial.",
+      "pmid": "38886740",
+      "doi": "10.1186/s12937-024-00967-9",
+      "pmcid": "PMC11181626",
+      "date": "2024 Jun 17",
+      "journal": "Nutrition journal",
+      "publication_types": "Journal Article",
+      "query": "(\"time-restricted eating\"[ti] OR \"time restricted feeding\"[ti]) AND (\"randomized controlled trial\"[pt] OR randomized[ti] OR randomised[ti]) AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "low_carbohydrate",
+      "title": "Long-term secondary prevention of cardiovascular disease with a Mediterranean diet and a low-fat diet (CORDIOPREV): a randomised controlled trial.",
+      "pmid": "35525255",
+      "doi": "10.1016/S0140-6736(22)00122-2",
+      "pmcid": "",
+      "date": "2022 May 14",
+      "journal": "Lancet (London, England)",
+      "publication_types": "Journal Article",
+      "query": "(\"low carbohydrate\"[ti] OR \"low-carbohydrate diet\"[ti] OR \"low-fat diet\"[ti]) AND (randomized[tiab] OR randomised[tiab]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "low_carbohydrate",
+      "title": "Effect of Calorie-Unrestricted Low-Carbohydrate, High-Fat Diet Versus High-Carbohydrate, Low-Fat Diet on Type 2 Diabetes and Nonalcoholic Fatty Liver Disease : A Randomized Controlled Trial.",
+      "pmid": "36508737",
+      "doi": "10.7326/M22-1787",
+      "pmcid": "",
+      "date": "2023 Jan",
+      "journal": "Annals of internal medicine",
+      "publication_types": "Randomized Controlled Trial",
+      "query": "(\"low carbohydrate\"[ti] OR \"low-carbohydrate diet\"[ti] OR \"low-fat diet\"[ti]) AND (randomized[tiab] OR randomised[tiab]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "low_carbohydrate",
+      "title": "Effects of a low-carbohydrate diet on insulin-resistant dyslipoproteinemia-a randomized controlled feeding trial.",
+      "pmid": "34582545",
+      "doi": "10.1093/ajcn/nqab287",
+      "pmcid": "PMC8755039",
+      "date": "2022 Jan 11",
+      "journal": "The American journal of clinical nutrition",
+      "publication_types": "Journal Article",
+      "query": "(\"low carbohydrate\"[ti] OR \"low-carbohydrate diet\"[ti] OR \"low-fat diet\"[ti]) AND (randomized[tiab] OR randomised[tiab]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "low_carbohydrate",
+      "title": "Effects of a Low-Carbohydrate Dietary Intervention on Hemoglobin A1c: A Randomized Clinical Trial.",
+      "pmid": "36287562",
+      "doi": "10.1001/jamanetworkopen.2022.38645",
+      "pmcid": "PMC9606840",
+      "date": "2022 Oct 03",
+      "journal": "JAMA network open",
+      "publication_types": "Randomized Controlled Trial",
+      "query": "(\"low carbohydrate\"[ti] OR \"low-carbohydrate diet\"[ti] OR \"low-fat diet\"[ti]) AND (randomized[tiab] OR randomised[tiab]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "low_carbohydrate",
+      "title": "Low-carbohydrate vegan diets in diabetes for weight loss and sustainability: a randomized controlled trial.",
+      "pmid": "36156115",
+      "doi": "10.1093/ajcn/nqac203",
+      "pmcid": "",
+      "date": "2022 Nov",
+      "journal": "The American journal of clinical nutrition",
+      "publication_types": "Randomized Controlled Trial",
+      "query": "(\"low carbohydrate\"[ti] OR \"low-carbohydrate diet\"[ti] OR \"low-fat diet\"[ti]) AND (randomized[tiab] OR randomised[tiab]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "DASH",
+      "title": "The effect of dietary approaches to stop hypertension (DASH) diet on fatty liver and cardiovascular risk factors in subjects with metabolic syndrome: a randomized controlled trial.",
+      "pmid": "39054440",
+      "doi": "10.1186/s12902-024-01661-x",
+      "pmcid": "PMC11270781",
+      "date": "2024 Jul 25",
+      "journal": "BMC endocrine disorders",
+      "publication_types": "Journal Article",
+      "query": "(\"DASH diet\"[tiab] OR \"dietary approaches to stop hypertension\"[tiab]) AND (randomized controlled trial[pt] OR randomized[ti]) AND (2015:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "DASH",
+      "title": "DASH vs. Mediterranean diet on a salt restriction background in adults with high normal blood pressure or grade 1 hypertension: A randomized controlled trial.",
+      "pmid": "37625311",
+      "doi": "10.1016/j.clnu.2023.08.011",
+      "pmcid": "",
+      "date": "2023 Oct",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "publication_types": "Randomized Controlled Trial",
+      "query": "(\"DASH diet\"[tiab] OR \"dietary approaches to stop hypertension\"[tiab]) AND (randomized controlled trial[pt] OR randomized[ti]) AND (2015:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "DASH",
+      "title": "Development of a Health Behavioral Digital Intervention for Patients With Hypertension Based on an Intelligent Health Promotion System and WeChat: Randomized Controlled Trial.",
+      "pmid": "38578692",
+      "doi": "10.2196/53006",
+      "pmcid": "PMC11031705",
+      "date": "2024 Apr 05",
+      "journal": "JMIR mHealth and uHealth",
+      "publication_types": "Randomized Controlled Trial",
+      "query": "(\"DASH diet\"[tiab] OR \"dietary approaches to stop hypertension\"[tiab]) AND (randomized controlled trial[pt] OR randomized[ti]) AND (2015:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "Mediterranean",
+      "title": "Effect of a ketogenic diet versus Mediterranean diet on glycated hemoglobin in individuals with prediabetes and type 2 diabetes mellitus: The interventional Keto-Med randomized crossover trial.",
+      "pmid": "35641199",
+      "doi": "10.1093/ajcn/nqac154",
+      "pmcid": "PMC9437985",
+      "date": "2022 Sep 02",
+      "journal": "The American journal of clinical nutrition",
+      "publication_types": "Journal Article",
+      "query": "(\"Mediterranean diet\"[ti]) AND (randomized[tiab] OR randomised[tiab] OR randomized controlled trial[pt]) AND (2019:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "Mediterranean",
+      "title": "A Randomized Trial Comparing the Specific Carbohydrate Diet to a Mediterranean Diet in Adults With Crohn's Disease.",
+      "pmid": "34052278",
+      "doi": "10.1053/j.gastro.2021.05.047",
+      "pmcid": "PMC8396394",
+      "date": "2021 Sep",
+      "journal": "Gastroenterology",
+      "publication_types": "Comparative Study",
+      "query": "(\"Mediterranean diet\"[ti]) AND (randomized[tiab] OR randomised[tiab] OR randomized controlled trial[pt]) AND (2019:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "Mediterranean",
+      "title": "Mediterranean Diet and Patients With Psoriasis: The MEDIPSO Randomized Clinical Trial.",
+      "pmid": "40991259",
+      "doi": "10.1001/jamadermatol.2025.3410",
+      "pmcid": "PMC12461594",
+      "date": "2025 Dec 01",
+      "journal": "JAMA dermatology",
+      "publication_types": "Journal Article",
+      "query": "(\"Mediterranean diet\"[ti]) AND (randomized[tiab] OR randomised[tiab] OR randomized controlled trial[pt]) AND (2019:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "Mediterranean",
+      "title": "Effect of green-Mediterranean diet on intrahepatic fat: the DIRECT PLUS randomised controlled trial.",
+      "pmid": "33461965",
+      "doi": "10.1136/gutjnl-2020-323106",
+      "pmcid": "PMC8515100",
+      "date": "2021 Nov",
+      "journal": "Gut",
+      "publication_types": "Journal Article",
+      "query": "(\"Mediterranean diet\"[ti]) AND (randomized[tiab] OR randomised[tiab] OR randomized controlled trial[pt]) AND (2019:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "type2_diabetes",
+      "title": "An AI-Powered Lifestyle Intervention vs Human Coaching in the Diabetes Prevention Program: A Randomized Clinical Trial.",
+      "pmid": "41144242",
+      "doi": "10.1001/jama.2025.19563",
+      "pmcid": "PMC12560030",
+      "date": "2025 Dec 16",
+      "journal": "JAMA",
+      "publication_types": "Clinical Trial, Phase III",
+      "query": "(\"dietary intervention\"[ti] OR \"lifestyle intervention\"[ti]) AND (type 2 diabetes[tiab] OR prediabetes[tiab]) AND randomized[tiab] AND (2019:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "type2_diabetes",
+      "title": "Different Effects of Lifestyle Intervention in High- and Low-Risk Prediabetes: Results of the Randomized Controlled Prediabetes Lifestyle Intervention Study (PLIS).",
+      "pmid": "34531293",
+      "doi": "10.2337/db21-0526",
+      "pmcid": "",
+      "date": "2021 Dec",
+      "journal": "Diabetes",
+      "publication_types": "Journal Article",
+      "query": "(\"dietary intervention\"[ti] OR \"lifestyle intervention\"[ti]) AND (type 2 diabetes[tiab] OR prediabetes[tiab]) AND randomized[tiab] AND (2019:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "type2_diabetes",
+      "title": "Effects of personalized diets by prediction of glycemic responses on glycemic control and metabolic health in newly diagnosed T2DM: a randomized dietary intervention pilot trial.",
+      "pmid": "35135549",
+      "doi": "10.1186/s12916-022-02254-y",
+      "pmcid": "PMC8826661",
+      "date": "2022 Feb 09",
+      "journal": "BMC medicine",
+      "publication_types": "Journal Article",
+      "query": "(\"dietary intervention\"[ti] OR \"lifestyle intervention\"[ti]) AND (type 2 diabetes[tiab] OR prediabetes[tiab]) AND randomized[tiab] AND (2019:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "protein_aging",
+      "title": "The effect of daily protein supplementation, with or without resistance training for 1 year, on muscle size, strength, and function in healthy older adults: A randomized controlled trial.",
+      "pmid": "33564844",
+      "doi": "10.1093/ajcn/nqaa372",
+      "pmcid": "",
+      "date": "2021 Apr 06",
+      "journal": "The American journal of clinical nutrition",
+      "publication_types": "Journal Article",
+      "query": "(\"protein supplementation\"[tiab] OR \"protein intake\"[ti]) AND (sarcopenia[tiab] OR older adults[tiab]) AND randomized[tiab] AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "protein_aging",
+      "title": "De-Training Effects Following Leucine-Enriched Whey Protein Supplementation and Resistance Training in Older Adults with Sarcopenia: A Randomized Controlled Trial with 24 Weeks of Follow-Up.",
+      "pmid": "36437767",
+      "doi": "10.1007/s12603-022-1853-1",
+      "pmcid": "",
+      "date": "2022",
+      "journal": "The journal of nutrition, health & aging",
+      "publication_types": "Randomized Controlled Trial",
+      "query": "(\"protein supplementation\"[tiab] OR \"protein intake\"[ti]) AND (sarcopenia[tiab] OR older adults[tiab]) AND randomized[tiab] AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "protein_aging",
+      "title": "The effects of whey, pea, and collagen protein supplementation beyond the recommended dietary allowance on integrated myofibrillar protein synthetic rates in older males: a randomized controlled trial.",
+      "pmid": "38762187",
+      "doi": "10.1016/j.ajcnut.2024.05.009",
+      "pmcid": "PMC11291473",
+      "date": "2024 Jul",
+      "journal": "The American journal of clinical nutrition",
+      "publication_types": "Journal Article",
+      "query": "(\"protein supplementation\"[tiab] OR \"protein intake\"[ti]) AND (sarcopenia[tiab] OR older adults[tiab]) AND randomized[tiab] AND (2020:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "clinical_nutrition_cancer",
+      "title": "Effects of an Exercise and Nutritional Intervention on Circulating Biomarkers and Metabolomic Profiling During Adjuvant Treatment for Localized Breast Cancer: Results From the PASAPAS Feasibility Randomized Controlled Trial.",
+      "pmid": "33655799",
+      "doi": "10.1177/1534735420977666",
+      "pmcid": "PMC7934026",
+      "date": "2021",
+      "journal": "Integrative cancer therapies",
+      "publication_types": "Journal Article",
+      "query": "(cancer[ti] OR oncology[ti]) AND (\"nutrition support\"[ti] OR \"nutritional intervention\"[ti] OR \"dietary intervention\"[ti]) AND (randomized[tiab] OR randomised[tiab]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "clinical_nutrition_cancer",
+      "title": "Effect of Early Peripheral Parenteral Nutrition Support in an Enhanced Recovery Program for Colorectal Cancer Surgery: A Randomized Open Trial.",
+      "pmid": "34441942",
+      "doi": "10.3390/jcm10163647",
+      "pmcid": "PMC8396922",
+      "date": "2021 Aug 18",
+      "journal": "Journal of clinical medicine",
+      "publication_types": "Journal Article",
+      "query": "(cancer[ti] OR oncology[ti]) AND (\"nutrition support\"[ti] OR \"nutritional intervention\"[ti] OR \"dietary intervention\"[ti]) AND (randomized[tiab] OR randomised[tiab]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "kidney_nutrition",
+      "title": "A population health dietary intervention for African American adults with chronic kidney disease: The Fruit and Veggies for Kidney Health randomized study.",
+      "pmid": "32090186",
+      "doi": "10.1016/j.conctc.2020.100540",
+      "pmcid": "PMC7026290",
+      "date": "2020 Mar",
+      "journal": "Contemporary clinical trials communications",
+      "publication_types": "Journal Article",
+      "query": "(\"chronic kidney disease\"[tiab]) AND (\"protein restriction\"[tiab] OR \"dietary intervention\"[ti] OR \"dietary protein\"[ti]) AND randomized[tiab] AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_interventional",
+      "topic": "kidney_nutrition",
+      "title": "Effect of essential amino acid кetoanalogues and protein restriction diet on morphogenetic proteins (FGF-23 and Кlotho) in 3b-4 stages chronic кidney disease patients: a randomized pilot study.",
+      "pmid": "29948444",
+      "doi": "10.1007/s10157-018-1591-1",
+      "pmcid": "",
+      "date": "2018 Dec",
+      "journal": "Clinical and experimental nephrology",
+      "publication_types": "Comparative Study",
+      "query": "(\"chronic kidney disease\"[tiab]) AND (\"protein restriction\"[tiab] OR \"dietary intervention\"[ti] OR \"dietary protein\"[ti]) AND randomized[tiab] AND (2018:2026[dp])"
+    }
+  ],
+  "diagnostics": [
+    {
+      "topic": "fasting",
+      "target": 6,
+      "selected": 6,
+      "pubmed_returned": 40
+    },
+    {
+      "topic": "low_carbohydrate",
+      "target": 5,
+      "selected": 5,
+      "pubmed_returned": 40
+    },
+    {
+      "topic": "DASH",
+      "target": 3,
+      "selected": 3,
+      "pubmed_returned": 40
+    },
+    {
+      "topic": "Mediterranean",
+      "target": 4,
+      "selected": 4,
+      "pubmed_returned": 40
+    },
+    {
+      "topic": "type2_diabetes",
+      "target": 3,
+      "selected": 3,
+      "pubmed_returned": 40
+    },
+    {
+      "topic": "protein_aging",
+      "target": 3,
+      "selected": 3,
+      "pubmed_returned": 39
+    },
+    {
+      "topic": "clinical_nutrition_cancer",
+      "target": 2,
+      "selected": 2,
+      "pubmed_returned": 40
+    },
+    {
+      "topic": "kidney_nutrition",
+      "target": 2,
+      "selected": 2,
+      "pubmed_returned": 20
+    }
+  ]
+}

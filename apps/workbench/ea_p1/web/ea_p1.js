@@ -113,11 +113,30 @@ function showCandidates(){
    const option=elem('option',pair[1]);option.value=pair[0];choices.append(option);
   }
   label.append(choices);
+  const supportLabel=elem('label','原文是否支持当前候选？');
+  const support=elem('select');support.className='source-support';
+  for(const pair of [['','请选择证据支持度…'],['SUPPORTED','充分支持'],['PARTIAL','部分支持，需限定'],
+                     ['UNSUPPORTED','不支持'],['NOT_VERIFIED','未核实']]){
+   const option=elem('option',pair[1]);option.value=pair[0];support.append(option);
+  }
+  supportLabel.append(support);
+  const bind=elem('button','＋ 将当前原文选区绑定到此候选');bind.type='button';
+  const linked=elem('span',' 尚未添加专家新引文','small');
+  box.reviewAnchors=[];
+  bind.onclick=()=>{
+   if(!selectedAnchor){msg('请先在左侧结构化原文中选择段落内文字');return}
+   if(!box.reviewAnchors.some(a=>a.source_id===selectedAnchor.source_id&&a.revision_id===selectedAnchor.revision_id
+      &&a.unit_id===selectedAnchor.unit_id&&a.start_utf16===selectedAnchor.start_utf16
+      &&a.end_utf16===selectedAnchor.end_utf16)){
+     box.reviewAnchors.push(structuredClone(selectedAnchor));
+   }
+   linked.textContent=' 已添加 '+box.reviewAnchors.length+' 条专家引文（冻结前由服务端校验）';
+  };
   const rl=elem('label','理由（拒绝或修改时必须填写）'),reason=elem('textarea');
   reason.className='reason';reason.placeholder='专家原话及不确定性';rl.append(reason);
   const cl=elem('label','修订后候选 JSON（仅 MODIFY 时填写）'),corr=elem('textarea');
   corr.className='correction';corr.placeholder='{"corrected_statement":"..."}';cl.append(corr);
-  box.append(label,rl,cl);el('candidates').append(box);
+  box.append(label,supportLabel,bind,linked,rl,cl);el('candidates').append(box);
  }
 }
 el('freeze').onclick=async()=>{
@@ -135,7 +154,12 @@ el('freeze').onclick=async()=>{
    for(const box of el('candidates').querySelectorAll('.candidate')){
     const decision=box.querySelector('.disposition').value;
     if(!decision)throw Error('候选 '+box.dataset.candidate+' 尚未判断');
+    const support=box.querySelector('.source-support').value;
+    if(!support)throw Error('候选 '+box.dataset.candidate+' 尚未评价证据支持度');
+    const original=candidates.items.find(c=>c.candidate_id===box.dataset.candidate);
     const entry={candidate_id:box.dataset.candidate,disposition:decision,
+                 field_group:original.field_group,source_support_status:support,
+                 expert_anchors:box.reviewAnchors,
                  reason:box.querySelector('.reason').value.trim()};
     if(decision==='MODIFY'){
      try{entry.corrected_candidate_payload=JSON.parse(box.querySelector('.correction').value)}

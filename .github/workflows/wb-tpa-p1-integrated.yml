@@ -1,0 +1,71 @@
+name: WB-TPA-P1 synthetic management and D0 non-regression
+on:
+  push:
+    branches: [workbench-tpa-p1-synthetic-management]
+  pull_request:
+    paths:
+      - 'apps/workbench/d0/**'
+      - 'docs/workbench/**'
+      - '.github/workflows/wb-tpa-p1-integrated.yml'
+permissions:
+  contents: read
+jobs:
+  tpa-python:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned D0 Python runtime
+        run: |
+          python -m pip install --require-hashes -r apps/workbench/d0/requirements.lock
+          python -m pip install 'pytest==8.4.2' 'httpx==0.28.1'
+      - name: Validate source, admin JavaScript, machine contracts
+        run: |
+          python -m compileall -q apps/workbench/d0
+          node --check apps/workbench/d0/web/tpa_manage.js
+          node --input-type=module --check < apps/workbench/d0/web/reader.js
+          node --input-type=module --check < apps/workbench/d0/web/workbench.js
+          node --input-type=module --check < apps/workbench/d0/web/ea_mode.js
+          python -m json.tool docs/workbench/contracts/WB-TPA-P0_v0.1.json > /dev/null
+          python -m json.tool docs/workbench/contracts/WB-TPA-P0_Negative_Fixtures_v0.1.json > /dev/null
+      - name: Original D0 and EA plus new TPA tests
+        run: python -m pytest apps/workbench/d0/tests/test_d0.py apps/workbench/d0/tests/test_ea_integrated.py apps/workbench/d0/tests/test_tpa_integrated.py -q -ra
+      - name: Protected science and legacy non-regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          git cat-file -e 54b4c2eba844f39c07575573a3e834e0bc00c261^{commit}
+          if git diff --name-only 54b4c2eba844f39c07575573a3e834e0bc00c261 HEAD |
+            grep -E '^(runs/|src/nutrifoundation/|apps/workbench/c1/|apps/workbench/c2_1/|apps/workbench/c2_2/)'; then
+            echo 'FAILED: protected scientific code changed'; exit 1
+          fi
+  tpa-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked D0 runtime, Playwright and native Chromium
+        run: |
+          python -m pip install --require-hashes -r apps/workbench/d0/requirements.lock
+          python -m pip install 'playwright==1.55.0'
+          python -m playwright install --with-deps chromium
+          bash apps/workbench/d0/install_pdfjs.sh
+      - name: Native browser original D0 + EA + TPA
+        env:
+          D0_QA_OUTPUT: /tmp/nutri-tpa-browser-qa
+        run: python apps/workbench/d0/tests/browser_d0.py
+      - name: Upload acceptance artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tpa-native-browser-qa
+          path: /tmp/nutri-tpa-browser-qa
+          if-no-files-found: ignore

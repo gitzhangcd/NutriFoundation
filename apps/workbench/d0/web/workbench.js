@@ -1,3 +1,4 @@
+import {appendNaturalEntry,confirmCanonicalCompleteness,canonicalPaths} from './expert_native.js';
 const $=id=>document.getElementById(id);
 window.nutriSession=null;
 let profile=null,draft=null,model=null,saving=false;
@@ -42,6 +43,10 @@ function renderForm(record,editable){
    const div=document.createElement('details');div.className='group';div.open=group.id==='facts';
    const summary=document.createElement('summary');
    summary.textContent=expertGroupTitles[group.id]||group.title;div.append(summary);
+   const advanced=document.createElement('details');
+   advanced.className='advanced-fields';
+   const advTitle=document.createElement('summary');advTitle.textContent='展开完整科学分类与高级字段';
+   advanced.append(advTitle);
    for(const field of group.fields){
      const label=document.createElement('label');label.textContent=expertFieldTitles[field.key]||field.label;
      const el=document.createElement(field.type.includes('number')||field.type==='nonnegative_integer'?'input':'textarea');
@@ -49,19 +54,22 @@ function renderForm(record,editable){
      const value=get(record,field.key);el.value=Array.isArray(value)?value.join('\n'):value??'';
      if(el.tagName==='TEXTAREA')el.rows=2;
      else{el.type='number';el.min='0';el.step=field.type==='nonnegative_integer'?'1':'any';}
-     label.append(el);div.append(label);
+     label.append(el);
+     if(field.key.startsWith('reference_set.') || group.id==='review')advanced.append(label);
+     else div.append(label);
    }
+   if(advanced.querySelectorAll('[data-key]').length)div.append(advanced);
    $('judgmentForm').append(div);
  }
 }
-function payload(){const p=structuredClone(draft.payload);for(const el of $('judgmentForm').querySelectorAll('[data-key]')){let v=el.value;const t=el.dataset.type;if(t==='ordered_string_list')v=v.split('\n').map(x=>x.trim()).filter(Boolean);else if(t==='nullable_nonnegative_number')v=v===''?null:Number(v);else if(t==='nonnegative_integer')v=Number(v);else if(t==='nullable_string')v=v.trim()||null;put(p,el.dataset.key,v);}return p;}
+function payload(){const p=structuredClone(draft.payload);for(const el of $('judgmentForm').querySelectorAll('[data-key]')){let v=el.value;const t=el.dataset.type;if(t==='ordered_string_list')v=v.split('\n').filter(x=>x.trim().length>0);else if(t==='nullable_nonnegative_number')v=v===''?null:Number(v);else if(t==='nonnegative_integer')v=Number(v);else if(t==='nullable_string')v=v.trim()||null;put(p,el.dataset.key,v);}confirmCanonicalCompleteness(profile,p);return p;}
 function path(suffix){return `/v1/tasks/${encodeURIComponent($('task').value)}/${suffix}`;}
 function candidates(){const editable=model.allowed_actions.includes('verify')||model.allowed_actions.includes('reconcile');$('candidateForm').replaceChildren();for(const c of model.candidate_set?.items||[]){const box=document.createElement('div');box.className='candidate-card';box.dataset.candidate=c.candidate_ref;const p=document.createElement('p');p.textContent=c.text;box.append(p);const select=document.createElement('select');select.className='disposition';for(const d of ['UNCERTAIN','ACCEPT','REJECT','MODIFY','IRRELEVANT','NEEDS_MORE_EVIDENCE']){const o=document.createElement('option');o.value=d;o.textContent=d;select.append(o);}select.disabled=!editable;const why=document.createElement('textarea');why.className='rationale';why.placeholder='复核理由';why.disabled=!editable;box.append(select,why);if(model.arm==='R2'){const l=document.createElement('label');l.textContent='是否改变独立判断？';const changed=document.createElement('input');changed.type='checkbox';changed.className='changed';l.prepend(changed);box.append(l);}$('candidateForm').append(box);}}
 async function loadJudgment(){try{note('正在载入');$('receipt').textContent='';model=await api(path('read-model'));$('unexposed').checked=false;const canDraft=model.allowed_actions.includes('draft'),canReconcile=model.allowed_actions.includes('reconcile');
 $('saveDraft').hidden=!canDraft;$('freeze').hidden=!canDraft;$('freezeConfirm').hidden=!canDraft;$('submitCandidates').hidden=!model.allowed_actions.some(a=>['verify','reconcile'].includes(a));$('submitCandidates').textContent=model.arm==='R2'?'提交 AI 后复核判断':'提交候选复核';
 if(canDraft)draft=await api(path('draft'));else if(model.J_preAI)draft={payload:structuredClone(model.J_preAI.payload),revision:null};else draft=null;
 if(model.phase.endsWith('LOCKED')){const records=await api(path('records'));const final=records.records.at(-1);if(final){draft={payload:final.payload.post_ai_judgment||final.payload,revision:null};$('receipt').textContent=JSON.stringify(final,null,2);}}
-$('freeze').disabled=!canDraft||!draft||draft.revision<1;if(draft?.payload?.reference_set)renderForm(draft.payload,canDraft||canReconcile);else $('judgmentForm').replaceChildren();candidates();$('revision').textContent=draft?.revision!=null?`草稿版本 ${draft.revision}`:'只读 / 复核阶段';$('judgmentNote').textContent=canDraft?'每次保存由服务端校验版本；冻结后独立判断不可修改。':canReconcile?'独立判断已冻结；本表单记录新的 AI 后判断，不会覆盖 Pre-AI。':'当前阶段由服务端权限控制。';note('已载入');}catch(e){note('载入失败：'+e.message);}}
+$('freeze').disabled=!canDraft||!draft||draft.revision<1;if(draft?.payload?.reference_set)renderForm(draft.payload,canDraft||canReconcile);else $('judgmentForm').replaceChildren();$('nativeComposer').hidden=!canDraft;candidates();$('revision').textContent=draft?.revision!=null?`草稿版本 ${draft.revision}`:'只读 / 复核阶段';$('judgmentNote').textContent=canDraft?'每次保存由服务端校验版本；冻结后独立判断不可修改。':canReconcile?'独立判断已冻结；本表单记录新的 AI 后判断，不会覆盖 Pre-AI。':'当前阶段由服务端权限控制。';note('已载入');}catch(e){note('载入失败：'+e.message);}}
 $('load').addEventListener('click',loadJudgment);
 $('saveDraft').onclick=async()=>{if(saving)return;const submitted=payload(),revision=draft.revision,packet=draft.packet_digest;saving=true;$('saveDraft').disabled=true;$('freeze').disabled=true;$('load').disabled=true;try{const result=await mutation(path('draft'),{payload:submitted,expected_revision:revision,packet_digest:packet},'PUT');draft.payload=submitted;draft.revision=result.revision;$('revision').textContent=`草稿版本 ${draft.revision}`;note(JSON.stringify(payload())===JSON.stringify(submitted)?'已保存':'已保存上一版；当前修改尚未保存');}catch(e){note(e.message==='REVISION_CONFLICT'?'草稿版本冲突：请重新载入后核对，当前输入尚未保存。':'保存失败：'+e.message);}finally{saving=false;$('saveDraft').disabled=false;$('load').disabled=false;$('freeze').disabled=draft.revision<1||JSON.stringify(payload())!==JSON.stringify(draft.payload);}};
 $('freeze').onclick=async()=>{if(saving){note('请等待保存完成');return;}if(!$('unexposed').checked){note('请确认未暴露条件后再冻结');return;}try{if(JSON.stringify(payload())!==JSON.stringify(draft.payload)){note('请先保存当前修改，再冻结');return;}const result=await mutation(path('freeze'),{expected_revision:draft.revision,idempotency_key:crypto.randomUUID(),exposure_assertions:Object.fromEntries(['agent_output_seen','other_expert_output_seen','final_reference_seen','hidden_diet_values_seen','meta_audit_labels_seen'].map(k=>[k,false]))});await loadJudgment();$('receipt').textContent=JSON.stringify(result,null,2);note('已冻结 · 合成工程记录');}catch(e){note('冻结失败：'+e.message);}};
@@ -80,6 +88,23 @@ $('focusMode').onclick=()=>{
 $('evidenceToggle').onclick=()=>{
  const opened=$('expertPanel').classList.toggle('evidence-open');
  $('evidenceToggle').setAttribute('aria-expanded',String(opened));
+};
+// P1.2 explicit human-chosen classification; lossless within the canonical schema.
+$('nativeAdd').onclick=()=>{
+  try{
+    if(!model?.allowed_actions.includes('draft') || !draft)throw Error('JUDGMENT_NOT_EDITABLE');
+    const field=$('nativeCategory').value;
+    const text=$('nativeStatement').value;
+    const before=payload();
+    const after=appendNaturalEntry(profile,before,field,text);
+    const el=$('judgmentForm').querySelector('[data-key="'+field+'"]');
+    if(!el)throw Error('MISSING_CANONICAL_FIELD');
+    el.value=after[field].join('\n');
+    el.closest('details.group').open=true;
+    el.dispatchEvent(new Event('input',{bubbles:true}));
+    $('nativeStatement').value='';
+    $('nativeMappingStatus').textContent='已追加原话 · '+canonicalPaths(profile).length+'个科学字段均保留 · 请保存草稿';
+  }catch(e){$('nativeMappingStatus').textContent='无法加入：'+e.message;}
 };
 api('/v1/session').then(enter).catch(reset);
 

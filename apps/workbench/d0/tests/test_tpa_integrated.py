@@ -231,3 +231,41 @@ def test_revoke_preserves_read_history_and_blocks_new_access(app):
     assert history["valid"] is True
     assert any(x["event"]=="SOURCE_UNIT_VIEWED" for x in history["recent_events"])
     assert any(x["event"]=="ACCESS_REVOKED" for x in history["recent_events"])
+
+
+def test_atomic_batch_seven_types_rollback_and_idempotency(app):
+    producer,ph=login(app,"producer")
+    sources=producer.get("/v1/tpa/sources").json()["sources"]
+    items=[]
+    for i,src in enumerate(sources):
+        items.append({
+            "task_id":f"TPA-SYN-BATCH-TST-{i+1}",
+            "task_kind":"EVIDENCE_ECOSYSTEM_CASE",
+            "primary_source":{"source_id":src["source_id"],"revision_id":src["revision_id"]},
+            "allowed_source_versions":[{k:src[k] for k in
+                ("source_id","revision_id","canonical_document_sha256")}],
+            "profile_id":src["profile_id"],"knowledge_cutoff":"2026-10-10T00:00:00Z",
+            "workflow_strategy":"AGENT_PROPOSE_EXPERT_VERIFY"
+        })
+    batch={"batch_id":"TPA-BATCH-TEST-006","idempotency_key":"batch-atomic-006","items":items}
+    bad={"batch_id":batch["batch_id"],"idempotency_key":batch["idempotency_key"],
+         "items":[dict(x) for x in items]}
+    bad["items"][3]={**bad["items"][3],"profile_id":"WRONG_TYPE"}
+    result=producer.post("/v1/tpa/batches/drafts",headers=ph,json=bad)
+    assert result.status_code==409,result.text
+    assert producer.get("/v1/tpa/tasks").json()["tasks"]==[]
+    created=producer.post("/v1/tpa/batches/drafts",headers=ph,json=batch)
+    assert created.status_code==200,created.text
+    assert created.json()["all_or_nothing"] is True
+    assert created.json()["created_count"]==7
+    repeat=producer.post("/v1/tpa/batches/drafts",headers=ph,json=batch)
+    assert repeat.status_code==200 and repeat.json()==created.json()
+    assert len(producer.get("/v1/tpa/tasks").json()["tasks"])==7
+    conflicting={**batch,"items":items[:-1]}
+    assert producer.post("/v1/tpa/batches/drafts",headers=ph,json=conflicting).status_code==409
+    manager,_=login(app,"manager")
+    assert len(manager.get("/v1/tpa/batches").json()["batches"])==1
+    assert manager.post("/v1/tpa/batches/drafts",headers={"Origin":"http://testserver"},
+                        json=batch).status_code==403
+    auditor,_=login(app,"auditor")
+    assert auditor.get("/v1/tpa/audit").json()["valid"] is True

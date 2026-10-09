@@ -1,37 +1,58 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NutriFoundation · Workbench</title><link rel="stylesheet" href="/static/style.css"></head>
-<body><header><div><h1>NutriFoundation <span>Workbench v0.3 Preview</span></h1><p>双语科学阅读 · 专家独立判断 · 原文证据追溯</p></div><div id="account"><span id="who"></span><button id="logout" hidden>退出</button></div></header>
-<div class="banner">内部工程测试 · 合成身份与练习记录 · 公开论文仅用于阅读器验证，不是 NDS-R1 正式实验材料。真实专家接入 NO-GO，正式科研采集关闭。</div>
-<main id="loginPanel"><h2>进入内部测试</h2><p>使用分配给你的独立测试账号。当前访问通过 SSH 加密隧道。</p><form id="loginForm"><label>测试账号<input id="username" autocomplete="username" required></label><label>密码<input id="password" type="password" autocomplete="current-password" required></label><button type="submit">登录</button></form><p id="loginStatus" role="status"></p></main>
-<div id="workspace" hidden><div class="toolbar"><label>我的任务<select id="task"></select></label><button id="load">打开任务 / 重新载入</button><button id="focusMode" type="button" aria-pressed="false" title="切换两栏专注阅读">v0.3 专注模式</button><button id="evidenceToggle" type="button" aria-expanded="false" hidden>证据操作</button><span id="phase">尚未打开</span><span id="saveStatus" role="status"></span></div>
-<div id="managerPanel" hidden><h2>试测准入状态</h2><div id="readiness"></div></div>
-<div id="producerPanel" hidden><h2>准备合成候选</h2><p>仅生成固定的阅读器工程候选。R2 必须先由独立账号冻结 Pre-AI。</p><select id="prepareTask"><option>SYN-R1</option><option>SYN-R2</option></select><button id="prepare">冻结合成候选</button><pre id="producerStatus"></pre></div>
-<div id="auditorPanel" hidden><h2>合成任务审计</h2><select id="auditTask"><option>SYN-R0</option><option>SYN-R1</option><option>SYN-R2</option></select><button id="audit">查看审计链</button><pre id="auditResult"></pre></div>
-<div class="layout" id="expertPanel">
-<section class="panel reader"><div class="ph"><h2>01 · 阅读资料</h2><span id="sourceBadge">无授权来源</span></div><div class="search"><input id="query" placeholder="在许可来源内搜索" aria-label="搜索来源"><button id="searchBtn">搜索</button></div><div id="searchResults" class="small"></div>
-<div id="bilingualToolbar" class="bilingual-toolbar" hidden><label for="readerMode">双语阅读</label><select id="readerMode" aria-label="双语阅读模式">
-<option value="immersive">原文＋中文（沉浸式）</option><option value="parallel">中英文左右对照</option>
-<option value="english">仅英文原文</option><option value="chinese">中文辅助阅读</option></select>
-<span id="translationStatus" class="small" role="status">翻译未就绪</span></div>
-<div id="selectionToolbar" hidden><span id="selectionStatus">选取原文建立证据</span><button id="selectionBind" type="button">引用到当前判断</button></div>
-<div id="units" class="scroll" data-reading-mode="immersive"></div><details open><summary>原始 PDF · <span id="pdfEngine">未载入</span></summary><div class="paging"><button id="prev">←</button><span id="pdfPage">第 1 页</span><button id="next">→</button></div><div id="pdfStage" class="pdfstage"><div class="pdfpageframe"><canvas id="pdfCanvas"></canvas><img id="pdfRaster" alt="授权 PDF 页图"><div id="pdfOverlay"></div></div></div><p class="small" id="pdfLocatorStatus">选择证据后回放原文。</p></details></section>
-<section class="panel judgment"><div class="ph"><h2>02 · 我的专业判断</h2><span id="revision">尚无草稿</span></div><p id="judgmentNote" class="small"></p>
-<div id="nativeComposer" class="native-composer" hidden>
-  <div class="composer-title"><strong>快速记录一条专业判断</strong><span class="small">原话保存 · 明确分类 · 不使用 AI 自动归类</span></div>
-  <label for="nativeCategory">这条判断属于</label>
-  <select id="nativeCategory" aria-label="选择原始专业判断所属字段">
-    <option value="salient_existing_facts">影响判断的已知事实</option>
-    <option value="decision_changing_missing_information">可能改变判断的缺失信息</option>
-    <option value="currently_acceptable_actions">当前建议的行动</option>
-    <option value="uncertainty_notes">不确定性或暂不作答理由</option>
-    <option value="rationale_notes">其他专业判断理由</option>
-    <option value="monitoring_needs">监测和随访</option>
-  </select>
-  <label for="nativeStatement">专家原话（每次录入一条）</label>
-  <textarea id="nativeStatement" rows="2" placeholder="直接输入你的专业判断，不需要填写研究本体术语。"></textarea>
-  <button id="nativeAdd" type="button">加入当前判断</button>
-  <span id="nativeMappingStatus" role="status" class="small"></span>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NutriFoundation · Workbench</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<header class="top">
+ <div class="brand"><span class="mark" aria-hidden="true">❧</span><div><h1>NutriFoundation</h1><p>Workbench v0.3 Preview · 专家标注工作台</p></div></div>
+ <nav class="stepper" id="workflowNav" aria-label="标注步骤" hidden>
+  <button class="step active" data-stage="reader"><span>1</span>阅读证据</button><i></i>
+  <button class="step" data-stage="judgment"><span>2</span>独立判断</button><i></i>
+  <button class="step" data-stage="review"><span>3</span>证据核查</button><i></i>
+  <button class="step" data-stage="freeze"><span>4</span>冻结提交</button>
+ </nav>
+ <div id="account"><span class="pill warn">合成内测</span><span id="who"></span><button id="logout" class="ghost mini" hidden>退出</button></div>
+</header>
+<main id="loginPanel"><span class="login-label">研究团队内测</span><h2>进入工作台</h2><p>阅读科学资料，记录独立判断，核查原文证据。<br>使用分配的测试账号，通过 SSH 加密隧道访问。</p><form id="loginForm"><label>测试账号<input id="username" autocomplete="username" required></label><label>密码<input id="password" type="password" autocomplete="current-password" required></label><button type="submit" class="primary">登录工作台</button></form><p id="loginStatus" role="status"></p><p class="small">仅限合成练习；真实专家接入与正式科研采集尚未开放。</p></main>
+<div id="workspace" hidden>
+ <div id="managerPanel" hidden><h2>试测准入状态</h2><div id="readiness"></div></div>
+ <div id="producerPanel" hidden><h2>准备合成候选</h2><p>仅生成固定的阅读器工程候选。R2 必须先由独立账号冻结 Pre-AI。</p><select id="prepareTask"><option>SYN-R1</option><option>SYN-R2</option></select><button id="prepare">冻结合成候选</button><pre id="producerStatus"></pre></div>
+ <div id="auditorPanel" hidden><h2>合成任务审计</h2><select id="auditTask"><option>SYN-R0</option><option>SYN-R1</option><option>SYN-R2</option></select><button id="audit">查看审计链</button><pre id="auditResult"></pre></div>
+ <div class="layout" id="expertPanel">
+  <aside class="panel sidebar">
+   <div><h4>我的任务</h4><label class="task-label"><span class="sr-only">选择我的任务</span><select id="task"></select></label><button id="load" class="ghost mini">打开任务 / 重新载入</button></div>
+   <div class="sourcebox"><b id="sourceTitle">正在载入资料</b><small id="sourceBadge">无授权来源</small><span class="badge">阅读器练习资料</span></div>
+   <div class="outline-block"><h4>章节导航</h4><nav class="outline" id="outline" aria-label="文献章节"></nav></div>
+   <div class="source-trace"><h4>文献与翻译溯源</h4><p class="small" id="sourceVersion">仅展示当前任务授权资料</p><p class="small" id="translationVersion"></p></div>
+   <div class="boundary"><b>内部合成练习</b><p>当前资料仅用于阅读器与流程验证。真实专家接入 NO-GO，正式 NDS-R1 采集关闭。</p><span id="phase" class="pill muted">尚未打开</span></div>
+  </aside>
+  <section class="panel reader">
+   <div class="reader-head"><span class="reader-label">科学资料阅读器 / Bilingual Scientific Reader</span><h2 id="readerTitle">阅读授权科学资料</h2><p class="small" id="readerMeta">英文原文 · 中文辅助 · 可追溯的原文证据</p></div>
+   <div class="reader-toolbar">
+    <div id="bilingualToolbar" hidden><span class="toolbar-label">阅读模式</span><div class="mode-buttons" role="group" aria-label="双语阅读模式"><button class="mode active" data-mode="immersive">沉浸式双语</button><button class="mode" data-mode="parallel">左右对照</button><button class="mode" data-mode="english">仅英文</button><button class="mode" data-mode="chinese">中文辅助</button></div><select id="readerMode" class="sr-only" aria-label="双语阅读模式"><option value="immersive">原文＋中文（沉浸式）</option><option value="parallel">中英文左右对照</option><option value="english">仅英文原文</option><option value="chinese">中文辅助阅读</option></select></div>
+    <button id="pdfToggle" class="ghost mini" aria-expanded="false">核验原始 PDF</button>
+    <button id="focusMode" class="ghost mini" aria-pressed="false">专注阅读</button>
+   </div>
+   <div class="reading-notice"><span id="translationStatus" role="status">翻译未就绪</span><div class="search"><input id="query" placeholder="搜索授权原文…" aria-label="搜索来源"><button id="searchBtn" class="ghost mini">搜索</button></div></div><div id="searchResults" class="small" role="status"></div>
+   <div id="selectionToolbar" class="selection-tools" hidden><span id="selectionStatus">选取原文建立证据</span><label>关联到<select id="selectionField" aria-label="选取证据的目标判断"></select></label><button id="selectionBind" class="primary mini">＋ 关联证据</button><button id="dismissSelection" class="ghost mini">取消</button></div>
+   <div id="units" class="reader-scroll" data-reading-mode="immersive"></div>
+   <details id="pdfDetails" class="pdf-details"><summary>原始 PDF · <span id="pdfEngine">未载入</span></summary><div class="paging"><button id="prev" class="ghost mini" aria-label="PDF 上一页">←</button><span id="pdfPage">第 1 页</span><button id="next" class="ghost mini" aria-label="PDF 下一页">→</button></div><div id="pdfStage" class="pdfstage"><div class="pdfpageframe"><canvas id="pdfCanvas"></canvas><img id="pdfRaster" alt="授权 PDF 页图"><div id="pdfOverlay"></div></div></div><p class="small" id="pdfLocatorStatus">选择证据后回放原文。</p></details>
+  </section>
+  <section class="panel judgment" id="judgmentPane">
+   <div class="ph"><h2>我的独立判断</h2><button id="evidenceToggle" class="text-button" aria-expanded="false">证据 <span id="evidenceCount">0</span> 条</button></div>
+   <div class="judgment-scroll"><p id="judgmentNote" class="small"></p><div id="judgmentForm"></div>
+    <details id="nativeComposer" class="native-composer" hidden><summary>快速追加一条专业判断</summary><p class="small">保留你的原话，由你明确选择所属类别。</p><label for="nativeCategory">这条判断属于</label><select id="nativeCategory" aria-label="选择原始专业判断所属字段"><option value="salient_existing_facts">影响判断的已知事实</option><option value="decision_changing_missing_information">可能改变判断的缺失信息</option><option value="currently_acceptable_actions">当前建议的行动</option><option value="uncertainty_notes">不确定性或暂不作答理由</option><option value="rationale_notes">其他专业判断理由</option><option value="monitoring_needs">监测和随访</option></select><label for="nativeStatement">专家原话（每次录入一条）</label><textarea id="nativeStatement" rows="2" placeholder="直接写下你的专业判断…"></textarea><button id="nativeAdd" class="ghost mini">加入当前判断</button><span id="nativeMappingStatus" role="status" class="small"></span></details>
+    <div id="candidateForm"></div><div class="candidate-actions"><button id="submitCandidates" hidden>提交候选复核</button></div><details id="receiptDetails" class="receipt-details"><summary>查看服务端提交回执</summary><pre id="receipt"></pre></details>
+   </div>
+  </section>
+  <section class="review-pane" id="reviewPane" hidden>
+   <div class="panel review-main"><span class="reader-label">提交前核查</span><h2>独立判断 · 完整性与证据核查</h2><p class="small">核对你的专业判断与原文证据。返回修改不会丢失当前输入。</p><div id="reviewFields"></div><button id="backEdit" class="ghost">← 返回修改</button></div>
+   <div class="panel review-side"><h3>证据与提交状态</h3><div id="reviewChecks"></div><div id="reviewAnchors"></div><p class="small">译文为未经科学审校的工程摘录；原文绑定和 PDF 定位以服务端验证结果为准。</p><div class="actions"><label id="freezeConfirm"><input type="checkbox" id="unexposed">确认未看过 AI 输出、他人判断、最终参考、隐藏饮食值或审计标签</label><button id="freeze" class="primary">冻结并提交独立判断</button></div><p class="small">提交后独立判断不可修改。当前仅生成合成工程记录。</p></div>
+  </section>
+  <section class="panel evidence" id="evidencePane" hidden aria-label="原文证据与绑定">
+   <div class="ph"><h2>原文证据</h2><button id="closeEvidence" class="ghost mini">关闭</button></div><label>关联到哪条判断<select id="field"></select></label><label>英文原文引文<textarea id="quote" rows="3" placeholder="从阅读区选中文字，或输入完整英文句子"></textarea></label><div class="evidence-actions"><button id="locateQuote" class="ghost">定位引文</button><button id="makeAnchor" class="primary">创建并绑定证据</button></div><h3>我的证据锚点</h3><div id="anchors" class="scroll"></div><details class="advanced-fields"><summary>权限与验证详情</summary><button id="candidate" class="ghost mini">检查候选权限</button><pre id="status" role="status">等待打开任务</pre></details>
+  </section>
+ </div>
+ <footer class="sticky-footer" id="workFooter" hidden><div class="save-state"><span class="circle"></span><span id="saveStatus" role="status"></span><span id="revision" class="small">尚无草稿</span></div><span id="draftProgress" class="small">尚未填写</span><button id="saveDraft" class="ghost">保存草稿</button><button id="nextReview" class="primary">核查并提交 →</button></footer>
 </div>
-<div id="judgmentForm"></div><div id="candidateForm"></div><div class="actions"><button id="saveDraft">保存草稿</button><label id="freezeConfirm"><input type="checkbox" id="unexposed">确认尚未看过 Agent、他人判断、最终参考、隐藏饮食值或审计标签</label><button id="freeze">冻结并提交独立判断</button><button id="submitCandidates" hidden>提交候选复核</button></div><pre id="receipt"></pre></section>
-<section class="panel evidence"><div class="ph"><h2>03 · 证据与状态</h2></div><label>判断字段<select id="field"></select></label><label>原文引文<textarea id="quote" rows="3" placeholder="在左侧选中文字，或输入完整原文句子"></textarea></label><button id="locateQuote">定位引文</button><button id="makeAnchor">创建并绑定证据</button><div class="subheading">我的证据锚点</div><div id="anchors" class="scroll"></div><button id="candidate">检查候选权限</button><pre id="status" role="status">等待打开任务</pre></section>
-</div></div><script type="module" src="/static/reader.js"></script><script type="module" src="/static/workbench.js"></script></body></html>
+<script type="module" src="/static/reader.js"></script><script type="module" src="/static/workbench.js"></script>
+</body></html>

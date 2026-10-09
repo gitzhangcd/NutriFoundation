@@ -1,0 +1,134 @@
+{
+  "stage": "G1-Shared P0.1-A.2",
+  "version": "v0.1",
+  "date": "2026-10-10",
+  "status": "REAL_SOURCE_DISCOVERY_AND_READ_ONLY_PILOT_INTEGRATED_NO_FULL_DOCUMENT_FIDELITY",
+  "source_count": 5,
+  "artifact_grain": "SOURCE_ARTIFACT_NOT_STUDY_GOLD",
+  "native_file_sha256_verified": 0,
+  "original_pdf_visual_parity_passed": 0,
+  "complete_supplements_checked": 0,
+  "native_html_table_recovered_direct_binary": 0,
+  "known_native_html_table_value_crosscheck": {
+    "source_id": "CAND-G100-004",
+    "sample_cells": 3,
+    "result": "THREE_VALUES_SEEN_IN_PUBLISHED_PMC_TABLE_AND_SAME_VALUES_PRESENT_IN_FLAT_TEXT; REAL_CELL_BOUNDARY_PRESERVATION_FAIL",
+    "reference": "PMC8864028 Table1",
+    "boundary_recovered": false
+  },
+  "in_app_original_body_count": 1,
+  "original_external_authority_link_only": 4,
+  "engineer_source_pilot_mode": "OPT_IN_ENGINEERING_ONLY",
+  "pilot_integrated_into": "apps/workbench/d0/d0_app.py with --enable-g1-pilot-engineering",
+  "strict_blind_enforced_scope": "D0 session role + A/B draft separation and no Agent payload; external real expert validation not enabled",
+  "automated_tests": "8_PASSED_IN_GITHUB_ACTIONS_RUN_37973382216",
+  "real_expert_assignments": 0,
+  "expert_gold": 0,
+  "sources": [
+    {
+      "source": "CAND-G100-004",
+      "type": "RCT",
+      "pmc": "PMC8864028",
+      "rights": "CC_BY_4_0",
+      "original_links": {
+        "publisher": "https://www.nature.com/articles/s41467-022-28662-5",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8864028/",
+        "pdf": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8864028/pdf/41467_2022_Article_28662.pdf",
+        "supplement": "https://pmc.ncbi.nlm.nih.gov/articles/instance/8864028/bin/41467_2022_28662_MOESM1_ESM.pdf"
+      },
+      "reading": {
+        "pmc_body": "COMPLETE",
+        "inline_engineering_source": "AVAILABLE_CC_BY_PROJECTION",
+        "publisher_html": "VERIFIED",
+        "pdf": "FETCH_DENIED_403",
+        "supplement": "CACHE_MISS"
+      },
+      "table_observation": {
+        "kind": "PMC_OFFICIAL_RENDERED_HTML_TABLE_1",
+        "col_headers": [
+          "Characteristic",
+          "eTRF",
+          "mTRF",
+          "control"
+        ],
+        "sample_row": [
+          "No.",
+          "28",
+          "26",
+          "28"
+        ],
+        "page_reference": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8864028/",
+        "plain_projection_segment": "CharacteristicseTRFmTRFcontrolp valueNo.282628Age",
+        "structural_parity": "FAIL_FLAT_TEXT_LOSES_CELL_BOUNDARIES",
+        "numeric_sample": "MATCH_PUBLISHED_RENDERED_TABLE_VALUES_ONLY",
+        "sample_cells": 3,
+        "all_cells": "NOT_CHECKED"
+      },
+      "license_restrictions": "Re-check third-party figures and supplements separately"
+    },
+    {
+      "source": "CAND-G100-029",
+      "type": "COHORT",
+      "pmc": "PMC6538975",
+      "rights": "CC_BY_NC_4_0",
+      "reading": {
+        "pmc_body": "COMPLETE",
+        "inline_engineering_source": "EXTERNAL_LINK_ONLY",
+        "pdf": "NOT_HASHED",
+        "supplement": "NOT_HASHED"
+      },
+      "fidelity": "HOLD",
+      "critical_source_quality": "HR point 1.44 outside printed CI (1.05-1.25) and (1.03-1.25) - SOURCE_NATIVE_NUMERIC_ANOMALY_DEFER"
+    },
+    {
+      "source": "CAND-G100-048",
+      "type": "NETWORK_META",
+      "pmc": "PMC12175170",
+      "rights": "CC_BY_NC_4_0",
+      "reading": {
+        "pmc_body": "COMPLETE",
+        "inline_engineering_source": "EXTERNAL_LINK_ONLY",
+        "pdf": "NOT_HASHED",
+        "supplement": "NOT_HASHED"
+      },
+      "fidelity": "HOLD",
+      "version_event": {
+        "correction_pmid": "40825602",
+        "doi": "10.1136/bmj.r1737",
+        "impact": "AUTHOR_AFFILIATION_CORRECTION_PER_PUBLIC_RECORD_NO_NUMERIC_RECALCULATION_REPORTED"
+      }
+    },
+    {
+      "source": "CAND-G100-071",
+      "type": "GUIDELINE",
+      "pmc": "PMC12646719",
+      "rights": "TEXT_MINING_FAIR_USE",
+      "reading": {
+        "pmc_body": "COMPLETE",
+        "inline_engineering_source": "EXTERNAL_LINK_ONLY",
+        "complete_eal": "NOT_FROZEN",
+        "pdf": "NOT_HASHED",
+        "supplement": "NOT_HASHED"
+      },
+      "fidelity": "HOLD",
+      "authority": {
+        "original_abridged": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12646719/",
+        "full_official": "https://www.andeal.org/topic.cfm?cat=6109&menu=5276"
+      }
+    },
+    {
+      "source": "CAND-G100-096",
+      "type": "CONSENSUS",
+      "pmc": "PMC11170495",
+      "rights": "CC_BY_NC_ND_4_0",
+      "reading": {
+        "pmc_body": "COMPLETE",
+        "inline_engineering_source": "EXTERNAL_LINK_ONLY",
+        "pdf": "NOT_HASHED",
+        "supplement": "NOT_HASHED"
+      },
+      "fidelity": "HOLD",
+      "voting": "13 MEMBERS AND 100_PERCENT_APPROVAL_IN_MAIN_ARTICLE_TABLE_CELL_PARITY_OPEN"
+    }
+  ]
+}

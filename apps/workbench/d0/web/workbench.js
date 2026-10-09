@@ -89,7 +89,7 @@ if(model.phase.endsWith('LOCKED')){const records=await api(path('records'));cons
 $('freeze').disabled=!canDraft||!draft||draft.revision<1;if(draft?.payload?.reference_set)renderForm(draft.payload,canDraft||canReconcile);else $('judgmentForm').replaceChildren();$('nativeComposer').hidden=!canDraft;candidates();$('revision').textContent=draft?.revision!=null?`草稿版本 ${draft.revision}`:'只读 / 复核阶段';$('judgmentNote').textContent=canDraft?'每次保存由服务端校验版本；冻结后独立判断不可修改。':canReconcile?'独立判断已冻结；本表单记录新的 AI 后判断，不会覆盖 Pre-AI。':'当前阶段由服务端权限控制。';note('已载入');}catch(e){note('载入失败：'+e.message);}}
 $('load').addEventListener('click',loadJudgment);
 $('saveDraft').onclick=async()=>{if(saving)return;const submitted=payload(),revision=draft.revision,packet=draft.packet_digest;saving=true;$('saveDraft').disabled=true;$('freeze').disabled=true;$('load').disabled=true;try{const result=await mutation(path('draft'),{payload:submitted,expected_revision:revision,packet_digest:packet},'PUT');draft.payload=submitted;draft.revision=result.revision;$('revision').textContent=`草稿版本 ${draft.revision}`;note(JSON.stringify(payload())===JSON.stringify(submitted)?'已保存':'已保存上一版；当前修改尚未保存');}catch(e){note(e.message==='REVISION_CONFLICT'?'草稿版本冲突：请重新载入后核对，当前输入尚未保存。':'保存失败：'+e.message);}finally{saving=false;$('saveDraft').disabled=false;$('load').disabled=false;$('freeze').disabled=draft.revision<1||JSON.stringify(payload())!==JSON.stringify(draft.payload);if(typeof refreshPresentation==='function')refreshPresentation();}};
-$('freeze').onclick=async()=>{if(saving){note('请等待保存完成');return;}if(!$('unexposed').checked){note('请确认未暴露条件后再冻结');return;}try{if(JSON.stringify(payload())!==JSON.stringify(draft.payload)){note('请先保存当前修改，再冻结');return;}const result=await mutation(path('freeze'),{expected_revision:draft.revision,idempotency_key:crypto.randomUUID(),exposure_assertions:Object.fromEntries(['agent_output_seen','other_expert_output_seen','final_reference_seen','hidden_diet_values_seen','meta_audit_labels_seen'].map(k=>[k,false]))});await loadJudgment();$('receipt').textContent=JSON.stringify(result,null,2);note('已冻结 · 合成工程记录');}catch(e){note('冻结失败：'+e.message);}};
+$('freeze').onclick=async()=>{if(!submissionReadiness().eligible){note('冻结受阻：当前独立判断未保存或尚未填写');return;}if(saving){note('请等待保存完成');return;}if(!$('unexposed').checked){note('请确认未暴露条件后再冻结');return;}try{if(JSON.stringify(payload())!==JSON.stringify(draft.payload)){note('请先保存当前修改，再冻结');return;}const result=await mutation(path('freeze'),{expected_revision:draft.revision,idempotency_key:crypto.randomUUID(),exposure_assertions:Object.fromEntries(['agent_output_seen','other_expert_output_seen','final_reference_seen','hidden_diet_values_seen','meta_audit_labels_seen'].map(k=>[k,false]))});await loadJudgment();$('receipt').textContent=JSON.stringify(result,null,2);note('已冻结 · 合成工程记录');}catch(e){note('冻结失败：'+e.message);}};
 $('submitCandidates').onclick=async()=>{try{const items=[...$('candidateForm').querySelectorAll('[data-candidate]')].map(box=>({candidate_ref:box.dataset.candidate,expert_disposition:box.querySelector('.disposition').value,rationale:box.querySelector('.rationale').value,...(model.arm==='R2'?{changed_pre_ai_judgment:box.querySelector('.changed').checked,change_type:box.querySelector('.changed').checked?'SYNTHETIC_RECONCILIATION':null,source_refs:['SYN-5-2-PAPER']}:{} )}));const body={items,idempotency_key:crypto.randomUUID()};if(model.arm==='R2')body.post_ai_judgment=payload();const result=await mutation(path(model.arm==='R2'?'reconcile':'verify'),body);await loadJudgment();$('receipt').textContent=JSON.stringify(result,null,2);note('复核提交已锁定 · 合成工程记录');}catch(e){note('提交失败：'+e.message);}};
 $('prepare').onclick=async()=>{try{$('producerStatus').textContent=JSON.stringify(await mutation(`/v1/demo/prepare/${$('prepareTask').value}`),null,2);}catch(e){$('producerStatus').textContent='拒绝：'+e.message;}};
 $('audit').onclick=async()=>{try{$('auditResult').textContent=JSON.stringify(await api(`/v1/tasks/${$('auditTask').value}/audit`),null,2);}catch(e){$('auditResult').textContent=e.message;}};
@@ -128,27 +128,63 @@ api('/v1/session').then(enter).catch(reset);
 $('judgmentForm').addEventListener('input',()=>{if(model?.allowed_actions.includes('draft')&&draft){const dirty=JSON.stringify(payload())!==JSON.stringify(draft.payload);$('freeze').disabled=saving||dirty||draft.revision<1;if(dirty&&!saving)note('当前修改尚未保存');}});
 
 // P1.3 prototype fidelity: navigation and review are views of authoritative fields.
+function submissionReadiness(){
+ const canDraft=!!model?.allowed_actions?.includes('draft');
+ const hasForm=!!draft&&!!$('judgmentForm').querySelector('[data-key]');
+ if(!hasForm)return {canDraft,filled:0,dirty:true,saved:false,eligible:false,reasons:['尚未载入可编辑的判断']};
+ const data=payload();
+ const filled=judgmentSections.filter(section=>section.primary.some(key=>{
+   const val=get(data,key);return Array.isArray(val)?val.some(x=>String(x).trim()):!!String(val??'').trim();
+ })).length;
+ const dirty=JSON.stringify(data)!==JSON.stringify(draft.payload);
+ const saved=Number.isInteger(draft.revision)&&draft.revision>=1&&!dirty&&!saving;
+ const reasons=[];
+ if(!canDraft)reasons.push('当前任务阶段不允许独立冻结');
+ if(filled===0)reasons.push('尚未记录独立判断（0/5）');
+ if(!saved)reasons.push(dirty?'有未保存的修改，请先保存草稿':'草稿尚未保存到服务端');
+ if(saving)reasons.push('保存操作尚未完成');
+ // 5/5 describes coverage, not a scientific claim that every clinical section
+ // must be filled; documented uncertainty/abstention remains legitimate.
+ return {canDraft,filled,dirty,saved,eligible:canDraft&&filled>0&&saved,reasons};
+}
 function showStage(stage){
- viewStage=stage==='freeze'?'review':stage;
- const review=viewStage==='review';$('expertPanel').classList.toggle('reviewing',review);$('reviewPane').hidden=!review;
+ if(!['reader','judgment','review','freeze'].includes(stage))return;
+ if(stage==='freeze' && !submissionReadiness().eligible){
+   viewStage='review';
+   $('saveStatus').textContent='冻结尚未就绪：请检查草稿保存和判断完整性';
+ }else{viewStage=stage==='freeze'?'review':stage;}
+ const review=viewStage==='review';
+ $('expertPanel').classList.toggle('reviewing',review);
+ $('reviewPane').hidden=!review;
  closeEvidence();
- const index=['reader','judgment','review','freeze'].indexOf(stage);
- for(const step of $('workflowNav').querySelectorAll('[data-stage]')){
-  const pos=['reader','judgment','review','freeze'].indexOf(step.dataset.stage);
-  step.classList.toggle('active',pos===index);step.classList.toggle('done',pos<index);step.setAttribute('aria-current',pos===index?'step':'false');
- }
  if(review)renderReview();
- if(stage==='judgment'){$('judgmentPane').scrollIntoView({block:'nearest'});$('judgmentForm').querySelector('textarea:not(:disabled)')?.focus({preventScroll:true});}
- if(stage==='freeze')$('unexposed').focus({preventScroll:true});
+ if(stage==='judgment'){
+   $('judgmentPane').scrollIntoView({block:'nearest'});
+   $('judgmentForm').querySelector('textarea:not(:disabled)')?.focus({preventScroll:true});
+ }
+ if(stage==='freeze'&&submissionReadiness().eligible)$('unexposed').focus({preventScroll:true});
  refreshPresentation();
 }
 function refreshPresentation(){
  if(!profile||!draft||!$('judgmentForm').querySelector('[data-key]'))return;
- const data=payload(),filled=judgmentSections.filter(section=>section.primary.some(key=>{const val=get(data,key);return Array.isArray(val)?val.length>0:!!val;})).length;
- $('draftProgress').textContent=`已填写 ${filled}/5 · 证据 ${evidenceBindings.length}`;
+ const state=submissionReadiness();
+ $('draftProgress').textContent=`已填写 ${state.filled}/5 · ${state.saved?'已保存':'未保存'} · 证据 ${evidenceBindings.length}`;
  $('evidenceCount').textContent=String(evidenceBindings.length);
  $('nextReview').disabled=saving;
- $('nextReview').textContent=model?.allowed_actions.includes('draft')?'核查并提交 →':'查看判断与证据 →';
+ $('nextReview').textContent=model?.allowed_actions.includes('draft')?'核查判断与证据 →':'查看判断与证据 →';
+ $('freeze').disabled=!state.eligible || !$('unexposed').checked;
+ const stages=['reader','judgment','review','freeze'];
+ const progress=[true,state.filled>0,state.saved&&state.filled>0,
+                  false]; // Never mark frozen before immutable server receipt.
+ const frozen=!!model?.phase?.endsWith('LOCKED');
+ if(frozen)progress[3]=true;
+ for(const step of $('workflowNav').querySelectorAll('[data-stage]')){
+   const index=stages.indexOf(step.dataset.stage);
+   step.classList.toggle('active',step.dataset.stage===viewStage);
+   step.classList.toggle('done',progress[index] && step.dataset.stage!==viewStage);
+   step.setAttribute('aria-current',step.dataset.stage===viewStage?'step':'false');
+   if(index===3){step.disabled=!state.eligible&&!frozen;step.title=state.eligible?'可进入冻结确认':'需先完成并保存独立判断';}
+ }
  if(viewStage==='review')renderReview();
 }
 function renderReview(){
@@ -167,7 +203,12 @@ function renderReview(){
  }
  $('reviewFields').append(extra);
  const dirty=JSON.stringify(data)!==JSON.stringify(draft.payload);
- const checks=[dirty?'当前修改尚未保存，请返回并保存草稿。':draft.revision>0?'当前判断已保存到服务端。':'初始草稿尚未保存。',`原文证据绑定 ${evidenceBindings.length} 条（以服务端绑定记录为准）`,model.allowed_actions.includes('draft')?'当前可提交独立判断；冻结仍需服务端校验。':'独立判断已只读，或当前不允许独立提交。','当前为合成工程练习，正式科研采集关闭。'];
+ const ready=submissionReadiness();
+ const checks=[ready.saved?'草稿已由服务端保存，当前无未保存修改。':ready.dirty?'当前修改尚未保存，不能冻结。':'草稿版本尚未保存，不能冻结。',
+   `五组专业判断已填写 ${ready.filled}/5；未填写的组应明确记录适用性或不确定性。`,
+   `原文证据绑定 ${evidenceBindings.length} 条（以服务端绑定记录为准）`,
+   ready.eligible?'满足前端最低检查；仍须确认盲法并通过服务端冻结验证。':`尚不能冻结：${ready.reasons.join('；')}`,
+   '当前仅限合成练习；真实专家科研采集仍未开放。'];
  for(const text of checks){const p=document.createElement('div');p.className='check-line';p.textContent=text;$('reviewChecks').append(p);}
  for(const binding of evidenceBindings){
   const anchor=evidenceItems.find(a=>a.anchor_id===binding.anchor_id);if(!anchor)continue;
@@ -181,6 +222,7 @@ $('field').addEventListener('change',()=>chooseEvidenceField($('field').value));
 $('selectionField').addEventListener('change',()=>chooseEvidenceField($('selectionField').value));
 $('nextReview').onclick=()=>showStage('review');$('backEdit').onclick=()=>showStage('judgment');
 for(const step of $('workflowNav').querySelectorAll('[data-stage]'))step.onclick=()=>showStage(step.dataset.stage);
+$('unexposed').addEventListener('change',refreshPresentation);
 $('judgmentForm').addEventListener('input',refreshPresentation);
 window.addEventListener('nutri-evidence',e=>{evidenceItems=e.detail.items;evidenceBindings=e.detail.bindings;refreshPresentation();});
 window.addEventListener('keydown',e=>{if(e.key==='Escape')closeEvidence();});

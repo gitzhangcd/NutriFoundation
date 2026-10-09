@@ -1,0 +1,259 @@
+{
+  "status": "EXPLORATORY_PUBMED_BIBLIOGRAPHY_NOT_GOLD100",
+  "rows": [
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "ultraprocessed",
+      "title": "Ultra-processed food intake and risk of cardiovascular disease: prospective cohort study (NutriNet-Santé).",
+      "pmid": "31142457",
+      "doi": "10.1136/bmj.l1451",
+      "pmcid": "PMC6538975",
+      "date": "2019 May 29",
+      "journal": "BMJ (Clinical research ed.)",
+      "publication_types": "Journal Article",
+      "query": "(\"ultra-processed\"[ti] OR \"ultraprocessed\"[ti]) AND (cohort[ti] OR prospective[ti]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "ultraprocessed",
+      "title": "Ultra-Processed Food Consumption and Risk of Type 2 Diabetes: Three Large Prospective U.S. Cohort Studies.",
+      "pmid": "36854188",
+      "doi": "10.2337/dc22-1993",
+      "pmcid": "PMC10300524",
+      "date": "2023 Jul 01",
+      "journal": "Diabetes care",
+      "publication_types": "Journal Article",
+      "query": "(\"ultra-processed\"[ti] OR \"ultraprocessed\"[ti]) AND (cohort[ti] OR prospective[ti]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "ultraprocessed",
+      "title": "Consumption of ultra-processed foods and cancer risk: results from NutriNet-Santé prospective cohort.",
+      "pmid": "29444771",
+      "doi": "10.1136/bmj.k322",
+      "pmcid": "PMC5811844",
+      "date": "2018 Feb 14",
+      "journal": "BMJ (Clinical research ed.)",
+      "publication_types": "Journal Article",
+      "query": "(\"ultra-processed\"[ti] OR \"ultraprocessed\"[ti]) AND (cohort[ti] OR prospective[ti]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "ultraprocessed",
+      "title": "Ultra-processed food consumption and type 2 diabetes incidence: A prospective cohort study.",
+      "pmid": "33388205",
+      "doi": "10.1016/j.clnu.2020.12.018",
+      "pmcid": "",
+      "date": "2021 May",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "publication_types": "Journal Article",
+      "query": "(\"ultra-processed\"[ti] OR \"ultraprocessed\"[ti]) AND (cohort[ti] OR prospective[ti]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "ultraprocessed",
+      "title": "Ultra-processed food consumption and risk of obesity: a prospective cohort study of UK Biobank.",
+      "pmid": "33070213",
+      "doi": "10.1007/s00394-020-02367-1",
+      "pmcid": "PMC8137628",
+      "date": "2021 Jun",
+      "journal": "European journal of nutrition",
+      "publication_types": "Journal Article",
+      "query": "(\"ultra-processed\"[ti] OR \"ultraprocessed\"[ti]) AND (cohort[ti] OR prospective[ti]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "protein_aging",
+      "title": "Dietary protein intake in midlife in relation to healthy aging - results from the prospective Nurses' Health Study cohort.",
+      "pmid": "38309825",
+      "doi": "10.1016/j.ajcnut.2023.11.010",
+      "pmcid": "PMC10884611",
+      "date": "2024 Feb",
+      "journal": "The American journal of clinical nutrition",
+      "publication_types": "Journal Article",
+      "query": "(\"protein intake\"[ti] OR \"dietary protein\"[ti]) AND (cohort[ti] OR prospective[ti]) AND (older[tiab] OR frailty[tiab] OR aging[tiab])"
+    },
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "protein_aging",
+      "title": "Dietary protein intake and body composition, sarcopenia and sarcopenic obesity: A prospective population-based study.",
+      "pmid": "40845421",
+      "doi": "10.1016/j.clnu.2025.07.033",
+      "pmcid": "",
+      "date": "2025 Oct",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "publication_types": "Journal Article",
+      "query": "(\"protein intake\"[ti] OR \"dietary protein\"[ti]) AND (cohort[ti] OR prospective[ti]) AND (older[tiab] OR frailty[tiab] OR aging[tiab])"
+    },
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "protein_aging",
+      "title": "Protein Intake and Risk of Falls: A Prospective Analysis in Older Adults.",
+      "pmid": "30517767",
+      "doi": "10.1111/jgs.15681",
+      "pmcid": "",
+      "date": "2019 Feb",
+      "journal": "Journal of the American Geriatrics Society",
+      "publication_types": "Evaluation Study",
+      "query": "(\"protein intake\"[ti] OR \"dietary protein\"[ti]) AND (cohort[ti] OR prospective[ti]) AND (older[tiab] OR frailty[tiab] OR aging[tiab])"
+    },
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "fiber",
+      "title": "Use of Insoluble Dietary Fiber and Probiotics for Bowel Preparation Before Colonoscopy: A Prospective Study.",
+      "pmid": "35202009",
+      "doi": "10.1097/SLE.0000000000000995",
+      "pmcid": "PMC8969843",
+      "date": "2022 Feb 24",
+      "journal": "Surgical laparoscopy, endoscopy & percutaneous techniques",
+      "publication_types": "Journal Article",
+      "query": "(\"dietary fiber\"[ti] OR \"dietary fibre\"[ti]) AND (cohort[ti] OR prospective[ti]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "fiber",
+      "title": "Dietary fiber intake and mortality among survivors of liver cirrhosis: A prospective cohort study.",
+      "pmid": "37251456",
+      "doi": "10.1016/j.heliyon.2023.e16170",
+      "pmcid": "PMC10220317",
+      "date": "2023 Jun",
+      "journal": "Heliyon",
+      "publication_types": "Journal Article",
+      "query": "(\"dietary fiber\"[ti] OR \"dietary fibre\"[ti]) AND (cohort[ti] OR prospective[ti]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "fiber",
+      "title": "Maternal Dietary Fiber Intake During Lactation and Human Milk Oligosaccharide Fucosylation: a PRIMA Birth Cohort Study.",
+      "pmid": "40583481",
+      "doi": "10.1002/mnfr.70165",
+      "pmcid": "PMC12538538",
+      "date": "2025 Oct",
+      "journal": "Molecular nutrition & food research",
+      "publication_types": "Journal Article",
+      "query": "(\"dietary fiber\"[ti] OR \"dietary fibre\"[ti]) AND (cohort[ti] OR prospective[ti]) AND (2018:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "sodium",
+      "title": "Sodium intake and urinary losses in children on dialysis: a European multicenter prospective study.",
+      "pmid": "36988689",
+      "doi": "10.1007/s00467-023-05932-y",
+      "pmcid": "",
+      "date": "2023 Oct",
+      "journal": "Pediatric nephrology (Berlin, Germany)",
+      "publication_types": "Multicenter Study",
+      "query": "(\"sodium intake\"[ti] OR \"urinary sodium\"[ti]) AND (cohort[ti] OR prospective[ti]) AND (2015:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "sodium",
+      "title": "Multiple measurements of the urinary sodium-to-potassium ratio strongly related home hypertension: TMM Cohort Study.",
+      "pmid": "31562419",
+      "doi": "10.1038/s41440-019-0335-2",
+      "pmcid": "PMC8076007",
+      "date": "2020 Jan",
+      "journal": "Hypertension research : official journal of the Japanese Society of Hypertension",
+      "publication_types": "Journal Article",
+      "query": "(\"sodium intake\"[ti] OR \"urinary sodium\"[ti]) AND (cohort[ti] OR prospective[ti]) AND (2015:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "cancer_nutrition",
+      "title": "Healthy dietary patterns, genetic risk, and gastrointestinal cancer incident risk: a large-scale prospective cohort study.",
+      "pmid": "38042409",
+      "doi": "10.1016/j.ajcnut.2023.11.015",
+      "pmcid": "",
+      "date": "2024 Feb",
+      "journal": "The American journal of clinical nutrition",
+      "publication_types": "Journal Article",
+      "query": "(\"dietary patterns\"[ti] OR \"diet quality\"[ti]) AND (cohort[ti] OR prospective[ti]) AND cancer[tiab] AND (2017:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "cancer_nutrition",
+      "title": "Plant-based dietary patterns and age-specific risk of multimorbidity of cancer and cardiometabolic diseases: a prospective analysis.",
+      "pmid": "40845891",
+      "doi": "10.1016/j.lanhl.2025.100742",
+      "pmcid": "PMC12408430",
+      "date": "2025 Aug",
+      "journal": "The lancet. Healthy longevity",
+      "publication_types": "Journal Article",
+      "query": "(\"dietary patterns\"[ti] OR \"diet quality\"[ti]) AND (cohort[ti] OR prospective[ti]) AND cancer[tiab] AND (2017:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "cancer_nutrition",
+      "title": "Inflammatory Dietary Patterns and Risk of Keratinocyte Cancers in Kidney Transplant Recipients: Prospective Cohort Study.",
+      "pmid": "32966976",
+      "doi": "10.1159/000509875",
+      "pmcid": "",
+      "date": "2021",
+      "journal": "Dermatology (Basel, Switzerland)",
+      "publication_types": "Journal Article",
+      "query": "(\"dietary patterns\"[ti] OR \"diet quality\"[ti]) AND (cohort[ti] OR prospective[ti]) AND cancer[tiab] AND (2017:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "Mediterranean",
+      "title": "Mediterranean diet and associated metabolite signatures in relation to MASLD progression: A prospective cohort study.",
+      "pmid": "40879470",
+      "doi": "10.1097/HC9.0000000000000791",
+      "pmcid": "PMC12401285",
+      "date": "2025 Sep 01",
+      "journal": "Hepatology communications",
+      "publication_types": "Journal Article",
+      "query": "(\"Mediterranean diet\"[ti]) AND (\"prospective cohort\"[tiab] OR \"cohort study\"[tiab]) AND (2017:2026[dp])"
+    },
+    {
+      "proposed_stratum": "primary_observational",
+      "topic": "Mediterranean",
+      "title": "Mediterranean Diet versus Very Low-Calorie Ketogenic Diet: Effects of Reaching 5% Body Weight Loss on Body Composition in Subjects with Overweight and with Obesity-A Cohort Study.",
+      "pmid": "36293616",
+      "doi": "10.3390/ijerph192013040",
+      "pmcid": "PMC9603454",
+      "date": "2022 Oct 11",
+      "journal": "International journal of environmental research and public health",
+      "publication_types": "Journal Article",
+      "query": "(\"Mediterranean diet\"[ti]) AND (\"prospective cohort\"[tiab] OR \"cohort study\"[tiab]) AND (2017:2026[dp])"
+    }
+  ],
+  "diagnostics": [
+    {
+      "topic": "ultraprocessed",
+      "target": 5,
+      "selected": 5,
+      "pubmed_returned": 40
+    },
+    {
+      "topic": "protein_aging",
+      "target": 3,
+      "selected": 3,
+      "pubmed_returned": 31
+    },
+    {
+      "topic": "fiber",
+      "target": 3,
+      "selected": 3,
+      "pubmed_returned": 40
+    },
+    {
+      "topic": "sodium",
+      "target": 2,
+      "selected": 2,
+      "pubmed_returned": 40
+    },
+    {
+      "topic": "cancer_nutrition",
+      "target": 3,
+      "selected": 3,
+      "pubmed_returned": 40
+    },
+    {
+      "topic": "Mediterranean",
+      "target": 2,
+      "selected": 2,
+      "pubmed_returned": 40
+    }
+  ]
+}

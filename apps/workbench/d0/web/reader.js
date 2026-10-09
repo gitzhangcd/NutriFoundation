@@ -27,11 +27,15 @@ async function load(){try{selected=null;selectedUnit=null;selectedOffsets=null;d
        const unit=d.units.find(x=>x.unit_id===record.unit_id);
        if(!unit || unit.raw_sha256!==record.source_unit_raw_sha256 ||
           unit.raw.slice(record.source_start_utf16,record.source_end_utf16)!==record.source_quote)continue;
-       if(record.translation_status!=='UNVERIFIED_SYNTHETIC' || record.alignment_level!=='SOURCE_EXCERPT_ONLY')continue;
+       if(record.translation_status!=='UNVERIFIED_SYNTHETIC' ||
+          !['SOURCE_EXCERPT_ONLY','FULL_UNIT'].includes(record.alignment_level))continue;
+       if(record.alignment_level==='FULL_UNIT' && record.source_quote!==unit.raw)continue;
        if(!translationMap.has(record.unit_id))translationMap.set(record.unit_id,[]);
        translationMap.get(record.unit_id).push(record);
      }
-     $('translationStatus').textContent=`示例译文 ${[...translationMap.values()].reduce((n,a)=>n+a.length,0)} 处 · 未经科学核查`;
+     const translatedCount=[...translationMap.values()].reduce((n,a)=>n+a.length,0);
+     const full=tr.coverage_counts?.fully_translated_units||0;
+     $('translationStatus').textContent=`译文 ${translatedCount} 处 · 整段 ${full}/${d.unit_count} · 未经科学核查 · ${tr.translation_version}`;
    }
  }catch(e){$('translationStatus').textContent='翻译不可用，仅显示原文';}
  $('bilingualToolbar').hidden=false;for(const u of d.units){
@@ -54,7 +58,8 @@ async function load(){try{selected=null;selectedUnit=null;selectedOffsets=null;d
  });
  for(const record of records){
    const translated=document.createElement('div');translated.className='unit-translation';
-   translated.textContent='中文摘录（演练译文）｜'+record.translated_excerpt;
+   translated.textContent=(record.alignment_level==='FULL_UNIT'?'中文段落（尚未科学审校）｜':'中文摘录（演练译文）｜')+record.translated_excerpt+
+      (record.quality_warnings?.length?' · ⚠ 数字或统计信息待核查':'');
    translated.title='仅原文摘录对齐；译文未经科学审定，不代表全文或精确句子对齐';
    translated.addEventListener('mouseup',()=>{
      const s=window.getSelection();

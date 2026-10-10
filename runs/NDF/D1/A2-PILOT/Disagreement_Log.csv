@@ -1,0 +1,2 @@
+source_id,object_id,field,extractor_value,verifier_value,risk
+CAND-G100-004,CHK-004-CONSORT-TEXT-LAYER,consistency,,"{""eTRF"": 2, ""mTRF"": 1, ""control"": 0}",TEXT_LAYER_FIGURE_LABELS_DO_NOT_UNIQUELY_NAME_THREE_ARMS

@@ -1,0 +1,34 @@
+{
+  "status": "DRAFT",
+  "formal_qualification": "NOT_GRANTED",
+  "expert_gold": "NOT_GRANTED",
+  "drafts": [
+    {
+      "reference_id": "SRS-PILOT-004-DRAFT",
+      "question_id": "Q-PILOT-004-001",
+      "supporting_claim_ids": [
+        "SC-004-HOMA",
+        "SC-004-FPG",
+        "SC-004-MASS"
+      ],
+      "gaps": [
+        "L3 and L4 not reviewed by an expert",
+        "completer analysis is not an intention-to-treat estimate",
+        "no joint synthesis with the cohort paper"
+      ]
+    },
+    {
+      "reference_id": "SRS-PILOT-033-DRAFT",
+      "question_id": "Q-PILOT-033-001",
+      "supporting_claim_ids": [
+        "SC-033-QUARTILE",
+        "SC-033-CONTINUOUS-NOT-SIGNIFICANT"
+      ],
+      "gaps": [
+        "observational residual confounding stated by the authors",
+        "same-cohort reuse not audited beyond this paper",
+        "L3 and L4 not reviewed by an expert"
+      ]
+    }
+  ]
+}

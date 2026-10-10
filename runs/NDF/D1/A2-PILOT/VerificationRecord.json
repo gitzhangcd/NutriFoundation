@@ -1,0 +1,8 @@
+{
+  "verifier": "tools.ndf_d1_a2_pilot.verify",
+  "rule": "Verifier re-opened the PDF and compared literals. Extractor JSON was a diff target, not the evidence.",
+  "change_log": [
+    "Initial pilot extraction. No upstream ontology edit."
+  ],
+  "replay_report_file": "SourceSpan_Replay_Report.json"
+}

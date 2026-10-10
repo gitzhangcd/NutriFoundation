@@ -230,8 +230,8 @@ def recover(run_dir: Path) -> dict:
             "attempts": [],
         }
         if not pdf_urls:
-            acquisition["full_text_access"] = "FULL_TEXT_NOT_LAWFULLY_AVAILABLE"
-            acquisition["blocker"] = "No open license or open-access PDF URL was published by Europe PMC or Crossref."
+            acquisition["full_text_access"] = "NO_QUALIFYING_OA_ROUTE_FOUND_THIS_RUN"
+            acquisition["blocker"] = "Europe PMC and Crossref did not publish a qualifying open PDF route in this run. This is not a finding that every lawful channel, including an institutional subscription or an author-supplied copy, is absent."
         else:
             retrieved_pdf = None
             for pdf_url in pdf_urls:
@@ -291,12 +291,12 @@ def recover(run_dir: Path) -> dict:
                 acquisition["new_acquisition_verified"] = True
             else:
                 refused = any(item["http_status"] in {401, 403, 429} for item in acquisition["attempts"])
-                acquisition["full_text_access"] = "LAWFUL_OA_PDF_NOT_RETRIEVED" if refused else "FULL_TEXT_NOT_LAWFULLY_AVAILABLE"
-                acquisition["blocker"] = "A public OA or CC-licensed PDF URL was recorded, but this client did not receive a PDF. No access-control bypass was attempted." if refused else "No PDF bytes were returned by the recorded official URLs."
+                acquisition["full_text_access"] = "LAWFUL_OA_PDF_NOT_RETRIEVED" if refused else "NO_QUALIFYING_OA_ROUTE_FOUND_THIS_RUN"
+                acquisition["blocker"] = "A public OA or CC-licensed PDF URL was recorded, but this client did not receive a PDF. No access-control bypass was attempted." if refused else "The recorded official URLs did not return a qualifying open PDF in this run. Other lawful channels were not excluded."
         public_redistribution = any(token in license_text for token in REDISTRIBUTABLE) and "nc" not in license_text and "nd" not in license_text
         internal_use = "PERMITTED_OA_INTERNAL_RESEARCH" if open_access and license_text and not public_redistribution else (
             "PERMITTED_OA_INTERNAL_AND_REDISTRIBUTION_LICENSE" if public_redistribution else (
-                "NOT_LAWFULLY_AVAILABLE" if acquisition["full_text_access"] == "FULL_TEXT_NOT_LAWFULLY_AVAILABLE" else "OA_LICENSE_NOT_STATED"
+                "NO_QUALIFYING_OA_ROUTE_FOUND_THIS_RUN" if acquisition["full_text_access"] == "NO_QUALIFYING_OA_ROUTE_FOUND_THIS_RUN" else "OA_LICENSE_NOT_STATED"
             )
         )
         identity_qualified = bool(new_revision and new_revision["identity_verdict"] == "CONFIRMED" and new_revision["title_anchor_replay_ok"] and (new_revision["doi_anchor_replay_ok"] or not doi))

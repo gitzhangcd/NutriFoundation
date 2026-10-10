@@ -4,10 +4,12 @@ on:
   push:
     paths:
       - 'tools/source_archive_verifier/**'
+      - 'tools/ndf_d1_a2_pilot/**'
       - '.github/workflows/g1-source-identity-verifier.yml'
   pull_request:
     paths:
       - 'tools/source_archive_verifier/**'
+      - 'tools/ndf_d1_a2_pilot/**'
       - '.github/workflows/g1-source-identity-verifier.yml'
 
 jobs:
@@ -21,4 +23,4 @@ jobs:
       - name: Install PDF libraries used by the production verifier
         run: python -m pip install 'pymupdf>=1.24,<2' 'pypdf>=4'
       - name: Run production identity unittest, including R1.3.1 adversarial cases
-        run: python -m unittest -v tools.source_archive_verifier.test_r1_replay tools.source_archive_verifier.test_r1_3_1_article_identity
+        run: python -m unittest -v tools.source_archive_verifier.test_r1_replay tools.source_archive_verifier.test_r1_3_1_article_identity tools.ndf_d1_a2_pilot.test_a2_pilot

@@ -1,0 +1,193 @@
+{
+  "scale": {
+    "L1": "mechanical integrity",
+    "L2": "source-span support",
+    "L3": "semantic scope",
+    "L4": "scientific qualification"
+  },
+  "promotion_rule": "Agent span verification does not grant L3, L4, Expert Gold, or QUALIFIED_FOR_SPECIFIC_QUESTION.",
+  "units_extracted": 16,
+  "units_l1_pass": 16,
+  "units_l2_pass": 16,
+  "units_l3_pass": 0,
+  "units_l4_pass": 0,
+  "units_qualified_for_specific_question": 0,
+  "records": [
+    {
+      "evidence_unit_id": "EU-004-ALLOC",
+      "source_id": "CAND-G100-004",
+      "L1_mechanical": "PASS",
+      "L2_source_span": "PASS",
+      "L3_semantic_scope": "HOLD_HUMAN_REVIEW_REQUIRED",
+      "L4_scientific_qualification": "HOLD",
+      "status": "SOURCE_SPAN_VERIFIED",
+      "QUALIFIED_FOR_SPECIFIC_QUESTION": false,
+      "expert_gold": "NOT_GRANTED"
+    },
+    {
+      "evidence_unit_id": "EU-004-COMPLETERS",
+      "source_id": "CAND-G100-004",
+      "L1_mechanical": "PASS",
+      "L2_source_span": "PASS",
+      "L3_semantic_scope": "HOLD_HUMAN_REVIEW_REQUIRED",
+      "L4_scientific_qualification": "HOLD",
+      "status": "SOURCE_SPAN_VERIFIED",
+      "QUALIFIED_FOR_SPECIFIC_QUESTION": false,
+      "expert_gold": "NOT_GRANTED"
+    },
+    {
+      "evidence_unit_id": "EU-004-HOMA",
+      "source_id": "CAND-G100-004",
+      "L1_mechanical": "PASS",
+      "L2_source_span": "PASS",
+      "L3_semantic_scope": "HOLD_HUMAN_REVIEW_REQUIRED",
+      "L4_scientific_qualification": "HOLD",
+      "status": "SOURCE_SPAN_VERIFIED",
+      "QUALIFIED_FOR_SPECIFIC_QUESTION": false,
+      "expert_gold": "NOT_GRANTED"
+    },
+    {
+      "evidence_unit_id": "EU-004-FPG",
+      "source_id": "CAND-G100-004",
+      "L1_mechanical": "PASS",
+      "L2_source_span": "PASS",
+      "L3_semantic_scope": "HOLD_HUMAN_REVIEW_REQUIRED",
+      "L4_scientific_qualification": "HOLD",
+      "status": "SOURCE_SPAN_VERIFIED",
+      "QUALIFIED_FOR_SPECIFIC_QUESTION": false,
+      "expert_gold": "NOT_GRANTED"
+    },
+    {
+      "evidence_unit_id": "EU-004-MASS",
+      "source_id": "CAND-G100-004",
+      "L1_mechanical": "PASS",
+      "L2_source_span": "PASS",
+      "L3_semantic_scope": "HOLD_HUMAN_REVIEW_REQUIRED",
+      "L4_scientific_qualification": "HOLD",
+      "status": "SOURCE_SPAN_VERIFIED",
+      "QUALIFIED_FOR_SPECIFIC_QUESTION": false,
+      "expert_gold": "NOT_GRANTED"
+    },
+    {
+      "evidence_unit_id": "EU-004-ENERGY",
+      "source_id": "CAND-G100-004",
+      "L1_mechanical": "PASS",
+      "L2_source_span": "PASS",
+      "L3_semantic_scope": "HOLD_HUMAN_REVIEW_REQUIRED",
+      "L4_scientific_qualification": "HOLD",
+      "status": "SOURCE_SPAN_VERIFIED",
+      "QUALIFIED_FOR_SPECIFIC_QUESTION": false,
+      "expert_gold": "NOT_GRANTED"
+    },
+    {
+      "evidence_unit_id": "EU-004-SAE",
+      "source_id": "CAND-G100-004",
+      "L1_mechanical": "PASS",
+      "L2_source_span": "PASS",
+      "L3_semantic_scope": "HOLD_HUMAN_REVIEW_REQUIRED",
+      "L4_scientific_qualification": "HOLD",
+      "status": "SOURCE_SPAN_VERIFIED",
+      "QUALIFIED_FOR_SPECIFIC_QUESTION": false,
+      "expert_gold": "NOT_GRANTED"
+    },
+    {
+      "evidence_unit_id": "EU-004-BP-LIPIDS",
+      "source_id": "CAND-G100-004",
+      "L1_mechanical": "PASS",
+      "L2_source_span": "PASS",
+      "L3_semantic_scope": "HOLD_HUMAN_REVIEW_REQUIRED",
+      "L4_scientific_qualification": "HOLD",
+      "status": "SOURCE_SPAN_VERIFIED",
+      "QUALIFIED_FOR_SPECIFIC_QUESTION": false,
+      "expert_gold": "NOT_GRANTED"
+    },
+    {
+      "evidence_unit_id": "EU-033-COHORT",
+      "source_id": "CAND-G100-033",
+      "L1_mechanical": "PASS",
+      "L2_source_span": "PASS",
+      "L3_semantic_scope": "HOLD_HUMAN_REVIEW_REQUIRED",
+      "L4_scientific_qualification": "HOLD",
+      "status": "SOURCE_SPAN_VERIFIED",
+      "QUALIFIED_FOR_SPECIFIC_QUESTION": false,
+      "expert_gold": "NOT_GRANTED"
+    },
+    {
+      "evidence_unit_id": "EU-033-OBESITY",
+      "source_id": "CAND-G100-033",
+      "L1_mechanical": "PASS",
+      "L2_source_span": "PASS",
+      "L3_semantic_scope": "HOLD_HUMAN_REVIEW_REQUIRED",
+      "L4_scientific_qualification": "HOLD",
+      "status": "SOURCE_SPAN_VERIFIED",
+      "QUALIFIED_FOR_SPECIFIC_QUESTION": false,
+      "expert_gold": "NOT_GRANTED"
+    },
+    {
+      "evidence_unit_id": "EU-033-ABDOMINAL",
+      "source_id": "CAND-G100-033",
+      "L1_mechanical": "PASS",
+      "L2_source_span": "PASS",
+      "L3_semantic_scope": "HOLD_HUMAN_REVIEW_REQUIRED",
+      "L4_scientific_qualification": "HOLD",
+      "status": "SOURCE_SPAN_VERIFIED",
+      "QUALIFIED_FOR_SPECIFIC_QUESTION": false,
+      "expert_gold": "NOT_GRANTED"
+    },
+    {
+      "evidence_unit_id": "EU-033-BMI5",
+      "source_id": "CAND-G100-033",
+      "L1_mechanical": "PASS",
+      "L2_source_span": "PASS",
+      "L3_semantic_scope": "HOLD_HUMAN_REVIEW_REQUIRED",
+      "L4_scientific_qualification": "HOLD",
+      "status": "SOURCE_SPAN_VERIFIED",
+      "QUALIFIED_FOR_SPECIFIC_QUESTION": false,
+      "expert_gold": "NOT_GRANTED"
+    },
+    {
+      "evidence_unit_id": "EU-033-WC5",
+      "source_id": "CAND-G100-033",
+      "L1_mechanical": "PASS",
+      "L2_source_span": "PASS",
+      "L3_semantic_scope": "HOLD_HUMAN_REVIEW_REQUIRED",
+      "L4_scientific_qualification": "HOLD",
+      "status": "SOURCE_SPAN_VERIFIED",
+      "QUALIFIED_FOR_SPECIFIC_QUESTION": false,
+      "expert_gold": "NOT_GRANTED"
+    },
+    {
+      "evidence_unit_id": "EU-033-BF5",
+      "source_id": "CAND-G100-033",
+      "L1_mechanical": "PASS",
+      "L2_source_span": "PASS",
+      "L3_semantic_scope": "HOLD_HUMAN_REVIEW_REQUIRED",
+      "L4_scientific_qualification": "HOLD",
+      "status": "SOURCE_SPAN_VERIFIED",
+      "QUALIFIED_FOR_SPECIFIC_QUESTION": false,
+      "expert_gold": "NOT_GRANTED"
+    },
+    {
+      "evidence_unit_id": "EU-033-CONTINUOUS-OBESITY",
+      "source_id": "CAND-G100-033",
+      "L1_mechanical": "PASS",
+      "L2_source_span": "PASS",
+      "L3_semantic_scope": "HOLD_HUMAN_REVIEW_REQUIRED",
+      "L4_scientific_qualification": "HOLD",
+      "status": "SOURCE_SPAN_VERIFIED",
+      "QUALIFIED_FOR_SPECIFIC_QUESTION": false,
+      "expert_gold": "NOT_GRANTED"
+    },
+    {
+      "evidence_unit_id": "EU-033-LIMITATION",
+      "source_id": "CAND-G100-033",
+      "L1_mechanical": "PASS",
+      "L2_source_span": "PASS",
+      "L3_semantic_scope": "HOLD_HUMAN_REVIEW_REQUIRED",
+      "L4_scientific_qualification": "HOLD",
+      "status": "SOURCE_SPAN_VERIFIED",
+      "QUALIFIED_FOR_SPECIFIC_QUESTION": false,
+      "expert_gold": "NOT_GRANTED"
+    }
+  ]
+}

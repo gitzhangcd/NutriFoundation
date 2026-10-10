@@ -1,0 +1,11 @@
+# cwd: /Users/zhangcd/Codes/NutriFoundation
+# python: /tmp/nf-r13-venv/bin/python
+
+/tmp/nf-r13-venv/bin/python -m unittest tools.source_archive_verifier.test_r1_replay tools.source_archive_verifier.test_r1_3_1_article_identity tools.ndf_d1_a2_pilot.test_a2_pilot -v
+UNIT_EXIT:0
+# Ran 34 tests. The original 28 identity tests are included. Six additional mechanism tests cover span replay, cookie redaction, OA-route wording, cutoff versus retrieval, the quarantine registry file, and separate question ids.
+
+/tmp/nf-r13-venv/bin/python -m tools.ndf_d1_a2_pilot.build_run \
+  /Users/zhangcd/Codes/Ai-Nutri/data/g1_source_library/verification_runs/G1S-A2-PILOT-TWO-SOURCE-20261011T000000Z
+BUILD_EXIT:0
+# Directory was renamed to G1S-A2-PILOT-TWO-SOURCE-20261010T215923Z to match the UTC clock. No second extraction was run.

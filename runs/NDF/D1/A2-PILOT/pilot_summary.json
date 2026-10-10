@@ -1,0 +1,17 @@
+{
+  "evidence_units": 16,
+  "units_by_source": {
+    "CAND-G100-004": 8,
+    "CAND-G100-033": 8
+  },
+  "source_span_verified": 16,
+  "hold_units": [],
+  "missing_anchors": [],
+  "l1_pass": 16,
+  "l2_pass": 16,
+  "l3_pass": 0,
+  "l4_pass": 0,
+  "qualified_for_specific_question": 0,
+  "expert_gold": "NOT_GRANTED",
+  "reference_state": "DRAFT"
+}

@@ -1,0 +1,45 @@
+{
+  "registry_search": {
+    "sought": "itemized legacy 31 Evidence Question registry",
+    "found_in_repository": false,
+    "named_historical_item": {
+      "id": "EQ-010",
+      "text": "Dietary patterns in prediabetes/T2D",
+      "exact_match_to_either_source": false
+    },
+    "active_question": {
+      "id": "SQ-D1-A1R-001",
+      "exact_match_to_either_source": false,
+      "reason": "That question is information sufficiency for one NHANES-derived episode."
+    },
+    "ontology_modified": false
+  },
+  "sources": [
+    {
+      "source_id": "CAND-G100-004",
+      "mapping": "QUESTION_GAP",
+      "candidate_question_id": "Q-PILOT-004-001",
+      "candidate_question": "Among healthy adults without obesity, what are the five-week completer differences of eTRF, mTRF, and ad libitum intake for HOMA-IR, fasting glucose, and body mass?",
+      "elements": [
+        "time: five weeks",
+        "population: healthy volunteers without obesity",
+        "intervention: eTRF eating window",
+        "comparator: mTRF and ad libitum",
+        "outcomes: HOMA-IR, fasting plasma glucose, body mass"
+      ]
+    },
+    {
+      "source_id": "CAND-G100-033",
+      "mapping": "QUESTION_GAP",
+      "candidate_question_id": "Q-PILOT-033-001",
+      "candidate_question": "Among UK Biobank adults, what is the observational association between the ultra-processed share of energy on the first 24-hour recall and later obesity indicators after the reported covariate adjustment?",
+      "elements": [
+        "exposure measurement: first 24-hour recall, NOVA, percent of energy",
+        "covariate adjustment: models described in the paper",
+        "design: prospective cohort",
+        "causal claim: not made"
+      ]
+    }
+  ],
+  "joint_synthesis": "NOT_CREATED"
+}

@@ -1,0 +1,9 @@
+{
+  "anchors_expected": 35,
+  "anchors_located": 35,
+  "anchors_missing": [],
+  "replay_failures": [],
+  "arithmetic_failures": [
+    "CHK-004-CONSORT-TEXT-LAYER"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "relations": [
+    {
+      "relation_id": "REL-004-033",
+      "type": "NOT_ELIGIBLE_FOR_JOINT_SYNTHESIS",
+      "members": [
+        "CAND-G100-004",
+        "CAND-G100-033"
+      ],
+      "reason": "Different designs, populations, exposures, and estimands."
+    }
+  ],
+  "dependencies": [
+    {
+      "dependency_id": "DEP-004-REGISTRY",
+      "study_identity_id": "STUDY-CHICTR2000029797",
+      "depends_on": "ChiCTR2000029797",
+      "fact_anchor": "A-004-REGISTRY"
+    },
+    {
+      "dependency_id": "DEP-033-UKB",
+      "study_identity_id": "STUDY-UKB-APP-29239",
+      "depends_on": "UK Biobank Application Number 29239",
+      "fact_anchor": "A-033-APP",
+      "reuse_risk": "SAME_COHORT_MAY_APPEAR_IN_OTHER_PAPERS"
+    }
+  ]
+}

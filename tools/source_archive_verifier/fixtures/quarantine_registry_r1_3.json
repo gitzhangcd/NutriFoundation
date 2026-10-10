@@ -1,0 +1,49 @@
+{
+  "registry_id": "G1S-KNOWN-ANOMALY-REGISTRY-R1.3",
+  "manifest_file": "Archived_Papers_133_Manifest.json",
+  "manifest_revision": "b16c4a27ef7149f5007ed1a43564cf7bac832094e156e9852f3a58b2d27e1d7d",
+  "binding_rule": "administrative_hold is true only when source_id, expected_asset_sha256, and manifest_revision all match the observed asset. A replacement PDF must not inherit a historical hold.",
+  "legacy_issue_derived": true,
+  "entries": [
+    {
+      "source_id": "CAND-G100-010",
+      "expected_asset_sha256": "ceea04ce1a7c13a95a170f3548ed3926ad6dd49599bd730fb58bc9c02711d16e",
+      "manifest_revision": "b16c4a27ef7149f5007ed1a43564cf7bac832094e156e9852f3a58b2d27e1d7d",
+      "administrative_hold": true,
+      "hold_code": "LEGACY_ASSET_REVIEW_010",
+      "legacy_note": "Historical issue: declared bibliographic target disagreed with the archived file. This note is not a content measurement."
+    },
+    {
+      "source_id": "CAND-G100-019",
+      "expected_asset_sha256": "03677eecc51719f2f61fccca2464f3b20e47cbfa9ffabde3638b5d6c2ee308ee",
+      "manifest_revision": "b16c4a27ef7149f5007ed1a43564cf7bac832094e156e9852f3a58b2d27e1d7d",
+      "administrative_hold": true,
+      "hold_code": "LEGACY_ASSET_REVIEW_019",
+      "legacy_note": "Historical issue carried forward. Content identity is evaluated separately from this hold."
+    },
+    {
+      "source_id": "CAND-G100-014",
+      "expected_asset_sha256": "7c8c027911342959b137788c4efff119663a75d47a423d139bf82fb44dc8da0c",
+      "manifest_revision": "b16c4a27ef7149f5007ed1a43564cf7bac832094e156e9852f3a58b2d27e1d7d",
+      "administrative_hold": true,
+      "hold_code": "LEGACY_COMPLETENESS_REVIEW_014",
+      "legacy_note": "Historical completeness concern. Not re-measured as a new methodological adjudication in R1.3."
+    },
+    {
+      "source_id": "CAND-G100-020",
+      "expected_asset_sha256": "47b11aac25140e30728ba265d3dd3f27a56c2d756bcf1942aad5d0a0466381fe",
+      "manifest_revision": "b16c4a27ef7149f5007ed1a43564cf7bac832094e156e9852f3a58b2d27e1d7d",
+      "administrative_hold": true,
+      "hold_code": "LEGACY_VERSION_REVIEW_020",
+      "legacy_note": "Historical version-identity concern bound to the archived hash."
+    },
+    {
+      "source_id": "SUPP-G1-017",
+      "expected_asset_sha256": "4aab4a5964d1720cca6aa33a82e4e87889b916d7f9ab8d9a849acb0b48948c38",
+      "manifest_revision": "b16c4a27ef7149f5007ed1a43564cf7bac832094e156e9852f3a58b2d27e1d7d",
+      "administrative_hold": true,
+      "hold_code": "LEGACY_ASSET_REVIEW_SUPP017",
+      "legacy_note": "Historical asset disagreement bound to the archived hash."
+    }
+  ]
+}

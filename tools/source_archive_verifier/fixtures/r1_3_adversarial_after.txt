@@ -1,0 +1,40 @@
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+test_corrupted_pdf_handling (tools.source_archive_verifier.test_r1_replay.TestR1_2_CanonicalValidator.test_corrupted_pdf_handling)
+测试语法错误损坏 PDF 的容错处理 ... ok
+test_nc01_doi_in_references_only (tools.source_archive_verifier.test_r1_replay.TestR1_2_CanonicalValidator.test_nc01_doi_in_references_only)
+NC-01: 第一页为无关论文，仅在末尾参考文献引用了目标 DOI -> 生产必须 HOLD ... ok
+test_nc02_dispersed_keywords_rejected (tools.source_archive_verifier.test_r1_replay.TestR1_2_CanonicalValidator.test_nc02_dispersed_keywords_rejected)
+NC-02: 术语表中分散包含目标标题的单词，无连贯标题短语 -> 生产必须 HOLD ... ok
+test_nc03_cand090_wrong_pdf_rejected (tools.source_archive_verifier.test_r1_replay.TestR1_2_CanonicalValidator.test_nc03_cand090_wrong_pdf_rejected)
+NC-03: 给 CAND-G100-090 提供无关 PDF，验证是否取消了代码硬编码放行 -> 生产必须 HOLD ... ok
+test_nc04_true_positive_grounded (tools.source_archive_verifier.test_r1_replay.TestR1_2_CanonicalValidator.test_nc04_true_positive_grounded)
+NC-04: 真实题录与正文头部连续标题和 DOI 协同吻合 -> 生产允许 CONFIRMED ... ok
+test_nc05_doi_title_conflict_rejected (tools.source_archive_verifier.test_r1_replay.TestR1_2_CanonicalValidator.test_nc05_doi_title_conflict_rejected)
+NC-05: PDF 真实 DOI 属于文章 A，而预期标题属于文章 B -> 生产必须 HOLD ... ok
+test_nc06_no_doi_valid_source_grounded (tools.source_archive_verifier.test_r1_replay.TestR1_2_CanonicalValidator.test_nc06_no_doi_valid_source_grounded)
+NC-06: 缺少 DOI 但在首页具有 100% 连续标题短语和明确元数据 -> 生产允许 CONFIRMED ... ok
+test_normalization_helpers (tools.source_archive_verifier.test_r1_replay.TestR1_2_CanonicalValidator.test_normalization_helpers)
+测试文本与标题标准化函数鲁棒性 ... ok
+test_sha256_calculation (tools.source_archive_verifier.test_r1_replay.TestR1_2_CanonicalValidator.test_sha256_calculation)
+测试流式 SHA256 计算精准性 ... ok
+test_at01_references_contain_full_title_and_doi (tools.source_archive_verifier.test_r1_replay.TestR1_3_AdversarialMechanisms.test_at01_references_contain_full_title_and_doi) ... ok
+test_at02_prefix_six_words_divergent_title (tools.source_archive_verifier.test_r1_replay.TestR1_3_AdversarialMechanisms.test_at02_prefix_six_words_divergent_title) ... ok
+test_at03_correct_pdf_not_mismatched_by_source_id (tools.source_archive_verifier.test_r1_replay.TestR1_3_AdversarialMechanisms.test_at03_correct_pdf_not_mismatched_by_source_id) ... ok
+test_at04_known_hold_source_id_uses_file_content (tools.source_archive_verifier.test_r1_replay.TestR1_3_AdversarialMechanisms.test_at04_known_hold_source_id_uses_file_content) ... ok
+test_at05_same_page_references_title_and_doi (tools.source_archive_verifier.test_r1_replay.TestR1_3_AdversarialMechanisms.test_at05_same_page_references_title_and_doi) ... ok
+test_at06_front_matter_full_title_and_doi (tools.source_archive_verifier.test_r1_replay.TestR1_3_AdversarialMechanisms.test_at06_front_matter_full_title_and_doi) ... ok
+test_at07_no_doi_guideline_secondary_credentials (tools.source_archive_verifier.test_r1_replay.TestR1_3_AdversarialMechanisms.test_at07_no_doi_guideline_secondary_credentials) ... ok
+test_at08_cover_doi_conflicts_with_expected (tools.source_archive_verifier.test_r1_replay.TestR1_3_AdversarialMechanisms.test_at08_cover_doi_conflicts_with_expected) ... ok
+test_at09_channel_string_without_download_log_is_not_verified (tools.source_archive_verifier.test_r1_replay.TestR1_3_AdversarialMechanisms.test_at09_channel_string_without_download_log_is_not_verified) ... ok
+test_at10_truncated_or_cover_only_is_not_complete (tools.source_archive_verifier.test_r1_replay.TestR1_3_AdversarialMechanisms.test_at10_truncated_or_cover_only_is_not_complete) ... ok
+test_at11_anchor_round_trip_and_mutation (tools.source_archive_verifier.test_r1_replay.TestR1_3_AdversarialMechanisms.test_at11_anchor_round_trip_and_mutation) ... ok
+test_body_citation_of_full_title_is_not_confirmed (tools.source_archive_verifier.test_r1_replay.TestR1_3_AdversarialMechanisms.test_body_citation_of_full_title_is_not_confirmed) ... ok
+test_g0_duplicate_doi_with_relationship_is_not_unconditional_failure (tools.source_archive_verifier.test_r1_replay.TestR1_3_AdversarialMechanisms.test_g0_duplicate_doi_with_relationship_is_not_unconditional_failure) ... ok
+test_g0_duplicate_doi_without_relationship_holds (tools.source_archive_verifier.test_r1_replay.TestR1_3_AdversarialMechanisms.test_g0_duplicate_doi_without_relationship_holds) ... ok
+test_source_id_does_not_decide_verdict (tools.source_archive_verifier.test_r1_replay.TestR1_3_AdversarialMechanisms.test_source_id_does_not_decide_verdict) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.133s
+
+OK
+EXIT:0

@@ -1,0 +1,37 @@
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+test_editorial_citation_is_not_article_identity (tools.source_archive_verifier.test_r1_3_1_article_identity.ArticleIdentityBoundaryTests.test_editorial_citation_is_not_article_identity) ... FAIL
+test_title_and_doi_on_different_pages_are_not_same_identity_block (tools.source_archive_verifier.test_r1_3_1_article_identity.ArticleIdentityBoundaryTests.test_title_and_doi_on_different_pages_are_not_same_identity_block) ... FAIL
+test_toc_listing_is_not_article_identity (tools.source_archive_verifier.test_r1_3_1_article_identity.ArticleIdentityBoundaryTests.test_toc_listing_is_not_article_identity) ... FAIL
+
+======================================================================
+FAIL: test_editorial_citation_is_not_article_identity (tools.source_archive_verifier.test_r1_3_1_article_identity.ArticleIdentityBoundaryTests.test_editorial_citation_is_not_article_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/zhangcd/Codes/NutriFoundation/tools/source_archive_verifier/test_r1_3_1_article_identity.py", line 61, in test_editorial_citation_is_not_article_identity
+    self.assertNotEqual(res["identity_verdict"], "CONFIRMED", res)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'CONFIRMED' == 'CONFIRMED' : {'identity_verdict': 'CONFIRMED', 'observed_identity_verdict': 'CONFIRMED', 'administrative_hold': {'active': False, 'reason': 'CONTENT_EVALUATOR_DOES_NOT_APPLY_SOURCE_ID_HOLD', 'source_id': None, 'expected_asset_sha256': None, 'manifest_revision': None, 'legacy_issue_derived': False}, 'identity_status': 'CONFIRMED_TITLE_AND_DOI_GROUNDED', 'match_rule': 'FULL_TITLE_AND_DOI_IN_ARTICLE_IDENTITY_REGION', 'proof_anchor': {'page': 1, 'literal_text': 'Dietary Patterns and Risk of Cardiovascular Disease in Older Adults', 'char_span': [98, 165], 'bbox': [40.0, 89.32, 311.09, 101.69], 'region': 'FRONT_MATTER', 'extraction_method': 'PYMUPDF_GET_TEXT_CHAR_SPAN_WITH_NORM_MAP'}, 'confidence': 1.0, 'anchor_page': 1, 'literal_text': 'Dietary Patterns and Risk of Cardiovascular Disease in Older Adults', 'conflict_features': [], 'reason': 'Full title and expected DOI are both in the article-identity region.', 'policy_id': None, 'secondary_credentials': []}
+
+======================================================================
+FAIL: test_title_and_doi_on_different_pages_are_not_same_identity_block (tools.source_archive_verifier.test_r1_3_1_article_identity.ArticleIdentityBoundaryTests.test_title_and_doi_on_different_pages_are_not_same_identity_block)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/zhangcd/Codes/NutriFoundation/tools/source_archive_verifier/test_r1_3_1_article_identity.py", line 68, in test_title_and_doi_on_different_pages_are_not_same_identity_block
+    self.assertNotEqual(res["identity_verdict"], "CONFIRMED", res)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'CONFIRMED' == 'CONFIRMED' : {'identity_verdict': 'CONFIRMED', 'observed_identity_verdict': 'CONFIRMED', 'administrative_hold': {'active': False, 'reason': 'CONTENT_EVALUATOR_DOES_NOT_APPLY_SOURCE_ID_HOLD', 'source_id': None, 'expected_asset_sha256': None, 'manifest_revision': None, 'legacy_issue_derived': False}, 'identity_status': 'CONFIRMED_TITLE_AND_DOI_GROUNDED', 'match_rule': 'FULL_TITLE_AND_DOI_IN_ARTICLE_IDENTITY_REGION', 'proof_anchor': {'page': 1, 'literal_text': 'Dietary Patterns and Risk of Cardiovascular Disease in Older Adults', 'char_span': [17, 84], 'bbox': [40.0, 72.32, 311.09, 84.69], 'region': 'FRONT_MATTER', 'extraction_method': 'PYMUPDF_GET_TEXT_CHAR_SPAN_WITH_NORM_MAP'}, 'confidence': 1.0, 'anchor_page': 1, 'literal_text': 'Dietary Patterns and Risk of Cardiovascular Disease in Older Adults', 'conflict_features': [], 'reason': 'Full title and expected DOI are both in the article-identity region.', 'policy_id': None, 'secondary_credentials': []}
+
+======================================================================
+FAIL: test_toc_listing_is_not_article_identity (tools.source_archive_verifier.test_r1_3_1_article_identity.ArticleIdentityBoundaryTests.test_toc_listing_is_not_article_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/zhangcd/Codes/NutriFoundation/tools/source_archive_verifier/test_r1_3_1_article_identity.py", line 52, in test_toc_listing_is_not_article_identity
+    self.assertNotEqual(res["identity_verdict"], "CONFIRMED", res)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'CONFIRMED' == 'CONFIRMED' : {'identity_verdict': 'CONFIRMED', 'observed_identity_verdict': 'CONFIRMED', 'administrative_hold': {'active': False, 'reason': 'CONTENT_EVALUATOR_DOES_NOT_APPLY_SOURCE_ID_HOLD', 'source_id': None, 'expected_asset_sha256': None, 'manifest_revision': None, 'legacy_issue_derived': False}, 'identity_status': 'CONFIRMED_TITLE_AND_DOI_GROUNDED', 'match_rule': 'FULL_TITLE_AND_DOI_IN_ARTICLE_IDENTITY_REGION', 'proof_anchor': {'page': 1, 'literal_text': 'Dietary Patterns and Risk of Cardiovascular Disease in Older Adults', 'char_span': [77, 144], 'bbox': [77.51, 106.32, 348.6, 118.69], 'region': 'FRONT_MATTER', 'extraction_method': 'PYMUPDF_GET_TEXT_CHAR_SPAN_WITH_NORM_MAP'}, 'confidence': 1.0, 'anchor_page': 1, 'literal_text': 'Dietary Patterns and Risk of Cardiovascular Disease in Older Adults', 'conflict_features': [], 'reason': 'Full title and expected DOI are both in the article-identity region.', 'policy_id': None, 'secondary_credentials': []}
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.048s
+
+FAILED (failures=3)
+EXIT:1

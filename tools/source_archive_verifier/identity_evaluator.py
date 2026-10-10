@@ -148,7 +148,12 @@ def _result(
     source_id: str | None,
     policy_id: str | None = None,
     secondary_credentials: list | None = None,
+    title_anchor: dict | None = None,
+    doi_anchor: dict | None = None,
+    alternative_credential_anchors: list | None = None,
+    identity_block: dict | None = None,
 ) -> dict:
+    block = identity_block or {}
     return {
         "identity_verdict": verdict,
         "observed_identity_verdict": verdict,
@@ -156,6 +161,12 @@ def _result(
         "identity_status": status,
         "match_rule": rule,
         "proof_anchor": anchor,
+        "title_anchor": title_anchor,
+        "doi_anchor": doi_anchor,
+        "alternative_credential_anchors": alternative_credential_anchors or [],
+        "article_identity_block_id": block.get("id"),
+        "article_identity_block_page": block.get("page"),
+        "article_identity_block_reason": block.get("reason"),
         "confidence": confidence,
         "anchor_page": anchor["page"],
         "literal_text": anchor["literal_text"],
@@ -358,6 +369,248 @@ def _window_ratio(front_norm: str, expected: str) -> float:
     return best
 
 
+TOC_ROLE_RE = re.compile(r"table of contents|journal contents|^contents\s*:?\s*$", re.I | re.M)
+ARTICLE_ITEM_RE = re.compile(r"^article\s+\d+\s*:", re.I | re.M)
+EDITORIAL_HEAD_RE = re.compile(r"^editorial\b", re.I | re.M)
+EDITORIAL_CITE_RE = re.compile(r"in this issue we discuss|following paper|this editorial discusses", re.I)
+MAX_IDENTITY_BLOCK_GAP = 6000
+
+
+def _front_identity_blocks(pages: list[dict]) -> list[dict]:
+    blocks = []
+    serial = 0
+    for page in pages:
+        for segment in page["segments"]:
+            if segment["region"] != "FRONT_MATTER" or not segment["raw"].strip():
+                continue
+            raw = segment["raw"]
+            if TOC_ROLE_RE.search(raw) or ARTICLE_ITEM_RE.search(raw):
+                role = "TOC_LISTING"
+                reason = "Contents listing or numbered article entry is not this PDF's own article identity block."
+            elif EDITORIAL_HEAD_RE.search(raw) and EDITORIAL_CITE_RE.search(raw):
+                role = "EDITORIAL_CITATION"
+                reason = "An editorial citation of another paper is not that paper's article identity block."
+            else:
+                role = "CANDIDATE_ARTICLE_IDENTITY"
+                reason = "Single-page front matter without a contents list or editorial-citation frame."
+            blocks.append({
+                "id": f"AIB-p{page['page']}-{serial}",
+                "page": page["page"],
+                "start": segment["start"],
+                "raw": raw,
+                "role": role,
+                "reason": reason,
+                "page_obj": page["page_obj"],
+                "page_raw": page["raw"],
+            })
+            serial += 1
+    return blocks
+
+
+def _block_anchor(block: dict, local_start: int, local_end: int) -> dict:
+    start = block["start"] + local_start
+    end = block["start"] + local_end
+    literal = block["page_raw"][start:end]
+    return _anchor(
+        block["page"], literal, [start, end],
+        _bbox_for(block["page_obj"], literal),
+        "FRONT_MATTER",
+        "PYMUPDF_GET_TEXT_CHAR_SPAN_WITH_NORM_MAP",
+    )
+
+
+def _title_hit(block: dict, title_norm: str):
+    located = _locate(block["raw"], title_norm)
+    if not located:
+        return None
+    anchor = _block_anchor(block, located["char_span"][0], located["char_span"][1])
+    return anchor, located
+
+
+def _expected_doi_hit(block: dict, doi_expected: str):
+    if not doi_expected:
+        return None
+    for match in DOI_RE.finditer(block["raw"]):
+        if match.group(0).rstrip(".;,").lower() == doi_expected:
+            return _block_anchor(block, match.start(), match.end()), match
+    return None
+
+
+def _foreign_doi_hit(block: dict, doi_expected: str):
+    for match in DOI_RE.finditer(block["raw"]):
+        found = match.group(0).rstrip(".;,").lower()
+        if doi_expected and found == doi_expected:
+            continue
+        return _block_anchor(block, match.start(), match.end()), found
+    return None
+
+
+def _credential_anchors(block: dict, names: list[str], pmid: str, publisher: str, date: str) -> list[dict]:
+    anchors = []
+    raw = block["raw"]
+    probes: list[tuple[str, str]] = []
+    if "PMID" in names and pmid:
+        probes.append(("PMID", pmid))
+    if "ISSUING_BODY" in names and publisher:
+        probes.append(("ISSUING_BODY", publisher))
+    if "PUBLICATION_YEAR" in names:
+        year = re.search(r"(?:19|20)\d{2}", date or "")
+        if year:
+            probes.append(("PUBLICATION_YEAR", year.group(0)))
+    if "VERSION" in names:
+        version = re.search(r"version\s*\d+(?:\.\d+)*", raw, re.I)
+        if version:
+            probes.append(("VERSION", version.group(0)))
+    for label, probe in probes:
+        index = raw.lower().find(probe.lower())
+        if index < 0:
+            continue
+        anchors.append({"credential": label, **_block_anchor(block, index, index + len(probe))})
+    if "ISSUING_BODY" in names and not any(item["credential"] == "ISSUING_BODY" for item in anchors):
+        normalized, indexes = normalize_with_map(raw)
+        for phrase in ISSUER_PHRASES:
+            position = normalized.find(phrase)
+            if position < 0:
+                continue
+            start = indexes[position]
+            end = indexes[position + len(phrase) - 1] + 1
+            anchors.append({"credential": "ISSUING_BODY", **_block_anchor(block, start, end)})
+            break
+    return anchors
+
+
+def _block_meta(block: dict) -> dict:
+    return {"id": block["id"], "page": block["page"], "reason": block["reason"]}
+
+
+def _article_identity_block_decision(
+    pages, title_norm, doi_expected, pmid, expected_journal, expected_date, expected_publisher, source_id,
+):
+    """Confirm only when title and DOI/credentials share one non-listing identity block."""
+    if not title_norm:
+        return None
+    blocks = _front_identity_blocks(pages)
+    candidates = []
+    disqualified = []
+    doi_elsewhere = []
+    for block in blocks:
+        title = _title_hit(block, title_norm)
+        doi = _expected_doi_hit(block, doi_expected)
+        if doi:
+            doi_elsewhere.append((block, doi[0]))
+        if not title:
+            continue
+        item = {"block": block, "title_anchor": title[0], "title_local": title[1], "doi_anchor": doi[0] if doi else None, "doi_match": doi[1] if doi else None}
+        if block["role"] == "CANDIDATE_ARTICLE_IDENTITY":
+            candidates.append(item)
+        else:
+            disqualified.append(item)
+
+    for item in candidates:
+        if not doi_expected or item["doi_anchor"] is None:
+            continue
+        gap = abs(item["title_local"]["char_span"][0] - item["doi_match"].start())
+        foreign = _foreign_doi_hit(item["block"], doi_expected)
+        meta = _block_meta(item["block"])
+        if foreign:
+            return _result(
+                "HOLD", "IDENTITY_BLOCK_DOI_AMBIGUOUS", "MULTIPLE_DOIS_IN_ONE_IDENTITY_BLOCK",
+                foreign[0], confidence=0.3,
+                conflict_features=[f"OTHER_DOI:{foreign[1]}", f"EXPECTED_DOI:{doi_expected}"],
+                reason="The identity block contains the expected DOI and a different DOI.",
+                source_id=source_id, title_anchor=item["title_anchor"], doi_anchor=item["doi_anchor"], identity_block=meta,
+            )
+        if gap > MAX_IDENTITY_BLOCK_GAP:
+            return _result(
+                "PROBABLE", "PROBABLE_IDENTITY_BLOCK_DISTANCE_UNCERTAIN", "TITLE_AND_DOI_TOO_FAR_WITHIN_PAGE",
+                item["title_anchor"], confidence=0.6, conflict_features=["IDENTITY_BLOCK_GAP_EXCEEDS_LIMIT"],
+                reason="Title and DOI are on one page but too far apart to treat as one article identity block.",
+                source_id=source_id, title_anchor=item["title_anchor"], doi_anchor=item["doi_anchor"], identity_block=meta,
+            )
+        meta = {**meta, "reason": f"Title and DOI share article identity block {item['block']['id']} on page {item['block']['page']}."}
+        return _result(
+            "CONFIRMED", "CONFIRMED_TITLE_AND_DOI_GROUNDED", "FULL_TITLE_AND_DOI_IN_ARTICLE_IDENTITY_REGION",
+            item["title_anchor"], confidence=1.0, conflict_features=[],
+            reason="Full title and expected DOI are inside the same article identity block.",
+            source_id=source_id, title_anchor=item["title_anchor"], doi_anchor=item["doi_anchor"], identity_block=meta,
+        )
+
+    for item in candidates:
+        if not doi_expected or item["doi_anchor"] is not None:
+            continue
+        foreign = _foreign_doi_hit(item["block"], doi_expected)
+        if not foreign:
+            continue
+        return _result(
+            "HOLD", "COVER_DOI_CONFLICT", "COVER_DOI_CONFLICTS_WITH_EXPECTED_DOI",
+            foreign[0], confidence=0.2,
+            conflict_features=[f"COVER_DOI:{foreign[1]}", f"EXPECTED_DOI:{doi_expected}"],
+            reason="The article identity block DOI disagrees with the expected DOI.",
+            source_id=source_id, title_anchor=item["title_anchor"], doi_anchor=foreign[0], identity_block=_block_meta(item["block"]),
+        )
+
+    if doi_expected and candidates and doi_elsewhere:
+        title_pages = {item["block"]["page"] for item in candidates}
+        if all(block["page"] not in title_pages for block, _anchor_obj in doi_elsewhere):
+            item = candidates[0]
+            return _result(
+                "HOLD", "TITLE_AND_DOI_NOT_IN_SAME_IDENTITY_BLOCK", "CROSS_PAGE_OR_CROSS_BLOCK_TITLE_DOI",
+                item["title_anchor"], confidence=0.2, conflict_features=["TITLE_AND_DOI_SEPARATED"],
+                reason="The title and DOI are not in the same article identity block.",
+                source_id=source_id, title_anchor=item["title_anchor"], doi_anchor=doi_elsewhere[0][1],
+                identity_block={"id": None, "page": None, "reason": "No single block contains both the title and the DOI."},
+            )
+
+    if disqualified and not candidates:
+        item = disqualified[0]
+        status = "TOC_LISTING_NOT_ARTICLE_IDENTITY" if item["block"]["role"] == "TOC_LISTING" else "EDITORIAL_CITATION_NOT_ARTICLE_IDENTITY"
+        return _result(
+            "HOLD", status, "DISQUALIFIED_FRONT_MATTER_NOT_ARTICLE_IDENTITY",
+            item["title_anchor"], confidence=0.15, conflict_features=[item["block"]["role"]],
+            reason=item["block"]["reason"], source_id=source_id,
+            title_anchor=item["title_anchor"], doi_anchor=item["doi_anchor"], identity_block=_block_meta(item["block"]),
+        )
+
+    if candidates and not doi_expected:
+        item = candidates[0]
+        block = item["block"]
+        if VERSION_UNRESOLVED_RE.search(block["raw"]):
+            return _result(
+                "HOLD", "VERSION_IDENTITY_UNRESOLVED", "VERSION_PHRASE_WITHOUT_PINNING_DOI",
+                item["title_anchor"], confidence=0.4, conflict_features=["VERSION_IDENTITY_UNRESOLVED"],
+                reason="The identity block marks an unsettled version and no DOI pins it.",
+                source_id=source_id, title_anchor=item["title_anchor"], identity_block=_block_meta(block),
+            )
+        block_norm = normalize_title_canonical(block["raw"])
+        credentials = _secondary_credentials(block["raw"], block_norm, pmid, expected_journal, expected_date, expected_publisher)
+        cred_anchors = _credential_anchors(block, credentials, pmid, expected_publisher, expected_date)
+        if len(credentials) >= 2 and len(cred_anchors) >= 2:
+            return _result(
+                "CONFIRMED", "CONFIRMED_TITLE_NO_DOI_REQUIRED", "NO_DOI_SECONDARY_CREDENTIAL_POLICY",
+                item["title_anchor"], confidence=0.95, conflict_features=[],
+                reason="No DOI is expected. The identity block contains the full title and two secondary credential anchors.",
+                source_id=source_id, policy_id=NO_DOI_POLICY_ID, secondary_credentials=credentials,
+                title_anchor=item["title_anchor"], alternative_credential_anchors=cred_anchors, identity_block=_block_meta(block),
+            )
+        return _result(
+            "PROBABLE", "PROBABLE_TITLE_WITHOUT_SECONDARY_CREDENTIALS", "TITLE_ONLY_IS_NOT_CONFIRMATION",
+            item["title_anchor"], confidence=0.7, conflict_features=["SECONDARY_CREDENTIALS_BELOW_POLICY"],
+            reason="The identity block has the full title but fewer than two anchored secondary credentials.",
+            source_id=source_id, policy_id=NO_DOI_POLICY_ID, secondary_credentials=credentials,
+            title_anchor=item["title_anchor"], alternative_credential_anchors=cred_anchors, identity_block=_block_meta(block),
+        )
+
+    if candidates and doi_expected:
+        item = candidates[0]
+        return _result(
+            "PROBABLE", "PROBABLE_TITLE_DOI_NOT_LOCATED", "FULL_TITLE_WITHOUT_FRONT_MATTER_DOI",
+            item["title_anchor"], confidence=0.75, conflict_features=["DOI_NOT_IN_ARTICLE_IDENTITY_BLOCK"],
+            reason="The article identity block has the full title, but the expected DOI is not in that block.",
+            source_id=source_id, title_anchor=item["title_anchor"], identity_block=_block_meta(item["block"]),
+        )
+    return None
+
+
 def evaluate_pdf_identity_canonical(
     pdf_path: Path,
     expected_title: str,
@@ -440,50 +693,11 @@ def _evaluate_open_document(doc, expected_title, expected_doi, expected_pmid, so
             source_id=source_id,
         )
 
-    if title_front and doi_expected and expected_front and not cover_conflict:
-        hit = title_front[0]
-        return _result(
-            "CONFIRMED", "CONFIRMED_TITLE_AND_DOI_GROUNDED", "FULL_TITLE_AND_DOI_IN_ARTICLE_IDENTITY_REGION",
-            pack(hit, "FRONT_MATTER"),
-            confidence=1.0, conflict_features=[],
-            reason="Full title and expected DOI are both in the article-identity region.",
-            source_id=source_id,
-        )
-
-    if title_front and not doi_expected:
-        if VERSION_UNRESOLVED_RE.search(front_raw):
-            return _result(
-                "HOLD", "VERSION_IDENTITY_UNRESOLVED", "VERSION_PHRASE_WITHOUT_PINNING_DOI",
-                pack(title_front[0], "FRONT_MATTER"),
-                confidence=0.4, conflict_features=["VERSION_IDENTITY_UNRESOLVED"],
-                reason="Front matter marks an unsettled version and no DOI pins it.",
-                source_id=source_id,
-            )
-        credentials = _secondary_credentials(front_raw, front_norm, pmid, expected_journal, expected_date, expected_publisher)
-        if len(credentials) >= 2:
-            return _result(
-                "CONFIRMED", "CONFIRMED_TITLE_NO_DOI_REQUIRED", "NO_DOI_SECONDARY_CREDENTIAL_POLICY",
-                pack(title_front[0], "FRONT_MATTER"),
-                confidence=0.95, conflict_features=[],
-                reason="No DOI is expected. Full title plus two secondary credentials support confirmation.",
-                source_id=source_id, policy_id=NO_DOI_POLICY_ID, secondary_credentials=credentials,
-            )
-        return _result(
-            "PROBABLE", "PROBABLE_TITLE_WITHOUT_SECONDARY_CREDENTIALS", "TITLE_ONLY_IS_NOT_CONFIRMATION",
-            pack(title_front[0], "FRONT_MATTER"),
-            confidence=0.7, conflict_features=["SECONDARY_CREDENTIALS_BELOW_POLICY"],
-            reason="Full title is present, but fewer than two secondary credentials were found.",
-            source_id=source_id, policy_id=NO_DOI_POLICY_ID, secondary_credentials=credentials,
-        )
-
-    if title_front and doi_expected and not expected_front:
-        return _result(
-            "PROBABLE", "PROBABLE_TITLE_DOI_NOT_LOCATED", "FULL_TITLE_WITHOUT_FRONT_MATTER_DOI",
-            pack(title_front[0], "FRONT_MATTER"),
-            confidence=0.75, conflict_features=["DOI_NOT_IN_ARTICLE_IDENTITY_REGION"],
-            reason="Full title is in front matter, but the expected DOI was not located there.",
-            source_id=source_id,
-        )
+    block_decision = _article_identity_block_decision(
+        pages, title_norm, doi_expected, pmid, expected_journal, expected_date, expected_publisher, source_id,
+    )
+    if block_decision is not None:
+        return block_decision
 
     if (title_refs or expected_refs) and not title_front:
         hit = title_refs[0] if title_refs else expected_refs[0]
@@ -734,11 +948,12 @@ def evaluate_content_completeness(pdf_path: Path) -> dict:
                     break
         if has_references:
             return {
-                "content_completeness": "COMPLETE",
-                "completeness_scope": "BODY_THROUGH_BIBLIOGRAPHY_TABLES_AND_APPENDICES_NOT_ASSESSED",
-                "evidence": "A references heading was observed and no truncation or missing-page signal was found. Tables and appendices were not assessed.",
-                "triggered_rules": ["REFERENCES_HEADING_OBSERVED", "SUPPLEMENTS_NOT_ASSESSED"],
+                "content_completeness": "PARTIAL_COMPLETENESS_EVIDENCE",
+                "completeness_scope": "BODY_BIBLIOGRAPHY_OBSERVED",
+                "evidence": "A references heading was observed. This is a limited body/bibliography coverage signal. It does not verify every page, tables, or supplements.",
+                "triggered_rules": ["REFERENCES_HEADING_OBSERVED", "NOT_FULL_TEXT_TABLES_OR_SUPPLEMENTS"],
                 "page_count": page_count,
+                "legacy_r1_3_label": "The R1.3 run stored this pattern as COMPLETE. That label is retained only as history and is not reused.",
             }
         return {
             "content_completeness": "NOT_ASSESSED",

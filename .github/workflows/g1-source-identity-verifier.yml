@@ -1,0 +1,24 @@
+name: G1 source identity verifier
+
+on:
+  push:
+    paths:
+      - 'tools/source_archive_verifier/**'
+      - '.github/workflows/g1-source-identity-verifier.yml'
+  pull_request:
+    paths:
+      - 'tools/source_archive_verifier/**'
+      - '.github/workflows/g1-source-identity-verifier.yml'
+
+jobs:
+  verifier-unittest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install PDF libraries used by the production verifier
+        run: python -m pip install 'pymupdf>=1.24,<2' 'pypdf>=4'
+      - name: Run production identity unittest, including R1.3.1 adversarial cases
+        run: python -m unittest -v tools.source_archive_verifier.test_r1_replay tools.source_archive_verifier.test_r1_3_1_article_identity

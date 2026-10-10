@@ -1,0 +1,59 @@
+{
+  "run_id": "G1S-133-R1-2-VALIDATOR-REQUALIFICATION-20261010T070815Z",
+  "rule_version": "v1.2-canonical-multidimensional",
+  "generated_at_utc": "2026-10-10T07:08:15.405872+00:00",
+  "metrics": {
+    "total_source_artifacts": 133,
+    "g1_sha256_pass": 133,
+    "g2_container_pass": 133,
+    "g3_confirmed": 127,
+    "g3_probable": 0,
+    "g3_hold": 3,
+    "g3_mismatch": 3,
+    "g4_provenance_verified": 16,
+    "g4_provenance_unverified": 117,
+    "g4_rights_verified": 0,
+    "g4_rights_unverified": 133,
+    "g5_study_type_quarantined": 18,
+    "negative_control_passed": 6,
+    "negative_control_total": 6,
+    "human_review_completed": 0,
+    "human_review_pending": 34
+  },
+  "gate_reasoned_verdicts": {
+    "G0_MANIFEST_INTEGRITY": {
+      "verdict": "PASS",
+      "reason": "133 篇 Manifest 记录 SourceID、PMID、DOI 零重复，哈希基线固化。"
+    },
+    "G1_BYTE_LEVEL_SHA256": {
+      "verdict": "PASS",
+      "reason": "本机 133 篇真实 PDF 流式分块计算哈希与 Manifest 声明值 100% 吻合 (133/133)。"
+    },
+    "G2_CONTAINER_READABILITY": {
+      "verdict": "PASS",
+      "reason": "PyMuPDF 与 pypdf 双解析器交叉核验且首中末页渲染 100% 成功 (133/133)。"
+    },
+    "G3_DOCUMENT_IDENTITY": {
+      "verdict": "HOLD",
+      "reason": "规范核验器实测: CONFIRMED=127, PROBABLE=0, HOLD=3, MISMATCH=3。存在重大资产错配与手稿版本待审，未达全量通过。"
+    },
+    "G4_ACQUISITION_PROVENANCE": {
+      "verdict": "HOLD",
+      "reason": "仅官方闭环渠道具完整谱系 (16 篇)，117 篇保持 UNVERIFIED。"
+    },
+    "G4_REDISTRIBUTION_RIGHTS": {
+      "verdict": "HOLD",
+      "reason": "除两篇政府公有领域文档外，其余 133 篇缺乏逐篇再分发许可证据，严格限制为私有内部科研使用。"
+    },
+    "G5_STUDY_TYPE_QUALIFICATION": {
+      "verdict": "HOLD",
+      "reason": "18 篇已知研究设计冲突全数转入方法学隔离队列，全量 133 篇均保持 PROVISIONAL，未授予 Scientific Gold。"
+    },
+    "HUMAN_REVIEW_DISPOSITION": {
+      "verdict": "PENDING",
+      "reason": "真实记录：当前 0 篇有人类临床专家正式签名完成，全部 34 篇处于 PENDING。"
+    }
+  },
+  "overall_audit_disposition": "HOLD_WITH_EXCEPTIONS",
+  "scientific_gold_status": "NOT_GRANTED_BY_THIS_AUDIT"
+}

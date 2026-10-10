@@ -1,0 +1,12 @@
+issue_code,severity,finding_summary,remedy_implemented,test_fixture_id,status
+RA-01,CRITICAL,生产 G3 可将引用中目标 DOI 误判为目标文献 (DOI in references),在 evaluate_pdf_identity_canonical 中增加了参考文献区域上下文识别，并强制要求 DOI 必须协同正文标题连续性；仅引用 DOI 且标题不符者坚决返回 HOLD (DOI_IN_REFERENCES_ONLY)。,NC-01,RESOLVED_IN_R1_2
+RA-02,CRITICAL,仅有分散标题词也能被判 CONFIRMED (Glossary keyword dispersion),将简单的词袋计数彻底升级为连续核心短语匹配 (Phrase match) 与滑动窗口局部相似度序列比对；离散关键词直接返回 HOLD (DISPERSED_KEYWORDS_REJECTED)。,NC-02,RESOLVED_IN_R1_2
+RA-03,CRITICAL,CAND-G100-090 的结果存在特例分支硬编码，不重新核对正文,彻底移除针对 source_id == 'CAND-G100-090' 的特例硬编码；所有文献一视同仁走通用评定管道；当该文献 PDF 被换成无关文件时，严格返回 HOLD。,NC-03,RESOLVED_IN_R1_2
+RA-04,HIGH,原有 8 个单元测试与生产判断函数不一致 (测试使用单独辅助函数),重构单一共享身份核验函数 evaluate_pdf_identity_canonical；生产循环与单元测试 100% 共享调用同一套代码。,NC-01 ~ NC-06,RESOLVED_IN_R1_2
+RA-05,HIGH,G0 与若干 Gate 裁决不是全部数据驱动，包含固定文本,所有 Gate 判定与指标统计 100% 由底层明细记录数据动态实时计算，消除任何固定文字掩盖。,10_gate_reasoned_verdicts.json,RESOLVED_IN_R1_2
+RA-06,HIGH,Provenance 的 69 True 未形成充分独立的获取链认证,解耦格式特征 (format_detected) 与获取链证明 (acquisition_provenance)；明确标注 PDF 创建工具本身不构成下载证明，未闭环渠道严格设为 UNVERIFIED。,06_G4_acquisition_provenance_evidence.csv,RESOLVED_IN_R1_2
+RA-07,HIGH,两条政府文档版权状态与错配 SourceID 绑定 (错配资产公有领域不可继承),严格解除许可继承：明确 CAND-010 和 CAND-019 目标 JAMA 学术文献仍为商业受限/未验证，严禁公有领域许可跨越文献主体传播。,07_G4_rights_asset_identity_mapping.csv,RESOLVED_IN_R1_2
+RA-08,HIGH,当前 ZIP 不具备跨机器的完整 133-PDF 独立重放条件,在元数据中明确声明：本 ZIP 为审计证据包 (不含受限 PDF 二进制)，完整重放需依赖本地 Vault PDF 原件；包内完整附带生产引擎与测试套件源码。,00_environment_and_git_state.json,RESOLVED_IN_R1_2
+RA-09,MEDIUM,30 项旧 Issue 的一揽子关闭记录不等于逐项验收,本次 R1.2 不搞一揽子模糊关闭，而是建立具有可测试 Fixture 与代码落地的 RA-01 ~ RA-11 逐项处置表。,11_issues_RA01_to_RA11_disposition.csv,RESOLVED_IN_R1_2
+RA-10,MEDIUM,历史不可变性只得到当前快照级佐证,在 01 清单中记录了原始 Manifest、旧 R1 与 R1.1 的 SHA256 基线，并在 Git 分支提交中建立历史审计追踪。,01_original_inputs_sha256_manifest.json,RESOLVED_IN_R1_2
+RA-11,MEDIUM,PDF 可解析不等于正文完整可用于科学抽取,在 03 明细中新增独立的 content_completeness 字段 (COMPLETE / PARTIAL)，与身份判定解耦，单列 CAND-014 等表单清单缺陷。,03_G3_identity_requalification_133.jsonl,RESOLVED_IN_R1_2

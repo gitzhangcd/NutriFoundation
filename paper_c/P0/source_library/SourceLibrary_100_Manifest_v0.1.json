@@ -5,7 +5,7 @@
   "source_branch": "research/g1-shared-source-library-20261010",
   "source_catalog_lineage": "paper_c/P0/candidate_pool/Gold100_Exploratory_Candidate_Registry_100.json",
   "rights_lineage": "paper_c/P0/G1_Shared_P0_1_Rights_and_Acquisition_Screen_v0.1.json",
-  "status": "BIBLIOGRAPHY_COMPLETE_SOURCE_FILE_ARCHIVAL_INCOMPLETE",
+  "status": "97_USER_REPORTED_LOCAL_PDF_FILES; BIBLIOGRAPHY_COMPLETE; ORIGINAL_FORMAT_NOT_INDEPENDENTLY_VERIFIED",
   "contract": "AUTHORITATIVE_ORIGINAL_SOURCES_ONLY; NO WORKBENCH UI OR ANNOTATION PROCESSING",
   "precautions": [
     "A PubMed record is not an archived PDF",
@@ -13,7 +13,9 @@
     "A PMC body projection is derivative markdown, not publisher native PDF/HTML",
     "Original-only file snapshots require authoritative bytes, rights and SHA256",
     "Private restricted material must remain in access-controlled storage, never public GitHub",
-    "Do not equate these exploratory 100 sources with Paper C confirmatory Gold100"
+    "Do not equate these exploratory 100 sources with Paper C confirmatory Gold100",
+    "97 PDFs are recorded as user-attested local files in Local_97_PDF_Archive_Receipts_Attested_v0.1.json; no PDF bytes were supplied to the assistant for independent SHA256 checking",
+    "The original_pdfs_archived=0 metric continues to mean assistant-verified accessible original PDF binaries; user-reported local files are counted separately"
   ],
   "counts": {
     "candidate_source_count": 100,
@@ -25,7 +27,11 @@
     "original_html_archived": 0,
     "original_jats_archived": 0,
     "derived_markdown_archived": 3,
-    "supplementary_files_verified": 0
+    "supplementary_files_verified": 0,
+    "user_reported_local_pdf_files": 97,
+    "user_reported_local_pdf_size_bytes": 197481888,
+    "independently_rehashed_local_pdfs_by_assistant": 0,
+    "unavailable_or_unreported_pdfs": 3
   },
   "records": [
     {
@@ -61,15 +67,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-001_39348690.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-001/originals/source.pdf",
+          "reported_file_size_bytes": 572111,
+          "reported_sha256": "095806bb51bde787a0b89a4aefc6bd828ff9a9a874801e2273e6809c0522d70b",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -161,15 +177,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-002_32986097.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-002/originals/source.pdf",
+          "reported_file_size_bytes": 1722075,
+          "reported_sha256": "888c01a6326f660415f18882e1c7499f607a8a8510c32bc6ddef1e4a79cb8cd2",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -261,15 +287,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-003_36220069.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-003/originals/source.pdf",
+          "reported_file_size_bytes": 1674265,
+          "reported_sha256": "c5b7c1848957f335bd2ce777b62ef00edd7c7cec78f955dec4677044321b53db",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -361,15 +397,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-004_35194047.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-004/originals/source.pdf",
+          "reported_file_size_bytes": 946747,
+          "reported_sha256": "b505d4afae1ab346a7d9d411dedbb81312ab9a66cb1e3d1bcb500bc8fbc6cfcf",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -463,15 +509,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-005_37889487.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-005/originals/source.pdf",
+          "reported_file_size_bytes": 643076,
+          "reported_sha256": "79b2c57a4e16f7e5a3f2bb284ddcc82ed05dc1e816a3999bf5ee80b932137fc7",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -563,15 +619,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-006_38886740.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-006/originals/source.pdf",
+          "reported_file_size_bytes": 3029893,
+          "reported_sha256": "6a113a208dcf3bbf13990bf5cd0fd80118c381f16adece761e1a1c986c27bde5",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -663,15 +729,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-007_35525255.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-007/originals/source.pdf",
+          "reported_file_size_bytes": 948656,
+          "reported_sha256": "e1b83bbb248e467a865feac4f1882b06f59f5cf785abb576ab3566f67bcd3f44",
+          "reported_acquisition_channel": "AUTHENTICATED_CHROME_BROWSER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -763,7 +839,7 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "NOT_ARCHIVED_REPORTED",
           "original_uri": null,
           "artifact_repo_path": null,
           "private_vault_ref": null,
@@ -863,15 +939,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-009_34582545.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-009/originals/source.pdf",
+          "reported_file_size_bytes": 894601,
+          "reported_sha256": "ccd66db6d318177a57dbd21f72dd7bdfc1b983b6a82d47b860c316bdba47a57d",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -963,15 +1049,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-010_36287562.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-010/originals/source.pdf",
+          "reported_file_size_bytes": 32157287,
+          "reported_sha256": "ceea04ce1a7c13a95a170f3548ed3926ad6dd49599bd730fb58bc9c02711d16e",
+          "reported_acquisition_channel": "PMC_OFFICIAL_POW",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -1063,15 +1159,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-011_36156115.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-011/originals/source.pdf",
+          "reported_file_size_bytes": 1421093,
+          "reported_sha256": "b3918dd2b71011775cd5c5a53cf8b0174b4d4fb599952e2e2c51e89592b2bb4d",
+          "reported_acquisition_channel": "ZOTERO_NUTRITION_COLLECTION",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -1163,15 +1269,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-012_39054440.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-012/originals/source.pdf",
+          "reported_file_size_bytes": 921835,
+          "reported_sha256": "3eb64235faaf8459d2b0808756118a80988b024c5ceb4339a140e2f8489ab090",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -1263,15 +1379,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-013_37625311.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-013/originals/source.pdf",
+          "reported_file_size_bytes": 1010903,
+          "reported_sha256": "eabefbfaf086dd19feb44b1a925ceb96c9e3cb0b66a94c3910ee3aebfd03158f",
+          "reported_acquisition_channel": "AUTHENTICATED_CHROME_BROWSER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -1363,15 +1489,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-014_38578692.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-014/originals/source.pdf",
+          "reported_file_size_bytes": 3075005,
+          "reported_sha256": "7c8c027911342959b137788c4efff119663a75d47a423d139bf82fb44dc8da0c",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -1463,15 +1599,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-015_35641199.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-015/originals/source.pdf",
+          "reported_file_size_bytes": 1081877,
+          "reported_sha256": "59deecb6576b1228dba5eabf04eb8ec6152221ed166a97e89d1d3e2330bf6b3e",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -1563,15 +1709,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-016_34052278.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-016/originals/source.pdf",
+          "reported_file_size_bytes": 1751746,
+          "reported_sha256": "cef4174f9d4a40a99d0dda889c35b7f5e81429ea199d183909b2671c9d66f264",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -1663,15 +1819,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-017_40991259.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-017/originals/source.pdf",
+          "reported_file_size_bytes": 740521,
+          "reported_sha256": "0a36b0f64da35c35e02e9553ba408b12448270545563e904f4cac05dcb9c652f",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -1763,15 +1929,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-018_33461965.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-018/originals/source.pdf",
+          "reported_file_size_bytes": 2064278,
+          "reported_sha256": "b266b7ba056625432dba71282fb28ffe82f0b353002a0fe1179e768970f1bac9",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -1863,15 +2039,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-019_41144242.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-019/originals/source.pdf",
+          "reported_file_size_bytes": 1919488,
+          "reported_sha256": "03677eecc51719f2f61fccca2464f3b20e47cbfa9ffabde3638b5d6c2ee308ee",
+          "reported_acquisition_channel": "PMC_OFFICIAL_POW",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -1963,15 +2149,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-020_34531293.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-020/originals/source.pdf",
+          "reported_file_size_bytes": 1384777,
+          "reported_sha256": "47b11aac25140e30728ba265d3dd3f27a56c2d756bcf1942aad5d0a0466381fe",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -2063,15 +2259,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-021_35135549.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-021/originals/source.pdf",
+          "reported_file_size_bytes": 2903413,
+          "reported_sha256": "bc3b7c9c12f4db4f15373c1ca13374d26e5f6ab514109c8b6718f3d2fec5b457",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -2163,15 +2369,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-022_33564844.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-022/originals/source.pdf",
+          "reported_file_size_bytes": 1325024,
+          "reported_sha256": "d3711920789e5e523e26691fb5087a296b31626a61d4116647c4c7730856204a",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -2263,15 +2479,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-023_36437767.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-023/originals/source.pdf",
+          "reported_file_size_bytes": 744237,
+          "reported_sha256": "afc0a2add785819b32aff3f43b952391fa9113549e0a3f85f9e8b12edcab68ea",
+          "reported_acquisition_channel": "ZOTERO_NUTRITION_COLLECTION",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -2363,15 +2589,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-024_38762187.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-024/originals/source.pdf",
+          "reported_file_size_bytes": 2094976,
+          "reported_sha256": "caacf99068b97ddd68d380a6be70f3d266e861a032feaa8e66c1166d5c970371",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -2463,15 +2699,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-025_33655799.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-025/originals/source.pdf",
+          "reported_file_size_bytes": 802839,
+          "reported_sha256": "aa2a74d89f74632facca5bd18c858ed44dcde2f2c51053c15d3653e75cd23fe3",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -2563,15 +2809,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-026_34441942.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-026/originals/source.pdf",
+          "reported_file_size_bytes": 878899,
+          "reported_sha256": "0285fa2ffcdd77f1352aa4beb122d2891092f099664d15a5f3297726dced7256",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -2663,15 +2919,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-027_32090186.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-027/originals/source.pdf",
+          "reported_file_size_bytes": 834329,
+          "reported_sha256": "b3d5575d2d4168c561f8ae9b2b47c07d0a3c56278d72cc5d07a322ebed9afab4",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -2763,15 +3029,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-028_29948444.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-028/originals/source.pdf",
+          "reported_file_size_bytes": 1093649,
+          "reported_sha256": "434246b9a8120933b300552a9c398eec5365038576f98d16ea7dd7e32cc96db3",
+          "reported_acquisition_channel": "AUTHENTICATED_CHROME_BROWSER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -2863,15 +3139,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-029_31142457.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-029/originals/source.pdf",
+          "reported_file_size_bytes": 1500234,
+          "reported_sha256": "9b7a259a61226039ae37ce9b45fb390eb0d24262cfb08f4f202dd2e48d7c6245",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -2963,15 +3249,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-030_36854188.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-030/originals/source.pdf",
+          "reported_file_size_bytes": 1064867,
+          "reported_sha256": "6840bafa0be3d3e7855b1a57d713c7af2c95880cb02cdf19bf96fc07e1274dc4",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -3063,15 +3359,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-031_29444771.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-031/originals/source.pdf",
+          "reported_file_size_bytes": 931240,
+          "reported_sha256": "c88217dd793ba3a6c8e5588a8a7217cf5a98fa74bc64a5f897709252f3edad6a",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -3163,15 +3469,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-032_33388205.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-032/originals/source.pdf",
+          "reported_file_size_bytes": 486492,
+          "reported_sha256": "bee27967d16be9157a9cccea6fd1ca63b755ad551d7d4b94692ec0fa84d15a74",
+          "reported_acquisition_channel": "AUTHENTICATED_CHROME_BROWSER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -3263,15 +3579,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-033_33070213.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-033/originals/source.pdf",
+          "reported_file_size_bytes": 875051,
+          "reported_sha256": "f59dff457efa2e97ebe94e9ba7270dae8001807f87596cd07dba10a259c78ea2",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -3363,15 +3689,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-034_38309825.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-034/originals/source.pdf",
+          "reported_file_size_bytes": 1261358,
+          "reported_sha256": "6c67d1c256f09ebb52c14319a30c20a1dbc1a51c8b5375ba946aceee71331167",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -3463,15 +3799,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-035_40845421.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-035/originals/source.pdf",
+          "reported_file_size_bytes": 983687,
+          "reported_sha256": "cde6564d01caa2befcd58c123e78608fabde677b52932d7c6075627aea68e64d",
+          "reported_acquisition_channel": "AUTHENTICATED_CHROME_BROWSER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -3563,15 +3909,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-036_30517767.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-036/originals/source.pdf",
+          "reported_file_size_bytes": 131478,
+          "reported_sha256": "7f406ef8545b17339e52d470adef565e8745bc02e4dde26f3d5f522ba252290b",
+          "reported_acquisition_channel": "USER_MANUAL_DOWNLOAD",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -3663,15 +4019,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-037_35202009.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-037/originals/source.pdf",
+          "reported_file_size_bytes": 691847,
+          "reported_sha256": "851c1bfd79f0dd8cd76d9ddddc050e3c172fa9e91883645f5dd4de1eb0bacc12",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -3763,15 +4129,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-038_37251456.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-038/originals/source.pdf",
+          "reported_file_size_bytes": 1313582,
+          "reported_sha256": "f245e41d184220f36a0cdc36220bc38860cd4d7cde5469c35373ac4c93edb220",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -3863,15 +4239,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-039_40583481.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-039/originals/source.pdf",
+          "reported_file_size_bytes": 439799,
+          "reported_sha256": "a9c0ce9f6442419b7fca17605a3596fa552b5d35d3e9d454cd42832d72174c4c",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -3963,15 +4349,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-040_36988689.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-040/originals/source.pdf",
+          "reported_file_size_bytes": 1515711,
+          "reported_sha256": "3e46abfec2d6d3bf9ded91a572929a846c592a604d3581444cd52b3b33c2d86b",
+          "reported_acquisition_channel": "AUTHENTICATED_CHROME_BROWSER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -4063,15 +4459,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-041_31562419.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-041/originals/source.pdf",
+          "reported_file_size_bytes": 1220577,
+          "reported_sha256": "9e40d574434062ef41128216f33c583b9496ea68ea6f2098c014aa6c8be6cf2c",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -4163,15 +4569,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-042_38042409.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-042/originals/source.pdf",
+          "reported_file_size_bytes": 1891630,
+          "reported_sha256": "e53b6d6aeab6e96a1924c9a5890c0352a0aa72fdff088859c6c98df2feaab0be",
+          "reported_acquisition_channel": "USER_MANUAL_DOWNLOAD",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -4263,15 +4679,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-043_40845891.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-043/originals/source.pdf",
+          "reported_file_size_bytes": 458348,
+          "reported_sha256": "a72ea047042b8be2ae49e19c8e8f935d2994e449de5de018ee9c9f2792c4eca8",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -4363,15 +4789,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-044_32966976.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-044/originals/source.pdf",
+          "reported_file_size_bytes": 188206,
+          "reported_sha256": "5667dc110e843a4edb816a970fcd7b8d1774e565bdd5233c2a9058f826d505ff",
+          "reported_acquisition_channel": "USER_MANUAL_DOWNLOAD",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -4463,15 +4899,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-045_40879470.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-045/originals/source.pdf",
+          "reported_file_size_bytes": 1629736,
+          "reported_sha256": "9ff01f8066281167eda5a80064000cffdc0dc6c4bb0991607fe31af284083c1b",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -4563,15 +5009,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-046_36293616.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-046/originals/source.pdf",
+          "reported_file_size_bytes": 912287,
+          "reported_sha256": "fa7429b6d6bbe8ac2004251e7795047f40aecb396382bb8d2f0d7a232c6467a9",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -4663,15 +5119,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-047_32060194.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-047/originals/source.pdf",
+          "reported_file_size_bytes": 914712,
+          "reported_sha256": "f3015bd128863a65b48618e89ed390c3c7260acb3b98357affb051a60820d8f8",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -4763,15 +5229,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-048_40533200.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-048/originals/source.pdf",
+          "reported_file_size_bytes": 3011698,
+          "reported_sha256": "5bacc7b56870fd017bae3734ebc745383494e6ac758ba6e001b4c5831e060826",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -4863,15 +5339,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-049_38201996.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-049/originals/source.pdf",
+          "reported_file_size_bytes": 639508,
+          "reported_sha256": "85ded0e6d1fd1ad15fae998a9fb4c1f1fd14e8ede6854c1a8a826be5582948c8",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -4963,15 +5449,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-050_38956175.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-050/originals/source.pdf",
+          "reported_file_size_bytes": 1047234,
+          "reported_sha256": "1740149fa464a50a10a79758df442f01f7c55781e839342905f35910c5f10e1f",
+          "reported_acquisition_channel": "USER_MANUAL_DOWNLOAD",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -5063,15 +5559,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-051_32330233.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-051/originals/source.pdf",
+          "reported_file_size_bytes": 1078583,
+          "reported_sha256": "c06c387b7a394b5165da4b3a30ff489509118106f4a69d869261543ad13120ae",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -5163,15 +5669,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-052_37513679.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-052/originals/source.pdf",
+          "reported_file_size_bytes": 934547,
+          "reported_sha256": "045ea0bc4530ccb10dd10f1521b6a4ab230de797630aaf42495afdd510218068",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -5263,15 +5779,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-053_37506751.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-053/originals/source.pdf",
+          "reported_file_size_bytes": 814719,
+          "reported_sha256": "8048662b2290a48c66b7633da1ded2cdd245a651351fce39659dd12f3f1a7316",
+          "reported_acquisition_channel": "AUTHENTICATED_CHROME_BROWSER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -5363,15 +5889,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-054_34348965.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-054/originals/source.pdf",
+          "reported_file_size_bytes": 1632401,
+          "reported_sha256": "b5e0cc386b427aac71a6c1163850f58b680309b49002e34b787bc43aa66a27fd",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -5463,15 +5999,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-055_33441384.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-055/originals/source.pdf",
+          "reported_file_size_bytes": 1879616,
+          "reported_sha256": "f2af64d117c4278078b397a8ccb09c4f2a7961aedc02fcfe3f0350befdfd1c35",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -5563,15 +6109,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-056_37299551.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-056/originals/source.pdf",
+          "reported_file_size_bytes": 1236375,
+          "reported_sha256": "7eaa548507c4f8ca6ad0ac27a4287d3b247094aea515d2177c66ca5fafaa9585",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -5663,15 +6219,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-057_35057525.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-057/originals/source.pdf",
+          "reported_file_size_bytes": 1485140,
+          "reported_sha256": "e9a0d543d6e749af148d58d7e2bbff523344a5665d0fdf0d1e29ce1b3eb1d6fc",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -5763,15 +6329,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-058_35187864.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-058/originals/source.pdf",
+          "reported_file_size_bytes": 1850703,
+          "reported_sha256": "1464a9f73eb0e1b884823557ddae298d8ef071742930c1a8a1293adfeba04ae9",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -5863,15 +6439,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-059_37057640.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-059/originals/source.pdf",
+          "reported_file_size_bytes": 2913317,
+          "reported_sha256": "49929c6f52e8d91eeab99685c8ac45c91353016eb84d287a3e705e1666898f65",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -5963,15 +6549,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-060_39813010.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-060/originals/source.pdf",
+          "reported_file_size_bytes": 2046720,
+          "reported_sha256": "011d8e9b0541de6601b2f31129962b5993d4cd79ea43e2a6aeb1a3f66395587e",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -6063,15 +6659,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-061_36731160.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-061/originals/source.pdf",
+          "reported_file_size_bytes": 2129026,
+          "reported_sha256": "5fb6991978d551f03a90f417485b2b20a88e7c17af29f543edf18483e61a8fe9",
+          "reported_acquisition_channel": "AUTHENTICATED_CHROME_BROWSER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -6163,15 +6769,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-062_34330518.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-062/originals/source.pdf",
+          "reported_file_size_bytes": 958074,
+          "reported_sha256": "e1aa171763e1fb47eb9b054a8a40b79bb015f290ef98f6984ec3e0ae627746ff",
+          "reported_acquisition_channel": "AUTHENTICATED_CHROME_BROWSER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -6263,15 +6879,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-063_32658569.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-063/originals/source.pdf",
+          "reported_file_size_bytes": 761706,
+          "reported_sha256": "e1175493ff8dd3e228cc1df3b095bbcd82ea35b40a7d5aaa72c1562aff493cda",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -6363,15 +6989,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-064_39340710.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-064/originals/source.pdf",
+          "reported_file_size_bytes": 3708575,
+          "reported_sha256": "7763dbc207a228c2f7a6ab8c6ffbf06bbe33223b3487a5b533011794e6ab4fc2",
+          "reported_acquisition_channel": "USER_MANUAL_DOWNLOAD",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -6463,15 +7099,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-065_33946039.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-065/originals/source.pdf",
+          "reported_file_size_bytes": 3383270,
+          "reported_sha256": "c6dc5d6583786de4485688e27bb1e548a999065d3f65a0e9283f499b64bbbdbf",
+          "reported_acquisition_channel": "AUTHENTICATED_CHROME_BROWSER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -6563,15 +7209,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-066_37517372.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-066/originals/source.pdf",
+          "reported_file_size_bytes": 4910552,
+          "reported_sha256": "00dd4181c2f080f770aaf0287a2b109445b88fd337ed7ea5c0ba88a181526264",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -6663,15 +7319,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-067_40957230.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-067/originals/source.pdf",
+          "reported_file_size_bytes": 8463560,
+          "reported_sha256": "efa9f1d1448f3261db328a1591abb281ebf2a041cebc874aed48c3883864f5bf",
+          "reported_acquisition_channel": "AUTHENTICATED_CHROME_BROWSER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -6763,15 +7429,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-068_38169174.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-068/originals/source.pdf",
+          "reported_file_size_bytes": 5134749,
+          "reported_sha256": "438e66d604ebf04f20464efed02759c3bf10f938f670f943aa22227e4a268a92",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -6863,15 +7539,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-069_34742138.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-069/originals/source.pdf",
+          "reported_file_size_bytes": 982122,
+          "reported_sha256": "9bb1b040fc1b48be8fd5a7f64930985a84fae3e708ce557d85a60a005d94f36f",
+          "reported_acquisition_channel": "AUTHENTICATED_CHROME_BROWSER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -6963,15 +7649,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-070_35365361.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-070/originals/source.pdf",
+          "reported_file_size_bytes": 1503741,
+          "reported_sha256": "9452fec51b6a7436219bffb7529ea51a2f6586f6a8bb4b83c4e4d00b77026e44",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -7063,15 +7759,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-071_36462613.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-071/originals/source.pdf",
+          "reported_file_size_bytes": 9210353,
+          "reported_sha256": "99e7e6ddd98e0f1d1f0737dc69f746ce07bf50cbd376ef3835b8e263d11a9ee3",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -7163,15 +7869,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-072_41895152.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-072/originals/source.pdf",
+          "reported_file_size_bytes": 6562173,
+          "reported_sha256": "04835652d01c3abb1318b47076def09d92a7fc5d142bcb6ccdfd2592b8d76752",
+          "reported_acquisition_channel": "AUTHENTICATED_CHROME_BROWSER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -7263,15 +7979,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-073_33640205.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-073/originals/source.pdf",
+          "reported_file_size_bytes": 1233922,
+          "reported_sha256": "36cf380708b959cef3c194aa60a6812c4046931f0c1712ae69a4f0a8d54310da",
+          "reported_acquisition_channel": "AUTHENTICATED_CHROME_BROWSER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -7363,15 +8089,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-074_39178492.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-074/originals/source.pdf",
+          "reported_file_size_bytes": 702257,
+          "reported_sha256": "6a7bdc0500170e2875662d00b8195074888bd7db006fbe0431f4d8b4a5a8b397",
+          "reported_acquisition_channel": "AUTHENTICATED_CHROME_BROWSER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -7463,15 +8199,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-075_38907161.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-075/originals/source.pdf",
+          "reported_file_size_bytes": 2812549,
+          "reported_sha256": "2b9559a1b229bbc84ae105f7d96a3d41975de41b4c643dbbfd2cf009c85fc094",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -7565,15 +8311,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-076_35029593.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-076/originals/source.pdf",
+          "reported_file_size_bytes": 2707772,
+          "reported_sha256": "4a3550c9a486728b2e352812fcef7944ac766bb80faa3b4d4c9f358a72e0657f",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -7665,15 +8421,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-077_31746327.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-077/originals/source.pdf",
+          "reported_file_size_bytes": 3158849,
+          "reported_sha256": "2a5624c5b9375d39dbf8cbdb2dcfc327e8825d5269dc82f79ac3a06da9b802d0",
+          "reported_acquisition_channel": "CHROME_ACTIVE_TAB_CAPTURED",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -7765,15 +8531,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-078_40560588.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-078/originals/source.pdf",
+          "reported_file_size_bytes": 1749471,
+          "reported_sha256": "32559f0ace36841786fe52072e9caa4289811da189d499f0d1cb444863dcb359",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -7865,15 +8641,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-079_38423026.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-079/originals/source.pdf",
+          "reported_file_size_bytes": 413605,
+          "reported_sha256": "d9451aa938c194258e0ee3bbb22c728074fd68893bfdd9d6ea000b057634a9f5",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -7965,15 +8751,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-080_40733010.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-080/originals/source.pdf",
+          "reported_file_size_bytes": 1128917,
+          "reported_sha256": "8b5c546a663e4a1ed785680b301bb90414d886d020654075c687eaf57ecd2ac3",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -8065,15 +8861,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-081_40987812.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-081/originals/source.pdf",
+          "reported_file_size_bytes": 226170,
+          "reported_sha256": "9b1d0256efe6bd450456ffecece443395b72f41c0cdd9cee22dab5d47dc58626",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -8167,15 +8973,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-082_32873338.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-082/originals/source.pdf",
+          "reported_file_size_bytes": 211702,
+          "reported_sha256": "92c894a00f3263987f91debc29cc9be62f28aa2cf8654dd4199cb8306ebe7ce7",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -8267,15 +9083,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-083_38527138.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-083/originals/source.pdf",
+          "reported_file_size_bytes": 59538,
+          "reported_sha256": "f3bea122bd3c22d6c440dc0d633b2a0a9b447c53d01853e4b1adc47dd6f941c6",
+          "reported_acquisition_channel": "USER_MANUAL_DOWNLOAD",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -8367,15 +9193,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-084_40528309.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-084/originals/source.pdf",
+          "reported_file_size_bytes": 1109064,
+          "reported_sha256": "0972ca00b59d5dade06b26c1c2794cbae063566527f8cf07e58c1614ca65dde8",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -8467,15 +9303,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-085_37639741.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-085/originals/source.pdf",
+          "reported_file_size_bytes": 1897340,
+          "reported_sha256": "8b1f25e0f411ac82b830759e14781855bd807d38b5acadb542eb8cfa8ca757ec",
+          "reported_acquisition_channel": "INSTITUTIONAL_IR",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -8567,15 +9413,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-086_33026087.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-086/originals/source.pdf",
+          "reported_file_size_bytes": 1085657,
+          "reported_sha256": "76ad6e11c3be1751a5de3d64f0059a6023fd63511a3e07350ac6327a839e4ff3",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -8667,15 +9523,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-087_38755195.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-087/originals/source.pdf",
+          "reported_file_size_bytes": 584789,
+          "reported_sha256": "8a25d1d38cc32f74c83701cc4f8cd39d98c8fe5f5eaa905ab4bf080cb2acd170",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -8767,15 +9633,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-088_40198072.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-088/originals/source.pdf",
+          "reported_file_size_bytes": 757516,
+          "reported_sha256": "63603163bc2d7ce379057a9a3364ca61f0ad9d0a30c2846b26c3de1e565e1903",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -8867,7 +9743,7 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "NOT_ARCHIVED_REPORTED",
           "original_uri": null,
           "artifact_repo_path": null,
           "private_vault_ref": null,
@@ -8967,15 +9843,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-090_39226719.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-090/originals/source.pdf",
+          "reported_file_size_bytes": 679667,
+          "reported_sha256": "d0783ee63108d0bf6950e8d76ee12bb8b8c04e509faaba958b67f38efc49e5b7",
+          "reported_acquisition_channel": "AUTHENTICATED_CHROME_BROWSER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -9067,15 +9953,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-091_35443107.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-091/originals/source.pdf",
+          "reported_file_size_bytes": 530249,
+          "reported_sha256": "1f9aef36c93f2a5c380bc601932f9a2ddc6f19af6d7f119d8780acc8efcd4fbc",
+          "reported_acquisition_channel": "USER_MANUAL_DOWNLOAD",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -9167,7 +10063,7 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "NOT_ARCHIVED_REPORTED",
           "original_uri": null,
           "artifact_repo_path": null,
           "private_vault_ref": null,
@@ -9267,15 +10163,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-093_37024596.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-093/originals/source.pdf",
+          "reported_file_size_bytes": 4307108,
+          "reported_sha256": "d4818f3b2b7d13a528d6beb07fee9e622dd7648c15c10c8a2abc76feb324c771",
+          "reported_acquisition_channel": "USER_MANUAL_DOWNLOAD",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -9367,15 +10273,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-094_38904963.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-094/originals/source.pdf",
+          "reported_file_size_bytes": 3042977,
+          "reported_sha256": "7080a301d76be174205becb4284762310a237b9a5e73b274c937ef3d04b8362a",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -9467,15 +10383,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-095_35196654.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-095/originals/source.pdf",
+          "reported_file_size_bytes": 1659987,
+          "reported_sha256": "f5e85385e14d57eef164369f20a73b455271be5977351cc7c639ecaec82c8f0c",
+          "reported_acquisition_channel": "PMC_FULLTEXT_RENDER",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -9567,15 +10493,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-096_38869255.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-096/originals/source.pdf",
+          "reported_file_size_bytes": 469337,
+          "reported_sha256": "0058de603ab4ed9950bd820d6df03ebad2739cf8586db1e0d797766c87bcd77c",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -9667,15 +10603,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-097_38772068.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-097/originals/source.pdf",
+          "reported_file_size_bytes": 998481,
+          "reported_sha256": "e81a382372e74e755d9f8adb309d4bf218c9fb5d4e6e793d6938f519f721b294",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -9767,15 +10713,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-098_40677018.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-098/originals/source.pdf",
+          "reported_file_size_bytes": 6630698,
+          "reported_sha256": "d69c955de0e37e1a49646671b1d4e428c504934665312fc21aa2274c9c71f09c",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -9867,15 +10823,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-099_36599304.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-099/originals/source.pdf",
+          "reported_file_size_bytes": 2597019,
+          "reported_sha256": "739c64ec53538814cf493a5e22241b7474f48f2df24efc2541c10a59b381f30a",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",
@@ -9967,15 +10933,25 @@
       },
       "formats": {
         "pdf_original": {
-          "status": "NOT_ARCHIVED",
+          "status": "USER_REPORTED_LOCAL_PDF_UNVERIFIED_REMOTE",
           "original_uri": null,
           "artifact_repo_path": null,
-          "private_vault_ref": null,
+          "private_vault_ref": "USER_LOCAL_VAULT_ROOT_NOT_PUBLIC",
           "sha256": null,
           "bytes": null,
           "source_version": null,
           "acquired_at": null,
-          "license_scope_checked": false
+          "license_scope_checked": false,
+          "reported_relative_pdf_path": "pdfs/CAND-G100-100_39418832.pdf",
+          "reported_vault_source_relative_path": "sources/CAND-G100-100/originals/source.pdf",
+          "reported_file_size_bytes": 1400343,
+          "reported_sha256": "74f3bb5b65eddaea9fa5c60181c34343db70a1639c5a44db39f70aa4e6a1c290",
+          "reported_acquisition_channel": "PRE_EXISTING",
+          "user_reported_integrity_verified": true,
+          "independent_pdf_sha256_verification": "PENDING_LOCAL_BYTES",
+          "publisher_native_pdf_provenance": "NOT_ESTABLISHED",
+          "source_license_publication_rights": "REQUIRES_FILE_SPECIFIC_REVIEW",
+          "provenance_receipt": "paper_c/P0/source_library/Local_97_PDF_Archive_Receipts_Attested_v0.1.json"
         },
         "html_original": {
           "status": "NOT_ARCHIVED",

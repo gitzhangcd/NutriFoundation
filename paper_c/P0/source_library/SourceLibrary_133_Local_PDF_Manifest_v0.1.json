@@ -35,9 +35,9 @@
     "metadata_issues": [
       "Uploaded 36 supplements are all tagged P1; normalized P0 for SUPP-G1-001..018 and P1 for 019..036 according to authoritative download selection",
       "Uploaded 36 supplements lack journal/publication date; normalized from verified PubMed records",
-      "Uploaded initial 97 source_type is generic RCT/观察性研究; not fit for bibliographic type analysis",
       "Native publisher PDF vs PMC/browser-rendered PDF has not been verified",
-      "No actual PDF bytes or license rights to republish were provided to assistant"
+      "No actual PDF bytes or license rights to republish were provided to assistant",
+      "Uploaded INITIAL_100 source_type is generic; normalized source_type is now sourced from the pre-existing SourceLibrary_100 scientific stratum for 97 rows; retains provisional not scientifically gold classification"
     ],
     "source_access_limits": "No PDF bytes checked or published; user-local path only",
     "source_library_status": "LOCAL_133_PDF_USER_ATTESTED; BIBLIOGRAPHIC_METADATA_CONSISTENT"
@@ -52,7 +52,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "fasting",
       "identifiers": {
@@ -91,7 +91,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-002",
@@ -102,7 +103,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "fasting",
       "identifiers": {
@@ -141,7 +142,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-003",
@@ -152,7 +154,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "fasting",
       "identifiers": {
@@ -191,7 +193,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-004",
@@ -202,7 +205,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "fasting",
       "identifiers": {
@@ -241,7 +244,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-005",
@@ -252,7 +256,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "fasting",
       "identifiers": {
@@ -291,7 +295,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-006",
@@ -302,7 +307,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "fasting",
       "identifiers": {
@@ -341,7 +346,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-007",
@@ -352,7 +358,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "low_carbohydrate",
       "identifiers": {
@@ -391,7 +397,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-009",
@@ -402,7 +409,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "low_carbohydrate",
       "identifiers": {
@@ -441,7 +448,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-010",
@@ -452,7 +460,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "low_carbohydrate",
       "identifiers": {
@@ -491,7 +499,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-011",
@@ -502,7 +511,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "low_carbohydrate",
       "identifiers": {
@@ -541,7 +550,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-012",
@@ -552,7 +562,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "DASH",
       "identifiers": {
@@ -591,7 +601,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-013",
@@ -602,7 +613,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "DASH",
       "identifiers": {
@@ -641,7 +652,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-014",
@@ -652,7 +664,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "DASH",
       "identifiers": {
@@ -691,7 +703,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-015",
@@ -702,7 +715,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "Mediterranean",
       "identifiers": {
@@ -741,7 +754,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-016",
@@ -752,7 +766,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "Mediterranean",
       "identifiers": {
@@ -791,7 +805,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-017",
@@ -802,7 +817,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "Mediterranean",
       "identifiers": {
@@ -841,7 +856,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-018",
@@ -852,7 +868,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "Mediterranean",
       "identifiers": {
@@ -891,7 +907,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-019",
@@ -902,7 +919,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "type2_diabetes",
       "identifiers": {
@@ -941,7 +958,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-020",
@@ -952,7 +970,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "type2_diabetes",
       "identifiers": {
@@ -991,7 +1009,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-021",
@@ -1002,7 +1021,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "type2_diabetes",
       "identifiers": {
@@ -1041,7 +1060,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-022",
@@ -1052,7 +1072,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "protein_aging",
       "identifiers": {
@@ -1091,7 +1111,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-023",
@@ -1102,7 +1123,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "protein_aging",
       "identifiers": {
@@ -1141,7 +1162,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-024",
@@ -1152,7 +1174,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "protein_aging",
       "identifiers": {
@@ -1191,7 +1213,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-025",
@@ -1202,7 +1225,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "clinical_nutrition_cancer",
       "identifiers": {
@@ -1241,7 +1264,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-026",
@@ -1252,7 +1276,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "clinical_nutrition_cancer",
       "identifiers": {
@@ -1291,7 +1315,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-027",
@@ -1302,7 +1327,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "kidney_nutrition",
       "identifiers": {
@@ -1341,7 +1366,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-028",
@@ -1352,7 +1378,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_interventional",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "kidney_nutrition",
       "identifiers": {
@@ -1391,7 +1417,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_interventional"
     },
     {
       "source_id": "CAND-G100-029",
@@ -1402,7 +1429,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "ultraprocessed",
       "identifiers": {
@@ -1441,7 +1468,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-030",
@@ -1452,7 +1480,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "ultraprocessed",
       "identifiers": {
@@ -1491,7 +1519,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-031",
@@ -1502,7 +1531,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "ultraprocessed",
       "identifiers": {
@@ -1541,7 +1570,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-032",
@@ -1552,7 +1582,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "ultraprocessed",
       "identifiers": {
@@ -1591,7 +1621,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-033",
@@ -1602,7 +1633,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "ultraprocessed",
       "identifiers": {
@@ -1641,7 +1672,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-034",
@@ -1652,7 +1684,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "protein_aging",
       "identifiers": {
@@ -1691,7 +1723,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-035",
@@ -1702,7 +1735,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "protein_aging",
       "identifiers": {
@@ -1741,7 +1774,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-036",
@@ -1752,7 +1786,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "protein_aging",
       "identifiers": {
@@ -1791,7 +1825,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-037",
@@ -1802,7 +1837,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "fiber",
       "identifiers": {
@@ -1841,7 +1876,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-038",
@@ -1852,7 +1888,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "fiber",
       "identifiers": {
@@ -1891,7 +1927,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-039",
@@ -1902,7 +1939,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "fiber",
       "identifiers": {
@@ -1941,7 +1978,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-040",
@@ -1952,7 +1990,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "sodium",
       "identifiers": {
@@ -1991,7 +2029,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-041",
@@ -2002,7 +2041,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "sodium",
       "identifiers": {
@@ -2041,7 +2080,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-042",
@@ -2052,7 +2092,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "cancer_nutrition",
       "identifiers": {
@@ -2091,7 +2131,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-043",
@@ -2102,7 +2143,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "cancer_nutrition",
       "identifiers": {
@@ -2141,7 +2182,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-044",
@@ -2152,7 +2194,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "cancer_nutrition",
       "identifiers": {
@@ -2191,7 +2233,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-045",
@@ -2202,7 +2245,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "Mediterranean",
       "identifiers": {
@@ -2241,7 +2284,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-046",
@@ -2252,7 +2296,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "primary_observational",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "Mediterranean",
       "identifiers": {
@@ -2291,7 +2335,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "primary_observational"
     },
     {
       "source_id": "CAND-G100-047",
@@ -2302,7 +2347,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "fasting",
       "identifiers": {
@@ -2341,7 +2386,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-048",
@@ -2352,7 +2398,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "fasting",
       "identifiers": {
@@ -2391,7 +2437,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-049",
@@ -2402,7 +2449,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "fasting",
       "identifiers": {
@@ -2441,7 +2488,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-050",
@@ -2452,7 +2500,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "fasting",
       "identifiers": {
@@ -2491,7 +2539,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-051",
@@ -2502,7 +2551,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "cardiovascular",
       "identifiers": {
@@ -2541,7 +2590,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-052",
@@ -2552,7 +2602,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "cardiovascular",
       "identifiers": {
@@ -2591,7 +2641,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-053",
@@ -2602,7 +2653,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "cardiovascular",
       "identifiers": {
@@ -2641,7 +2692,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-054",
@@ -2652,7 +2704,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "type2_diabetes",
       "identifiers": {
@@ -2691,7 +2743,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-055",
@@ -2702,7 +2755,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "type2_diabetes",
       "identifiers": {
@@ -2741,7 +2794,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-056",
@@ -2752,7 +2806,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "type2_diabetes",
       "identifiers": {
@@ -2791,7 +2845,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-057",
@@ -2802,7 +2857,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "type2_diabetes",
       "identifiers": {
@@ -2841,7 +2896,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-058",
@@ -2852,7 +2908,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "sarcopenia",
       "identifiers": {
@@ -2891,7 +2947,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-059",
@@ -2902,7 +2959,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "sarcopenia",
       "identifiers": {
@@ -2941,7 +2998,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-060",
@@ -2952,7 +3010,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "sarcopenia",
       "identifiers": {
@@ -2991,7 +3049,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-061",
@@ -3002,7 +3061,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "cancer_nutrition",
       "identifiers": {
@@ -3041,7 +3100,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-062",
@@ -3052,7 +3112,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "cancer_nutrition",
       "identifiers": {
@@ -3091,7 +3151,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-063",
@@ -3102,7 +3163,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "renal_nutrition",
       "identifiers": {
@@ -3141,7 +3202,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-064",
@@ -3152,7 +3214,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "evidence_synthesis",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "renal_nutrition",
       "identifiers": {
@@ -3191,7 +3253,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "evidence_synthesis"
     },
     {
       "source_id": "CAND-G100-065",
@@ -3202,7 +3265,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "guideline_or_consensus",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "ESPEN",
       "identifiers": {
@@ -3241,7 +3304,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "guideline_or_consensus"
     },
     {
       "source_id": "CAND-G100-066",
@@ -3252,7 +3316,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "guideline_or_consensus",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "ESPEN",
       "identifiers": {
@@ -3291,7 +3355,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "guideline_or_consensus"
     },
     {
       "source_id": "CAND-G100-067",
@@ -3302,7 +3367,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "guideline_or_consensus",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "ESPEN",
       "identifiers": {
@@ -3341,7 +3406,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "guideline_or_consensus"
     },
     {
       "source_id": "CAND-G100-068",
@@ -3352,7 +3418,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "guideline_or_consensus",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "ESPEN",
       "identifiers": {
@@ -3391,7 +3457,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "guideline_or_consensus"
     },
     {
       "source_id": "CAND-G100-069",
@@ -3402,7 +3469,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "guideline_or_consensus",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "ESPEN",
       "identifiers": {
@@ -3441,7 +3508,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "guideline_or_consensus"
     },
     {
       "source_id": "CAND-G100-070",
@@ -3452,7 +3520,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "guideline_or_consensus",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "ESPEN",
       "identifiers": {
@@ -3491,7 +3559,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "guideline_or_consensus"
     },
     {
       "source_id": "CAND-G100-071",
@@ -3502,7 +3571,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "guideline_or_consensus",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "dietitian",
       "identifiers": {
@@ -3541,7 +3610,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "guideline_or_consensus"
     },
     {
       "source_id": "CAND-G100-072",
@@ -3552,7 +3622,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "guideline_or_consensus",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "dietitian",
       "identifiers": {
@@ -3591,7 +3661,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "guideline_or_consensus"
     },
     {
       "source_id": "CAND-G100-073",
@@ -3602,7 +3673,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "guideline_or_consensus",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "kidney_guidance",
       "identifiers": {
@@ -3641,7 +3712,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "guideline_or_consensus"
     },
     {
       "source_id": "CAND-G100-074",
@@ -3652,7 +3724,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "guideline_or_consensus",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "kidney_guidance",
       "identifiers": {
@@ -3691,7 +3763,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "guideline_or_consensus"
     },
     {
       "source_id": "CAND-G100-075",
@@ -3702,7 +3775,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "guideline_or_consensus",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "nutritional_consensus",
       "identifiers": {
@@ -3741,7 +3814,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "guideline_or_consensus"
     },
     {
       "source_id": "CAND-G100-076",
@@ -3752,7 +3826,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "guideline_or_consensus",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "nutritional_consensus",
       "identifiers": {
@@ -3791,7 +3865,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "guideline_or_consensus"
     },
     {
       "source_id": "CAND-G100-077",
@@ -3802,7 +3877,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "companion_or_secondary",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "dietary_secondary",
       "identifiers": {
@@ -3841,7 +3916,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "companion_or_secondary"
     },
     {
       "source_id": "CAND-G100-078",
@@ -3852,7 +3928,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "companion_or_secondary",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "dietary_secondary",
       "identifiers": {
@@ -3891,7 +3967,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "companion_or_secondary"
     },
     {
       "source_id": "CAND-G100-079",
@@ -3902,7 +3979,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "companion_or_secondary",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "nutrition_followup",
       "identifiers": {
@@ -3941,7 +4018,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "companion_or_secondary"
     },
     {
       "source_id": "CAND-G100-080",
@@ -3952,7 +4030,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "companion_or_secondary",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "nutrition_followup",
       "identifiers": {
@@ -3991,7 +4069,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "companion_or_secondary"
     },
     {
       "source_id": "CAND-G100-081",
@@ -4002,7 +4081,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "correction_republication_retraction_or_living_version",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "correction_notice",
       "identifiers": {
@@ -4041,7 +4120,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "correction_republication_retraction_or_living_version"
     },
     {
       "source_id": "CAND-G100-082",
@@ -4052,7 +4132,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "correction_republication_retraction_or_living_version",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "correction_notice",
       "identifiers": {
@@ -4091,7 +4171,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "correction_republication_retraction_or_living_version"
     },
     {
       "source_id": "CAND-G100-083",
@@ -4102,7 +4183,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "correction_republication_retraction_or_living_version",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "correction_notice",
       "identifiers": {
@@ -4141,7 +4222,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "correction_republication_retraction_or_living_version"
     },
     {
       "source_id": "CAND-G100-084",
@@ -4152,7 +4234,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "correction_republication_retraction_or_living_version",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "updated_guideline",
       "identifiers": {
@@ -4191,7 +4273,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "correction_republication_retraction_or_living_version"
     },
     {
       "source_id": "CAND-G100-085",
@@ -4202,7 +4285,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "correction_republication_retraction_or_living_version",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "updated_guideline",
       "identifiers": {
@@ -4241,7 +4324,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "correction_republication_retraction_or_living_version"
     },
     {
       "source_id": "CAND-G100-086",
@@ -4252,7 +4336,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "correction_republication_retraction_or_living_version",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "updated_guideline",
       "identifiers": {
@@ -4291,7 +4375,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "correction_republication_retraction_or_living_version"
     },
     {
       "source_id": "CAND-G100-087",
@@ -4302,7 +4387,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "study_identity_or_companion_dependency",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "secondary_or_followup",
       "identifiers": {
@@ -4341,7 +4426,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "study_identity_or_companion_dependency"
     },
     {
       "source_id": "CAND-G100-088",
@@ -4352,7 +4438,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "study_identity_or_companion_dependency",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "secondary_or_followup",
       "identifiers": {
@@ -4391,7 +4477,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "study_identity_or_companion_dependency"
     },
     {
       "source_id": "CAND-G100-090",
@@ -4402,7 +4489,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "study_identity_or_companion_dependency",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "secondary_or_followup",
       "identifiers": {
@@ -4441,7 +4528,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "study_identity_or_companion_dependency"
     },
     {
       "source_id": "CAND-G100-091",
@@ -4452,7 +4540,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "conflicting_evidence",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "negative_intervention",
       "identifiers": {
@@ -4491,7 +4579,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "conflicting_evidence"
     },
     {
       "source_id": "CAND-G100-093",
@@ -4502,7 +4591,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "conflicting_evidence",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "comparative_intervention",
       "identifiers": {
@@ -4541,7 +4630,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "conflicting_evidence"
     },
     {
       "source_id": "CAND-G100-094",
@@ -4552,7 +4642,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "conflicting_evidence",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "comparative_intervention",
       "identifiers": {
@@ -4591,7 +4681,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "conflicting_evidence"
     },
     {
       "source_id": "CAND-G100-095",
@@ -4602,7 +4693,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "recommendation_exception_or_normative_boundary",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "nutritional_safety_consensus",
       "identifiers": {
@@ -4641,7 +4732,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "recommendation_exception_or_normative_boundary"
     },
     {
       "source_id": "CAND-G100-096",
@@ -4652,7 +4744,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "recommendation_exception_or_normative_boundary",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "nutritional_safety_consensus",
       "identifiers": {
@@ -4691,7 +4783,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "recommendation_exception_or_normative_boundary"
     },
     {
       "source_id": "CAND-G100-097",
@@ -4702,7 +4795,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "temporal_cutoff_sensitive",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "updated_guidelines_temporal",
       "identifiers": {
@@ -4741,7 +4834,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "temporal_cutoff_sensitive"
     },
     {
       "source_id": "CAND-G100-098",
@@ -4752,7 +4846,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "temporal_cutoff_sensitive",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "updated_guidelines_temporal",
       "identifiers": {
@@ -4791,7 +4885,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "temporal_cutoff_sensitive"
     },
     {
       "source_id": "CAND-G100-099",
@@ -4802,7 +4897,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "incomplete_or_missing_source_text",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "abstract_only_candidate",
       "identifiers": {
@@ -4841,7 +4936,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "incomplete_or_missing_source_text"
     },
     {
       "source_id": "CAND-G100-100",
@@ -4852,7 +4948,7 @@
       "original_user_priority": "NORMAL",
       "normalized_priority": "INITIAL_BATCH_UNPRIORITIZED",
       "original_user_source_type": "RCT/观察性研究",
-      "normalized_source_type": "SOURCE_TYPE_REQUIRES_SCIENTIFIC_CLASSIFICATION_USE_ORIGINAL_100_MANIFEST",
+      "normalized_source_type": "incomplete_or_missing_source_text",
       "source_classification_lineage": "SourceLibrary_100_Manifest_v0.1.json / source_classification.proposed_stratum",
       "source_subtopic": "abstract_only_candidate",
       "identifiers": {
@@ -4891,7 +4987,8 @@
       "lineage_extra": {
         "prior_97_receipt_sha256_matches": true,
         "prior_97_receipt_size_matches": true
-      }
+      },
+      "original_100_scientific_stratum": "incomplete_or_missing_source_text"
     },
     {
       "source_id": "SUPP-G1-001",
@@ -4938,7 +5035,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-002",
@@ -4985,7 +5083,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-003",
@@ -5032,7 +5131,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-004",
@@ -5079,7 +5179,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-005",
@@ -5126,7 +5227,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-006",
@@ -5173,7 +5275,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-007",
@@ -5220,7 +5323,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-008",
@@ -5267,7 +5371,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-009",
@@ -5314,7 +5419,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-010",
@@ -5361,7 +5467,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-011",
@@ -5408,7 +5515,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-012",
@@ -5455,7 +5563,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-013",
@@ -5502,7 +5611,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-014",
@@ -5549,7 +5659,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-015",
@@ -5596,7 +5707,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-016",
@@ -5643,7 +5755,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-017",
@@ -5690,7 +5803,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-018",
@@ -5737,7 +5851,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-019",
@@ -5784,7 +5899,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-020",
@@ -5831,7 +5947,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-021",
@@ -5878,7 +5995,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-022",
@@ -5925,7 +6043,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-023",
@@ -5972,7 +6091,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-024",
@@ -6019,7 +6139,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-025",
@@ -6066,7 +6187,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-026",
@@ -6113,7 +6235,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-027",
@@ -6160,7 +6283,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-028",
@@ -6207,7 +6331,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-029",
@@ -6254,7 +6379,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-030",
@@ -6301,7 +6427,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-031",
@@ -6348,7 +6475,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-032",
@@ -6395,7 +6523,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-033",
@@ -6442,7 +6571,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-034",
@@ -6489,7 +6619,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-035",
@@ -6536,7 +6667,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     },
     {
       "source_id": "SUPP-G1-036",
@@ -6583,7 +6715,8 @@
         "supplements": "NOT_REPORTED"
       },
       "data_role": "G1_SHARED_DEVELOPMENT_NOT_CONFIRMATORY_GOLD",
-      "lineage_extra": null
+      "lineage_extra": null,
+      "original_100_scientific_stratum": null
     }
   ]
 }

@@ -1,5 +1,8 @@
 # G1-Shared｜Scientific Source Library v0.1
 
+> **最新 133-PDF 本地归档快照｜2026-10-10**：用户上传的 `Archived_Papers_133_Manifest.json` 声明 133 篇 PDF 均在本机保存，含原 97 篇和新增 36 篇。GitHub 已分别登记 `SourceLibrary_133_Local_PDF_Manifest_v0.1.json`、`SourceLibrary_133_Archive_Index_v0.1.csv` 和 `SourceLibrary_133_Reconciliation_and_Readiness_v0.1.md`。原 97 份文件的已申报 SHA256/大小/渠道保持不变；新增 36 篇的 PubMed 文献身份一致；纠正 P0/P1 为 18/18。**未上传 PDF 原件，也未独立重算本机 PDF 哈希；不要将旧版 0/100 原始二进制验收计数误读为“本机没有 PDF”。**
+
+
 **本目录只负责原始文献目录、原始来源文件、版本、授权和文件完整性，不做 PDF→Markdown 转换、知识抽取、专家标注、UI 或 Workbench 适配。**
 
 ## 1. 已经实际保存什么

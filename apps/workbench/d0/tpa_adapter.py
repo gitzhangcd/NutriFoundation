@@ -44,7 +44,7 @@ class Publish(StrictBody):
     idempotency_key: str
 
 
-def install_tpa_routes(app: FastAPI, controller: TaskProduction):
+def install_tpa_routes(app: FastAPI, controller: TaskProduction, operations=None):
     def validate_body(cls, value):
         try:
             return cls.model_validate(value).model_dump()
@@ -92,9 +92,18 @@ def install_tpa_routes(app: FastAPI, controller: TaskProduction):
         return call(controller.validate_import,role=p["role"],body=validate_body(ImportCheck,body))
 
     @app.get("/v1/tpa/tasks")
-    def list_tasks(request:Request):
+    def list_tasks(request:Request,project_id:str|None=None,batch_id:str|None=None,
+                   state:str|None=None,limit:int|None=None,offset:int|None=None):
         p=person(request,("manager","producer"))
-        return call(controller.listing,role=p["role"],actor=p["actor"])
+        # Original unfiltered response remains byte-shape compatible with P1.
+        if all(x is None for x in (project_id,batch_id,state,limit,offset)):
+            return call(controller.listing,role=p["role"],actor=p["actor"])
+        if operations is None:
+            raise HTTPException(409,detail={"code":"OPERATIONAL_LIST_NOT_ENABLED"})
+        return call(operations.list_tasks,role=p["role"],
+                    project_id=project_id,batch_id=batch_id,state=state,
+                    limit=50 if limit is None else limit,
+                    offset=0 if offset is None else offset)
 
     @app.post("/v1/tpa/tasks/drafts")
     def drafts(request:Request,body:dict):

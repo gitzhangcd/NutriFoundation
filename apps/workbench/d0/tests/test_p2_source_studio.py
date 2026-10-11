@@ -148,10 +148,11 @@ def test_p2_quote_utf16_exact_match_review_immutability(app):
     unit=next(x for x in document["document"]["units"] if "🙂" in x["text"])
     text=unit["text"];quote=text[0:5]
     body={"unit_id":unit["unit_id"],"decision":"ACCEPT","start_utf16":0,
-          "end_utf16":5,"source_quote":quote,
+          "end_utf16":len(quote.encode("utf-16-le"))//2,"source_quote":quote,
           "source_quote_sha256":hashlib.sha256(quote.encode()).hexdigest(),
           "pdf_locator_status":"UNRESOLVED"}
     url=f"/v1/p2/sources/{sid}/r1/qa"
+    assert curator.post(url,headers=ch,json={**body,"end_utf16":3}).status_code==422
     assert curator.post(url,headers=ch,json={**body,"source_quote":"WRONG"}).status_code==409
     assert curator.post(url,headers=ch,json={**body,"pdf_locator_status":"VERIFIED_UNIQUE_PDF_TEXT"}).status_code==409
     assert curator.post(url,headers=ch,json=body).status_code==200

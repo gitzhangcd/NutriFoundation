@@ -246,12 +246,40 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
         expect(page.locator('#workspace')).to_be_visible(timeout=30000)
         return ctx,page
     producer_context,p=manager_login('producer')
+    # P1.1-A: enter a persistent operational project and batch before drafting.
+    assert p.locator('#p11Nav button[data-p11-route]').count()==7
+    p.locator('[data-p11-route="tasks"]').click()
+    p.locator('#p11ProjectsShortcut').click()
+    p.get_by_role('button',name='新建项目').click()
+    p.locator('#opsName').fill('Browser Synthetic Program')
+    p.locator('#p11ModalOverlay button[type="submit"]').click()
+    expect(p.locator('#p11ModalOverlay')).to_be_hidden(timeout=30000)
+    p.get_by_role('button',name='在此项目新建批次').click()
+    p.locator('#opsName').fill('Browser QA Batch')
+    p.locator('#p11ModalOverlay button[type="submit"]').click()
+    expect(p.locator('#p11ModalOverlay')).to_be_hidden(timeout=30000)
+    assert p.evaluate('location.hash').startswith('#/projects?project=PRJ-SYN-'),p.url
+    assert '&batch=BATCH-SYN-' in p.evaluate('location.hash'),p.url
+    p.go_back()
+    assert 'project=PRJ-SYN-' in p.evaluate('location.hash')
+    assert 'batch=' not in p.evaluate('location.hash')
+    p.go_forward()
+    assert '&batch=BATCH-SYN-' in p.evaluate('location.hash')
+    p.reload()
+    expect(p.locator('#workspace')).to_be_visible(timeout=30000)
+    expect(p.get_by_role('button',name='在此项目新建批次')).to_be_visible()
+    p.locator('[data-p11-route="tasks"]').click()
+    expect(p.locator('#p11FormBatch')).not_to_have_value('')
     p.locator('#primarySource').select_option('RCT-001:r1')
     expect(p.locator('#sourceInfo')).to_contain_text('RANDOMIZED_TRIAL')
     expect(p.locator('#sourcesList .source-row')).to_have_count(7)
-    p.locator('#taskId').fill('TPA-SYN-BROWSER-001')
     p.locator('#primarySource').select_option('RCT-001:r1')
     p.locator('#extraSource').select_option('GUIDE-001:r1')
+    expect(p.locator('#sourceInfo')).to_contain_text('SHA-256')
+    expect(p.locator('#sourceInfo')).to_contain_text('GUIDE-001 / r1')
+    assert len(re.findall(r'(?i)[0-9a-f]{64}',p.locator('#sourceInfo').text_content()))==2
+    p.locator('#p11WizardNav .p11-wizard-step').nth(1).click()
+    p.locator('#taskId').fill('TPA-SYN-BROWSER-001')
     p.locator('#workflowStrategy').select_option('AGENT_PROPOSE_EXPERT_VERIFY')
     p.locator('#createDraft').click()
     expect(p.locator('#receipt')).to_contain_text('"state": "DRAFT"',timeout=30000)
@@ -263,9 +291,32 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(row).to_contain_text('DEFINITION_FROZEN')
     row.get_by_role('button',name=re.compile('准备工作包')).click()
     expect(row).to_contain_text('READY_FOR_ASSIGNMENT')
+    row.get_by_role('button',name='查看任务详情').click()
+    expect(p.locator('#p11Detail')).to_be_visible()
+    assert 'task=TPA-SYN-BROWSER-001' in p.evaluate('location.hash')
+    p.go_back()
+    expect(p.locator('#p11Detail')).to_be_hidden()
+    p.go_forward()
+    expect(p.locator('#p11Detail')).to_be_visible()
+    p.reload()
+    expect(p.locator('#p11Detail')).to_be_visible(timeout=30000)
+    p.locator('#p11Detail').get_by_role('button',name='关闭详情').click()
+    expect(p.locator('#p11Detail')).to_be_hidden()
+    p.locator('#p11TaskProject').select_option('')
+    expect(p.locator('#p11LegacyToggle')).to_be_visible()
+    p.locator('#p11LegacyToggle').click()
+    expect(p.locator('.task-row').filter(has_text='TPA-SYN-BROWSER-001')).to_have_count(0)
+    p.locator('#p11LegacyToggle').click()
+    expect(p.locator('.task-row').filter(has_text='TPA-SYN-BROWSER-001')).to_have_count(1)
+    checks.extend(['p11_explicit_legacy_filter_excludes_scoped_tasks',
+                   'p11_task_detail_deeplink_back_forward_reload',
+                   'p11_full_original_source_revision_digests_visible'])
     checks.extend(['tpa_same_origin_management_login','tpa_seven_synthetic_source_library',
-                   'tpa_real_ui_draft_validation_freeze_prepare','tpa_agent_fixture_not_llm'])
+                   'tpa_real_ui_draft_validation_freeze_prepare','tpa_agent_fixture_not_llm',
+                   'p11_real_browser_create_project_batch_and_atomic_task',
+                   'p11_url_project_batch_scope_backward_forward_reload'])
     manager_context,m=manager_login('manager')
+    m.locator('[data-p11-route="tasks"]').click()
     row=m.locator('.task-row').filter(has_text='TPA-SYN-BROWSER-001')
     expect(row).to_contain_text('READY_FOR_ASSIGNMENT')
     assert manager_context.request.get(url+'/v1/ea/tasks/TPA-SYN-BROWSER-001/sources/RCT-001/r1').status==403
@@ -283,12 +334,42 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     ea.locator('#eaSource').select_option('GUIDE-001:r1')
     expect(ea.locator('#units')).to_contain_text('fabricated guideline')
     checks.append('tpa_published_task_delivered_to_original_ea_reader')
+    p.set_viewport_size({'width':1024,'height':768})
+    p.evaluate('window.scrollTo(0,0)')
+    assert p.evaluate('document.documentElement.scrollWidth <= innerWidth')
+    p.screenshot(path=str(output/'p11-management-tablet.png'))
+    p.locator('[data-p11-route="tasks"]').focus()
+    assert p.evaluate("document.activeElement?.getAttribute('data-p11-route')")=='tasks'
+    p.keyboard.press('Enter')
+    expect(p.locator('#p11SectionTitle')).to_have_text('任务中心')
+    p.locator('#p11ProjectsShortcut').focus()
+    p.keyboard.press('Enter')
+    expect(p.locator('#p11SectionTitle')).to_have_text('项目与批次')
     p.set_viewport_size({'width':390,'height':844})
+    p.evaluate('window.scrollTo(0,0)')
     assert p.evaluate('document.documentElement.scrollWidth <= innerWidth')
     p.screenshot(path=str(output/'tpa-management-mobile.png'))
-    p.set_viewport_size({'width':1440,'height':1000})
+    p.set_viewport_size({'width':1440,'height':900})
+    p.evaluate('window.scrollTo(0,0)')
+    assert p.evaluate('document.documentElement.scrollWidth <= innerWidth')
     p.screenshot(path=str(output/'tpa-management-desktop.png'))
-    checks.append('tpa_responsive_admin_desktop_mobile')
+    p.evaluate("location.hash='#/tasks?project=%3Cimg%20src=x%20onerror=alert(1)%3E'")
+    expect(p.locator('#p11SectionTitle')).to_have_text('任务中心')
+    assert p.locator('img[src="x"]').count()==0
+    assert p.evaluate("document.querySelector('#p11TaskProject')?.value")==''
+    p.locator('#logoutButton').click()
+    expect(p.locator('#loginScreen')).to_be_visible()
+    assert p.locator('#p11Detail').is_hidden()
+    p.locator('#username').fill('manager')
+    p.locator('#password').fill(credentials['accounts']['manager']['password'])
+    p.locator('#loginForm button').click()
+    expect(p.locator('#workspace')).to_be_visible()
+    expect(p.locator('#userBadge')).to_contain_text('manager')
+    expect(p.locator('#taskForm')).to_be_hidden()
+    checks.extend(['tpa_responsive_admin_desktop_mobile',
+                   'p11_responsive_tablet_desktop_keyboard_navigation',
+                   'p11_hash_allowlist_injection_denied',
+                   'p11_same_tab_role_change_clears_private_ui'])
     ea_context.close();manager_context.close();producer_context.close()
 
 def run(url,credentials,output):
@@ -528,7 +609,7 @@ def run(url,credentials,output):
         browser.close()
     assert not errors,errors
     result={'status':'PASS','checks':checks,'page_errors':errors,'native_pdfjs':True,'browser':'Chromium',
-            'browser_plugin':'NOT_AVAILABLE_REGULAR_PLAYWRIGHT','viewports':['1440x1000','390x844'],
+            'browser_plugin':'NOT_AVAILABLE_REGULAR_PLAYWRIGHT','viewports':['1440x1000','1440x900','1024x768','390x844'],
             'scientific_capture':False,'url':url}
     (output/'browser-result.json').write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result))

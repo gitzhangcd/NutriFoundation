@@ -55,6 +55,7 @@ async function loadSession(){
   auth=null;window.opsClear?.();$('loginScreen').hidden=false;$('workspace').hidden=true;
   $('logoutButton').hidden=true;$('userBadge').textContent='未登录';return;
  }
+ if(auth && (auth.username!==ses.username || auth.role!==ses.role))window.opsClear?.();
  auth=ses;
  $('loginScreen').hidden=true;$('workspace').hidden=false;$('logoutButton').hidden=false;
  $('userBadge').textContent=ses.username+' · '+ses.role;
@@ -176,7 +177,7 @@ async function action(id,kind,mode){
 function renderTasks(){
  $('taskList').replaceChildren();
  const scoped=window.opsVisibleTasks?window.opsVisibleTasks(taskData):taskData;
- const visible=scoped.filter(x=>!selectedFilter||x.state===selectedFilter);
+ const visible=scoped.filter(x=>(!selectedFilter||x.state===selectedFilter)&&(!window.opsPreparingFilter||['DRAFT','VALIDATED','DEFINITION_FROZEN'].includes(x.state)));
  if(!visible.length){$('taskList').append(el('p','尚无此状态的管理任务。','fine'));return}
  for(const t of visible){
   const card=el('article',undefined,'task-row');
@@ -228,6 +229,6 @@ document.addEventListener('DOMContentLoaded',()=>{
  $('createBatch').addEventListener('click',()=>createBatch().catch(e=>receipt(e.message)));
 
  $('primarySource').addEventListener('change',showSourceInfo);
- $('stateFilter').addEventListener('change',e=>{selectedFilter=e.target.value;renderTasks()});
+ $('stateFilter').addEventListener('change',e=>{selectedFilter=e.target.value;window.opsPreparingFilter=false;renderTasks()});
  newId();loadSession().catch(e=>receipt('访问失败：'+e.message));
 });

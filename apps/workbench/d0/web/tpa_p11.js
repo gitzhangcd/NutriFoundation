@@ -15,7 +15,11 @@
   };
   let projects=[], batchMap=new Map(), overview=null, managedTasks=[];
   let project='',batch='',search='',wizardStep=1, active='overview',legacyOnly=false;
+  let pageOffset=0,pageTotal=0,pageSize=25,stateScope='',selectedTaskId='',selectedTaskMeta=null;
+  let drawerReturnFocus=null;
   let loading=false;
+  // Explicit opt-in allows the original P1 controller to retain its old fallback routes.
+  window.opsA5Enabled=true;
   const routes=['overview','projects','tasks','sources','agent','experts','quality','audit'];
   const labels={overview:'工作总览',projects:'项目与批次',tasks:'任务中心',sources:'科学资料库',agent:'Agent 准备',experts:'专家与分配',quality:'进度与质控',audit:'审计与导出'};
   const metric={preparing:'准备中',ready:'待分配',assigned:'已分配未发布',published:'已发布',revoked:'已撤销',blocked:'历史阻断'};
@@ -98,22 +102,32 @@
     if(batch&&!((batchMap.get(project)||[]).some(b=>b.batch_id===batch)))batch='';
   }
   async function fetchViews(){
-    const args=new URLSearchParams();
-    if(project)args.set('project_id',project);
-    if(batch)args.set('batch_id',batch);
-    const suffix=args.toString()?'?'+args.toString():'';
-    const [v, first]=await Promise.all([
-      apiOps('/v1/tpa/overview'+suffix),
-      apiOps('/v1/tpa/tasks?'+(args.toString()?args.toString()+'&':'')+'limit=100&offset=0')
+    const scope=new URLSearchParams();
+    if(project)scope.set('project_id',project);
+    if(batch)scope.set('batch_id',batch);
+    const tasks=new URLSearchParams(scope);
+    const requestedState=!project&&legacyOnly?'LEGACY':stateScope;
+    if(requestedState)tasks.set('state',requestedState);
+    tasks.set('limit',String(pageSize));
+    tasks.set('offset',String(pageOffset));
+    const [v, result]=await Promise.all([
+      apiOps('/v1/tpa/overview'+(scope.size?'?'+scope:'')),
+      apiOps('/v1/tpa/tasks?'+tasks)
     ]);
-    overview=v;managedTasks=first.tasks||[];
-    let offset=managedTasks.length;
-    while(offset<first.total&&offset<10000){
-      const page=await apiOps('/v1/tpa/tasks?'+(args.toString()?args.toString()+'&':'')+'limit=100&offset='+offset);
-      if(!page.tasks?.length)break;
-      managedTasks.push(...page.tasks);offset+=page.tasks.length;
+    overview=v;managedTasks=result.tasks||[];pageTotal=result.total||0;
+    // A state transition may move the selected row off this page. Never invent its status.
+    if(pageOffset>=pageTotal&&pageOffset>0){
+      pageOffset=Math.max(0,Math.floor(Math.max(0,pageTotal-1)/pageSize)*pageSize);
+      return fetchViews();
     }
-    // State authority belongs to server. If a response is incomplete, never call it exhaustive.
+    if(selectedTaskId){
+      const row=managedTasks.find(t=>t.task_id===selectedTaskId);
+      if(row)selectedTaskMeta=row;
+    }
+    // The UI uses only this bounded server page; never silently concatenate to an incomplete 10k sample.
+    if($p('countDraft'))$p('countDraft').textContent=String(v.counts.preparing);
+    if($p('countReady'))$p('countReady').textContent=String(v.counts.ready);
+    if($p('countPublished'))$p('countPublished').textContent=String(v.counts.published);
   }
   function select(id, entries, value, onChange, placeholder){
     const sel=e('select');sel.id=id;sel.className='p11-select';
@@ -122,7 +136,7 @@
     sel.value=value;sel.addEventListener('change',ev=>onChange(ev.target.value));return sel;
   }
   async function chooseScope(p,b=''){
-    legacyOnly=false;navigate(active,p,b);await fetchViews();render();
+    legacyOnly=false;pageOffset=0;navigate(active,p,b);await fetchViews();render();
   }
   function scopes(parent){
     const toolbar=e('div',undefined,'p11-scope');
@@ -143,13 +157,11 @@
     }
     const b=button(metric[key],()=>{
       navigate('tasks');
-      const v={preparing:'',ready:'READY_FOR_ASSIGNMENT',assigned:'ASSIGNED',published:'PUBLISHED',revoked:'REVOKED'}[key];
+      const v={preparing:'PREPARING',ready:'READY_FOR_ASSIGNMENT',assigned:'ASSIGNED',published:'PUBLISHED',revoked:'REVOKED'}[key];
       if(v!==undefined&&$p('stateFilter')){
         $p('stateFilter').value=v;
         $p('stateFilter').dispatchEvent(new Event('change'));
       }
-      if(key==='preparing'){window.opsPreparingFilter=true;renderTasks();}
-      render();
     },'p11-stat');
     b.append(e('strong',val===null?'未统计':String(val)));
     parent.append(b);
@@ -295,28 +307,48 @@
     input.addEventListener('input',ev=>{search=ev.target.value.trim();renderTasks();});q.append(input);bar.append(q);
     if(!project){
       const legacy=button(legacyOnly?'显示全部任务':'仅显示 Legacy 任务',()=>{
-        legacyOnly=!legacyOnly;renderTaskToolbar();
+        legacyOnly=!legacyOnly;pageOffset=0;fetchViews().then(()=>{renderTaskToolbar();renderWizard()}).catch(catchMessage);
       },legacyOnly?'primary':'secondary');
       legacy.id='p11LegacyToggle';bar.append(legacy);
     }
     const info=e('p','Legacy 为没有运营批次归属的旧任务，不自动迁移。','p11-meta');bar.append(info);
     renderTasks();
   }
-  window.opsVisibleTasks = rows => {
-    // Data from server-filtered list; preserve legacy list behavior if scope not selected.
-    const allowed = new Set((managedTasks||[]).map(t=>t.task_id));
-    const legacyIds=new Set((managedTasks||[]).filter(t=>t.legacy===true).map(t=>t.task_id));
-    return rows.filter(t=>(!project||allowed.has(t.task_id))&&(!legacyOnly||legacyIds.has(t.task_id))&&(!search||t.task_id.toLowerCase().includes(search.toLowerCase())));
+  window.opsA5StateChanged=value=>{
+    stateScope=value;pageOffset=0;fetchViews().then(()=>{renderTasks();renderWizard()}).catch(catchMessage);
   };
+  window.opsVisibleTasks = rows => rows.filter(t=>(!project||managedTasks.some(x=>x.task_id===t.task_id))&&(!legacyOnly||managedTasks.some(x=>x.task_id===t.task_id&&x.legacy))&&(!search||t.task_id.toLowerCase().includes(search.toLowerCase())));
   window.opsLegacyTask=taskId=>managedTasks.some(t=>t.task_id===taskId&&t.legacy===true);
   window.opsDraftCreate=async body=>{
     if(!project||!batch)throw Error('请先在“项目与批次”创建或选择项目与批次');
-    const result=await apiOps('/v1/tpa/tasks/in-batch',{method:'POST',body:JSON.stringify({
-      ...body,project_id:project,batch_id:batch,idempotency_key:crypto.randomUUID()
-    })});
+    const intent={...body,project_id:project,batch_id:batch};
+    const key=operationKey('draft',body.task_id,intent);
+    let result;
+    try{
+      result=await apiOps('/v1/tpa/tasks/in-batch',{method:'POST',body:JSON.stringify({
+        ...intent,idempotency_key:key
+      })});
+    }catch(err){
+      // Do not assume network failure == rollback; confirm by exact server task ID.
+      let existing=null;
+      try{existing=await apiOps('/v1/tpa/tasks/'+encodeURIComponent(body.task_id)+'/management')}catch{}
+      if(!existing||existing.placement?.project_id!==project||existing.placement?.batch_id!==batch)throw err;
+      result={task:existing,state:existing.state,placement:existing.placement,
+              reconciled_after_uncertain_response:true};
+    }
+    resolveIntent('draft',body.task_id);
+    selectedTaskId=body.task_id;selectedTaskMeta={...intent,task_id:body.task_id,state:result.state};
     legacyOnly=false;wizardStep=3;return result;
   };
-  window.opsClear=()=>{projects=[];batchMap=new Map();overview=null;managedTasks=[];project='';batch='';search='';wizardStep=1;active='overview';window.opsPreparingFilter=false;legacyOnly=false;
+  window.opsAfterDraft=id=>{selectedTaskId=id;wizardStep=3;renderWizard()};
+  window.opsAfterTaskAction=(id,action,result)=>{
+    selectedTaskId=id;
+    if(selectedTaskMeta?.task_id===id)selectedTaskMeta.state=result.state;
+    if(action==='freeze')wizardStep=4;
+    if(action==='prepare')wizardStep=5;
+    renderWizard();
+  };
+  window.opsClear=()=>{projects=[];batchMap=new Map();overview=null;managedTasks=[];project='';batch='';search='';wizardStep=1;active='overview';window.opsPreparingFilter=false;legacyOnly=false;pageOffset=0;pageTotal=0;selectedTaskId='';selectedTaskMeta=null;stateScope='';
     if($p('p11View'))clear($p('p11View'));
     if($p('p11Detail')){$p('p11Detail').hidden=true;clear($p('p11Detail'));}
     if($p('p11ModalOverlay')){$p('p11ModalOverlay').hidden=true;clear($p('p11ModalOverlay'));}

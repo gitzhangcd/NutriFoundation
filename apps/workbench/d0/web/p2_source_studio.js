@@ -38,7 +38,7 @@
     NARRATIVE_REVIEW:'叙述性综述',CORRECTION_RETRACTION:'更正 / 撤稿'};
   let state={tab:'library',selection:'P2-DEMO-RCT-001',search:'',status:'',kindFilter:'',unitIndex:0,
     display:'bilingual',drawer:false,wizard:false,step:0,notice:'',liveSources:[],overview:null,
-    document:null,reviewed:new Set(),draft:null,scope:{project:'',batch:''},projects:[],
+    document:null,original:null,reviewed:new Set(),draft:null,scope:{project:'',batch:''},projects:[],
     batches:new Map(),role:'manager',session:null,sourceCount:0,loading:false};
   let root=null;
   const selected=()=>all().find(x=>x.id+':'+x.v===state.selection)||all().find(x=>x.id===state.selection)||all()[0];
@@ -255,11 +255,18 @@
   }
   async function loadSelectedDocument(){
     const x=selected();
-    state.document=null;state.reviewed=new Set();state.unitIndex=0;
+    state.document=null;state.original=null;state.reviewed=new Set();state.unitIndex=0;
     if(!x?.live||!canReview()){draw();return;}
-    try{const result=await api('/v1/p2/sources/'+x.id+'/'+x.v+'/document');
-      state.document=result;draw();
-    }catch(err){state.notice='暂无法打开结构化文档：'+err.message;draw();}
+    try{
+      const url='/v1/p2/sources/'+x.id+'/'+x.v;
+      const [document,original,reviews]=await Promise.all([
+        api(url+'/document'),api(url+'/original'),api(url+'/reviews')]);
+      if(document.document.raw_artifact_sha256!==original.raw_artifact_sha256)
+        throw new Error('SOURCE_ARTIFACT_SHA_DRIFT');
+      state.document=document;state.original=original;
+      state.reviewed=new Set(reviews.reviews.map(x=>x.unit_id));
+      draw();
+    }catch(err){state.notice='结构化文档/原文/审查记录无法完成独立核验：'+err.message;draw();}
   }
   function qa(){
     root.append(heading('P2-C/D / HUMAN SOURCE QA','结构化资料 QA 阅读器',
@@ -278,16 +285,21 @@
     if(!canReview()&&!canSubmit()){
       root.append(alert('该账号仅可浏览来源元数据。只有经过单独身份配置的 Source Curator 才能加载后端结构化原文并签发 Human QA 记录。','warning'));return;
     }
-    const doc=state.document,actual=!!(canReview()&&doc?.document);
+    const doc=state.document,actual=!!(canReview()&&doc?.document&&state.original?.raw_artifact_sha256===doc.document.raw_artifact_sha256);
     root.append(alert(actual?'当前展示已持久化的合成结构化资料，只有 Source Curator 可提交逐单元 QA。':
       '当前为内置的虚构演示片段。Producer 仅查看界面样例，不代表拥有真实来源全文或 Curator 审核权限。','warning'));
     const grid=el('div',null,'p2-qa-grid');
     const original=panel('原始资料对照','Source Artifact · Page Hint。');
     const sheet=el('div',null,'p2-pdf-sheet');
-    sheet.append(el('small','SYNTHETIC DOCUMENT EXCERPT'),el('h3','ABSTRACT / METHODS'));
+    sheet.append(el('small',actual?'ORIGINAL ARTIFACT · VERIFIED SHA':'SYNTHETIC DOCUMENT EXCERPT'),el('h3','ABSTRACT / METHODS'));
     const units=qaUnits();
-    for(const u of units.slice(0,3))sheet.append(el('p',u.text));
-    sheet.append(el('strong','DEMO ONLY'));
+    if(actual){
+      const originalText=el('pre',state.original.raw_content,'p2-original-text');
+      sheet.append(originalText);
+    }else{
+      for(const u of units.slice(0,3))sheet.append(el('p',u.text));
+    }
+    sheet.append(el('strong',actual?'RAW SOURCE SHA VERIFIED · SYNTHETIC':'DEMO ONLY'));
     original.append(sheet,metaP('原始 PDF 未加载；页面坐标未获独立验证。'));
     grid.append(original);
     const middle=panel('Structured Document IR','稳定 Unit ID · 段落级对照 · 原文 SHA 独立');
@@ -487,7 +499,7 @@
   function reset(){
     state.tab='library';state.selection='P2-DEMO-RCT-001';state.search='';state.status='';
     state.kindFilter='';state.unitIndex=0;state.display='bilingual';state.drawer=false;
-    state.wizard=false;state.draft=null;state.document=null;state.notice='';
+    state.wizard=false;state.draft=null;state.document=null;state.original=null;state.notice='';
     state.reviewed=new Set();state.liveSources=[];state.overview=null;
   }
   window.p2SourceStudio={render,reload,reset,selectTab:view};

@@ -19,7 +19,7 @@
   let drawerReturnFocus=null;
   // B1 is a *metadata-only* view of trusted synthetic EA source versions.
   let sourcePackages=[],sourceSelection='',packageValidation=null;
-  let loading=false;
+  let loadingPromise=null,reloadRequested=false;
   // Explicit opt-in allows the original P1 controller to retain its old fallback routes.
   window.opsA5Enabled=true;
   const routes=['overview','projects','tasks','sources','agent','experts','quality','audit'];
@@ -503,16 +503,24 @@
     }
   }
   async function reload(){
-    if(loading||!auth)return;
-    loading=true;
-    try {
-      await loadProjects();await fetchViews();await loadSourcePackages();
-      if(active==='agent')await window.opsB2Refresh?.();
-      renderSelector();render();
-      const deep=readRoute().task;
-      if(deep)await window.opsTaskDetail(deep,false);
+    if(!auth)return;
+    if(loadingPromise){
+      // Never silently drop a refresh after a server-committed assignment/publish.
+      reloadRequested=true;
+      return loadingPromise;
     }
-    finally{loading=false;}
+    loadingPromise=(async()=>{
+      do {
+        reloadRequested=false;
+        await loadProjects();await fetchViews();await loadSourcePackages();
+        if(active==='agent')await window.opsB2Refresh?.();
+        renderSelector();render();
+        const deep=readRoute().task;
+        if(deep)await window.opsTaskDetail(deep,false);
+      }while(reloadRequested&&auth);
+    })();
+    try {await loadingPromise;}
+    finally{loadingPromise=null;}
   }
   function render(){
     active=routes.includes(active)?active:'overview';

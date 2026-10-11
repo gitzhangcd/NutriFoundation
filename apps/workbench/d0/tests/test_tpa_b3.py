@@ -140,6 +140,8 @@ def test_b3_original_publish_grant_then_separate_expert_reader_and_revoke(app):
     assert expired["historical_exposure_remains"] is True
     assert expired["recorded_exposure_events"]>=1
     assert expired["handoff"]["handoff_sha256"]==success.json()["handoff"]["handoff_sha256"]
+    # Same nonce is a read of the committed historical receipt, not a new grant.
+    assert manager.post(BASE+"/"+task+"/attest",headers=mh,json=body).json()==success.json()
     assert manager.post(BASE+"/"+task+"/attest",headers=mh,json={
         **body,"idempotency_key":"b3-after-revoke-001"}).status_code==409
     auditor,_=login(app,"auditor")

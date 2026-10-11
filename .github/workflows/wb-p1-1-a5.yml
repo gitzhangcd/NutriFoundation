@@ -1,0 +1,66 @@
+name: WB-P1.1-A5 original D0 management UX and expert handoff
+on:
+  push:
+    branches: [workbench-p1.1-a5-management-ux-handoff]
+  pull_request:
+    paths:
+      - 'apps/workbench/d0/**'
+      - 'docs/workbench/WB-P1.1-A5*'
+      - '.github/workflows/wb-p1-1-a5.yml'
+permissions:
+  contents: read
+jobs:
+  a5-python:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Locked original D0 runtime
+        run: |
+          python -m pip install --require-hashes -r apps/workbench/d0/requirements.lock
+          python -m pip install 'pytest==8.4.2' 'httpx==0.28.1'
+      - name: Compile and syntax check native D0 plus A5
+        run: |
+          python -m compileall -q apps/workbench/d0
+          node --check apps/workbench/d0/web/tpa_manage.js
+          node --check apps/workbench/d0/web/tpa_p11.js
+      - name: A5 and original D0, EA, TPA, NDS safety regressions
+        run: |
+          python -m pytest apps/workbench/d0/tests -q -ra
+      - name: Immutable scientific-authority tree guard
+        run: |
+          set -euo pipefail
+          if git diff --name-only 54b4c2eba844f39c07575573a3e834e0bc00c261 HEAD |
+            grep -E '^(runs/|src/nutrifoundation/|apps/workbench/c1/|apps/workbench/c2_1/|apps/workbench/c2_2/)'; then
+            echo "A5 modified protected scientific files"; exit 1
+          fi
+  a5-chromium:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Locked D0 runtime and native Chromium
+        run: |
+          python -m pip install --require-hashes -r apps/workbench/d0/requirements.lock
+          python -m pip install 'playwright==1.55.0'
+          python -m playwright install --with-deps chromium
+          bash apps/workbench/d0/install_pdfjs.sh
+      - name: Real Chromium original expert and A5 manager end-to-end
+        env:
+          D0_QA_OUTPUT: /tmp/a5-browser-results
+        run: python apps/workbench/d0/tests/browser_d0.py
+      - name: Browser evidence screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: a5-browser-results
+          path: /tmp/a5-browser-results
+          if-no-files-found: ignore

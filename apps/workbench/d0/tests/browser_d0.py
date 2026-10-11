@@ -284,6 +284,9 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     p.locator('#createDraft').click()
     expect(p.locator('#receipt')).to_contain_text('"state": "DRAFT"',timeout=30000)
     row=p.locator('.task-row').filter(has_text='TPA-SYN-BROWSER-001')
+    expect(p.locator('.p11-task-table')).to_be_visible()
+    expect(p.locator('#p11WizardNav .p11-wizard-step')).to_have_count(5)
+    expect(p.locator('#p11WizardInfo')).to_contain_text('检查资料与任务')
     expect(row).to_contain_text('DRAFT')
     row.get_by_role('button',name=re.compile('检查资料与任务')).click()
     expect(row).to_contain_text('VALIDATED')
@@ -291,6 +294,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(row).to_contain_text('DEFINITION_FROZEN')
     row.get_by_role('button',name=re.compile('准备工作包')).click()
     expect(row).to_contain_text('READY_FOR_ASSIGNMENT')
+    expect(p.locator('#p11WizardInfo')).to_contain_text('工作包已准备')
     row.get_by_role('button',name='查看任务详情').click()
     expect(p.locator('#p11Detail')).to_be_visible()
     assert 'task=TPA-SYN-BROWSER-001' in p.evaluate('location.hash')
@@ -322,9 +326,27 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     assert manager_context.request.get(url+'/v1/ea/tasks/TPA-SYN-BROWSER-001/sources/RCT-001/r1').status==403
     row.get_by_role('button',name=re.compile('分配合成专家')).click()
     expect(row).to_contain_text('ASSIGNED')
+    # A5: the server commits a publish, but the browser receives a synthetic 502.
+    # Client must reconcile via server state; a timeout is NOT proof of rollback.
+    def lose_publish_reply(route):
+        committed=route.fetch()
+        assert committed.status==200
+        route.fulfill(status=502,content_type='application/json',
+                      body='{"detail":{"code":"SYNTHETIC_LOST_RESPONSE"}}')
+    m.route('**/v1/tpa/tasks/TPA-SYN-BROWSER-001/publish',lose_publish_reply,times=1)
     row.get_by_role('button',name=re.compile('授权发布任务')).click()
     expect(row).to_contain_text('PUBLISHED')
-    checks.extend(['tpa_manager_no_original_source_read','tpa_expert_assignment_publish_via_UI'])
+    expect(m.locator('#receipt')).to_contain_text('reconciled_after_uncertain_response')
+    assert m.locator('.p11-task-table').count()==1
+    row.get_by_role('button',name='查看任务详情').click()
+    expect(m.locator('#p11Detail')).to_contain_text('专家端安全交接')
+    expect(m.locator('#p11Detail')).to_contain_text('ea1')
+    expect(m.locator('#p11Detail')).to_contain_text('已发布 ≠ 已打开')
+    assert len(re.findall(r'(?i)[0-9a-f]{64}',m.locator('#p11Detail').text_content()))==2
+    m.locator('#p11Detail').get_by_role('button',name='关闭详情').click()
+    checks.extend(['tpa_manager_no_original_source_read','tpa_expert_assignment_publish_via_UI',
+                   'a5_server_committed_publish_lost_http_reply_reconciled',
+                   'a5_published_handoff_safe_and_two_full_source_digests'])
     ea_context,ea=sign_in('ea1')
     expect(ea.locator('#eaTask')).to_contain_text('TPA-SYN-BROWSER-001')
     ea.locator('#eaTask').select_option('TPA-SYN-BROWSER-001')

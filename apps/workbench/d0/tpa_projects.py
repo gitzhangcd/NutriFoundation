@@ -236,7 +236,7 @@ class TPAProjects:
             TPAProjects.ensure_batch(db, project_id, batch_id)
 
     @staticmethod
-    def where(project_id, batch_id, state=None):
+    def where(project_id, batch_id, state=None, q=None):
         cond, args = [], []
         if project_id:
             cond.append("x.project_id=?")
@@ -244,9 +244,16 @@ class TPAProjects:
         if batch_id:
             cond.append("x.batch_id=?")
             args.append(batch_id)
+        if q is not None:
+            if not isinstance(q, str) or not re.fullmatch(r"[A-Za-z0-9-]{1,60}", q):
+                block("INVALID_TASK_QUERY")
+            cond.append("t.task_id LIKE ?")
+            args.append("%" + q.upper() + "%")
         if state:
             if state == "LEGACY":
                 cond.append("x.task_id IS NULL")
+            elif state == "PREPARING":
+                cond.append("t.state IN ('DRAFT','VALIDATED','DEFINITION_FROZEN')")
             elif state in ALLOWED_STATES:
                 cond.append("t.state=?")
                 args.append(state)
@@ -254,12 +261,12 @@ class TPAProjects:
                 block("INVALID_STATE_FILTER")
         return (" WHERE " + " AND ".join(cond)) if cond else "", args
 
-    def list_tasks(self, role, project_id=None, batch_id=None, state=None, limit=50, offset=0):
+    def list_tasks(self, role, project_id=None, batch_id=None, state=None, q=None, limit=50, offset=0):
         self.access(role)
         limit, offset = self.page(limit, offset)
         with self.tpa.connect() as db:
             self.scope(db, project_id, batch_id)
-            predicate, args = self.where(project_id, batch_id, state)
+            predicate, args = self.where(project_id, batch_id, state, q)
             base = " FROM tpa_tasks t LEFT JOIN tpa_task_placement x ON x.task_id=t.task_id " + predicate
             total = db.execute("SELECT COUNT(*)" + base, args).fetchone()[0]
             rows = db.execute("SELECT t.*,x.project_id,x.batch_id" + base +

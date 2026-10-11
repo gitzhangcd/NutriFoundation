@@ -70,7 +70,10 @@ def install_tpa_routes(app: FastAPI, controller: TaskProduction, operations=None
                         "TASK_NOT_DELIVERED_OR_ASSIGNED","CROSS_ARM_PRIOR_EXPOSURE",
                         "SYNTHETIC_ONLY_REAL_SOURCE_DENY","DENY_INDEPENDENT_AGENT_EXPOSURE",
                         "PRODUCER_OWNER_MISMATCH")
-            status=403 if ex.code in deny_codes else 404 if ex.code in ("TASK_NOT_FOUND","SOURCE_NOT_REGISTERED") else 409
+            status=(422 if ex.code in ("INVALID_TASK_QUERY","INVALID_PAGINATION","INVALID_STATE_FILTER",
+                                         "PROJECT_SCOPE_REQUIRED_FOR_BATCH") else
+                    403 if ex.code in deny_codes else
+                    404 if ex.code in ("TASK_NOT_FOUND","SOURCE_NOT_REGISTERED") else 409)
             raise HTTPException(status,detail={"code":ex.code}) from ex
 
     @app.get("/v1/tpa/status")
@@ -93,15 +96,15 @@ def install_tpa_routes(app: FastAPI, controller: TaskProduction, operations=None
 
     @app.get("/v1/tpa/tasks")
     def list_tasks(request:Request,project_id:str|None=None,batch_id:str|None=None,
-                   state:str|None=None,limit:int|None=None,offset:int|None=None):
+                   state:str|None=None,q:str|None=None,limit:int|None=None,offset:int|None=None):
         p=person(request,("manager","producer"))
         # Original unfiltered response remains byte-shape compatible with P1.
-        if all(x is None for x in (project_id,batch_id,state,limit,offset)):
+        if all(x is None for x in (project_id,batch_id,state,q,limit,offset)):
             return call(controller.listing,role=p["role"],actor=p["actor"])
         if operations is None:
             raise HTTPException(409,detail={"code":"OPERATIONAL_LIST_NOT_ENABLED"})
         return call(operations.list_tasks,role=p["role"],
-                    project_id=project_id,batch_id=batch_id,state=state,
+                    project_id=project_id,batch_id=batch_id,state=state,q=q,
                     limit=50 if limit is None else limit,
                     offset=0 if offset is None else offset)
 

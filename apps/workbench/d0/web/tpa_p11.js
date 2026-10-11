@@ -454,7 +454,13 @@
       // Do not assume network failure == rollback; confirm by exact server task ID.
       let existing=null;
       try{existing=await apiOps('/v1/tpa/tasks/'+encodeURIComponent(body.task_id)+'/management')}catch{}
-      if(!existing||existing.placement?.project_id!==project||existing.placement?.batch_id!==batch)throw err;
+      const same=existing&&existing.task_id===body.task_id&&
+        existing.placement?.project_id===project&&existing.placement?.batch_id===batch&&
+        existing.profile_id===body.profile_id&&existing.knowledge_cutoff===body.knowledge_cutoff&&
+        existing.workflow_strategy===body.workflow_strategy&&
+        JSON.stringify(existing.primary_source)===JSON.stringify(body.primary_source)&&
+        JSON.stringify(existing.allowed_source_versions)===JSON.stringify(body.allowed_source_versions);
+      if(!same)throw err; // ID alone never authorizes treating an unrelated task as our transaction.
       result={task:existing,state:existing.state,placement:existing.placement,
               reconciled_after_uncertain_response:true};
     }

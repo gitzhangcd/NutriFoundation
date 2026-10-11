@@ -346,11 +346,11 @@
         if(type==='project'){
           result=await apiOps('/v1/tpa/projects',{method:'POST',body:JSON.stringify({
             project_id:fresh('PRJ-SYN-'),name,description,idempotency_key:crypto.randomUUID()})});
-          project=result.project_id;batch='';
+          project=result.project_id;batch='';navigate('projects',project,'');
         }else{
           result=await apiOps('/v1/tpa/projects/'+encodeURIComponent(project)+'/batches',{
             method:'POST',body:JSON.stringify({batch_id:fresh('BATCH-SYN-'),label:name,purpose:description,idempotency_key:crypto.randomUUID()})});
-          batch=result.batch_id;
+          batch=result.batch_id;navigate('projects',project,batch);
         }
         overlay.hidden=true;notify(result);await reload();
       }catch(err){catchMessage(err);submit.disabled=false;}

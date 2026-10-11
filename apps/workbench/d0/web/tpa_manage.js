@@ -183,6 +183,7 @@ function renderTasks(){
   const card=el('article',undefined,'task-row');
   card.append(el('strong',t.task_id),el('span',t.state,'state'));
   card.append(el('div',t.source_type+' · '+t.profile_id,'meta'));
+  if(window.opsLegacyTask?.(t.task_id))card.append(el('span','Legacy · 未归属项目/批次','tag'));
   card.append(el('div',t.workflow_strategy==='HUMAN_INDEPENDENT'?'独立标注 · 禁止候选':'Agent 复核 · 合成候选','meta'));
   card.append(el('div',t.assigned_expert?'专家：'+t.assigned_expert:'专家：尚未分配','meta'));
   const actions=el('div',undefined,'actions');

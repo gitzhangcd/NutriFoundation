@@ -428,7 +428,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     except AssertionError:
         state=manager_context.request.get(url+'/v1/tpa/tasks/TPA-SYN-BROWSER-001/management')
         raise AssertionError('UNCONFIRMED_MANAGER_UI_AFTER_LOST_REPLY: server='+
-          str(state.status)+'/'+state.text+' receipt='+str(m.locator('#receipt').text_content())+
+          str(state.status)+'/'+state.text()+' receipt='+str(m.locator('#receipt').text_content())+
           ' browser_row='+str(row.text_content()))
     expect(m.locator('#receipt')).to_contain_text('reconciled_after_uncertain_response')
     assert m.locator('.p11-task-table').count()==1

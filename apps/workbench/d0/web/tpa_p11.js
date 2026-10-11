@@ -37,6 +37,8 @@
   const PROJECT_PATTERN=/^PRJ-SYN-[A-Z0-9-]{3,40}$/;
   const BATCH_PATTERN=/^BATCH-SYN-[A-Z0-9-]{3,40}$/;
   const TASK_PATTERN=/^TPA-SYN-[A-Z0-9-]{3,50}$/;
+  const SOURCE_ID_PATTERN=/^[A-Z0-9-]{3,40}$/;
+  const SOURCE_REV_PATTERN=/^[A-Za-z0-9._-]{1,32}$/;
   const paramsFor=(p=project,b=batch,t='')=>{
     const query=new URLSearchParams();
     if(p)query.set('project',p);
@@ -45,7 +47,14 @@
     return query;
   };
   const hashFor=(view,p=project,b=batch,t='')=>{
-    const query=paramsFor(p,b,view==='tasks'?t:'').toString();
+    const params=paramsFor(p,b,view==='tasks'?t:'');
+    if(view==='sources'&&sourceSelection){
+      const [sid,revision]=sourceSelection.split(':');
+      if(SOURCE_ID_PATTERN.test(sid||'')&&SOURCE_REV_PATTERN.test(revision||'')){
+        params.set('source',sid);params.set('revision',revision);
+      }
+    }
+    const query=params.toString();
     return '#/'+view+(query?'?'+query:'');
   };
   function navigate(view,p=project,b=batch){
@@ -67,9 +76,13 @@
     const view=routes.includes(name)?name:'overview';
     let task=view==='tasks'?(params.get('task')||''):'';
     if(task&&!TASK_PATTERN.test(task))task='';
+    const sid=view==='sources'?(params.get('source')||''):'';
+    const revision=view==='sources'?(params.get('revision')||''):'';
+    const source=(SOURCE_ID_PATTERN.test(sid)&&SOURCE_REV_PATTERN.test(revision))?
+       sid+':'+revision:'';
     if(p&&projects.length&&!projects.some(x=>x.project_id===p)){p='';b='';}
     if(b&&batchMap.size&&!(batchMap.get(p)||[]).some(x=>x.batch_id===b))b='';
-    return {view,p,b,task};
+    return {view,p,b,task,source};
   }
 
   function field(label, id, max, placeholder, value='') {
@@ -238,6 +251,8 @@
     if(found.total>sourcePackages.length){
       notify('来源包注册表当前超出单页范围，后续需服务端分页；此页不是全部包');
     }
+    const routeSource=readRoute().source;
+    if(routeSource)sourceSelection=routeSource;
     if(sourceSelection&&!sourceData.some(s=>s.source_id+':'+s.revision_id===sourceSelection))
       sourceSelection='';
     if(!sourceSelection&&sourceData.length)
@@ -318,7 +333,12 @@
       if(key===sourceSelection)row.classList.add('selected');
       row.append(e('strong',src.title),e('p',src.source_id+' / '+src.revision_id+' · '+src.source_type,'p11-meta'));
       row.append(e('span',pkg?'已登记 · 仅合成':'待登记 · 仅合成','p11-package-status'));
-      const view=button('查看版本',()=>{sourceSelection=key;packageValidation=null;render()});
+      const view=button('查看版本',()=>{
+        sourceSelection=key;packageValidation=null;
+        const hash=hashFor('sources',project,batch);
+        if(location.hash!==hash)history.pushState({p11:'source'},'',hash);
+        render();
+      });
       view.setAttribute('aria-pressed',key===sourceSelection?'true':'false');
       row.append(view);sourceList.append(row);
     }
@@ -769,6 +789,10 @@
       const r=readRoute();
       const changed=(project!==r.p||batch!==r.b);
       active=r.view;project=r.p;batch=r.b;
+      if(r.view==='sources'){
+        sourceSelection=r.source || (sourceData.length?sourceData[0].source_id+':'+sourceData[0].revision_id:'');
+        packageValidation=null;
+      }
       const draw=()=>{
         render();
         const detail=$p('p11Detail');
@@ -781,6 +805,7 @@
     window.addEventListener('hashchange',replayRoute);
     window.addEventListener('popstate',replayRoute);
     const first=readRoute();active=first.view;project=first.p;batch=first.b;
+    if(first.source)sourceSelection=first.source;
     // P1's original loadSession/refresh initiates the first authenticated fetch.
   });
 })();

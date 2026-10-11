@@ -259,6 +259,12 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(p.locator('#b1PackageStatus')).to_contain_text('VALIDATED_SYNTHETIC_REFERENCE')
     expect(p.locator('#b1RegisterPackage')).to_be_enabled()
     p.locator('#b1RegisterPackage').click()
+    # Receipt distinguishes a genuine backend rejection from a stale client read model.
+    try:
+        expect(p.locator('#receipt')).to_contain_text('"b1_registration"',timeout=6000)
+    except AssertionError:
+        raise AssertionError('B1_REGISTER_UI_RECEIPT: '+str(p.locator('#receipt').text_content())+
+                             ' ; packages='+str(producer_context.request.get(url+'/v1/tpa/source-packages').json()))
     expect(p.locator('#b1PackageStatus')).to_contain_text('SPKG-SYN-RCT-001-R1')
     expect(p.locator('#b1PackageStatus')).to_contain_text('SYNTHETIC_REFERENCE_ONLY')
     expect(p.locator('.p11-structure-table tbody tr')).to_have_count(2)

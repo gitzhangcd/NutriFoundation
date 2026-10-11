@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>NutriFoundation · 科研任务管理中心</title>
-<link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/tpa_manage.css">
-<script src="/static/tpa_manage.js" defer></script>
+<link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/tpa_manage.css"><link rel="stylesheet" href="/static/tpa_p11.css">
+<script src="/static/tpa_manage.js" defer></script><script src="/static/tpa_p11.js" defer></script>
 </head>
 <body class="tpa-page">
 <a class="skip-tpa" href="#main">跳到任务配置</a>
@@ -21,7 +21,23 @@
  <button type="submit">登录管理工作台</button>
  </form><p id="loginError" role="alert" class="error"></p>
 </section>
-<div id="workspace" hidden>
+<div id="workspace" hidden><div class="p11-layout">
+  <aside class="p11-nav" id="p11Nav" aria-label="科研管理导航">
+    <div class="p11-nav-header">RESEARCH OPERATIONS</div>
+    <button type="button" data-p11-route="overview">工作总览</button>
+<button type="button" data-p11-route="projects">项目与批次</button>
+<button type="button" data-p11-route="tasks">任务中心</button>
+<button type="button" data-p11-route="sources">科学资料库</button>
+<button type="button" data-p11-route="agent">Agent 准备</button>
+<button type="button" data-p11-route="experts">专家与分配</button>
+<button type="button" data-p11-route="quality">进度与质控</button>
+<button type="button" data-p11-route="audit">审计与导出</button>
+    <div class="p11-nav-footer">SYNTHETIC ONLY<br>独立来源与专家标注权限</div>
+  </aside>
+  <div class="p11-content">
+    <div class="p11-top"><strong id="p11SectionTitle">工作总览</strong><small>WB-TPA · P1.1-A</small></div>
+    <section id="p11View" aria-live="polite"></section>
+    <section id="p11TaskView">
  <div class="tpa-heading"><div><p class="eyebrow">WB-TPA-P1 · 原 D0 同源管理端</p><h1>科研任务管理中心</h1><p>注册合成来源 → 冻结定义 → 准备候选或独立工作包 → 分配与发布</p></div><div class="tpa-heading-actions"><button id="reload" class="secondary">刷新任务</button><a href="/">原 Workbench</a></div></div>
  <div class="tpa-stats" aria-label="工程任务统计">
  <div><strong id="countSource">—</strong><span>合成来源版本</span></div>
@@ -29,6 +45,7 @@
  <div><strong id="countReady">—</strong><span>待管理分配</span></div>
  <div><strong id="countPublished">—</strong><span>已发布任务</span></div>
  </div>
+ <div class="p11-toolbar" id="p11TaskToolbar" aria-label="任务范围与搜索"></div>
  <div class="tpa-columns">
   <aside class="tpa-card source-column" aria-label="科学资料库">
    <div class="section-head"><div><small>STAGE 01</small><h2>科学来源库</h2></div><span class="hint">只读元数据</span></div>
@@ -37,7 +54,7 @@
   </aside>
   <section class="tpa-card builder-column" aria-label="任务生产配置">
    <div class="section-head"><div><small>STAGE 02–03</small><h2>任务生产</h2></div><span id="roleLabel" class="hint">未授权</span></div>
-   <form id="taskForm">
+   <div id="p11WizardNav" aria-label="任务分阶段操作"></div><form id="taskForm">
     <fieldset><legend>1 · 选择已登记来源</legend>
       <label>主来源版本<select id="primarySource" required></select></label>
       <label>附加授权来源（可选）<select id="extraSource"><option value="">不增加</option></select></label>
@@ -62,12 +79,17 @@
   </section>
   <section class="tpa-card ops-column" aria-label="任务分配与进度">
    <div class="section-head"><div><small>STAGE 04</small><h2>任务分配与进度</h2></div><span class="hint">冻结后只读</span></div>
-   <label>筛选状态<select id="stateFilter"><option value="">全部任务</option><option value="DRAFT">DRAFT</option><option value="VALIDATED">VALIDATED</option><option value="DEFINITION_FROZEN">DEFINITION_FROZEN</option><option value="READY_FOR_ASSIGNMENT">READY_FOR_ASSIGNMENT</option><option value="ASSIGNED">ASSIGNED</option><option value="PUBLISHED">PUBLISHED</option></select></label>
+   <label>筛选状态<select id="stateFilter"><option value="">全部任务</option><option value="DRAFT">DRAFT</option><option value="VALIDATED">VALIDATED</option><option value="DEFINITION_FROZEN">DEFINITION_FROZEN</option><option value="READY_FOR_ASSIGNMENT">READY_FOR_ASSIGNMENT</option><option value="ASSIGNED">ASSIGNED</option><option value="PUBLISHED">PUBLISHED</option><option value="REVOKED">REVOKED</option></select></label>
    <div id="taskList" class="task-list" aria-live="polite"></div>
   </section>
  </div>
  <section class="tpa-card activity"><div class="section-head"><div><small>OPERATION RECEIPT</small><h2>操作回执</h2></div><span class="hint">不属于 Gold / 正式科研结果</span></div>
  <pre id="receipt" role="status" aria-live="polite">仅供合成工程验收。尚无操作。</pre></section>
-</div>
+    <section id="p11Detail" hidden aria-label="单任务详情"></section>
+    </section><!-- p11TaskView -->
+  </div><!-- p11-content -->
+</div><!-- p11-layout -->
+</div><!-- workspace -->
+<div id="p11ModalOverlay" hidden></div>
 </main>
 </body></html>

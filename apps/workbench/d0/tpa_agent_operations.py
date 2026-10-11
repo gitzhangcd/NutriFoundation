@@ -135,9 +135,10 @@ class AgentPreparationLedger:
     @staticmethod
     def _project(record,role):
         # A manager may coordinate handoff, not inspect candidate hashes or item counts.
-        safe={k:v for k,v in record.items() if k not in ("candidate_set_digest","candidate_count")}
+        safe=dict(record)
         if role!="producer":
-            safe.pop("fixture_origin",None)
+            for confidential in ("candidate_set_digest","candidate_count","fixture_origin"):
+                safe.pop(confidential,None)
         safe["candidate_payload_exposed"]=False
         safe["original_units_exposed"]=False
         return safe

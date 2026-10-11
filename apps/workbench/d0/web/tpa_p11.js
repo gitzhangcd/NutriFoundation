@@ -320,6 +320,76 @@
     const info=e('p','Legacy 为没有运营批次归属的旧任务，不自动迁移。','p11-meta');bar.append(info);
     renderTasks();
   }
+  const taskOperations={
+    DRAFT:['validate','检查资料与任务','producer'],
+    VALIDATED:['freeze','冻结任务定义','producer'],
+    DEFINITION_FROZEN:['prepare','准备工作包','producer'],
+    READY_FOR_ASSIGNMENT:['assign','分配合成专家','manager'],
+    ASSIGNED:['publish','授权发布任务','manager']
+  };
+  const stageFor=state=>({DRAFT:3,VALIDATED:3,DEFINITION_FROZEN:4,
+    READY_FOR_ASSIGNMENT:5,ASSIGNED:5,PUBLISHED:5,REVOKED:5})[state]||3;
+  function continueTask(row){
+    selectedTaskId=row.task_id;selectedTaskMeta=row;
+    wizardStep=stageFor(row.state);renderWizard();
+    $p('p11WizardNav')?.scrollIntoView({block:'nearest'});
+  }
+  window.opsRenderTaskTable=(container,act)=>{
+    clear(container);
+    const summary=e('p',`服务端筛选结果：${pageTotal} 项，当前第 ${Math.floor(pageOffset/pageSize)+1} 页；`+
+      '发布不代表专家已打开、阅读或提交。','p11-meta');
+    container.append(summary);
+    const wrap=e('div',undefined,'p11-table-scroll');
+    wrap.setAttribute('role','region');wrap.setAttribute('aria-label','可横向滚动的合成任务表格');
+    wrap.tabIndex=0;
+    const table=e('table',undefined,'p11-task-table');
+    const head=e('thead');const header=e('tr');
+    for(const title of ['任务编号','项目 / 批次','来源版本','工作模式','状态','已分配身份','操作']){
+      const th=e('th',title);th.scope='col';header.append(th);
+    }
+    head.append(header);table.append(head);
+    const body=e('tbody');
+    const rows=managedTasks;
+    if(!rows.length){
+      const tr=e('tr');const td=e('td','当前范围没有符合条件的合成任务。');
+      td.colSpan=7;tr.append(td);body.append(tr);
+    }
+    for(const task of rows){
+      const tr=e('tr',undefined,'task-row');
+      tr.append(e('td',task.task_id,'p11-code'));
+      tr.append(e('td',task.legacy?'Legacy · 未归属':(task.project_id||'—')+' / '+(task.batch_id||'—'),'p11-scope-cell'));
+      const src=task.primary_source||{};
+      tr.append(e('td',`${task.source_type} · ${src.source_id||'—'} / ${src.revision_id||'—'}`));
+      tr.append(e('td',task.workflow_strategy==='HUMAN_INDEPENDENT'?'专家独立 · 无候选':'Agent 候选复核 · 合成'));
+      const status=e('td');status.append(e('span',task.state,'p11-state-tag'));tr.append(status);
+      tr.append(e('td',task.assigned_expert||'尚未分配'));
+      const controls=e('td');const menu=e('div',undefined,'p11-row-actions');
+      menu.append(button('查看任务详情',()=>window.opsTaskDetail(task.task_id)));
+      menu.append(button('继续办理',()=>continueTask(task)));
+      const next=taskOperations[task.state];
+      if(next&&role()===next[2]){
+        menu.append(button(next[1],()=>{continueTask(task);act(task.task_id,next[0],task.workflow_strategy)},'primary'));
+      }
+      if(role()==='manager'&&['ASSIGNED','PUBLISHED'].includes(task.state)){
+        menu.append(button('撤销未来访问权限',()=>{
+          if(window.confirm('撤销不会删除已经记录的历史暴露。确定撤销未来访问吗？'))
+            act(task.task_id,'revoke',task.workflow_strategy);
+        }));
+      }
+      if(task.state==='PUBLISHED'){
+        menu.append(button('专家交接说明',()=>window.opsTaskDetail(task.task_id)));
+      }
+      controls.append(menu);tr.append(controls);body.append(tr);
+    }
+    table.append(body);wrap.append(table);container.append(wrap);
+    const pager=e('div',undefined,'p11-pagination');
+    pager.append(e('span',`显示 ${pageTotal? pageOffset+1:0}–${Math.min(pageOffset+managedTasks.length,pageTotal)} / ${pageTotal}`));
+    const previous=button('上一页',()=>{pageOffset=Math.max(0,pageOffset-pageSize);fetchViews().then(()=>{renderTaskToolbar()}).catch(catchMessage)});
+    previous.disabled=pageOffset===0;pager.append(previous);
+    const next=button('下一页',()=>{pageOffset+=pageSize;fetchViews().then(()=>{renderTaskToolbar()}).catch(catchMessage)});
+    next.disabled=pageOffset+pageSize>=pageTotal;pager.append(next);
+    container.append(pager);
+  };
   window.opsA5StateChanged=value=>{
     stateScope=value;pageOffset=0;fetchViews().then(()=>{renderTasks();renderWizard()}).catch(catchMessage);
   };

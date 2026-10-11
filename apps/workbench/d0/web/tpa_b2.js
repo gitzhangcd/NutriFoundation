@@ -33,6 +33,11 @@ async function refresh(){
   const requested=routeTask();
   if(requested)selected=requested;
   else if(!selected||!rows.some(r=>r.task_id===selected))selected=rows[0]?.task_id||'';
+  // Default source/agent selections must survive refresh, not exist only in RAM.
+  if(!requested&&selected&&location.hash.startsWith('#/agent')){
+    const canonical='#/agent?agent_task='+encodeURIComponent(selected);
+    if(location.hash!==canonical)history.replaceState({b2:'task'},'',canonical);
+  }
   detail=selected?await call(path(selected)):null;
   inspection=null;
 }

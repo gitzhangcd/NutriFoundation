@@ -113,7 +113,10 @@
     const n=el('div',null,'p2-studio');
     const breadcrumb=el('div','工作空间  ›  科学资料库  ›  '+(tabs[state.tab]||'资料总览'),'p2-breadcrumb');
     n.append(breadcrumb,alert('架构安全边界：当前仅使用合成测试来源与受控结构化记录。真实 PDF、外部来源资格、Gold、正式专家授权及真实部署仍为 NO-GO。','info'));
-    n.append(context(),nav());if(state.notice)n.append(alert(state.notice,'note'));
+    n.append(context(),nav());
+    for(const b of document.querySelectorAll("#p2NavGroup [data-p2-tab]"))
+      b.setAttribute("aria-current",b.dataset.p2Tab===state.tab?"page":"false");
+    if(state.notice)n.append(alert(state.notice,'note'));
     return n;
   }
   function statBox(value,name){return append(el('div',null,'p2-stat'),el('strong',value),el('span',name));}

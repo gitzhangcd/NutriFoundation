@@ -475,26 +475,76 @@
     if($p('receipt'))$p('receipt').textContent='仅供合成工程验收。尚无操作。';
   };
   window.opsRefresh=reload;
+  function hideDetail(returnFocus=true){
+    const box=$p('p11Detail');if(!box)return;
+    box.hidden=true;clear(box);
+    if(returnFocus&&drawerReturnFocus?.isConnected)drawerReturnFocus.focus();
+    if(location.hash!==hashFor('tasks',project,batch))location.hash=hashFor('tasks',project,batch);
+  }
   window.opsTaskDetail=async (taskId,recordRoute=true)=>{
     try {
       const detail=await apiOps('/v1/tpa/tasks/'+encodeURIComponent(taskId)+'/management');
+      selectedTaskId=detail.task_id;selectedTaskMeta=detail;
+      wizardStep=stageFor(detail.state);renderWizard();
       if(recordRoute && TASK_PATTERN.test(taskId)){
+        drawerReturnFocus=document.activeElement;
         const h=hashFor('tasks',project,batch,taskId);
         if(location.hash!==h)history.pushState({p11:'task'},'',h);
       }
       const box=$p('p11Detail');clear(box);box.hidden=false;
-      box.append(e('h3','任务详情 · '+detail.task_id),e('p','状态：'+(stateLabel[detail.state]||detail.state),'p11-meta'));
-      box.append(e('p','运营归属：'+(detail.placement?detail.placement.project_id+' / '+detail.placement.batch_id:'Legacy'),'p11-meta'));
-      box.append(e('p','资料：'+detail.primary_source.source_id+' / '+detail.primary_source.revision_id,'p11-meta'));
-      box.append(e('p','Profile：'+detail.profile_id+'；工作模式：'+detail.workflow_strategy,'p11-meta'));
-      box.append(e('p','知识截止：'+detail.knowledge_cutoff,'p11-meta'));
-      box.append(e('p','后续操作：'+(detail.next_action||'无')+'（须由对应服务端角色授权）','p11-meta'));
-      box.append(notice('这是运营元数据。未开放专家原文、候选或 Gold 浏览。'));
-      box.append(button('关闭详情',()=>{
-        box.hidden=true;clear(box);
-        if(location.hash!==hashFor('tasks',project,batch))location.hash=hashFor('tasks',project,batch);
-      }));
-      box.scrollIntoView({behavior:'smooth',block:'nearest'});
+      box.setAttribute('role','dialog');box.setAttribute('aria-modal','false');
+      box.setAttribute('aria-labelledby','p11DetailTitle');box.tabIndex=-1;
+      const hdr=e('div',undefined,'p11-drawer-header');
+      const title=e('h3','任务详情 · '+detail.task_id);title.id='p11DetailTitle';
+      const close=button('关闭详情',()=>hideDetail());
+      hdr.append(title,close);box.append(hdr);
+      box.append(e('p','运营状态：'+(stateLabel[detail.state]||detail.state),'p11-meta'));
+      box.append(e('p','项目 / 批次：'+(detail.placement?detail.placement.project_id+' / '+detail.placement.batch_id:'Legacy · 未归属'),'p11-meta'));
+      box.append(e('p','Profile：'+detail.profile_id,'p11-meta'));
+      box.append(e('p','工作模式：'+(detail.workflow_strategy==='HUMAN_INDEPENDENT'?'独立专家 · 不允许 Agent 候选':'Agent 候选复核 · 仅合成 fixture'),'p11-meta'));
+      box.append(e('p','知识截止（UTC）：'+detail.knowledge_cutoff,'p11-meta'));
+      const sourceSection=e('section',undefined,'p11-drawer-section');
+      sourceSection.append(e('h4','不可变授权来源版本'));
+      for(const v of detail.allowed_source_versions||[]){
+        const item=e('div',undefined,'p11-drawer-source');
+        item.append(e('strong',v.source_id+' / '+v.revision_id));
+        item.append(e('code',v.canonical_document_sha256));
+        sourceSection.append(item);
+      }
+      box.append(sourceSection);
+      const next=e('section',undefined,'p11-drawer-section');
+      next.append(e('h4','服务端允许的下一步'));
+      next.append(e('p',(detail.next_action||'无')+' · 权限与状态以服务器再次核验为准。','p11-meta'));
+      const step=taskOperations[detail.state];
+      if(step&&role()===step[2]){
+        next.append(button(step[1],()=>window.opsTaskAction(detail.task_id,step[0],detail.workflow_strategy),'primary'));
+      }
+      if(role()==='manager'&&['ASSIGNED','PUBLISHED'].includes(detail.state)){
+        next.append(button('撤销未来访问权限',()=>{
+          if(window.confirm('撤销不会清除专家已经看过材料的历史记录。确定继续？'))
+            window.opsTaskAction(detail.task_id,'revoke',detail.workflow_strategy);
+        }));
+      }
+      box.append(next);
+      const handoff=e('section',undefined,'p11-drawer-section p11-handoff');
+      handoff.append(e('h4','专家端安全交接'));
+      if(detail.state==='PUBLISHED'){
+        const alias=detail.workflow_strategy==='HUMAN_INDEPENDENT'?'ea2':'ea1';
+        handoff.append(notice('已发布合成任务。请在独立浏览器资料或无痕窗口使用已授权的 '+alias+
+          ' 测试账号登录原 D0 专家界面，再在“科学证据任务”中选择该 Task ID。不得复用当前管理端会话。'));
+        const link=e('a','打开原 D0 专家入口（另开独立会话）');
+        link.href='/';link.target='_blank';link.rel='noopener noreferrer';link.className='p11-btn';
+        handoff.append(link);
+        handoff.append(e('p','任务编号：'+detail.task_id+' · 仅在服务端授权后可读取对应版本','p11-meta'));
+        handoff.append(e('p','已发布 ≠ 已打开 ≠ 已阅读 ≠ 已提交复核。此处没有专家行为证明。','p11-meta'));
+      }else if(detail.state==='REVOKED'){
+        handoff.append(notice('该任务已撤销未来访问。既有暴露日志保留，不能声称从未被阅读。'));
+      }else{
+        handoff.append(notice('该任务尚未正式发布给合成专家。不能提前访问原始资料或候选。'));
+      }
+      box.append(handoff);
+      box.append(notice('管理投影不包含原文 units、候选 payload、专家判断或 Gold；scientific_capture=false / NOT_ELIGIBLE。'));
+      box.focus();
     }catch(err){catchMessage(err)}
   };
 
@@ -539,7 +589,9 @@
       const item=ev.target.closest('button[data-p11-route]');if(item)go(item.dataset.p11Route);
     });
     document.addEventListener('keydown',ev=>{
-      if(ev.key==='Escape'&&$p('p11ModalOverlay')&&!$p('p11ModalOverlay').hidden)$p('p11ModalOverlay').hidden=true;
+      if(ev.key!=='Escape')return;
+      if($p('p11ModalOverlay')&&!$p('p11ModalOverlay').hidden)$p('p11ModalOverlay').hidden=true;
+      else if($p('p11Detail')&&!$p('p11Detail').hidden)hideDetail();
     });
     const replayRoute=()=>{
       const r=readRoute();

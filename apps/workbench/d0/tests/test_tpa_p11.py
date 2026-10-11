@@ -161,3 +161,62 @@ def test_p11_no_markup_in_operational_metadata(app):
     assert p.get('/v1/tpa/projects').json()['total']==0
     x=post_project(p,h,key='email-try-key',project_id='PRJ-SYN-NOEMAIL',name='PII user@example.com')
     assert x.status_code==422
+
+def test_p11_restart_and_sqlite_backup_keep_legacy_and_placement(app,tmp_path):
+    """A-UI-23: non-destructive operational schema reopen + SQLite backup snapshot."""
+    import sqlite3
+    from tpa_runtime import TaskProduction
+    from tpa_projects import TPAProjects
+
+    producer,headers=login(app,'producer')
+    main,_=setup(producer,headers)
+    # Pre-existing P1 task (no placement) must remain unplaced.
+    prepare_draft(app,'TPA-SYN-LEGACY-RESTORE')
+    payload=draft(main,task_id='TPA-SYN-OPS-RESTORE')
+    made=producer.post('/v1/tpa/tasks/in-batch',headers=headers,json=payload)
+    assert made.status_code==200,made.text
+    engine=app.state.task_production
+    assert engine.get('TPA-SYN-OPS-RESTORE')['state']=='DRAFT'
+    old=TPAProjects(TaskProduction(engine.path,app.state.evidence_engine))
+    projects=old.list_projects('producer')
+    assert projects['total']==1 and projects['projects'][0]['task_count']==1
+    scoped=old.list_tasks('manager',project_id=PROJECT,batch_id=BATCH)
+    assert scoped['total']==1 and scoped['tasks'][0]['task_id']=='TPA-SYN-OPS-RESTORE'
+    legacy=old.list_tasks('manager',state='LEGACY')
+    assert legacy['total']==1 and legacy['tasks'][0]['task_id']=='TPA-SYN-LEGACY-RESTORE'
+
+    # Exercise SQLite online backup API and validate *copy* without touching live data.
+    snapshot=tmp_path/'tpa-ops-snapshot.sqlite'
+    with sqlite3.connect(str(engine.path)) as source, sqlite3.connect(str(snapshot)) as dest:
+        source.backup(dest)
+        assert dest.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+        assert dest.execute('SELECT COUNT(*) FROM tpa_task_placement').fetchone()[0]==1
+        assert dest.execute('SELECT COUNT(*) FROM tpa_project_registry').fetchone()[0]==1
+        assert dest.execute('SELECT COUNT(*) FROM tpa_operational_batches').fetchone()[0]==1
+        assert dest.execute('SELECT COUNT(*) FROM tpa_tasks').fetchone()[0]==2
+    copied=TaskProduction(snapshot,app.state.evidence_engine)
+    restored=TPAProjects(copied)
+    assert restored.list_tasks('manager',project_id=PROJECT,batch_id=BATCH)['total']==1
+    assert restored.list_tasks('producer',state='LEGACY')['total']==1
+    assert copied.audit('auditor')['valid'] is True
+
+
+def test_p11_project_batch_records_are_immutable(app):
+    """No silently writable Project/Batch/Placement even if SQLite is accessed directly."""
+    import sqlite3
+    p,h=login(app,'producer')
+    main,_=setup(p,h)
+    created=p.post('/v1/tpa/tasks/in-batch',headers=h,json=draft(main))
+    assert created.status_code==200
+    path=str(app.state.task_production.path)
+    for stmt in (
+        "UPDATE tpa_project_registry SET name='tampered' WHERE project_id='"+PROJECT+"'",
+        "DELETE FROM tpa_operational_batches WHERE batch_id='"+BATCH+"'",
+        "UPDATE tpa_task_placement SET project_id='PRJ-SYN-SWITCH' WHERE task_id='TPA-SYN-P11-001'",
+    ):
+        with sqlite3.connect(path) as db:
+            try: db.execute(stmt)
+            except sqlite3.IntegrityError: pass
+            else: assert False,'immutable operational record was writable: '+stmt
+    assert p.get(f'/v1/tpa/projects/{PROJECT}/batches/{BATCH}').json()['task_count']==1
+    assert p.get(f'/v1/tpa/tasks/TPA-SYN-P11-001/management').json()['placement']['project_id']==PROJECT

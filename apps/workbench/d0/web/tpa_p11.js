@@ -255,21 +255,65 @@
     const words=['① 选择资料','② 定义任务','③ 验证冻结','④ 准备工作包','⑤ 分配发布'];
     for(let i=0;i<5;i++){
       const b=button(words[i],()=>{wizardStep=i+1;renderWizard()},wizardStep===i+1?'primary':'secondary');
-      b.classList.add('p11-wizard-step');box.append(b);
+      b.classList.add('p11-wizard-step');
+      b.setAttribute('aria-current',wizardStep===i+1?'step':'false');
+      box.append(b);
     }
-    const form=$p('taskForm'); if(!form)return;
+    const form=$p('taskForm');if(!form)return;
     const parts=[...form.querySelectorAll('fieldset')];
     parts[0].hidden=wizardStep!==1;parts[1].hidden=wizardStep!==2;parts[2].hidden=wizardStep!==2;
     let info=$p('p11WizardInfo');
-    if(!info){info=e('div',undefined,'p11-step-info');info.id='p11WizardInfo';form.after(info);}
+    if(!info){info=e('div',undefined,'p11-step-info p11-step-card');info.id='p11WizardInfo';form.after(info);}
     clear(info);
+    const current=managedTasks.find(x=>x.task_id===selectedTaskId)||
+      (selectedTaskMeta?.task_id===selectedTaskId?selectedTaskMeta:null);
+    if(current&&wizardStep>=3){
+      info.append(e('h3','当前办理：'+selectedTaskId));
+      info.append(e('p','服务端最近已知状态：'+(stateLabel[current.state]||current.state),'p11-meta'));
+      info.append(e('p','原始资料仍由获授权专家端读取；此处仅处理任务运营状态。','p11-meta'));
+    }
+    const nextStep=(n,label)=>button(label,()=>{wizardStep=n;renderWizard()},'primary');
+    const send=(kind,label)=>button(label,()=>{
+      if(!current||!window.opsTaskAction)return;
+      window.opsTaskAction(current.task_id,kind,current.workflow_strategy);
+    },'primary');
     if(wizardStep===1){
-      info.append(notice('选定已登记的合成资料和版本，然后进入定义任务。'));
-      info.append(button('下一步：定义任务',()=>{wizardStep=2;renderWizard()},'primary'));
-    }else if(wizardStep===2){info.append(notice('确认知识截止、Profile、工作模式后点击“创建合成任务草稿”，系统会以单事务保存任务与运营归属。'));
-    }else if(wizardStep===3){info.append(notice('在右侧任务队列使用 Producer 的“检查资料与任务”→“冻结任务定义”，冻结后不能原位改写。'));
-    }else if(wizardStep===4){info.append(notice('Producer 在右侧任务队列准备合成候选或独立资料包。专家独立组不接收任何 Agent 候选。'));
-    }else{info.append(notice('使用独立 Manager 会话在右侧分配、发布；Producer 不能代行操作。'));
+      info.append(notice('S1：只选择已登记的合成来源及准确版本；不会读取原文或创建 Gold。'));
+      if(role()==='producer')info.append(nextStep(2,'下一步：定义任务'));
+    }else if(wizardStep===2){
+      info.append(notice(role()==='producer'?
+        'S2：选择 Project / Batch、模式、Profile、截止时间，再提交合成草稿；不可原位更改冻结定义。':
+        'Manager 不具备创建任务权限。请在任务表格选择已准备的任务。'));
+    }else if(!current){
+      info.append(notice('先从下方任务表选择“继续办理”；未选择任务时不会执行任何状态变更。'));
+    }else if(wizardStep===3){
+      if(current.state==='DRAFT'&&role()==='producer')info.append(send('validate','S3 · 检查资料与任务'));
+      else if(current.state==='VALIDATED'&&role()==='producer')info.append(send('freeze','S3 · 冻结任务定义'));
+      else if(['DEFINITION_FROZEN','READY_FOR_ASSIGNMENT','ASSIGNED','PUBLISHED','REVOKED'].includes(current.state))
+        info.append(notice('任务定义已冻结，不能原位修改。'));
+      else info.append(notice('验证和冻结只允许任务生产者执行；请更换获授权会话。'));
+      if(['DEFINITION_FROZEN','READY_FOR_ASSIGNMENT','ASSIGNED','PUBLISHED'].includes(current.state))
+        info.append(nextStep(4,'下一步：准备工作包'));
+    }else if(wizardStep===4){
+      if(current.state==='DEFINITION_FROZEN'&&role()==='producer')
+        info.append(send('prepare','S4 · 准备合成工作包'));
+      else if(['READY_FOR_ASSIGNMENT','ASSIGNED','PUBLISHED'].includes(current.state)){
+        info.append(notice('工作包已准备：Agent 模式仅为预置合成候选；独立专家模式完全禁止候选暴露。'));
+        info.append(nextStep(5,'下一步：分配与发布'));
+      }else info.append(notice('此状态不可准备工作包；需先验证并冻结，且由 Producer 执行。'));
+    }else{
+      if(current.state==='READY_FOR_ASSIGNMENT'&&role()==='manager')
+        info.append(send('assign','S5 · 分配匹配模式的合成专家'));
+      else if(current.state==='ASSIGNED'&&role()==='manager')
+        info.append(send('publish','S5 · 授权发布任务'));
+      else if(current.state==='PUBLISHED')
+        info.append(notice('服务端确认已发布，不代表专家已打开、阅读、理解或完成评审。'));
+      else if(current.state==='REVOKED')
+        info.append(notice('未来访问已经撤销；既有暴露记录不得删除。'));
+      else info.append(notice('需先准备工作包；仅 Manager 能分配和发布。'));
+      if(['ASSIGNED','PUBLISHED','REVOKED'].includes(current.state)){
+        info.append(button('查看专家交接与版本信息',()=>window.opsTaskDetail(current.task_id)));
+      }
     }
   }
   async function reload(){

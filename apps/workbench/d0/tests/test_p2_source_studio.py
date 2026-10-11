@@ -237,3 +237,31 @@ def test_p2_audit_chain_corruption_rejected_and_manager_readonly(app):
         db.execute("INSERT INTO p2_events(source_key,event,actor,detail,prev_hash,entry_hash,at) VALUES(?,?,?,?,?,?,?)",
                    (sid+":r1","FORGED","SYN-ATTACKER","{}","fake","fake","2026-10-11T00:00:00Z"))
     assert auditor.get("/v1/p2/audit").json()["valid"] is False
+
+
+def test_p2_auxiliary_bilingual_translation_is_non_authoritative_and_immutable(app):
+    sid="P2-SYN-BILINGUAL-001"
+    producer,ph,auditor,ah,curator,ch,doc=converted(app,sid)
+    first=doc["document"]["units"][0]
+    original=curator.get(f"/v1/p2/sources/{sid}/r1/original").json()
+    body={"unit_id":first["unit_id"],"translation_zh":"虚构科学论文标题（非科学证据）",
+          "provenance_ref":"SYN-HUMAN-GRADUATE-EDITOR-001",
+          "expected_unit_text_sha256":first["unit_text_sha256"]}
+    url=f"/v1/p2/sources/{sid}/r1/translations"
+    manager,mh=login(app,"manager")
+    assert producer.post(url,headers=ph,json=body).status_code==403
+    assert manager.get(url).status_code==403
+    assert curator.post(url,headers=ch,json={**body,"expected_unit_text_sha256":"0"*64}).status_code==409
+    record=curator.post(url,headers=ch,json=body)
+    assert record.status_code==200,record.text
+    assert record.json()["translation"]["authority"]=="AUXILIARY_ONLY"
+    assert record.json()["translation"]["human_approved_for_expert"] is False
+    assert curator.post(url,headers=ch,json=body).status_code==409
+    listing=curator.get(url).json()
+    assert listing["count"]==1 and listing["translations"][0]["translation_zh"]==body["translation_zh"]
+    assert curator.get(f"/v1/p2/sources/{sid}/r1/document").json()["document_sha256"]==doc["document_sha256"]
+    assert curator.get(f"/v1/p2/sources/{sid}/r1/original").json()==original
+    assert app.state.p2_source_studio.audit("auditor")["valid"] is True
+    with app.state.p2_source_studio.connect() as db:
+        with pytest.raises(sqlite3.IntegrityError):
+            db.execute("DELETE FROM p2_translations WHERE source_id=?",(sid,))

@@ -1,0 +1,65 @@
+name: WB-P1.1-B1 synthetic Source Package acceptance
+on:
+  push:
+    branches: [workbench-p1.1-b1-scientific-source-packages]
+  pull_request:
+    paths:
+      - 'apps/workbench/d0/**'
+      - 'docs/workbench/WB-P1.1-B1*'
+      - '.github/workflows/wb-p1-1-b1.yml'
+permissions:
+  contents: read
+jobs:
+  b1-python:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Frozen native D0 runtime and test tools
+        run: |
+          python -m pip install --require-hashes -r apps/workbench/d0/requirements.lock
+          python -m pip install 'pytest==8.4.2' 'httpx==0.28.1'
+      - name: Compile and strict-browser-script syntax
+        run: |
+          python -m compileall -q apps/workbench/d0
+          node --check apps/workbench/d0/web/tpa_manage.js
+          node --check apps/workbench/d0/web/tpa_p11.js
+      - name: B1 SourcePackage and complete original D0 security regressions
+        run: python -m pytest apps/workbench/d0/tests -q -ra
+      - name: Protect science and authoritative source trees
+        run: |
+          set -euo pipefail
+          if git diff --name-only c54b4ba31eddd107784b5a7d1540e69debe8079a HEAD |
+            grep -E '^(runs/|src/nutrifoundation/|apps/workbench/c1/|apps/workbench/c2_1/|apps/workbench/c2_2/|apps/workbench/d0/ea_(runtime|seed|contract))'; then
+            echo "B1 unexpectedly modified a protected authority"; exit 1
+          fi
+  b1-chromium:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Original D0 native Chromium runtime
+        run: |
+          python -m pip install --require-hashes -r apps/workbench/d0/requirements.lock
+          python -m pip install 'playwright==1.55.0'
+          python -m playwright install --with-deps chromium
+          bash apps/workbench/d0/install_pdfjs.sh
+      - name: Original expert PDF/anchor plus B1 source-management browser
+        env:
+          D0_QA_OUTPUT: /tmp/b1-browser-results
+        run: python apps/workbench/d0/tests/browser_d0.py
+      - name: B1 screenshots and synthetic receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: b1-browser-results
+          path: /tmp/b1-browser-results
+          if-no-files-found: ignore

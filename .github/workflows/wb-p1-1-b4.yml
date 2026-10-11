@@ -29,6 +29,7 @@ jobs:
           python -m compileall -q apps/workbench/d0
           node --check apps/workbench/d0/web/tpa_manage.js
           node --check apps/workbench/d0/web/tpa_p11.js
+          node --check apps/workbench/d0/web/p2_source_studio.js
           node --check apps/workbench/d0/web/tpa_b2.js
           node --check apps/workbench/d0/web/tpa_b3.js
       - name: Cross-B1/B2/B3 B4 fault injection and full original D0/EA/TPA/NDS regression
@@ -43,7 +44,35 @@ jobs:
           fi
           # Allowlist: original B4 freeze docs/tests, plus P1.1-A Management Demo
           # task-center UX alignment (list-first + modal wizard) on the same D0 surface.
-          if printf '%s\n' "$files" | grep -Ev '^($|\.github/workflows/wb-p1-1-b4.yml|apps/workbench/d0/tests/test_tpa_b4_integration.py|apps/workbench/d0/tests/browser_d0.py|apps/workbench/d0/web/manage.html|apps/workbench/d0/web/tpa_p11.js|apps/workbench/d0/web/tpa_p11.css|apps/workbench/d0/tpa_adapter.py|apps/workbench/d0/tpa_projects.py|docs/workbench/WB-P1.1-B4.*\.md)$'; then
+          if printf '%s\n' "$files" | grep -Ev '^($|\.github/workflows/wb-p1-1-b4.yml|apps/workbench/d0/tests/test_tpa_b4_integration.py|apps/workbench/d0/tests/browser_d0.py|apps/workbench/d0/web/manage.html|apps/workbench/d0/web/tpa_p11.js|apps/workbench/d0/web/tpa_p11.css|apps/workbench/d0/web/p2_source_studio.js|apps/workbench/d0/web/p2_source_studio.css|apps/workbench/d0/tpa_adapter.py|apps/workbench/d0/tpa_projects.py|docs/workbench/WB-P1.1-B4.*\.md)
+            echo "B4 contains unexpected runtime feature changes"; exit 1
+          fi
+  b4-native-chromium:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Original D0 native Chromium PDF.js and pinned deps
+        run: |
+          python -m pip install --require-hashes -r apps/workbench/d0/requirements.lock
+          python -m pip install 'playwright==1.55.0'
+          python -m playwright install --with-deps chromium
+          bash apps/workbench/d0/install_pdfjs.sh
+      - name: Real native browser end-to-end across original management and expert
+        env:
+          D0_QA_OUTPUT: /tmp/b4-browser-results
+        run: python apps/workbench/d0/tests/browser_d0.py
+      - name: Browser screenshots and receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: b4-browser-results
+          path: /tmp/b4-browser-results
+          if-no-files-found: ignore
+; then
             echo "B4 contains unexpected runtime feature changes"; exit 1
           fi
   b4-native-chromium:

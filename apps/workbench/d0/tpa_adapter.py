@@ -93,15 +93,15 @@ def install_tpa_routes(app: FastAPI, controller: TaskProduction, operations=None
 
     @app.get("/v1/tpa/tasks")
     def list_tasks(request:Request,project_id:str|None=None,batch_id:str|None=None,
-                   state:str|None=None,limit:int|None=None,offset:int|None=None):
+                   state:str|None=None,q:str|None=None,limit:int|None=None,offset:int|None=None):
         p=person(request,("manager","producer"))
         # Original unfiltered response remains byte-shape compatible with P1.
-        if all(x is None for x in (project_id,batch_id,state,limit,offset)):
+        if all(x is None for x in (project_id,batch_id,state,q,limit,offset)):
             return call(controller.listing,role=p["role"],actor=p["actor"])
         if operations is None:
             raise HTTPException(409,detail={"code":"OPERATIONAL_LIST_NOT_ENABLED"})
         return call(operations.list_tasks,role=p["role"],
-                    project_id=project_id,batch_id=batch_id,state=state,
+                    project_id=project_id,batch_id=batch_id,state=state,q=q,
                     limit=50 if limit is None else limit,
                     offset=0 if offset is None else offset)
 

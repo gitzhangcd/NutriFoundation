@@ -464,8 +464,9 @@
     actions.append(button(state.step===3?'提交合成来源登记':'下一步',async()=>{
       if(state.step<3){state.step++;draw();return;}
       if(!canSubmit()){state.notice='只有 Producer 可以登记合成来源。';state.wizard=false;draw();return;}
-      await perform(()=>api('/v1/p2/sources',{method:'POST',body:d}),'来源已登记并进入独立用途权利待核查状态');
-      state.wizard=false;state.tab='library';state.selection=d.source_id+':'+d.revision_id;state.draft=null;
+      const saved=await perform(()=>api('/v1/p2/sources',{method:'POST',body:d}),'来源已登记并进入独立用途权利待核查状态');
+      if(!saved)return;
+      state.wizard=false;state.tab='library';state.selection=d.source_id+':'+d.revision_id;state.draft=null;draw();
     },'primary'));
     form.append(actions);modal.append(form);layer.append(modal);return layer;
   }

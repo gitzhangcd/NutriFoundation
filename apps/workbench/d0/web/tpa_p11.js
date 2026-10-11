@@ -286,6 +286,7 @@
   function go(view){navigate(view);}
   function renderTaskToolbar(){
     let bar=$p('p11TaskToolbar');if(!bar)return;clear(bar);
+    const shortcut=button('项目与批次',()=>go('projects'),'secondary');shortcut.id='p11ProjectsShortcut';bar.append(shortcut);
     const label=e('label');label.append(e('span','项目'));label.append(select('p11TaskProject',projects.map(p=>[p.project_id,p.name]),project,
       v=>chooseScope(v).catch(catchMessage),'全部项目 / Legacy'));bar.append(label);
     if(project){const b=e('label');b.append(e('span','批次'));b.append(select('p11TaskBatch',(batchMap.get(project)||[]).map(x=>[x.batch_id,x.label]),batch,

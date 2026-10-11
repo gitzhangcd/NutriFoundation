@@ -220,3 +220,36 @@ def test_p11_project_batch_records_are_immutable(app):
             else: assert False,'immutable operational record was writable: '+stmt
     assert p.get(f'/v1/tpa/projects/{PROJECT}/batches/{BATCH}').json()['task_count']==1
     assert p.get(f'/v1/tpa/tasks/TPA-SYN-P11-001/management').json()['placement']['project_id']==PROJECT
+
+
+def test_p11_existing_encrypted_backup_and_restore_preserve_ops(app,tmp_path):
+    """A-UI-23: restore the *existing* offline authenticated backup in a disposable workspace."""
+    from cryptography.fernet import Fernet
+    from backup import backup, seal_backup, open_backup
+    from tpa_runtime import TaskProduction
+    from tpa_projects import TPAProjects
+
+    p,h=login(app,'producer')
+    main,_=setup(p,h)
+    legacy_task='TPA-SYN-ENCRYPTED-LEGACY'
+    prepare_draft(app,legacy_task)
+    payload=draft(main,task_id='TPA-SYN-ENCRYPTED-OPS')
+    created=p.post('/v1/tpa/tasks/in-batch',headers=h,json=payload)
+    assert created.status_code==200,created.text
+
+    engine=app.state.task_production
+    source_root=engine.path.parent
+    snapshot=backup(source_root,tmp_path/'offline-snapshot',offline=True)
+    key=Fernet.generate_key()
+    sealed=seal_backup(snapshot,tmp_path/'offline-snapshot.fernet',key)
+    restored=tmp_path/'restored'
+    open_backup(sealed,restored,key)
+    assert (restored/'tpa_synthetic.sqlite').is_file()
+    restored_engine=TaskProduction(restored/'tpa_synthetic.sqlite',app.state.evidence_engine)
+    restored_ops=TPAProjects(restored_engine)
+    assert restored_ops.list_projects('manager')['total']==1
+    assert restored_ops.list_tasks('manager',project_id=PROJECT,batch_id=BATCH)['total']==1
+    assert restored_ops.list_tasks('manager',state='LEGACY')['total']==1
+    assert restored_engine.audit('auditor')['valid'] is True
+    assert restored_ops.detail('producer',payload['task_id'])['gold_qualification']=='NOT_ELIGIBLE'
+    assert p.get(f'/v1/tpa/tasks/{payload["task_id"]}/management').status_code==200

@@ -70,7 +70,8 @@ def install_tpa_routes(app: FastAPI, controller: TaskProduction, operations=None
                         "TASK_NOT_DELIVERED_OR_ASSIGNED","CROSS_ARM_PRIOR_EXPOSURE",
                         "SYNTHETIC_ONLY_REAL_SOURCE_DENY","DENY_INDEPENDENT_AGENT_EXPOSURE",
                         "PRODUCER_OWNER_MISMATCH")
-            status=(422 if ex.code=="INVALID_TASK_QUERY" else
+            status=(422 if ex.code in ("INVALID_TASK_QUERY","INVALID_PAGINATION","INVALID_STATE_FILTER",
+                                         "PROJECT_SCOPE_REQUIRED_FOR_BATCH") else
                     403 if ex.code in deny_codes else
                     404 if ex.code in ("TASK_NOT_FOUND","SOURCE_NOT_REGISTERED") else 409)
             raise HTTPException(status,detail={"code":ex.code}) from ex

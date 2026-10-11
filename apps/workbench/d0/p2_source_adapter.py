@@ -99,6 +99,16 @@ def install_p2_source_routes(app:FastAPI,studio:SourceStudio):
         p=person(request)
         return studio.document(p["role"],source_id,revision_id)
 
+    @app.get("/v1/p2/sources/{source_id}/{revision_id}/original")
+    def original(source_id:str,revision_id:str,request:Request):
+        p=person(request)
+        return studio.original(p["role"],source_id,revision_id)
+
+    @app.get("/v1/p2/sources/{source_id}/{revision_id}/reviews")
+    def reviews(source_id:str,revision_id:str,request:Request):
+        p=person(request)
+        return studio.reviews(p["role"],source_id,revision_id)
+
     @app.post("/v1/p2/sources/{source_id}/{revision_id}/qa")
     def qa(source_id:str,revision_id:str,request:Request,body:dict):
         p=person(request)

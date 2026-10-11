@@ -351,6 +351,11 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(c.locator('.p2-original-text')).to_contain_text('Synthetic scientific paper',timeout=20000)
     unit_count=c.locator('.p2-unit').count()
     assert unit_count>=4
+    c.locator('.p2-unit').first.click()
+    c.locator('.p2-translation-entry textarea').fill('这是只用于浏览器验收的人工辅助译文。')
+    c.get_by_role('button',name='保存辅助译文（不作为 Gold）').click()
+    expect(c.locator('.p2-studio')).to_contain_text('辅助译文作为独立、不可变的非权威层保存',timeout=20000)
+    assert c_ctx.request.get(url+'/v1/p2/sources/'+source_id+'/r1/translations').json()['count']==1
     for idx in range(unit_count):
         c.locator('.p2-unit').nth(idx).click()
         c.get_by_role('button',name='核查通过 · 冻结此 Unit').click()
@@ -363,7 +368,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     assert producer_context.request.get(url+'/v1/p2/sources/'+source_id+'/r1').json()['status']=='PACKAGE_FROZEN'
     checks.extend(['p2_html_fidelity_five_stage_and_six_example_rows','p2_synthetic_source_persisted_intake',
                    'p2_separate_rights_and_no_raw_auditor','p2_curator_original_sha_and_all_units',
-                   'p2_immutable_package_freeze_no_expert_grant'])
+                   'p2_immutable_package_freeze_no_expert_grant','p2_auxiliary_translation_has_independent_lineage'])
     p.screenshot(path=str(output/'p2-source-studio-producer-synthetic.png'),full_page=True)
     checks.extend(['p2_studio_same_pr36_management_shell','p2_studio_metadata_only_source_preview',
                    'p2_four_step_wizard_synthetic_only_admission','p2_reader_mock_unit_qa_block',

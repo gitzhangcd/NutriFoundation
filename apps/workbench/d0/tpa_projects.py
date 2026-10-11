@@ -247,6 +247,8 @@ class TPAProjects:
         if state:
             if state == "LEGACY":
                 cond.append("x.task_id IS NULL")
+            elif state == "PREPARING":
+                cond.append("t.state IN ('DRAFT','VALIDATED','DEFINITION_FROZEN')")
             elif state in ALLOWED_STATES:
                 cond.append("t.state=?")
                 args.append(state)

@@ -22,6 +22,8 @@ from tpa_projects import TPAProjects
 from tpa_projects_adapter import install_project_routes
 from tpa_source_packages import SourcePackages
 from tpa_source_packages_adapter import install_source_package_routes
+from tpa_agent_operations import AgentPreparationLedger
+from tpa_agent_operations_adapter import install_agent_preparation_routes
 
 BASE=Path(__file__).resolve().parent
 C21=BASE.parent/'c2_1';C22=BASE.parent/'c2_2'
@@ -71,6 +73,9 @@ def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,
     source_packages=SourcePackages(tpa)
     app.state.source_packages=source_packages
     install_source_package_routes(app,source_packages)
+    agent_ledger=AgentPreparationLedger(tpa)
+    app.state.agent_preparation_ledger=agent_ledger
+    install_agent_preparation_routes(app,agent_ledger)
     secure=parsed.scheme=='https'
     def failure(code,status):return JSONResponse({'detail':{'code':code}},status_code=status)
     @app.middleware('http')

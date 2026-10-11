@@ -162,7 +162,7 @@
   function sourceList(){
     const wrap=panel('科学来源列表','以版本 SHA 和列表优先模式展示；项目/批次是引用范围，来源版本由全局权威管理。');
     const right=button('查看来源版本谱系 ↗',()=>view('versions'),'outline');
-    wrap.firstChild.append?null:null;wrap.insertBefore(right,wrap.children[1]||null);
+    wrap.insertBefore(right,wrap.children[1]||null);
     wrap.append(statFilter());
     const searchbar=el('div',null,'p2-toolbar');
     const search=textInput(state.search,160);search.placeholder='搜索标题、DOI、PMID 或 Source ID';
@@ -491,5 +491,13 @@
     state.reviewed=new Set();state.liveSources=[];state.overview=null;
   }
   window.p2SourceStudio={render,reload,reset,selectTab:view};
-  document.addEventListener('DOMContentLoaded',()=>document.getElementById('logoutButton')?.addEventListener('click',reset));
+  document.addEventListener('DOMContentLoaded',()=>{
+    document.getElementById('logoutButton')?.addEventListener('click',reset);
+    document.getElementById('p2NavGroup')?.addEventListener('click',event=>{
+      const target=event.target.closest('[data-p2-tab]');if(!target)return;
+      state.tab=target.dataset.p2Tab;
+      if(!location.hash.startsWith('#/studio'))location.hash='#/studio';
+      else draw();
+    });
+  });
 })();

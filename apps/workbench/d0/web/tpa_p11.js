@@ -14,7 +14,7 @@
     x.type='button'; x.addEventListener('click',fn); return x;
   };
   let projects=[], batchMap=new Map(), overview=null, managedTasks=[];
-  let project='',batch='',search='',wizardStep=1, active='overview';
+  let project='',batch='',search='',wizardStep=1, active='overview',legacyOnly=false;
   let loading=false;
   const routes=['overview','projects','tasks','sources','agent','experts','quality','audit'];
   const labels={overview:'工作总览',projects:'项目与批次',tasks:'任务中心',sources:'科学资料库',agent:'Agent 准备',experts:'专家与分配',quality:'进度与质控',audit:'审计与导出'};
@@ -118,7 +118,7 @@
     sel.value=value;sel.addEventListener('change',ev=>onChange(ev.target.value));return sel;
   }
   async function chooseScope(p,b=''){
-    navigate(active,p,b);await fetchViews();render();
+    legacyOnly=false;navigate(active,p,b);await fetchViews();render();
   }
   function scopes(parent){
     const toolbar=e('div',undefined,'p11-scope');
@@ -284,22 +284,30 @@
       v=>chooseScope(project,v).catch(catchMessage),'全部批次'));bar.append(b);}
     const q=e('label');q.append(e('span','任务搜索'));const input=e('input');input.placeholder='合成任务 ID';input.value=search;
     input.addEventListener('input',ev=>{search=ev.target.value.trim();renderTasks();});q.append(input);bar.append(q);
+    if(!project){
+      const legacy=button(legacyOnly?'显示全部任务':'仅显示 Legacy 任务',()=>{
+        legacyOnly=!legacyOnly;renderTaskToolbar();
+      },legacyOnly?'primary':'secondary');
+      legacy.id='p11LegacyToggle';bar.append(legacy);
+    }
     const info=e('p','Legacy 为没有运营批次归属的旧任务，不自动迁移。','p11-meta');bar.append(info);
     renderTasks();
   }
   window.opsVisibleTasks = rows => {
     // Data from server-filtered list; preserve legacy list behavior if scope not selected.
     const allowed = new Set((managedTasks||[]).map(t=>t.task_id));
-    return rows.filter(t=>(!project||allowed.has(t.task_id))&&(!search||t.task_id.toLowerCase().includes(search.toLowerCase())));
+    const legacyIds=new Set((managedTasks||[]).filter(t=>t.legacy===true).map(t=>t.task_id));
+    return rows.filter(t=>(!project||allowed.has(t.task_id))&&(!legacyOnly||legacyIds.has(t.task_id))&&(!search||t.task_id.toLowerCase().includes(search.toLowerCase())));
   };
+  window.opsLegacyTask=taskId=>managedTasks.some(t=>t.task_id===taskId&&t.legacy===true);
   window.opsDraftCreate=async body=>{
     if(!project||!batch)throw Error('请先在“项目与批次”创建或选择项目与批次');
     const result=await apiOps('/v1/tpa/tasks/in-batch',{method:'POST',body:JSON.stringify({
       ...body,project_id:project,batch_id:batch,idempotency_key:crypto.randomUUID()
     })});
-    wizardStep=3;return result;
+    legacyOnly=false;wizardStep=3;return result;
   };
-  window.opsClear=()=>{projects=[];batchMap=new Map();overview=null;managedTasks=[];project='';batch='';search='';wizardStep=1;active='overview';window.opsPreparingFilter=false;
+  window.opsClear=()=>{projects=[];batchMap=new Map();overview=null;managedTasks=[];project='';batch='';search='';wizardStep=1;active='overview';window.opsPreparingFilter=false;legacyOnly=false;
     if($p('p11View'))clear($p('p11View'));
     if($p('p11Detail')){$p('p11Detail').hidden=true;clear($p('p11Detail'));}
     if($p('p11ModalOverlay')){$p('p11ModalOverlay').hidden=true;clear($p('p11ModalOverlay'));}

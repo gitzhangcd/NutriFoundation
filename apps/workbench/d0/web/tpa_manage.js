@@ -52,7 +52,7 @@ async function loadSession(){
  let ses;
  try{ses=await api('/v1/session')}catch(e){ses=null}
  if(!ses||!['manager','producer'].includes(ses.role)){
-  auth=null;$('loginScreen').hidden=false;$('workspace').hidden=true;
+  auth=null;window.opsClear?.();$('loginScreen').hidden=false;$('workspace').hidden=true;
   $('logoutButton').hidden=true;$('userBadge').textContent='未登录';return;
  }
  auth=ses;
@@ -66,6 +66,7 @@ async function refresh(){
  const [s,t]=await Promise.all([api('/v1/tpa/sources'),api('/v1/tpa/tasks')]);
  sourceData=s.sources;taskData=t.tasks;
  renderSources();renderOptions();renderTasks();updateStats();
+ if(window.opsRefresh)await window.opsRefresh();
 }
 function renderSources(){
  $('sourcesList').replaceChildren();
@@ -133,14 +134,14 @@ async function createDraft(e){
    import_kind:'EXISTING_SYNTHETIC_SOURCE',source_id:p.source_id,revision_id:p.revision_id,
    canonical_document_sha256:p.canonical_document_sha256
   })});
-  const result=await api('/v1/tpa/tasks/drafts',{method:'POST',body:JSON.stringify(body)});
+  const result=window.opsDraftCreate?await window.opsDraftCreate(body):await api('/v1/tpa/tasks/drafts',{method:'POST',body:JSON.stringify(body)});
   receipt({source_validation:qualified.status,task_created:result});
   newId();await refresh();
  }catch(ex){receipt('创建失败 / 未发布：'+ex.message)}
 }
 async function createBatch(){
  if(auth?.role!=='producer'||sourceData.length!==7)return;
- if(!window.confirm('创建七类合成来源的任务草稿；不会自动分配或发布。确认？'))return;
+ if(!window.confirm('这是 P1 旧版七条 Legacy 批量草稿操作，不会放入当前运营项目/批次，也不会发布。继续？'))return;
  const serial=crypto.randomUUID().replaceAll('-','').slice(0,10).toUpperCase();
  const workflow=$('workflowStrategy').value;
  const cutoff=$('knowledgeCutoff').value.trim();
@@ -174,7 +175,8 @@ async function action(id,kind,mode){
 }
 function renderTasks(){
  $('taskList').replaceChildren();
- const visible=taskData.filter(x=>!selectedFilter||x.state===selectedFilter);
+ const scoped=window.opsVisibleTasks?window.opsVisibleTasks(taskData):taskData;
+ const visible=scoped.filter(x=>!selectedFilter||x.state===selectedFilter);
  if(!visible.length){$('taskList').append(el('p','尚无此状态的管理任务。','fine'));return}
  for(const t of visible){
   const card=el('article',undefined,'task-row');
@@ -183,6 +185,10 @@ function renderTasks(){
   card.append(el('div',t.workflow_strategy==='HUMAN_INDEPENDENT'?'独立标注 · 禁止候选':'Agent 复核 · 合成候选','meta'));
   card.append(el('div',t.assigned_expert?'专家：'+t.assigned_expert:'专家：尚未分配','meta'));
   const actions=el('div',undefined,'actions');
+  if(window.opsTaskDetail){
+    const inspect=el('button','查看任务详情');inspect.type='button';inspect.className='secondary';
+    inspect.addEventListener('click',()=>window.opsTaskDetail(t.task_id));actions.append(inspect);
+  }
   const op=auth?.role==='producer'?{DRAFT:['validate','检查资料与任务'],VALIDATED:['freeze','冻结任务定义'],
     DEFINITION_FROZEN:['prepare','准备工作包']}:{READY_FOR_ASSIGNMENT:['assign','分配合成专家'],ASSIGNED:['publish','授权发布任务']};
   const entry=op[t.state];

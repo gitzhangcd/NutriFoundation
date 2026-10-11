@@ -506,7 +506,9 @@
     if(loading||!auth)return;
     loading=true;
     try {
-      await loadProjects();await fetchViews();await loadSourcePackages();renderSelector();render();
+      await loadProjects();await fetchViews();await loadSourcePackages();
+      if(active==='agent')await window.opsB2Refresh?.();
+      renderSelector();render();
       const deep=readRoute().task;
       if(deep)await window.opsTaskDetail(deep,false);
     }
@@ -523,10 +525,13 @@
       item.setAttribute('aria-current',item.dataset.p11Route===active?'page':'false');
     }
     $p('p11SectionTitle').textContent=labels[active];
-    if(separate){clear($p('p11View'));$p('p11View').append(active==='overview'?renderOverview():active==='projects'?renderProjects():active==='sources'?renderSourceLibrary():renderPlaceholder());}
+    if(separate){clear($p('p11View'));$p('p11View').append(active==='overview'?renderOverview():active==='projects'?renderProjects():active==='sources'?renderSourceLibrary():active==='agent'&&window.opsB2Render?window.opsB2Render():renderPlaceholder());}
     else{renderSelector();renderWizard();renderTaskToolbar();}
   }
-  function go(view){navigate(view);}
+  function go(view){
+    navigate(view);
+    if(view==='agent')window.opsB2Refresh?.().then(render).catch(catchMessage);
+  }
   function renderTaskToolbar(){
     let bar=$p('p11TaskToolbar');if(!bar)return;clear(bar);
     const shortcut=button('项目与批次',()=>go('projects'),'secondary');shortcut.id='p11ProjectsShortcut';bar.append(shortcut);
@@ -661,6 +666,7 @@
     renderWizard();
   };
   window.opsClear=()=>{projects=[];batchMap=new Map();overview=null;managedTasks=[];project='';batch='';search='';wizardStep=1;active='overview';window.opsPreparingFilter=false;legacyOnly=false;pageOffset=0;pageTotal=0;selectedTaskId='';selectedTaskMeta=null;stateScope='';sourcePackages=[];sourceSelection='';packageValidation=null;
+    window.opsB2Clear?.();
     if($p('p11View'))clear($p('p11View'));
     if($p('p11Detail')){$p('p11Detail').hidden=true;clear($p('p11Detail'));}
     if($p('p11ModalOverlay')){$p('p11ModalOverlay').hidden=true;clear($p('p11ModalOverlay'));}
@@ -800,6 +806,7 @@
         if(r.task&&auth)window.opsTaskDetail(r.task,false);
       };
       if(changed&&auth){fetchViews().then(draw).catch(catchMessage);}
+      else if(r.view==='agent'&&auth){window.opsB2Refresh?.().then(draw).catch(catchMessage);}
       else draw();
     };
     window.addEventListener('hashchange',replayRoute);

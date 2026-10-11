@@ -49,12 +49,12 @@ def install_agent_preparation_routes(app:FastAPI, ledger:AgentPreparationLedger)
     @app.get("/v1/tpa/agent-preparations/{task_id}")
     def detail(task_id:str,request:Request):
         p=person(request,("producer","manager"))
-        return call(ledger.detail,role=p["role"],task_id=task_id)
+        return call(ledger.detail,role=p["role"],actor=p["actor"],task_id=task_id)
 
     @app.get("/v1/tpa/agent-preparations/{task_id}/inspect")
     def inspect(task_id:str,request:Request):
         p=person(request,("producer",))
-        return call(ledger.inspect,role=p["role"],task_id=task_id)
+        return call(ledger.inspect,role=p["role"],actor=p["actor"],task_id=task_id)
 
     @app.post("/v1/tpa/agent-preparations/{task_id}/attest")
     def attest(task_id:str,request:Request,payload:dict):

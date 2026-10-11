@@ -719,7 +719,16 @@
       menu.append(button('查看任务详情',()=>window.opsTaskDetail(task.task_id)));
       menu.append(button('继续办理',()=>continueTask(task)));
       if(next&&role()===next[2]){
-        menu.append(button(next[1],()=>{continueTask(task);act(task.task_id,next[0],task.workflow_strategy)},'primary'));
+        // Producer preparation stays in the Demo wizard; manager assign/publish
+        // remain list-first so the modal does not intercept table clicks.
+        if(next[2]==='producer'){
+          menu.append(button(next[1],()=>{continueTask(task);act(task.task_id,next[0],task.workflow_strategy)},'primary'));
+        }else{
+          menu.append(button(next[1],()=>{
+            selectedTaskId=task.task_id;selectedTaskMeta=task;setWizardOpen(false);
+            act(task.task_id,next[0],task.workflow_strategy);
+          },'primary'));
+        }
       }
       if(role()==='manager'&&['ASSIGNED','PUBLISHED'].includes(task.state)){
         menu.append(button('撤销未来访问权限',()=>{

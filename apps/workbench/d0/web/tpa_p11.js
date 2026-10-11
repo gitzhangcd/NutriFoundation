@@ -30,14 +30,16 @@
   // Scoped navigation remains a UI convenience, never a data entitlement.
   const PROJECT_PATTERN=/^PRJ-SYN-[A-Z0-9-]{3,40}$/;
   const BATCH_PATTERN=/^BATCH-SYN-[A-Z0-9-]{3,40}$/;
-  const paramsFor=(p=project,b=batch)=>{
+  const TASK_PATTERN=/^TPA-SYN-[A-Z0-9-]{3,50}$/;
+  const paramsFor=(p=project,b=batch,t='')=>{
     const query=new URLSearchParams();
     if(p)query.set('project',p);
     if(b)query.set('batch',b);
+    if(t&&TASK_PATTERN.test(t))query.set('task',t);
     return query;
   };
-  const hashFor=(view,p=project,b=batch)=>{
-    const query=paramsFor(p,b).toString();
+  const hashFor=(view,p=project,b=batch,t='')=>{
+    const query=paramsFor(p,b,view==='tasks'?t:'').toString();
     return '#/'+view+(query?'?'+query:'');
   };
   function navigate(view,p=project,b=batch){
@@ -57,9 +59,11 @@
     if(p&&!PROJECT_PATTERN.test(p))p='';
     if(b&&(!BATCH_PATTERN.test(b)||!p))b='';
     const view=routes.includes(name)?name:'overview';
+    let task=view==='tasks'?(params.get('task')||''):'';
+    if(task&&!TASK_PATTERN.test(task))task='';
     if(p&&projects.length&&!projects.some(x=>x.project_id===p)){p='';b='';}
     if(b&&batchMap.size&&!(batchMap.get(p)||[]).some(x=>x.batch_id===b))b='';
-    return {view,p,b};
+    return {view,p,b,task};
   }
 
   function field(label, id, max, placeholder, value='') {
@@ -258,7 +262,11 @@
   async function reload(){
     if(loading||!auth)return;
     loading=true;
-    try {await loadProjects();await fetchViews();renderSelector();render();}
+    try {
+      await loadProjects();await fetchViews();renderSelector();render();
+      const deep=readRoute().task;
+      if(deep)await window.opsTaskDetail(deep,false);
+    }
     finally{loading=false;}
   }
   function render(){
@@ -314,9 +322,13 @@
     if($p('receipt'))$p('receipt').textContent='仅供合成工程验收。尚无操作。';
   };
   window.opsRefresh=reload;
-  window.opsTaskDetail=async taskId=>{
+  window.opsTaskDetail=async (taskId,recordRoute=true)=>{
     try {
       const detail=await apiOps('/v1/tpa/tasks/'+encodeURIComponent(taskId)+'/management');
+      if(recordRoute && TASK_PATTERN.test(taskId)){
+        const h=hashFor('tasks',project,batch,taskId);
+        if(location.hash!==h)history.pushState({p11:'task'},'',h);
+      }
       const box=$p('p11Detail');clear(box);box.hidden=false;
       box.append(e('h3','任务详情 · '+detail.task_id),e('p','状态：'+(stateLabel[detail.state]||detail.state),'p11-meta'));
       box.append(e('p','运营归属：'+(detail.placement?detail.placement.project_id+' / '+detail.placement.batch_id:'Legacy'),'p11-meta'));
@@ -325,7 +337,10 @@
       box.append(e('p','知识截止：'+detail.knowledge_cutoff,'p11-meta'));
       box.append(e('p','后续操作：'+(detail.next_action||'无')+'（须由对应服务端角色授权）','p11-meta'));
       box.append(notice('这是运营元数据。未开放专家原文、候选或 Gold 浏览。'));
-      box.append(button('关闭详情',()=>{box.hidden=true;}));
+      box.append(button('关闭详情',()=>{
+        box.hidden=true;clear(box);
+        if(location.hash!==hashFor('tasks',project,batch))location.hash=hashFor('tasks',project,batch);
+      }));
       box.scrollIntoView({behavior:'smooth',block:'nearest'});
     }catch(err){catchMessage(err)}
   };
@@ -373,13 +388,21 @@
     document.addEventListener('keydown',ev=>{
       if(ev.key==='Escape'&&$p('p11ModalOverlay')&&!$p('p11ModalOverlay').hidden)$p('p11ModalOverlay').hidden=true;
     });
-    window.addEventListener('hashchange',()=>{
+    const replayRoute=()=>{
       const r=readRoute();
       const changed=(project!==r.p||batch!==r.b);
       active=r.view;project=r.p;batch=r.b;
-      if(changed&&auth){fetchViews().then(render).catch(catchMessage);}
-      else render();
-    });
+      const draw=()=>{
+        render();
+        const detail=$p('p11Detail');
+        if(detail){detail.hidden=true;clear(detail);}
+        if(r.task&&auth)window.opsTaskDetail(r.task,false);
+      };
+      if(changed&&auth){fetchViews().then(draw).catch(catchMessage);}
+      else draw();
+    };
+    window.addEventListener('hashchange',replayRoute);
+    window.addEventListener('popstate',replayRoute);
     const first=readRoute();active=first.view;project=first.p;batch=first.b;
     // P1's original loadSession/refresh initiates the first authenticated fetch.
   });

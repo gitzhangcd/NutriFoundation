@@ -396,6 +396,18 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     assert m.locator('#b2InspectAgent').count()==0
     assert m.locator('#b2AttestAgent').count()==0
     checks.append('b2_manager_read_only_with_candidate_digest_redacted')
+    # B3: real browser checks that the only roster identities are fixed synthetic
+    # accounts, and pre-publish handoff cannot create a grant.
+    m.locator('[data-p11-route="experts"]').click()
+    expect(m.locator('#p11B3ExpertPage')).to_be_visible(timeout=30000)
+    expect(m.locator('#b3ExpertRoster')).to_contain_text('SYN-EA-EXPERT-A')
+    expect(m.locator('#b3ExpertRoster')).to_contain_text('SYN-EA-EXPERT-B')
+    expect(m.locator('#b3HandoffDetail')).to_contain_text('TPA-SYN-BROWSER-001')
+    expect(m.locator('#b3HandoffDetail')).to_contain_text('READY_FOR_ASSIGNMENT')
+    assert m.locator('#b3Attest').count()==0
+    assert 'expert_task=TPA-SYN-BROWSER-001' in m.evaluate('location.hash')
+    checks.extend(['b3_fixed_synthetic_roster_and_task_version_deeplink',
+                   'b3_no_prepublish_handoff_grant'])
     m.locator('[data-p11-route="tasks"]').click()
     row=m.locator('.task-row').filter(has_text='TPA-SYN-BROWSER-001')
     expect(row).to_contain_text('READY_FOR_ASSIGNMENT')
@@ -429,6 +441,21 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     checks.extend(['tpa_manager_no_original_source_read','tpa_expert_assignment_publish_via_UI',
                    'a5_server_committed_publish_lost_http_reply_reconciled',
                    'a5_published_handoff_safe_and_two_full_source_digests'])
+    # B3: same ORIGINAL TPA publication must precede immutable handoff proof.
+    m.locator('[data-p11-route="experts"]').click()
+    expect(m.locator('#b3HandoffDetail')).to_contain_text('PUBLISHED')
+    expect(m.locator('#b3ExposureStatus')).to_contain_text('原 TPA 记录的专家访问事件数：0')
+    m.locator('#b3Attest').click()
+    expect(m.locator('#receipt')).to_contain_text('b3_handoff',timeout=30000)
+    expect(m.locator('#b3HandoffReceipt')).to_contain_text('SYNTHETIC_HANDOFF_ATTESTED')
+    assert 'candidate_payload' not in m.locator('#b3HandoffReceipt').text_content()
+    m.screenshot(path=str(output/'b3-expert-handoff-synthetic.png'),full_page=True)
+    m.reload()
+    expect(m.locator('#b3HandoffReceipt')).to_be_visible(timeout=30000)
+    expect(m.locator('#b3ExposureStatus')).to_contain_text('专家访问事件数：0')
+    checks.extend(['b3_immutable_synthetic_handoff_after_original_grant',
+                   'b3_handoff_no_published_equals_read_inference',
+                   'b3_manager_reload_persisted_receipt'])
     ea_context,ea=sign_in('ea1')
     expect(ea.locator('#eaTask')).to_contain_text('TPA-SYN-BROWSER-001')
     ea.locator('#eaTask').select_option('TPA-SYN-BROWSER-001')
@@ -438,6 +465,12 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     ea.locator('#eaSource').select_option('GUIDE-001:r1')
     expect(ea.locator('#units')).to_contain_text('fabricated guideline')
     checks.append('tpa_published_task_delivered_to_original_ea_reader')
+    # Access telemetry comes from original EA events, never B3's render step.
+    m.locator('[data-p11-route="tasks"]').click()
+    m.locator('[data-p11-route="experts"]').click()
+    expect(m.locator('#b3ExposureStatus')).not_to_contain_text('专家访问事件数：0')
+    expect(m.locator('#b3ExposureStatus')).to_contain_text('暴露事件不是已阅读')
+    checks.append('b3_original_ea_exposure_event_count_post_access')
     p.set_viewport_size({'width':1024,'height':768})
     p.evaluate('window.scrollTo(0,0)')
     assert p.evaluate('document.documentElement.scrollWidth <= innerWidth')

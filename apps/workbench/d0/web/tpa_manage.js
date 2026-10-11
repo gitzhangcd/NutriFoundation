@@ -10,6 +10,27 @@ const actorByMode={
  AGENT_PROPOSE_EXPERT_VERIFY:'SYN-EA-EXPERT-A',
  HUMAN_INDEPENDENT:'SYN-EA-EXPERT-B'
 };
+// Synthetic metadata and retry nonce only; no source text, patient data, or model results.
+const pendingName='nutriwb_tpa_synthetic_intents_v1';
+function readIntents(){
+ try {const x=JSON.parse(sessionStorage.getItem(pendingName)||'{}');return x&&typeof x==='object'?x:{}}
+ catch {return {}}
+}
+function saveIntents(x){try{sessionStorage.setItem(pendingName,JSON.stringify(x))}catch{ /* ephemeral fallback */ }}
+const volatileIntents={};
+function operationKey(action,target,payload){
+ const slot=(auth?.username||'unknown')+':'+action+':'+target, signature=JSON.stringify(payload);
+ const saved=readIntents(), previous=saved[slot]||volatileIntents[slot];
+ if(previous?.signature===signature)return previous.key;
+ const value={signature,key:crypto.randomUUID()};
+ saved[slot]=value;volatileIntents[slot]=value;saveIntents(saved);
+ return value.key;
+}
+function resolveIntent(action,target){
+ const slot=(auth?.username||'unknown')+':'+action+':'+target,saved=readIntents();
+ delete saved[slot];delete volatileIntents[slot];saveIntents(saved);
+}
+function clearIntents(){try{sessionStorage.removeItem(pendingName)}catch{};for(const k of Object.keys(volatileIntents))delete volatileIntents[k]}
 function el(tag,txt,cls){
  const x=document.createElement(tag);
  if(txt!==undefined)x.textContent=String(txt);
@@ -55,7 +76,7 @@ async function loadSession(){
   auth=null;window.opsClear?.();$('loginScreen').hidden=false;$('workspace').hidden=true;
   $('logoutButton').hidden=true;$('userBadge').textContent='未登录';return;
  }
- if(auth && (auth.username!==ses.username || auth.role!==ses.role))window.opsClear?.();
+ if(auth && (auth.username!==ses.username || auth.role!==ses.role)){clearIntents();window.opsClear?.()}
  auth=ses;
  $('loginScreen').hidden=true;$('workspace').hidden=false;$('logoutButton').hidden=false;
  $('userBadge').textContent=ses.username+' · '+ses.role;
@@ -64,6 +85,13 @@ async function loadSession(){
  await refresh();
 }
 async function refresh(){
+ if(window.opsA5Enabled){
+  const s=await api('/v1/tpa/sources');
+  sourceData=s.sources;taskData=[]; // A5 reads *server-paginated* task pages, never a full unfiltered list.
+  renderSources();renderOptions();updateStats();
+  if(window.opsRefresh)await window.opsRefresh();
+  return;
+ }
  const [s,t]=await Promise.all([api('/v1/tpa/sources'),api('/v1/tpa/tasks')]);
  sourceData=s.sources;taskData=t.tasks;
  renderSources();renderOptions();renderTasks();updateStats();
@@ -142,6 +170,7 @@ async function createDraft(e){
   })});
   const result=window.opsDraftCreate?await window.opsDraftCreate(body):await api('/v1/tpa/tasks/drafts',{method:'POST',body:JSON.stringify(body)});
   receipt({source_validation:qualified.status,task_created:result});
+  window.opsAfterDraft?.(body.task_id);
   newId();await refresh();
  }catch(ex){receipt('创建失败 / 未发布：'+ex.message)}
 }
@@ -170,16 +199,40 @@ async function createBatch(){
  }catch(e){receipt('批量创建未成功：'+e.message)}
 }
 async function action(id,kind,mode){
+ const expected={validate:'VALIDATED',freeze:'DEFINITION_FROZEN',prepare:'READY_FOR_ASSIGNMENT',
+                 assign:'ASSIGNED',publish:'PUBLISHED',revoke:'REVOKED'}[kind];
  const path='/v1/tpa/tasks/'+encodeURIComponent(id)+'/'+kind;
  let body;
- if(kind==='assign')body={expert_actor:actorByMode[mode],idempotency_key:crypto.randomUUID()};
- if(kind==='publish')body={idempotency_key:crypto.randomUUID()};
+ if(kind==='assign'){
+  const actor=actorByMode[mode];
+  if(!actor){receipt('无效的合成专家工作模式');return}
+  body={expert_actor:actor,idempotency_key:operationKey('assign',id,{expert_actor:actor})};
+ }
+ if(kind==='publish')body={idempotency_key:operationKey('publish',id,{task_id:id})};
  try{
   const value=await api(path,{method:'POST',...(body?{body:JSON.stringify(body)}:{})});
-  receipt(value);await refresh();
- }catch(e){receipt('操作被拒绝：'+e.message)}
+  if(kind==='assign'||kind==='publish')resolveIntent(kind,id);
+  receipt(value);window.opsAfterTaskAction?.(id,kind,value);await refresh();
+ }catch(e){
+  // A lost HTTP response does not prove a failed transaction. Read the server state first.
+  try{
+   const safe=await api('/v1/tpa/tasks/'+encodeURIComponent(id)+'/management');
+   if(safe.state===expected){
+    if(kind==='assign'||kind==='publish')resolveIntent(kind,id);
+    receipt({task_id:id,state:safe.state,reconciled_after_uncertain_response:true,
+             caution:'由服务端任务状态确认；不推断专家已阅读或科学合格'});
+    window.opsAfterTaskAction?.(id,kind,safe);await refresh();return;
+   }
+  }catch{ /* preserve the same request key for a subsequent user-initiated retry */ }
+  receipt('操作未确认：'+e.message+'。请刷新服务端状态；重试同一操作会复用原请求键。');
+ }
 }
+window.opsTaskAction=action;
 function renderTasks(){
+ if(window.opsA5Enabled && window.opsRenderTaskTable){
+  window.opsRenderTaskTable($('taskList'),action);
+  return;
+ }
  $('taskList').replaceChildren();
  const scoped=window.opsVisibleTasks?window.opsVisibleTasks(taskData):taskData;
  const visible=scoped.filter(x=>(!selectedFilter||x.state===selectedFilter)&&(!window.opsPreparingFilter||['DRAFT','VALIDATED','DEFINITION_FROZEN'].includes(x.state)));
@@ -225,7 +278,7 @@ function renderTasks(){
  }
 }
 async function logout(){
- try{await api('/v1/logout',{method:'POST'})}finally{auth=null;await loadSession();receipt('会话已退出');}
+ try{await api('/v1/logout',{method:'POST'})}finally{clearIntents();auth=null;await loadSession();receipt('会话已退出');}
 }
 document.addEventListener('DOMContentLoaded',()=>{
  $('loginForm').addEventListener('submit',signIn);
@@ -236,6 +289,10 @@ document.addEventListener('DOMContentLoaded',()=>{
 
  $('primarySource').addEventListener('change',showSourceInfo);
  $('extraSource').addEventListener('change',showSourceInfo);
- $('stateFilter').addEventListener('change',e=>{selectedFilter=e.target.value;window.opsPreparingFilter=false;renderTasks()});
+ $('stateFilter').addEventListener('change',e=>{
+  selectedFilter=e.target.value;window.opsPreparingFilter=false;
+  if(window.opsA5StateChanged)window.opsA5StateChanged(selectedFilter);
+  else renderTasks();
+ });
  newId();loadSession().catch(e=>receipt('访问失败：'+e.message));
 });

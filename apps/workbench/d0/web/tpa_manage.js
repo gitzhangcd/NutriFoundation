@@ -102,10 +102,15 @@ function selectedSource(value){
 }
 function showSourceInfo(){
  const src=selectedSource($('primarySource').value);
- $('sourceInfo').textContent=src?src.source_type+' · '+src.rights_status+' · 来源版本 '+src.revision_id:'请选择来源';
- $('profileId').value=src?.profile_id||'';
  const ex=$('extraSource');
  if(ex.value===$('primarySource').value)ex.value='';
+ const other=selectedSource(ex.value);
+ $('sourceInfo').textContent=src?
+   '主要来源 '+src.source_id+' / '+src.revision_id+' · '+src.source_type+' · '+src.rights_status+
+   ' · SHA-256 '+src.canonical_document_sha256+
+   (other?'；补充来源 '+other.source_id+' / '+other.revision_id+' · SHA-256 '+other.canonical_document_sha256:'')
+   :'请选择来源';
+ $('profileId').value=src?.profile_id||'';
 }
 function updateStats(){
  $('countSource').textContent=sourceData.length;
@@ -230,6 +235,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  $('createBatch').addEventListener('click',()=>createBatch().catch(e=>receipt(e.message)));
 
  $('primarySource').addEventListener('change',showSourceInfo);
+ $('extraSource').addEventListener('change',showSourceInfo);
  $('stateFilter').addEventListener('change',e=>{selectedFilter=e.target.value;window.opsPreparingFilter=false;renderTasks()});
  newId();loadSession().catch(e=>receipt('访问失败：'+e.message));
 });

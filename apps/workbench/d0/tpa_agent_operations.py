@@ -203,8 +203,14 @@ class AgentPreparationLedger:
             block("AGENT_ATTESTATION_DRIFT")
         # Re-verify the exact frozen candidate and source/event truth on every read.
         current=self._inspect(role,task_id,actor)
-        if any(record.get(k)!=v for k,v in current.items()):
-            block("AGENT_PROVENANCE_DRIFT")
+        # A B1 reference package registered *after* this attestation must not
+        # be backdated into the sealed provenance or invalidate a sound proof.
+        # Existing-at-freeze package references remain strictly revalidated.
+        for field,value in current.items():
+            if field=="source_package_at_attestation" and record.get(field) is None:
+                continue
+            if record.get(field)!=value:
+                block("AGENT_PROVENANCE_DRIFT")
         return {"task_id":task_id,"task_state":task["state"],"status":ATTESTED,
                 "attestation":self._project(record,role),"synthetic_only":True}
 

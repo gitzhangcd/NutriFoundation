@@ -26,6 +26,8 @@ from tpa_agent_operations import AgentPreparationLedger
 from tpa_agent_operations_adapter import install_agent_preparation_routes
 from tpa_expert_handoff import ExpertHandoffLedger
 from tpa_expert_handoff_adapter import install_expert_handoff_routes
+from p2_source_registry import SourceStudio
+from p2_source_adapter import install_p2_source_routes
 
 BASE=Path(__file__).resolve().parent
 C21=BASE.parent/'c2_1';C22=BASE.parent/'c2_2'
@@ -81,6 +83,10 @@ def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,
     handoffs=ExpertHandoffLedger(tpa)
     app.state.expert_handoff_ledger=handoffs
     install_expert_handoff_routes(app,handoffs)
+    # Dedicated P2 staging authority; intentionally NOT original EA / TPA DB.
+    p2=SourceStudio(Path(root)/'p2_synthetic_staging.sqlite',projects=ops)
+    app.state.p2_source_studio=p2
+    install_p2_source_routes(app,p2)
     secure=parsed.scheme=='https'
     def failure(code,status):return JSONResponse({'detail':{'code':code}},status_code=status)
     @app.middleware('http')

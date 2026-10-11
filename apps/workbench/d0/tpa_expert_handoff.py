@@ -164,19 +164,24 @@ class ExpertHandoffLedger:
         key=body["idempotency_key"]
         if not KEY.fullmatch(key):block("INVALID_IDEMPOTENCY_KEY")
         if body["contract"]!=CONTRACT:block("INVALID_HANDOFF_CONTRACT")
-        facts=self._facts(role,task_id)
-        if not facts["can_handoff"]:block("TASK_NOT_PUBLISHED_FOR_HANDOFF")
-        if facts["grant_event_hash"]!=body["expected_grant_event_hash"] or (
-            facts["assignment_event_hash"]!=body["expected_assignment_event_hash"]):
-            block("EXPERT_HANDOFF_STALE")
         request_digest=digest({**body,"task_id":task_id})
+        # Assignment, publish and revoke all hold the SAME original TPA lock.
+        # Keep nonce lookup + authoritative grant check + attestation in this
+        # critical section, preventing revoke/assignment TOCTOU on handoff.
         with self.tpa.lock,self.tpa.connect() as db:
             db.execute("BEGIN IMMEDIATE")
             previous=db.execute("SELECT * FROM tpa_expert_handoff_replays WHERE request_key=?",(key,)).fetchone()
             if previous:
                 if previous["task_id"]!=task_id or previous["actor"]!=actor or previous["request_digest"]!=request_digest:
                     block("IDEMPOTENCY_CONFLICT")
+                # Immutable historical receipt: a later revocation must not
+                # rewrite or erase a previously committed handoff.
                 return json.loads(previous["receipt"])
+            facts=self._facts(role,task_id)
+            if not facts["can_handoff"]:block("TASK_NOT_PUBLISHED_FOR_HANDOFF")
+            if (facts["grant_event_hash"]!=body["expected_grant_event_hash"] or
+                facts["assignment_event_hash"]!=body["expected_assignment_event_hash"]):
+                block("EXPERT_HANDOFF_STALE")
             if db.execute("SELECT 1 FROM tpa_expert_handoffs WHERE task_id=?",(task_id,)).fetchone():
                 block("EXPERT_HANDOFF_ALREADY_FROZEN")
             record={k:facts[k] for k in ("task_id","workflow_strategy","expected_expert_actor",

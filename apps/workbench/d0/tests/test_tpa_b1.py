@@ -136,6 +136,21 @@ def test_b1_invalid_rights_source_digest_parser_lineage_and_schema_fail_closed(a
     assert producer.get("/v1/tpa/source-packages").json()["total"]==0
 
 
+def test_b1_different_source_cannot_claim_an_existing_parent_lineage(app):
+    producer,headers=login(app,"producer")
+    sources=producer.get("/v1/tpa/sources").json()["sources"]
+    first,second=sources[0],sources[1]
+    original={**manifest(first),"package_id":"SPKG-SYN-PARENT-001",
+              "idempotency_key":"parent-source-key-001"}
+    saved=producer.post("/v1/tpa/source-packages",headers=headers,json=original)
+    assert saved.status_code==200,saved.text
+    incorrect={**manifest(second),"parent_package_id":"SPKG-SYN-PARENT-001"}
+    rejected=producer.post("/v1/tpa/source-packages/validate",headers=headers,json=incorrect)
+    assert rejected.status_code==422,rejected.text
+    assert rejected.json()["detail"]["code"]=="INVALID_SOURCE_LINEAGE"
+    assert producer.get("/v1/tpa/source-packages").json()["total"]==1
+
+
 def test_b1_source_package_not_prerequisite_to_existing_synthetic_tasks(app):
     producer,headers,_=prepare_draft(app,"TPA-SYN-B1-NONREG-001",
                                     strategy="HUMAN_INDEPENDENT")

@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import json
 import re
-from ea_runtime import digest, encoded
+from ea_runtime import digest, encoded, when
 from tpa_runtime import block, utcnow
 
 PACKAGE_PATTERN = re.compile(r"SPKG-SYN-[A-Z0-9-]{3,40}\Z")
@@ -91,11 +91,10 @@ class SourcePackages:
             if not row:
                 block("PARENT_PACKAGE_NOT_FOUND")
             prior = json.loads(row["record"])
-            if prior["source_id"] != source["source_id"] or prior["revision_id"] == source["revision_id"] or prior["registered_at"] >= utcnow():
+            if prior["source_id"] != source["source_id"] or prior["revision_id"] == source["revision_id"]:
                 block("INVALID_SOURCE_LINEAGE")
             # A parent must be older in authoritative source time, not merely by ID.
             earlier = self.tpa.registered_source(prior["source_id"],prior["revision_id"])
-            from ea_runtime import when
             if when(earlier["available_at"]) >= when(source["available_at"]):
                 block("INVALID_SOURCE_LINEAGE")
         normalized = {k:manifest[k] for k in ("schema_version","import_kind","parser_adapter",
@@ -179,6 +178,16 @@ class SourcePackages:
         source=self.tpa.registered_source(value["source_id"],value["revision_id"])
         if source["canonical_document_sha256"]!=value["canonical_document_sha256"]:
             block("SOURCE_REVISION_MISMATCH")
+        if (source["source_type"]!=value["source_type"] or
+            source["source_type_profile_id"]!=value["profile_id"] or
+            source["rights_status"]!=value["rights_status"]):
+            block("SOURCE_REFERENCE_DRIFT")
+        normalized={k:value[k] for k in ("schema_version","import_kind","parser_adapter",
+                                        "source_id","revision_id","source_type","profile_id",
+                                        "canonical_document_sha256","rights_status","parent_package_id")}
+        if (digest(value["structure_index"])!=value["structure_sha256"] or
+            digest({"manifest":normalized,"structured_units":value["structure_index"]})!=value["manifest_sha256"]):
+            block("SOURCE_PACKAGE_MANIFEST_DRIFT")
         check=digest([{
             "unit_id":u["unit_id"],"ordinal":i,"element_kind":"PARAGRAPH",
             "utf16_length":len(u["text"].encode("utf-16-le"))//2,

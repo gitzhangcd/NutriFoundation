@@ -256,6 +256,16 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     p.locator('#opsName').fill('Browser QA Batch')
     p.locator('#p11ModalOverlay button[type="submit"]').click()
     expect(p.locator('#p11ModalOverlay')).to_be_hidden(timeout=30000)
+    assert p.evaluate('location.hash').startswith('#/projects?project=PRJ-SYN-'),p.url
+    assert '&batch=BATCH-SYN-' in p.evaluate('location.hash'),p.url
+    p.go_back()
+    assert 'project=PRJ-SYN-' in p.evaluate('location.hash')
+    assert 'batch=' not in p.evaluate('location.hash')
+    p.go_forward()
+    assert '&batch=BATCH-SYN-' in p.evaluate('location.hash')
+    p.reload()
+    expect(p.locator('#workspace')).to_be_visible(timeout=30000)
+    expect(p.get_by_role('button',name='在此项目新建批次')).to_be_visible()
     p.locator('[data-p11-route="tasks"]').click()
     expect(p.locator('#p11FormBatch')).not_to_have_value('')
     p.locator('#primarySource').select_option('RCT-001:r1')
@@ -278,7 +288,8 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(row).to_contain_text('READY_FOR_ASSIGNMENT')
     checks.extend(['tpa_same_origin_management_login','tpa_seven_synthetic_source_library',
                    'tpa_real_ui_draft_validation_freeze_prepare','tpa_agent_fixture_not_llm',
-                   'p11_real_browser_create_project_batch_and_atomic_task'])
+                   'p11_real_browser_create_project_batch_and_atomic_task',
+                   'p11_url_project_batch_scope_backward_forward_reload'])
     manager_context,m=manager_login('manager')
     m.locator('[data-p11-route="tasks"]').click()
     row=m.locator('.task-row').filter(has_text='TPA-SYN-BROWSER-001')
@@ -298,12 +309,36 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     ea.locator('#eaSource').select_option('GUIDE-001:r1')
     expect(ea.locator('#units')).to_contain_text('fabricated guideline')
     checks.append('tpa_published_task_delivered_to_original_ea_reader')
+    p.set_viewport_size({'width':1024,'height':768})
+    assert p.evaluate('document.documentElement.scrollWidth <= innerWidth')
+    p.screenshot(path=str(output/'p11-management-tablet.png'))
+    p.locator('[data-p11-route="projects"]').focus()
+    assert p.evaluate("document.activeElement?.getAttribute('data-p11-route')")=='projects'
+    p.keyboard.press('Enter')
+    expect(p.locator('#p11SectionTitle')).to_have_text('项目与批次')
     p.set_viewport_size({'width':390,'height':844})
     assert p.evaluate('document.documentElement.scrollWidth <= innerWidth')
     p.screenshot(path=str(output/'tpa-management-mobile.png'))
-    p.set_viewport_size({'width':1440,'height':1000})
+    p.set_viewport_size({'width':1440,'height':900})
+    assert p.evaluate('document.documentElement.scrollWidth <= innerWidth')
     p.screenshot(path=str(output/'tpa-management-desktop.png'))
-    checks.append('tpa_responsive_admin_desktop_mobile')
+    p.evaluate("location.hash='#/tasks?project=%3Cimg%20src=x%20onerror=alert(1)%3E'")
+    expect(p.locator('#p11SectionTitle')).to_have_text('任务中心')
+    assert p.locator('img[src="x"]').count()==0
+    assert p.evaluate("document.querySelector('#p11TaskProject')?.value")===''
+    p.locator('#logoutButton').click()
+    expect(p.locator('#loginScreen')).to_be_visible()
+    assert p.locator('#p11Detail').is_hidden()
+    p.locator('#username').fill('manager')
+    p.locator('#password').fill(credentials['accounts']['manager']['password'])
+    p.locator('#loginForm button').click()
+    expect(p.locator('#workspace')).to_be_visible()
+    expect(p.locator('#userBadge')).to_contain_text('manager')
+    expect(p.locator('#taskForm')).to_be_hidden()
+    checks.extend(['tpa_responsive_admin_desktop_mobile',
+                   'p11_responsive_tablet_desktop_keyboard_navigation',
+                   'p11_hash_allowlist_injection_denied',
+                   'p11_same_tab_role_change_clears_private_ui'])
     ea_context.close();manager_context.close();producer_context.close()
 
 def run(url,credentials,output):

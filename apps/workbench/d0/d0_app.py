@@ -24,6 +24,8 @@ from tpa_source_packages import SourcePackages
 from tpa_source_packages_adapter import install_source_package_routes
 from tpa_agent_operations import AgentPreparationLedger
 from tpa_agent_operations_adapter import install_agent_preparation_routes
+from tpa_expert_handoff import ExpertHandoffLedger
+from tpa_expert_handoff_adapter import install_expert_handoff_routes
 
 BASE=Path(__file__).resolve().parent
 C21=BASE.parent/'c2_1';C22=BASE.parent/'c2_2'
@@ -76,6 +78,9 @@ def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,
     agent_ledger=AgentPreparationLedger(tpa)
     app.state.agent_preparation_ledger=agent_ledger
     install_agent_preparation_routes(app,agent_ledger)
+    handoffs=ExpertHandoffLedger(tpa)
+    app.state.expert_handoff_ledger=handoffs
+    install_expert_handoff_routes(app,handoffs)
     secure=parsed.scheme=='https'
     def failure(code,status):return JSONResponse({'detail':{'code':code}},status_code=status)
     @app.middleware('http')

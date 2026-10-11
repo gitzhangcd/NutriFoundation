@@ -188,5 +188,10 @@
     queueMicrotask(()=>{if(root?.isConnected)draw()});
     return wrapper;
   }
-  window.p2SourceStudio={render,reset:()=>{tab='library';selection=fixture[0].id;query='';filter='';drawer=false;wizard=false;drafts=[];notice='';}};
+  function reset(){tab='library';selection=fixture[0].id;query='';filter='';drawer=false;wizard=false;drafts=[];notice='';mode='bilingual';unitIndex=0;window.p2DraftForm={};}
+  window.p2SourceStudio={render,reset};
+  document.addEventListener('DOMContentLoaded',()=>{
+    // Same-tab role/session changes must discard locally entered draft metadata.
+    document.getElementById('logoutButton')?.addEventListener('click',reset);
+  });
 })();

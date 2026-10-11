@@ -27,6 +27,40 @@
   const notify = msg => { if (typeof receipt==='function') receipt(msg); };
   const catchMessage = err => { notify('未完成操作：'+err.message); window.alert('操作未完成：'+err.message); };
   const apiOps = (path, options) => api(path, options);
+  // Scoped navigation remains a UI convenience, never a data entitlement.
+  const PROJECT_PATTERN=/^PRJ-SYN-[A-Z0-9-]{3,40}$/;
+  const BATCH_PATTERN=/^BATCH-SYN-[A-Z0-9-]{3,40}$/;
+  const paramsFor=(p=project,b=batch)=>{
+    const query=new URLSearchParams();
+    if(p)query.set('project',p);
+    if(b)query.set('batch',b);
+    return query;
+  };
+  const hashFor=(view,p=project,b=batch)=>{
+    const query=paramsFor(p,b).toString();
+    return '#/'+view+(query?'?'+query:'');
+  };
+  function navigate(view,p=project,b=batch){
+    if(p&&!PROJECT_PATTERN.test(p))return;
+    if(b&&(!BATCH_PATTERN.test(b)||!p))return;
+    active=routes.includes(view)?view:'overview';project=p;batch=b;
+    const next=hashFor(active,project,batch);
+    if(location.hash!==next)location.hash=next;
+    // Rendering is immediate; hashchange provides browser back/forward replay.
+    render();
+  }
+  function readRoute(){
+    const raw=location.hash.startsWith('#/')?location.hash.slice(2):'';
+    const [name,query='']=raw.split('?');
+    const params=new URLSearchParams(query);
+    let p=params.get('project')||'',b=params.get('batch')||'';
+    if(p&&!PROJECT_PATTERN.test(p))p='';
+    if(b&&(!BATCH_PATTERN.test(b)||!p))b='';
+    const view=routes.includes(name)?name:'overview';
+    if(p&&projects.length&&!projects.some(x=>x.project_id===p)){p='';b='';}
+    if(b&&batchMap.size&&!(batchMap.get(p)||[]).some(x=>x.batch_id===b))b='';
+    return {view,p,b};
+  }
 
   function field(label, id, max, placeholder, value='') {
     const wrap=e('label',undefined,'p11-field');
@@ -54,6 +88,8 @@
       const b=await apiOps('/v1/tpa/projects/'+encodeURIComponent(item.project_id)+'/batches');
       batchMap.set(item.project_id,b.batches||[]);
     }));
+    const r=readRoute();
+    project=r.p;batch=r.b;
     if(project&&!projects.some(p=>p.project_id===project)){project='';batch='';}
     if(batch&&!((batchMap.get(project)||[]).some(b=>b.batch_id===batch)))batch='';
   }
@@ -82,7 +118,7 @@
     sel.value=value;sel.addEventListener('change',ev=>onChange(ev.target.value));return sel;
   }
   async function chooseScope(p,b=''){
-    project=p;batch=b;await fetchViews();render();
+    navigate(active,p,b);await fetchViews();render();
   }
   function scopes(parent){
     const toolbar=e('div',undefined,'p11-scope');
@@ -94,8 +130,15 @@
     parent.append(toolbar);
   }
   function countLink(parent,key,val){
+    if(key==='blocked'){
+      const unavailable=e('div',metric[key],'p11-btn p11-stat p11-unavailable');
+      unavailable.append(e('strong',val===null?'未统计':String(val)));
+      unavailable.setAttribute('aria-label','历史阻断：未提供可信统计');
+      parent.append(unavailable);
+      return;
+    }
     const b=button(metric[key],()=>{
-      active='tasks';location.hash='#/tasks';
+      navigate('tasks');
       const v={preparing:'',ready:'READY_FOR_ASSIGNMENT',assigned:'ASSIGNED',published:'PUBLISHED',revoked:'REVOKED'}[key];
       if(v!==undefined&&$p('stateFilter')){
         $p('stateFilter').value=v;
@@ -137,13 +180,13 @@
     card.append(e('h3',item.name),e('p',item.project_id,'p11-meta'));
     card.append(e('p',`批次 ${item.batch_count} · 任务 ${item.task_count} · ${item.lifecycle}`,'p11-meta'));
     if(item.description)card.append(e('p',item.description,'p11-desc'));
-    card.append(button('查看项目与批次',()=>{project=item.project_id;batch='';render();},'secondary'));
+    card.append(button('查看项目与批次',()=>navigate('projects',item.project_id,''),'secondary'));
     return card;
   }
   function renderProjects(){
     const page=frame('项目与批次','管理任务组织关系；不会改变现有科学任务、实验组别或原文访问权限。');
     const head=e('div',undefined,'p11-row');
-    head.append(button('全部项目',()=>{project='';batch='';render();},'secondary'));
+    head.append(button('全部项目',()=>navigate('projects','',''),'secondary'));
     if(role()==='producer')head.append(button('新建项目',()=>modal('project'),'primary'));
     page.append(head);
     if(!project){
@@ -163,7 +206,7 @@
     for(const item of batches){
       const card=e('article',undefined,'p11-panel');card.append(e('h3',item.label),e('p',item.batch_id,'p11-meta'));
       card.append(e('p',`${item.task_count} 项任务`,'p11-meta'));
-      card.append(button('查看批次任务',()=>{batch=item.batch_id;go('tasks')},'secondary'));
+      card.append(button('查看批次任务',()=>navigate('tasks',project,item.batch_id),'secondary'));
       cards.append(card);
     }
     page.append(cards);return page;
@@ -185,8 +228,8 @@
     const p=e('div',undefined,'p11-form-placement');p.id='p11FormPlacement';
     p.append(e('h3','任务归属 · 必须先选择项目与批次'));
     p.append(select('p11FormProject',projects.map(x=>[x.project_id,x.name]),project,v=>{
-      project=v;batch='';renderSelector();},'请选择项目'));
-    p.append(select('p11FormBatch',(batchMap.get(project)||[]).map(x=>[x.batch_id,x.label]),batch,v=>{batch=v;},'请选择批次'));
+      navigate('tasks',v,'');fetchViews().then(render).catch(catchMessage);},'请选择项目'));
+    p.append(select('p11FormBatch',(batchMap.get(project)||[]).map(x=>[x.batch_id,x.label]),batch,v=>{navigate('tasks',project,v);fetchViews().then(render).catch(catchMessage);},'请选择批次'));
     fieldset.prepend(p);
   }
   function renderWizard(){
@@ -232,7 +275,7 @@
     if(separate){clear($p('p11View'));$p('p11View').append(active==='overview'?renderOverview():active==='projects'?renderProjects():renderPlaceholder());}
     else{renderSelector();renderWizard();renderTaskToolbar();}
   }
-  function go(view){active=view;location.hash='#/'+view;render();}
+  function go(view){navigate(view);}
   function renderTaskToolbar(){
     let bar=$p('p11TaskToolbar');if(!bar)return;clear(bar);
     const label=e('label');label.append(e('span','项目'));label.append(select('p11TaskProject',projects.map(p=>[p.project_id,p.name]),project,
@@ -257,7 +300,11 @@
     wizardStep=3;return result;
   };
   window.opsClear=()=>{projects=[];batchMap=new Map();overview=null;managedTasks=[];project='';batch='';search='';wizardStep=1;active='overview';window.opsPreparingFilter=false;
-    if($p('p11View'))clear($p('p11View'));};
+    if($p('p11View'))clear($p('p11View'));
+    if($p('p11Detail')){$p('p11Detail').hidden=true;clear($p('p11Detail'));}
+    if($p('p11ModalOverlay')){$p('p11ModalOverlay').hidden=true;clear($p('p11ModalOverlay'));}
+    if($p('receipt'))$p('receipt').textContent='仅供合成工程验收。尚无操作。';
+  };
   window.opsRefresh=reload;
   window.opsTaskDetail=async taskId=>{
     try {
@@ -319,9 +366,13 @@
       if(ev.key==='Escape'&&$p('p11ModalOverlay')&&!$p('p11ModalOverlay').hidden)$p('p11ModalOverlay').hidden=true;
     });
     window.addEventListener('hashchange',()=>{
-      const name=location.hash.replace(/^#\/?/,'').split('/')[0];active=routes.includes(name)?name:'overview';render();
+      const r=readRoute();
+      const changed=(project!==r.p||batch!==r.b);
+      active=r.view;project=r.p;batch=r.b;
+      if(changed&&auth){fetchViews().then(render).catch(catchMessage);}
+      else render();
     });
-    const route=location.hash.replace(/^#\/?/,'').split('/')[0];active=routes.includes(route)?route:'overview';
+    const first=readRoute();active=first.view;project=first.p;batch=first.b;
     // P1's original loadSession/refresh initiates the first authenticated fetch.
   });
 })();

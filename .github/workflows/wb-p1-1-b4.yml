@@ -1,0 +1,71 @@
+name: WB-P1.1-B4 integration and non-regression freeze
+on:
+  push:
+    branches: [workbench-p1.1-b4-integration-nonregression-freeze]
+  pull_request:
+    paths:
+      - 'apps/workbench/d0/**'
+      - 'docs/workbench/WB-P1.1-B4*'
+      - '.github/workflows/wb-p1-1-b4.yml'
+permissions:
+  contents: read
+jobs:
+  b4-python:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Locked D0 runtime and test deps
+        run: |
+          python -m pip install --require-hashes -r apps/workbench/d0/requirements.lock
+          python -m pip install 'pytest==8.4.2' 'httpx==0.28.1'
+      - name: Compile and original UI syntax
+        run: |
+          python -m compileall -q apps/workbench/d0
+          node --check apps/workbench/d0/web/tpa_manage.js
+          node --check apps/workbench/d0/web/tpa_p11.js
+          node --check apps/workbench/d0/web/tpa_b2.js
+          node --check apps/workbench/d0/web/tpa_b3.js
+      - name: Cross-B1/B2/B3 B4 fault injection and full original D0/EA/TPA/NDS regression
+        run: python -m pytest apps/workbench/d0/tests -q -ra
+      - name: Protected authority-tree and no-feature-creep guard
+        run: |
+          set -euo pipefail
+          files="$(git diff --name-only eb580f69627a3323371dfaaf9847a22154eb8448 HEAD)"
+          printf '%s\n' "$files"
+          if printf '%s\n' "$files" | grep -E '^(runs/|src/nutrifoundation/|apps/workbench/c1/|apps/workbench/c2_1/|apps/workbench/c2_2/|apps/workbench/d0/ea_(runtime|seed|contract))'; then
+            echo "B4 altered frozen scientific or prior EA authority"; exit 1
+          fi
+          if printf '%s\n' "$files" | grep -Ev '^($|\.github/workflows/wb-p1-1-b4.yml|apps/workbench/d0/tests/test_tpa_b4_integration.py|apps/workbench/d0/tests/browser_d0.py|docs/workbench/WB-P1.1-B4.*\.md)$'; then
+            echo "B4 contains unexpected runtime feature changes"; exit 1
+          fi
+  b4-native-chromium:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Original D0 native Chromium PDF.js and pinned deps
+        run: |
+          python -m pip install --require-hashes -r apps/workbench/d0/requirements.lock
+          python -m pip install 'playwright==1.55.0'
+          python -m playwright install --with-deps chromium
+          bash apps/workbench/d0/install_pdfjs.sh
+      - name: Real native browser end-to-end across original management and expert
+        env:
+          D0_QA_OUTPUT: /tmp/b4-browser-results
+        run: python apps/workbench/d0/tests/browser_d0.py
+      - name: Browser screenshots and receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: b4-browser-results
+          path: /tmp/b4-browser-results
+          if-no-files-found: ignore

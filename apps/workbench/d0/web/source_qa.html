@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NutriFoundation · P2 Source Qualification & Human QA</title>
+<link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/tpa_manage.css">
+<link rel="stylesheet" href="/static/tpa_p11.css"><link rel="stylesheet" href="/static/p2_source_studio.css">
+<script src="/static/p2_source_studio.js" defer></script>
+<script src="/static/p2_source_portal.js" defer></script></head>
+<body class="tpa-page">
+<header class="tpa-header"><div class="tpa-brand"><span class="logo" aria-hidden="true">❧</span>
+<div><strong>NutriFoundation</strong><small>Source Studio · Independent Source Qualification</small></div></div>
+<div class="tpa-header-actions"><span class="synthetic">SYNTHETIC SOURCE QA ONLY</span>
+<span id="p2Account">未登录</span><button id="p2Logout" type="button" hidden>退出独立会话</button></div></header>
+<main id="main"><section id="p2Login" class="login-card">
+<h1>独立科学来源审核</h1><p>使用单独的 Source Curator / Auditor 合成测试账户。与原任务生产及专家账户权限分离。</p>
+<form id="p2LoginForm"><label>专用测试账户<input id="p2Username" autocomplete="username" required></label>
+<label>密码<input id="p2Password" type="password" autocomplete="current-password" required></label>
+<button type="submit">登录来源审核台</button></form><p id="p2LoginError" role="alert" class="error"></p>
+</section><div id="workspace" hidden><div class="p11-layout">
+<aside class="p11-nav" aria-label="科学来源审核模块">
+<div class="p11-nav-header">SCIENTIFIC SOURCE / 独立审核</div>
+<div class="p11-nav-footer">P2 SYNTHETIC ONLY<br>审查角色由服务端会话决定，任何来源审核均不签发专家访问。</div>
+</aside>
+<div class="p11-content"><div class="p11-top"><strong>科学资料资格与 Human QA</strong>
+<small>独立 P2 Curator / Auditor 会话</small></div>
+<div id="p2PortalMount"></div></div></div></div>
+</main></body></html>

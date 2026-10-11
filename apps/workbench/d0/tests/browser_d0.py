@@ -282,12 +282,38 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     assert 'source=RCT-001' in p.evaluate('location.hash')
     assert 'revision=r1' in p.evaluate('location.hash')
     p.screenshot(path=str(output/'b1-source-library-synthetic.png'),full_page=True)
+    # P2 Source Studio: additive UI-only preview. Existing B1 remains unchanged.
+    p.locator('[data-p11-route="studio"]').click()
+    expect(p.locator('#p11SectionTitle')).to_have_text('资料准备 · P2 预览')
+    expect(p.locator('.p2-studio')).to_be_visible(timeout=15000)
+    expect(p.locator('#p2TableTarget tbody tr')).to_have_count(4)
+    expect(p.locator('.p2-studio')).to_contain_text('REAL SOURCE / GOLD / EXPERT GRANT')
+    p.locator('.p2-table tbody tr').first.get_by_role('button',name='查看详情').click()
+    expect(p.get_by_role('dialog',name='科学来源版本详情')).to_contain_text('NOT_COMPUTED_DEMO')
+    p.get_by_role('dialog',name='科学来源版本详情').get_by_role('button',name='关闭').click()
+    p.locator('.p2-tabs').get_by_role('button',name='人工 QA').click()
+    expect(p.locator('.p2-qa-grid')).to_be_visible()
+    expect(p.locator('.p2-unit')).to_have_count(3)
+    p.locator('.p2-unit').nth(2).click()
+    expect(p.locator('.p2-qa-grid')).to_contain_text('UNRESOLVED')
+    p.locator('.p2-qa-grid').get_by_role('button',name='检查封存条件（演示阻断）').click()
+    expect(p.locator('.p2-studio')).to_contain_text('封存失败')
+    p.locator('.p2-tabs').get_by_role('button',name='科学资料库').click()
+    p.locator('.p2-toolbar').get_by_role('button',name='登记科学来源').click()
+    expect(p.get_by_role('dialog',name='来源登记 · 浏览器本地演示')).to_be_visible()
+    p.get_by_role('dialog',name='来源登记 · 浏览器本地演示').get_by_role('button',name='关闭').click()
+    p.screenshot(path=str(output/'p2-source-studio-producer-synthetic.png'),full_page=True)
+    checks.extend(['p2_studio_same_pr36_management_shell','p2_studio_metadata_only_source_preview',
+                   'p2_local_wizard_no_backend_source_admission','p2_reader_mock_unit_qa_block',
+                   'p2_original_b1_source_library_untouched'])
+    p.locator('[data-p11-route="sources"]').click()
+    expect(p.locator('#b1PackageStatus')).to_contain_text('SPKG-SYN-RCT-001-R1')
     checks.extend(['b1_source_version_deeplink_survives_reload',
                    'b1_existing_fixture_validate_before_register',
                    'b1_immutable_package_persist_reload_and_exact_structure_index',
                    'b1_management_never_renders_source_original_text'])
     # P1.1-A: enter a persistent operational project and batch before drafting.
-    assert p.locator('#p11Nav button[data-p11-route]').count()==7
+    assert p.locator('#p11Nav button[data-p11-route]').count()==8
     p.locator('[data-p11-route="tasks"]').click()
     p.locator('#p11ProjectsShortcut').click()
     p.get_by_role('button',name='新建项目').click()
@@ -398,6 +424,12 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     assert m.locator('#b1ValidatePackage').count()==0
     assert m.locator('#b1RegisterPackage').count()==0
     checks.append('b1_manager_source_package_read_only')
+    m.locator('[data-p11-route="studio"]').click()
+    expect(m.locator('.p2-studio')).to_be_visible(timeout=15000)
+    m.locator('.p2-tabs').get_by_role('button',name='人工 QA').click()
+    expect(m.locator('.p2-qa-grid')).to_have_count(0)
+    expect(m.locator('.p2-studio')).to_contain_text('Manager 没有来源全文访问权')
+    checks.append('p2_manager_cannot_view_even_synthetic_qa_text')
     m.locator('[data-p11-route="agent"]').click()
     expect(m.locator('#b2AgentTaskRows')).to_contain_text('TPA-SYN-BROWSER-001')
     expect(m.locator('#b2AttestationReceipt')).to_contain_text('SYNTHETIC_FIXTURE_NOT_AN_LLM')

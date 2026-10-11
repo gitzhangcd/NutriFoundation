@@ -79,15 +79,25 @@ def test_p2_full_lineage_rights_qa_freeze_scope_restart_without_ea_mutation(app,
     assert document["document"]["parser"]=="MARKDOWN_DETERMINISTIC_V0.1"
     assert len(document["document"]["units"])>=4
     assert "12.4" in json.dumps(document["document"])
+    original=curator.get(f"/v1/p2/sources/{sid}/r1/original")
+    assert original.status_code==200,original.text
+    assert original.json()["raw_artifact_sha256"]==document["document"]["raw_artifact_sha256"]
+    assert "A synthetic trial measured" in original.json()["raw_content"]
+    assert producer.get(f"/v1/p2/sources/{sid}/r1/original").status_code==403
     assert producer.get(f"/v1/p2/sources/{sid}/r1/document").status_code==403
     manager,_=login(app,"manager")
     assert manager.get(f"/v1/p2/sources/{sid}/r1/document").status_code==403
+    assert manager.get(f"/v1/p2/sources/{sid}/r1/original").status_code==403
     assert manager.get("/v1/p2/sources").json()["total"]==1
     assert "A synthetic trial measured" not in manager.get("/v1/p2/sources").text
     freeze_path=f"/v1/p2/sources/{sid}/r1/freeze"
     before_qa=producer.post(freeze_path,headers=ph,json={"expected_document_sha256":document["document_sha256"]})
     assert before_qa.status_code==409
     assert len(review_all(curator,ch,sid,document))==len(document["document"]["units"])
+    recovered_reviews=curator.get(f"/v1/p2/sources/{sid}/r1/reviews")
+    assert recovered_reviews.status_code==200
+    assert recovered_reviews.json()["total"]==len(document["document"]["units"])
+    assert all(item["decision"]=="ACCEPT" for item in recovered_reviews.json()["reviews"])
     frozen=producer.post(freeze_path,headers=ph,json={"expected_document_sha256":document["document_sha256"]})
     assert frozen.status_code==200,frozen.text
     assert frozen.json()["package"]["real_source_qualified"] is False
@@ -188,6 +198,14 @@ def test_p2_safe_jats_html_and_pdf_external_handoff(app):
     assert doc["document"]["parser"]=="EXTERNAL_MINERU_UNVERIFIED"
     assert doc["document"]["units"][1]["page_hint"]==3
     assert accepted.json()["status"]=="QA_PENDING"
+    unit=doc["document"]["units"][0]
+    reviewer,header=login(app,"p2curator")
+    text=unit["text"]
+    assert reviewer.post(f"/v1/p2/sources/{sid}/r1/qa",headers=header,json={
+        "unit_id":unit["unit_id"],"decision":"ACCEPT","start_utf16":0,
+        "end_utf16":len(text.encode("utf-16-le"))//2,
+        "source_quote":text,"source_quote_sha256":hashlib.sha256(text.encode()).hexdigest(),
+        "pdf_locator_status":"PAGE_HINT_ONLY"}).status_code==409
 
 def test_p2_rejected_qa_cannot_auto_freeze(app):
     sid="P2-SYN-REJECTED-001";producer,ph,auditor,ah,curator,ch,doc=converted(app,sid)
@@ -207,6 +225,9 @@ def test_p2_rejected_qa_cannot_auto_freeze(app):
 def test_p2_audit_chain_corruption_rejected_and_manager_readonly(app):
     sid="P2-SYN-SECURE-001";producer,ph,auditor,ah=prepare(app,sid)
     manager,mh=login(app,"manager")
+    assert manager.get("/source-qa").status_code==403
+    curator,_=login(app,"p2curator")
+    assert curator.get("/source-qa").status_code==200
     assert manager.get("/v1/p2/overview").status_code==200
     assert manager.post(f"/v1/p2/sources/{sid}/r1/convert",headers=mh,json={}).status_code==403
     assert manager.get(f"/v1/p2/sources/{sid}/r1/document").status_code==403

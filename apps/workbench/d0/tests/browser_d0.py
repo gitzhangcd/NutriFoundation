@@ -361,6 +361,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
                    'p11_url_project_batch_scope_backward_forward_reload'])
     manager_context,m=manager_login('manager')
     m.locator('[data-p11-route="sources"]').click()
+    m.locator('#b1SourceRows .p11-source-entry').filter(has_text='RCT-001').get_by_role('button',name='查看版本').click()
     expect(m.locator('#b1PackageStatus')).to_contain_text('SYNTHETIC_REFERENCE_ONLY')
     assert m.locator('#b1ValidatePackage').count()==0
     assert m.locator('#b1RegisterPackage').count()==0

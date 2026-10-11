@@ -302,7 +302,68 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     p.locator('#p2NavGroup [data-p2-tab="library"]').click()
     p.locator('.p2-heading').get_by_role('button',name='＋ 登记科学来源').click()
     expect(p.get_by_role('dialog',name='来源登记 · 受控合成准备')).to_be_visible()
-    p.get_by_role('dialog',name='来源登记 · 浏览器本地演示').get_by_role('button',name='关闭').click()
+    p.get_by_role('dialog',name='来源登记 · 受控合成准备').get_by_role('button',name='关闭').click()
+    # P2 production-code flow with synthetic sources only: separate human authority.
+    p.locator('.p2-heading').get_by_role('button',name='＋ 登记科学来源').click()
+    for _ in range(3):
+        p.locator('.p2-modal-actions').get_by_role('button',name='下一步').click()
+    p.locator('.p2-modal-actions').get_by_role('button',name='提交合成来源登记').click()
+    expect(p.locator('.p2-studio')).to_contain_text('来源已登记',timeout=20000)
+    info=producer_context.request.get(url+'/v1/p2/sources').json()
+    assert info['total']==1,info
+    source_id=info['sources'][0]['source_id']
+    assert info['sources'][0]['status']=='RIGHTS_HOLD'
+    expect(p.locator('#p2TableTarget tbody tr')).to_have_count(7)
+    # Auditor independent session: rights approval, never original units.
+    a_ctx=browser.new_context(viewport={'width':1440,'height':900})
+    a=a_ctx.new_page();a.on('pageerror',lambda e:errors.append('P2AUDITOR: '+str(e)))
+    a.goto(url+'/source-qa')
+    expect(a.locator('#p2Login')).to_be_visible()
+    a.locator('#p2Username').fill('auditor')
+    a.locator('#p2Password').fill(credentials['accounts']['auditor']['password'])
+    a.locator('#p2LoginForm button[type="submit"]').click()
+    expect(a.locator('#workspace')).to_be_visible(timeout=30000)
+    assert a_ctx.request.get(url+'/v1/p2/sources/'+source_id+'/r1/original').status==403
+    row=a.locator('.p2-version').filter(has_text=source_id)
+    expect(row).to_be_visible(timeout=20000)
+    row.get_by_role('button',name='查看').click()
+    a.get_by_role('dialog',name='科学来源版本详情').get_by_role('button',name='记录独立合成使用权').click()
+    expect(a.locator('.p2-studio')).to_contain_text('合成用途审查记录已签发',timeout=20000)
+    a.screenshot(path=str(output/'p2-rights-review.png'),full_page=True);a_ctx.close()
+    # Producer runs deterministic conversion only AFTER auditor approval.
+    p.locator('#p2NavGroup [data-p2-tab="library"]').click()
+    p.locator('.p2-toolbar').get_by_role('button',name='刷新真实登记状态').click()
+    expect(p.locator('#p2TableTarget')).to_contain_text('已记录合成用途',timeout=20000)
+    p.locator('#p2NavGroup [data-p2-tab="convert"]').click()
+    p.locator('.p2-table tbody tr').filter(has_text=source_id).get_by_role('button',name='开始结构化转换').click()
+    expect(p.locator('.p2-studio')).to_contain_text('转换已提交并冻结结构化文档版本',timeout=20000)
+    assert producer_context.request.get(url+'/v1/p2/sources/'+source_id+'/r1/original').status==403
+    # Curator alone can compare ORIGINAL source to document IR and sign exact spans.
+    c_ctx=browser.new_context(viewport={'width':1440,'height':900})
+    c=c_ctx.new_page();c.on('pageerror',lambda e:errors.append('P2CURATOR: '+str(e)))
+    c.goto(url+'/source-qa')
+    c.locator('#p2Username').fill('p2curator')
+    c.locator('#p2Password').fill(credentials['accounts']['p2curator']['password'])
+    c.locator('#p2LoginForm button[type="submit"]').click()
+    expect(c.locator('#workspace')).to_be_visible(timeout=30000)
+    expect(c.locator('.p2-reader-select select')).to_be_visible(timeout=20000)
+    c.locator('.p2-reader-select select').select_option(source_id+':r1')
+    expect(c.locator('.p2-original-text')).to_contain_text('Synthetic scientific paper',timeout=20000)
+    unit_count=c.locator('.p2-unit').count()
+    assert unit_count>=4
+    for idx in range(unit_count):
+        c.locator('.p2-unit').nth(idx).click()
+        c.get_by_role('button',name='核查通过 · 冻结此 Unit').click()
+        expect(c.locator('.p2-studio')).to_contain_text('独立 QA 记录已持久化',timeout=20000)
+    assert c_ctx.request.get(url+'/v1/p2/sources/'+source_id+'/r1/reviews').json()['total']==unit_count
+    c.screenshot(path=str(output/'p2-curator-raw-structured-qa.png'),full_page=True);c_ctx.close()
+    p.locator('#p2NavGroup [data-p2-tab="versions"]').click()
+    p.locator('.p2-version').filter(has_text=source_id).get_by_role('button',name='检查并冻结').click()
+    expect(p.locator('.p2-studio')).to_contain_text('已冻结合成资料包',timeout=20000)
+    assert producer_context.request.get(url+'/v1/p2/sources/'+source_id+'/r1').json()['status']=='PACKAGE_FROZEN'
+    checks.extend(['p2_html_fidelity_five_stage_and_six_example_rows','p2_synthetic_source_persisted_intake',
+                   'p2_separate_rights_and_no_raw_auditor','p2_curator_original_sha_and_all_units',
+                   'p2_immutable_package_freeze_no_expert_grant'])
     p.screenshot(path=str(output/'p2-source-studio-producer-synthetic.png'),full_page=True)
     checks.extend(['p2_studio_same_pr36_management_shell','p2_studio_metadata_only_source_preview',
                    'p2_four_step_wizard_synthetic_only_admission','p2_reader_mock_unit_qa_block',

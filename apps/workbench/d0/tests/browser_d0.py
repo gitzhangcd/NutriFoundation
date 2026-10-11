@@ -279,7 +279,11 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     p.reload()
     expect(p.locator('#workspace')).to_be_visible(timeout=30000)
     expect(p.locator('#b1PackageStatus')).to_contain_text('SPKG-SYN-RCT-001-R1')
-    checks.extend(['b1_existing_fixture_validate_before_register',
+    assert 'source=RCT-001' in p.evaluate('location.hash')
+    assert 'revision=r1' in p.evaluate('location.hash')
+    p.screenshot(path=str(output/'b1-source-library-synthetic.png'),full_page=True)
+    checks.extend(['b1_source_version_deeplink_survives_reload',
+                   'b1_existing_fixture_validate_before_register',
                    'b1_immutable_package_persist_reload_and_exact_structure_index',
                    'b1_management_never_renders_source_original_text'])
     # P1.1-A: enter a persistent operational project and batch before drafting.

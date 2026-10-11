@@ -106,6 +106,7 @@
     if(project)scope.set('project_id',project);
     if(batch)scope.set('batch_id',batch);
     const tasks=new URLSearchParams(scope);
+    if(search)tasks.set('q',search);
     const requestedState=!project&&legacyOnly?'LEGACY':stateScope;
     if(requestedState)tasks.set('state',requestedState);
     tasks.set('limit',String(pageSize));
@@ -304,7 +305,12 @@
     if(project){const b=e('label');b.append(e('span','批次'));b.append(select('p11TaskBatch',(batchMap.get(project)||[]).map(x=>[x.batch_id,x.label]),batch,
       v=>chooseScope(project,v).catch(catchMessage),'全部批次'));bar.append(b);}
     const q=e('label');q.append(e('span','任务搜索'));const input=e('input');input.placeholder='合成任务 ID';input.value=search;
-    input.addEventListener('input',ev=>{search=ev.target.value.trim();renderTasks();});q.append(input);bar.append(q);
+    let searchTimer=null;
+    input.addEventListener('input',ev=>{
+      search=ev.target.value.trim();pageOffset=0;
+      if(searchTimer)clearTimeout(searchTimer);
+      searchTimer=setTimeout(()=>fetchViews().then(()=>{renderTasks()}).catch(catchMessage),250);
+    });q.append(input);bar.append(q);
     if(!project){
       const legacy=button(legacyOnly?'显示全部任务':'仅显示 Legacy 任务',()=>{
         legacyOnly=!legacyOnly;pageOffset=0;fetchViews().then(()=>{renderTaskToolbar();renderWizard()}).catch(catchMessage);

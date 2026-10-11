@@ -342,6 +342,31 @@ class SourceStudio:
             doc=json.loads(result["doc"]);return {"document":doc,"document_sha256":result["doc_sha"],
                                                       "run_id":result["run_id"],"synthetic_only":True}
 
+    def original(self,role,sid,rev):
+        """Read-only original fixture bytes for independent human source QA."""
+        self.auth(role,("curator",))
+        with self.connect() as db:
+            row=self.row(db,sid,rev)
+            if row["status"]=="RIGHTS_HOLD":error("SOURCE_RIGHTS_NOT_ACCEPTED")
+            original=db.execute("SELECT raw_content,raw_format FROM p2_artifacts WHERE raw_sha=?",
+                                (row["raw_sha"],)).fetchone()
+            if not original or sha(original["raw_content"].encode("utf-8"))!=row["raw_sha"]:
+                error("ORIGINAL_ARTIFACT_DRIFT")
+            return {"source_id":sid,"revision_id":rev,"raw_content":original["raw_content"],
+                    "raw_format":original["raw_format"],"raw_artifact_sha256":row["raw_sha"],
+                    "synthetic_only":True,"original_authority_preserved":True}
+
+    def reviews(self,role,sid,rev):
+        self.auth(role,("curator",))
+        with self.connect() as db:
+            self.row(db,sid,rev)
+            rows=db.execute("SELECT unit_id,actor,record FROM p2_reviews WHERE source_id=? AND revision_id=?",
+                            (sid,rev)).fetchall()
+            return {"source_id":sid,"revision_id":rev,
+                    "reviews":[{"unit_id":r["unit_id"],"decision":json.loads(r["record"])["decision"],
+                                "reviewer":r["actor"]} for r in rows],
+                    "total":len(rows),"original_text_exposed":False}
+
     def review(self,role,actor,sid,rev,body):
         self.auth(role,("curator",))
         unitid=body.get("unit_id");decision=body.get("decision")

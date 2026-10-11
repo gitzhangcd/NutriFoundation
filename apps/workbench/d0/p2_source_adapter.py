@@ -44,6 +44,12 @@ class Review(Body):
     pdf_locator_status:str="UNRESOLVED"
     findings:dict={}
 
+class Translation(Body):
+    unit_id:str
+    translation_zh:str
+    provenance_ref:str
+    expected_unit_text_sha256:str
+
 class Freeze(Body):
     expected_document_sha256:str
 
@@ -113,6 +119,17 @@ def install_p2_source_routes(app:FastAPI,studio:SourceStudio):
     def qa(source_id:str,revision_id:str,request:Request,body:dict):
         p=person(request)
         return studio.review(p["role"],p["actor"],source_id,revision_id,payload(Review,body))
+
+    @app.get("/v1/p2/sources/{source_id}/{revision_id}/translations")
+    def translations(source_id:str,revision_id:str,request:Request):
+        p=person(request)
+        return studio.translations(p["role"],source_id,revision_id)
+
+    @app.post("/v1/p2/sources/{source_id}/{revision_id}/translations")
+    def add_translation(source_id:str,revision_id:str,request:Request,body:dict):
+        p=person(request)
+        return studio.save_translation(p["role"],p["actor"],source_id,revision_id,
+                                       payload(Translation,body))
 
     @app.post("/v1/p2/sources/{source_id}/{revision_id}/freeze")
     def freeze(source_id:str,revision_id:str,request:Request,body:dict):

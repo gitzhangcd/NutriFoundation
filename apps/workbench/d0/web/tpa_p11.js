@@ -62,11 +62,18 @@
     if(project)args.set('project_id',project);
     if(batch)args.set('batch_id',batch);
     const suffix=args.toString()?'?'+args.toString():'';
-    [overview, {tasks:managedTasks}] = await Promise.all([
+    const [v, first]=await Promise.all([
       apiOps('/v1/tpa/overview'+suffix),
       apiOps('/v1/tpa/tasks?'+(args.toString()?args.toString()+'&':'')+'limit=100&offset=0')
     ]);
-    // State authority belongs to the server. Legacy and role-safe projections only.
+    overview=v;managedTasks=first.tasks||[];
+    let offset=managedTasks.length;
+    while(offset<first.total&&offset<10000){
+      const page=await apiOps('/v1/tpa/tasks?'+(args.toString()?args.toString()+'&':'')+'limit=100&offset='+offset);
+      if(!page.tasks?.length)break;
+      managedTasks.push(...page.tasks);offset+=page.tasks.length;
+    }
+    // State authority belongs to server. If a response is incomplete, never call it exhaustive.
   }
   function select(id, entries, value, onChange, placeholder){
     const sel=e('select');sel.id=id;sel.className='p11-select';
@@ -90,8 +97,11 @@
     const b=button(metric[key],()=>{
       active='tasks';location.hash='#/tasks';
       const v={preparing:'',ready:'READY_FOR_ASSIGNMENT',assigned:'ASSIGNED',published:'PUBLISHED',revoked:'REVOKED'}[key];
-      if(v!==undefined&&$p('stateFilter'))$p('stateFilter').value=v;
-      if(key==='preparing')$p('stateFilter').value='';
+      if(v!==undefined&&$p('stateFilter')){
+        $p('stateFilter').value=v;
+        $p('stateFilter').dispatchEvent(new Event('change'));
+      }
+      if(key==='preparing'){window.opsPreparingFilter=true;renderTasks();}
       render();
     },'p11-stat');
     b.append(e('strong',val===null?'未统计':String(val)));
@@ -246,7 +256,7 @@
     })});
     wizardStep=3;return result;
   };
-  window.opsClear=()=>{projects=[];batchMap=new Map();overview=null;managedTasks=[];project='';batch='';search='';wizardStep=1;active='overview';
+  window.opsClear=()=>{projects=[];batchMap=new Map();overview=null;managedTasks=[];project='';batch='';search='';wizardStep=1;active='overview';window.opsPreparingFilter=false;
     if($p('p11View'))clear($p('p11View'));};
   window.opsRefresh=reload;
   window.opsTaskDetail=async taskId=>{

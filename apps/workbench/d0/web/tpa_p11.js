@@ -413,6 +413,7 @@
     const caution=e('section',undefined,'p11-panel');
     caution.append(e('h3','③ MinerU / HTML / Markdown 上游适配边界'));
     caution.append(notice('规划契约：外部解析 → canonical source units + stable unit IDs → source SHA / structure digest → 版本验证 → 权限及科研来源资格审核。当前 B1 只接受 EA 中已登记的 SYNTHETIC_FIXTURE 引用，不接收上传文件或解析结果。'));
+    caution.append(button('打开 P2 科学资料准备预览',()=>navigate('studio'),'secondary'));
     page.append(caution);
     return page;
   }

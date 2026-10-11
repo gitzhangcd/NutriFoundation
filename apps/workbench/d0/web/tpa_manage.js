@@ -209,22 +209,44 @@ async function action(id,kind,mode){
   body={expert_actor:actor,idempotency_key:operationKey('assign',id,{expert_actor:actor})};
  }
  if(kind==='publish')body={idempotency_key:operationKey('publish',id,{task_id:id})};
+ let completed=false,watchdog=null;
+ const commit=async(value,uncertain)=>{
+  if(completed)return;
+  completed=true;
+  if(watchdog!==null)clearTimeout(watchdog);
+  if(kind==='assign'||kind==='publish')resolveIntent(kind,id);
+  receipt(uncertain?{task_id:id,state:value.state,reconciled_after_uncertain_response:true,
+     caution:'仅根据服务端已提交状态确认；不推断专家已阅读或科研合格'}:value);
+  window.opsAfterTaskAction?.(id,kind,value);
+  await refresh();
+ };
+ const serverState=async()=>{
+   try{
+     const safe=await api('/v1/tpa/tasks/'+encodeURIComponent(id)+'/management');
+     if(safe.task_id===id&&safe.state===expected)return safe;
+   }catch{ /* Never turn a failed read into a successful write claim. */ }
+   return null;
+ };
+ // A simulated lost publish HTTP response may leave fetch unsettled even
+ // after the server commits. A single bounded, read-only, user-action-scoped
+ // check permits exact server-state reconciliation without duplicate grants.
+ if(kind==='publish'){
+   watchdog=setTimeout(async()=>{
+     if(completed)return;
+     const confirmed=await serverState();
+     if(confirmed)await commit(confirmed,true);
+   },2500);
+ }
  try{
   const value=await api(path,{method:'POST',...(body?{body:JSON.stringify(body)}:{})});
-  if(kind==='assign'||kind==='publish')resolveIntent(kind,id);
-  receipt(value);window.opsAfterTaskAction?.(id,kind,value);await refresh();
+  if(!completed)await commit(value,false);
  }catch(e){
-  // A lost HTTP response does not prove a failed transaction. Read the server state first.
-  try{
-   const safe=await api('/v1/tpa/tasks/'+encodeURIComponent(id)+'/management');
-   if(safe.state===expected){
-    if(kind==='assign'||kind==='publish')resolveIntent(kind,id);
-    receipt({task_id:id,state:safe.state,reconciled_after_uncertain_response:true,
-             caution:'由服务端任务状态确认；不推断专家已阅读或科学合格'});
-    window.opsAfterTaskAction?.(id,kind,safe);await refresh();return;
-   }
-  }catch{ /* preserve the same request key for a subsequent user-initiated retry */ }
+  if(completed)return;
+  const confirmed=await serverState();
+  if(confirmed){await commit(confirmed,true);return;}
   receipt('操作未确认：'+e.message+'。请刷新服务端状态；重试同一操作会复用原请求键。');
+ }finally{
+  if(watchdog!==null)clearTimeout(watchdog);
  }
 }
 window.opsTaskAction=action;

@@ -216,6 +216,9 @@ class SourceStudio:
              "status":row["status"],"source_original_text_exposed":False,
              "scientific_capture":False,"gold_qualification":"NOT_ELIGIBLE",
              "expert_exposure_authorized":False}
+        rights=db.execute("SELECT decision FROM p2_rights WHERE source_id=? AND revision_id=?",
+                          (row["source_id"],row["revision_id"])).fetchone()
+        rec["rights_status"]=rights["decision"] if rights else "PENDING_INDEPENDENT_REVIEW"
         q=db.execute("SELECT COUNT(*) FROM p2_reviews WHERE source_id=? AND revision_id=?",
                      (row["source_id"],row["revision_id"])).fetchone()[0]
         d=db.execute("SELECT doc,doc_sha,run_id FROM p2_documents WHERE source_id=? AND revision_id=?",
@@ -256,6 +259,9 @@ class SourceStudio:
             db.execute("BEGIN IMMEDIATE")
             old=db.execute("SELECT 1 FROM p2_sources WHERE source_id=? AND revision_id=?",(sid,rev)).fetchone()
             if old:error("SOURCE_VERSION_ALREADY_REGISTERED")
+            existing_artifact=db.execute("SELECT raw_format FROM p2_artifacts WHERE raw_sha=?",(rawsha,)).fetchone()
+            if existing_artifact and existing_artifact["raw_format"]!=fmt:
+                error("RAW_ARTIFACT_FORMAT_CONFLICT")
             db.execute("INSERT OR IGNORE INTO p2_artifacts VALUES(?,?,?)",(rawsha,raw,fmt))
             db.execute("INSERT INTO p2_sources VALUES(?,?,?,?,?,?,?)",
                        (sid,rev,encoded(metadata).decode(),rawsha,fmt,"RIGHTS_HOLD",actor))

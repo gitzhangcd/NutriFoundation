@@ -411,7 +411,13 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
                       body='{"detail":{"code":"SYNTHETIC_LOST_RESPONSE"}}')
     m.route('**/v1/tpa/tasks/TPA-SYN-BROWSER-001/publish',lose_publish_reply,times=1)
     row.get_by_role('button',name=re.compile('授权发布任务')).click()
-    expect(row).to_contain_text('PUBLISHED')
+    try:
+        expect(row).to_contain_text('PUBLISHED',timeout=12000)
+    except AssertionError:
+        state=manager_context.request.get(url+'/v1/tpa/tasks/TPA-SYN-BROWSER-001/management')
+        raise AssertionError('UNCONFIRMED_MANAGER_UI_AFTER_LOST_REPLY: server='+
+          str(state.status)+'/'+state.text+' receipt='+str(m.locator('#receipt').text_content())+
+          ' browser_row='+str(row.text_content()))
     expect(m.locator('#receipt')).to_contain_text('reconciled_after_uncertain_response')
     assert m.locator('.p11-task-table').count()==1
     row.get_by_role('button',name='查看任务详情').click()

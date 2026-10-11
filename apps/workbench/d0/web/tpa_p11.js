@@ -25,7 +25,10 @@
   const routes=['overview','projects','tasks','sources','agent','experts','quality','audit'];
   const labels={overview:'工作总览',projects:'项目与批次',tasks:'任务中心',sources:'科学资料库',agent:'Agent 准备',experts:'专家与分配',quality:'进度与质控',audit:'审计与导出'};
   const metric={preparing:'准备中',ready:'待分配',assigned:'已分配未发布',published:'已发布',revoked:'已撤销',blocked:'历史阻断'};
-  const stateLabel={DRAFT:'草稿',VALIDATED:'已验证',DEFINITION_FROZEN:'定义已冻结',READY_FOR_ASSIGNMENT:'待分配',ASSIGNED:'已分配',PUBLISHED:'已发布',REVOKED:'已撤销'};
+  // Demo status copy (P1.1-A Management Demo); English enum retained in DOM for acceptance checks.
+  const stateLabel={DRAFT:'草稿待核验',VALIDATED:'定义已验证',DEFINITION_FROZEN:'定义已冻结',READY_FOR_ASSIGNMENT:'工作包已准备',ASSIGNED:'已分配待发布',PUBLISHED:'已发布可访问',REVOKED:'后续访问已撤销'};
+  const stateClass={DRAFT:'s-draft',VALIDATED:'s-validated',DEFINITION_FROZEN:'s-frozen',READY_FOR_ASSIGNMENT:'s-ready',ASSIGNED:'s-assigned',PUBLISHED:'s-published',REVOKED:'s-revoked'};
+  let modeScope='', wizardOpen=false;
   const cutoff = () => new Date().toISOString().slice(0,10);
   const fresh = prefix => `${prefix}${crypto.randomUUID().replaceAll('-','').slice(0,12).toUpperCase()}`;
   const clear = node => node.replaceChildren();
@@ -124,6 +127,7 @@
     if(search)tasks.set('q',search);
     const requestedState=!project&&legacyOnly?'LEGACY':stateScope;
     if(requestedState)tasks.set('state',requestedState);
+    if(modeScope)tasks.set('workflow_strategy',modeScope);
     tasks.set('limit',String(pageSize));
     tasks.set('offset',String(pageOffset));
     const [v, result]=await Promise.all([
@@ -523,6 +527,16 @@
     try {await loadingPromise;}
     finally{loadingPromise=null;}
   }
+  function setWizardOpen(open){
+    wizardOpen=!!open;
+    const panel=$p('p11WizardPanel');
+    if(panel)panel.hidden=!wizardOpen;
+    document.body.classList.toggle('p11-wizard-open',wizardOpen);
+    if(wizardOpen){
+      renderSelector();renderWizard();
+      $p('p11WizardClose')?.focus();
+    }
+  }
   function render(){
     active=routes.includes(active)?active:'overview';
     document.body.dataset.p11View=active;
@@ -531,38 +545,112 @@
     $p('p11TaskView').hidden=separate;
     const nav=$p('p11Nav');
     for(const item of nav.querySelectorAll('button[data-p11-route]')){
-      item.setAttribute('aria-current',item.dataset.p11Route===active?'page':'false');
+      // Demo: keep 任务中心 highlighted while browsing nested 项目与批次.
+      const onTasksFamily=active==='tasks'||active==='projects';
+      const current=(item.dataset.p11Route===active)||(item.dataset.p11Route==='tasks'&&onTasksFamily&&active==='projects');
+      item.setAttribute('aria-current',current?'page':'false');
     }
     $p('p11SectionTitle').textContent=labels[active];
+    if(active!=='tasks')setWizardOpen(false);
     if(separate){clear($p('p11View'));$p('p11View').append(active==='overview'?renderOverview():active==='projects'?renderProjects():active==='sources'?renderSourceLibrary():active==='agent'&&window.opsB2Render?window.opsB2Render():active==='experts'&&window.opsB3Render?window.opsB3Render():renderPlaceholder());}
-    else{renderSelector();renderWizard();renderTaskToolbar();}
+    else{renderTaskToolbar();renderSelector();renderWizard();}
   }
   function go(view){
     navigate(view);
     if(view==='agent')window.opsB2Refresh?.().then(render).catch(catchMessage);
     if(view==='experts')window.opsB3Refresh?.().then(render).catch(catchMessage);
   }
+  function projectName(id){
+    return projects.find(p=>p.project_id===id)?.name || id;
+  }
+  function batchName(projectId,batchId){
+    return (batchMap.get(projectId)||[]).find(b=>b.batch_id===batchId)?.label || batchId;
+  }
+  function renderBreadcrumb(){
+    const nav=$p('p11Breadcrumb');if(!nav)return;clear(nav);
+    const crumbs=[['全部项目','','' ]];
+    if(project)crumbs.push([projectName(project),project,'']);
+    if(project&&batch)crumbs.push([batchName(project,batch),project,batch]);
+    crumbs.push(['任务',project,batch]);
+    crumbs.forEach((item,index)=>{
+      if(index)nav.append(e('span','›','p11-crumb-sep'));
+      const last=index===crumbs.length-1;
+      if(last){
+        const current=e('span',item[0],'p11-crumb-current');
+        current.setAttribute('aria-current','page');
+        nav.append(current);
+      }else{
+        nav.append(button(item[0],()=>{
+          if(!item[1]){chooseScope('','').catch(catchMessage);return;}
+          chooseScope(item[1],item[2]||'').catch(catchMessage);
+        },'p11-crumb'));
+      }
+    });
+  }
+  function startNewTask(){
+    if(role()!=='producer'){notify('只有 Producer 可以创建任务');return;}
+    selectedTaskId='';selectedTaskMeta=null;wizardStep=1;
+    setWizardOpen(true);renderWizard();
+    $p('primarySource')?.focus();
+  }
+  function resetTaskFilters(){
+    project='';batch='';search='';legacyOnly=false;pageOffset=0;stateScope='';modeScope='';
+    if($p('stateFilter'))$p('stateFilter').value='';
+    navigate('tasks','','');
+    fetchViews().then(()=>{renderTaskToolbar();renderWizard()}).catch(catchMessage);
+  }
   function renderTaskToolbar(){
     let bar=$p('p11TaskToolbar');if(!bar)return;clear(bar);
-    const shortcut=button('项目与批次',()=>go('projects'),'secondary');shortcut.id='p11ProjectsShortcut';bar.append(shortcut);
-    const label=e('label');label.append(e('span','项目'));label.append(select('p11TaskProject',projects.map(p=>[p.project_id,p.name]),project,
-      v=>chooseScope(v).catch(catchMessage),'全部项目 / Legacy'));bar.append(label);
-    if(project){const b=e('label');b.append(e('span','批次'));b.append(select('p11TaskBatch',(batchMap.get(project)||[]).map(x=>[x.batch_id,x.label]),batch,
-      v=>chooseScope(project,v).catch(catchMessage),'全部批次'));bar.append(b);}
-    const q=e('label');q.append(e('span','任务搜索'));const input=e('input');input.placeholder='合成任务 ID';input.value=search;
+    renderBreadcrumb();
+    const shortcut=$p('p11ProjectsShortcut');
+    if(shortcut&&!shortcut.dataset.bound){
+      shortcut.dataset.bound='1';
+      shortcut.addEventListener('click',()=>go('projects'));
+    }
+    const q=e('label',undefined,'p11-search');q.append(e('span','任务搜索'));
+    const input=e('input');input.id='p11TaskSearch';input.placeholder='搜索任务编号，例如 TPA-SYN';input.value=search;
+    input.setAttribute('aria-label','搜索任务编号');
     let searchTimer=null;
     input.addEventListener('input',ev=>{
       search=ev.target.value.trim();pageOffset=0;
       if(searchTimer)clearTimeout(searchTimer);
       searchTimer=setTimeout(()=>fetchViews().then(()=>{renderTasks()}).catch(catchMessage),250);
     });q.append(input);bar.append(q);
+    const label=e('label');label.append(e('span','项目'));label.append(select('p11TaskProject',projects.map(p=>[p.project_id,p.name]),project,
+      v=>chooseScope(v).catch(catchMessage),'全部项目与 Legacy'));bar.append(label);
+    const b=e('label');b.append(e('span','批次'));
+    b.append(select('p11TaskBatch',project?(batchMap.get(project)||[]).map(x=>[x.batch_id,x.label]):
+      projects.flatMap(p=>(batchMap.get(p.project_id)||[]).map(x=>[x.batch_id,x.label])),
+      v=>{
+        if(!v){chooseScope(project,'').catch(catchMessage);return;}
+        if(project){chooseScope(project,v).catch(catchMessage);return;}
+        const owner=projects.find(p=>(batchMap.get(p.project_id)||[]).some(x=>x.batch_id===v));
+        chooseScope(owner?.project_id||'',v).catch(catchMessage);
+      },'全部批次'));bar.append(b);
+    // Keep the original #stateFilter node (bound by tpa_manage.js) in Demo toolbar order.
+    const stateWrap=$p('stateFilter')?.closest('label');
+    if(stateWrap){
+      if($p('stateFilter'))$p('stateFilter').value=stateScope||'';
+      bar.append(stateWrap);
+    }
+    const mode=e('label');mode.append(e('span','工作模式'));
+    mode.append(select('p11ModeFilter',[
+      ['AGENT_PROPOSE_EXPERT_VERIFY','Agent 复核'],
+      ['HUMAN_INDEPENDENT','独立标注']
+    ],modeScope,v=>{modeScope=v;pageOffset=0;fetchViews().then(()=>{renderTasks()}).catch(catchMessage);},'全部工作模式'));
+    bar.append(mode);
     if(!project){
       const legacy=button(legacyOnly?'显示全部任务':'仅显示 Legacy 任务',()=>{
         legacyOnly=!legacyOnly;pageOffset=0;fetchViews().then(()=>{renderTaskToolbar();renderWizard()}).catch(catchMessage);
       },legacyOnly?'primary':'secondary');
       legacy.id='p11LegacyToggle';bar.append(legacy);
     }
-    const info=e('p','Legacy 为没有运营批次归属的旧任务，不自动迁移。','p11-meta');bar.append(info);
+    const reset=button('重置',resetTaskFilters,'secondary');reset.id='p11ResetFilters';bar.append(reset);
+    const cta=$p('p11NewTaskCta');
+    if(cta){
+      cta.hidden=role()!=='producer';
+      if(!cta.dataset.bound){cta.dataset.bound='1';cta.addEventListener('click',startNewTask);}
+    }
     renderTasks();
   }
   const taskOperations={
@@ -574,9 +662,17 @@
   };
   const stageFor=state=>({DRAFT:3,VALIDATED:3,DEFINITION_FROZEN:4,
     READY_FOR_ASSIGNMENT:5,ASSIGNED:5,PUBLISHED:5,REVOKED:5})[state]||3;
+  function stateChip(state){
+    const wrap=e('span',undefined,'p11-state-tag '+(stateClass[state]||''));
+    wrap.title=state;
+    wrap.append(e('span',stateLabel[state]||state,'p11-state-zh'));
+    wrap.append(e('span',state,'p11-state-code'));
+    return wrap;
+  }
   function continueTask(row){
     selectedTaskId=row.task_id;selectedTaskMeta=row;
-    wizardStep=stageFor(row.state);renderWizard();
+    wizardStep=stageFor(row.state);
+    setWizardOpen(true);renderWizard();
     $p('p11WizardNav')?.scrollIntoView({block:'nearest'});
   }
   window.opsRenderTaskTable=(container,act)=>{
@@ -589,29 +685,39 @@
     wrap.tabIndex=0;
     const table=e('table',undefined,'p11-task-table');
     const head=e('thead');const header=e('tr');
-    for(const title of ['任务编号','项目 / 批次','来源版本','工作模式','状态','已分配身份','操作']){
+    const columns=['任务编号','项目 / 批次','来源类型','工作模式','阶段状态','下一步',''];
+    for(const title of columns){
       const th=e('th',title);th.scope='col';header.append(th);
     }
     head.append(header);table.append(head);
     const body=e('tbody');
     const rows=managedTasks;
     if(!rows.length){
-      const tr=e('tr');const td=e('td','当前范围没有符合条件的合成任务。');
-      td.colSpan=7;tr.append(td);body.append(tr);
+      const tr=e('tr');const td=e('td','当前范围没有符合条件的合成任务。可重置筛选，或新建合成任务。');
+      td.colSpan=columns.length;tr.append(td);body.append(tr);
     }
     for(const task of rows){
       const tr=e('tr',undefined,'task-row');
-      tr.append(e('td',task.task_id,'p11-code'));
-      tr.append(e('td',task.legacy?'Legacy · 未归属':(task.project_id||'—')+' / '+(task.batch_id||'—'),'p11-scope-cell'));
+      const idCell=e('td',undefined,'p11-code');
+      idCell.append(e('div',task.task_id));
+      idCell.append(e('div','revision · '+(task.task_revision_id||'未记录')+' · '+(task.profile_id||''),'small-muted'));
+      tr.append(idCell);
+      tr.append(e('td',task.legacy?'Legacy · 未归档':(task.project_id||'—')+' / '+(task.batch_id||'—'),'p11-scope-cell'));
       const src=task.primary_source||{};
-      tr.append(e('td',`${task.source_type} · ${src.source_id||'—'} / ${src.revision_id||'—'}`));
-      tr.append(e('td',task.workflow_strategy==='HUMAN_INDEPENDENT'?'专家独立 · 无候选':'Agent 候选复核 · 合成'));
-      const status=e('td');status.append(e('span',task.state,'p11-state-tag'));tr.append(status);
-      tr.append(e('td',task.assigned_expert||'尚未分配'));
+      tr.append(e('td',`${task.source_type||'—'} · ${src.source_id||'—'} / ${src.revision_id||'—'}`));
+      const mode=e('td');
+      mode.append(e('span',task.workflow_strategy==='HUMAN_INDEPENDENT'?'专家独立标注':'Agent 候选复核',
+        'strategy '+(task.workflow_strategy==='HUMAN_INDEPENDENT'?'independent':'agent')));
+      tr.append(mode);
+      const status=e('td');status.append(stateChip(task.state));tr.append(status);
+      const next=taskOperations[task.state];
+      const nextLabel=next
+        ?(role()===next[2]?next[1]:`下一步需 ${next[2]}`)
+        :(task.state==='PUBLISHED'?'查看详情 / 必要时撤销':task.state==='REVOKED'?'只读留痕':'查看详情');
+      tr.append(e('td',nextLabel,'p11-next-cell'));
       const controls=e('td');const menu=e('div',undefined,'p11-row-actions');
       menu.append(button('查看任务详情',()=>window.opsTaskDetail(task.task_id)));
       menu.append(button('继续办理',()=>continueTask(task)));
-      const next=taskOperations[task.state];
       if(next&&role()===next[2]){
         menu.append(button(next[1],()=>{continueTask(task);act(task.task_id,next[0],task.workflow_strategy)},'primary'));
       }
@@ -667,15 +773,18 @@
     selectedTaskId=body.task_id;selectedTaskMeta={...intent,task_id:body.task_id,state:result.state};
     legacyOnly=false;wizardStep=3;return result;
   };
-  window.opsAfterDraft=id=>{selectedTaskId=id;wizardStep=3;renderWizard()};
+  window.opsAfterDraft=id=>{selectedTaskId=id;wizardStep=3;setWizardOpen(true);renderWizard()};
   window.opsAfterTaskAction=(id,action,result)=>{
     selectedTaskId=id;
     if(selectedTaskMeta?.task_id===id)selectedTaskMeta.state=result.state;
     if(action==='freeze')wizardStep=4;
     if(action==='prepare')wizardStep=5;
+    if(['validate','freeze','prepare'].includes(action))setWizardOpen(true);
     renderWizard();
   };
-  window.opsClear=()=>{projects=[];batchMap=new Map();overview=null;managedTasks=[];project='';batch='';search='';wizardStep=1;active='overview';window.opsPreparingFilter=false;legacyOnly=false;pageOffset=0;pageTotal=0;selectedTaskId='';selectedTaskMeta=null;stateScope='';sourcePackages=[];sourceSelection='';packageValidation=null;
+  window.opsClear=()=>{projects=[];batchMap=new Map();overview=null;managedTasks=[];project='';batch='';search='';wizardStep=1;active='overview';window.opsPreparingFilter=false;legacyOnly=false;pageOffset=0;pageTotal=0;selectedTaskId='';selectedTaskMeta=null;stateScope='';modeScope='';wizardOpen=false;sourcePackages=[];sourceSelection='';packageValidation=null;
+    if($p('p11WizardPanel'))$p('p11WizardPanel').hidden=true;
+    document.body.classList.remove('p11-wizard-open');
     window.opsB2Clear?.();
     window.opsB3Clear?.();
     if($p('p11View'))clear($p('p11View'));
@@ -797,9 +906,11 @@
     nav.addEventListener('click',ev=>{
       const item=ev.target.closest('button[data-p11-route]');if(item)go(item.dataset.p11Route);
     });
+    $p('p11WizardClose')?.addEventListener('click',()=>setWizardOpen(false));
     document.addEventListener('keydown',ev=>{
       if(ev.key!=='Escape')return;
       if($p('p11ModalOverlay')&&!$p('p11ModalOverlay').hidden)$p('p11ModalOverlay').hidden=true;
+      else if(wizardOpen)setWizardOpen(false);
       else if($p('p11Detail')&&!$p('p11Detail').hidden)hideDetail();
     });
     const replayRoute=()=>{

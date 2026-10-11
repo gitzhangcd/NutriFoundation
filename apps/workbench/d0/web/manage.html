@@ -23,72 +23,115 @@
 </section>
 <div id="workspace" hidden><div class="p11-layout">
   <aside class="p11-nav" id="p11Nav" aria-label="科研管理导航">
-    <div class="p11-nav-header">RESEARCH OPERATIONS</div>
+    <div class="p11-nav-header">WORKSPACE / 工作空间</div>
     <button type="button" data-p11-route="overview">工作总览</button>
-<button type="button" data-p11-route="tasks">任务中心</button>
-<button type="button" data-p11-route="sources">科学资料库</button>
-<button type="button" data-p11-route="agent">Agent 准备</button>
-<button type="button" data-p11-route="experts">专家与分配</button>
-<button type="button" data-p11-route="quality">进度与质控</button>
-<button type="button" data-p11-route="audit">审计与导出</button>
+    <button type="button" data-p11-route="sources">科学资料库</button>
+    <button type="button" data-p11-route="tasks">任务中心</button>
+    <div class="p11-nav-header p11-nav-sub">GOVERNANCE / 科研治理</div>
+    <button type="button" data-p11-route="agent">Agent 准备</button>
+    <button type="button" data-p11-route="experts">专家与分配</button>
+    <button type="button" data-p11-route="quality">进度与质控</button>
+    <button type="button" data-p11-route="audit">审计与导出</button>
     <div class="p11-nav-footer">SYNTHETIC ONLY<br>独立来源与专家标注权限</div>
   </aside>
   <div class="p11-content">
     <div class="p11-top"><strong id="p11SectionTitle">工作总览</strong><small>WB-TPA · P1.1-A</small></div>
     <section id="p11View" aria-live="polite"></section>
     <section id="p11TaskView">
- <div class="tpa-heading"><div><p class="eyebrow">WB-TPA-P1 · 原 D0 同源管理端</p><h1>科研任务管理中心</h1><p>注册合成来源 → 冻结定义 → 准备候选或独立工作包 → 分配与发布</p></div><div class="tpa-heading-actions"><button id="reload" class="secondary">刷新任务</button><a href="/">原 Workbench</a></div></div>
- <div class="tpa-stats" aria-label="工程任务统计">
- <div><strong id="countSource">—</strong><span>合成来源版本</span></div>
- <div><strong id="countDraft">—</strong><span>准备中任务</span></div>
- <div><strong id="countReady">—</strong><span>待管理分配</span></div>
- <div><strong id="countPublished">—</strong><span>已发布任务</span></div>
+ <div class="tpa-heading">
+  <div>
+   <p class="eyebrow">03 / TASK OPERATIONS</p>
+   <h1>任务中心</h1>
+   <p>查看任务定义、阶段状态和分工交接，避免在一个大表单里完成所有事情。</p>
+  </div>
+  <div class="tpa-heading-actions">
+   <button id="p11NewTaskCta" class="primary" type="button">新建合成任务</button>
+   <button id="reload" class="secondary" type="button">刷新任务</button>
+   <a href="/">原 Workbench</a>
+  </div>
  </div>
- <div class="p11-toolbar" id="p11TaskToolbar" aria-label="任务范围与搜索"></div>
- <div class="tpa-columns">
-  <aside class="tpa-card source-column" aria-label="科学资料库">
-   <div class="section-head"><div><small>STAGE 01</small><h2>科学来源库</h2></div><span class="hint">只读元数据</span></div>
-   <p class="fine">当前仅显示 7 类自编合成资料。不提供真实 PDF 上传。管理员无法从此页面取得完整原文。</p>
-   <div id="sourcesList" class="source-list" aria-live="polite"></div>
-  </aside>
-  <section class="tpa-card builder-column" aria-label="任务生产配置">
-   <div class="section-head"><div><small>STAGE 02–03</small><h2>任务生产</h2></div><span id="roleLabel" class="hint">未授权</span></div>
-   <div id="p11WizardNav" aria-label="任务分阶段操作"></div><form id="taskForm">
-    <fieldset><legend>1 · 选择已登记来源</legend>
-      <label>主来源版本<select id="primarySource" required></select></label>
-      <label>附加授权来源（可选）<select id="extraSource"><option value="">不增加</option></select></label>
-      <div class="tpa-info" id="sourceInfo">请先选择一份资料</div>
-    </fieldset>
-    <fieldset><legend>2 · 配置标注任务</legend>
-      <label>任务编号<input id="taskId" required pattern="TPA-SYN-[A-Z0-9-]{3,50}" aria-describedby="idHint"></label>
-      <small id="idHint" class="fine">仅生成合成证据任务；编号创建后不可更改。</small>
-      <label>科学 Profile<input id="profileId" readonly></label>
-      <label>标注工作模式<select id="workflowStrategy">
-        <option value="AGENT_PROPOSE_EXPERT_VERIFY">Agent 候选复核（合成预置候选，不是真实 LLM）</option>
-        <option value="HUMAN_INDEPENDENT">专家独立判断（禁止任何 Agent 候选暴露）</option>
-      </select></label>
-      <label>知识截止时间（UTC，必须带时区）<input id="knowledgeCutoff" required></label>
-    </fieldset>
-    <fieldset><legend>3 · 准备与冻结</legend>
-      <p class="fine">点击“创建草稿”后，在右侧任务队列依次执行验证、定义冻结与准备。每一步均由服务器检查权限和原文版本。</p>
-      <button id="createDraft" type="submit">创建合成任务草稿</button> <button id="createBatch" class="secondary" type="button">批量生成七类合成草稿</button>
-    </fieldset>
-   </form>
-   <div class="operator-note"><strong>严格盲法边界</strong><p>独立任务无候选集；Agent 复核任务必须先冻结候选。EA 专家账号与原 NDS R0/R1/R2 账号不互通。</p></div>
-  </section>
-  <section class="tpa-card ops-column" aria-label="任务分配与进度">
-   <div class="section-head"><div><small>STAGE 04</small><h2>任务分配与进度</h2></div><span class="hint">冻结后只读</span></div>
-   <label>筛选状态<select id="stateFilter"><option value="">全部任务</option><option value="DRAFT">DRAFT</option><option value="VALIDATED">VALIDATED</option><option value="DEFINITION_FROZEN">DEFINITION_FROZEN</option><option value="READY_FOR_ASSIGNMENT">READY_FOR_ASSIGNMENT</option><option value="ASSIGNED">ASSIGNED</option><option value="PUBLISHED">PUBLISHED</option><option value="REVOKED">REVOKED</option></select></label>
-   <div id="taskList" class="task-list" aria-live="polite"></div>
-  </section>
+ <nav id="p11Breadcrumb" class="p11-breadcrumb" aria-label="项目、批次与任务面包屑"></nav>
+ <div class="p11-chip-row" aria-label="任务中心快捷入口">
+  <span class="p11-chip active">全部任务</span>
+  <button type="button" id="p11ProjectsShortcut" class="secondary p11-chip-btn">项目与批次</button>
  </div>
- <section class="tpa-card activity"><div class="section-head"><div><small>OPERATION RECEIPT</small><h2>操作回执</h2></div><span class="hint">不属于 Gold / 正式科研结果</span></div>
+ <div class="tpa-stats" aria-label="工程任务统计" hidden>
+  <div><strong id="countSource">—</strong><span>合成来源版本</span></div>
+  <div><strong id="countDraft">—</strong><span>准备中任务</span></div>
+  <div><strong id="countReady">—</strong><span>待管理分配</span></div>
+  <div><strong id="countPublished">—</strong><span>已发布任务</span></div>
+ </div>
+ <div class="p11-filter-bar" aria-label="任务范围与搜索">
+  <div class="p11-toolbar" id="p11TaskToolbar"></div>
+  <label class="p11-inline-filter">状态
+   <select id="stateFilter" aria-label="按状态筛选">
+    <option value="">全部状态</option>
+    <option value="DRAFT">草稿待核验</option>
+    <option value="VALIDATED">定义已验证</option>
+    <option value="DEFINITION_FROZEN">定义已冻结</option>
+    <option value="READY_FOR_ASSIGNMENT">工作包已准备</option>
+    <option value="ASSIGNED">已分配待发布</option>
+    <option value="PUBLISHED">已发布可访问</option>
+    <option value="REVOKED">后续访问已撤销</option>
+   </select>
+  </label>
+ </div>
+ <section class="tpa-card ops-column p11-task-list-card" aria-label="任务列表">
+  <div id="taskList" class="task-list" aria-live="polite"></div>
+ </section>
+ <section class="tpa-card activity p11-receipt-card"><div class="section-head"><div><small>OPERATION RECEIPT</small><h2>操作回执</h2></div><span class="hint">不属于 Gold / 正式科研结果</span></div>
  <pre id="receipt" role="status" aria-live="polite">仅供合成工程验收。尚无操作。</pre></section>
-    <section id="p11Detail" hidden aria-label="单任务详情"></section>
+ <section id="p11Detail" hidden aria-label="单任务详情"></section>
     </section><!-- p11TaskView -->
   </div><!-- p11-content -->
 </div><!-- p11-layout -->
 </div><!-- workspace -->
+<div id="p11WizardPanel" class="p11-wizard-panel" hidden>
+  <div class="p11-wizard-shell" role="dialog" aria-modal="true" aria-labelledby="p11WizardTitle">
+    <header class="p11-wizard-header">
+      <div>
+        <p class="eyebrow">LOCAL TASK WIZARD</p>
+        <h2 id="p11WizardTitle">创建 / 办理合成任务</h2>
+        <p>P1.1-A · Project → Batch → Task 五步任务向导</p>
+      </div>
+      <button type="button" id="p11WizardClose" class="secondary">关闭向导</button>
+    </header>
+    <div class="p11-wizard-body tpa-columns">
+      <aside class="tpa-card source-column" aria-label="科学资料库">
+        <div class="section-head"><div><small>S1 · 来源</small><h2>已登记合成来源</h2></div><span class="hint">只读元数据</span></div>
+        <p class="fine">向导第一步从这里选择已登记合成版本。不提供真实 PDF 上传；管理端不展示原文。</p>
+        <div id="sourcesList" class="source-list" aria-live="polite"></div>
+      </aside>
+      <section class="tpa-card builder-column" aria-label="任务生产配置">
+        <div class="section-head"><div><small>S1–S5 · 向导</small><h2>新建与办理</h2></div><span id="roleLabel" class="hint">未授权</span></div>
+        <div id="p11WizardNav" aria-label="任务分阶段操作"></div>
+        <form id="taskForm">
+          <fieldset><legend>1 · 选择已登记来源</legend>
+            <label>主来源版本<select id="primarySource" required></select></label>
+            <label>附加授权来源（可选）<select id="extraSource"><option value="">不增加</option></select></label>
+            <div class="tpa-info" id="sourceInfo">请先选择一份资料</div>
+          </fieldset>
+          <fieldset><legend>2 · 配置标注任务</legend>
+            <label>任务编号<input id="taskId" required pattern="TPA-SYN-[A-Z0-9-]{3,50}" aria-describedby="idHint"></label>
+            <small id="idHint" class="fine">仅生成合成证据任务；编号创建后不可更改。</small>
+            <label>科学 Profile<input id="profileId" readonly></label>
+            <label>标注工作模式<select id="workflowStrategy">
+              <option value="AGENT_PROPOSE_EXPERT_VERIFY">Agent 候选复核（合成预置候选，不是真实 LLM）</option>
+              <option value="HUMAN_INDEPENDENT">专家独立判断（禁止任何 Agent 候选暴露）</option>
+            </select></label>
+            <label>知识截止时间（UTC，必须带时区）<input id="knowledgeCutoff" required></label>
+          </fieldset>
+          <fieldset><legend>3 · 准备与冻结</legend>
+            <p class="fine">创建草稿后，在向导步骤中依次验证、冻结与准备。每一步均由服务器检查权限和原文版本。</p>
+            <button id="createDraft" type="submit">创建合成任务草稿</button>
+            <button id="createBatch" class="secondary" type="button">批量生成七类合成草稿</button>
+          </fieldset>
+        </form>
+        <div class="operator-note"><strong>严格盲法边界</strong><p>独立任务无候选集；Agent 复核任务必须先冻结候选。EA 专家账号与原 NDS R0/R1/R2 账号不互通。</p></div>
+      </section>
+    </div>
+  </div>
+</div>
 <div id="p11ModalOverlay" hidden></div>
 </main>
 </body></html>

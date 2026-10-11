@@ -1,7 +1,43 @@
-/* P1.1-A: additive management shell; retains original D0 task + EA UI. */
+/* P1.1-A: additive management shell; aligns /manage#/tasks with Management Demo. */
 #workspace .p11-layout{display:grid;grid-template-columns:208px minmax(0,1fr);gap:22px;align-items:start}
+.p11-breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 14px;font-size:12px;color:#829095}
+.p11-breadcrumb .p11-btn.p11-crumb{border:0!important;background:transparent!important;color:#238674!important;padding:2px 4px!important;min-height:auto;font-weight:740}
+.p11-crumb-sep{color:#b6c2c5}.p11-crumb-current{color:#344b51;font-weight:700}
+.p11-chip-row{display:flex;gap:8px;align-items:center;margin:0 0 16px;flex-wrap:wrap}
+.p11-chip{display:inline-flex;align-items:center;border:1px solid #d8e9e3;border-radius:999px;padding:5px 11px;font-size:11px;font-weight:750;background:#e9f4f1;color:#18796b}
+.p11-chip-btn{border-radius:999px!important;padding:6px 12px!important;font-size:11px!important}
+body[data-p11-view="tasks"] .tpa-heading .eyebrow{font-size:10px;letter-spacing:.14em;color:#138477;font-weight:800}
+body[data-p11-view="tasks"] .ops-column{margin-top:4px}
+body[data-p11-view="tasks"] .p11-inline-filter{display:flex;gap:10px;align-items:center;font-size:12px;margin:0 0 12px}
+body[data-p11-view="tasks"] .p11-inline-filter select{width:auto;min-width:160px;margin:0}
+.p11-wizard-panel{position:fixed;inset:0;z-index:950;background:rgba(13,33,41,.30);display:grid;place-items:center;padding:18px}
+.p11-wizard-panel[hidden]{display:none!important}
+.p11-wizard-shell{width:min(1100px,100%);max-height:min(92vh,980px);overflow:auto;background:#fff;border-radius:18px;box-shadow:0 25px 90px rgba(16,34,39,.18)}
+.p11-wizard-header{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:22px 24px;border-bottom:1px solid #e7eeef}
+.p11-wizard-header h2{margin:4px 0;font-size:20px}.p11-wizard-header p{margin:0;color:#98a6ac;font-size:12px}
+.p11-wizard-body{padding:18px 20px 24px;display:grid!important;grid-template-columns:minmax(220px,.9fr) minmax(0,1.35fr);gap:14px}
+.p11-wizard-body .source-column,.p11-wizard-body .builder-column{margin:0}
+.p11-state-tag{display:inline-flex;align-items:center;gap:6px;border-radius:20px;padding:4px 8px;font-size:10px;font-weight:760;border:1px solid transparent}
+.p11-state-tag .p11-state-code{opacity:.72;font-weight:650}
+.p11-state-tag.s-draft{background:#f0f3f6;color:#687c8c}
+.p11-state-tag.s-validated,.p11-state-tag.s-frozen{background:#f2f0fc;color:#7868ad}
+.p11-state-tag.s-ready{background:#fff4e5;color:#ac7835}
+.p11-state-tag.s-assigned{background:#e9f0ff;color:#4672b2}
+.p11-state-tag.s-published{background:#e5f5ee;color:#277d5d}
+.p11-state-tag.s-revoked{background:#fff1ef;color:#bf665e}
+.small-muted{font-size:10px;color:#9aabb0;font-weight:500;margin-top:3px}
+.strategy{font-size:11px;color:#70818a}.strategy:before{content:"";width:6px;height:6px;background:#92a7aa;border-radius:50%;display:inline-block;margin-right:7px;vertical-align:middle}
+.strategy.agent:before{background:#2a9e86}.strategy.independent:before{background:#7690d2}
+.p11-next-cell{color:#4b7980;font-weight:730;font-size:11px;min-width:110px}
+@media(max-width:900px){.p11-wizard-body{grid-template-columns:1fr}}
 .p11-nav{position:sticky;top:22px;border:1px solid #dce6e4;border-radius:14px;background:white;padding:16px 10px;display:grid;gap:4px}
 .p11-nav-header{font-size:11px;color:#69817b;letter-spacing:.08em;padding:4px 10px 10px}
+.p11-nav-header.p11-nav-sub{margin-top:14px;border-top:1px solid #e4eae8;padding-top:14px}
+.p11-filter-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin-bottom:14px}
+.p11-filter-bar .p11-toolbar{flex:1 1 640px;margin:0}
+.p11-filter-bar .p11-inline-filter{margin:0;display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:#406157}
+.p11-filter-bar .p11-inline-filter select{margin:0;min-width:140px}
+body[data-p11-view="tasks"] .p11-receipt-card{margin-top:14px;opacity:.92}
 .p11-nav button{border:0!important;background:transparent!important;color:#39504b!important;padding:11px 12px!important;text-align:left!important;border-radius:9px;white-space:normal}
 .p11-nav button[aria-current=page]{background:#e9f3ef!important;color:#145f54!important;font-weight:750}
 .p11-nav button:focus-visible{outline:3px solid #72aa9d}
@@ -36,20 +72,18 @@
 
 #workspace #sourceInfo{overflow-wrap:anywhere;word-break:break-word}
 
-/* A5: bounded task table, stateful operations and nonmodal expert-handoff drawer. */
-body[data-p11-view="tasks"] .tpa-columns{grid-template-columns:minmax(0,1fr) minmax(0,1.35fr)}
-body[data-p11-view="tasks"] .ops-column{grid-column:1/-1}
+/* A5 / Demo: list-first task center + wizard dialog + detail drawer. */
 body[data-p11-view="tasks"] .task-list{max-height:none;overflow:visible;display:block;min-width:0}
+body[data-p11-view="tasks"] .p11-task-list-card{border:1px solid #dce5e2;border-radius:14px;overflow:hidden}
 .p11-table-scroll{overflow-x:auto;max-width:100%;border:1px solid #dce5e2;border-radius:12px;scrollbar-width:thin}
 .p11-task-table{border-collapse:collapse;width:100%;min-width:840px;table-layout:auto;font-size:12px}
 .p11-task-table th,.p11-task-table td{padding:13px 10px;text-align:left;vertical-align:top;border-bottom:1px solid #e6edeb;overflow-wrap:anywhere}
-.p11-task-table th{background:#f0f6f4;white-space:nowrap;color:#355b52;font-weight:750;position:sticky;top:0}
+.p11-task-table th{background:#fbfcfc;white-space:nowrap;color:#9aa9ae;font-weight:740;position:sticky;top:0;font-size:10px;letter-spacing:.035em}
 .p11-task-table .task-row{display:table-row;border:0;background:white;padding:0;border-radius:0}
 .p11-task-table .task-row:nth-child(even){background:#f9fbfa}
-.p11-task-table tr:hover td{background:#f3f8f6}
-.p11-task-table .p11-code{font-weight:740;color:#164c42;min-width:176px}
+.p11-task-table tr:hover td{background:#fafdfc}
+.p11-task-table .p11-code{font-weight:740;color:#263e47;min-width:176px}
 .p11-scope-cell{min-width:130px}
-.p11-state-tag{display:inline-block;white-space:nowrap;font-weight:700;color:#305850;background:#e8f2ef;border-radius:7px;padding:4px 6px}
 .p11-row-actions{display:flex;flex-wrap:wrap;gap:6px;min-width:180px}
 .p11-row-actions .p11-btn{padding:6px 9px!important;min-height:35px}
 .p11-pagination{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:13px 0;font-size:12px;color:#576e68}
@@ -58,7 +92,7 @@ body[data-p11-view="tasks"] .task-list{max-height:none;overflow:visible;display:
 .p11-step-card h3{font-size:14px;margin:0 0 6px}
 .p11-step-card .p11-btn{margin:8px 8px 2px 0}
 #p11WizardNav [aria-current="step"]{box-shadow:0 0 0 2px #a1cfc2}
-#p11Detail{position:fixed;z-index:900;right:0;top:0;bottom:0;width:min(540px,100vw);max-width:100vw;max-height:100dvh;margin:0;
+#p11Detail{position:fixed;z-index:960;right:0;top:0;bottom:0;width:min(540px,100vw);max-width:100vw;max-height:100dvh;margin:0;
   overflow-y:auto;overscroll-behavior:contain;box-shadow:-18px 0 60px #10282133;
   border-radius:16px 0 0 16px;background:#fff;padding:26px 25px}
 .p11-drawer-header{display:flex;align-items:start;justify-content:space-between;gap:14px;margin-bottom:15px}
@@ -71,10 +105,9 @@ body[data-p11-view="tasks"] .task-list{max-height:none;overflow:visible;display:
 .p11-drawer-source code{font-size:11px;line-height:1.5;overflow-wrap:anywhere;word-break:break-all}
 .p11-handoff{background:#f8fbf9;border-radius:12px;padding:15px}
 @media(max-width:800px){
- body[data-p11-view="tasks"] .tpa-columns{grid-template-columns:1fr}
- body[data-p11-view="tasks"] .ops-column{grid-column:auto}
  #p11Detail{border-radius:0;padding:20px 16px}
  .p11-step-card{padding:10px}
+ .p11-wizard-shell{border-radius:12px}
 }
 
 /* WB-P1.1-B1: scientific fixture reference library — no raw source content on manager UI. */

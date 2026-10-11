@@ -291,6 +291,10 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(p.locator('.p2-entry-grid .p2-entry')).to_have_count(4)
     expect(p.locator('.p2-stats .p2-stat')).to_have_count(4)
     p.screenshot(path=str(output/'p2-demo-aligned-overview-desktop.png'),full_page=True)
+    p.set_viewport_size({'width':390,'height':844})
+    expect(p.locator('.p2-overview')).to_be_visible()
+    p.screenshot(path=str(output/'p2-demo-aligned-overview-mobile.png'),full_page=True)
+    p.set_viewport_size({'width':1440,'height':900})
     p.locator('.p2-entry-grid').get_by_role('button',name='文献标识符',exact=False).click()
     expect(p.get_by_role('dialog',name='来源登记 · 浏览器本地演示')).to_be_visible()
     p.get_by_role('dialog',name='来源登记 · 浏览器本地演示').get_by_role('button',name='关闭').click()
@@ -312,6 +316,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(p.locator('.p2-qa-grid')).to_contain_text('UNRESOLVED')
     p.locator('.p2-toolbar').get_by_role('button',name='显示锚点对应').click()
     expect(p.locator('.p2-qa-compare mark')).not_to_have_count(0)
+    p.screenshot(path=str(output/'p2-demo-aligned-qa-two-pane.png'),full_page=True)
     p.locator('.p2-qa-grid').get_by_role('button',name='检查封存条件（演示阻断）').click()
     expect(p.locator('.p2-studio')).to_contain_text('封存失败')
     p.locator('.p2-tabs').get_by_role('button',name='科学资料库').click()
@@ -326,7 +331,8 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
                    'p2_demo_intake_and_conversion_queues',
                    'p2_demo_audit_timeline_and_lineage',
                    'p2_demo_two_pane_highlight_qa',
-                   'p2_demo_right_side_intake_drawer'])
+                   'p2_demo_right_side_intake_drawer',
+                   'p2_demo_mobile_390px_responsive_overview'])
     p.locator('[data-p11-route="sources"]').click()
     expect(p.locator('#b1PackageStatus')).to_contain_text('SPKG-SYN-RCT-001-R1')
     checks.extend(['b1_source_version_deeplink_survives_reload',

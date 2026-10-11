@@ -284,7 +284,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     p.screenshot(path=str(output/'b1-source-library-synthetic.png'),full_page=True)
     # P2 Source Studio: additive UI-only preview. Existing B1 remains unchanged.
     p.locator('[data-p11-route="studio"]').click()
-    expect(p.locator('#p11SectionTitle')).to_have_text('资料准备 · P2 预览')
+    expect(p.locator('#p11SectionTitle')).to_have_text('科学资料')
     expect(p.locator('.p2-studio')).to_be_visible(timeout=15000)
     expect(p.locator('.p2-studio')).to_contain_text('REAL SOURCE / GOLD / EXPERT GRANT')
     expect(p.locator('.p2-workflow .p2-flow-step')).to_have_count(4)

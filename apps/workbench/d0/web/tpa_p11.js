@@ -17,6 +17,8 @@
   let project='',batch='',search='',wizardStep=1, active='overview',legacyOnly=false;
   let pageOffset=0,pageTotal=0,pageSize=25,stateScope='',selectedTaskId='',selectedTaskMeta=null;
   let drawerReturnFocus=null;
+  // B1 is a *metadata-only* view of trusted synthetic EA source versions.
+  let sourcePackages=[],sourceSelection='',packageValidation=null;
   let loading=false;
   // Explicit opt-in allows the original P1 controller to retain its old fallback routes.
   window.opsA5Enabled=true;
@@ -228,6 +230,168 @@
     }
     page.append(cards);return page;
   }
+  async function loadSourcePackages(){
+    const found=await apiOps('/v1/tpa/source-packages?limit=100&offset=0');
+    sourcePackages=found.packages||[];
+    // B1 accepts at most the seven already-seeded fixtures. Never claim to have
+    // inventoried pages we did not read when the registry grows in P2.
+    if(found.total>sourcePackages.length){
+      notify('来源包注册表当前超出单页范围，后续需服务端分页；此页不是全部包');
+    }
+    if(sourceSelection&&!sourceData.some(s=>s.source_id+':'+s.revision_id===sourceSelection))
+      sourceSelection='';
+    if(!sourceSelection&&sourceData.length)
+      sourceSelection=sourceData[0].source_id+':'+sourceData[0].revision_id;
+  }
+  function b1Manifest(src){
+    return {schema_version:'WB-SOURCE-PACKAGE-v0.1',
+      import_kind:'EXISTING_SYNTHETIC_SOURCE',
+      parser_adapter:'SYNTHETIC_FIXTURE_ADAPTER',
+      source_id:src.source_id,revision_id:src.revision_id,
+      source_type:src.source_type,profile_id:src.profile_id,
+      canonical_document_sha256:src.canonical_document_sha256,
+      rights_status:src.rights_status,parent_package_id:null};
+  }
+  const b1PackageId=src=>'SPKG-SYN-'+src.source_id+'-'+src.revision_id.toUpperCase();
+  function b1PackageFor(src){
+    return sourcePackages.find(p=>p.source_id===src.source_id&&p.revision_id===src.revision_id);
+  }
+  async function validateB1Source(src){
+    const expected=b1Manifest(src);
+    const result=await apiOps('/v1/tpa/source-packages/validate',{
+      method:'POST',body:JSON.stringify(expected)});
+    if(result.normalized_manifest?.canonical_document_sha256!==src.canonical_document_sha256)
+      throw Error('服务端来源版本摘要不匹配，禁止登记');
+    packageValidation={key:src.source_id+':'+src.revision_id,receipt:result};
+    notify({b1_validation:result.status,manifest_sha256:result.manifest_sha256,
+      unit_count:result.structure_index?.length,scientific_capture:false});
+    render();
+  }
+  async function registerB1Source(src){
+    const key=src.source_id+':'+src.revision_id;
+    if(role()!=='producer'||packageValidation?.key!==key)
+      throw Error('请先由 Producer 校验准确的合成来源版本');
+    const manifest=b1Manifest(src),package_id=b1PackageId(src);
+    const intent={...manifest,package_id};
+    const idempotency_key=operationKey('source-package',key,intent);
+    let registered;
+    try{
+      registered=await apiOps('/v1/tpa/source-packages',{
+        method:'POST',body:JSON.stringify({...intent,idempotency_key})});
+    }catch(err){
+      let existing=null;
+      try{existing=(await apiOps('/v1/tpa/source-packages/'+encodeURIComponent(package_id))).package}catch{}
+      const verified=existing&&existing.source_id===src.source_id&&
+        existing.revision_id===src.revision_id&&
+        existing.canonical_document_sha256===src.canonical_document_sha256&&
+        existing.manifest_sha256===packageValidation.receipt.manifest_sha256;
+      if(!verified)throw err;
+      registered={package:existing,reconciled_after_uncertain_response:true};
+    }
+    resolveIntent('source-package',key);
+    notify({b1_registration:registered.package.status,
+      package_id:registered.package.package_id,
+      manifest_sha256:registered.package.manifest_sha256,
+      reconciled_after_uncertain_response:!!registered.reconciled_after_uncertain_response,
+      scientific_capture:false,gold_qualification:'NOT_ELIGIBLE'});
+    packageValidation=null;
+    await loadSourcePackages();
+    render();
+  }
+  function renderSourceLibrary(){
+    const page=frame('科学资料库 · 合成 Source Packages',
+      '结构化来源包引用原 EA 已有版本；只管理元数据、来源谱系与校验摘要，不在管理端复制原文。');
+    page.id='p11SourcesPage';
+    page.append(notice('B1 为合成参考包操作。真实 PDF、MinerU、Markdown/HTML 导入、版权审核和临床资料均未开放。登记包 ≠ 来源科学合格 / Gold。'));
+    const stats=e('div',undefined,'p11-source-stats');
+    stats.append(e('span',`权威合成来源：${sourceData.length} 个`),
+      e('span',`已登记引用包：${sourcePackages.length} 个`),
+      e('span','真实来源准入：NO-GO'));
+    page.append(stats);
+    const columns=e('div',undefined,'p11-source-layout');
+    const left=e('section',undefined,'p11-panel');
+    left.append(e('h3','① 已存在的来源与版本'));
+    const sourceList=e('div',undefined,'p11-source-rows');sourceList.id='b1SourceRows';
+    for(const src of sourceData){
+      const key=src.source_id+':'+src.revision_id,pkg=b1PackageFor(src);
+      const row=e('article',undefined,'p11-source-entry');
+      if(key===sourceSelection)row.classList.add('selected');
+      row.append(e('strong',src.title),e('p',src.source_id+' / '+src.revision_id+' · '+src.source_type,'p11-meta'));
+      row.append(e('span',pkg?'已登记 · 仅合成':'待登记 · 仅合成','p11-package-status'));
+      const view=button('查看版本',()=>{sourceSelection=key;packageValidation=null;render()});
+      view.setAttribute('aria-pressed',key===sourceSelection?'true':'false');
+      row.append(view);sourceList.append(row);
+    }
+    left.append(sourceList);columns.append(left);
+    const right=e('section',undefined,'p11-panel');right.id='b1VersionDetail';
+    const selected=sourceData.find(src=>src.source_id+':'+src.revision_id===sourceSelection);
+    if(!selected){
+      right.append(notice('请先选择一份合成来源。'));
+    }else{
+      const pkg=b1PackageFor(selected);
+      right.append(e('h3','② 来源版本与结构包'));
+      right.append(e('h4',selected.title));
+      const facts=[
+        ['Source / Revision',selected.source_id+' / '+selected.revision_id],
+        ['来源类型',selected.source_type],['Scientific Profile',selected.profile_id],
+        ['可用时间',selected.available_at],['原文权限',selected.rights_status],
+        ['文档权威 SHA-256',selected.canonical_document_sha256],
+        ['上游谱系','EA_SEEDED_FIXTURE → '+selected.source_id+' / '+selected.revision_id]
+      ];
+      const grid=e('dl',undefined,'p11-source-facts');
+      for(const [label,value] of facts){grid.append(e('dt',label),e('dd',value||'—'))}
+      right.append(grid);
+      const status=e('div',undefined,'p11-package-info');status.id='b1PackageStatus';
+      if(pkg){
+        status.append(e('h4','已登记不可变 Source Package'));
+        status.append(e('p',pkg.package_id+' · '+pkg.status,'p11-meta'));
+        status.append(e('p','包 Manifest SHA-256：'+pkg.manifest_sha256,'p11-meta'));
+        status.append(e('p','结构索引 SHA-256：'+pkg.structure_sha256,'p11-meta'));
+        status.append(e('p','谱系：'+pkg.lineage.upstream+' → '+pkg.revision_id,'p11-meta'));
+        const table=e('table',undefined,'p11-structure-table');
+        const heading=e('tr');for(const label of ['序号','位置锚点','类型','UTF-16 长度','文本摘要']){
+          const th=e('th',label);th.scope='col';heading.append(th)}
+        const thead=e('thead');thead.append(heading);table.append(thead);
+        const tbody=e('tbody');
+        for(const unit of pkg.structure_index||[]){
+          const tr=e('tr');
+          for(const value of [unit.ordinal+1,unit.unit_id,unit.element_kind,unit.utf16_length,unit.unit_text_sha256])
+            tr.append(e('td',value));
+          tbody.append(tr);
+        }
+        table.append(tbody);
+        const scroll=e('div',undefined,'p11-source-structure-scroll');scroll.append(table);status.append(scroll);
+        status.append(notice('仅展示定位符、长度和摘要；全文及原文引用仍在原 D0 专家阅读器内，且必须经过任务授权。'));
+      }else{
+        status.append(notice('此版本尚未登记来源包，但仍是现有 EA 合成来源；B1 不会改变旧任务的可用性。'));
+        if(packageValidation?.key===sourceSelection){
+          const validated=packageValidation.receipt;
+          status.append(e('p','已校验：'+validated.status+' · '+validated.structure_index.length+
+            ' 个结构单元 · Manifest SHA '+validated.manifest_sha256,'p11-meta'));
+        }
+        if(role()==='producer'){
+          const actions=e('div',undefined,'p11-row');
+          const validate=button('校验结构化来源包',()=>validateB1Source(selected).catch(catchMessage),'secondary');
+          validate.id='b1ValidatePackage';actions.append(validate);
+          const register=button('登记不可变合成来源包',()=>registerB1Source(selected).catch(catchMessage),'primary');
+          register.id='b1RegisterPackage';register.disabled=packageValidation?.key!==sourceSelection;
+          actions.append(register);status.append(actions);
+        }else status.append(notice('Manager 仅可查看；校验和登记必须由独立 Producer 会话执行。'));
+      }
+      right.append(status);
+      const taskNav=button('前往任务中心选择此版本',()=>{
+        navigate('tasks');$p('primarySource').value=selected.source_id+':'+selected.revision_id;
+        if(typeof showSourceInfo==='function')showSourceInfo();
+      });
+      right.append(taskNav);
+    }
+    columns.append(right);page.append(columns);
+    const caution=e('section',undefined,'p11-panel');
+    caution.append(e('h3','③ MinerU / HTML / Markdown 上游适配边界'));
+    caution.append(notice('规划契约：外部解析 → canonical source units + stable unit IDs → source SHA / structure digest → 版本验证 → 权限及科研来源资格审核。当前 B1 只接受 EA 中已登记的 SYNTHETIC_FIXTURE 引用，不接收上传文件或解析结果。'));
+    page.append(caution);
+    return page;
+  }
   function renderPlaceholder(){
     const page=frame(labels[active],'本期 P1.1-A 的功能范围与下一阶段接口。');
     const p=e('article',undefined,'p11-panel');p.append(e('h3','尚未在 P1.1-A 开放完整功能'));
@@ -322,7 +486,7 @@
     if(loading||!auth)return;
     loading=true;
     try {
-      await loadProjects();await fetchViews();renderSelector();render();
+      await loadProjects();await fetchViews();await loadSourcePackages();renderSelector();render();
       const deep=readRoute().task;
       if(deep)await window.opsTaskDetail(deep,false);
     }
@@ -339,7 +503,7 @@
       item.setAttribute('aria-current',item.dataset.p11Route===active?'page':'false');
     }
     $p('p11SectionTitle').textContent=labels[active];
-    if(separate){clear($p('p11View'));$p('p11View').append(active==='overview'?renderOverview():active==='projects'?renderProjects():renderPlaceholder());}
+    if(separate){clear($p('p11View'));$p('p11View').append(active==='overview'?renderOverview():active==='projects'?renderProjects():active==='sources'?renderSourceLibrary():renderPlaceholder());}
     else{renderSelector();renderWizard();renderTaskToolbar();}
   }
   function go(view){navigate(view);}
@@ -476,7 +640,7 @@
     if(action==='prepare')wizardStep=5;
     renderWizard();
   };
-  window.opsClear=()=>{projects=[];batchMap=new Map();overview=null;managedTasks=[];project='';batch='';search='';wizardStep=1;active='overview';window.opsPreparingFilter=false;legacyOnly=false;pageOffset=0;pageTotal=0;selectedTaskId='';selectedTaskMeta=null;stateScope='';
+  window.opsClear=()=>{projects=[];batchMap=new Map();overview=null;managedTasks=[];project='';batch='';search='';wizardStep=1;active='overview';window.opsPreparingFilter=false;legacyOnly=false;pageOffset=0;pageTotal=0;selectedTaskId='';selectedTaskMeta=null;stateScope='';sourcePackages=[];sourceSelection='';packageValidation=null;
     if($p('p11View'))clear($p('p11View'));
     if($p('p11Detail')){$p('p11Detail').hidden=true;clear($p('p11Detail'));}
     if($p('p11ModalOverlay')){$p('p11ModalOverlay').hidden=true;clear($p('p11ModalOverlay'));}

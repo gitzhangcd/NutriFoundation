@@ -236,7 +236,7 @@ class TPAProjects:
             TPAProjects.ensure_batch(db, project_id, batch_id)
 
     @staticmethod
-    def where(project_id, batch_id, state=None, q=None):
+    def where(project_id, batch_id, state=None, q=None, workflow_strategy=None):
         cond, args = [], []
         if project_id:
             cond.append("x.project_id=?")
@@ -259,14 +259,20 @@ class TPAProjects:
                 args.append(state)
             else:
                 block("INVALID_STATE_FILTER")
+        if workflow_strategy:
+            if workflow_strategy not in ("AGENT_PROPOSE_EXPERT_VERIFY", "HUMAN_INDEPENDENT"):
+                block("INVALID_WORKFLOW_FILTER")
+            cond.append("json_extract(t.record,'$.workflow_strategy')=?")
+            args.append(workflow_strategy)
         return (" WHERE " + " AND ".join(cond)) if cond else "", args
 
-    def list_tasks(self, role, project_id=None, batch_id=None, state=None, q=None, limit=50, offset=0):
+    def list_tasks(self, role, project_id=None, batch_id=None, state=None, q=None,
+                   workflow_strategy=None, limit=50, offset=0):
         self.access(role)
         limit, offset = self.page(limit, offset)
         with self.tpa.connect() as db:
             self.scope(db, project_id, batch_id)
-            predicate, args = self.where(project_id, batch_id, state, q)
+            predicate, args = self.where(project_id, batch_id, state, q, workflow_strategy)
             base = " FROM tpa_tasks t LEFT JOIN tpa_task_placement x ON x.task_id=t.task_id " + predicate
             total = db.execute("SELECT COUNT(*)" + base, args).fetchone()[0]
             rows = db.execute("SELECT t.*,x.project_id,x.batch_id" + base +

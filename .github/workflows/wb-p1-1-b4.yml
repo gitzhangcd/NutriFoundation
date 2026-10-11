@@ -41,7 +41,9 @@ jobs:
           if printf '%s\n' "$files" | grep -E '^(runs/|src/nutrifoundation/|apps/workbench/c1/|apps/workbench/c2_1/|apps/workbench/c2_2/|apps/workbench/d0/ea_(runtime|seed|contract))'; then
             echo "B4 altered frozen scientific or prior EA authority"; exit 1
           fi
-          if printf '%s\n' "$files" | grep -Ev '^($|\.github/workflows/wb-p1-1-b4.yml|apps/workbench/d0/tests/test_tpa_b4_integration.py|apps/workbench/d0/tests/browser_d0.py|docs/workbench/WB-P1.1-B4.*\.md)$'; then
+          # Allowlist: original B4 freeze docs/tests, plus P1.1-A Management Demo
+          # task-center UX alignment (list-first + modal wizard) on the same D0 surface.
+          if printf '%s\n' "$files" | grep -Ev '^($|\.github/workflows/wb-p1-1-b4.yml|apps/workbench/d0/tests/test_tpa_b4_integration.py|apps/workbench/d0/tests/browser_d0.py|apps/workbench/d0/web/manage.html|apps/workbench/d0/web/tpa_p11.js|apps/workbench/d0/web/tpa_p11.css|apps/workbench/d0/tpa_adapter.py|apps/workbench/d0/tpa_projects.py|docs/workbench/WB-P1.1-B4.*\.md)$'; then
             echo "B4 contains unexpected runtime feature changes"; exit 1
           fi
   b4-native-chromium:

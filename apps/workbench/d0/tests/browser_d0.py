@@ -325,7 +325,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     p.evaluate("location.hash='#/tasks?project=%3Cimg%20src=x%20onerror=alert(1)%3E'")
     expect(p.locator('#p11SectionTitle')).to_have_text('任务中心')
     assert p.locator('img[src="x"]').count()==0
-    assert p.evaluate("document.querySelector('#p11TaskProject')?.value")===''
+    assert p.evaluate("document.querySelector('#p11TaskProject')?.value")==''
     p.locator('#logoutButton').click()
     expect(p.locator('#loginScreen')).to_be_visible()
     assert p.locator('#p11Detail').is_hidden()

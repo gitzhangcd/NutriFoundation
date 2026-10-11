@@ -38,7 +38,7 @@
     NARRATIVE_REVIEW:'叙述性综述',CORRECTION_RETRACTION:'更正 / 撤稿'};
   let state={tab:'library',selection:'P2-DEMO-RCT-001',search:'',status:'',kindFilter:'',unitIndex:0,
     display:'bilingual',drawer:false,wizard:false,step:0,notice:'',liveSources:[],overview:null,
-    document:null,original:null,reviewed:new Set(),draft:null,scope:{project:'',batch:''},projects:[],
+    document:null,original:null,translations:new Map(),reviewed:new Set(),draft:null,scope:{project:'',batch:''},projects:[],
     batches:new Map(),role:'manager',session:null,sourceCount:0,loading:false};
   let root=null;
   const selected=()=>all().find(x=>x.id+':'+x.v===state.selection)||all().find(x=>x.id===state.selection)||all()[0];
@@ -255,16 +255,17 @@
   }
   async function loadSelectedDocument(){
     const x=selected();
-    state.document=null;state.original=null;state.reviewed=new Set();state.unitIndex=0;
+    state.document=null;state.original=null;state.translations=new Map();state.reviewed=new Set();state.unitIndex=0;
     if(!x?.live||!canReview()){draw();return;}
     try{
       const url='/v1/p2/sources/'+x.id+'/'+x.v;
-      const [document,original,reviews]=await Promise.all([
-        api(url+'/document'),api(url+'/original'),api(url+'/reviews')]);
+      const [document,original,reviews,translations]=await Promise.all([
+        api(url+'/document'),api(url+'/original'),api(url+'/reviews'),api(url+'/translations')]);
       if(document.document.raw_artifact_sha256!==original.raw_artifact_sha256)
         throw new Error('SOURCE_ARTIFACT_SHA_DRIFT');
       state.document=document;state.original=original;
       state.reviewed=new Set(reviews.reviews.map(x=>x.unit_id));
+      state.translations=new Map(translations.translations.map(x=>[x.unit_id,x]));
       draw();
     }catch(err){state.notice='结构化文档/原文/审查记录无法完成独立核验：'+err.message;draw();}
   }
@@ -315,7 +316,10 @@
         else paragraph.append(document.createTextNode(text));
         item.append(paragraph);
       }
-      if(state.display!=='original')item.append(el('div',actual?'辅助译文尚未生成或核准 · AUXILIARY_ONLY':u.translation,'p2-translation'));
+      if(state.display!=='original'){
+        const translation=actual?state.translations.get(u.unit_id)?.translation_zh:u.translation;
+        item.append(el('div',translation||'辅助译文尚未生成 · AUXILIARY_ONLY','p2-translation'));
+      }
       if(u.kind==='TABLE_CELL')item.append(chip('表格单元格 · 数值需单独核验','amber'));
       middle.append(item);
     }grid.append(middle);
@@ -330,6 +334,24 @@
     right.append(chip(actual?'ORIGINAL_SPAN_CHECK_PENDING':'DEMO_TEXT_ONLY','blue'),span);
     right.append(alert('本地段落高亮不等于来自 PDF 的唯一定位。表格及数字、剂量和单位必须独立核验。','warning'));
     if(actual){
+      if(canReview()&&!state.translations.has(u.unit_id)){
+        const wrap=el('div',null,'p2-translation-entry');
+        const area=el('textarea');area.rows=3;area.maxLength=10000;
+        area.placeholder='逐段辅助译文 · 不影响原文 SHA / Evidence Anchor';
+        wrap.append(field('辅助译文（人工输入 / 独立 Provenance）',area));
+        wrap.append(button('保存辅助译文（不作为 Gold）',async()=>{
+          const text=area.value.trim();
+          if(!text){state.notice='请先填写辅助译文';draw();return;}
+          const x=selected();
+          const saved=await perform(()=>api('/v1/p2/sources/'+x.id+'/'+x.v+'/translations',{
+            method:'POST',body:{unit_id:u.unit_id,translation_zh:text,
+              provenance_ref:'SYN-HUMAN-UI-CURATOR',
+              expected_unit_text_sha256:u.unit_text_sha256}
+          }),'辅助译文作为独立、不可变的非权威层保存');
+          if(saved){state.translations.set(u.unit_id,saved.translation);draw();}
+        },'outline'));
+        right.append(wrap);
+      }
       const actions=el('div',null,'p2-review-ops');
       if(canReview()&&!state.reviewed.has(u.unit_id)){
         actions.append(button('核查通过 · 冻结此 Unit',()=>submitReview(u,'ACCEPT'),'primary'));
@@ -500,7 +522,7 @@
   function reset(){
     state.tab='library';state.selection='P2-DEMO-RCT-001';state.search='';state.status='';
     state.kindFilter='';state.unitIndex=0;state.display='bilingual';state.drawer=false;
-    state.wizard=false;state.draft=null;state.document=null;state.original=null;state.notice='';
+    state.wizard=false;state.draft=null;state.document=null;state.original=null;state.translations=new Map();state.notice='';
     state.reviewed=new Set();state.liveSources=[];state.overview=null;
   }
   window.p2SourceStudio={render,reload,reset,selectTab:view};

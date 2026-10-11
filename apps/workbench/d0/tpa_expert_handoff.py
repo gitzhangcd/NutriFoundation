@@ -20,8 +20,7 @@ ROSTER={
     "SYN-EA-EXPERT-B":{"actor":"SYN-EA-EXPERT-B","mode":"HUMAN_INDEPENDENT",
                        "login_hint":"ea2","qualification":"SYNTHETIC_ACCOUNT_ONLY"}
 }
-EXPOSURES={"WORKPACK_VIEWED","SOURCE_UNIT_VIEWED","CANDIDATE_SET_VIEWED","CANDIDATES_VIEWED",
-           "SOURCE_VIEWED","SOURCE_METADATA_VIEWED","EXPERT_REVIEW_FROZEN"}
+EXPOSURES={"TASK_OPENED","SOURCE_LIST_OPENED","SOURCE_UNIT_VIEWED","AGENT_CANDIDATE_VIEWED"}
 # The original TPA/EA events are authoritative: never infer a view from PUBLISHED.
 
 class ExpertHandoffLedger:

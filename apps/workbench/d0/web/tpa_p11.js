@@ -304,6 +304,8 @@
     }else{
       if(current.state==='READY_FOR_ASSIGNMENT'&&role()==='manager')
         info.append(send('assign','S5 · 分配匹配模式的合成专家'));
+      else if(current.state==='READY_FOR_ASSIGNMENT')
+        info.append(notice('工作包已准备；需要独立 Manager 会话才能分配合成专家和发布。'));
       else if(current.state==='ASSIGNED'&&role()==='manager')
         info.append(send('publish','S5 · 授权发布任务'));
       else if(current.state==='PUBLISHED')

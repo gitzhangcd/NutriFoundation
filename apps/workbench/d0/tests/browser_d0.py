@@ -265,7 +265,13 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     except AssertionError:
         raise AssertionError('B1_REGISTER_UI_RECEIPT: '+str(p.locator('#receipt').text_content())+
                              ' ; packages='+str(producer_context.request.get(url+'/v1/tpa/source-packages').json()))
-    expect(p.locator('#b1PackageStatus')).to_contain_text('SPKG-SYN-RCT-001-R1')
+    assert producer_context.request.get(url+'/v1/tpa/source-packages').json()['total']==1
+    try:
+        expect(p.locator('#b1PackageStatus')).to_contain_text('SPKG-SYN-RCT-001-R1')
+    except AssertionError:
+        raise AssertionError('B1_STATUS_DESYNC receipt='+str(p.locator('#receipt').text_content())+
+            ' detail='+str(p.locator('#b1VersionDetail').text_content())+
+            ' list='+str(producer_context.request.get(url+'/v1/tpa/source-packages').json()))
     expect(p.locator('#b1PackageStatus')).to_contain_text('SYNTHETIC_REFERENCE_ONLY')
     expect(p.locator('.p11-structure-table tbody tr')).to_have_count(2)
     assert 'A synthetic randomized trial compares' not in p.locator('#p11SourcesPage').text_content()

@@ -148,6 +148,8 @@ def test_p2_rights_role_and_real_source_intake_kill(app):
     assert auditor.post("/v1/p2/sources/P2-SYN-TEST-001/r1/rights",headers=ah,json={
         **rights_body(),"evidence_ref":"WEB-UNVERIFIED"}).status_code==422
     assert auditor.post("/v1/p2/sources/P2-SYN-TEST-001/r1/rights",headers=ah,json=rights_body()).status_code==200
+    projection=producer.get("/v1/p2/sources").json()["sources"][0]
+    assert projection["rights_status"]=="APPROVE_SYNTHETIC"
     assert manager.get("/v1/p2/audit").status_code==403
     assert curator.get("/v1/p2/audit").status_code==403
     assert auditor.get("/v1/p2/audit").json()["valid"] is True
@@ -265,3 +267,14 @@ def test_p2_auxiliary_bilingual_translation_is_non_authoritative_and_immutable(a
     with app.state.p2_source_studio.connect() as db:
         with pytest.raises(sqlite3.IntegrityError):
             db.execute("DELETE FROM p2_translations WHERE source_id=?",(sid,))
+
+
+def test_p2_same_raw_bytes_different_format_does_not_cross_bind_artifact(app):
+    producer,h=login(app,"producer")
+    original=record("P2-SYN-SHARED-RAW-001","MARKDOWN","# DEMO ORIGINAL")
+    assert producer.post("/v1/p2/sources",headers=h,json=original).status_code==200
+    conflict=record("P2-SYN-SHARED-RAW-002","HTML","# DEMO ORIGINAL")
+    refused=producer.post("/v1/p2/sources",headers=h,json=conflict)
+    assert refused.status_code==409,refused.text
+    assert refused.json()["detail"]["code"]=="RAW_ARTIFACT_FORMAT_CONFLICT"
+    assert producer.get("/v1/p2/sources").json()["total"]==1

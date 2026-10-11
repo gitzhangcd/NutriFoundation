@@ -140,7 +140,7 @@ def test_b2_stale_hash_mutation_and_idempotent_replay_fail_closed(app):
                 pass
     from tpa_agent_operations import AgentPreparationLedger
     recovered=AgentPreparationLedger(app.state.task_production)
-    assert recovered.detail("producer",tid)["attestation"]["attestation_sha256"]==first.json()["attestation"]["attestation_sha256"]
+    assert recovered.detail("producer","SYN-PRODUCER-1",tid)["attestation"]["attestation_sha256"]==first.json()["attestation"]["attestation_sha256"]
 
 
 def test_b2_source_package_linkage_optional_and_historically_frozen(app):

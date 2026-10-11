@@ -169,6 +169,9 @@ class SourceStudio:
             CREATE TABLE IF NOT EXISTS p2_packages(
                 source_id TEXT,revision_id TEXT,package_sha TEXT NOT NULL,record TEXT NOT NULL,
                 PRIMARY KEY(source_id,revision_id));
+            CREATE TABLE IF NOT EXISTS p2_translations(
+                source_id TEXT,revision_id TEXT,unit_id TEXT,record TEXT NOT NULL,
+                PRIMARY KEY(source_id,revision_id,unit_id));
             CREATE TABLE IF NOT EXISTS p2_usage(
                 source_id TEXT,revision_id TEXT,project_id TEXT,batch_id TEXT,actor TEXT NOT NULL,
                 PRIMARY KEY(source_id,revision_id,project_id,batch_id));
@@ -177,7 +180,7 @@ class SourceStudio:
                 actor TEXT NOT NULL,detail TEXT NOT NULL,prev_hash TEXT NOT NULL,entry_hash TEXT NOT NULL,
                 at TEXT NOT NULL);
             """)
-            for table in ("p2_artifacts","p2_rights","p2_documents","p2_reviews","p2_packages","p2_usage","p2_events"):
+            for table in ("p2_artifacts","p2_rights","p2_documents","p2_reviews","p2_packages","p2_translations","p2_usage","p2_events"):
                 for action in ("UPDATE","DELETE"):
                     db.execute(f"""CREATE TRIGGER IF NOT EXISTS p2_lock_{table}_{action.lower()}
                     BEFORE {action} ON {table} BEGIN SELECT RAISE(ABORT,'IMMUTABLE_P2_EVIDENCE'); END""")
@@ -402,6 +405,48 @@ class SourceStudio:
                 db.execute("UPDATE p2_sources SET status='QA_HOLD' WHERE source_id=? AND revision_id=?",(sid,rev))
             ev=self.event(db,self.key(sid,rev),actor,"UNIT_QA_RECORDED",{"unit_id":unitid,"decision":decision,"quote_sha":record["source_quote_sha256"]})
             return {"review":record,"event_hash":ev}
+
+    def translations(self,role,sid,rev):
+        """Auxiliary only. No translated quote can replace the original anchor."""
+        self.auth(role,("curator",))
+        with self.connect() as db:
+            self.row(db,sid,rev)
+            rows=db.execute("SELECT unit_id,record FROM p2_translations WHERE source_id=? AND revision_id=?",
+                            (sid,rev)).fetchall()
+            return {"translations":[json.loads(r["record"]) for r in rows],
+                    "count":len(rows),"authority":"AUXILIARY_ONLY","scientific_capture":False}
+
+    def save_translation(self,role,actor,sid,rev,body):
+        self.auth(role,("curator",))
+        unitid=body.get("unit_id");text=body.get("translation_zh")
+        ref=body.get("provenance_ref")
+        if not isinstance(unitid,str) or not isinstance(text,str) or not (2<=len(text)<=10000):
+            error("INVALID_AUXILIARY_TRANSLATION",422)
+        if not isinstance(ref,str) or not ref.startswith("SYN-HUMAN-") or len(ref)>150:
+            error("TRANSLATION_PROVENANCE_REQUIRED",422)
+        with self.lock,self.connect() as db:
+            db.execute("BEGIN IMMEDIATE");row=self.row(db,sid,rev)
+            if row["status"] not in ("QA_PENDING","QA_HOLD","PACKAGE_FROZEN"):
+                error("TRANSLATION_NOT_ALLOWED_BEFORE_CONVERSION")
+            doc=db.execute("SELECT doc,doc_sha FROM p2_documents WHERE source_id=? AND revision_id=?",
+                           (sid,rev)).fetchone()
+            if not doc:error("DOCUMENT_NOT_CONVERTED",404)
+            units=json.loads(doc["doc"])["units"]
+            unit=next((x for x in units if x["unit_id"]==unitid),None)
+            if not unit:error("UNIT_NOT_FOUND",404)
+            if body.get("expected_unit_text_sha256")!=unit["unit_text_sha256"]:
+                error("TRANSLATION_SOURCE_DRIFT")
+            if db.execute("SELECT 1 FROM p2_translations WHERE source_id=? AND revision_id=? AND unit_id=?",
+                          (sid,rev,unitid)).fetchone():error("IMMUTABLE_TRANSLATION_EXISTS")
+            record={"unit_id":unitid,"translation_zh":text,"language":"zh-CN",
+                    "provenance_ref":ref,"translation_sha256":sha(text.encode("utf-8")),
+                    "original_unit_sha256":unit["unit_text_sha256"],
+                    "canonical_document_sha256":doc["doc_sha"],"actor":actor,
+                    "created_at":now(),"authority":"AUXILIARY_ONLY","human_approved_for_expert":False}
+            db.execute("INSERT INTO p2_translations VALUES(?,?,?,?)",(sid,rev,unitid,encoded(record).decode()))
+            ev=self.event(db,self.key(sid,rev),actor,"AUXILIARY_TRANSLATION_FROZEN",
+                         {"unit_id":unitid,"translation_sha256":record["translation_sha256"]})
+            return {"translation":record,"event_hash":ev,"source_original_text_changed":False}
 
     def freeze(self,role,actor,sid,rev,body):
         self.auth(role,("producer",))

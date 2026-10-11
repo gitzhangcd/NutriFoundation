@@ -166,6 +166,33 @@ def test_b2_source_package_linkage_optional_and_historically_frozen(app):
     assert receipt.json()["attestation"]["source_ref"]["canonical_document_sha256"]==src["canonical_document_sha256"]
 
 
+def test_b2_later_b1_package_cannot_retroactively_change_frozen_provenance(app):
+    task="TPA-SYN-B2-LATE-PACK-001"
+    producer,headers,_=setup_ready(app,task)
+    inspected=producer.get(BASE+"/"+task+"/inspect").json()
+    assert inspected["source_package_at_attestation"] is None
+    saved=producer.post(BASE+"/"+task+"/attest",headers=headers,
+                        json=attestation_body(inspected,"b2-late-pack-attest-001"))
+    assert saved.status_code==200,saved.text
+    before=producer.get(BASE+"/"+task).json()
+    assert before["attestation"]["source_package_at_attestation"] is None
+    source=next(s for s in producer.get("/v1/tpa/sources").json()["sources"]
+                if s["source_type"]=="RANDOMIZED_TRIAL")
+    package=producer.post("/v1/tpa/source-packages",headers=headers,json={
+        **manifest(source),"package_id":"SPKG-SYN-B2-LATE-001",
+        "idempotency_key":"b2-late-source-package-001"
+    })
+    assert package.status_code==200,package.text
+    after=producer.get(BASE+"/"+task)
+    assert after.status_code==200,after.text
+    assert after.json()["attestation"]["source_package_at_attestation"] is None
+    assert after.json()["attestation"]["attestation_sha256"]==before["attestation"]["attestation_sha256"]
+    manager,_=login(app,"manager")
+    read_only=manager.get(BASE+"/"+task)
+    assert read_only.status_code==200
+    assert read_only.json()["attestation"]["source_package_at_attestation"] is None
+
+
 def test_b2_original_workflow_not_dependent_on_provenance_registration(app):
     tid="TPA-SYN-B2-LEGACY-001"
     producer,ph,_=setup_ready(app,tid)

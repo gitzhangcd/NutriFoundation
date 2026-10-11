@@ -1,0 +1,65 @@
+name: WB-P1.1-B2 synthetic Agent preparation provenance
+on:
+  push:
+    branches: [workbench-p1.1-b2-synthetic-agent-provenance]
+  pull_request:
+    paths:
+      - 'apps/workbench/d0/**'
+      - 'docs/workbench/WB-P1.1-B2*'
+      - '.github/workflows/wb-p1-1-b2.yml'
+permissions:
+  contents: read
+jobs:
+  b2-python:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Pinned original D0 deps and test runner
+        run: |
+          python -m pip install --require-hashes -r apps/workbench/d0/requirements.lock
+          python -m pip install 'pytest==8.4.2' 'httpx==0.28.1'
+      - name: Compile and validate original browser scripts
+        run: |
+          python -m compileall -q apps/workbench/d0
+          node --check apps/workbench/d0/web/tpa_p11.js
+          node --check apps/workbench/d0/web/tpa_manage.js
+      - name: B2 fixture provenance + all D0/EA/NDS/TPA/B1 security tests
+        run: python -m pytest apps/workbench/d0/tests -q -ra
+      - name: Protected authority tree guard
+        run: |
+          set -euo pipefail
+          if git diff --name-only bc8fca0d32123267c773c897b6106221c5d88176 HEAD |
+            grep -E '^(runs/|src/nutrifoundation/|apps/workbench/c1/|apps/workbench/c2_1/|apps/workbench/c2_2/|apps/workbench/d0/ea_(runtime|seed|contract))'; then
+            echo "B2 modified protected scientific truth"; exit 1
+          fi
+  b2-chromium:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Native D0 Chromium and original PDF.js
+        run: |
+          python -m pip install --require-hashes -r apps/workbench/d0/requirements.lock
+          python -m pip install 'playwright==1.55.0'
+          python -m playwright install --with-deps chromium
+          bash apps/workbench/d0/install_pdfjs.sh
+      - name: Native original D0 synthetic manager/EA/Agent provenance E2E
+        env:
+          D0_QA_OUTPUT: /tmp/b2-browser-results
+        run: python apps/workbench/d0/tests/browser_d0.py
+      - name: Chromium screenshots and receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: b2-browser-results
+          path: /tmp/b2-browser-results
+          if-no-files-found: ignore

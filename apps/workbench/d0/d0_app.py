@@ -20,6 +20,8 @@ from tpa_runtime import TaskProduction
 from tpa_adapter import install_tpa_routes
 from tpa_projects import TPAProjects
 from tpa_projects_adapter import install_project_routes
+from tpa_source_packages import SourcePackages
+from tpa_source_packages_adapter import install_source_package_routes
 
 BASE=Path(__file__).resolve().parent
 C21=BASE.parent/'c2_1';C22=BASE.parent/'c2_2'
@@ -66,6 +68,9 @@ def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,
     install_evidence_routes(app,ea,tpa=tpa)
     install_tpa_routes(app,tpa,ops)
     install_project_routes(app,ops)
+    source_packages=SourcePackages(tpa)
+    app.state.source_packages=source_packages
+    install_source_package_routes(app,source_packages)
     secure=parsed.scheme=='https'
     def failure(code,status):return JSONResponse({'detail':{'code':code}},status_code=status)
     @app.middleware('http')

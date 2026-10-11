@@ -246,6 +246,46 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
         expect(page.locator('#workspace')).to_be_visible(timeout=30000)
         return ctx,page
     producer_context,p=manager_login('producer')
+    # B1: operate the existing seven-authoritative-fixture reference library.
+    p.locator('[data-p11-route="sources"]').click()
+    expect(p.locator('#b1SourceRows .p11-source-entry')).to_have_count(7)
+    assert p.locator('#b1SourcesPage').count()==0  # page is p11SourcesPage, not another app
+    assert p.locator('#p11SourcesPage').count()==1
+    p.locator('#b1SourceRows .p11-source-entry').filter(has_text='RCT-001').get_by_role('button',name='查看版本').click()
+    expect(p.locator('#b1VersionDetail')).to_contain_text('RCT-001')
+    expect(p.locator('#b1VersionDetail')).to_contain_text('EA_SEEDED_FIXTURE')
+    expect(p.locator('#b1PackageStatus')).to_contain_text('尚未登记')
+    p.locator('#b1ValidatePackage').click()
+    expect(p.locator('#b1PackageStatus')).to_contain_text('VALIDATED_SYNTHETIC_REFERENCE')
+    expect(p.locator('#b1RegisterPackage')).to_be_enabled()
+    p.locator('#b1RegisterPackage').click()
+    # Receipt distinguishes a genuine backend rejection from a stale client read model.
+    try:
+        expect(p.locator('#receipt')).to_contain_text('"b1_registration"',timeout=6000)
+    except AssertionError:
+        raise AssertionError('B1_REGISTER_UI_RECEIPT: '+str(p.locator('#receipt').text_content())+
+                             ' ; packages='+str(producer_context.request.get(url+'/v1/tpa/source-packages').json()))
+    assert producer_context.request.get(url+'/v1/tpa/source-packages').json()['total']==1
+    try:
+        expect(p.locator('#b1PackageStatus')).to_contain_text('SPKG-SYN-RCT-001-R1')
+    except AssertionError:
+        raise AssertionError('B1_STATUS_DESYNC receipt='+str(p.locator('#receipt').text_content())+
+            ' detail='+str(p.locator('#b1VersionDetail').text_content())+
+            ' list='+str(producer_context.request.get(url+'/v1/tpa/source-packages').json()))
+    expect(p.locator('#b1PackageStatus')).to_contain_text('SYNTHETIC_REFERENCE_ONLY')
+    expect(p.locator('.p11-structure-table tbody tr')).to_have_count(2)
+    assert 'A synthetic randomized trial compares' not in p.locator('#p11SourcesPage').text_content()
+    assert 'original_units_exposed' not in p.locator('#p11SourcesPage').text_content()
+    p.reload()
+    expect(p.locator('#workspace')).to_be_visible(timeout=30000)
+    expect(p.locator('#b1PackageStatus')).to_contain_text('SPKG-SYN-RCT-001-R1')
+    assert 'source=RCT-001' in p.evaluate('location.hash')
+    assert 'revision=r1' in p.evaluate('location.hash')
+    p.screenshot(path=str(output/'b1-source-library-synthetic.png'),full_page=True)
+    checks.extend(['b1_source_version_deeplink_survives_reload',
+                   'b1_existing_fixture_validate_before_register',
+                   'b1_immutable_package_persist_reload_and_exact_structure_index',
+                   'b1_management_never_renders_source_original_text'])
     # P1.1-A: enter a persistent operational project and batch before drafting.
     assert p.locator('#p11Nav button[data-p11-route]').count()==7
     p.locator('[data-p11-route="tasks"]').click()
@@ -320,6 +360,12 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
                    'p11_real_browser_create_project_batch_and_atomic_task',
                    'p11_url_project_batch_scope_backward_forward_reload'])
     manager_context,m=manager_login('manager')
+    m.locator('[data-p11-route="sources"]').click()
+    m.locator('#b1SourceRows .p11-source-entry').filter(has_text='RCT-001').get_by_role('button',name='查看版本').click()
+    expect(m.locator('#b1PackageStatus')).to_contain_text('SYNTHETIC_REFERENCE_ONLY')
+    assert m.locator('#b1ValidatePackage').count()==0
+    assert m.locator('#b1RegisterPackage').count()==0
+    checks.append('b1_manager_source_package_read_only')
     m.locator('[data-p11-route="tasks"]').click()
     row=m.locator('.task-row').filter(has_text='TPA-SYN-BROWSER-001')
     expect(row).to_contain_text('READY_FOR_ASSIGNMENT')

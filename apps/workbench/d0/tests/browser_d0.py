@@ -247,7 +247,9 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
         return ctx,page
     producer_context,p=manager_login('producer')
     # P1.1-A: enter a persistent operational project and batch before drafting.
-    p.locator('[data-p11-route="projects"]').click()
+    assert p.locator('#p11Nav button[data-p11-route]').count()==7
+    p.locator('[data-p11-route="tasks"]').click()
+    p.locator('#p11ProjectsShortcut').click()
     p.get_by_role('button',name='新建项目').click()
     p.locator('#opsName').fill('Browser Synthetic Program')
     p.locator('#p11ModalOverlay button[type="submit"]').click()
@@ -336,8 +338,11 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     p.evaluate('window.scrollTo(0,0)')
     assert p.evaluate('document.documentElement.scrollWidth <= innerWidth')
     p.screenshot(path=str(output/'p11-management-tablet.png'))
-    p.locator('[data-p11-route="projects"]').focus()
-    assert p.evaluate("document.activeElement?.getAttribute('data-p11-route')")=='projects'
+    p.locator('[data-p11-route="tasks"]').focus()
+    assert p.evaluate("document.activeElement?.getAttribute('data-p11-route')")=='tasks'
+    p.keyboard.press('Enter')
+    expect(p.locator('#p11SectionTitle')).to_have_text('任务中心')
+    p.locator('#p11ProjectsShortcut').focus()
     p.keyboard.press('Enter')
     expect(p.locator('#p11SectionTitle')).to_have_text('项目与批次')
     p.set_viewport_size({'width':390,'height':844})

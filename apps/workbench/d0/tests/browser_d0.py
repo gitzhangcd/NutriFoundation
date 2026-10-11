@@ -286,6 +286,13 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(row).to_contain_text('DEFINITION_FROZEN')
     row.get_by_role('button',name=re.compile('准备工作包')).click()
     expect(row).to_contain_text('READY_FOR_ASSIGNMENT')
+    p.locator('#p11TaskProject').select_option('')
+    expect(p.locator('#p11LegacyToggle')).to_be_visible()
+    p.locator('#p11LegacyToggle').click()
+    expect(p.locator('.task-row').filter(has_text='TPA-SYN-BROWSER-001')).to_have_count(0)
+    p.locator('#p11LegacyToggle').click()
+    expect(p.locator('.task-row').filter(has_text='TPA-SYN-BROWSER-001')).to_have_count(1)
+    checks.append('p11_explicit_legacy_filter_excludes_scoped_tasks')
     checks.extend(['tpa_same_origin_management_login','tpa_seven_synthetic_source_library',
                    'tpa_real_ui_draft_validation_freeze_prepare','tpa_agent_fixture_not_llm',
                    'p11_real_browser_create_project_batch_and_atomic_task',
@@ -310,6 +317,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(ea.locator('#units')).to_contain_text('fabricated guideline')
     checks.append('tpa_published_task_delivered_to_original_ea_reader')
     p.set_viewport_size({'width':1024,'height':768})
+    p.evaluate('window.scrollTo(0,0)')
     assert p.evaluate('document.documentElement.scrollWidth <= innerWidth')
     p.screenshot(path=str(output/'p11-management-tablet.png'))
     p.locator('[data-p11-route="projects"]').focus()
@@ -317,9 +325,11 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     p.keyboard.press('Enter')
     expect(p.locator('#p11SectionTitle')).to_have_text('项目与批次')
     p.set_viewport_size({'width':390,'height':844})
+    p.evaluate('window.scrollTo(0,0)')
     assert p.evaluate('document.documentElement.scrollWidth <= innerWidth')
     p.screenshot(path=str(output/'tpa-management-mobile.png'))
     p.set_viewport_size({'width':1440,'height':900})
+    p.evaluate('window.scrollTo(0,0)')
     assert p.evaluate('document.documentElement.scrollWidth <= innerWidth')
     p.screenshot(path=str(output/'tpa-management-desktop.png'))
     p.evaluate("location.hash='#/tasks?project=%3Cimg%20src=x%20onerror=alert(1)%3E'")
@@ -578,7 +588,7 @@ def run(url,credentials,output):
         browser.close()
     assert not errors,errors
     result={'status':'PASS','checks':checks,'page_errors':errors,'native_pdfjs':True,'browser':'Chromium',
-            'browser_plugin':'NOT_AVAILABLE_REGULAR_PLAYWRIGHT','viewports':['1440x1000','390x844'],
+            'browser_plugin':'NOT_AVAILABLE_REGULAR_PLAYWRIGHT','viewports':['1440x1000','1440x900','1024x768','390x844'],
             'scientific_capture':False,'url':url}
     (output/'browser-result.json').write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result))

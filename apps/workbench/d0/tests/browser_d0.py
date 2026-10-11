@@ -335,6 +335,29 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     row.get_by_role('button',name=re.compile('准备工作包')).click()
     expect(row).to_contain_text('READY_FOR_ASSIGNMENT')
     expect(p.locator('#p11WizardInfo')).to_contain_text('工作包已准备')
+    # B2: check original EA frozen fixture proof. No true Agent invocation.
+    p.locator('[data-p11-route="agent"]').click()
+    expect(p.locator('#p11B2AgentPage')).to_be_visible(timeout=30000)
+    expect(p.locator('#b2AgentTaskRows')).to_contain_text('TPA-SYN-BROWSER-001')
+    expect(p.locator('#b2AgentDetail')).to_contain_text('FIXTURE_NOT_ATTESTED')
+    p.locator('#b2InspectAgent').click()
+    expect(p.locator('#b2Inspection')).to_contain_text('冻结事实已核对')
+    assert 'SYNTHETIC_FIXTURE_NOT_AN_LLM' not in p.locator('#b2Inspection').text_content()
+    assert 'A synthetic randomized trial compares' not in p.locator('#p11B2AgentPage').text_content()
+    p.locator('#b2AttestAgent').click()
+    expect(p.locator('#receipt')).to_contain_text('b2_attestation',timeout=30000)
+    expect(p.locator('#b2AttestationReceipt')).to_contain_text('SYNTHETIC_FIXTURE_NOT_AN_LLM')
+    expect(p.locator('#b2AttestationReceipt')).to_contain_text('候选集合 SHA-256')
+    assert 'agent_task=TPA-SYN-BROWSER-001' in p.evaluate('location.hash')
+    p.screenshot(path=str(output/'b2-agent-provenance-synthetic.png'),full_page=True)
+    p.reload()
+    expect(p.locator('#b2AttestationReceipt')).to_be_visible(timeout=30000)
+    expect(p.locator('#b2AttestationReceipt')).to_contain_text('回执 SHA-256')
+    checks.extend(['b2_existing_ea_fixture_inspection_without_llm',
+                   'b2_immutable_agent_attestation_survives_reload',
+                   'b2_origin_and_candidate_digest_producer_only'])
+    p.locator('[data-p11-route="tasks"]').click()
+    row=p.locator('.task-row').filter(has_text='TPA-SYN-BROWSER-001')
     row.get_by_role('button',name='查看任务详情').click()
     expect(p.locator('#p11Detail')).to_be_visible()
     assert 'task=TPA-SYN-BROWSER-001' in p.evaluate('location.hash')
@@ -366,6 +389,13 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     assert m.locator('#b1ValidatePackage').count()==0
     assert m.locator('#b1RegisterPackage').count()==0
     checks.append('b1_manager_source_package_read_only')
+    m.locator('[data-p11-route="agent"]').click()
+    expect(m.locator('#b2AgentTaskRows')).to_contain_text('TPA-SYN-BROWSER-001')
+    expect(m.locator('#b2AttestationReceipt')).to_contain_text('SYNTHETIC_FIXTURE_NOT_AN_LLM')
+    assert '候选集合 SHA-256' not in m.locator('#b2AgentDetail').text_content()
+    assert m.locator('#b2InspectAgent').count()==0
+    assert m.locator('#b2AttestAgent').count()==0
+    checks.append('b2_manager_read_only_with_candidate_digest_redacted')
     m.locator('[data-p11-route="tasks"]').click()
     row=m.locator('.task-row').filter(has_text='TPA-SYN-BROWSER-001')
     expect(row).to_contain_text('READY_FOR_ASSIGNMENT')
@@ -381,7 +411,13 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
                       body='{"detail":{"code":"SYNTHETIC_LOST_RESPONSE"}}')
     m.route('**/v1/tpa/tasks/TPA-SYN-BROWSER-001/publish',lose_publish_reply,times=1)
     row.get_by_role('button',name=re.compile('授权发布任务')).click()
-    expect(row).to_contain_text('PUBLISHED')
+    try:
+        expect(row).to_contain_text('PUBLISHED',timeout=12000)
+    except AssertionError:
+        state=manager_context.request.get(url+'/v1/tpa/tasks/TPA-SYN-BROWSER-001/management')
+        raise AssertionError('UNCONFIRMED_MANAGER_UI_AFTER_LOST_REPLY: server='+
+          str(state.status)+'/'+state.text+' receipt='+str(m.locator('#receipt').text_content())+
+          ' browser_row='+str(row.text_content()))
     expect(m.locator('#receipt')).to_contain_text('reconciled_after_uncertain_response')
     assert m.locator('.p11-task-table').count()==1
     row.get_by_role('button',name='查看任务详情').click()

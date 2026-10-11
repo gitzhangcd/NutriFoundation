@@ -484,7 +484,7 @@
         info.append(nextStep(4,'下一步：准备工作包'));
     }else if(wizardStep===4){
       if(current.state==='DEFINITION_FROZEN'&&role()==='producer')
-        info.append(send('prepare','S4 · 准备合成工作包'));
+        info.append(send('prepare','S4 · 准备工作包'));
       else if(['READY_FOR_ASSIGNMENT','ASSIGNED','PUBLISHED'].includes(current.state)){
         info.append(notice('工作包已准备：Agent 模式仅为预置合成候选；独立专家模式完全禁止候选暴露。'));
         info.append(nextStep(5,'下一步：分配与发布'));

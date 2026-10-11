@@ -374,6 +374,8 @@ class SourceStudio:
         with self.lock,self.connect() as db:
             db.execute("BEGIN IMMEDIATE");row=self.row(db,sid,rev)
             if row["status"] not in ("QA_PENDING","QA_HOLD"):error("QA_STATE_INVALID")
+            if row["raw_format"]=="PDF_HANDOFF" and decision=="ACCEPT":
+                error("PDF_ORIGINAL_VIEWER_REQUIRED")
             if row["created_by"]==actor:error("SEPARATION_OF_DUTIES_REQUIRED",403)
             d=db.execute("SELECT doc,doc_sha FROM p2_documents WHERE source_id=? AND revision_id=?",(sid,rev)).fetchone()
             if not d:error("DOCUMENT_NOT_CONVERTED")

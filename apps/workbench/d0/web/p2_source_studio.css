@@ -160,3 +160,10 @@ body[data-p11-view="studio"] #p2NavGroup{display:grid}
  #workspace .p2-studio .p2-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
  #workspace .p2-studio .p2-heading{align-items:flex-start}
 }
+
+
+#workspace .p2-studio .p2-original-text{white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal;
+  max-height:455px;overflow:auto;font:11px/1.75 ui-monospace,SFMono-Regular,Consolas,monospace;
+  background:#fbfdfb;border:1px solid #e4eee6;border-radius:7px;padding:14px;color:#536e5d}
+#workspace .p2-studio .p2-pdf-sheet:has(.p2-original-text){padding:18px 12px}
+#workspace .p2-studio .p2-pdf-sheet:has(.p2-original-text) .p2-original-text{flex:1 1 auto}

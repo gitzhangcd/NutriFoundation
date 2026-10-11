@@ -18,6 +18,8 @@ from ea_seed import populate as seed_evidence_synthetic
 from ea_adapter import install_evidence_routes
 from tpa_runtime import TaskProduction
 from tpa_adapter import install_tpa_routes
+from tpa_projects import TPAProjects
+from tpa_projects_adapter import install_project_routes
 
 BASE=Path(__file__).resolve().parent
 C21=BASE.parent/'c2_1';C22=BASE.parent/'c2_2'
@@ -59,8 +61,11 @@ def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,
     app.state.evidence_engine=ea
     tpa=TaskProduction(Path(root)/'tpa_synthetic.sqlite',ea)
     app.state.task_production=tpa
+    ops=TPAProjects(tpa)
+    app.state.tpa_projects=ops
     install_evidence_routes(app,ea,tpa=tpa)
-    install_tpa_routes(app,tpa)
+    install_tpa_routes(app,tpa,ops)
+    install_project_routes(app,ops)
     secure=parsed.scheme=='https'
     def failure(code,status):return JSONResponse({'detail':{'code':code}},status_code=status)
     @app.middleware('http')

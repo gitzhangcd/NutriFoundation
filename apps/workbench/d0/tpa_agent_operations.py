@@ -55,11 +55,13 @@ class AgentPreparationLedger:
                     BEGIN SELECT RAISE(ABORT,'IMMUTABLE_AGENT_REPLAY'); END;
             """)
 
-    def _task(self,role,task_id):
+    def _task(self,role,task_id,actor=None):
         self.tpa.role(role,("producer","manager"))
         if not isinstance(task_id,str) or not TASK.fullmatch(task_id):
             block("INVALID_AGENT_TASK_ID")
         task=self.tpa.get(task_id)
+        if role=="producer" and actor is not None and task["created_by"]!=actor:
+            block("PRODUCER_OWNER_MISMATCH")
         # Strong prohibition: no candidate status, digest, count or run ref for R0.
         if task["workflow_strategy"]!=AGENT:
             block("DENY_INDEPENDENT_AGENT_EXPOSURE")
@@ -79,8 +81,8 @@ class AgentPreparationLedger:
                 "structure_sha256":package["structure_sha256"],
                 "registration_kind":"B1_SYNTHETIC_REFERENCE"}
 
-    def _inspect(self,role,task_id):
-        task=self._task(role,task_id)
+    def _inspect(self,role,task_id,actor=None):
+        task=self._task(role,task_id,actor)
         if task["state"] not in READY:
             block("AGENT_FIXTURE_NOT_PREPARED")
         if not isinstance(task.get("definition_sha256"),str) or not HEX.fullmatch(task["definition_sha256"]):
@@ -103,6 +105,8 @@ class AgentPreparationLedger:
                    x["canonical_document_sha256"]==source["canonical_document_sha256"]
                    for x in task["allowed_source_versions"]):
             block("SOURCE_REVISION_MISMATCH")
+        if len(candidate["items"])!=1:
+            block("NON_FIXTURE_CANDIDATE_PROHIBITED")
         for item in candidate["items"]:
             if (item.get("candidate_id")!="FIXTURE-"+task_id or
                 item.get("extraction_run_ref")!=FIXTURE or
@@ -138,9 +142,9 @@ class AgentPreparationLedger:
         safe["original_units_exposed"]=False
         return safe
 
-    def inspect(self,role,task_id):
+    def inspect(self,role,actor,task_id):
         self.tpa.role(role,("producer",))
-        manifest=self._inspect(role,task_id)
+        manifest=self._inspect(role,task_id,actor)
         return {"status":"FROZEN_FIXTURE_READY_FOR_ATTESTATION",**manifest,
                 "read_only_inspection":True,"attestation_written":False}
 
@@ -153,7 +157,7 @@ class AgentPreparationLedger:
         expected_set=body["expected_candidate_set_digest"]
         if not HEX.fullmatch(expected_event) or not HEX.fullmatch(expected_set):
             block("INVALID_PROVENANCE_DIGEST")
-        inspected=self._inspect(role,task_id)
+        inspected=self._inspect(role,task_id,actor)
         if (inspected["preparation_event_hash"]!=expected_event or
             inspected["candidate_set_digest"]!=expected_set):
             block("AGENT_PROVENANCE_STALE")
@@ -183,8 +187,8 @@ class AgentPreparationLedger:
                 "kind":PREPARATION,"scientific_capture":False})
             return receipt
 
-    def detail(self,role,task_id):
-        task=self._task(role,task_id)
+    def detail(self,role,actor,task_id):
+        task=self._task(role,task_id,actor)
         with self.tpa.connect() as db:
             row=db.execute("SELECT record FROM tpa_agent_preparation_attestations WHERE task_id=?",
                            (task_id,)).fetchone()
@@ -197,7 +201,7 @@ class AgentPreparationLedger:
         if digest({k:v for k,v in record.items() if k!="attestation_sha256"})!=record["attestation_sha256"]:
             block("AGENT_ATTESTATION_DRIFT")
         # Re-verify the exact frozen candidate and source/event truth on every read.
-        current=self._inspect(role,task_id)
+        current=self._inspect(role,task_id,actor)
         if any(record.get(k)!=v for k,v in current.items()):
             block("AGENT_PROVENANCE_DRIFT")
         return {"task_id":task_id,"task_state":task["state"],"status":ATTESTED,

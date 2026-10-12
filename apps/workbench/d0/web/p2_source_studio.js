@@ -149,7 +149,7 @@
     fields.append(first,second);
     fields.append(el('small',state.projects.length?
       '仅显示已有该项目 / 批次引用的来源；未绑定的资料会被过滤，筛选不是授权。':
-      '当前没有可选项目。项目与批次在任务中心创建；本页保持全局来源视图。','p2-scope-hint'));
+      '当前没有可选项目。项目与批次在任务中心创建；本页保持全局来源视图。筛选不是授权。','p2-scope-hint'));
     n.append(fields);return n;
   }
   function frame(){

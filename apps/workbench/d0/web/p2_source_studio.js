@@ -39,7 +39,7 @@
   let state={tab:'library',selection:'P2-DEMO-RCT-001',search:'',status:'',kindFilter:'',unitIndex:0,highlighted:false,
     display:'bilingual',drawer:false,wizard:false,step:0,notice:'',liveSources:[],overview:null,
     document:null,original:null,translations:new Map(),reviewed:new Set(),draft:null,scope:{project:'',batch:''},projects:[],
-    batches:new Map(),role:'manager',session:null,sourceCount:0,loading:false,intakePreset:null,auditResult:null};
+    batches:new Map(),role:'manager',session:null,sourceCount:0,loading:false,intakePreset:null,auditResult:null,scopeExpanded:false};
   let root=null;
   const selected=()=>all().find(x=>x.id+':'+x.v===state.selection)||all().find(x=>x.id===state.selection)||all()[0];
   const all=()=>state.liveSources.map(x=>({
@@ -107,20 +107,59 @@
     append(n,left,append(el('div',null,'p2-actions'),actions));return n;
   }
   function context(){
-    const n=el('div',null,'p2-context');
-    n.append(el('span','使用范围 · Project / Batch','p2-label'));
-    const proj=select([['','全部项目']].concat(state.projects.map(x=>[x.project_id,x.name])),
-      state.scope.project,v=>{state.scope.project=v;state.scope.batch='';draw();reload()});
+    // P2 project/batch scope is an optional SOURCE LIST FILTER against P2
+    // immutable usage references, NOT a scientific eligibility or grant control.
+    const n=el('section',null,'p2-context p2-context-compact');
+    n.setAttribute('aria-label','科学资料项目与批次筛选');
+    const project=state.projects.find(x=>x.project_id===state.scope.project);
     const batches=state.scope.project?(state.batches.get(state.scope.project)||[]):[];
+    const batch=batches.find(x=>x.batch_id===state.scope.batch);
+    const active=!!(state.scope.project||state.scope.batch);
+    const head=el('div',null,'p2-scope-head');
+    const explanation=el('div',null,'p2-scope-explanation');
+    append(explanation,el('strong','资料范围','p2-scope-title'),
+      el('span',active?(project?.name||state.scope.project)+(batch?' / '+batch.label:' · 全部批次'):'全部来源 · 未筛选','p2-scope-current'),
+      el('small','只筛选已关联的来源版本，不改变资料资格或专家权限。','p2-scope-description'));
+    const actions=el('div',null,'p2-scope-actions');
+    if(active)actions.append(button('清除',()=>{
+      state.scope.project='';state.scope.batch='';state.scopeExpanded=false;
+      draw();reload();
+    },'outline p2-scope-clear'));
+    const toggle=button(state.scopeExpanded?'收起筛选':'按项目 / 批次筛选',()=>{
+      state.scopeExpanded=!state.scopeExpanded;draw();
+      root?.querySelector('.p2-scope-toggle')?.focus({preventScroll:true});
+    },'outline p2-scope-toggle');
+    toggle.setAttribute('aria-expanded',state.scopeExpanded?'true':'false');
+    toggle.setAttribute('aria-controls','p2ScopeFields');
+    actions.append(toggle);head.append(explanation,actions);n.append(head);
+    const fields=el('div',null,'p2-scope-fields');fields.id='p2ScopeFields';
+    fields.hidden=!state.scopeExpanded;
+    const proj=select([['','全部项目']].concat(state.projects.map(x=>[x.project_id,x.name])),
+      state.scope.project,v=>{
+        state.scope.project=v;state.scope.batch='';draw();reload();
+      });
+    proj.setAttribute('aria-label','按项目引用筛选来源');
+    proj.disabled=!state.projects.length;
     const bat=select([['','全部批次']].concat(batches.map(x=>[x.batch_id,x.label])),
-      state.scope.batch,v=>{state.scope.batch=v;reload()});
-    n.append(proj,bat,chip('精确版本引用，不复制原始来源'));return n;
+      state.scope.batch,v=>{state.scope.batch=v;draw();reload()});
+    bat.setAttribute('aria-label','按批次引用筛选来源');
+    bat.disabled=!state.scope.project||!batches.length;
+    const first=field('项目 Project',proj),second=field('批次 Batch',bat);
+    first.classList.add('p2-scope-field');second.classList.add('p2-scope-field');
+    fields.append(first,second);
+    fields.append(el('small',state.projects.length?
+      '仅显示已有该项目 / 批次引用的来源；未绑定的资料会被过滤，筛选不是授权。':
+      '当前没有可选项目。项目与批次在任务中心创建；本页保持全局来源视图。','p2-scope-hint'));
+    n.append(fields);return n;
   }
   function frame(){
     const n=el('div',null,'p2-studio');
     const breadcrumb=el('div','工作空间  ›  科学资料库  ›  '+(tabs[state.tab]||'资料总览'),'p2-breadcrumb');
     n.append(breadcrumb,alert('架构安全边界：当前仅使用合成测试来源与受控结构化记录。真实 PDF、外部来源资格、Gold、正式专家授权及真实部署仍为 NO-GO。','info'));
-    n.append(context(),nav());
+    // The hash-chained audit is global; Project / Batch never scopes its
+    // verification. Independent Curator/Auditor sessions have no TPA scope.
+    if(state.tab!=='audit'&&document.getElementById('p11Nav'))n.append(context());
+    n.append(nav());
     if(state.notice)n.append(alert(state.notice,'note'));
     return n;
   }
@@ -471,7 +510,7 @@
   }
   function audit(){
     root.append(heading('P2 / SOURCE AUDIT & LINEAGE','审计与版本记录',
-      '来源登记、许可、转换、人工 QA 和封存分别留痕；独立 Auditor 核验审计链。',
+      '来源登记、许可、转换、人工 QA 和封存分别留痕；独立 Auditor 核验全局审计链，不受 Project / Batch 筛选影响。',
       [button('核验审计链',async()=>{
         if(!canRights()){state.notice='只有独立 Auditor 会话可以核验 P2 原始审计链。';draw();return;}
         try{state.auditResult=await api('/v1/p2/audit');state.notice=state.auditResult.valid?
@@ -621,7 +660,7 @@
     state.tab='library';state.selection='P2-DEMO-RCT-001';state.search='';state.status='';
     state.kindFilter='';state.unitIndex=0;state.highlighted=false;state.display='bilingual';state.drawer=false;
     state.wizard=false;state.draft=null;state.intakePreset=null;state.auditResult=null;state.document=null;state.original=null;state.translations=new Map();state.notice='';
-    state.reviewed=new Set();state.liveSources=[];state.overview=null;
+    state.reviewed=new Set();state.liveSources=[];state.overview=null;state.scopeExpanded=false;
   }
   window.p2SourceStudio={render,reload,reset,selectTab:view};
   document.addEventListener('DOMContentLoaded',()=>{

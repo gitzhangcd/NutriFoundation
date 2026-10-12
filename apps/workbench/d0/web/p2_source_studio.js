@@ -227,18 +227,29 @@
     root.append(pipeline(),overviewCards(),sourceList());
   }
   function renderIntake(){
-    root.append(heading('P2-A / SOURCE INTAKE','来源登记',
-      '分阶段填写来源身份与用途，所有写入都先进入独立合成待核查状态。',
+    root.append(heading('P2-A / SOURCE INTAKE','来源登记与资格核查',
+      '先确认是什么、从哪里来、是否允许使用，再考虑结构化转换。',
       [button('＋ 新建来源登记',()=>startIntake(),'primary')]));
-    const panel1=panel('来源登记队列','当前 P2 的合成来源登记是持久化操作，原稿、SHA 与审计存在独立数据库，绝不写入 EA。');
-    const statuses=all().filter(x=>x.live);
-    if(!statuses.length)panel1.append(alert('尚未有持久化合成来源。请先创建一个合成文献，不要输入真实患者资料或未经许可的全文。','info'));
-    for(const x of statuses){const row=el('div',null,'p2-version');
-      row.append(el('strong',x.id+' / '+x.v),chip(stages[x.stage]?.[0]||x.stage,stages[x.stage]?.[1]||'muted'),
-        button('查看',()=>{state.selection=x.id+':'+x.v;state.drawer=true;draw()},'small'));panel1.append(row);}
-    root.append(panel1);
-    const help=panel('登记与版权审查的分工','Producer 负责建立来源待审核记录；Auditor 在独立会话记录合成使用权；Source Curator 核查结构化结果。');
-    help.append(alert('真实 DOI、PDF、机器处理版权和公共传播资格不会通过一个勾选框自动获得授权。','warning'));
+    const p=panel('资料接收队列','所有新登记来源先由独立 Auditor 审核；展示演示与持久化合成记录，不代表获得真实科学来源资格。');
+    const table=el('table',null,'p2-table p2-intake-table');
+    const head=el('tr');
+    ['资料名称 / Source ID','来源标识','版权与用途','处理阶段','操作'].forEach(x=>head.append(el('th',x)));
+    table.append(append(el('thead'),head));
+    const rows=el('tbody');
+    for(const x of all()){
+      const row=el('tr'),identity=el('td');
+      identity.append(el('strong',x.title),el('div',x.id+' · '+x.v,'p2-id'));
+      const status=stages[x.stage]||[x.stage,'muted'];
+      const action=button('查看',()=>{state.selection=x.id+':'+x.v;state.drawer=true;draw()},'small');
+      row.append(identity,el('td',x.identifier||x.id),el('td',x.rights),
+        append(el('td'),chip(status[0],status[1])),append(el('td'),action));
+      rows.append(row);
+    }
+    table.append(rows);p.append(append(el('div',null,'p2-table-wrap'),table));
+    if(!state.liveSources.length)p.append(alert('暂无持久化合成来源。演示条目不能直接用于专家任务。','info'));
+    root.append(p);
+    const help=panel('登记与版权审查的分工','Producer 登记待审核来源，Auditor 独立记录合成使用权，Curator 核查结构化原文。');
+    help.append(alert('真实 DOI、PDF 的身份、撤稿/更正和版权不会被本地登记或单个勾选框自动确认。','warning'));
     help.append(button('打开独立审查入口',()=>window.open('/source-qa','_blank','noopener'),'outline'));
     root.append(help);
   }
@@ -413,21 +424,32 @@
     state.reviewed.add(unit.unit_id);
   }
   function versions(){
-    root.append(heading('P2-D/E / SOURCE VERSION CONTROL','来源版本与封存记录',
-      '全局 SourceVersion 保留独立权威；项目与批次只能引用经过合成质量审核的精确包。'));
-    const p=panel('Source Package 与 lineage','原始字节 SHA、Canonical Document SHA、人工 QA 记录摘要分别计算。');
+    root.append(heading('P2-D/E / SOURCE VERSION CONTROL','科学来源资料库',
+      '集中查看来源版本、用途状态、不可变结构化资料包及待任务引用的证明。'));
+    const p=panel('来源版本与 Source Package','原始 Artifact SHA、Canonical Document SHA 和逐单元 QA 记录分别留痕。');
+    const table=el('table',null,'p2-table p2-library-table');
+    const head=el('tr');
+    ['科学来源','来源类别','资格与处理状态','版本 / SHA','操作'].forEach(t=>head.append(el('th',t)));
+    table.append(append(el('thead'),head));
+    const tbody=el('tbody');
     for(const x of all()){
-      const row=el('div',null,'p2-version');
-      row.append(el('strong',x.id+' / '+x.v),chip(stages[x.stage]?.[0]||x.stage,
-        stages[x.stage]?.[1]||'muted'),el('span',(x.package||x.canonical||'未转换').slice(0,28)+'…','p2-id'));
+      const row=el('tr');row.className='p2-version-row';
+      const label=append(el('td'),el('strong',x.title),el('div',x.id,'p2-id'));
+      const status=stages[x.stage]||[x.stage,'muted'];
+      const proof=append(el('td'),el('div',x.v,'p2-id'),
+        el('small',(x.package||x.canonical||'NOT_YET_CONVERTED').slice(0,26)+'…'));
+      const actions=el('td');
       if(x.live&&canSubmit()&&x.stage==='QA_PENDING'&&x.doc){
-        row.append(button('检查并冻结',()=>perform(()=>api('/v1/p2/sources/'+x.id+'/'+x.v+'/freeze',{
+        actions.append(button('检查并冻结',()=>perform(()=>api('/v1/p2/sources/'+x.id+'/'+x.v+'/freeze',{
           method:'POST',body:{expected_document_sha256:x.doc}}),'已冻结合成资料包'),'small primary'));
       }
-      row.append(button('详情',()=>{state.selection=x.id+':'+x.v;state.drawer=true;draw()},'small'));
-      p.append(row);
-    }root.append(p);
-    const rules=panel('资料封存与任务引用的分界','即使合成 Package QA 完整并被冻结，仍不会向原 EA 注册真实资料，不会改变 TPA Task、B2 或 B3 Expert Grants。');
+      actions.append(button('详情',()=>{state.selection=x.id+':'+x.v;state.drawer=true;draw()},'small'));
+      row.append(label,el('td',types[x.type]||x.type),append(el('td'),chip(status[0],status[1])),proof,actions);
+      tbody.append(row);
+    }
+    table.append(tbody);p.append(append(el('div',null,'p2-table-wrap'),table));root.append(p);
+    const rules=panel('资料封存与任务引用的分界',
+      '即使合成 Package 已经 QA 冻结，仍不会自动注册原 EA 来源或变更 Task、B2、B3 专家授权。');
     rules.append(alert('SOURCE_PACKAGE_FROZEN（合成）≠ REAL_SOURCE_QUALIFIED ≠ GOLD_QUALIFIED ≠ EXPERT_EXPOSURE_AUTHORIZED。'));
     root.append(rules);
   }

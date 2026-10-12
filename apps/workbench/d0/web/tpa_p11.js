@@ -23,7 +23,7 @@
   // Explicit opt-in allows the original P1 controller to retain its old fallback routes.
   window.opsA5Enabled=true;
   const routes=['overview','projects','tasks','sources','studio','agent','experts','quality','audit'];
-  const labels={overview:'工作总览',projects:'项目与批次',tasks:'任务中心',sources:'科学资料库',studio:'科学资料准备 · P2',agent:'Agent 准备',experts:'专家与分配',quality:'进度与质控',audit:'审计与导出'};
+  const labels={overview:'工作总览',projects:'项目与批次',tasks:'任务中心',sources:'B1 合成来源引用',studio:'科学资料',agent:'Agent 准备',experts:'专家与分配',quality:'进度与质控',audit:'审计与导出'};
   const metric={preparing:'准备中',ready:'待分配',assigned:'已分配未发布',published:'已发布',revoked:'已撤销',blocked:'历史阻断'};
   // Demo status copy (P1.1-A Management Demo); English enum retained in DOM for acceptance checks.
   const stateLabel={DRAFT:'草稿待核验',VALIDATED:'定义已验证',DEFINITION_FROZEN:'定义已冻结',READY_FOR_ASSIGNMENT:'工作包已准备',ASSIGNED:'已分配待发布',PUBLISHED:'已发布可访问',REVOKED:'后续访问已撤销'};
@@ -321,6 +321,7 @@
     const page=frame('科学资料库 · 合成 Source Packages',
       '结构化来源包引用原 EA 已有版本；只管理元数据、来源谱系与校验摘要，不在管理端复制原文。');
     page.id='p11SourcesPage';
+    page.append(button('← 返回科学资料工作台',()=>navigate('studio'),'secondary'));
     page.append(notice('B1 为合成参考包操作。真实 PDF、MinerU、Markdown/HTML 导入、版权审核和临床资料均未开放。登记包 ≠ 来源科学合格 / Gold。'));
     const stats=e('div',undefined,'p11-source-stats');
     stats.append(e('span',`权威合成来源：${sourceData.length} 个`),
@@ -548,7 +549,10 @@
     for(const item of nav.querySelectorAll('button[data-p11-route]')){
       // Demo: keep 任务中心 highlighted while browsing nested 项目与批次.
       const onTasksFamily=active==='tasks'||active==='projects';
-      const current=(item.dataset.p11Route===active)||(item.dataset.p11Route==='tasks'&&onTasksFamily&&active==='projects');
+      const current=(item.dataset.p11Route===active)||
+        (item.dataset.p11Route==='tasks'&&onTasksFamily&&active==='projects')||
+        // B1 is a preserved nested scientific route, not a second primary nav.
+        (item.dataset.p11Route==='studio'&&active==='sources');
       item.setAttribute('aria-current',current?'page':'false');
     }
     $p('p11SectionTitle').textContent=labels[active];

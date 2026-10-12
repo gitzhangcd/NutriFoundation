@@ -141,11 +141,21 @@
 #workspace .p2-studio .p2-table-wrap{scrollbar-width:thin}
 #workspace .p2-studio .p2-table{min-width:790px}
 #workspace .p2-studio .p2-table tr:last-child td{border-bottom:0}
-#p2NavGroup{display:none;padding:0 0 7px 6px;margin-top:-3px;margin-bottom:8px}
-body[data-p11-view="studio"] .p2-studio .p2-tabs{display:none}
-body[data-p11-view="studio"] #p2NavGroup{display:grid}
-#p2NavGroup button{font-size:11px!important;padding:8px 12px 8px 26px!important;color:#779187!important}
-#p2NavGroup button[aria-current="page"]{background:#e9f4ee!important;color:#1e785e!important;border-left:3px solid #298e6f!important;border-radius:5px!important}
+/* WB-P2.1-A: one source subnavigation, inside the content area, across
+   management and independent QA surfaces. Horizontal scroll is container-only. */
+#workspace .p2-studio .p2-tabs{
+ display:flex;flex-flow:row nowrap;overflow-x:auto;overflow-y:hidden;
+ max-width:100%;min-width:0;gap:6px;scrollbar-width:thin;
+ overscroll-behavior-x:contain;scroll-snap-type:x proximity;
+ -webkit-overflow-scrolling:touch;
+}
+#workspace .p2-studio .p2-tabs .p2-tab{
+ flex:0 0 auto;white-space:nowrap;word-break:normal;
+ scroll-snap-align:start;min-width:max-content;
+}
+#workspace .p2-studio .p2-tabs .p2-tab:focus-visible{
+ outline:3px solid #559f88;outline-offset:-3px;
+}
 @media(max-width:1200px){
  #workspace .p2-studio .p2-pipeline{grid-template-columns:1fr}
  #workspace .p2-studio .p2-qa-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}

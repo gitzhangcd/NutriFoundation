@@ -313,6 +313,17 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
         if width in (390,680,768,1440):
             p.screenshot(path=str(output/f'p2-1-a-source-overview-{width}.png'),full_page=False)
     expect(p.locator('.p2-pipeline')).to_be_visible()
+    # A narrow-screen user can scroll to and activate the last tab without
+    # the SPA snapping its horizontal navigation back to the first tab.
+    p.set_viewport_size({'width':390,'height':844})
+    tabs=p.locator('.p2-tabs')
+    tabs.evaluate('(e)=>{e.scrollLeft=e.scrollWidth}')
+    assert tabs.evaluate('(e)=>e.scrollLeft')>0
+    tabs.locator('[data-p2-tab="audit"]').click()
+    expect(tabs.locator('[data-p2-tab="audit"]')).to_have_attribute('aria-current','page')
+    assert tabs.evaluate('(e)=>e.scrollLeft')>0
+    p.set_viewport_size({'width':1440,'height':1000})
+    p.locator('.p2-tabs [data-p2-tab="library"]').click()
     # Real keyboard navigation must keep focus after SPA subtree re-render.
     p.locator('.p2-tabs [data-p2-tab="qa"]').focus()
     p.keyboard.press('Enter')

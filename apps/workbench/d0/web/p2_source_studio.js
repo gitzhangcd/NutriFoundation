@@ -84,14 +84,21 @@
     }catch(err){state.notice='P2 后台读取失败：'+err.message;if(root?.isConnected)draw()}
     finally{state.loading=false}
   }
-  function view(tab){state.tab=tab;state.notice='';state.drawer=false;draw();}
+  function view(tab){
+    if(!Object.prototype.hasOwnProperty.call(tabs,tab))return;
+    state.tab=tab;state.notice='';state.drawer=false;draw();
+    // This SPA recreates its subtree; restore keyboard focus to the replacement
+    // tab rather than leaving focus on a removed DOM button.
+    root?.querySelector('.p2-tabs [data-p2-tab="'+tab+'"]')?.focus({preventScroll:true});
+  }
   function metaP(text){return el('p',text,'p2-dim')}
   function panel(title,description,css=''){const n=el('section',null,'p2-card '+css);
     if(title)n.append(el('h2',title));if(description)n.append(metaP(description));return n;}
   function nav(){
     const n=el('nav',null,'p2-tabs');n.setAttribute('aria-label','科学资料库二级导航');
     for(const [key,name]of Object.entries(tabs)){
-      const b=button(name,()=>view(key),'p2-tab '+(state.tab===key?'active':''));b.setAttribute('aria-current',state.tab===key?'page':'false');n.append(b);
+      const b=button(name,()=>view(key),'p2-tab '+(state.tab===key?'active':''));b.dataset.p2Tab=key;
+      b.setAttribute('aria-current',state.tab===key?'page':'false');n.append(b);
     }return n;
   }
   function heading(eyebrow,title,description,actions=[]){
@@ -114,8 +121,6 @@
     const breadcrumb=el('div','工作空间  ›  科学资料库  ›  '+(tabs[state.tab]||'资料总览'),'p2-breadcrumb');
     n.append(breadcrumb,alert('架构安全边界：当前仅使用合成测试来源与受控结构化记录。真实 PDF、外部来源资格、Gold、正式专家授权及真实部署仍为 NO-GO。','info'));
     n.append(context(),nav());
-    for(const b of document.querySelectorAll("#p2NavGroup [data-p2-tab]"))
-      b.setAttribute("aria-current",b.dataset.p2Tab===state.tab?"page":"false");
     if(state.notice)n.append(alert(state.notice,'note'));
     return n;
   }
@@ -223,7 +228,8 @@
   function library(){
     root.append(heading('02 / SOURCE OPERATIONS','科学资料库',
       '真实科学资料的准备入口：先核对来源和权限，再进行结构转换、证据定位与人工验收。',
-      [button('查看转换队列',()=>view('convert'),'outline'),button('＋ 登记科学来源',()=>startIntake(),'primary')]));
+      [...(document.getElementById('p11Nav')?[button('B1 合成来源引用 ↗',()=>{location.hash='#/sources'},'outline')]:[]),
+       button('查看转换队列',()=>view('convert'),'outline'),button('＋ 登记科学来源',()=>startIntake(),'primary')]));
     root.append(pipeline(),overviewCards(),sourceList());
   }
   function renderIntake(){
@@ -615,11 +621,7 @@
   window.p2SourceStudio={render,reload,reset,selectTab:view};
   document.addEventListener('DOMContentLoaded',()=>{
     document.getElementById('logoutButton')?.addEventListener('click',reset);
-    document.getElementById('p2NavGroup')?.addEventListener('click',event=>{
-      const target=event.target.closest('[data-p2-tab]');if(!target)return;
-      state.tab=target.dataset.p2Tab;
-      if(!location.hash.startsWith('#/studio'))location.hash='#/studio';
-      else draw();
-    });
+    // The only P2 secondary navigation is now the in-content .p2-tabs.
+    // Do not reinstall a competing sidebar handler.
   });
 })();

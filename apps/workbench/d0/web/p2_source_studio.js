@@ -196,7 +196,8 @@
     const rows=state.liveSources;
     const groups=[['待权利审核',rows.filter(x=>x.status==='RIGHTS_HOLD').length,'RIGHTS_HOLD'],
       ['待结构化',rows.filter(x=>x.status==='RIGHTS_ACCEPTED').length,'RIGHTS_ACCEPTED'],
-      ['待人工 QA',rows.filter(x=>x.status==='QA_PENDING').length,'QA_PENDING']];
+      ['待人工 QA',rows.filter(x=>x.status==='QA_PENDING').length,'QA_PENDING'],
+      ['QA 阻断',rows.filter(x=>x.status==='QA_HOLD').length,'QA_HOLD']];
     const bar=el('section',null,'p2-queue-summary'),intro=el('div',null,'p2-queue-intro');
     append(intro,el('strong','从资料队列开始','p2-queue-title'),
       el('span','先找到一篇文献，再按状态进入下一步；统计仅为合成来源。','p2-scope-description'));
@@ -297,6 +298,7 @@
     });
     for(const x of rows){
       const row=el('tr'),idcell=el('td');
+      if(!x.live)row.classList.add('p2-demo-row');
       idcell.append(el('strong',x.title),el('div',x.id+' · '+x.v,'p2-id'),
         chip(x.live?'持久化合成记录':'DEMO · 不可用于科研','muted'));
       const status=stages[x.stage]||[x.stage,'muted'],guide=nextStep(x);
@@ -403,11 +405,18 @@
       draw();
     }catch(err){state.notice='结构化文档/原文/审查记录无法完成独立核验：'+err.message;draw();}
   }
+  function setUnitIndex(i){
+    const count=qaUnits().length;
+    if(!count)return;
+    state.unitIndex=((i%count)+count)%count;draw();
+    root?.querySelectorAll('.p2-structured-pane .p2-unit')[state.unitIndex]?.scrollIntoView({block:'nearest',inline:'nearest'});
+  }
   function qa(){
     root.append(heading('P2-C/D / HUMAN SOURCE QA','结构化资料 QA 阅读器',
       '原文为权威，结构化正文负责阅读与定位；译文仅为辅助，不参与原始证据 SHA。',
       [button(state.highlighted?'隐藏锚点对应':'显示锚点对应',()=>{state.highlighted=!state.highlighted;draw()},'outline'),
-       button('下一个待检查单元',()=>{const units=qaUnits();state.unitIndex=(state.unitIndex+1)%units.length;draw()},'outline'),
+       button('← 上一单元',()=>setUnitIndex(state.unitIndex-1),'outline'),
+        button('下一单元 →',()=>setUnitIndex(state.unitIndex+1),'outline'),
        button('申请封存检查',()=>{state.notice='封存失败或待批准：必须完成独立权利记录、全部 Unit QA、真实定位审查及精确 SHA；本页不签发 Gold/Expert Grant。';draw()},'primary')]));
     const selector=el('div',null,'p2-reader-select');selector.append(chip('SOURCE · SYNTHETIC_ONLY','muted'));
     const opts=all().filter(x=>x.live).map(x=>[x.id+':'+x.v,x.id+' / '+x.v+' · '+x.stage]);
@@ -461,7 +470,7 @@
     for(const [i,u]of units.entries()){
       const item=el('button',null,'p2-unit'+(i===state.unitIndex?' selected':''));
       item.type='button';item.setAttribute('aria-pressed',i===state.unitIndex?'true':'false');
-      item.addEventListener('click',()=>{state.unitIndex=i;draw()});
+      item.addEventListener('click',()=>setUnitIndex(i));
       item.append(el('span',u.unit_id+' · '+u.kind,'p2-unit-meta'));
       if(actual&&state.reviewed.has(u.unit_id))item.append(chip('已提交 QA','teal'));
       if(state.display!=='translation'){

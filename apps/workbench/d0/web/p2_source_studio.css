@@ -207,3 +207,7 @@ body[data-p11-view="studio"] #p2NavGroup{display:grid}
  #workspace .p2-studio .p2-flow-step strong{font-size:11px}
  #workspace .p2-studio .p2-flow-step small{font-size:9px}
 }
+
+#workspace .p2-studio .p2-original-text mark.p2-highlighted-quote,
+#workspace .p2-studio mark.p2-highlighted-quote{background:#ffefa9;color:#6d5526;
+  border-radius:2px;padding:1px 2px;box-decoration-break:clone}

@@ -154,8 +154,9 @@
   }
   function frame(){
     const n=el('div',null,'p2-studio');
-    const breadcrumb=el('div','工作空间  ›  科学资料库  ›  '+(tabs[state.tab]||'资料总览'),'p2-breadcrumb');
-    n.append(breadcrumb,alert('架构安全边界：当前仅使用合成测试来源与受控结构化记录。真实 PDF、外部来源资格、Gold、正式专家授权及真实部署仍为 NO-GO。','info'));
+    const breadcrumb=el('div','工作空间  ›  科学资料  ›  '+(tabs[state.tab]||'资料总览'),'p2-breadcrumb');
+    const safety=alert('合成测试环境｜真实 PDF、外部 MinerU、科学来源资格、Gold 和正式专家访问均未开放。','info');
+    safety.classList.add('p2-safety-banner');n.append(breadcrumb,safety);
     // The hash-chained audit is global; Project / Batch never scopes its
     // verification. Independent Curator/Auditor sessions have no TPA scope.
     if(state.tab!=='audit'&&document.getElementById('p11Nav'))n.append(context());

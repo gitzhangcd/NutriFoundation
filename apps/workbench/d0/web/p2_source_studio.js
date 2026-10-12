@@ -36,7 +36,7 @@
   const types={RANDOMIZED_TRIAL:'随机对照试验',OBSERVATIONAL_STUDY:'观察性研究',
     SYSTEMATIC_REVIEW_META:'系统综述',GUIDELINE:'指南 / 共识',CONSENSUS:'专家共识',
     NARRATIVE_REVIEW:'叙述性综述',CORRECTION_RETRACTION:'更正 / 撤稿'};
-  let state={tab:'library',selection:'P2-DEMO-RCT-001',search:'',status:'',kindFilter:'',unitIndex:0,
+  let state={tab:'library',selection:'P2-DEMO-RCT-001',search:'',status:'',kindFilter:'',unitIndex:0,highlighted:false,
     display:'bilingual',drawer:false,wizard:false,step:0,notice:'',liveSources:[],overview:null,
     document:null,original:null,translations:new Map(),reviewed:new Set(),draft:null,scope:{project:'',batch:''},projects:[],
     batches:new Map(),role:'manager',session:null,sourceCount:0,loading:false,intakePreset:null,auditResult:null};
@@ -44,7 +44,7 @@
   const selected=()=>all().find(x=>x.id+':'+x.v===state.selection)||all().find(x=>x.id===state.selection)||all()[0];
   const all=()=>state.liveSources.map(x=>({
     id:x.source_id,v:x.revision_id,title:x.title,type:x.source_type,kind:x.raw_format,
-    stage:x.status,rights:x.rights_status,project:'',batch:'',units:x.unit_count||0,
+    stage:x.status,rights:x.rights_status,identifier:x.identifier||'',project:'',batch:'',units:x.unit_count||0,
     raw:x.raw_artifact_sha256,canonical:x.document_sha256||'NOT_YET_CONVERTED',
     risk:'独立权利与 Human QA 记录须核查',live:true,doc:x.document_sha256,
     package:x.package_sha256,reviewed:x.reviewed_units||0,source:x
@@ -202,7 +202,7 @@
     const body=table.querySelector('tbody');body.replaceChildren();
     const src=all().filter(x=>{
       const f=state.search.trim().toLowerCase();
-      return (!f||[x.title,x.id,x.type].join(' ').toLowerCase().includes(f))&&
+      return (!f||[x.title,x.id,x.type,x.identifier||''].join(' ').toLowerCase().includes(f))&&
         (!state.status||x.stage===state.status)&&(!state.kindFilter||x.type===state.kindFilter)&&
         (x.live||(!state.scope.project&&!state.scope.batch));
     });
@@ -293,7 +293,8 @@
   function qa(){
     root.append(heading('P2-C/D / HUMAN SOURCE QA','结构化资料 QA 阅读器',
       '原文为权威，结构化正文负责阅读与定位；译文仅为辅助，不参与原始证据 SHA。',
-      [button('下一个待检查单元',()=>{const units=qaUnits();state.unitIndex=(state.unitIndex+1)%units.length;draw()},'outline'),
+      [button(state.highlighted?'隐藏锚点对应':'显示锚点对应',()=>{state.highlighted=!state.highlighted;draw()},'outline'),
+       button('下一个待检查单元',()=>{const units=qaUnits();state.unitIndex=(state.unitIndex+1)%units.length;draw()},'outline'),
        button('申请封存检查',()=>{state.notice='封存失败或待批准：必须完成独立权利记录、全部 Unit QA、真实定位审查及精确 SHA；本页不签发 Gold/Expert Grant。';draw()},'primary')]));
     const selector=el('div',null,'p2-reader-select');selector.append(chip('SOURCE · SYNTHETIC_ONLY','muted'));
     const opts=all().filter(x=>x.live).map(x=>[x.id+':'+x.v,x.id+' / '+x.v+' · '+x.stage]);
@@ -316,10 +317,19 @@
     sheet.append(el('small',actual?'ORIGINAL ARTIFACT · VERIFIED SHA':'SYNTHETIC DOCUMENT EXCERPT'),el('h3','ABSTRACT / METHODS'));
     const units=qaUnits();
     if(actual){
-      const originalText=el('pre',state.original.raw_content,'p2-original-text');
+      const originalText=el('pre',null,'p2-original-text');
+      const raw=state.original.raw_content||'',target=units[state.unitIndex]?.text||'';
+      const index=(state.highlighted&&target)?raw.indexOf(target):-1;
+      if(index>=0)originalText.append(document.createTextNode(raw.slice(0,index)),
+        el('mark',target,'p2-highlighted-quote'),document.createTextNode(raw.slice(index+target.length)));
+      else originalText.textContent=raw;
       sheet.append(originalText);
     }else{
-      for(const u of units.slice(0,3))sheet.append(el('p',u.text));
+      for(const [i,u]of units.slice(0,3).entries()){
+        const p=el('p');
+        if(state.highlighted&&i===state.unitIndex)p.append(el('mark',u.text,'p2-highlighted-quote'));
+        else p.textContent=u.text;sheet.append(p);
+      }
     }
     sheet.append(el('strong',actual?'RAW SOURCE SHA VERIFIED · SYNTHETIC':'DEMO ONLY'));
     original.append(sheet,metaP('原始 PDF 未加载；页面坐标未获独立验证。'));
@@ -332,9 +342,9 @@
       item.append(el('span',u.unit_id+' · '+u.kind,'p2-unit-meta'));
       if(state.display!=='translation'){
         const paragraph=el('div',null,'p2-reader-paragraph');
-        const text=u.text||'';const a=text.length>40?Math.min(18,text.length-1):0;
-        if(a){paragraph.append(document.createTextNode(text.slice(0,a)),el('mark',text.slice(a,Math.min(a+25,text.length))),document.createTextNode(text.slice(Math.min(a+25,text.length))));}
-        else paragraph.append(document.createTextNode(text));
+        const text=u.text||'';
+        if(state.highlighted&&i===state.unitIndex)paragraph.append(el('mark',text,'p2-highlighted-quote'));
+        else paragraph.textContent=text;
         item.append(paragraph);
       }
       if(state.display!=='original'){
@@ -566,7 +576,7 @@
   }
   function reset(){
     state.tab='library';state.selection='P2-DEMO-RCT-001';state.search='';state.status='';
-    state.kindFilter='';state.unitIndex=0;state.display='bilingual';state.drawer=false;
+    state.kindFilter='';state.unitIndex=0;state.highlighted=false;state.display='bilingual';state.drawer=false;
     state.wizard=false;state.draft=null;state.intakePreset=null;state.auditResult=null;state.document=null;state.original=null;state.translations=new Map();state.notice='';
     state.reviewed=new Set();state.liveSources=[];state.overview=null;
   }

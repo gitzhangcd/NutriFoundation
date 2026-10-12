@@ -315,3 +315,5 @@
 #workspace .p2-studio .p2-source-queue .p2-demo-row:hover{background:#f4f8f6}
 #workspace .p2-studio .p2-source-queue .p2-demo-row td:first-child{border-left:3px solid #d8e5dd}
 #workspace .p2-studio .p2-unit:focus-visible{outline:3px solid #96cbb7;outline-offset:2px}
+
+#workspace .p2-studio .p2-safety-banner{padding:8px 12px;margin:0 0 10px;font-size:11px;line-height:1.5}

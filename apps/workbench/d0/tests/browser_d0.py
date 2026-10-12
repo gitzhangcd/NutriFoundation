@@ -288,7 +288,9 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(p.locator('.p2-studio')).to_be_visible(timeout=15000)
     expect(p.locator('#p2TableTarget tbody tr')).to_have_count(6)
     expect(p.locator('.p2-studio')).to_contain_text('资料准备流水线')
-    expect(p.locator('.p2-phases .p2-phase')).to_have_count(5)
+    expect(p.locator('.p2-flow-step')).to_have_count(4)
+    expect(p.locator('.p2-choices .p2-choice')).to_have_count(4)
+    expect(p.locator('#p2NavGroup [data-p2-tab]')).to_have_count(6)
     p.screenshot(path=str(output/'p2-html-v02-aligned-overview-desktop.png'),full_page=True)
     p.set_viewport_size({'width':390,'height':844})
     expect(p.locator('.p2-pipeline')).to_be_visible()
@@ -372,7 +374,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     p.locator('.p2-version').filter(has_text=source_id).get_by_role('button',name='检查并冻结').click()
     expect(p.locator('.p2-studio')).to_contain_text('已冻结合成资料包',timeout=20000)
     assert producer_context.request.get(url+'/v1/p2/sources/'+source_id+'/r1').json()['status']=='PACKAGE_FROZEN'
-    checks.extend(['p2_html_fidelity_five_stage_and_six_example_rows','p2_synthetic_source_persisted_intake',
+    checks.extend(['p2_html_fidelity_four_stage_four_intake_six_nav_and_six_example_rows','p2_synthetic_source_persisted_intake',
                    'p2_separate_rights_and_no_raw_auditor','p2_curator_original_sha_and_all_units',
                    'p2_immutable_package_freeze_no_expert_grant','p2_auxiliary_translation_has_independent_lineage'])
     p.screenshot(path=str(output/'p2-source-studio-producer-synthetic.png'),full_page=True)

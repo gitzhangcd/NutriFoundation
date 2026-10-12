@@ -422,9 +422,18 @@
     const doc=state.document,actual=!!(canReview()&&doc?.document&&state.original?.raw_artifact_sha256===doc.document.raw_artifact_sha256);
     root.append(alert(actual?'当前展示已持久化的合成结构化资料，只有 Source Curator 可提交逐单元 QA。':
       '当前为内置的虚构演示片段。Producer 仅查看界面样例，不代表拥有真实来源全文或 Curator 审核权限。','warning'));
+    const progressUnits=qaUnits(),progressDone=canReview()&&state.document?.document?state.reviewed.size:0;
+    const progress=el('div',null,'p2-qa-progress');
+    append(progress,el('strong','核验进度：'+progressDone+' / '+progressUnits.length+' Unit'),
+      el('span',canReview()&&state.document?.document?
+        '只统计服务端已持久化的独立 QA；缺失或拒绝均阻断冻结。':
+        '演示单元不计入真实 QA；仅独立 Curator 能保存审核结果。'));
+    const track=el('div',null,'p2-progress-track'),fill=el('span',null,'p2-progress-fill');
+    fill.style.width=(100*progressDone/Math.max(progressUnits.length,1))+'%';
+    track.append(fill);progress.append(track);root.append(progress);
     const grid=el('div',null,'p2-qa-grid');
     const original=panel('原始资料对照','Source Artifact · Page Hint。');
-    const sheet=el('div',null,'p2-pdf-sheet');
+    const sheet=el('div',null,'p2-pdf-sheet');sheet.dataset.p2ReadSurface='original';
     sheet.append(el('small',actual?'ORIGINAL ARTIFACT · VERIFIED SHA':'SYNTHETIC DOCUMENT EXCERPT'),el('h3','ABSTRACT / METHODS'));
     const units=qaUnits();
     if(actual){
@@ -446,11 +455,13 @@
     original.append(sheet,metaP('原始 PDF 未加载；页面坐标未获独立验证。'));
     grid.append(original);
     const middle=panel('Structured Document IR','稳定 Unit ID · 段落级对照 · 原文 SHA 独立');
+    middle.classList.add('p2-structured-pane');middle.dataset.p2ReadSurface='structured';
     for(const [i,u]of units.entries()){
       const item=el('button',null,'p2-unit'+(i===state.unitIndex?' selected':''));
       item.type='button';item.setAttribute('aria-pressed',i===state.unitIndex?'true':'false');
       item.addEventListener('click',()=>{state.unitIndex=i;draw()});
       item.append(el('span',u.unit_id+' · '+u.kind,'p2-unit-meta'));
+      if(actual&&state.reviewed.has(u.unit_id))item.append(chip('已提交 QA','teal'));
       if(state.display!=='translation'){
         const paragraph=el('div',null,'p2-reader-paragraph');
         const text=u.text||'';
@@ -466,6 +477,7 @@
       middle.append(item);
     }grid.append(middle);
     const right=panel('Evidence Anchor','QA · Source Curator');
+    right.classList.add('p2-qa-side');right.dataset.p2ReadSurface='review';
     const u=units[state.unitIndex]||units[0];
     const span=append(el('dl',null,'p2-facts'),
       el('dt','Evidence Unit'),el('dd',u.unit_id+' · '+u.kind),
@@ -473,7 +485,8 @@
       el('dt','UTF-16 Span'),el('dd','0 → '+String(u.utf16_length||u.text.length)),
       el('dt','Canonical SHA'),el('dd',actual?doc.document_sha256:'NOT_COMPUTED_DEMO'),
       el('dt','PDF Locator'),el('dd',u.pdf_locator_status||'UNRESOLVED'));
-    right.append(chip(actual?'ORIGINAL_SPAN_CHECK_PENDING':'DEMO_TEXT_ONLY','blue'),span);
+    right.append(chip(actual?(state.reviewed.has(u.unit_id)?'已提交独立 Unit QA':'ORIGINAL_SPAN_CHECK_PENDING'):'DEMO_TEXT_ONLY',
+      actual&&state.reviewed.has(u.unit_id)?'teal':'blue'),span);
     right.append(alert('本地段落高亮不等于来自 PDF 的唯一定位。表格及数字、剂量和单位必须独立核验。','warning'));
     if(actual){
       if(canReview()&&!state.translations.has(u.unit_id)){
@@ -592,6 +605,17 @@
     const top=el('div',null,'p2-drawer-top');
     append(top,el('h2','来源详情 · '+x.id),button('关闭',()=>{state.drawer=false;draw()},'outline'));
     card.append(top,chip(x.live?'受控合成登记':'演示数据 · 非已登记来源',x.live?'teal':'red'),el('h3',x.title));
+    const guide=nextStep(x),flow=el('section',null,'p2-detail-workflow');
+    append(flow,el('span','当前阶段 · '+(stages[x.stage]?.[0]||x.stage),'p2-detail-eyebrow'),
+      el('strong',guide.title),el('p',guide.detail));
+    const steps=el('div',null,'p2-detail-path');
+    for(const [name,passed]of [
+      ['来源 / 用途',x.live&&x.stage!=='RIGHTS_HOLD'],
+      ['结构化',x.live&&['QA_PENDING','QA_HOLD','PACKAGE_FROZEN'].includes(x.stage)],
+      ['完整 QA',x.live&&x.stage==='PACKAGE_FROZEN'],
+      ['资料包',x.live&&x.stage==='PACKAGE_FROZEN']
+    ])steps.append(chip((passed?'✓ ':'○ ')+name,passed?'teal':'muted'));
+    flow.append(steps);card.append(flow);
     const table=el('dl',null,'p2-facts');
     for(const [name,value]of [
       ['Source / Revision',x.id+' / '+x.v],['文献类型',types[x.type]||x.type],['文件类型',x.kind],
@@ -689,6 +713,8 @@
     // Preserve the user's horizontal navigation position when the SPA swaps
     // its content subtree; otherwise a tapped off-screen tab jumps away.
     const secondaryScroll=root.querySelector('.p2-tabs')?.scrollLeft||0;
+    const readerScroll={};
+    root.querySelectorAll('[data-p2-read-surface]').forEach(n=>{readerScroll[n.dataset.p2ReadSurface]=n.scrollTop});
     const outer=root.parentElement,component=frame();outer.replaceChild(component,root);root=component;
     const secondary=root.querySelector('.p2-tabs');
     if(secondary)secondary.scrollLeft=secondaryScroll;
@@ -698,6 +724,10 @@
     else if(state.tab==='qa')qa();
     else if(state.tab==='audit')audit();
     else versions();
+    root.querySelectorAll('[data-p2-read-surface]').forEach(n=>{
+      if(Object.prototype.hasOwnProperty.call(readerScroll,n.dataset.p2ReadSurface))
+        n.scrollTop=readerScroll[n.dataset.p2ReadSurface];
+    });
     if(state.drawer)root.append(detailDrawer());
     if(state.wizard)root.append(sourceWizard());
   }

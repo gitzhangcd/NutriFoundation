@@ -35,3 +35,19 @@
 - No real scientific source, licensed PDF, live MinerU, real institution IAM, Gold eligibility, or expert access.
 - Mobile nav is horizontally scrollable; the visual affordance and discoverability need human screenshot review. CI DOM assertions are not a complete accessibility audit.
 - Do not merge this stacked PR to main or call UX frozen until exact-SHA CI and visual review are complete.
+
+
+## User review addendum: Project / Batch scope toolbar
+
+The user-provided audit screenshot of `科学资料 → 审计与版本记录` showed two full-width Project/Batch dropdown rows consuming much of the first viewport, despite the P2 audit endpoint being a **global hash-chain audit**, not a scoped source list.
+
+The following UI contract now applies to the P2.1-A branch:
+
+- In regular management Source Studio views, replace the always-expanded form with a compact one-row **资料范围 / 全部来源 · 未筛选** indicator and `按项目 / 批次筛选` disclosure button.
+- The visible explanatory text states: **只筛选已关联的来源版本，不改变资料资格或专家权限**. The filter selects exact source-version usage references (P2 `p2_usage`), not source qualifications, raw access, expert grants or permissions.
+- Show labeled Project and dependent Batch dropdowns **only when expanded**. Batch is disabled until a Project is selected; no projects shows a truthful empty state linking creation conceptually to the Task Center. Active scope shows a summary with a one-click `清除`.
+- The global `审计与版本记录` view **must not display** these controls. Independent `/source-qa` auditor / curator sessions have no management Project/Batch selector.
+- Keep source-qualification QA, per-unit provenance and Strict-Blind gates unchanged.
+- Native browser check: collapsed control height under 120px across 390–1440px viewport samples, expand/collapse works, explanatory copy is visible, global audit has no context control. No page-wide overflow is permitted.
+
+This addendum addresses the actual feedback only. Source-list priority, demo fixture isolation, lifecycle context and long-document QA remain deferred to P2.1-B/C/D.

@@ -69,6 +69,10 @@
     // Rendering is immediate; hashchange provides browser back/forward replay.
     render();
   }
+  // Controlled B1 entry used by the unified P2 source workspace.
+  // Reuse the original route builder so selected Source ID + Revision and
+  // Project/Batch context survive the trip; no raw data or grants are exposed.
+  window.opsA5OpenB1SourceReferences=()=>navigate('sources');
   function readRoute(){
     const raw=location.hash.startsWith('#/')?location.hash.slice(2):'';
     const [name,query='']=raw.split('?');

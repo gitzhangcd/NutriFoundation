@@ -228,7 +228,7 @@
   function library(){
     root.append(heading('02 / SOURCE OPERATIONS','科学资料库',
       '真实科学资料的准备入口：先核对来源和权限，再进行结构转换、证据定位与人工验收。',
-      [...(document.getElementById('p11Nav')?[button('B1 合成来源引用 ↗',()=>{location.hash='#/sources'},'outline')]:[]),
+      [...(document.getElementById('p11Nav')?[button('B1 合成来源引用 ↗',()=>{window.opsA5OpenB1SourceReferences?.()},'outline')]:[]),
        button('查看转换队列',()=>view('convert'),'outline'),button('＋ 登记科学来源',()=>startIntake(),'primary')]));
     root.append(pipeline(),overviewCards(),sourceList());
   }

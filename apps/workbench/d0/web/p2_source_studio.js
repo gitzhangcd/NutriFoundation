@@ -154,8 +154,9 @@
   }
   function frame(){
     const n=el('div',null,'p2-studio');
-    const breadcrumb=el('div','工作空间  ›  科学资料库  ›  '+(tabs[state.tab]||'资料总览'),'p2-breadcrumb');
-    n.append(breadcrumb,alert('架构安全边界：当前仅使用合成测试来源与受控结构化记录。真实 PDF、外部来源资格、Gold、正式专家授权及真实部署仍为 NO-GO。','info'));
+    const breadcrumb=el('div','工作空间  ›  科学资料  ›  '+(tabs[state.tab]||'资料总览'),'p2-breadcrumb');
+    const safety=alert('合成测试环境｜真实 PDF、外部 MinerU、科学来源资格、Gold 和正式专家访问均未开放。','info');
+    safety.classList.add('p2-safety-banner');n.append(breadcrumb,safety);
     // The hash-chained audit is global; Project / Batch never scopes its
     // verification. Independent Curator/Auditor sessions have no TPA scope.
     if(state.tab!=='audit'&&document.getElementById('p11Nav'))n.append(context());
@@ -171,6 +172,43 @@
       statBox(String(sources.filter(x=>['RIGHTS_HOLD','VERSION_REVIEW'].includes(x.stage)).length).padStart(2,'0'),'待来源资格核查','未核准禁止进入结构转换'),
       statBox(String(sources.filter(x=>['QA_PENDING','QA_HOLD'].includes(x.stage)).length).padStart(2,'0'),'待人工 QA','数字、表格与原始锚点需核验'),
       statBox(String(sources.filter(x=>['PACKAGE_FROZEN','PACKAGE_DESIGN_PREVIEW'].includes(x.stage)).length).padStart(2,'0'),'已封存（含演示）','不表示真实科研或专家授权'));
+  }
+  // Presentation-only guidance; P2 rights, QA and grant checks remain server-owned.
+  function nextStep(x){
+    if(!x.live)return {title:'演示资料 · 不可操作',detail:'虚构条目不构成已登记或合格来源。',button:'查看演示说明'};
+    if(x.stage==='RIGHTS_HOLD')return {title:'等待独立用途审核',detail:'Auditor 签署后，Producer 才能结构化。',button:canRights()?'查看并审核':'查看待核要求'};
+    if(x.stage==='RIGHTS_ACCEPTED')return {title:'准备结构化转换',detail:'Producer 生成可追溯 ParserRun 与 Document IR。',button:canSubmit()?'进入转换作业':'查看转换条件'};
+    if(x.stage==='QA_PENDING')return {title:'继续逐单元 QA',detail:'Curator 核对原文、数值、表格与锚点。',button:canReview()?'继续核验':'查看 QA 进度'};
+    if(x.stage==='QA_HOLD')return {title:'存在 QA 阻断',detail:'保留旧 QA；需要新版本修复，不可原位覆盖。',button:canReview()?'查看 QA 问题':'查看阻断原因'};
+    if(x.stage==='PACKAGE_FROZEN')return {title:'查看冻结资料包',detail:'仍不形成 Gold 或专家授权。',button:'查看资料包'};
+    if(x.stage==='VERSION_REVIEW')return {title:'核对来源版本',detail:'更正、撤稿或原文版本关系待确认。',button:'查看来源详情'};
+    return {title:'检查当前处理阶段',detail:'状态不代表真实科研资料已经合格。',button:'查看详情'};
+  }
+  function openNextStep(x){
+    state.selection=x.id+':'+x.v;
+    if(x.live&&x.stage==='RIGHTS_ACCEPTED'&&canSubmit()){view('convert');return;}
+    if(x.live&&['QA_PENDING','QA_HOLD'].includes(x.stage)&&canReview()){
+      state.tab='qa';state.drawer=false;draw();loadSelectedDocument();return;
+    }
+    if(x.live&&x.stage==='PACKAGE_FROZEN'){view('versions');return;}
+    state.drawer=true;draw();
+  }
+  function queueSummary(){
+    const rows=state.liveSources;
+    const groups=[['待权利审核',rows.filter(x=>x.status==='RIGHTS_HOLD').length,'RIGHTS_HOLD'],
+      ['待结构化',rows.filter(x=>x.status==='RIGHTS_ACCEPTED').length,'RIGHTS_ACCEPTED'],
+      ['待人工 QA',rows.filter(x=>x.status==='QA_PENDING').length,'QA_PENDING'],
+      ['QA 阻断',rows.filter(x=>x.status==='QA_HOLD').length,'QA_HOLD']];
+    const bar=el('section',null,'p2-queue-summary'),intro=el('div',null,'p2-queue-intro');
+    append(intro,el('strong','从资料队列开始','p2-queue-title'),
+      el('span','先找到一篇文献，再按状态进入下一步；统计仅为合成来源。','p2-scope-description'));
+    const counts=el('div',null,'p2-queue-counts');
+    for(const [label,count,status]of groups){
+      const b=button(label+'  '+count,()=>{state.status=status;draw()},'p2-queue-counter');
+      b.setAttribute('aria-label','筛选'+label+'的合成来源');
+      b.setAttribute('aria-pressed',state.status===status?'true':'false');counts.append(b);
+    }
+    bar.append(intro,counts);return bar;
   }
   function startIntake(format='MARKDOWN',identifier='SYNTHETIC_ID'){
     state.intakePreset={format,identifier};state.wizard=true;state.step=0;state.draft=null;draw();
@@ -220,56 +258,78 @@
   }
   function statFilter(){
     const bar=el('div',null,'p2-status-tabs');
-    for(const [id,label] of [['','全部资料'],['RIGHTS_HOLD','来源待核'],['CONVERSION_REVIEW','转换中'],['QA_PENDING','人工 QA'],['PACKAGE_FROZEN','已封存'],['VERSION_REVIEW','版本待核']]){
-      const b=button(label,()=>{state.status=id;draw()},'p2-filter-chip'+(state.status===id?' active':''));bar.append(b);
+    for(const [id,label] of [['','全部资料'],['RIGHTS_HOLD','来源待核'],['RIGHTS_ACCEPTED','待结构化'],['CONVERSION_REVIEW','转换中'],['QA_PENDING','人工 QA'],['QA_HOLD','QA 阻断'],['PACKAGE_FROZEN','已封存'],['VERSION_REVIEW','版本待核']]){
+      const b=button(label,()=>{state.status=id;draw()},'p2-filter-chip'+(state.status===id?' active':''));
+      b.setAttribute('aria-pressed',state.status===id?'true':'false');bar.append(b);
     }return bar;
   }
   function sourceList(){
-    const wrap=panel('科学来源列表','以版本 SHA 和列表优先模式展示；项目/批次是引用范围，来源版本由全局权威管理。');
-    const right=button('查看来源版本谱系 ↗',()=>view('versions'),'outline');
-    wrap.insertBefore(right,wrap.children[1]||null);
-    wrap.append(statFilter());
+    const wrap=panel('科学资料工作队列','选择来源版本，查看当前阶段、负责人和下一步操作。');
+    wrap.classList.add('p2-source-queue');
+    const actions=el('div',null,'p2-queue-actions');
+    actions.append(button('＋ 登记新来源',()=>startIntake(),'primary'),
+      button('查看版本谱系 ↗',()=>view('versions'),'outline'));
+    wrap.append(actions,statFilter());
     const searchbar=el('div',null,'p2-toolbar');
     const search=textInput(state.search,160);search.placeholder='搜索标题、DOI、PMID 或 Source ID';
-    search.setAttribute('aria-label','搜索科学来源');search.addEventListener('input',()=>{state.search=search.value;renderTable()});
+    search.setAttribute('aria-label','搜索科学来源');
+    search.addEventListener('input',()=>{state.search=search.value;renderTable()});
     const kind=select([['','全部文献类型']].concat(Object.entries(types)),state.kindFilter,
       v=>{state.kindFilter=v;renderTable()});
     searchbar.append(search,kind,button('刷新真实登记状态',()=>reload(),'outline'));
     wrap.append(searchbar);
     const scroll=el('div',null,'p2-table-wrap'),table=el('table',null,'p2-table');table.id='p2TableTarget';
-    const th=el('thead'),head=el('tr');['来源 / 版本','文献类别','来源资格','结构化与 QA','Project / Batch','操作'].forEach(t=>head.append(el('th',t)));
+    const th=el('thead'),head=el('tr');
+    ['来源 / 版本','当前阶段','下一步与责任角色','QA 进度','Project / Batch','操作'].forEach(t=>head.append(el('th',t)));
     th.append(head);table.append(th,el('tbody'));scroll.append(table);wrap.append(scroll);
-    wrap.append(metaP('演示记录与真实合成阶段记录已分开标识；不显示受控原始正文，也不提供专家 Candidate 访问。'));
+    wrap.append(metaP('DEMO 为虚构界面样例；持久化记录也仅用于隔离合成验证。资料冻结不会自动开放专家阅读。'));
     renderTableInto(table);return wrap;
   }
   function renderTableInto(table){
     const body=table.querySelector('tbody');body.replaceChildren();
-    const src=all().filter(x=>{
+    const rows=all().filter(x=>{
       const f=state.search.trim().toLowerCase();
       return (!f||[x.title,x.id,x.type,x.identifier||''].join(' ').toLowerCase().includes(f))&&
         (!state.status||x.stage===state.status)&&(!state.kindFilter||x.type===state.kindFilter)&&
         (x.live||(!state.scope.project&&!state.scope.batch));
+    }).sort((a,b)=>{
+      if(a.live!==b.live)return a.live?-1:1;
+      const order={QA_HOLD:0,QA_PENDING:1,RIGHTS_HOLD:2,RIGHTS_ACCEPTED:3,VERSION_REVIEW:4,CONVERSION_REVIEW:5,PACKAGE_FROZEN:6,PACKAGE_DESIGN_PREVIEW:7};
+      return (order[a.stage]??9)-(order[b.stage]??9)||a.title.localeCompare(b.title);
     });
-    for(const x of src){
-      const r=el('tr'),idcell=el('td'),title=el('strong',x.title),info=el('div',x.id+' · '+x.v,'p2-id');
-      idcell.append(title,info,chip(x.live?'持久化合成记录':'演示条目','muted'));
-      const status=stages[x.stage]||[x.stage,'muted'];
-      const qa=el('td');qa.append(chip(status[0],status[1]),el('small',String(x.reviewed||0)+'/'+x.units+' anchors · '+x.risk));
-      const rights=el('td');rights.append(chip(x.rights,'muted'));
-      const action=el('td');action.append(button('查看详情 →',()=>{state.selection=x.id+':'+x.v;state.drawer=true;draw()},'small'));
-      r.append(idcell,el('td',types[x.type]||x.type),rights,qa,
-        el('td',x.live?(state.scope.project||'全局资料')+' / '+(state.scope.batch||'—'):(x.project||'未绑定')+' / '+(x.batch||'—')),action);
-      body.append(r);
+    for(const x of rows){
+      const row=el('tr'),idcell=el('td');
+      if(!x.live)row.classList.add('p2-demo-row');
+      idcell.append(el('strong',x.title),el('div',x.id+' · '+x.v,'p2-id'),
+        chip(x.live?'持久化合成记录':'DEMO · 不可用于科研','muted'));
+      const status=stages[x.stage]||[x.stage,'muted'],guide=nextStep(x);
+      const phase=el('td');phase.append(chip(status[0],status[1]),el('small','用途：'+(x.rights||'未核实')));
+      const next=el('td',null,'p2-next-cell');
+      next.append(el('strong',guide.title),el('small',guide.detail));
+      const qa=el('td');qa.append(el('strong',String(x.reviewed||0)+' / '+x.units),
+        el('small','已审 / 总 Unit；不代表 PDF 精确定位'));
+      const scope=el('td',x.live?(state.scope.project?
+        '已按引用筛选：'+state.scope.project+(state.scope.batch?' / '+state.scope.batch:''):
+        '全局 · 未按引用筛选'):'不适用 · DEMO');
+      const action=el('td');
+      action.append(button(guide.button,()=>openNextStep(x),'small'+
+        (x.live&&['RIGHTS_ACCEPTED','QA_PENDING'].includes(x.stage)?' primary':'')));
+      row.append(idcell,phase,next,qa,scope,action);body.append(row);
     }
-    if(!src.length){const row=el('tr'),cell=el('td','当前筛选没有符合条件的来源版本。','p2-dim');cell.colSpan=6;row.append(cell);body.append(row);}
+    if(!rows.length){
+      const tr=el('tr'),td=el('td','暂无符合条件的版本。可清除筛选或登记新来源。','p2-dim');
+      td.colSpan=6;tr.append(td);body.append(tr);
+    }
   }
   function renderTable(){const t=document.getElementById('p2TableTarget');if(t)renderTableInto(t)}
   function library(){
-    root.append(heading('02 / SOURCE OPERATIONS','科学资料库',
-      '真实科学资料的准备入口：先核对来源和权限，再进行结构转换、证据定位与人工验收。',
+    root.append(heading('P2 / SOURCE WORKSPACE','科学资料处理台',
+      '按资料状态完成登记、转换、人工 QA 和冻结；这里只提供隔离合成流程。',
       [...(document.getElementById('p11Nav')?[button('B1 合成来源引用 ↗',()=>{window.opsA5OpenB1SourceReferences?.()},'outline')]:[]),
        button('查看转换队列',()=>view('convert'),'outline'),button('＋ 登记科学来源',()=>startIntake(),'primary')]));
-    root.append(pipeline(),overviewCards(),sourceList());
+    root.append(queueSummary(),sourceList());
+    root.append(el('h2','处理流程与准入规则','p2-reference-heading'));
+    root.append(overviewCards(),pipeline());
   }
   function renderIntake(){
     root.append(heading('P2-A / SOURCE INTAKE','来源登记与资格核查',
@@ -346,11 +406,18 @@
       draw();
     }catch(err){state.notice='结构化文档/原文/审查记录无法完成独立核验：'+err.message;draw();}
   }
+  function setUnitIndex(i){
+    const count=qaUnits().length;
+    if(!count)return;
+    state.unitIndex=((i%count)+count)%count;draw();
+    root?.querySelectorAll('.p2-structured-pane .p2-unit')[state.unitIndex]?.scrollIntoView({block:'nearest',inline:'nearest'});
+  }
   function qa(){
     root.append(heading('P2-C/D / HUMAN SOURCE QA','结构化资料 QA 阅读器',
       '原文为权威，结构化正文负责阅读与定位；译文仅为辅助，不参与原始证据 SHA。',
       [button(state.highlighted?'隐藏锚点对应':'显示锚点对应',()=>{state.highlighted=!state.highlighted;draw()},'outline'),
-       button('下一个待检查单元',()=>{const units=qaUnits();state.unitIndex=(state.unitIndex+1)%units.length;draw()},'outline'),
+       button('← 上一单元',()=>setUnitIndex(state.unitIndex-1),'outline'),
+        button('下一单元 →',()=>setUnitIndex(state.unitIndex+1),'outline'),
        button('申请封存检查',()=>{state.notice='封存失败或待批准：必须完成独立权利记录、全部 Unit QA、真实定位审查及精确 SHA；本页不签发 Gold/Expert Grant。';draw()},'primary')]));
     const selector=el('div',null,'p2-reader-select');selector.append(chip('SOURCE · SYNTHETIC_ONLY','muted'));
     const opts=all().filter(x=>x.live).map(x=>[x.id+':'+x.v,x.id+' / '+x.v+' · '+x.stage]);
@@ -367,9 +434,18 @@
     const doc=state.document,actual=!!(canReview()&&doc?.document&&state.original?.raw_artifact_sha256===doc.document.raw_artifact_sha256);
     root.append(alert(actual?'当前展示已持久化的合成结构化资料，只有 Source Curator 可提交逐单元 QA。':
       '当前为内置的虚构演示片段。Producer 仅查看界面样例，不代表拥有真实来源全文或 Curator 审核权限。','warning'));
+    const progressUnits=qaUnits(),progressDone=canReview()&&state.document?.document?state.reviewed.size:0;
+    const progress=el('div',null,'p2-qa-progress');
+    append(progress,el('strong','核验进度：'+progressDone+' / '+progressUnits.length+' Unit'),
+      el('span',canReview()&&state.document?.document?
+        '只统计服务端已持久化的独立 QA；缺失或拒绝均阻断冻结。':
+        '演示单元不计入真实 QA；仅独立 Curator 能保存审核结果。'));
+    const track=el('div',null,'p2-progress-track'),fill=el('span',null,'p2-progress-fill');
+    fill.style.width=(100*progressDone/Math.max(progressUnits.length,1))+'%';
+    track.append(fill);progress.append(track);root.append(progress);
     const grid=el('div',null,'p2-qa-grid');
     const original=panel('原始资料对照','Source Artifact · Page Hint。');
-    const sheet=el('div',null,'p2-pdf-sheet');
+    const sheet=el('div',null,'p2-pdf-sheet');sheet.dataset.p2ReadSurface='original';
     sheet.append(el('small',actual?'ORIGINAL ARTIFACT · VERIFIED SHA':'SYNTHETIC DOCUMENT EXCERPT'),el('h3','ABSTRACT / METHODS'));
     const units=qaUnits();
     if(actual){
@@ -391,11 +467,13 @@
     original.append(sheet,metaP('原始 PDF 未加载；页面坐标未获独立验证。'));
     grid.append(original);
     const middle=panel('Structured Document IR','稳定 Unit ID · 段落级对照 · 原文 SHA 独立');
+    middle.classList.add('p2-structured-pane');middle.dataset.p2ReadSurface='structured';
     for(const [i,u]of units.entries()){
       const item=el('button',null,'p2-unit'+(i===state.unitIndex?' selected':''));
       item.type='button';item.setAttribute('aria-pressed',i===state.unitIndex?'true':'false');
-      item.addEventListener('click',()=>{state.unitIndex=i;draw()});
+      item.addEventListener('click',()=>setUnitIndex(i));
       item.append(el('span',u.unit_id+' · '+u.kind,'p2-unit-meta'));
+      if(actual&&state.reviewed.has(u.unit_id))item.append(chip('已提交 QA','teal'));
       if(state.display!=='translation'){
         const paragraph=el('div',null,'p2-reader-paragraph');
         const text=u.text||'';
@@ -411,6 +489,7 @@
       middle.append(item);
     }grid.append(middle);
     const right=panel('Evidence Anchor','QA · Source Curator');
+    right.classList.add('p2-qa-side');right.dataset.p2ReadSurface='review';
     const u=units[state.unitIndex]||units[0];
     const span=append(el('dl',null,'p2-facts'),
       el('dt','Evidence Unit'),el('dd',u.unit_id+' · '+u.kind),
@@ -418,7 +497,8 @@
       el('dt','UTF-16 Span'),el('dd','0 → '+String(u.utf16_length||u.text.length)),
       el('dt','Canonical SHA'),el('dd',actual?doc.document_sha256:'NOT_COMPUTED_DEMO'),
       el('dt','PDF Locator'),el('dd',u.pdf_locator_status||'UNRESOLVED'));
-    right.append(chip(actual?'ORIGINAL_SPAN_CHECK_PENDING':'DEMO_TEXT_ONLY','blue'),span);
+    right.append(chip(actual?(state.reviewed.has(u.unit_id)?'已提交独立 Unit QA':'ORIGINAL_SPAN_CHECK_PENDING'):'DEMO_TEXT_ONLY',
+      actual&&state.reviewed.has(u.unit_id)?'teal':'blue'),span);
     right.append(alert('本地段落高亮不等于来自 PDF 的唯一定位。表格及数字、剂量和单位必须独立核验。','warning'));
     if(actual){
       if(canReview()&&!state.translations.has(u.unit_id)){
@@ -537,6 +617,17 @@
     const top=el('div',null,'p2-drawer-top');
     append(top,el('h2','来源详情 · '+x.id),button('关闭',()=>{state.drawer=false;draw()},'outline'));
     card.append(top,chip(x.live?'受控合成登记':'演示数据 · 非已登记来源',x.live?'teal':'red'),el('h3',x.title));
+    const guide=nextStep(x),flow=el('section',null,'p2-detail-workflow');
+    append(flow,el('span','当前阶段 · '+(stages[x.stage]?.[0]||x.stage),'p2-detail-eyebrow'),
+      el('strong',guide.title),el('p',guide.detail));
+    const steps=el('div',null,'p2-detail-path');
+    for(const [name,passed]of [
+      ['来源 / 用途',x.live&&x.stage!=='RIGHTS_HOLD'],
+      ['结构化',x.live&&['QA_PENDING','QA_HOLD','PACKAGE_FROZEN'].includes(x.stage)],
+      ['完整 QA',x.live&&x.stage==='PACKAGE_FROZEN'],
+      ['资料包',x.live&&x.stage==='PACKAGE_FROZEN']
+    ])steps.append(chip((passed?'✓ ':'○ ')+name,passed?'teal':'muted'));
+    flow.append(steps);card.append(flow);
     const table=el('dl',null,'p2-facts');
     for(const [name,value]of [
       ['Source / Revision',x.id+' / '+x.v],['文献类型',types[x.type]||x.type],['文件类型',x.kind],
@@ -565,6 +656,9 @@
         ()=>api('/v1/p2/sources/'+x.id+'/'+x.v+'/scope',{method:'POST',
           body:{project_id:state.scope.project,batch_id:state.scope.batch}}),
         '已建立仅限来源准备的 Project/Batch 引用'),'primary'));
+    }
+    if(x.live&&!canReview()&&['RIGHTS_HOLD','QA_PENDING','QA_HOLD'].includes(x.stage)){
+      actions.append(button('打开独立审核登录 ↗',()=>window.open('/source-qa','_blank','noopener'),'outline'));
     }
     actions.append(button('查看版本管理',()=>{state.drawer=false;view('versions')},'outline'));
     card.append(actions,alert('Manager 只允许读取来源元数据；P2 与原 B1/EA 的数据不会在此页面自动合并。'));
@@ -634,6 +728,8 @@
     // Preserve the user's horizontal navigation position when the SPA swaps
     // its content subtree; otherwise a tapped off-screen tab jumps away.
     const secondaryScroll=root.querySelector('.p2-tabs')?.scrollLeft||0;
+    const readerScroll={};
+    root.querySelectorAll('[data-p2-read-surface]').forEach(n=>{readerScroll[n.dataset.p2ReadSurface]=n.scrollTop});
     const outer=root.parentElement,component=frame();outer.replaceChild(component,root);root=component;
     const secondary=root.querySelector('.p2-tabs');
     if(secondary)secondary.scrollLeft=secondaryScroll;
@@ -643,6 +739,10 @@
     else if(state.tab==='qa')qa();
     else if(state.tab==='audit')audit();
     else versions();
+    root.querySelectorAll('[data-p2-read-surface]').forEach(n=>{
+      if(Object.prototype.hasOwnProperty.call(readerScroll,n.dataset.p2ReadSurface))
+        n.scrollTop=readerScroll[n.dataset.p2ReadSurface];
+    });
     if(state.drawer)root.append(detailDrawer());
     if(state.wizard)root.append(sourceWizard());
   }

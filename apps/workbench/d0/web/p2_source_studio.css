@@ -310,3 +310,8 @@
   #workspace .p2-studio .p2-qa-progress{grid-template-columns:1fr}
   #workspace .p2-studio .p2-table-wrap{overscroll-behavior-x:contain}
 }
+
+#workspace .p2-studio .p2-source-queue .p2-demo-row{background:#fcfdfc}
+#workspace .p2-studio .p2-source-queue .p2-demo-row:hover{background:#f4f8f6}
+#workspace .p2-studio .p2-source-queue .p2-demo-row td:first-child{border-left:3px solid #d8e5dd}
+#workspace .p2-studio .p2-unit:focus-visible{outline:3px solid #96cbb7;outline-offset:2px}

@@ -299,12 +299,24 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(p.locator('#p11Nav [data-p11-route="sources"]')).to_be_hidden()
     expect(p.locator('#p11Nav [data-p11-route="studio"]')).to_be_visible()
     expect(p.locator('.p2-tabs [aria-current="page"]')).to_have_count(1)
+    # WB-P2.1-A compact Project/Batch usage-reference filter. Scope is not IAM.
+    expect(p.locator('.p2-context.p2-context-compact')).to_be_visible()
+    expect(p.locator('.p2-scope-current')).to_have_text('全部来源 · 未筛选')
+    expect(p.locator('.p2-context')).to_contain_text('不改变资料资格或专家权限')
+    expect(p.locator('#p2ScopeFields')).to_be_hidden()
+    p.locator('.p2-scope-toggle').click()
+    expect(p.locator('#p2ScopeFields')).to_be_visible()
+    expect(p.locator('#p2ScopeFields select')).to_have_count(2)
+    expect(p.locator('#p2ScopeFields')).to_contain_text('筛选不是授权')
+    p.locator('.p2-scope-toggle').click()
+    expect(p.locator('#p2ScopeFields')).to_be_hidden()
     # Source-specific responsive kill gates. Local table scrolling is permitted;
     # top-level document and both navigation surfaces must remain bounded.
     for width,height in [(390,844),(680,900),(740,900),(768,900),(1024,900),(1440,1000)]:
         p.set_viewport_size({'width':width,'height':height})
         expect(p.locator('.p2-tabs')).to_be_visible()
         assert p.evaluate('document.documentElement.scrollWidth <= innerWidth + 1'),width
+        assert p.locator('.p2-context').evaluate('(e)=>e.getBoundingClientRect().height')<120,width
         assert p.evaluate('document.querySelector("#p11Nav").getBoundingClientRect().width <= innerWidth + 1'),width
         if width<=740:
             # Regression: secondary nav formerly broke into per-character columns.
@@ -322,6 +334,9 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     tabs.locator('[data-p2-tab="audit"]').click()
     expect(tabs.locator('[data-p2-tab="audit"]')).to_have_attribute('aria-current','page')
     assert tabs.evaluate('(e)=>e.scrollLeft')>0
+    expect(p.locator('.p2-context')).to_have_count(0)
+    expect(p.locator('.p2-heading')).to_contain_text('不受 Project / Batch 筛选影响')
+    p.screenshot(path=str(output/'p2-1-a-audit-no-irrelevant-scope.png'),full_page=False)
     p.set_viewport_size({'width':1440,'height':1000})
     p.locator('.p2-tabs [data-p2-tab="library"]').click()
     # Real keyboard navigation must keep focus after SPA subtree re-render.
@@ -332,6 +347,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     p.locator('.p2-tabs [data-p2-tab="library"]').click()
     p.screenshot(path=str(output/'p2-html-v02-aligned-overview-desktop.png'),full_page=True)
     checks.append('p2_1_a_single_nav_responsive_390_680_740_768_1024_1440_keyboard_focus')
+    checks.append('p2_1_a_compact_scope_default_collapsed_audit_global_not_project_scoped')
     p.locator('.p2-table tbody tr').first.get_by_role('button',name='查看详情 →').click()
     expect(p.get_by_role('dialog',name='科学来源版本详情')).to_contain_text('NOT_COMPUTED_DEMO')
     p.get_by_role('dialog',name='科学来源版本详情').get_by_role('button',name='关闭').click()

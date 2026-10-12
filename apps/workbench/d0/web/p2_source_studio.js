@@ -203,7 +203,8 @@
     const counts=el('div',null,'p2-queue-counts');
     for(const [label,count,status]of groups){
       const b=button(label+'  '+count,()=>{state.status=status;draw()},'p2-queue-counter');
-      b.setAttribute('aria-label','筛选'+label+'的合成来源');counts.append(b);
+      b.setAttribute('aria-label','筛选'+label+'的合成来源');
+      b.setAttribute('aria-pressed',state.status===status?'true':'false');counts.append(b);
     }
     bar.append(intro,counts);return bar;
   }
@@ -256,7 +257,8 @@
   function statFilter(){
     const bar=el('div',null,'p2-status-tabs');
     for(const [id,label] of [['','全部资料'],['RIGHTS_HOLD','来源待核'],['RIGHTS_ACCEPTED','待结构化'],['CONVERSION_REVIEW','转换中'],['QA_PENDING','人工 QA'],['QA_HOLD','QA 阻断'],['PACKAGE_FROZEN','已封存'],['VERSION_REVIEW','版本待核']]){
-      const b=button(label,()=>{state.status=id;draw()},'p2-filter-chip'+(state.status===id?' active':''));bar.append(b);
+      const b=button(label,()=>{state.status=id;draw()},'p2-filter-chip'+(state.status===id?' active':''));
+      b.setAttribute('aria-pressed',state.status===id?'true':'false');bar.append(b);
     }return bar;
   }
   function sourceList(){
@@ -644,6 +646,9 @@
         ()=>api('/v1/p2/sources/'+x.id+'/'+x.v+'/scope',{method:'POST',
           body:{project_id:state.scope.project,batch_id:state.scope.batch}}),
         '已建立仅限来源准备的 Project/Batch 引用'),'primary'));
+    }
+    if(x.live&&!canReview()&&['RIGHTS_HOLD','QA_PENDING','QA_HOLD'].includes(x.stage)){
+      actions.append(button('打开独立审核登录 ↗',()=>window.open('/source-qa','_blank','noopener'),'outline'));
     }
     actions.append(button('查看版本管理',()=>{state.drawer=false;view('versions')},'outline'));
     card.append(actions,alert('Manager 只允许读取来源元数据；P2 与原 B1/EA 的数据不会在此页面自动合并。'));

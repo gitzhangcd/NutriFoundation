@@ -273,7 +273,7 @@
 #workspace .p2-studio .p2-source-queue{padding:16px 18px}
 #workspace .p2-studio .p2-source-queue h2{font-size:18px}
 #workspace .p2-studio .p2-source-queue>.p2-dim{margin-bottom:8px}
-#workspace .p2-studio .p2-queue-actions{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin:-39px 0 11px}
+#workspace .p2-studio .p2-queue-actions{display:flex;justify-content:flex-start;gap:8px;flex-wrap:wrap;margin:5px 0 11px}
 #workspace .p2-studio .p2-source-queue .p2-status-tabs{margin-bottom:9px;padding:6px 0 10px}
 #workspace .p2-studio .p2-source-queue .p2-toolbar{margin:7px 0 11px}
 #workspace .p2-studio .p2-next-cell{min-width:175px}

@@ -202,7 +202,7 @@
       el('span','先找到一篇文献，再按状态进入下一步；统计仅为合成来源。','p2-scope-description'));
     const counts=el('div',null,'p2-queue-counts');
     for(const [label,count,status]of groups){
-      const b=button(label+'  '+count,()=>{state.status=status;renderTable()},'p2-queue-counter');
+      const b=button(label+'  '+count,()=>{state.status=status;draw()},'p2-queue-counter');
       b.setAttribute('aria-label','筛选'+label+'的合成来源');counts.append(b);
     }
     bar.append(intro,counts);return bar;

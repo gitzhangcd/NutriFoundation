@@ -411,17 +411,27 @@
     return Array.isArray(source)&&source.length?source:demos;
   }
   async function submitReview(unit,decision){
-    const x=selected();if(!canReview()||!x.live||!state.document)return;
-    const text=unit.text;
-    const bytes=new TextEncoder().encode(text);
-    const digest=await crypto.subtle.digest('SHA-256',bytes);
-    const quoteSha=[...new Uint8Array(digest)].map(v=>v.toString(16).padStart(2,'0')).join('');
-    await perform(()=>api('/v1/p2/sources/'+x.id+'/'+x.v+'/qa',{method:'POST',body:{
-      unit_id:unit.unit_id,decision,start_utf16:0,end_utf16:unit.utf16_length,
-      source_quote:text,source_quote_sha256:quoteSha,
-      pdf_locator_status:unit.pdf_locator_status,findings:{ui:'HUMAN_QA_SYNTHETIC_ONLY'}}}),
-      '独立 QA 记录已持久化，审查结果不可原位修改');
-    state.reviewed.add(unit.unit_id);
+    const x=selected();if(!canReview()||!x.live||!state.document||state.reviewPending||state.reviewed.has(unit.unit_id))return;
+    // Remove the previous operation's toast *before* the asynchronous request.
+    // Otherwise a browser/client can mistake a stale success toast for this
+    // unit's successful durable write and submit the next unit too early.
+    state.reviewPending=true;
+    state.notice='正在持久化此 Unit 的独立 QA 记录…';
+    draw();
+    try{
+      const text=unit.text;
+      const bytes=new TextEncoder().encode(text);
+      const digest=await crypto.subtle.digest('SHA-256',bytes);
+      const quoteSha=[...new Uint8Array(digest)].map(v=>v.toString(16).padStart(2,'0')).join('');
+      const result=await perform(()=>api('/v1/p2/sources/'+x.id+'/'+x.v+'/qa',{method:'POST',body:{
+        unit_id:unit.unit_id,decision,start_utf16:0,end_utf16:unit.utf16_length,
+        source_quote:text,source_quote_sha256:quoteSha,
+        pdf_locator_status:unit.pdf_locator_status,findings:{ui:'HUMAN_QA_SYNTHETIC_ONLY'}}}),
+        '独立 QA 记录已持久化，审查结果不可原位修改');
+      // Only acknowledge a server-confirmed immutable review. Never use a
+      // local Set as evidence of successful QA if the API rejects the write.
+      if(result?.review?.unit_id===unit.unit_id)state.reviewed.add(unit.unit_id);
+    }finally{state.reviewPending=false;draw();}
   }
   function versions(){
     root.append(heading('P2-D/E / SOURCE VERSION CONTROL','科学来源资料库',

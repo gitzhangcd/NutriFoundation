@@ -86,3 +86,128 @@
 @media(max-width:1180px){#workspace .p2-studio .p2-qa-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.45fr)}#workspace .p2-studio .p2-qa-grid .p2-card:last-child{grid-column:1/-1;min-height:0}}
 @media(max-width:780px){#workspace .p2-studio h1{font-size:22px}#workspace .p2-studio .p2-stats{grid-template-columns:repeat(2,minmax(0,1fr))}#workspace .p2-studio .p2-two,#workspace .p2-studio .p2-qa-grid{grid-template-columns:1fr}#workspace .p2-studio .p2-qa-grid .p2-card{min-height:0}#workspace .p2-studio .p2-qa-grid .p2-card:last-child{grid-column:auto}#workspace .p2-studio .p2-context{align-items:stretch}#workspace .p2-studio .p2-context select{width:100%}}
 @media(prefers-reduced-motion:reduce){#workspace .p2-studio *{scroll-behavior:auto!important;transition:none!important}}
+
+
+/* HTML v0.2 fidelity layer: five-phase overview, stage chips, nested nav, gate. */
+#workspace .p2-studio .p2-breadcrumb{font-size:11px;color:#8c9f98;margin:-3px 0 18px;letter-spacing:.01em}
+#workspace .p2-studio .p2-stats{margin:17px 0 16px}
+#workspace .p2-studio .p2-stat{box-shadow:0 8px 24px rgba(22,67,50,.035);min-height:100px}
+#workspace .p2-studio .p2-stat strong{font-size:28px;color:#1b4437}
+#workspace .p2-studio .p2-stat span{display:block;margin-top:8px}
+#workspace .p2-studio .p2-pipeline{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(245px,.87fr);align-items:stretch;gap:14px;margin-bottom:17px}
+#workspace .p2-studio .p2-pipeline>.p2-card{margin:0;padding:20px}
+#workspace .p2-studio .p2-phases{display:flex;gap:5px;flex-wrap:wrap;align-items:center;padding:14px 0 20px}
+#workspace .p2-studio .p2-phase{font-size:10px;font-weight:650;border:1px solid #e1eae6;border-radius:6px;color:#8ca49b;padding:6px 8px;white-space:nowrap}
+#workspace .p2-studio .p2-phase.on{background:#e5f3ec;border-color:#b8dacc;color:#1a8065}
+#workspace .p2-studio .p2-phase-arrow{color:#b5c6bc}
+#workspace .p2-studio .p2-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#workspace .p2-studio .p2-btn.p2-choice{display:flex;flex-direction:column;align-items:flex-start;min-height:112px;padding:15px;border:1px solid #dbe9e3;border-radius:10px;color:#27534a;text-align:left;background:#fff}
+#workspace .p2-studio .p2-btn.p2-choice:hover{border-color:#7eb69c;background:#f0f8f3}
+#workspace .p2-studio .p2-choice-icon{font-size:25px;line-height:1.1;color:#259781;font-weight:400}
+#workspace .p2-studio .p2-choice strong{font-size:11px;margin:10px 0 6px}
+#workspace .p2-studio .p2-choice small{font-size:10px;font-weight:450;line-height:1.5;color:#93a9a0}
+#workspace .p2-studio .p2-gate-line{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #edf0ef;align-items:flex-start}
+#workspace .p2-studio .p2-gate-line:last-of-type{margin-bottom:10px}
+#workspace .p2-studio .p2-gate-icon{background:#eaf5ee;border-radius:7px;min-width:29px;height:29px;color:#1e8d72;font-size:16px;display:grid;place-items:center}
+#workspace .p2-studio .p2-gate-line strong{display:block;font-size:11px;margin-bottom:3px;color:#33564a}
+#workspace .p2-studio .p2-gate-line small{display:block;font-size:10px;color:#8aa299;font-weight:450}
+#workspace .p2-studio .p2-gate .p2-banner{margin-top:12px;margin-bottom:0}
+#workspace .p2-studio .p2-status-tabs{display:flex;gap:5px;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid #edf2ee;margin-bottom:13px}
+#workspace .p2-studio .p2-btn.p2-filter-chip{border:0;background:transparent;color:#7a9186;font-size:11px;padding:8px 11px}
+#workspace .p2-studio .p2-btn.p2-filter-chip.active{background:#e6f4eb;color:#1e7c61}
+#workspace .p2-studio .p2-table td{line-height:1.5}
+#workspace .p2-studio .p2-table td strong{color:#214c3b;font-size:11px}
+#workspace .p2-studio .p2-table td small{display:block;color:#9dae9f;font-size:10px;margin-top:7px}
+#workspace .p2-studio .p2-table td .p2-flag{white-space:normal;margin:3px 0;font-size:9px}
+#workspace .p2-studio .p2-toolbar input{min-height:37px}
+#workspace .p2-studio .p2-reader-select{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:0 0 13px}
+#workspace .p2-studio .p2-reader-select select{flex:1 1 260px}
+#workspace .p2-studio .p2-reading-mode{display:flex;gap:4px;border:1px solid #dce8e1;border-radius:9px;padding:4px}
+#workspace .p2-studio .p2-btn.p2-mode{border:0;min-height:28px;padding:7px 10px;background:transparent;color:#82958d}
+#workspace .p2-studio .p2-btn.p2-mode.active{background:#e9f4ee;color:#17785d}
+#workspace .p2-studio .p2-pdf-sheet{min-height:325px;padding:28px 18px;background:linear-gradient(180deg,#fdfdfc,#fff);
+ border:1px solid #e6ede8;box-shadow:0 5px 20px rgba(16,43,30,.045);display:flex;flex-direction:column;gap:13px}
+#workspace .p2-studio .p2-pdf-sheet small{font-size:9px;color:#7d8f80;text-align:center;font-weight:700}
+#workspace .p2-studio .p2-pdf-sheet h3{font-size:12px;color:#647968}
+#workspace .p2-studio .p2-pdf-sheet p{font-size:11px;line-height:1.8;color:#87998c}
+#workspace .p2-studio .p2-pdf-sheet strong{font-size:11px;color:#bed5c6;text-align:center;margin:auto 0 0}
+#workspace .p2-studio .p2-unit{background:#fff;min-height:103px}
+#workspace .p2-studio .p2-unit.selected{border-left:3px solid #19816c}
+#workspace .p2-studio .p2-review-ops,#workspace .p2-studio .p2-drawer-actions{display:grid;gap:9px;margin-top:17px}
+#workspace .p2-studio .p2-review-ops .p2-btn,#workspace .p2-studio .p2-drawer-actions .p2-btn{width:100%}
+#workspace .p2-studio .p2-card .p2-btn.outline{background:#fff;color:#25745f}
+#workspace .p2-studio .p2-context .p2-label{white-space:nowrap}
+#workspace .p2-studio .p2-version .p2-btn{min-width:58px}
+#workspace .p2-studio .p2-table-wrap{scrollbar-width:thin}
+#workspace .p2-studio .p2-table{min-width:790px}
+#workspace .p2-studio .p2-table tr:last-child td{border-bottom:0}
+#p2NavGroup{display:none;padding:0 0 7px 6px;margin-top:-3px;margin-bottom:8px}
+body[data-p11-view="studio"] .p2-studio .p2-tabs{display:none}
+body[data-p11-view="studio"] #p2NavGroup{display:grid}
+#p2NavGroup button{font-size:11px!important;padding:8px 12px 8px 26px!important;color:#779187!important}
+#p2NavGroup button[aria-current="page"]{background:#e9f4ee!important;color:#1e785e!important;border-left:3px solid #298e6f!important;border-radius:5px!important}
+@media(max-width:1200px){
+ #workspace .p2-studio .p2-pipeline{grid-template-columns:1fr}
+ #workspace .p2-studio .p2-qa-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+}
+@media(max-width:780px){
+ #workspace .p2-studio .p2-pipeline{grid-template-columns:1fr}
+ #workspace .p2-studio .p2-choices{grid-template-columns:1fr}
+ #workspace .p2-studio .p2-btn.p2-choice{min-height:72px}
+ #workspace .p2-studio .p2-phases{gap:5px}
+ #workspace .p2-studio .p2-pdf-sheet{min-height:180px}
+ #workspace .p2-studio .p2-qa-grid{grid-template-columns:1fr}
+ #workspace .p2-studio .p2-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #workspace .p2-studio .p2-heading{align-items:flex-start}
+}
+
+
+#workspace .p2-studio .p2-original-text{white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal;
+  max-height:455px;overflow:auto;font:11px/1.75 ui-monospace,SFMono-Regular,Consolas,monospace;
+  background:#fbfdfb;border:1px solid #e4eee6;border-radius:7px;padding:14px;color:#536e5d}
+#workspace .p2-studio .p2-pdf-sheet:has(.p2-original-text){padding:18px 12px}
+#workspace .p2-studio .p2-pdf-sheet:has(.p2-original-text) .p2-original-text{flex:1 1 auto}
+
+#workspace .p2-studio .p2-translation-entry{margin:13px 0;padding:12px;background:#f7faf7;border:1px solid #e3ece5;border-radius:10px;display:grid;gap:10px}
+#workspace .p2-studio .p2-translation-entry .p2-field{font-size:11px;color:#517367}
+#workspace .p2-studio .p2-translation-entry textarea{width:100%;background:#fff;line-height:1.6}
+#workspace .p2-studio .p2-translation-entry .p2-btn{width:100%}
+
+/* P2 HTML Demo structural parity, scoped to the PR#37/PR#36 Workbench palette. */
+#workspace .p2-studio .p2-flow-shell{margin:0 0 17px;min-width:0}
+#workspace .p2-studio .p2-flow-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 16px}
+#workspace .p2-studio .p2-flow-step{background:#fff;border:1px solid #e1ece6;border-radius:12px;
+  display:flex;align-items:center;gap:12px;padding:14px;min-height:82px;min-width:0}
+#workspace .p2-studio .p2-flow-step.current{background:#f8fcfa;border-color:#bad9cc}
+#workspace .p2-studio .p2-flow-number{display:grid;place-items:center;flex:0 0 36px;
+  width:36px;height:36px;border-radius:9px;background:#eaf4ef;color:#1c7d64;font-weight:800;font-size:16px}
+#workspace .p2-studio .p2-flow-step strong{display:block;font-size:12px;line-height:1.45;color:#2b5948}
+#workspace .p2-studio .p2-flow-step small{display:block;font-size:10px;line-height:1.45;color:#8fa69a;margin-top:4px}
+#workspace .p2-studio .p2-choices{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+#workspace .p2-studio .p2-btn.p2-choice{min-height:104px;flex-direction:row;align-items:flex-start;gap:12px}
+#workspace .p2-studio .p2-choice-icon{display:grid;place-items:center;flex:0 0 39px;height:39px;
+  font-size:16px;border-radius:9px;background:#ebf5f0}
+#workspace .p2-studio .p2-choice strong{display:block;margin:1px 0 5px;font-size:12px}
+#workspace .p2-studio .p2-choice small{display:block;font-size:10px;line-height:1.5}
+#workspace .p2-studio .p2-pipeline>.p2-card .p2-banner{margin:12px 0 0}
+#workspace .p2-studio .p2-stat{display:flex;flex-direction:column;gap:4px}
+#workspace .p2-studio .p2-stat .p2-stat-label{order:0;margin:0;font-size:11px;color:#889b91}
+#workspace .p2-studio .p2-stat strong{order:1;margin-top:3px}
+#workspace .p2-studio .p2-stat small{order:2;color:#98a99e;font-size:10px;line-height:1.45}
+#workspace .p2-studio .p2-pipeline{grid-template-columns:minmax(0,1.82fr) minmax(260px,.95fr)}
+@media(max-width:1180px){
+ #workspace .p2-studio .p2-flow-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #workspace .p2-studio .p2-pipeline{grid-template-columns:1fr}
+}
+@media(max-width:780px){
+ #workspace .p2-studio .p2-choices{grid-template-columns:1fr}
+ #workspace .p2-studio .p2-btn.p2-choice{min-height:72px}
+ #workspace .p2-studio .p2-flow-step{min-height:74px;padding:10px;gap:9px}
+ #workspace .p2-studio .p2-flow-number{width:31px;height:31px;flex-basis:31px;font-size:13px}
+ #workspace .p2-studio .p2-flow-step strong{font-size:11px}
+ #workspace .p2-studio .p2-flow-step small{font-size:9px}
+}
+
+#workspace .p2-studio .p2-original-text mark.p2-highlighted-quote,
+#workspace .p2-studio mark.p2-highlighted-quote{background:#ffefa9;color:#6d5526;
+  border-radius:2px;padding:1px 2px;box-decoration-break:clone}

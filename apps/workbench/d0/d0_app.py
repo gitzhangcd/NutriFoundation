@@ -26,6 +26,8 @@ from tpa_agent_operations import AgentPreparationLedger
 from tpa_agent_operations_adapter import install_agent_preparation_routes
 from tpa_expert_handoff import ExpertHandoffLedger
 from tpa_expert_handoff_adapter import install_expert_handoff_routes
+from p2_source_registry import SourceStudio
+from p2_source_adapter import install_p2_source_routes
 
 BASE=Path(__file__).resolve().parent
 C21=BASE.parent/'c2_1';C22=BASE.parent/'c2_2'
@@ -81,6 +83,10 @@ def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,
     handoffs=ExpertHandoffLedger(tpa)
     app.state.expert_handoff_ledger=handoffs
     install_expert_handoff_routes(app,handoffs)
+    # Dedicated P2 staging authority; intentionally NOT original EA / TPA DB.
+    p2=SourceStudio(Path(root)/'p2_synthetic_staging.sqlite',projects=ops)
+    app.state.p2_source_studio=p2
+    install_p2_source_routes(app,p2)
     secure=parsed.scheme=='https'
     def failure(code,status):return JSONResponse({'detail':{'code':code}},status_code=status)
     @app.middleware('http')
@@ -88,7 +94,7 @@ def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,
         # Drop externally supplied synthetic bearer tokens: cookie is the only entry.
         request.scope['headers']=[(k,v) for k,v in request.scope['headers'] if k.lower()!=b'x-workbench-token']
         path=request.url.path
-        public=path in ('/','/manage','/health','/v1/login') or path.startswith('/static/')
+        public=path in ('/','/manage','/source-qa','/health','/v1/login') or path.startswith('/static/')
         session=auth.session(request.cookies.get('nutri_session'))
         response=None
         if request.headers.get('host')!=parsed.netloc:
@@ -120,14 +126,14 @@ def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,
         if error:return failure(error,429 if error=='RATE_LIMITED' else 401)
         auth.logout(request.cookies.get('nutri_session'))
         session_payload={k:v for k,v in value.items() if k!='id'}
-        session_payload['program']='EVIDENCE_ANNOTATION' if auth.accounts[value['username']]['actor'].startswith('SYN-EA-') else 'NDS_DECISION'
+        session_payload['program']='P2_SOURCE_QUALITY' if value['role']=='curator' else 'EVIDENCE_ANNOTATION' if auth.accounts[value['username']]['actor'].startswith('SYN-EA-') else 'NDS_DECISION'
         response=JSONResponse(session_payload)
         response.set_cookie('nutri_session',value['id'],httponly=True,secure=secure,samesite='strict',max_age=auth.ttl,path='/')
         return response
     @app.get('/v1/session')
     def session(request:Request):
         p=request.state.principal
-        return {'username':p['username'],'role':p['role'],'csrf_token':p['csrf'],'synthetic':True,'program':'EVIDENCE_ANNOTATION' if p['actor'].startswith('SYN-EA-') else 'NDS_DECISION'}
+        return {'username':p['username'],'role':p['role'],'csrf_token':p['csrf'],'synthetic':True,'program':'P2_SOURCE_QUALITY' if p['role']=='curator' else 'EVIDENCE_ANNOTATION' if p['actor'].startswith('SYN-EA-') else 'NDS_DECISION'}
     @app.post('/v1/logout')
     def logout(request:Request):
         auth.logout(request.cookies.get('nutri_session'))
@@ -166,6 +172,12 @@ def make_app(root:Path,repo_root:Path,*,accounts:dict,auth_path:Path,origin:str,
         if p is not None and (p['role'] not in ('manager','producer') or p['actor'].startswith('SYN-EA-')):
             raise HTTPException(403,detail={'code':'ROLE_FORBIDDEN'})
         return FileResponse(BASE/'web/manage.html')
+    @app.get('/source-qa')
+    def source_qa_index(request:Request):
+        p=getattr(request.state,'principal',None)
+        if p is not None and p['role'] not in ('curator','auditor'):
+            raise HTTPException(403,detail={'code':'SOURCE_QA_ROLE_REQUIRED'})
+        return FileResponse(BASE/'web/source_qa.html')
     app.mount('/static',StaticFiles(directory=BASE/'web'),name='ui')
     @app.get('/')
     def index():return FileResponse(BASE/'web/index.html')

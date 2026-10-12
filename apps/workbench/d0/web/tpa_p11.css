@@ -134,3 +134,27 @@ body[data-p11-view="tasks"] .p11-task-list-card{border:1px solid #dce5e2;border-
 .p11-structure-table td:last-child{overflow-wrap:anywhere;word-break:break-all;max-width:200px}
 #b1VersionDetail .p11-btn:disabled{cursor:not-allowed;opacity:.5}
 @media(max-width:900px){.p11-source-layout{grid-template-columns:1fr}.p11-source-rows{max-height:350px}.p11-source-facts{grid-template-columns:1fr}.p11-source-facts dt{margin-top:7px}}
+
+/* WB-P2.1-A: inherited management shell / responsive single scientific entry.
+   Preserve legacy B1 route without a duplicate sidebar control. */
+#workspace .p11-layout,#workspace .p11-nav,#workspace .p11-content{
+ min-width:0;max-width:100%;
+}
+#workspace .p11-nav .p11-legacy-source-route[hidden]{display:none!important}
+@media(max-width:740px){
+ #workspace .p11-layout{display:block;width:100%;min-width:0}
+ #workspace .p11-nav{
+  position:static;display:flex;flex-flow:row nowrap;align-items:center;
+  min-width:0;max-width:100%;overflow-x:auto;overflow-y:hidden;
+  gap:4px;margin:0 0 14px;padding:7px 8px;
+  scrollbar-width:thin;overscroll-behavior-x:contain;
+  scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;
+ }
+ #workspace .p11-nav > button[data-p11-route]{
+  flex:0 0 auto;min-width:max-content;max-width:none;
+  white-space:nowrap!important;word-break:normal;
+  font-size:12px;line-height:1.4;scroll-snap-align:start;
+ }
+ #workspace .p11-content{width:100%;min-width:0}
+ #workspace .p11-nav-header,#workspace .p11-nav-footer{display:none}
+}

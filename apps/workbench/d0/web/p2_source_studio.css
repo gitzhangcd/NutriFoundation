@@ -141,11 +141,21 @@
 #workspace .p2-studio .p2-table-wrap{scrollbar-width:thin}
 #workspace .p2-studio .p2-table{min-width:790px}
 #workspace .p2-studio .p2-table tr:last-child td{border-bottom:0}
-#p2NavGroup{display:none;padding:0 0 7px 6px;margin-top:-3px;margin-bottom:8px}
-body[data-p11-view="studio"] .p2-studio .p2-tabs{display:none}
-body[data-p11-view="studio"] #p2NavGroup{display:grid}
-#p2NavGroup button{font-size:11px!important;padding:8px 12px 8px 26px!important;color:#779187!important}
-#p2NavGroup button[aria-current="page"]{background:#e9f4ee!important;color:#1e785e!important;border-left:3px solid #298e6f!important;border-radius:5px!important}
+/* WB-P2.1-A: one source subnavigation, inside the content area, across
+   management and independent QA surfaces. Horizontal scroll is container-only. */
+#workspace .p2-studio .p2-tabs{
+ display:flex;flex-flow:row nowrap;overflow-x:auto;overflow-y:hidden;
+ max-width:100%;min-width:0;gap:6px;scrollbar-width:thin;
+ overscroll-behavior-x:contain;scroll-snap-type:x proximity;
+ -webkit-overflow-scrolling:touch;
+}
+#workspace .p2-studio .p2-tabs .p2-tab{
+ flex:0 0 auto;white-space:nowrap;word-break:normal;
+ scroll-snap-align:start;min-width:max-content;
+}
+#workspace .p2-studio .p2-tabs .p2-tab:focus-visible{
+ outline:3px solid #559f88;outline-offset:-3px;
+}
 @media(max-width:1200px){
  #workspace .p2-studio .p2-pipeline{grid-template-columns:1fr}
  #workspace .p2-studio .p2-qa-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
@@ -211,3 +221,44 @@ body[data-p11-view="studio"] #p2NavGroup{display:grid}
 #workspace .p2-studio .p2-original-text mark.p2-highlighted-quote,
 #workspace .p2-studio mark.p2-highlighted-quote{background:#ffefa9;color:#6d5526;
   border-radius:2px;padding:1px 2px;box-decoration-break:clone}
+
+/* WB-P2.1-A UX follow-up: compact scope control.
+   Filter semantics only; independent source authority & audit stay global. */
+#workspace .p2-studio .p2-context.p2-context-compact{
+ display:block;min-width:0;padding:8px 12px;margin-bottom:10px;
+ border-radius:10px;
+}
+#workspace .p2-studio .p2-scope-head{
+ display:flex;align-items:center;justify-content:space-between;
+ flex-wrap:wrap;gap:7px 12px;min-height:34px;
+}
+#workspace .p2-studio .p2-scope-explanation{
+ display:flex;align-items:center;flex:1 1 350px;min-width:0;
+ flex-wrap:wrap;gap:4px 12px;line-height:1.5;
+}
+#workspace .p2-studio .p2-scope-title{font-size:12px;color:#2b5648;white-space:nowrap}
+#workspace .p2-studio .p2-scope-current{font-size:11px;color:#26725f;overflow-wrap:anywhere}
+#workspace .p2-studio .p2-scope-description{font-size:11px;color:#728880;line-height:1.5}
+#workspace .p2-studio .p2-scope-actions{
+ display:flex;flex:0 0 auto;align-items:center;gap:7px;
+}
+#workspace .p2-studio .p2-scope-actions .p2-btn{
+ min-height:31px;padding:5px 9px;font-size:11px;
+}
+#workspace .p2-studio .p2-scope-fields{
+ display:grid;grid-template-columns:repeat(2,minmax(0,200px));
+ align-items:end;gap:8px 12px;padding:11px 0 3px;
+ border-top:1px solid #edf2ef;margin-top:8px;
+}
+#workspace .p2-studio .p2-scope-fields[hidden]{display:none!important}
+#workspace .p2-studio .p2-scope-field{min-width:0;gap:4px}
+#workspace .p2-studio .p2-scope-field select{width:100%;min-height:34px}
+#workspace .p2-studio .p2-scope-field select:disabled{opacity:.55;cursor:not-allowed}
+#workspace .p2-studio .p2-scope-hint{
+ grid-column:1/-1;color:#70867c;font-size:11px;line-height:1.5;
+}
+@media(max-width:600px){
+ #workspace .p2-studio .p2-scope-fields{grid-template-columns:minmax(0,1fr)}
+ #workspace .p2-studio .p2-scope-head{align-items:flex-start}
+ #workspace .p2-studio .p2-scope-explanation{flex:1 1 100%}
+}

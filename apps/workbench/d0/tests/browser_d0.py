@@ -247,8 +247,11 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
         return ctx,page
     producer_context,p=manager_login('producer')
     # B1: operate the existing seven-authoritative-fixture reference library.
-    p.locator('[data-p11-route="sources"]').click()
+    # B1 remains reachable through the unified Scientific Source primary entry.
+    p.locator('[data-p11-route="studio"]').click()
+    p.locator('.p2-heading').get_by_role('button',name='B1 合成来源引用 ↗').click()
     expect(p.locator('#b1SourceRows .p11-source-entry')).to_have_count(7)
+    expect(p.locator('[data-p11-route="studio"]')).to_have_attribute('aria-current','page')
     assert p.locator('#b1SourcesPage').count()==0  # page is p11SourcesPage, not another app
     assert p.locator('#p11SourcesPage').count()==1
     p.locator('#b1SourceRows .p11-source-entry').filter(has_text='RCT-001').get_by_role('button',name='查看版本').click()
@@ -284,24 +287,71 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     p.screenshot(path=str(output/'b1-source-library-synthetic.png'),full_page=True)
     # P2 Source Studio: additive UI-only preview. Existing B1 remains unchanged.
     p.locator('[data-p11-route="studio"]').click()
-    expect(p.locator('#p11SectionTitle')).to_have_text('科学资料准备 · P2')
+    expect(p.locator('#p11SectionTitle')).to_have_text('科学资料')
     expect(p.locator('.p2-studio')).to_be_visible(timeout=15000)
     expect(p.locator('#p2TableTarget tbody tr')).to_have_count(6)
     expect(p.locator('.p2-flow-steps')).to_be_visible()
     expect(p.locator('.p2-flow-step')).to_have_count(4)
     expect(p.locator('.p2-choices .p2-choice')).to_have_count(4)
     expect(p.locator('.p2-stats .p2-stat')).to_have_count(4)
-    expect(p.locator('#p2NavGroup [data-p2-tab]')).to_have_count(6)
-    p.screenshot(path=str(output/'p2-html-v02-aligned-overview-desktop.png'),full_page=True)
-    p.set_viewport_size({'width':390,'height':844})
+    expect(p.locator('.p2-tabs [data-p2-tab]')).to_have_count(6)
+    expect(p.locator('#p2NavGroup')).to_have_count(0)
+    expect(p.locator('#p11Nav [data-p11-route="sources"]')).to_be_hidden()
+    expect(p.locator('#p11Nav [data-p11-route="studio"]')).to_be_visible()
+    expect(p.locator('.p2-tabs [aria-current="page"]')).to_have_count(1)
+    # WB-P2.1-A compact Project/Batch usage-reference filter. Scope is not IAM.
+    expect(p.locator('.p2-context.p2-context-compact')).to_be_visible()
+    expect(p.locator('.p2-scope-current')).to_have_text('全部来源 · 未筛选')
+    expect(p.locator('.p2-context')).to_contain_text('不改变资料资格或专家权限')
+    expect(p.locator('#p2ScopeFields')).to_be_hidden()
+    p.locator('.p2-scope-toggle').click()
+    expect(p.locator('#p2ScopeFields')).to_be_visible()
+    expect(p.locator('#p2ScopeFields select')).to_have_count(2)
+    expect(p.locator('#p2ScopeFields')).to_contain_text('筛选不是授权')
+    p.locator('.p2-scope-toggle').click()
+    expect(p.locator('#p2ScopeFields')).to_be_hidden()
+    # Source-specific responsive kill gates. Local table scrolling is permitted;
+    # top-level document and both navigation surfaces must remain bounded.
+    for width,height in [(390,844),(680,900),(740,900),(768,900),(1024,900),(1440,1000)]:
+        p.set_viewport_size({'width':width,'height':height})
+        expect(p.locator('.p2-tabs')).to_be_visible()
+        assert p.evaluate('document.documentElement.scrollWidth <= innerWidth + 1'),width
+        assert p.locator('.p2-context').evaluate('(e)=>e.getBoundingClientRect().height')<120,width
+        assert p.evaluate('document.querySelector("#p11Nav").getBoundingClientRect().width <= innerWidth + 1'),width
+        if width<=740:
+            # Regression: secondary nav formerly broke into per-character columns.
+            assert p.evaluate('document.querySelector("#p11Nav").getBoundingClientRect().height < 110'),width
+            assert p.evaluate('document.querySelector(".p2-tabs").getBoundingClientRect().height < 90'),width
+        if width in (390,680,768,1440):
+            p.screenshot(path=str(output/f'p2-1-a-source-overview-{width}.png'),full_page=False)
     expect(p.locator('.p2-pipeline')).to_be_visible()
-    assert p.evaluate('document.documentElement.scrollWidth <= innerWidth')
-    p.screenshot(path=str(output/'p2-html-v02-aligned-overview-mobile.png'),full_page=True)
+    # A narrow-screen user can scroll to and activate the last tab without
+    # the SPA snapping its horizontal navigation back to the first tab.
+    p.set_viewport_size({'width':390,'height':844})
+    tabs=p.locator('.p2-tabs')
+    tabs.evaluate('(e)=>{e.scrollLeft=e.scrollWidth}')
+    assert tabs.evaluate('(e)=>e.scrollLeft')>0
+    tabs.locator('[data-p2-tab="audit"]').click()
+    expect(tabs.locator('[data-p2-tab="audit"]')).to_have_attribute('aria-current','page')
+    assert tabs.evaluate('(e)=>e.scrollLeft')>0
+    expect(p.locator('.p2-context')).to_have_count(0)
+    expect(p.locator('.p2-heading')).to_contain_text('不受 Project / Batch 筛选影响')
+    p.screenshot(path=str(output/'p2-1-a-audit-no-irrelevant-scope.png'),full_page=False)
     p.set_viewport_size({'width':1440,'height':1000})
+    p.locator('.p2-tabs [data-p2-tab="library"]').click()
+    # Real keyboard navigation must keep focus after SPA subtree re-render.
+    p.locator('.p2-tabs [data-p2-tab="qa"]').focus()
+    p.keyboard.press('Enter')
+    expect(p.locator('.p2-tabs [data-p2-tab="qa"]')).to_be_focused()
+    expect(p.locator('.p2-tabs [aria-current="page"]')).to_have_count(1)
+    p.locator('.p2-tabs [data-p2-tab="library"]').click()
+    p.screenshot(path=str(output/'p2-html-v02-aligned-overview-desktop.png'),full_page=True)
+    checks.append('p2_1_a_single_nav_responsive_390_680_740_768_1024_1440_keyboard_focus')
+    checks.append('p2_1_a_compact_scope_default_collapsed_audit_global_not_project_scoped')
     p.locator('.p2-table tbody tr').first.get_by_role('button',name='查看详情 →').click()
     expect(p.get_by_role('dialog',name='科学来源版本详情')).to_contain_text('NOT_COMPUTED_DEMO')
     p.get_by_role('dialog',name='科学来源版本详情').get_by_role('button',name='关闭').click()
-    p.locator('#p2NavGroup [data-p2-tab="qa"]').click()
+    p.locator('.p2-tabs [data-p2-tab="qa"]').click()
     expect(p.locator('.p2-qa-grid')).to_be_visible()
     expect(p.locator('.p2-unit')).to_have_count(3)
     p.locator('.p2-unit').nth(1).click()
@@ -311,7 +361,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(p.locator('.p2-pdf-sheet mark.p2-highlighted-quote')).to_be_visible()
     p.locator('.p2-qa-grid').get_by_role('button',name='检查封存条件（演示阻断）').click()
     expect(p.locator('.p2-studio')).to_contain_text('封存失败')
-    p.locator('#p2NavGroup [data-p2-tab="library"]').click()
+    p.locator('.p2-tabs [data-p2-tab="library"]').click()
     p.locator('.p2-heading').get_by_role('button',name='＋ 登记科学来源').click()
     expect(p.get_by_role('dialog',name='来源登记 · 受控合成准备')).to_be_visible()
     p.get_by_role('dialog',name='来源登记 · 受控合成准备').get_by_role('button',name='关闭').click()
@@ -343,10 +393,10 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(a.locator('.p2-studio')).to_contain_text('合成用途审查记录已签发',timeout=20000)
     a.screenshot(path=str(output/'p2-rights-review.png'),full_page=True);a_ctx.close()
     # Producer runs deterministic conversion only AFTER auditor approval.
-    p.locator('#p2NavGroup [data-p2-tab="library"]').click()
+    p.locator('.p2-tabs [data-p2-tab="library"]').click()
     p.locator('.p2-toolbar').get_by_role('button',name='刷新真实登记状态').click()
     expect(p.locator('#p2TableTarget')).to_contain_text('已记录合成用途',timeout=20000)
-    p.locator('#p2NavGroup [data-p2-tab="convert"]').click()
+    p.locator('.p2-tabs [data-p2-tab="convert"]').click()
     expect(p.locator('.p2-table tbody tr').filter(has_text=source_id)).to_have_count(1)
     p.locator('.p2-table tbody tr').filter(has_text=source_id).get_by_role('button',name='开始结构化转换').click()
     expect(p.locator('.p2-studio')).to_contain_text('转换已提交并冻结结构化文档版本',timeout=20000)
@@ -380,7 +430,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
         assert len({r['unit_id'] for r in reviews['reviews']})==idx+1
     assert c_ctx.request.get(url+'/v1/p2/sources/'+source_id+'/r1/reviews').json()['total']==unit_count
     c.screenshot(path=str(output/'p2-curator-raw-structured-qa.png'),full_page=True);c_ctx.close()
-    p.locator('#p2NavGroup [data-p2-tab="versions"]').click()
+    p.locator('.p2-tabs [data-p2-tab="versions"]').click()
     p.locator('.p2-library-table tbody tr').filter(has_text=source_id).get_by_role('button',name='检查并冻结').click()
     expect(p.locator('.p2-studio')).to_contain_text('已冻结合成资料包',timeout=20000)
     assert producer_context.request.get(url+'/v1/p2/sources/'+source_id+'/r1').json()['status']=='PACKAGE_FROZEN'
@@ -391,7 +441,8 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     checks.extend(['p2_studio_same_pr36_management_shell','p2_studio_metadata_only_source_preview',
                    'p2_four_step_wizard_synthetic_only_admission','p2_reader_mock_unit_qa_block',
                    'p2_original_b1_source_library_untouched'])
-    p.locator('[data-p11-route="sources"]').click()
+    p.locator('.p2-tabs [data-p2-tab="library"]').click()
+    p.locator('.p2-heading').get_by_role('button',name='B1 合成来源引用 ↗').click()
     expect(p.locator('#b1PackageStatus')).to_contain_text('SPKG-SYN-RCT-001-R1')
     checks.extend(['b1_source_version_deeplink_survives_reload',
                    'b1_existing_fixture_validate_before_register',
@@ -503,7 +554,8 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
                    'p11_real_browser_create_project_batch_and_atomic_task',
                    'p11_url_project_batch_scope_backward_forward_reload'])
     manager_context,m=manager_login('manager')
-    m.locator('[data-p11-route="sources"]').click()
+    m.locator('[data-p11-route="studio"]').click()
+    m.locator('.p2-heading').get_by_role('button',name='B1 合成来源引用 ↗').click()
     m.locator('#b1SourceRows .p11-source-entry').filter(has_text='RCT-001').get_by_role('button',name='查看版本').click()
     expect(m.locator('#b1PackageStatus')).to_contain_text('SYNTHETIC_REFERENCE_ONLY')
     assert m.locator('#b1ValidatePackage').count()==0
@@ -511,7 +563,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     checks.append('b1_manager_source_package_read_only')
     m.locator('[data-p11-route="studio"]').click()
     expect(m.locator('.p2-studio')).to_be_visible(timeout=15000)
-    m.locator('#p2NavGroup [data-p2-tab="qa"]').click()
+    m.locator('.p2-tabs [data-p2-tab="qa"]').click()
     expect(m.locator('.p2-qa-grid')).to_have_count(0)
     expect(m.locator('.p2-studio')).to_contain_text('该账号仅可浏览来源元数据')
     checks.append('p2_manager_cannot_view_even_synthetic_qa_text')

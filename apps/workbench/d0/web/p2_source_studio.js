@@ -592,7 +592,12 @@
   }
   function draw(){
     if(!root?.isConnected)return;
+    // Preserve the user's horizontal navigation position when the SPA swaps
+    // its content subtree; otherwise a tapped off-screen tab jumps away.
+    const secondaryScroll=root.querySelector('.p2-tabs')?.scrollLeft||0;
     const outer=root.parentElement,component=frame();outer.replaceChild(component,root);root=component;
+    const secondary=root.querySelector('.p2-tabs');
+    if(secondary)secondary.scrollLeft=secondaryScroll;
     if(state.tab==='library')library();
     else if(state.tab==='intake')renderIntake();
     else if(state.tab==='convert')conversion();

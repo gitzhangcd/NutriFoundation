@@ -372,7 +372,12 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     for idx in range(unit_count):
         c.locator('.p2-unit').nth(idx).click()
         c.get_by_role('button',name='核查通过 · 冻结此 Unit').click()
+        # Verify the newly committed server-side QA count, not a toast left
+        # behind by a previous Unit's async write.
         expect(c.locator('.p2-studio')).to_contain_text('独立 QA 记录已持久化',timeout=20000)
+        reviews=c_ctx.request.get(url+'/v1/p2/sources/'+source_id+'/r1/reviews').json()
+        assert reviews['total']==idx+1,(idx,reviews)
+        assert len({r['unit_id'] for r in reviews['reviews']})==idx+1
     assert c_ctx.request.get(url+'/v1/p2/sources/'+source_id+'/r1/reviews').json()['total']==unit_count
     c.screenshot(path=str(output/'p2-curator-raw-structured-qa.png'),full_page=True);c_ctx.close()
     p.locator('#p2NavGroup [data-p2-tab="versions"]').click()

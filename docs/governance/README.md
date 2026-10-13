@@ -22,3 +22,14 @@
 - [GOV-0.2 Machine Decision Lock](GOV-0.2_Scientific_Authority_Version_Decision_v0.1.json)：6 项 authority/version pin 与明确 release gate。
 
 本阶段 `TECHNICAL_EVIDENCE_ADJUDICATED`，**没有**替代科学负责人签署；已核验的 Nutrition Foundation Master 原文件仍在受控私有文件库中，未作为明文复制到 public GitHub。
+
+
+## GOV-0.3｜原始材料受控归档与追溯（2026-10-13）
+
+- [GOV-0.3 原件归档、缺口恢复与权限边界报告](GOV-0.3_Original_Materials_Archive_and_Recovery_Report_v0.1.md) — 9 份实际可恢复的原件已保存到**个人私有 Library**，9/9 全量回读 SHA-256 匹配；7 类所需原件/证据仍未恢复。
+- [GOV-0.3 原始材料清单（机器可读）](GOV-0.3_Controlled_Original_Materials_Manifest_v0.1.json) — 所有已归档文件的准确字节数、SHA-256、私有相对路径、角色与不可替代版本声明。
+- [科学来源原件资格回执模板](GOV-0.3_Scientific_Source_Original_Qualification_Receipt_Template_v0.1.json) — 真实 PDF/JATS/HTML 存储、处理、专家阅读和传播权限独立审批；默认 NO-GO。
+
+**私有存储位置：** `/NutriFoundation/GOV-0.3/Source-Snapshots/`（personal Library；不是 GitHub 路径）。本仓库**仅提交可审阅的元数据和空模板，不包含这些完整原始文档**。已核验 SIS R5 `149590/f7dff...` 及 SIS-MED R5-L1 `117927/d3de...` 是历史替代原件，不能冒充 GOV-0.2 的 `181565/3e1da...`、`61116/f851...` 两个目标文件。
+
+状态：`PRIVATE_ARCHIVE_9_OF_9_BYTE_VERIFIED / MISSING_CATEGORIES_7 / SCIENTIFIC_OWNER_SIGNOFF_PENDING`。这不是 Source Rights qualification、医学专家试验或 Gold GO。

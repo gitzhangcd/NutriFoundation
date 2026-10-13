@@ -37,7 +37,7 @@ REAL_SOURCE / REAL_HUMAN / GOLD / PRODUCTION: NO_GO
 
 ## 2. G02-01｜SIS R5：只确认目标版本身份，原件仍需闭环
 
-两份与 NutriFoundation 上游相关的归档文献（Nutrition Foundation Integrated Master Part VIII、AI Nutri v2.1 Appendix A）均记录：
+Nutrition Foundation Integrated Master Part VIII 与 AI Nutri v2.1 Appendix A 均记录相同的来源 SHA-256；其中后者另记录了 181565 字节大小：
 
 ```yaml
 target: SIS v0.3.1 R5 Regenerated Master
@@ -57,7 +57,7 @@ source_bytes_located_with_same_digest: false
 
 ## 3. G02-02｜SIS-MED R6：临床域的附加规范，原件未锁实
 
-下游两份独立文档相同地记录：
+两份下游文档一致锁定 SHA-256；AI Nutri v2.1 Appendix A 另外记录 61116 字节大小：
 
 ```yaml
 target: SIS-MED v0.3.1 R6 P0.4
@@ -149,7 +149,7 @@ R0 v0.2 Git blob `4cbf9830e1f6b02c0414374fd4c964141ea59974`，R2 v0.2 Git blob `
 
 1. 既有 `SIS-Main@main` R4 不因为数字较小而被自动覆盖；R5 target 字节一致、合法来源和签署前维持 proposal status。
 2. `SIS-MED R5-L1` 不是 `SIS-MED R6 P0.4` 的可替代内容。
-3. 发现 Nutrion Foundation P0–P4 的闭合 hash ≠ 允许将其完整 Markdown 自动复制到 `NutriFoundation` **public** 仓库；须单独确定可见性、许可和不可变发布渠道。
+3. 发现 Nutrition Foundation P0–P4 的闭合 hash ≠ 允许将其完整 Markdown 自动复制到 `NutriFoundation` **public** 仓库；须单独确定可见性、许可和不可变发布渠道。
 4. NDF D1 SRS status PASS 不消除 D2 view r2/r3 mismatch；Case version、view、source packet、masked fields 必须一致。
 5. NDS R0 永不看到 Agent，R1 Frozen AgentFirst，R2 先 freeze J_preAI 后才允许 Agent；合成演示、私有数据和真实科研产生三种不可混淆的 evidence class。
 6. GitHub `git_blob_sha`、原始 byte `sha256`、Scientific SourcePackage `source_sha` 是三种不同主张。不能混用。

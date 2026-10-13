@@ -33,3 +33,11 @@
 **私有存储位置：** `/NutriFoundation/GOV-0.3/Source-Snapshots/`（personal Library；不是 GitHub 路径）。本仓库**仅提交可审阅的元数据和空模板，不包含这些完整原始文档**。已核验 SIS R5 `149590/f7dff...` 及 SIS-MED R5-L1 `117927/d3de...` 是历史替代原件，不能冒充 GOV-0.2 的 `181565/3e1da...`、`61116/f851...` 两个目标文件。
 
 状态：`PRIVATE_ARCHIVE_9_OF_9_BYTE_VERIFIED / MISSING_CATEGORIES_7 / SCIENTIFIC_OWNER_SIGNOFF_PENDING`。这不是 Source Rights qualification、医学专家试验或 Gold GO。
+
+
+## GOV-0.4-P0｜Nutrition Foundation × 三份 Master 的静态符合性审计（2026-10-13）
+
+- [逐条科学语义对照报告](GOV-0.4-P0_Nutrition_Foundation_Three_Master_Conformance_Report_v0.1.md) — NDSF v0.1 对 archived SIS R5、archived SIS-Med R5-L1、AI Nutri v2.1 的逻辑符合性、精确版本错配与最小 Delta。
+- [15 轴结构化矩阵](GOV-0.4-P0_NDSF_Three_Master_Static_Conformance_Matrix_v0.1.json) — 各项来源章节/行号、适用域、判定性质、版本锁与 release gate。
+
+**本阶段只完成 GOV-0.4 的 P0 文本审计，不等于 GOV-0.4 Non-Regression 全部完成。** 三项需补的版本绑定：SIS R5 exact bytes、SIS-MED R6 P0.4 exact bytes、AI Nutri v2.1 对 NDSF v0.1 的显式 downstream adapter。真实专家、Gold、临床与生产门禁不变。

@@ -15,3 +15,10 @@
 **现阶段禁止：** 擅自修改冻结科学树；将 Git blob SHA 当成原件 SHA-256；将 synthetic QA 变成科学 Gold；把真实病历/版权受限论文/密钥放进 public GitHub；把 Draft CI 通过当成 main 合并或阿里云部署。
 
 **更新原则：** 每个新规范和材料必须先明确科学 owner、canonical repo/ref/path、审定 status、版本绑定、存储/权限、变更影响及验收回执，再改变本索引的 current 引用。
+
+## GOV-0.2｜科学权威版本证据裁决（2026-10-13）
+
+- [GOV-0.2 Scientific Authority Adjudication Report](GOV-0.2_Scientific_Authority_Adjudication_Report_v0.1.md)：SIS R5 / SIS-MED R6 目标文件指纹、Nutrition Foundation v0.1 P0–P4 的实际字节校验、NDF r2/r3 和 NDS v0.1→v0.2 结构及内容差异。
+- [GOV-0.2 Machine Decision Lock](GOV-0.2_Scientific_Authority_Version_Decision_v0.1.json)：6 项 authority/version pin 与明确 release gate。
+
+本阶段 `TECHNICAL_EVIDENCE_ADJUDICATED`，**没有**替代科学负责人签署；已核验的 Nutrition Foundation Master 原文件仍在受控私有文件库中，未作为明文复制到 public GitHub。

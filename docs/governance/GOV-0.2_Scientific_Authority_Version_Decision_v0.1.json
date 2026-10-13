@@ -1,0 +1,254 @@
+{
+  "document_id": "GOV-0.2-AUTHORITY-DECISION-LOCK",
+  "version": "0.1",
+  "audit_date": "2026-10-13",
+  "type": "EVIDENCE_BASED_TECHNICAL_VERSION_ADJUDICATION_NOT_OWNER_SIGNATURE",
+  "base_git_head": "34fcbcc407156ab6bd5d63b176826fb3c7df0050",
+  "science_precedence": [
+    "SIS v0.3.1 R5 common scientific semantics",
+    "SIS-MED R6 P0.4 additionally for clinical nutrition only",
+    "Nutrition Foundation v0.1 domain scientific semantics",
+    "NDF D0 -> (NDF D1 + NDF D2) -> NDS R1 empirical program",
+    "Workbench engineering adapter and source-reader implementation"
+  ],
+  "normalization_rule": "Do not silently upgrade R4 to R5, R5-L1 to R6, r2 view to r3, v0.1 to v0.2 or synthetic rights to real eligibility.",
+  "source_evidence_categories": {
+    "raw_bytes_verified": [
+      "GOV02-NDSF-01",
+      "GOV02-SIS-R5 alternates only (not target)",
+      "GOV02-SISMED-R6 alternate only (not target)"
+    ],
+    "downstream_documentary_fingerprints_only": [
+      "GOV02-SIS-R5 target",
+      "GOV02-SISMED-R6 target"
+    ],
+    "exact_git_blobs": [
+      "GOV02-NDF-D1",
+      "GOV02-NDF-D2",
+      "GOV02-NDS-R1"
+    ]
+  },
+  "pins": [
+    {
+      "id": "GOV02-SIS-R5",
+      "layer": "L0",
+      "kind": "upstream_scientific_master",
+      "target": "SIS v0.3.1 R5 Regenerated Master",
+      "decision": "TARGET_VERSION_IDENTITY_PINNED_RAW_BYTES_NOT_VERIFIED",
+      "identity": {
+        "filename": "05-SIS-v0.3.1-R5-Regenerated-Master-Specification.md",
+        "bytes": 181565,
+        "expected_sha256": "3e1da79a14111d2ead7bc49d47665bc05c1879969b9233fdaa060c2f95436a82",
+        "evidence": "AI Nutri v2.1 source-lock Appendix A and NDSF v0.1 Part VIII"
+      },
+      "github_status": {
+        "repository": "gitzhangcd/SIS-Main",
+        "branch": "main",
+        "existing_file": "specs/System_Intelligence_Science_v0.3.1.md",
+        "existing_git_blob_sha": "2c99d87f2c3d5458dca254b1ece3eb9bb7097ce4",
+        "content_edition": "R4-era, not evidence for R5"
+      },
+      "alternates": [
+        {
+          "origin": "private Google Drive same-name copies x2",
+          "bytes": 149590,
+          "sha256": "f7dff71e2c5973f75a7f83c77f189b6d605c5f1ea50f738506e0d115a857c44d",
+          "disposition": "DO_NOT_TREAT_AS_PINNED_181565_BYTE_SOURCE"
+        }
+      ],
+      "science_approval": "PENDING_SOURCE_BYTES_AND_OWNER_RELEASE",
+      "usable_for": "existing bounded synthetic engineering compatibility only; do not claim full R5 conformity"
+    },
+    {
+      "id": "GOV02-SISMED-R6",
+      "layer": "L0",
+      "kind": "clinical_domain_scientific_master",
+      "target": "SIS-MED v0.3.1 R6 P0.4",
+      "decision": "TARGET_VERSION_IDENTITY_PINNED_RAW_BYTES_NOT_VERIFIED",
+      "identity": {
+        "filename": "04-SIS-MED-v0.3.1-R6-P0.4-Regenerated-Master-Spec-1-.md",
+        "bytes": 61116,
+        "expected_sha256": "f8513b600ea7a2266d56159df7f3cb1a71dd9b6b11d40721d49430da95e4b335",
+        "evidence": "AI Nutri v2.1 source-lock Appendix A and NDSF v0.1 Part VIII"
+      },
+      "github_status": {
+        "repository": "gitzhangcd/SIS-Med",
+        "branch": "main",
+        "status": "only AMIE teaching files inspected; no matching R6 Master"
+      },
+      "alternates": [
+        {
+          "origin": "private Google Drive SIS-Med R5-L1 master",
+          "filename": "SIS-Med-v0.3.1-R5-L1-Regenerated-Master-Specification.md",
+          "bytes": 117927,
+          "sha256": "d3de50276e481311cb9f86ab5e68f94b141bf294c4ce67d90efe2ffddd868955",
+          "disposition": "DIFFERENT_SEMANTIC_EDITION_NOT_R6_P0_4"
+        }
+      ],
+      "science_approval": "PENDING_SOURCE_BYTES_AND_OWNER_RELEASE",
+      "application": "additional constraints on clinical nutrition profiles, not on every general-nutrition profile"
+    },
+    {
+      "id": "GOV02-NDSF-01",
+      "layer": "L0",
+      "kind": "domain_scientific_master",
+      "target": "Nutrition Decision Science Foundation v0.1",
+      "decision": "CONTENT_AND_FIVE_PHASE_BYTE_IDENTITY_VERIFIED_IN_PRIVATE_LIBRARY",
+      "identity": {
+        "filename": "Nutrition_Foundation_v0.1_Integrated_Master_Specification.md",
+        "document_id": "NDSF-MASTER-0.1",
+        "date": "2026-10-06",
+        "bytes": 145696,
+        "sha256": "81426a9423f825681a155b748643ebd9f3b6d992b67304d35e94abd9f9ca90ce",
+        "header_status": "INTEGRATED LOGICAL BASELINE FROZEN / FINITE SYNTHETIC CHECKS COMPLETED / EMPIRICAL AND PRODUCTION GATES OPEN"
+      },
+      "phase_checks": [
+        {
+          "phase": "NF-P0",
+          "bytes": 71965,
+          "sha256": "d5342e70e6f524693a437c2b54535a0bae4f02d7c77da390d74e14ce060ca7c4",
+          "matches_master": true
+        },
+        {
+          "phase": "NF-P1",
+          "bytes": 123940,
+          "sha256": "6695fb0d5399022614432d5c1b22124a2ec3e2e5793b4fe302bf879a4173fc61",
+          "matches_master": true
+        },
+        {
+          "phase": "NF-P2",
+          "bytes": 21093,
+          "sha256": "a3068e4d6e31a87a7fc4fa884ed430e1ab681de589af6e09d0e884aecf1a8686",
+          "matches_master": true
+        },
+        {
+          "phase": "NF-P3",
+          "bytes": 14080,
+          "sha256": "a03975dc15aeb1a22e9977317e63d3fd78ea5195f12f1467c776e4a8066f3ae5",
+          "matches_master": true
+        },
+        {
+          "phase": "NF-P4",
+          "bytes": 21576,
+          "sha256": "e45ed8385000498dff4356b3039fd53b01964eaee71331880a84d5d5842cf6fd",
+          "matches_master": true
+        }
+      ],
+      "source_location": "private user Library; source bytes checked locally only, not uploaded to public GitHub",
+      "github_status": "canonical immutable Git repository path/tag not established",
+      "science_approval": "AUTHOR_DECLARED_LOGICAL_FREEZE; GITHUB_PUBLISH_AND_OWNER_RATIFICATION_PENDING",
+      "usable_for": "provisional source-bound interpretation in synthetic engineering; no clinical or empirical GO"
+    },
+    {
+      "id": "GOV02-NDF-D1",
+      "layer": "L1",
+      "kind": "scientific_reference",
+      "target": "NDF-D1 ScientificReferenceState SRS-D1-A3R-001:r4",
+      "decision": "BRANCH_PIN_CONFIRMED_MAIN_NOT_MERGED",
+      "identity": {
+        "repo": "gitzhangcd/NutriFoundation",
+        "branch": "workbench-p2-1-b-source-centric-ux",
+        "path": "runs/NDF/D1/A3R.3/ScientificReferenceState_Bundle_v0.4.json",
+        "git_blob_sha": "90d7f59c941be3c20d26aba3e1a9be57076fba49",
+        "upstream_report_status": "PASS_D1_D2_REBIND_READY_FOR_NDS_R1"
+      },
+      "science_approval": "RECORDED_WITHIN_BRANCH; formal R1 human capture pending"
+    },
+    {
+      "id": "GOV02-NDF-D2",
+      "layer": "L1",
+      "kind": "decision_case_and_projection",
+      "target": "D2-NHANES-L-0001:r3",
+      "decision": "CASE_VERSION_DECLARED_R3_VIEW_VERSION_CONFLICT_BLOCKS_EXPERT_INPUT",
+      "identity": {
+        "case_path": "runs/NDF/D2/Case_0001/NutritionDecisionCaseBundle_v0.2.json",
+        "case_git_blob_sha": "6e07a3fe6c2137976da54df02b7cb540c408e032",
+        "case_revision": "r3",
+        "projection_path": "runs/NDF/D2/Case_0001/Materialized_Projection_Views_v0.2.json",
+        "projection_git_blob_sha": "426be595f178408cab11191a3720cf12aea7703b",
+        "projection_case_ref": "D2-NHANES-L-0001:r2",
+        "a3r3_delta_target_case_ref": "D2-NHANES-L-0001:r2",
+        "current_nds_packet_case_ref": "D2-NHANES-L-0001:r3",
+        "current_nds_packet_case_view_ref": "runs/NDF/D2/Case_0001/Materialized_Projection_Views_v0.2.json#EXPERT_PRE_AI_VIEW"
+      },
+      "science_approval": "BLOCKED_SCIENTIFIC_OWNER_R2_R3_RECONCILIATION_AND_LEAKAGE_REGRESSION",
+      "required_remedy": "signed historical compatibility decision OR new immutable r3 view and tests; no old frozen file rewrite"
+    },
+    {
+      "id": "GOV02-NDS-R1",
+      "layer": "L1",
+      "kind": "expert_capture_and_exposure",
+      "target": "NDS-R1 v0.2 Human Baseline and R0/R2 Workpacks with v0.1 freeze semantics",
+      "decision": "CURRENT_PACKET_AND_WORKPACK_V02_PINNED_TEMPLATE_SHAPE_COMPATIBLE_BUT_SOURCE_CONTENT_CHANGED",
+      "identity": {
+        "source_packet_path": "runs/NDS/R1/P0.1/Human_Baseline_Source_Packet_v0.2.json",
+        "source_packet_blob_sha": "a38d000f9962dac35e00d407f1d984721bc031ef",
+        "R0_v01_blob_sha": "eb07b0e0265c333e542292fb8b59124284f6a9a6",
+        "R0_v02_blob_sha": "4cbf9830e1f6b02c0414374fd4c964141ea59974",
+        "R2_v01_blob_sha": "ee7a287a414cbfc317054ad7daeae7dff7c7de81",
+        "R2_v02_blob_sha": "3f0a06daa90562b79660d8423e5832caf20ff289",
+        "freeze_contract_blob_sha": "adcf4f3c1a67354bf26438f53b6ab585d941f9d5"
+      },
+      "structural_audit": {
+        "R0_01_to_02": {
+          "response_schema_equal": true,
+          "pre_open_gate_equal": true,
+          "freeze_receipt_equal": true,
+          "change_fields": [
+            "version",
+            "status",
+            "input_surface.human_baseline_source_packet_ref"
+          ],
+          "added_fields": [
+            "supersedes",
+            "packet_rebind_reason"
+          ]
+        },
+        "R2_01_to_02": {
+          "J_preAI_schema_equal": true,
+          "pre_open_gate_equal": true,
+          "exposure_assertions_equal": true,
+          "freeze_receipt_equal": true,
+          "change_fields": [
+            "version",
+            "status",
+            "input_surface.human_baseline_source_packet_ref"
+          ],
+          "added_fields": [
+            "supersedes",
+            "packet_rebind_reason"
+          ]
+        },
+        "source_packet_01_to_02": {
+          "same_case_ref": true,
+          "same_case_view_ref": true,
+          "source_count_old": 6,
+          "source_count_new": 6,
+          "changed_bounded_guideline_support": true,
+          "adds_stage2_OR_threshold": true,
+          "new_case_specific_synthesis_hidden": true,
+          "semantically_identical": false
+        },
+        "freeze_contract_still_points_v01": true
+      },
+      "science_approval": "BLOCKED_EXPLICIT_COMPATIBILITY_ADAPTER_AND_R2_R3_VIEW_RESOLUTION; NO_REAL_HUMAN_EXPOSURE",
+      "current_empirical_status": "0 qualified human experts, no J_preAI, no QualifiedReference"
+    }
+  ],
+  "global_science_signoff": "NOT_GRANTED_BY_THIS_DOCUMENT",
+  "gates": {
+    "synthetic_engineering": "ALLOW_UNDER_EXISTING_SEPARATE_STRICT_BLIND_GATES",
+    "real_source_import": "NO_GO",
+    "real_expert_case_r3": "NO_GO",
+    "gold_and_reference": "NO_GO",
+    "production": "NO_GO"
+  },
+  "remaining_conditions": [
+    "locate exact 181565-byte R5 raw master and verify sha256",
+    "locate exact 61116-byte R6 P0.4 raw master and verify sha256",
+    "ratify Nutrition Foundation Master repository/tag after private publication review",
+    "resolve NDF-D2 r2 projection vs r3 case exact input surface",
+    "sign current Workpack v0.2 plus frozen v0.1 freeze semantics adapter proof with source-delta acceptance",
+    "independent source copyright/privacy and human pilot/production approvals"
+  ]
+}

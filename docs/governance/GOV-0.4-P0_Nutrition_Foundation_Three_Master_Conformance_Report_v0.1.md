@@ -7,16 +7,20 @@
 > **原始归档与哈希**：[GOV-0.3 Manifest](GOV-0.3_Controlled_Original_Materials_Manifest_v0.1.json)。  
 > **工程状态**：合成工程 7/25 不变；不修改任何 frozen scientific/master/runtime、无真实专家/Gold/生产放行。
 
+> **版本裁决修订｜2026-10-13（GOV-0.4-P0 Amendment 0.1.1）**  
+> 经科研项目负责人明确确认：**临床营养仅以 SIS-MED v0.3.1 R6 P0.4 作为当前 SIS-MED 规范权威**。此前归档的 SIS-Med R5-L1 仅是**历史语义参考**；其任何“相容/一致”字样都**不得解释为 R6 符合性通过**。目前 R6 P0.4 指定 61,116 字节 / SHA-256 `f8513b600ea7a2266d56159df7f3cb1a71dd9b6b11d40721d49430da95e4b335` 原件仍未取回。因此 **R6 条款级比对 NOT ASSESSED**，`CURRENT_CLINICAL_R6_CONFORMANCE=NO_GO`。下列对 R5-L1 的内容比较一律降格为历史 context / delta discovery，不计入正式临床规范符合性。
+
+
 ## 0. Executive finding
 
-**结论：Nutrition Foundation v0.1 在四份文档可直接比较的共享科学语义上“基本符合”；但不能声称“已同时通过用户所列三份规范的正式符合性验收”。**
+**结论：Nutrition Foundation v0.1 在 SIS R5、AI Nutri v2.1 及已归档历史医学文献的部分共享科学语义上没有发现直接的核心矛盾；但由于当前 SIS-MED 权威是 R6 P0.4 且原件尚缺，**临床 R6 合规性未评估**，更不能称已通过三份规范的正式符合性验收。**
 
 形式上需要区别：
 
 ```
 SIS v0.3.1 R5  --common science-->  Nutrition Foundation v0.1
                                   ├--> general nutrition profiles
-SIS-MED v0.3.1 R6 P0.4  ----------┘--> clinical nutrition profiles
+SIS-MED v0.3.1 R6 P0.4  ----------┘--> clinical nutrition profiles [ONLY CURRENT SIS-MED AUTHORITY]
 
 Nutrition Foundation  --domain foundation proposal/adapter--> AI Nutri v2.1
 AI Nutri v2.1  --project R0–R8 / scientific evidence / benchmark--> implementation and experiments
@@ -30,7 +34,7 @@ AI Nutri v2.1  --project R0–R8 / scientific evidence / benchmark--> implementa
 |---|---|---:|---|
 | NDSF | `Nutrition_Foundation_v0.1_Integrated_Master_Specification.md` | 145,696 | `81426a9423f825681a155b748643ebd9f3b6d992b67304d35e94abd9f9ca90ce` |
 | SIS_ALT | `System-Intelligence-Science-v0.3.1-R5-Regenerated-Master-Specification.md` | 149,590 | `f7dff71e2c5973f75a7f83c77f189b6d605c5f1ea50f738506e0d115a857c44d` |
-| MED_ALT | `SIS-Med-v0.3.1-R5-L1-Regenerated-Master-Specification.md` | 117,927 | `d3de50276e481311cb9f86ab5e68f94b141bf294c4ce67d90efe2ffddd868955` |
+| MED_ALT (**historical-only, non-authoritative**) | `SIS-Med-v0.3.1-R5-L1-Regenerated-Master-Specification.md` | 117,927 | `d3de50276e481311cb9f86ab5e68f94b141bf294c4ce67d90efe2ffddd868955` |
 | AI_NUTRI | `AI_Nutri_v2.1_Aligned_Master_Specification.md` | 189,759 | `06a50bca0951e697f47793dad982d18b5ddcf2062ef856d16150708fc2f61d5b` |
 
 **Important**: NDSF Integrated Master Part VIII (§2187–2205) pins a DIFFERENT exact R5 source `181565 bytes/3e1da79a...` and SIS-MED **R6 P0.4** `61116 bytes/f8513b60...`. Those target originals are **not available** among the four byte-verified archives. The archived MED R5-L1 master is an **earlier different edition**, not the science authority explicitly cited by NDSF. Therefore formal exact version conformance remains blocked even when individual scientific rules align.
@@ -39,7 +43,7 @@ AI Nutri v2.1  --project R0–R8 / scientific evidence / benchmark--> implementa
 
 | # | Check | NDSF clause(s) | Primary comparison clauses | Scoped disposition |
 |---:|---|---|---|---|
-| 01 | Upstream hierarchy, clinical applicability | NDSF 60–74, 137–169 | AI 209–245, MED 233–253 | **Consistent principle; MED R6 exact target missing** |
+| 01 | Upstream hierarchy, clinical applicability | NDSF 60–74, 137–169 | AI 209–245; historical MED 233–253 | **R6 authority confirmed; R6 conformance NOT ASSESSED** |
 | 02 | No Core primitive / Program / Experiment schema inflation | NDSF 1–11, 184–197, 1744–1823 | SIS 60–78, 1675–1829 | **Aligned** |
 | 03 | Observation≠state≠diagnosis, unknown/masked provenance | NDSF 336–397 | SIS 658–694, AI 565–775 | **Aligned** |
 | 04 | Scientific knowledge vs individual information; anchors, applicability | NDSF 399–448, 525–536 | AI 825–1107, 1585–1709 | **Thin interface aligned; adapter binding pending** |
@@ -48,10 +52,10 @@ AI Nutri v2.1  --project R0–R8 / scientific evidence / benchmark--> implementa
 | 07 | Set-valued reference and retained uncertainty/adjudication | NDSF 1422–1545 | SIS 3890–4058, AI 3948–4019 | **Aligned in text** |
 | 08 | Strict exposure, time/visibility and hindsight non-leakage | NDSF 722–782, 1174–1236, 1694–1715 | SIS 3559–3639, MED 2297–2338, AI 4022–4060 | **Aligned semantics; implementation untested** |
 | 09 | Monitoring, adherence, transition, redecision; avoid false longitudinal data | NDSF 1556–1743 | MED 1490–1567, AI 4091–4147 | **Aligned base semantics** |
-| 10 | Advanced clinical LHDI semantics | NDSF 1605–1689, 1756–1797 | MED 1157–1275, 1505–1567, 4352–4390 | **Conditional clinical adapter/profile pending** |
+| 10 | Advanced clinical LHDI semantics | NDSF 1605–1689, 1756–1797 | Historical R5-L1 only; R6 source missing | **Historical hints only; R6 exact requirements NOT ASSESSED** |
 | 11 | Estimand-first routing, CSCI and boundary axes | NDSF 1798–1887, 1940–1949 | SIS 1411–1549, 1675–1829, AI 4370–4431 | **Aligned in text** |
 | 12 | SIS R5 capability-localization status | NDSF 199–207, 1746–1754, 2187–2205 | Actual SIS R5 alternate entire file | **Exact source revision mismatch; target raw missing** |
-| 13 | SIS-MED R6 P0.4 vs archived R5-L1 | NDSF 60–74, 137–169, 2187–2205 | MED 1–55, 233–253 | **Exact science version not the same** |
+| 13 | SIS-MED R6 P0.4 vs archived R5-L1 | NDSF 60–74, 137–169, 2187–2205 | R5-L1 historical only | **SIS-MED R6 P0.4 SOLE AUTHORITY; compliance BLOCKED pending exact R6 original** |
 | 14 | AI Nutri v2.1 ⇄ NDSF authority/adapter binding | NDSF 199–205, 2041–2058, 2187–2205 | AI 1–26, 209–245, 3841–3882 | **Missing formal binding; no reason to rewrite Core** |
 | 15 | Physical contracts, pilot, source/real expert validity, release tests | NDSF 1908–1985, 2077–2140, 2221–2229 | MED 131–175, AI 7–17, 5039–5063 | **Not executed** |
 
@@ -65,11 +69,11 @@ NDSF keeps `ScientificCoreDelta=0`, `ProgramArchitectureDelta=0`, `CoreExperimen
 
 It also handles SIS R5 human/reference invariants: `ExpertJudgment != LatentTruth`, `Reference != LatentTruth`, `ExpertAgreement != Validity`, `DecisionQuality != RealizedOutcome`, no ex-post hindsight, and set-valued acceptable actions. No direct contradictory invariant was found in those scoped sections.
 
-### 3.2 SIS-Med clinical concepts — common semantics
+### 3.2 Archived SIS-Med R5-L1 — *historical* clinical concepts, not current compliance
 
 The archived R5-L1 clinical Master explicitly separates clinician-native elicitation, research semantic mapping, reference adjudication, human role, bounded safety, allowed actions and temporal lineage. NDSF P0/P2/P3 has direct counterparts: unmodified expert judgments, risk and veto scoped per action/plan, independent qualified reference, source/time/visibility, monitoring, authorization vs actual execution, and no synthetic trajectory disguised as real data.
 
-**This is NOT full clinical conformance:** R5-L1 includes specialized `ClinicalBeliefState`, `AuthorityState`, long-horizon irreversibility and option-space closure / sequential identification (§1157+, §1505–1567, §4352+, §5361+). NDSF does not assert exact field-level implementation of these named contracts. For clinical tasks **that invoke these constructs**, require a loss-aware `ClinicalNutritionProfile`/adapter binding, negative tests and clinical scientific owner review. For general nonclinical nutrition, do not force all high-risk LHDI objects into NDSF common Core.
+**This is NOT any certification of current SIS-MED R6 clinical conformance:** R5-L1 includes specialized `ClinicalBeliefState`, `AuthorityState`, long-horizon irreversibility and option-space closure / sequential identification (§1157+, §1505–1567, §4352+, §5361+). NDSF does not assert exact field-level implementation of these named contracts. For clinical tasks **that invoke these constructs**, require a loss-aware `ClinicalNutritionProfile`/adapter binding, negative tests and clinical scientific owner review. For general nonclinical nutrition, do not force all high-risk LHDI objects into NDSF common Core.
 
 ### 3.3 AI Nutri v2.1 is compatible as a project downstream
 
@@ -85,10 +89,10 @@ Concepts such as observation/state separation, conditional action and safety, ex
 - Actual archived SIS R5 (SHA256 `f7dff71e...` / 149590 bytes) **does not contain** a `Part VII-A` heading, `PROPOSED NORMATIVE PATCH` phrase or `capability-localization` section.
 - This is **conclusive revision/source mismatch**, not proof that NDSF adopted a false scientific concept. NDSF conservatively declines to force the proposed patch, which is a reasonable non-inflation position. The exact source must be recovered before a formal “SIS R5 complete” certificate.
 
-### D-02｜SIS-MED R6 is the clinical requirement, R5-L1 comparison is partial (P0 CLINICAL)
+### D-02｜SIS-MED R6 P0.4 is the **sole current clinical authority**; R5-L1 is historical only (P0 CLINICAL)
 
 - NDSF Part I §137–169 states the clinical profile must satisfy SIS R5 **and** SIS-MED R6 P0.4 **and** NDSF.
-- The available R5-L1 source predates R6 and differs in hash/version; matching its semantics does not establish R6 compliance.
+- The available R5-L1 source predates R6 and differs in hash/version; matching its semantics **must not be scored as clinical normative conformance**. It is historical context only, not a fallback authority.
 - Exact R6 original + explicit clinical applicability + domain adapter/safety/clinician qualification need independent binding. This does **not** block nonclinical research with suitable scope.
 
 ### D-03｜NDSF v0.1 has no explicit alignment to AI Nutri v2.1 (P1 DOWNSTREAM)
@@ -116,11 +120,11 @@ Concepts such as observation/state separation, conditional action and safety, ex
 
 ```text
 NDSF vs archived SIS R5 general scientific concepts:       SUBSTANTIALLY_TEXT_ALIGNED
-NDSF vs archived SIS-Med R5-L1 common clinical meanings:   SUBSTANTIALLY_TEXT_ALIGNED_WITH_SCOPE_LIMIT
+NDSF vs archived SIS-Med R5-L1 clinical rules:          HISTORICAL_CONTEXT_ONLY_NOT_COMPLIANCE
 NDSF vs AI Nutri v2.1 project scientific semantics:        CONCEPTUALLY_COMPATIBLE_MISSING_EXACT_BINDING
 EXACT SIS R5 locked input conformance:                     NOT_VERIFIED
-EXACT SIS-MED R6 P0.4 clinical conformance:                NOT_VERIFIED
-Clinical LHDI exact field/role mapping:                    NOT_COMPLETED
+EXACT SIS-MED R6 P0.4 clinical conformance:                NOT_ASSESSED_NO_EXACT_R6_MASTER
+Clinical LHDI exact R6 field/role mapping:                 NOT_ASSESSED_NO_EXACT_R6_MASTER
 Physical schema/runtime/Strict-Blind/real expert/Gold:     NOT_TESTED_BY_THIS_AUDIT
 NDSF Core rewrite required from this audit:                NO
 Formal 'fully conforms to all 3 sources' signoff:          NO

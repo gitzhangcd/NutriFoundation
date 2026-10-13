@@ -1,0 +1,261 @@
+{
+  "document_id": "GOV-0.4-P0-NDSF-CROSS-STANDARD-TEXTUAL-AUDIT-0.1",
+  "created_at": "2026-10-13",
+  "audit_class": "DOCUMENT_TO_DOCUMENT_SEMANTIC_PRE_AUDIT",
+  "scope": "Nutrition Foundation v0.1 vs archived SIS v0.3.1 R5 (149590-byte alternate), archived SIS-Med v0.3.1 R5-L1, and AI Nutri v2.1 (downstream). No real data/runtime conformance.",
+  "frozen_sources": [
+    {
+      "alias": "NDSF",
+      "file": "Nutrition_Foundation_v0.1_Integrated_Master_Specification.md",
+      "size": 145696,
+      "sha256": "81426a9423f825681a155b748643ebd9f3b6d992b67304d35e94abd9f9ca90ce",
+      "layer": "DOMAIN_FOUNDATION"
+    },
+    {
+      "alias": "SIS_ARCHIVE",
+      "file": "System-Intelligence-Science-v0.3.1-R5-Regenerated-Master-Specification.md",
+      "size": 149590,
+      "sha256": "f7dff71e2c5973f75a7f83c77f189b6d605c5f1ea50f738506e0d115a857c44d",
+      "layer": "UPSTREAM_SIS_DIFFERENT_SOURCE_REVISION"
+    },
+    {
+      "alias": "SIS_MED_ARCHIVE",
+      "file": "SIS-Med-v0.3.1-R5-L1-Regenerated-Master-Specification.md",
+      "size": 117927,
+      "sha256": "d3de50276e481311cb9f86ab5e68f94b141bf294c4ce67d90efe2ffddd868955",
+      "layer": "MEDICAL_DOMAIN_HISTORICAL_NOT_R6"
+    },
+    {
+      "alias": "AI_NUTRI",
+      "file": "AI_Nutri_v2.1_Aligned_Master_Specification.md",
+      "size": 189759,
+      "sha256": "06a50bca0951e697f47793dad982d18b5ddcf2062ef856d16150708fc2f61d5b",
+      "layer": "DOWNSTREAM_RESEARCH_MASTER"
+    }
+  ],
+  "status_legend": {
+    "TEXTUALLY_ALIGNED": "Listed normative meaning present in both sources; no executable or signed certification",
+    "BOUNDARY_ALIGNED_ADAPTER_PENDING": "Consistent intent but exact mapping and scoped profile evidence still missing",
+    "VERSION_IDENTITY_BLOCKED": "Cannot certify against exact intended upstream source based on available alternate",
+    "DOWNSTREAM_BINDING_MISSING": "AI Nutri v2.1 does not formally bind to NDSF; bidirectional owner/field mapping not demonstrated",
+    "EMPIRICAL_GATE_OPEN": "No proof of clinical validity, qualified experts, runtime and statistical conformance"
+  },
+  "checks": [
+    {
+      "id": "C01",
+      "area": "Scientific authority and conditional clinical scope",
+      "target": "SIS / SIS-MED",
+      "finding": "SIS R5 > NDSF > profile > experiment; clinical nutrition additionally requires SIS-MED R6, not R5-L1. Archived R5-L1 cannot substitute.",
+      "source_lines": {
+        "NDSF": "60-74;137-169",
+        "SIS_MED_ARCHIVE": "233-253"
+      },
+      "status": "BOUNDARY_ALIGNED_ADAPTER_PENDING",
+      "severity": "P0_SCOPED"
+    },
+    {
+      "id": "C02",
+      "area": "No new SIS Core primitive/program/experiment schema",
+      "target": "SIS",
+      "finding": "NDSF explicitly declares zero deltas and independent claim classification; compatible on available textual evidence.",
+      "source_lines": {
+        "NDSF": "1-11;184-197;1744-1754;1798-1823",
+        "SIS_ARCHIVE": "60-78;1675-1829;1919-1977"
+      },
+      "status": "TEXTUALLY_ALIGNED",
+      "severity": "LOW"
+    },
+    {
+      "id": "C03",
+      "area": "Observation vs inferred state vs latent truth",
+      "target": "SIS / AI Nutri",
+      "finding": "NDSF distinguishes observed/derived/inferred, knowledge state, case construction class and mask overlay; avoids collapsing dietary recall into habitual diet/clinical diagnosis.",
+      "source_lines": {
+        "NDSF": "336-397;489-510",
+        "SIS_ARCHIVE": "658-694;2849-2912",
+        "AI_NUTRI": "565-775;1710-1843"
+      },
+      "status": "TEXTUALLY_ALIGNED",
+      "severity": "LOW"
+    },
+    {
+      "id": "C04",
+      "area": "Two-world evidence, applicability and original anchors",
+      "target": "AI Nutri",
+      "finding": "NDSF deliberately defines a thin evidence-binding interface, not the full SourceArtifact/EvidenceUnit/EvidenceSynthesis ecosystem; appropriate as a thin domain foundation, but adapter to v2.1 R2.1 has no explicit ratified binding.",
+      "source_lines": {
+        "NDSF": "399-448;525-536;2187-2205",
+        "AI_NUTRI": "825-1107;1585-1709;4533-4574"
+      },
+      "status": "BOUNDARY_ALIGNED_ADAPTER_PENDING",
+      "severity": "P1"
+    },
+    {
+      "id": "C05",
+      "area": "Information sufficiency vs decision vs clinical safety",
+      "target": "SIS / SIS-MED / AI Nutri",
+      "finding": "NDSF separately models information sufficiency, action eligibility and reference qualification, ASK/DEFER/NO_CHANGE, conditional veto, and professional scope.",
+      "source_lines": {
+        "NDSF": "970-1035;1036-1120;449-487;1392-1421",
+        "SIS_ARCHIVE": "3760-3845",
+        "AI_NUTRI": "1843-1929;2075-2129"
+      },
+      "status": "TEXTUALLY_ALIGNED",
+      "severity": "LOW"
+    },
+    {
+      "id": "C06",
+      "area": "Expert-native elicitation / Human–Ontology separation",
+      "target": "SIS / SIS-MED / AI Nutri",
+      "finding": "Native expert judgments preserved; mapper loss-aware; Agent low-risk candidate work cannot own Gold/clinical truth; professional role/exposure and adjudication separated.",
+      "source_lines": {
+        "NDSF": "489-536;1300-1382;1422-1445",
+        "SIS_ARCHIVE": "426-525;3383-3675",
+        "SIS_MED_ARCHIVE": "4168-4251",
+        "AI_NUTRI": "3923-4019"
+      },
+      "status": "TEXTUALLY_ALIGNED",
+      "severity": "LOW"
+    },
+    {
+      "id": "C07",
+      "area": "Set-valued reference, conditional actions and non-inflation",
+      "target": "SIS / SIS-MED / AI Nutri",
+      "finding": "Preferred subset acceptable, acceptable vs unsafe disjoint, open-world unmatched action, uncertainty/adjudication and qualification are distinct.",
+      "source_lines": {
+        "NDSF": "1422-1545",
+        "SIS_ARCHIVE": "3890-4058",
+        "AI_NUTRI": "3948-4019",
+        "SIS_MED_ARCHIVE": "2210-2295"
+      },
+      "status": "TEXTUALLY_ALIGNED",
+      "severity": "LOW"
+    },
+    {
+      "id": "C08",
+      "area": "Ex ante/ex post and strict exposure boundaries",
+      "target": "SIS / SIS-MED / AI Nutri",
+      "finding": "SystemInput, ExpertReference and future Outcome views separated, two timestamps, role and visibility snapshots and anti-hindsight constraints.",
+      "source_lines": {
+        "NDSF": "722-782;1174-1236;1694-1715",
+        "SIS_ARCHIVE": "3559-3639",
+        "SIS_MED_ARCHIVE": "2297-2338",
+        "AI_NUTRI": "4022-4060"
+      },
+      "status": "TEXTUALLY_ALIGNED",
+      "severity": "LOW"
+    },
+    {
+      "id": "C09",
+      "area": "Longitudinal transitions, adherence, monitoring and redecision",
+      "target": "SIS / SIS-MED / AI Nutri",
+      "finding": "NDSF separates decision/authorization/execution/adherence/outcome, monitors targets+time+triggers, and disallows cross-sectional NHANES invented trajectories.",
+      "source_lines": {
+        "NDSF": "1556-1743",
+        "SIS_MED_ARCHIVE": "1490-1567",
+        "AI_NUTRI": "4091-4147"
+      },
+      "status": "TEXTUALLY_ALIGNED",
+      "severity": "LOW"
+    },
+    {
+      "id": "C10",
+      "area": "Clinical long-horizon advanced constructs",
+      "target": "SIS-Med R5-L1",
+      "finding": "Archived medical R5-L1 names ClinicalBeliefState, AuthorityState, irreversible/option-closure and sequential identification. NDSF offers related state/authority/transition features but does not define these as exact named interoperable fields; clinical LHDI profile needs explicit loss-aware adapter and fixtures. Absence of matching names alone is NOT a contradiction.",
+      "source_lines": {
+        "NDSF": "1605-1689;1756-1797",
+        "SIS_MED_ARCHIVE": "1157-1275;1505-1567;4352-4390;5361-5414"
+      },
+      "status": "BOUNDARY_ALIGNED_ADAPTER_PENDING",
+      "severity": "P1_SCOPED"
+    },
+    {
+      "id": "C11",
+      "area": "Claim/estimand-first routing; CSCI cross-cutting",
+      "target": "SIS / SIS-MED / AI Nutri",
+      "finding": "NDSF requires separate ProgramClassification, respects SCF/SDR/ASR and keeps CSCI/X2 cross-program; no route inferred from interface, filename or multiple visits.",
+      "source_lines": {
+        "NDSF": "1798-1887;1940-1949",
+        "SIS_ARCHIVE": "1675-1829;1411-1549",
+        "SIS_MED_ARCHIVE": "2647-2808",
+        "AI_NUTRI": "4370-4431"
+      },
+      "status": "TEXTUALLY_ALIGNED",
+      "severity": "LOW"
+    },
+    {
+      "id": "C12",
+      "area": "SIS R5 proposed capability-localization patch",
+      "target": "SIS",
+      "finding": "NDSF refers specifically to SIS R5 'Part VII-A PROPOSED NORMATIVE PATCH' and treats it as non-adopted; that text/heading is not present in the archived 149590-byte SIS R5 source, validating revision mismatch. Conformance requires exact 181565-byte pinned R5 target before formal statement.",
+      "source_lines": {
+        "NDSF": "199-207;1746-1754;2187-2205",
+        "SIS_ARCHIVE": "1-147"
+      },
+      "status": "VERSION_IDENTITY_BLOCKED",
+      "severity": "P0_SOURCE"
+    },
+    {
+      "id": "C13",
+      "area": "Clinical upstream exact identity mismatch",
+      "target": "SIS-MED",
+      "finding": "NDSF clinical authority points to R6 P0.4 sha f851..., but provided/archived comparison source is R5-L1 sha d3de...; no proof R6 clauses preserved or replaced.",
+      "source_lines": {
+        "NDSF": "60-74;137-169;2187-2205",
+        "SIS_MED_ARCHIVE": "1-55;233-253"
+      },
+      "status": "VERSION_IDENTITY_BLOCKED",
+      "severity": "P0_CLINICAL"
+    },
+    {
+      "id": "C14",
+      "area": "NDSF vs AI Nutri v2.1 explicit version binding",
+      "target": "AI Nutri",
+      "finding": "NDSF Part VIII explicitly states AI Nutri v2.1 was not supplied and inherited detailed evidence ecosystem annex from AI Nutri v2.0. AI Nutri v2.1 authority table references SIS R5 and SIS-MED R6 but does not contain Nutrition Foundation/NDSF explicit authority binding. Requires downstream mapping/profile delta, not rewriting NDSF Core.",
+      "source_lines": {
+        "NDSF": "199-205;2041-2058;2187-2205",
+        "AI_NUTRI": "1-26;209-245;3841-3882"
+      },
+      "status": "DOWNSTREAM_BINDING_MISSING",
+      "severity": "P1_CONTRACT"
+    },
+    {
+      "id": "C15",
+      "area": "Full physical schema, automated conformance and real expert/clinical evidence",
+      "target": "All",
+      "finding": "NDSF itself says 22 release fixtures specified but not all run, and real expert, external validation, exact clinical thresholds and production remain open. AI v2.1 physical/runtime and empirical conformance explicitly not executed; MED R5-L1 normative PASS is semantic not execution PASS.",
+      "source_lines": {
+        "NDSF": "22-35;1908-1937;1953-1985;2077-2140;2221-2229",
+        "AI_NUTRI": "7-17;5039-5063",
+        "SIS_MED_ARCHIVE": "131-175;6944-6971"
+      },
+      "status": "EMPIRICAL_GATE_OPEN",
+      "severity": "P0_OPERATIONAL"
+    }
+  ],
+  "overall": {
+    "scientific_logic": "SUBSTANTIALLY_ALIGNED_TO_ARCHIVED_TEXT_IN_APPLICABLE_SHARED_SEMANTICS",
+    "three_document_formal_compliance": "NOT_DEMONSTRATED",
+    "hard_scientific_contradiction_proven": false,
+    "exact_target_sources": "BLOCKED_SIS_R5_AND_SISMED_R6",
+    "downstream_ai_nutri_versioned_adapter": "MISSING",
+    "clinical_long_horizon_mapping": "CONDITIONAL_PROFILE_REQUIRED",
+    "physical_runtime_and_qualified_reference": "NOT_TESTED",
+    "recommended_change": "MINIMAL_NORMATIVE_DELTA_ONLY; keep existing NDSF v0.1 frozen, add companion compatibility map and optional clinical LHDI profile after owner approvals"
+  },
+  "release_gates": {
+    "science_owner": "PENDING",
+    "source_exact_match": "BLOCK",
+    "clinical_profile": "BLOCK_UNTIL_R6_MATCH",
+    "strict_blind_runtime": "NOT_ASSESSED",
+    "real_expert": "NO_GO",
+    "Gold": "NO_GO",
+    "production": "NO_GO"
+  },
+  "progress": {
+    "GOV_0_4": "P0_STATIC_DOCUMENT_AUDIT_PREPARED_ONLY",
+    "overall_development": "7/25 unchanged",
+    "GOV_0_3": "9/9 archives remained byte verified, 7 gaps open"
+  }
+}

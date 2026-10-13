@@ -1,0 +1,125 @@
+{
+  "schema_id": "NDF-P2-GOV0.3-SCIENTIFIC-SOURCE-ORIGINAL-RECEIPT-V0.1",
+  "record_class": "SOURCE_ORIGINAL_QUALIFICATION_DRAFT",
+  "release_state": "BLOCKED_UNTIL_INDEPENDENT_AUDITOR_AND_CURATOR_SIGNOFF",
+  "scientific_source_identity": {
+    "source_id": null,
+    "bibliographic_title": null,
+    "doi": null,
+    "pmid": null,
+    "publisher": null,
+    "publication_version": null,
+    "correction_retraction_status": "UNREVIEWED",
+    "source_date": null,
+    "original_canonical_url": null
+  },
+  "raw_original": {
+    "original_file_name": null,
+    "mime_type": null,
+    "original_bytes": null,
+    "raw_sha256": null,
+    "acquisition_time_utc": null,
+    "acquisition_method": null,
+    "acquired_by_role": null,
+    "private_object_store_ref": null,
+    "immutable_object_version": null,
+    "external_access": false
+  },
+  "rights_grants": {
+    "license_identifier": null,
+    "license_evidence_ref": null,
+    "rights_holder": null,
+    "claim_supported_by_evidence": false,
+    "storage": {
+      "allowed": false,
+      "scope": null,
+      "valid_until": null,
+      "approval_ref": null
+    },
+    "machine_processing": {
+      "allowed": false,
+      "scope": null,
+      "valid_until": null,
+      "approval_ref": null
+    },
+    "expert_reading": {
+      "allowed": false,
+      "role_allowlist": [],
+      "valid_until": null,
+      "approval_ref": null
+    },
+    "translation": {
+      "allowed": false,
+      "scope": null,
+      "approval_ref": null
+    },
+    "embedding_or_training": {
+      "allowed": false,
+      "scope": null,
+      "approval_ref": null
+    },
+    "redistribution": {
+      "allowed": false,
+      "scope": null,
+      "approval_ref": null
+    }
+  },
+  "privacy": {
+    "human_subjects_data_class": "UNASSESSED",
+    "deidentification_status": "NOT_VERIFIED",
+    "consent_or_legal_basis_ref": null,
+    "retention_policy_ref": null,
+    "location_and_cross_border_review": "NOT_ATTESTED",
+    "exposure_minimization_review": "PENDING"
+  },
+  "parsing": {
+    "format": "UNSET",
+    "external_parser": "UNSET",
+    "parser_version": null,
+    "structured_artifact_ref": null,
+    "structured_sha256": null,
+    "original_sha256_binding": null,
+    "unit_count": 0,
+    "unit_id_rule": null,
+    "source_anchor_lineage_ref": null,
+    "table_figure_formula_coverage": "UNTESTED",
+    "translation_is_auxiliary": true
+  },
+  "independent_quality_assurance": {
+    "curator_role_ref": null,
+    "qa_summary_ref": null,
+    "unit_coverage_pass": false,
+    "anchor_span_verification_pass": false,
+    "table_figure_equivalence_pass": false,
+    "source_version_integrity_pass": false,
+    "sha_linkage_pass": false,
+    "material_errors": [],
+    "verdict": "PENDING"
+  },
+  "scoped_use": {
+    "project_refs": [],
+    "batch_refs": [],
+    "visible_to_expert": false,
+    "visible_to_agent": false,
+    "strict_blind_controller_ref": null,
+    "exposure_receipt_ref": null,
+    "note": "Project/Batch selects intended scope but never grants rights"
+  },
+  "freezing": {
+    "source_package_ref": null,
+    "source_package_version": null,
+    "source_package_sha256": null,
+    "auditor_approval_ref": null,
+    "curator_approval_ref": null,
+    "freeze_receipt": null,
+    "status": "NOT_FROZEN"
+  },
+  "non_inference_contract": [
+    "No DOI or PDF existence implies license",
+    "No processing grant implies expert-read permission",
+    "No passage translation is authoritative without an original evidence span",
+    "No agent preannotation implies human reference",
+    "No synthetic QA implies actual scientific-source qualification",
+    "No Project/Batch selection implies visibility authorization"
+  ]
+}

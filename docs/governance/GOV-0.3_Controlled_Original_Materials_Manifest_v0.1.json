@@ -1,0 +1,326 @@
+{
+  "manifest_id": "NDF-WB-GOV-0.3-MATERIALS-MANIFEST-0.1",
+  "version": "0.1",
+  "recorded_at": "2026-10-13",
+  "project": "NutriFoundation",
+  "parent_governance": "GOV-0.2",
+  "archive_storage_profile": "PERSONAL_LIBRARY_NOT_GITHUB",
+  "archive_root": "/NutriFoundation/GOV-0.3/Source-Snapshots/",
+  "archive_integrity": {
+    "verified_unique_source_snapshots": 9,
+    "readback_verified_count": 9,
+    "failed_readback_count": 0,
+    "sha_algorithm": "SHA-256",
+    "method": "independently computed on raw mounted source and on newly materialized Library archive file; exact byte identity compared",
+    "all_sources_private": true
+  },
+  "source_records": [
+    {
+      "material_id": "G03-NF-MASTER",
+      "filename": "Nutrition_Foundation_v0.1_Integrated_Master_Specification.md",
+      "asset_class": "NDSF_DOMAIN_MASTER",
+      "observed_bytes": 145696,
+      "observed_sha256": "81426a9423f825681a155b748643ebd9f3b6d992b67304d35e94abd9f9ca90ce",
+      "storage": {
+        "provider": "ChatGPT personal Library",
+        "scope": "personal_private_archive",
+        "relative_path": "/NutriFoundation/GOV-0.3/Source-Snapshots/Nutrition_Foundation_v0.1_Integrated_Master_Specification.md",
+        "public_access": "NOT_GRANTED_BY_THIS_ARCHIVE"
+      },
+      "proof": {
+        "raw_bytes_accessed": true,
+        "copy_verified_by_full_readback": true,
+        "readback_bytes": 145696,
+        "readback_sha256": "81426a9423f825681a155b748643ebd9f3b6d992b67304d35e94abd9f9ca90ce",
+        "archive_matches_source": true,
+        "archive_date": "2026-10-13"
+      },
+      "science_status": "LOGICAL_FROZEN_BYTE_VERIFIED_SCIENCE_RATIFICATION_PENDING",
+      "rights_status": "PUBLICATION_PERMISSION_NOT_ATTESTED",
+      "allowed_use": "INTERNAL_GOVERNANCE_VERSION_VERIFICATION_ONLY",
+      "workbench_exposure": "PROHIBITED"
+    },
+    {
+      "material_id": "G03-NF-P0",
+      "filename": "Nutrition_Foundation_v0.1_Scientific_Identity_Boundary_Canonical_Objects_SIS_R5_Alignment_Freeze.md",
+      "asset_class": "NDSF_PHASE_ARCHIVE",
+      "observed_bytes": 71965,
+      "observed_sha256": "d5342e70e6f524693a437c2b54535a0bae4f02d7c77da390d74e14ce060ca7c4",
+      "storage": {
+        "provider": "ChatGPT personal Library",
+        "scope": "personal_private_archive",
+        "relative_path": "/NutriFoundation/GOV-0.3/Source-Snapshots/Nutrition_Foundation_v0.1_Scientific_Identity_Boundary_Canonical_Objects_SIS_R5_Alignment_Freeze.md",
+        "public_access": "NOT_GRANTED_BY_THIS_ARCHIVE"
+      },
+      "proof": {
+        "raw_bytes_accessed": true,
+        "copy_verified_by_full_readback": true,
+        "readback_bytes": 71965,
+        "readback_sha256": "d5342e70e6f524693a437c2b54535a0bae4f02d7c77da390d74e14ce060ca7c4",
+        "archive_matches_source": true,
+        "archive_date": "2026-10-13"
+      },
+      "science_status": "P0_HASH_MATCHES_NDSF_MASTER",
+      "rights_status": "PUBLICATION_PERMISSION_NOT_ATTESTED",
+      "allowed_use": "INTERNAL_GOVERNANCE_VERSION_VERIFICATION_ONLY",
+      "workbench_exposure": "PROHIBITED"
+    },
+    {
+      "material_id": "G03-NF-P1",
+      "filename": "Nutrition_Foundation_v0.1_NF-P1_Exact_Logical_Contracts_Freeze.md",
+      "asset_class": "NDSF_PHASE_ARCHIVE",
+      "observed_bytes": 123940,
+      "observed_sha256": "6695fb0d5399022614432d5c1b22124a2ec3e2e5793b4fe302bf879a4173fc61",
+      "storage": {
+        "provider": "ChatGPT personal Library",
+        "scope": "personal_private_archive",
+        "relative_path": "/NutriFoundation/GOV-0.3/Source-Snapshots/Nutrition_Foundation_v0.1_NF-P1_Exact_Logical_Contracts_Freeze.md",
+        "public_access": "NOT_GRANTED_BY_THIS_ARCHIVE"
+      },
+      "proof": {
+        "raw_bytes_accessed": true,
+        "copy_verified_by_full_readback": true,
+        "readback_bytes": 123940,
+        "readback_sha256": "6695fb0d5399022614432d5c1b22124a2ec3e2e5793b4fe302bf879a4173fc61",
+        "archive_matches_source": true,
+        "archive_date": "2026-10-13"
+      },
+      "science_status": "P1_HASH_MATCHES_NDSF_MASTER",
+      "rights_status": "PUBLICATION_PERMISSION_NOT_ATTESTED",
+      "allowed_use": "INTERNAL_GOVERNANCE_VERSION_VERIFICATION_ONLY",
+      "workbench_exposure": "PROHIBITED"
+    },
+    {
+      "material_id": "G03-NF-P2",
+      "filename": "Nutrition_Foundation_v0.1_NF-P2_Reference_Safety_Expert_Qualification_Freeze.md",
+      "asset_class": "NDSF_PHASE_ARCHIVE",
+      "observed_bytes": 21093,
+      "observed_sha256": "a3068e4d6e31a87a7fc4fa884ed430e1ab681de589af6e09d0e884aecf1a8686",
+      "storage": {
+        "provider": "ChatGPT personal Library",
+        "scope": "personal_private_archive",
+        "relative_path": "/NutriFoundation/GOV-0.3/Source-Snapshots/Nutrition_Foundation_v0.1_NF-P2_Reference_Safety_Expert_Qualification_Freeze.md",
+        "public_access": "NOT_GRANTED_BY_THIS_ARCHIVE"
+      },
+      "proof": {
+        "raw_bytes_accessed": true,
+        "copy_verified_by_full_readback": true,
+        "readback_bytes": 21093,
+        "readback_sha256": "a3068e4d6e31a87a7fc4fa884ed430e1ab681de589af6e09d0e884aecf1a8686",
+        "archive_matches_source": true,
+        "archive_date": "2026-10-13"
+      },
+      "science_status": "P2_HASH_MATCHES_NDSF_MASTER",
+      "rights_status": "PUBLICATION_PERMISSION_NOT_ATTESTED",
+      "allowed_use": "INTERNAL_GOVERNANCE_VERSION_VERIFICATION_ONLY",
+      "workbench_exposure": "PROHIBITED"
+    },
+    {
+      "material_id": "G03-NF-P3",
+      "filename": "Nutrition_Foundation_v0.1_NF-P3_Trajectory_Monitoring_ReDecision_Freeze.md",
+      "asset_class": "NDSF_PHASE_ARCHIVE",
+      "observed_bytes": 14080,
+      "observed_sha256": "a03975dc15aeb1a22e9977317e63d3fd78ea5195f12f1467c776e4a8066f3ae5",
+      "storage": {
+        "provider": "ChatGPT personal Library",
+        "scope": "personal_private_archive",
+        "relative_path": "/NutriFoundation/GOV-0.3/Source-Snapshots/Nutrition_Foundation_v0.1_NF-P3_Trajectory_Monitoring_ReDecision_Freeze.md",
+        "public_access": "NOT_GRANTED_BY_THIS_ARCHIVE"
+      },
+      "proof": {
+        "raw_bytes_accessed": true,
+        "copy_verified_by_full_readback": true,
+        "readback_bytes": 14080,
+        "readback_sha256": "a03975dc15aeb1a22e9977317e63d3fd78ea5195f12f1467c776e4a8066f3ae5",
+        "archive_matches_source": true,
+        "archive_date": "2026-10-13"
+      },
+      "science_status": "P3_HASH_MATCHES_NDSF_MASTER",
+      "rights_status": "PUBLICATION_PERMISSION_NOT_ATTESTED",
+      "allowed_use": "INTERNAL_GOVERNANCE_VERSION_VERIFICATION_ONLY",
+      "workbench_exposure": "PROHIBITED"
+    },
+    {
+      "material_id": "G03-NF-P4",
+      "filename": "Nutrition_Foundation_v0.1_NF-P4_Adapter_Program_Routing_Conformance_Freeze.md",
+      "asset_class": "NDSF_PHASE_ARCHIVE",
+      "observed_bytes": 21576,
+      "observed_sha256": "e45ed8385000498dff4356b3039fd53b01964eaee71331880a84d5d5842cf6fd",
+      "storage": {
+        "provider": "ChatGPT personal Library",
+        "scope": "personal_private_archive",
+        "relative_path": "/NutriFoundation/GOV-0.3/Source-Snapshots/Nutrition_Foundation_v0.1_NF-P4_Adapter_Program_Routing_Conformance_Freeze.md",
+        "public_access": "NOT_GRANTED_BY_THIS_ARCHIVE"
+      },
+      "proof": {
+        "raw_bytes_accessed": true,
+        "copy_verified_by_full_readback": true,
+        "readback_bytes": 21576,
+        "readback_sha256": "e45ed8385000498dff4356b3039fd53b01964eaee71331880a84d5d5842cf6fd",
+        "archive_matches_source": true,
+        "archive_date": "2026-10-13"
+      },
+      "science_status": "P4_HASH_MATCHES_NDSF_MASTER",
+      "rights_status": "PUBLICATION_PERMISSION_NOT_ATTESTED",
+      "allowed_use": "INTERNAL_GOVERNANCE_VERSION_VERIFICATION_ONLY",
+      "workbench_exposure": "PROHIBITED"
+    },
+    {
+      "material_id": "G03-AI-NUTRI-21",
+      "filename": "AI_Nutri_v2.1_Aligned_Master_Specification.md",
+      "asset_class": "DOWNSTREAM_DOMAIN_MASTER",
+      "observed_bytes": 189759,
+      "observed_sha256": "06a50bca0951e697f47793dad982d18b5ddcf2062ef856d16150708fc2f61d5b",
+      "storage": {
+        "provider": "ChatGPT personal Library",
+        "scope": "personal_private_archive",
+        "relative_path": "/NutriFoundation/GOV-0.3/Source-Snapshots/AI_Nutri_v2.1_Aligned_Master_Specification.md",
+        "public_access": "NOT_GRANTED_BY_THIS_ARCHIVE"
+      },
+      "proof": {
+        "raw_bytes_accessed": true,
+        "copy_verified_by_full_readback": true,
+        "readback_bytes": 189759,
+        "readback_sha256": "06a50bca0951e697f47793dad982d18b5ddcf2062ef856d16150708fc2f61d5b",
+        "archive_matches_source": true,
+        "archive_date": "2026-10-13"
+      },
+      "science_status": "NOT_UPSTREAM_SIS_OR_NDSF_OWNER",
+      "rights_status": "PUBLICATION_PERMISSION_NOT_ATTESTED",
+      "allowed_use": "INTERNAL_GOVERNANCE_VERSION_VERIFICATION_ONLY",
+      "workbench_exposure": "PROHIBITED"
+    },
+    {
+      "material_id": "G03-SIS-R5-ALT",
+      "filename": "System-Intelligence-Science-v0.3.1-R5-Regenerated-Master-Specification.md",
+      "asset_class": "UPSTREAM_SIS_HISTORICAL_ALTERNATE",
+      "observed_bytes": 149590,
+      "observed_sha256": "f7dff71e2c5973f75a7f83c77f189b6d605c5f1ea50f738506e0d115a857c44d",
+      "storage": {
+        "provider": "ChatGPT personal Library",
+        "scope": "personal_private_archive",
+        "relative_path": "/NutriFoundation/GOV-0.3/Source-Snapshots/System-Intelligence-Science-v0.3.1-R5-Regenerated-Master-Specification.md",
+        "public_access": "NOT_GRANTED_BY_THIS_ARCHIVE"
+      },
+      "proof": {
+        "raw_bytes_accessed": true,
+        "copy_verified_by_full_readback": true,
+        "readback_bytes": 149590,
+        "readback_sha256": "f7dff71e2c5973f75a7f83c77f189b6d605c5f1ea50f738506e0d115a857c44d",
+        "archive_matches_source": true,
+        "archive_date": "2026-10-13"
+      },
+      "science_status": "NOT_EQUIVALENT_TO_G02_SIS_R5_TARGET_181565_BYTES",
+      "rights_status": "PUBLICATION_PERMISSION_NOT_ATTESTED",
+      "allowed_use": "INTERNAL_GOVERNANCE_VERSION_VERIFICATION_ONLY",
+      "workbench_exposure": "PROHIBITED"
+    },
+    {
+      "material_id": "G03-SISMED-R5L1-ALT",
+      "filename": "SIS-Med-v0.3.1-R5-L1-Regenerated-Master-Specification.md",
+      "asset_class": "UPSTREAM_CLINICAL_HISTORICAL_ALTERNATE",
+      "observed_bytes": 117927,
+      "observed_sha256": "d3de50276e481311cb9f86ab5e68f94b141bf294c4ce67d90efe2ffddd868955",
+      "storage": {
+        "provider": "ChatGPT personal Library",
+        "scope": "personal_private_archive",
+        "relative_path": "/NutriFoundation/GOV-0.3/Source-Snapshots/SIS-Med-v0.3.1-R5-L1-Regenerated-Master-Specification.md",
+        "public_access": "NOT_GRANTED_BY_THIS_ARCHIVE"
+      },
+      "proof": {
+        "raw_bytes_accessed": true,
+        "copy_verified_by_full_readback": true,
+        "readback_bytes": 117927,
+        "readback_sha256": "d3de50276e481311cb9f86ab5e68f94b141bf294c4ce67d90efe2ffddd868955",
+        "archive_matches_source": true,
+        "archive_date": "2026-10-13"
+      },
+      "science_status": "NOT_EQUIVALENT_TO_SISMED_R6_P04",
+      "rights_status": "PUBLICATION_PERMISSION_NOT_ATTESTED",
+      "allowed_use": "INTERNAL_GOVERNANCE_VERSION_VERIFICATION_ONLY",
+      "workbench_exposure": "PROHIBITED"
+    }
+  ],
+  "missing_required_assets": [
+    {
+      "id": "G03-MISSING-SIS-R5-PINNED",
+      "title": "SIS v0.3.1 R5 exact downstream frozen target",
+      "filename": "05-SIS-v0.3.1-R5-Regenerated-Master-Specification.md",
+      "expected_bytes": 181565,
+      "expected_sha256": "3e1da79a14111d2ead7bc49d47665bc05c1879969b9233fdaa060c2f95436a82",
+      "owner": "SIS scientific owner",
+      "severity": "P0",
+      "status": "TARGET_RAW_BYTES_NOT_RECOVERED",
+      "must_not_substitute": "G03-SIS-R5-ALT",
+      "gate": "BLOCK_EXACT_SIS_R5_CLAIM"
+    },
+    {
+      "id": "G03-MISSING-SISMED-R6-P04",
+      "title": "SIS-MED v0.3.1 R6 P0.4 exact downstream frozen target",
+      "filename": "04-SIS-MED-v0.3.1-R6-P0.4-Regenerated-Master-Spec-1-.md",
+      "expected_bytes": 61116,
+      "expected_sha256": "f8513b600ea7a2266d56159df7f3cb1a71dd9b6b11d40721d49430da95e4b335",
+      "owner": "SIS-MED scientific owner",
+      "severity": "P0",
+      "status": "TARGET_RAW_BYTES_NOT_RECOVERED",
+      "must_not_substitute": "G03-SISMED-R5L1-ALT",
+      "gate": "BLOCK_R6_P04_CLINICAL_CONFORMANCE"
+    },
+    {
+      "id": "G03-MISSING-WB-MASTER-11",
+      "title": "Workbench Development Master Plan v1.1 original",
+      "filename": "NutriFoundation Workbench Development Master Plan v1.1",
+      "owner": "Workbench engineering owner",
+      "severity": "P1",
+      "status": "ORIGINAL_NOT_RECOVERED",
+      "gate": "HISTORY_REVIEW_PENDING"
+    },
+    {
+      "id": "G03-MISSING-P2-HTML",
+      "title": "PR37-aligned Scientific Source Portal original HTML Demo",
+      "filename": "nutrifoundation_p2_scientific_source_portal_demo(1).html",
+      "owner": "Workbench design owner",
+      "severity": "P1",
+      "status": "ORIGINAL_NOT_RECOVERED",
+      "gate": "VISUAL_SOURCE_LINEAGE_PENDING"
+    },
+    {
+      "id": "G03-MISSING-ARCHIVE-ZIP",
+      "title": "Previously referenced original UI acceptance ZIP",
+      "filename": "Archive.zip",
+      "owner": "Workbench QA owner",
+      "severity": "P1",
+      "status": "ORIGINAL_NOT_RECOVERED",
+      "gate": "LEGACY_SCREENSHOT_ATTESTATION_PENDING"
+    },
+    {
+      "id": "G03-MISSING-REAL-SOURCE-ORIGINALS",
+      "title": "rights-qualified real original PDF / HTML / JATS and parser artifacts",
+      "owner": "scientific source data steward",
+      "severity": "P0",
+      "status": "NO_RIGHTS_QUALIFIED_REAL_SOURCE_INVENTORY",
+      "gate": "NO_REAL_SOURCE_ADMISSION"
+    },
+    {
+      "id": "G03-MISSING-DEPLOY-RECEIPT",
+      "title": "deployed code+artifact checksum and access control receipt",
+      "owner": "DevOps / Security",
+      "severity": "P1",
+      "status": "NOT_ATTESTED",
+      "gate": "NO_PRODUCTION_DEPLOYMENT_ATTESTATION"
+    }
+  ],
+  "source_science_eligibility": "NONE_APPROVED_FOR_REAL_EXPERT_OR_GOLD",
+  "raw_source_handling": "DO_NOT_COMMIT_RESTRICTED_OR_PRIVATE ORIGINAL FILES TO THIS_GITHUB_REPOSITORY",
+  "release_gates": {
+    "GOV03_TECHNICAL_ARCHIVE": "PASS_FOR_NINE_FOUND_INPUTS_WITH_SEVEN_OPEN_GAPS",
+    "SCIENCE_OWNER_ADOPTION": "PENDING",
+    "SIS_R5_EXACT": "BLOCK",
+    "SISMED_R6_EXACT": "BLOCK",
+    "NDSF_GIT_CANONICAL": "PENDING",
+    "REAL_SCIENTIFIC_SOURCE_RIGHTS": "BLOCK",
+    "REAL_EXPERT": "BLOCK",
+    "GOLD": "BLOCK",
+    "PRODUCTION": "BLOCK"
+  }
+}

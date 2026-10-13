@@ -79,3 +79,17 @@ UPSTREAM_MUTATION_IN_THIS_BRANCH: NONE
 - **NC-05**：R0/R2 Workpack v0.1→v0.2 专家回复结构和冻结收据字段相同，但所引用的 Human Baseline v0.2 source support 增加 Stage 2 OR 条款、更新 case-specific 禁止项，**内容不等价**；正式 v0.1 Freeze semantics ↔ v0.2 payload 必须另出兼容回执。
 
 以上是版本裁决的技术事实，**不是** `SCIENTIFIC_OWNER_SIGNOFF=PASS`，不得将 NC-01/02/04/05 关闭。
+
+
+## GOV-0.3 Original Material Recovery Update｜2026-10-13
+
+[完整原始材料清单](GOV-0.3_Controlled_Original_Materials_Manifest_v0.1.json) 与 [归档核查报告](GOV-0.3_Original_Materials_Archive_and_Recovery_Report_v0.1.md) 提供 byte-level 实际回读证明。**本次没有覆盖 GOV-0.2 的科学裁决。**
+
+- **NC-01 SIS R5**：已私有归档 `149590 / f7dff71e...` 的同名替代版本；原先下游指纹要求的 `181565 / 3e1da79a...` **未恢复**，NC-01 仍 OPEN。
+- **NC-02 SIS-MED R6**：已私有归档 `117927 / d3de5027...` 的 SIS-Med R5-L1；R6 P0.4 `61116 / f8513b60...` **未恢复**，NC-02 仍 OPEN。
+- **NC-03 Nutrition Foundation**：Integrated Master + NF-P0–P4 六份原件均已复制到单独的个人私有归档目录并回读 SHA256；技术原件保全关卡 PASS，私有 Git canonical/tag 与 science owner approval 仍 OPEN。
+- **NC-06/07 Workbench v1.1/HTML/Archive.zip**：未在本轮可访问原件表面恢复；只能保留已有设计文档/PR/测试作为 derivation，不能冒用为原始输入。
+- **NC-08 真实来源资格**：提供默认阻断的 [原件资格回执模板](GOV-0.3_Scientific_Source_Original_Qualification_Receipt_Template_v0.1.json)；没有任何真实 PDF/版权/使用范围经证明可被导入。仍 OPEN。
+- **NC-09 云端部署**：缺少 deployed SHA / artifact / permissions 正式回执，本轮不改变验收状态。
+
+**Overall `GOV-0.3_ARCHIVE_TECHNICAL_COMPLETE / REQUIREMENTS_INCOMPLETE`**。不得把个人 Library 目录存在推定为通过企业 IAM、安全审计、公开版权或临床数据隐私审查。

@@ -2,7 +2,7 @@
   "document_id": "GOV-0.4-P0-NDSF-CROSS-STANDARD-TEXTUAL-AUDIT-0.1",
   "created_at": "2026-10-13",
   "audit_class": "DOCUMENT_TO_DOCUMENT_SEMANTIC_PRE_AUDIT",
-  "scope": "Nutrition Foundation v0.1 vs archived SIS v0.3.1 R5 (149590-byte alternate), archived SIS-Med v0.3.1 R5-L1, and AI Nutri v2.1 (downstream). No real data/runtime conformance.",
+  "scope": "Nutrition Foundation v0.1 vs archived SIS v0.3.1 R5 (149590-byte alternate), historical SIS-Med v0.3.1 R5-L1 comparison for change discovery only, and AI Nutri v2.1 downstream. Actual clinical authority is SIS-MED R6 P0.4, which is not in the archive; no R6 compliance assessment.",
   "frozen_sources": [
     {
       "alias": "NDSF",
@@ -23,7 +23,8 @@
       "file": "SIS-Med-v0.3.1-R5-L1-Regenerated-Master-Specification.md",
       "size": 117927,
       "sha256": "d3de50276e481311cb9f86ab5e68f94b141bf294c4ce67d90efe2ffddd868955",
-      "layer": "MEDICAL_DOMAIN_HISTORICAL_NOT_R6"
+      "layer": "HISTORICAL_MEDICAL_R5_L1_CONTEXT_ONLY_NOT_CURRENT_AUTHORITY",
+      "eligible_as_R6_conformance_source": false
     },
     {
       "alias": "AI_NUTRI",
@@ -45,13 +46,15 @@
       "id": "C01",
       "area": "Scientific authority and conditional clinical scope",
       "target": "SIS / SIS-MED",
-      "finding": "SIS R5 > NDSF > profile > experiment; clinical nutrition additionally requires SIS-MED R6, not R5-L1. Archived R5-L1 cannot substitute.",
+      "finding": "User-confirmed clinical authority is SIS-MED R6 P0.4. Archived R5-L1 may illustrate previous clinical concepts only; it cannot certify current clinical scope.",
       "source_lines": {
         "NDSF": "60-74;137-169",
         "SIS_MED_ARCHIVE": "233-253"
       },
-      "status": "BOUNDARY_ALIGNED_ADAPTER_PENDING",
-      "severity": "P0_SCOPED"
+      "status": "VERSION_IDENTITY_BLOCKED",
+      "severity": "P0_SCOPED",
+      "clinical_R6_verdict": "NOT_ASSESSED_EXACT_R6_MASTER_UNAVAILABLE",
+      "R5_L1_evidence_role": "HISTORICAL_COMPARISON_ONLY"
     },
     {
       "id": "C02",
@@ -101,7 +104,9 @@
         "AI_NUTRI": "1843-1929;2075-2129"
       },
       "status": "TEXTUALLY_ALIGNED",
-      "severity": "LOW"
+      "severity": "LOW",
+      "clinical_R6_verdict": "NOT_ASSESSED_EXACT_R6_MASTER_UNAVAILABLE",
+      "R5_L1_evidence_role": "HISTORICAL_COMPARISON_ONLY"
     },
     {
       "id": "C06",
@@ -115,7 +120,9 @@
         "AI_NUTRI": "3923-4019"
       },
       "status": "TEXTUALLY_ALIGNED",
-      "severity": "LOW"
+      "severity": "LOW",
+      "clinical_R6_verdict": "NOT_ASSESSED_EXACT_R6_MASTER_UNAVAILABLE",
+      "R5_L1_evidence_role": "HISTORICAL_COMPARISON_ONLY"
     },
     {
       "id": "C07",
@@ -129,7 +136,9 @@
         "SIS_MED_ARCHIVE": "2210-2295"
       },
       "status": "TEXTUALLY_ALIGNED",
-      "severity": "LOW"
+      "severity": "LOW",
+      "clinical_R6_verdict": "NOT_ASSESSED_EXACT_R6_MASTER_UNAVAILABLE",
+      "R5_L1_evidence_role": "HISTORICAL_COMPARISON_ONLY"
     },
     {
       "id": "C08",
@@ -143,7 +152,9 @@
         "AI_NUTRI": "4022-4060"
       },
       "status": "TEXTUALLY_ALIGNED",
-      "severity": "LOW"
+      "severity": "LOW",
+      "clinical_R6_verdict": "NOT_ASSESSED_EXACT_R6_MASTER_UNAVAILABLE",
+      "R5_L1_evidence_role": "HISTORICAL_COMPARISON_ONLY"
     },
     {
       "id": "C09",
@@ -156,19 +167,23 @@
         "AI_NUTRI": "4091-4147"
       },
       "status": "TEXTUALLY_ALIGNED",
-      "severity": "LOW"
+      "severity": "LOW",
+      "clinical_R6_verdict": "NOT_ASSESSED_EXACT_R6_MASTER_UNAVAILABLE",
+      "R5_L1_evidence_role": "HISTORICAL_COMPARISON_ONLY"
     },
     {
       "id": "C10",
       "area": "Clinical long-horizon advanced constructs",
       "target": "SIS-Med R5-L1",
-      "finding": "Archived medical R5-L1 names ClinicalBeliefState, AuthorityState, irreversible/option-closure and sequential identification. NDSF offers related state/authority/transition features but does not define these as exact named interoperable fields; clinical LHDI profile needs explicit loss-aware adapter and fixtures. Absence of matching names alone is NOT a contradiction.",
+      "finding": "Specialized clinical long-horizon constructs identified in historical R5-L1 require R6 P0.4 clause inspection before assigning exact clinical adapter duties; comparison is exploratory only.",
       "source_lines": {
         "NDSF": "1605-1689;1756-1797",
         "SIS_MED_ARCHIVE": "1157-1275;1505-1567;4352-4390;5361-5414"
       },
-      "status": "BOUNDARY_ALIGNED_ADAPTER_PENDING",
-      "severity": "P1_SCOPED"
+      "status": "VERSION_IDENTITY_BLOCKED",
+      "severity": "P1_SCOPED",
+      "clinical_R6_verdict": "NOT_ASSESSED_EXACT_R6_MASTER_UNAVAILABLE",
+      "R5_L1_evidence_role": "HISTORICAL_COMPARISON_ONLY"
     },
     {
       "id": "C11",
@@ -182,7 +197,9 @@
         "AI_NUTRI": "4370-4431"
       },
       "status": "TEXTUALLY_ALIGNED",
-      "severity": "LOW"
+      "severity": "LOW",
+      "clinical_R6_verdict": "NOT_ASSESSED_EXACT_R6_MASTER_UNAVAILABLE",
+      "R5_L1_evidence_role": "HISTORICAL_COMPARISON_ONLY"
     },
     {
       "id": "C12",
@@ -200,13 +217,15 @@
       "id": "C13",
       "area": "Clinical upstream exact identity mismatch",
       "target": "SIS-MED",
-      "finding": "NDSF clinical authority points to R6 P0.4 sha f851..., but provided/archived comparison source is R5-L1 sha d3de...; no proof R6 clauses preserved or replaced.",
+      "finding": "Strict authority: SIS-MED R6 P0.4. The available R5-L1 historical original is excluded from authoritative clinical compliance scoring. Exact 61116-byte R6 source SHA f851... remains unavailable.",
       "source_lines": {
         "NDSF": "60-74;137-169;2187-2205",
         "SIS_MED_ARCHIVE": "1-55;233-253"
       },
       "status": "VERSION_IDENTITY_BLOCKED",
-      "severity": "P0_CLINICAL"
+      "severity": "P0_CLINICAL",
+      "clinical_R6_verdict": "NOT_ASSESSED_EXACT_R6_MASTER_UNAVAILABLE",
+      "R5_L1_evidence_role": "HISTORICAL_COMPARISON_ONLY"
     },
     {
       "id": "C14",
@@ -231,18 +250,23 @@
         "SIS_MED_ARCHIVE": "131-175;6944-6971"
       },
       "status": "EMPIRICAL_GATE_OPEN",
-      "severity": "P0_OPERATIONAL"
+      "severity": "P0_OPERATIONAL",
+      "clinical_R6_verdict": "NOT_ASSESSED_EXACT_R6_MASTER_UNAVAILABLE",
+      "R5_L1_evidence_role": "HISTORICAL_COMPARISON_ONLY"
     }
   ],
   "overall": {
-    "scientific_logic": "SUBSTANTIALLY_ALIGNED_TO_ARCHIVED_TEXT_IN_APPLICABLE_SHARED_SEMANTICS",
-    "three_document_formal_compliance": "NOT_DEMONSTRATED",
+    "scientific_logic": "TEXTUAL_ALIGNMENT_OF_COMMON_SIS_AND_NDSF_SEMANTICS; R5-L1 CONTEXT ONLY NOT CURRENT CLINICAL_NORMATIVE",
+    "three_document_formal_compliance": "NOT_DEMONSTRATED_R6_NOT_ASSESSED",
     "hard_scientific_contradiction_proven": false,
     "exact_target_sources": "BLOCKED_SIS_R5_AND_SISMED_R6",
     "downstream_ai_nutri_versioned_adapter": "MISSING",
     "clinical_long_horizon_mapping": "CONDITIONAL_PROFILE_REQUIRED",
     "physical_runtime_and_qualified_reference": "NOT_TESTED",
-    "recommended_change": "MINIMAL_NORMATIVE_DELTA_ONLY; keep existing NDSF v0.1 frozen, add companion compatibility map and optional clinical LHDI profile after owner approvals"
+    "recommended_change": "MINIMAL_NORMATIVE_DELTA_ONLY; keep existing NDSF v0.1 frozen, add companion compatibility map and optional clinical LHDI profile after owner approvals",
+    "clinical_authoritative_standard": "SIS-MED v0.3.1 R6 P0.4 ONLY",
+    "clinical_R6_conformance": "NOT_ASSESSED_SOURCE_MISSING",
+    "medical_R5_L1_comparison_role": "HISTORICAL_NON_NORMATIVE"
   },
   "release_gates": {
     "science_owner": "PENDING",
@@ -251,11 +275,28 @@
     "strict_blind_runtime": "NOT_ASSESSED",
     "real_expert": "NO_GO",
     "Gold": "NO_GO",
-    "production": "NO_GO"
+    "production": "NO_GO",
+    "clinical_R6": "NO_GO_UNTIL_EXACT_MASTER_AND_OWNER_SIGNOFF",
+    "archived_med_R5_L1_may_be_used_as_normative_source": false
   },
   "progress": {
     "GOV_0_4": "P0_STATIC_DOCUMENT_AUDIT_PREPARED_ONLY",
     "overall_development": "7/25 unchanged",
     "GOV_0_3": "9/9 archives remained byte verified, 7 gaps open"
+  },
+  "audit_revision": "0.1.1",
+  "scientific_authority_correction": {
+    "effective_at": "2026-10-13",
+    "confirmed_by": "User explicit version-direction confirmation",
+    "current_clinical_nutrition_authority": "SIS-MED v0.3.1 R6 P0.4",
+    "archived_R5_L1_role": "HISTORICAL_COMPARISON_ONLY_NOT_SCIENTIFIC_CONFORMANCE_AUTHORITY",
+    "required_R6_original": {
+      "filename": "04-SIS-MED-v0.3.1-R6-P0.4-Regenerated-Master-Spec-1-.md",
+      "expected_bytes": 61116,
+      "expected_sha256": "f8513b600ea7a2266d56159df7f3cb1a71dd9b6b11d40721d49430da95e4b335",
+      "raw_original_verified": false
+    },
+    "formal_R6_clause_level_audit": "NOT_EXECUTABLE_UNTIL_EXACT_R6_ORIGINAL_AVAILABLE",
+    "no_inference": "Semantic agreement with R5-L1 does not prove conformance with R6 P0.4."
   }
 }

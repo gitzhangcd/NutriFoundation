@@ -67,3 +67,15 @@ WORKPACK_FREEZE_V0_1_V0_2_COMPATIBILITY: REQUIRES_SIGNOFF
 REAL_SOURCE / EXPERT / GOLD / PRODUCTION: NO_GO
 UPSTREAM_MUTATION_IN_THIS_BRANCH: NONE
 ```
+
+## GOV-0.2 Evidence Update｜2026-10-13（追加记录，不回写既有快照）
+
+更完整的精确身份/版本裁决见 [GOV-0.2 Report](GOV-0.2_Scientific_Authority_Adjudication_Report_v0.1.md) 与 [machine lock](GOV-0.2_Scientific_Authority_Version_Decision_v0.1.json)。
+
+- **NC-01**：SIS R5 的下游目标已记录为 `181565 bytes / sha256=3e1da79a...`；经私有 Drive 读取的两份同名 R5 版本却一致为 `149590 bytes / f7dff71e...`。**目标原件仍待找回；别将同名材料视为等价**。
+- **NC-02**：SIS-MED R6 P0.4 下游目标为 `61116 bytes / f8513b60...`；找到的 SIS-MED R5-L1 原件属于另外的版本，不能替代。
+- **NC-03**：Nutrition Foundation v0.1 Integrated Master 已从私有 Library 找回，原件 `145696 bytes / 81426a94...`，其引用的 NF-P0～P4 五份阶段文档原始 SHA-256 **5/5 完全一致**。因此“原文无法定位”在**字节可恢复层面已关闭**；但 canonical Git 私有归档与独立 owner 发布审核仍 OPEN。
+- **NC-04**：NDF-D2 r3 Case Bundle 与 r2 projection 的 exact mismatch 已再次读源码确认；NDS Human Baseline v0.2 `case_view_ref` 指向 r2 文件。实际人类 R0/R2 执行仍 BLOCK。
+- **NC-05**：R0/R2 Workpack v0.1→v0.2 专家回复结构和冻结收据字段相同，但所引用的 Human Baseline v0.2 source support 增加 Stage 2 OR 条款、更新 case-specific 禁止项，**内容不等价**；正式 v0.1 Freeze semantics ↔ v0.2 payload 必须另出兼容回执。
+
+以上是版本裁决的技术事实，**不是** `SCIENTIFIC_OWNER_SIGNOFF=PASS`，不得将 NC-01/02/04/05 关闭。

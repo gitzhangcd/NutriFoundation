@@ -41,3 +41,8 @@
 - [15 轴结构化矩阵](GOV-0.4-P0_NDSF_Three_Master_Static_Conformance_Matrix_v0.1.json) — 各项来源章节/行号、适用域、判定性质、版本锁与 release gate。
 
 **本阶段只完成 GOV-0.4 的 P0 文本审计，不等于 GOV-0.4 Non-Regression 全部完成。** 三项需补的版本绑定：SIS R5 exact bytes、SIS-MED R6 P0.4 exact bytes、AI Nutri v2.1 对 NDSF v0.1 的显式 downstream adapter。真实专家、Gold、临床与生产门禁不变。
+
+
+### GOV-0.4-P0 权威版本修订 0.1.1｜2026-10-13
+
+**重要裁决：SIS-MED 的当前临床营养权威只能使用 `SIS-MED v0.3.1 R6 P0.4`。** `SIS-Med R5-L1` 只能用于历史对比，不再计入当前临床科学规范符合性。R6 P0.4 的精确原始文件尚未恢复，因此临床 R6 条款级验证标记 `NOT_ASSESSED`，不得以 R5-L1 对照结果声称 R6 PASS。详情见 [修订后的审计报告](GOV-0.4-P0_Nutrition_Foundation_Three_Master_Conformance_Report_v0.1.md) 及 [15 轴矩阵](GOV-0.4-P0_NDSF_Three_Master_Static_Conformance_Matrix_v0.1.json)。

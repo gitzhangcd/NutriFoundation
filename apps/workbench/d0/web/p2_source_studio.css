@@ -317,3 +317,93 @@
 #workspace .p2-studio .p2-unit:focus-visible{outline:3px solid #96cbb7;outline-offset:2px}
 
 #workspace .p2-studio .p2-safety-banner{padding:8px 12px;margin:0 0 10px;font-size:11px;line-height:1.5}
+
+
+/* WB-P2.1-C/D · Demo v1.0-informed source work surface, additive to PR #41.
+ * All rules remain inside the existing /manage .p2-studio visual language. */
+#workspace .p2-studio .p2-source-modes{
+ display:flex;align-items:center;gap:7px;flex-wrap:wrap;
+ padding:8px 0 10px;border-bottom:1px solid #edf3ef;
+}
+#workspace .p2-studio .p2-source-modes>.p2-scope-title{margin-right:4px}
+#workspace .p2-studio .p2-btn.p2-source-mode{
+ background:#fff;border:1px solid #e0eae5;border-radius:999px;
+ padding:6px 12px;min-height:31px;font-size:11px;font-weight:600;color:#667e75;
+}
+#workspace .p2-studio .p2-btn.p2-source-mode.active{
+ color:#136e59;background:#e6f4ed;border-color:#b1d9c6;
+}
+#workspace .p2-studio .p2-source-mode-note{
+ color:#8b9f96;font-size:10px;line-height:1.5;flex:1 1 245px;
+}
+#workspace .p2-studio .p2-registered-row td:first-child{border-left:3px solid #4db396}
+#workspace .p2-studio .p2-registered-row:hover{background:#f3faf6}
+#workspace .p2-studio .p2-reading-context{
+ border:1px solid #dcece3;background:#f8fcf9;border-radius:11px;
+ padding:11px 14px;margin:0 0 12px;
+ display:flex;align-items:center;justify-content:space-between;gap:10px;
+ flex-wrap:wrap;min-width:0;
+}
+#workspace .p2-studio .p2-reading-identity{
+ display:grid;gap:3px;min-width:0;flex:1 1 220px;
+}
+#workspace .p2-studio .p2-reading-identity strong{
+ color:#245d4c;font-size:12px;overflow-wrap:anywhere;
+}
+#workspace .p2-studio .p2-reading-identity .p2-id{margin:0}
+#workspace .p2-studio .p2-drawer{
+ width:min(620px,100vw);padding:0 23px 22px;
+ scrollbar-width:thin;overscroll-behavior:contain;
+}
+#workspace .p2-studio .p2-drawer-top{
+ position:sticky;top:0;background:#fff;z-index:2;
+ padding:19px 0 13px;margin:0 0 8px;
+ border-bottom:1px solid #edf2ee;align-items:center;
+}
+#workspace .p2-studio .p2-drawer-top .p2-eyebrow{
+ display:block;margin-bottom:5px;font-size:9px;
+}
+#workspace .p2-studio .p2-drawer-top h2{font-size:19px}
+#workspace .p2-studio .p2-drawer>.p2-detail-workflow{margin:13px 0 15px}
+#workspace .p2-studio .p2-source-stage-cards{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;
+ margin:0 0 15px;
+}
+#workspace .p2-studio .p2-stage-card{
+ display:grid;grid-template-columns:auto minmax(0,1fr);
+ align-items:start;gap:6px 9px;padding:12px 11px;border:1px solid #e1ebe6;
+ border-radius:10px;background:#fcfdfc;min-width:0;
+}
+#workspace .p2-studio .p2-stage-card.passed{background:#f3faf6;border-color:#cce7d7}
+#workspace .p2-studio .p2-stage-card .p2-stage-num{
+ font-size:10px;color:#91a79b;font-weight:800;margin-top:1px;
+}
+#workspace .p2-studio .p2-stage-card strong{
+ display:block;font-size:11px;color:#365c4e;
+}
+#workspace .p2-studio .p2-stage-card small{
+ display:block;margin-top:4px;color:#83978b;font-size:10px;line-height:1.55;
+}
+#workspace .p2-studio .p2-stage-card .p2-flag{
+ grid-column:2;justify-self:start;padding:3px 7px;font-size:9px;
+}
+#workspace .p2-studio .p2-source-jump{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;
+ padding:10px;background:#f8faf8;border:1px solid #e6eee8;border-radius:10px;
+}
+#workspace .p2-studio .p2-source-jump .p2-btn{
+ font-size:11px;line-height:1.45;padding:7px 4px;min-height:37px;
+ white-space:normal;overflow-wrap:anywhere;
+}
+#workspace .p2-studio .p2-facts-heading{
+ margin:19px 0 4px;font-size:14px;
+}
+#workspace .p2-studio .p2-drawer .p2-facts{margin:6px 0 18px}
+#workspace .p2-studio .p2-drawer .p2-drawer-actions{margin-bottom:14px}
+@media(max-width:620px){
+ #workspace .p2-studio .p2-source-stage-cards{grid-template-columns:1fr}
+ #workspace .p2-studio .p2-source-jump{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #workspace .p2-studio .p2-drawer{padding:0 15px 18px}
+ #workspace .p2-studio .p2-drawer-top{padding-top:14px}
+ #workspace .p2-studio .p2-source-mode-note{flex-basis:100%}
+}

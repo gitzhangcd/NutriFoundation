@@ -154,13 +154,14 @@
   }
   function frame(){
     const n=el('div',null,'p2-studio');
+    const meta=el('div',null,'p2-meta-strip');
     const breadcrumb=el('div','工作空间  ›  科学资料  ›  '+(tabs[state.tab]||'资料总览'),'p2-breadcrumb');
-    const safety=alert('合成测试环境｜真实 PDF、外部 MinerU、科学来源资格、Gold 和正式专家访问均未开放。','info');
-    safety.classList.add('p2-safety-banner');n.append(breadcrumb,safety);
-    // The hash-chained audit is global; Project / Batch never scopes its
-    // verification. Independent Curator/Auditor sessions have no TPA scope.
-    if(state.tab!=='audit'&&document.getElementById('p11Nav'))n.append(context());
-    n.append(nav());
+    const safety=el('span','仅限隔离合成工程 · 未开放真实 PDF、MinerU、Gold 或专家授权','p2-safety-inline');
+    meta.append(breadcrumb,safety);n.append(meta,nav());
+    // Source scope is a usage-reference filter, not source authority. Place it
+    // beside the overview queue where it is useful, never above global audit.
+    if(state.tab!=='audit'&&state.tab!=='library'&&document.getElementById('p11Nav'))
+      n.append(context());
     if(state.notice)n.append(alert(state.notice,'note'));
     return n;
   }
@@ -270,6 +271,7 @@
     actions.append(button('＋ 登记新来源',()=>startIntake(),'primary'),
       button('查看版本谱系 ↗',()=>view('versions'),'outline'));
     wrap.append(actions);
+    if(document.getElementById('p11Nav'))wrap.append(context());
     const sourceModes=el('div',null,'p2-source-modes');
     const sourceModeLabel=el('span','来源层级','p2-scope-title');
     sourceModes.append(sourceModeLabel);
@@ -290,7 +292,7 @@
     wrap.append(searchbar);
     const scroll=el('div',null,'p2-table-wrap'),table=el('table',null,'p2-table');table.id='p2TableTarget';
     const th=el('thead'),head=el('tr');
-    ['来源 / 版本','当前阶段','下一步与责任角色','QA 进度','Project / Batch','操作'].forEach(t=>head.append(el('th',t)));
+    ['科学来源 / 版本','当前阶段与资格','下一步与责任角色','结构化 / QA','操作'].forEach(t=>head.append(el('th',t)));
     th.append(head);table.append(th,el('tbody'));scroll.append(table);wrap.append(scroll);
     wrap.append(metaP('已登记记录仅用于隔离合成验证；DEMO 为虚构资料样例。来源冻结 ≠ 真实文献资格 ≠ Gold ≠ 专家访问授权。'));
     renderTableInto(table);return wrap;
@@ -311,35 +313,41 @@
     for(const x of rows){
       const row=el('tr'),idcell=el('td');
       row.classList.add(x.live?'p2-registered-row':'p2-demo-row');
-      idcell.append(el('strong',x.title),el('div',x.id+' · '+x.v,'p2-id'),
-        chip(x.live?'持久化合成记录':'DEMO · 不可用于科研','muted'));
+      const identity=button(x.title,()=>{state.selection=x.id+':'+x.v;state.drawer=true;draw()},'p2-source-title');
+      identity.setAttribute('aria-label','查看来源详情：'+x.title);
+      idcell.append(append(el('div',null,'p2-source-identity'),
+        el('span',x.kind==='PDF_HANDOFF'?'PDF':x.kind==='JATS_XML'?'XML':x.kind==='MARKDOWN'?'MD':'HTML','p2-filetype'),
+        identity),el('div',x.id+' · '+x.v,'p2-id'),
+        chip(x.live?'已登记 · 合成来源':'DEMO · 虚构示意',x.live?'teal':'muted'));
       const status=stages[x.stage]||[x.stage,'muted'],guide=nextStep(x);
       const phase=el('td');phase.append(chip(status[0],status[1]),el('small','用途：'+(x.rights||'未核实')));
       const next=el('td',null,'p2-next-cell');
       next.append(el('strong',guide.title),el('small',guide.detail));
-      const qa=el('td');qa.append(el('strong',String(x.reviewed||0)+' / '+x.units),
-        el('small','已审 / 总 Unit；不代表 PDF 精确定位'));
-      const scope=el('td',x.live?(state.scope.project?
-        '已按引用筛选：'+state.scope.project+(state.scope.batch?' / '+state.scope.batch:''):
-        '全局 · 未按引用筛选'):'不适用 · DEMO');
+      const qa=el('td',null,'p2-qa-cell');
+      const qaFraction=String(x.reviewed||0)+' / '+x.units;
+      const qaTrack=el('span',null,'p2-row-progress'),qaFill=el('span',null,'p2-row-progress-fill');
+      qaFill.style.width=(100*(x.reviewed||0)/Math.max(x.units,1))+'%';
+      qaTrack.append(qaFill);
+      qa.append(el('strong',qaFraction+' Units'),qaTrack,
+        el('small',x.live?'独立人工审查；PDF 定位须另行验证':'演示计数 · 非已审核证据'));
       const action=el('td');
       action.append(button(guide.button,()=>openNextStep(x),'small'+
         (x.live&&['RIGHTS_ACCEPTED','QA_PENDING'].includes(x.stage)?' primary':'')));
-      row.append(idcell,phase,next,qa,scope,action);body.append(row);
+      row.append(idcell,phase,next,qa,action);body.append(row);
     }
     if(!rows.length){
       const tr=el('tr'),td=el('td','当前范围没有符合条件的来源版本。可切换来源层级、清除状态筛选或登记合成来源。','p2-dim');
-      td.colSpan=6;tr.append(td);body.append(tr);
+      td.colSpan=5;tr.append(td);body.append(tr);
     }
   }
   function renderTable(){const t=document.getElementById('p2TableTarget');if(t)renderTableInto(t)}
   function library(){
-    root.append(heading('P2 / SOURCE WORKSPACE','科学资料处理台',
-      '按资料状态完成登记、转换、人工 QA 和冻结；这里只提供隔离合成流程。',
+    root.append(heading('P2 / SCIENTIFIC SOURCE WORKBENCH','科学资料工作台',
+      '资料队列 · 来源登记 · 结构化 QA · 版本与审计｜从一篇来源开始处理。',
       [...(document.getElementById('p11Nav')?[button('B1 合成来源引用 ↗',()=>{window.opsA5OpenB1SourceReferences?.()},'outline')]:[]),
        button('查看转换队列',()=>view('convert'),'outline'),button('＋ 登记科学来源',()=>startIntake(),'primary')]));
     root.append(queueSummary(),sourceList());
-    root.append(el('h2','处理流程与准入规则','p2-reference-heading'));
+    root.append(el('h2','流程指引 · 首次使用时参考','p2-reference-heading'));
     root.append(overviewCards(),pipeline());
   }
   function renderIntake(){

@@ -678,3 +678,105 @@
  white-space:normal;overflow-wrap:anywhere;word-break:break-word;
 }
 #workspace .p2-studio .p2-source-queue .p2-table td:first-child{min-width:0}
+
+/* ── HiFi Demo v1.0 alignment (Scientific Source Workbench) ── */
+#workspace .p2-studio .p2-page-stepper{
+  flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;
+}
+#workspace .p2-studio .p2-btn.p2-stepitem{
+  display:inline-flex;align-items:center;gap:8px;
+  white-space:nowrap;
+}
+#workspace .p2-studio .p2-stepno{
+  width:20px;height:20px;border-radius:50%;display:inline-grid;place-items:center;
+  background:#edf2f0;color:#5f7a70;font-size:10px;font-weight:800;flex:0 0 auto;
+}
+#workspace .p2-studio .p2-btn.p2-stepitem.active .p2-stepno{
+  background:#0b7c62;color:#fff;
+}
+#workspace .p2-studio .p2-workgrid{
+  display:grid;grid-template-columns:minmax(0,1.7fr) minmax(300px,.9fr);
+  gap:14px;align-items:start;margin-bottom:16px;
+}
+#workspace .p2-studio .p2-workgrid-main{min-width:0}
+#workspace .p2-studio .p2-inline-detail{
+  position:sticky;top:12px;padding:16px 17px;
+}
+#workspace .p2-studio .p2-inline-detail-head{
+  display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;
+}
+#workspace .p2-studio .p2-card-kicker{font-size:13px;color:#1f5d49}
+#workspace .p2-studio .p2-inline-detail h3{
+  font-size:14px;line-height:1.4;margin:6px 0 4px;color:#243f38;
+}
+#workspace .p2-studio .p2-status-hero{
+  display:flex;gap:11px;align-items:center;padding:12px;border-radius:10px;
+  background:linear-gradient(110deg,#f2eaff,#f6f3fe);margin:12px 0;
+}
+#workspace .p2-studio .p2-status-bubble{
+  width:36px;height:36px;border-radius:50%;background:#754fc7;flex:0 0 auto;
+}
+#workspace .p2-studio .p2-status-hero strong{display:block;font-size:12px;color:#6b44c1}
+#workspace .p2-studio .p2-small-title{
+  font-size:12px;font-weight:800;color:#26473e;margin:14px 0 8px;
+}
+#workspace .p2-studio .p2-qual-list{display:flex;flex-direction:column;gap:5px;margin-bottom:10px}
+#workspace .p2-studio .p2-qual-row{
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+  padding:8px 9px;border:1px solid #e6efeb;border-radius:7px;
+}
+#workspace .p2-studio .p2-qual-name{display:block;font-size:11px}
+#workspace .p2-studio .p2-qual-sub{display:block;font-size:10px;color:#9aaba5;margin-top:2px}
+#workspace .p2-studio .p2-dep-flow{
+  display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:6px 0 10px;
+}
+#workspace .p2-studio .p2-inline-detail-actions{
+  display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;
+}
+#workspace .p2-studio .p2-table tbody tr.selected{background:#eaf7f1}
+#workspace .p2-studio .p2-queue-counter.p2-metric-amb{background:#fff2e2;color:#c07918}
+#workspace .p2-studio .p2-queue-counter.p2-metric-blu{background:#edf3ff;color:#3c76d5}
+#workspace .p2-studio .p2-queue-counter.p2-metric-pur{background:#f3ecff;color:#835dcc}
+#workspace .p2-studio .p2-queue-counter.p2-metric-re{background:#ffeff1;color:#d05b61}
+#workspace .p2-studio .p2-queue-counter.p2-metric-gr{background:#e4f6eb;color:#16845e}
+#workspace .p2-studio .p2-queue-counter.active{outline:2px solid #aacfbf;outline-offset:0}
+#workspace .p2-studio .p2-metric-num{font-weight:900;margin-left:2px}
+#workspace .p2-studio .p2-versiongrid{
+  display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.95fr);
+  gap:14px;align-items:start;
+}
+#workspace .p2-studio .p2-lineage{
+  display:flex;gap:6px;overflow:auto;padding:8px 0 14px;
+}
+#workspace .p2-studio .p2-line-node{
+  min-width:120px;flex:1;text-align:center;border:1px solid #e3eee8;
+  border-radius:10px;padding:14px 10px;background:#fafcfa;
+}
+#workspace .p2-studio .p2-node-icon{
+  width:36px;height:36px;border-radius:50%;margin:0 auto 8px;
+  background:#e4f0ea;
+}
+#workspace .p2-studio .p2-node-title{display:block;font-size:12px}
+#workspace .p2-studio .p2-matrix-table{
+  width:100%;border-collapse:collapse;font-size:11px;
+}
+#workspace .p2-studio .p2-matrix-table th{
+  text-align:left;background:#f8faf9;color:#7c968b;padding:9px;font-size:10px;
+}
+#workspace .p2-studio .p2-matrix-table td{
+  padding:9px;border-bottom:1px solid #eaf0ed;vertical-align:top;
+}
+#workspace .p2-studio .p2-audit-identity{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+  padding:14px 16px;margin-bottom:14px;
+}
+@media (max-width:1150px){
+  #workspace .p2-studio .p2-workgrid,
+  #workspace .p2-studio .p2-versiongrid{grid-template-columns:1fr}
+  #workspace .p2-studio .p2-inline-detail{position:static}
+}
+@media (max-width:740px){
+  #workspace .p2-studio .p2-page-stepper{min-height:43px;margin-bottom:13px}
+  #workspace .p2-studio .p2-btn.p2-stepitem{font-size:11px;padding:7px 10px}
+  #workspace .p2-studio .p2-stepno{width:18px;height:18px;font-size:9px}
+}

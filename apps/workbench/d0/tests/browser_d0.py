@@ -290,6 +290,18 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(p.locator('#p11SectionTitle')).to_have_text('科学资料')
     expect(p.locator('.p2-studio')).to_be_visible(timeout=15000)
     expect(p.locator('#p2TableTarget tbody tr')).to_have_count(6)
+    # P2.1-C explicit origin isolation: never imply that fictional Demo rows
+    # are qualified, persisted scientific sources.
+    source_modes=p.locator('.p2-source-modes')
+    expect(source_modes).to_be_visible()
+    expect(source_modes).to_contain_text('两类资料严格分离')
+    source_modes.get_by_role('button',name='已登记合成来源').click()
+    expect(p.locator('#p2TableTarget tbody tr')).to_have_count(1) # empty-state row
+    expect(p.locator('#p2TableTarget')).to_contain_text('当前范围没有符合条件的来源版本')
+    source_modes.get_by_role('button',name='仅界面演示').click()
+    expect(p.locator('#p2TableTarget tbody tr')).to_have_count(6)
+    source_modes.get_by_role('button',name='全部（含演示）').click()
+    expect(p.locator('#p2TableTarget tbody tr')).to_have_count(6)
     expect(p.locator('.p2-queue-summary')).to_be_visible()
     expect(p.locator('.p2-source-queue')).to_be_visible()
     expect(p.locator('.p2-next-cell')).to_have_count(6)
@@ -299,6 +311,19 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(p.locator('.p2-choices .p2-choice')).to_have_count(4)
     expect(p.locator('.p2-stats .p2-stat')).to_have_count(4)
     expect(p.locator('.p2-tabs [data-p2-tab]')).to_have_count(6)
+    # High-fidelity v1 information architecture: four primary work areas
+    # and two distinct supporting operations, without removing legacy routes.
+    expect(p.locator('.p2-primary-tabs [data-p2-tab]')).to_have_count(4)
+    expect(p.locator('.p2-secondary-tabs [data-p2-tab]')).to_have_count(2)
+    expect(p.locator('.p2-primary-tabs')).to_contain_text('工作队列')
+    expect(p.locator('.p2-primary-tabs')).to_contain_text('结构化 QA 阅读')
+    expect(p.locator('.p2-meta-strip')).to_be_visible()
+    expect(p.locator('.p2-meta-strip')).to_contain_text('仅限隔离合成工程')
+    expect(p.locator('#p2TableTarget thead th')).to_have_count(5)
+    expect(p.locator('.p2-source-queue .p2-source-title')).to_have_count(6)
+    expect(p.locator('.p2-source-queue .p2-row-progress')).to_have_count(6)
+    # Project/Batch usage filter belongs to the source queue, not page chrome.
+    expect(p.locator('.p2-source-queue .p2-context')).to_have_count(1)
     expect(p.locator('#p2NavGroup')).to_have_count(0)
     expect(p.locator('#p11Nav [data-p11-route="sources"]')).to_be_hidden()
     expect(p.locator('#p11Nav [data-p11-route="studio"]')).to_be_visible()
@@ -316,10 +341,34 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(p.locator('#p2ScopeFields')).to_be_hidden()
     # Source-specific responsive kill gates. Local table scrolling is permitted;
     # top-level document and both navigation surfaces must remain bounded.
+    # Capture the corrected desktop overview before responsive kill tests,
+    # so a narrow-screen regression cannot suppress the visual review asset.
+    p.set_viewport_size({'width':1440,'height':1000})
+    p.screenshot(path=str(output/'p2-1-v1-revised-source-overview-1440.png'),full_page=False)
     for width,height in [(390,844),(680,900),(740,900),(768,900),(1024,900),(1440,1000)]:
         p.set_viewport_size({'width':width,'height':height})
         expect(p.locator('.p2-tabs')).to_be_visible()
+        if width==390:
+            p.screenshot(path=str(output/'p2-1-v1-revised-source-overview-390.png'),full_page=False)
+            offenders=p.evaluate("""() => [...document.querySelectorAll('*')]
+                .filter(e=>e.getBoundingClientRect().width>0 &&
+                    (e.getBoundingClientRect().right>innerWidth+1 ||
+                     e.getBoundingClientRect().left< -1) &&
+                     getComputedStyle(e).position!=='fixed')
+                .slice(0,24).map(e=>({tag:e.tagName,cls:e.className?.toString().slice(0,90),
+                    w:Math.round(e.getBoundingClientRect().width),
+                    l:Math.round(e.getBoundingClientRect().left),
+                    r:Math.round(e.getBoundingClientRect().right)}))""")
+            print('P2_V1_MOBILE_OVERFLOW_DIAGNOSTIC',offenders)
         assert p.evaluate('document.documentElement.scrollWidth <= innerWidth + 1'),width
+        if width==390:
+            # True phone layout: the source queue becomes readable cards and
+            # the engineering header no longer consumes most of the viewport.
+            assert p.locator('.tpa-header').evaluate('(e)=>e.getBoundingClientRect().height')<125
+            assert p.locator('.p2-source-queue .p2-table tbody tr').first.evaluate(
+                '(e)=>getComputedStyle(e).display')=='grid'
+            assert p.locator('.p2-source-queue .p2-table thead').evaluate(
+                '(e)=>getComputedStyle(e).display')=='none'
         assert p.locator('.p2-context').evaluate('(e)=>e.getBoundingClientRect().height')<120,width
         assert p.evaluate('document.querySelector("#p11Nav").getBoundingClientRect().width <= innerWidth + 1'),width
         if width<=740:
@@ -354,10 +403,18 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     checks.append('p2_1_a_compact_scope_default_collapsed_audit_global_not_project_scoped')
     p.locator('#p2TableTarget tbody tr').first.get_by_role('button',name='查看演示说明').click()
     expect(p.get_by_role('dialog',name='科学来源版本详情').locator('.p2-detail-workflow')).to_be_visible()
-    expect(p.get_by_role('dialog',name='科学来源版本详情')).to_contain_text('NOT_COMPUTED_DEMO')
+    # P2.1-D single-source workspace: workflow, evidence checkpoints, stage
+    # navigation, and original credentials, all gated by existing APIs.
+    source_dialog=p.get_by_role('dialog',name='科学来源版本详情')
+    expect(source_dialog).to_contain_text('单篇来源工作区')
+    expect(source_dialog.locator('.p2-source-stage-cards .p2-stage-card')).to_have_count(4)
+    expect(source_dialog.locator('.p2-source-jump button')).to_have_count(4)
+    expect(source_dialog).to_contain_text('NOT_COMPUTED_DEMO')
     p.get_by_role('dialog',name='科学来源版本详情').get_by_role('button',name='关闭').click()
     p.locator('.p2-tabs [data-p2-tab="qa"]').click()
     expect(p.locator('.p2-qa-grid')).to_be_visible()
+    expect(p.locator('.p2-reading-context')).to_be_visible()
+    expect(p.locator('.p2-reading-context')).to_contain_text('不具有真实原件核验资格')
     expect(p.locator('.p2-unit')).to_have_count(3)
     p.locator('.p2-unit').nth(1).click()
     expect(p.locator('.p2-qa-grid')).to_contain_text('UNRESOLVED')
@@ -448,6 +505,8 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(p.locator('.p2-studio')).to_contain_text('已冻结合成资料包',timeout=20000)
     assert producer_context.request.get(url+'/v1/p2/sources/'+source_id+'/r1').json()['status']=='PACKAGE_FROZEN'
     checks.append('p2_1_b_list_first_next_step_drawer_and_durable_qa_progress')
+    checks.append('p2_1_cd_demo_origin_isolation_source_workflow_qa_context')
+    checks.append('p2_1_visual_four_primary_work_areas_five_column_queue_compact_chrome')
     checks.extend(['p2_html_fidelity_four_stage_four_intake_six_nav_and_six_example_rows','p2_synthetic_source_persisted_intake',
                    'p2_separate_rights_and_no_raw_auditor','p2_curator_original_sha_and_all_units',
                    'p2_immutable_package_freeze_no_expert_grant','p2_auxiliary_translation_has_independent_lineage'])

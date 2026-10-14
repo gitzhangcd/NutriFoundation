@@ -667,3 +667,14 @@
   max-width:230px;
  }
 }
+
+
+/* P2.1 visual QA: Chromium 390px overflow diagnosis, exact 55d4975.
+   Long English demo titles were intrinsic-width flex buttons; constrain the
+   flex item instead of suppressing document overflow or hiding the source. */
+#workspace .p2-studio .p2-source-identity{width:100%;max-width:100%;min-width:0}
+#workspace .p2-studio .p2-btn.p2-source-title{
+ min-width:0;max-width:100%;width:100%;flex:1 1 0;
+ white-space:normal;overflow-wrap:anywhere;word-break:break-word;
+}
+#workspace .p2-studio .p2-source-queue .p2-table td:first-child{min-width:0}

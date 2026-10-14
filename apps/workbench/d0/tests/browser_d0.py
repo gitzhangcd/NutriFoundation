@@ -311,6 +311,19 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(p.locator('.p2-choices .p2-choice')).to_have_count(4)
     expect(p.locator('.p2-stats .p2-stat')).to_have_count(4)
     expect(p.locator('.p2-tabs [data-p2-tab]')).to_have_count(6)
+    # High-fidelity v1 information architecture: four primary work areas
+    # and two distinct supporting operations, without removing legacy routes.
+    expect(p.locator('.p2-primary-tabs [data-p2-tab]')).to_have_count(4)
+    expect(p.locator('.p2-secondary-tabs [data-p2-tab]')).to_have_count(2)
+    expect(p.locator('.p2-primary-tabs')).to_contain_text('工作队列')
+    expect(p.locator('.p2-primary-tabs')).to_contain_text('结构化 QA 阅读')
+    expect(p.locator('.p2-meta-strip')).to_be_visible()
+    expect(p.locator('.p2-meta-strip')).to_contain_text('仅限隔离合成工程')
+    expect(p.locator('#p2TableTarget thead th')).to_have_count(5)
+    expect(p.locator('.p2-source-queue .p2-source-title')).to_have_count(6)
+    expect(p.locator('.p2-source-queue .p2-row-progress')).to_have_count(6)
+    # Project/Batch usage filter belongs to the source queue, not page chrome.
+    expect(p.locator('.p2-source-queue .p2-context')).to_have_count(1)
     expect(p.locator('#p2NavGroup')).to_have_count(0)
     expect(p.locator('#p11Nav [data-p11-route="sources"]')).to_be_hidden()
     expect(p.locator('#p11Nav [data-p11-route="studio"]')).to_be_visible()
@@ -469,6 +482,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     assert producer_context.request.get(url+'/v1/p2/sources/'+source_id+'/r1').json()['status']=='PACKAGE_FROZEN'
     checks.append('p2_1_b_list_first_next_step_drawer_and_durable_qa_progress')
     checks.append('p2_1_cd_demo_origin_isolation_source_workflow_qa_context')
+    checks.append('p2_1_visual_four_primary_work_areas_five_column_queue_compact_chrome')
     checks.extend(['p2_html_fidelity_four_stage_four_intake_six_nav_and_six_example_rows','p2_synthetic_source_persisted_intake',
                    'p2_separate_rights_and_no_raw_auditor','p2_curator_original_sha_and_all_units',
                    'p2_immutable_package_freeze_no_expert_grant','p2_auxiliary_translation_has_independent_lineage'])

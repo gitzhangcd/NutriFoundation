@@ -345,6 +345,14 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
         p.set_viewport_size({'width':width,'height':height})
         expect(p.locator('.p2-tabs')).to_be_visible()
         assert p.evaluate('document.documentElement.scrollWidth <= innerWidth + 1'),width
+        if width==390:
+            # True phone layout: the source queue becomes readable cards and
+            # the engineering header no longer consumes most of the viewport.
+            assert p.locator('.tpa-header').evaluate('(e)=>e.getBoundingClientRect().height')<125
+            assert p.locator('.p2-source-queue .p2-table tbody tr').first.evaluate(
+                '(e)=>getComputedStyle(e).display')=='grid'
+            assert p.locator('.p2-source-queue .p2-table thead').evaluate(
+                '(e)=>getComputedStyle(e).display')=='none'
         assert p.locator('.p2-context').evaluate('(e)=>e.getBoundingClientRect().height')<120,width
         assert p.evaluate('document.querySelector("#p11Nav").getBoundingClientRect().width <= innerWidth + 1'),width
         if width<=740:

@@ -574,3 +574,32 @@
  #workspace .p2-studio .p2-source-modes{gap:5px}
  #workspace .p2-studio .p2-source-mode-note{flex-basis:100%}
 }
+
+
+/* Source Studio only: mobile global masthead formerly consumed ~180px at
+   390px, hiding the queue below the first screen. Preserve badges/identity. */
+@media(max-width:650px){
+ body.tpa-page:has(.p2-studio) .tpa-header{
+  display:grid;grid-template-columns:minmax(0,1fr);
+  align-items:center;gap:7px;padding:9px 13px;
+ }
+ body.tpa-page:has(.p2-studio) .tpa-brand{gap:8px}
+ body.tpa-page:has(.p2-studio) .tpa-brand .logo{font-size:22px}
+ body.tpa-page:has(.p2-studio) .tpa-brand strong{font-size:16px;line-height:1.25}
+ body.tpa-page:has(.p2-studio) .tpa-brand small{display:none}
+ body.tpa-page:has(.p2-studio) .tpa-header-actions{
+  width:100%;display:flex;justify-content:space-between;
+  flex-wrap:nowrap;gap:5px;align-items:center;min-width:0;
+ }
+ body.tpa-page:has(.p2-studio) .tpa-header-actions .synthetic{
+  flex:0 0 auto;font-size:9px;letter-spacing:0;
+  white-space:nowrap;padding:4px 8px;
+ }
+ body.tpa-page:has(.p2-studio) #userBadge{
+  min-width:0;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap;font-size:11px;
+ }
+ body.tpa-page:has(.p2-studio) #logoutButton{
+  flex:0 0 auto;padding:6px 9px;min-height:31px;font-size:11px;
+ }
+}

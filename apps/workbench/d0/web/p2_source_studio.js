@@ -37,7 +37,7 @@
     SYSTEMATIC_REVIEW_META:'系统综述',GUIDELINE:'指南 / 共识',CONSENSUS:'专家共识',
     NARRATIVE_REVIEW:'叙述性综述',CORRECTION_RETRACTION:'更正 / 撤稿'};
   let state={tab:'library',selection:'P2-DEMO-RCT-001',search:'',status:'',kindFilter:'',unitIndex:0,highlighted:false,
-    display:'bilingual',drawer:false,wizard:false,step:0,notice:'',liveSources:[],overview:null,
+    display:'bilingual',drawer:false,wizard:false,step:0,notice:'',sourceFilter:'all',liveSources:[],overview:null,
     document:null,original:null,translations:new Map(),reviewed:new Set(),draft:null,scope:{project:'',batch:''},projects:[],
     batches:new Map(),role:'manager',session:null,sourceCount:0,loading:false,intakePreset:null,auditResult:null,scopeExpanded:false};
   let root=null;
@@ -264,12 +264,22 @@
     }return bar;
   }
   function sourceList(){
-    const wrap=panel('科学资料工作队列','选择来源版本，查看当前阶段、负责人和下一步操作。');
+    const wrap=panel('科学资料工作队列','先选择一篇来源版本，再根据权限执行登记、转换、逐 Unit QA 或查看冻结记录。');
     wrap.classList.add('p2-source-queue');
     const actions=el('div',null,'p2-queue-actions');
     actions.append(button('＋ 登记新来源',()=>startIntake(),'primary'),
       button('查看版本谱系 ↗',()=>view('versions'),'outline'));
-    wrap.append(actions,statFilter());
+    wrap.append(actions);
+    const sourceModes=el('div',null,'p2-source-modes');
+    const sourceModeLabel=el('span','来源层级','p2-scope-title');
+    sourceModes.append(sourceModeLabel);
+    for(const [mode,label] of [['all','全部（含演示）'],['registered','已登记合成来源'],['demo','仅界面演示']]){
+      const b=button(label,()=>{state.sourceFilter=mode;draw()},'p2-source-mode'+(state.sourceFilter===mode?' active':''));
+      b.setAttribute('aria-pressed',state.sourceFilter===mode?'true':'false');
+      sourceModes.append(b);
+    }
+    sourceModes.append(el('small','两类资料严格分离：演示条目没有登记、权利、QA 或专家使用资格。','p2-source-mode-note'));
+    wrap.append(sourceModes,statFilter());
     const searchbar=el('div',null,'p2-toolbar');
     const search=textInput(state.search,160);search.placeholder='搜索标题、DOI、PMID 或 Source ID';
     search.setAttribute('aria-label','搜索科学来源');
@@ -282,7 +292,7 @@
     const th=el('thead'),head=el('tr');
     ['来源 / 版本','当前阶段','下一步与责任角色','QA 进度','Project / Batch','操作'].forEach(t=>head.append(el('th',t)));
     th.append(head);table.append(th,el('tbody'));scroll.append(table);wrap.append(scroll);
-    wrap.append(metaP('DEMO 为虚构界面样例；持久化记录也仅用于隔离合成验证。资料冻结不会自动开放专家阅读。'));
+    wrap.append(metaP('已登记记录仅用于隔离合成验证；DEMO 为虚构资料样例。来源冻结 ≠ 真实文献资格 ≠ Gold ≠ 专家访问授权。'));
     renderTableInto(table);return wrap;
   }
   function renderTableInto(table){
@@ -291,6 +301,7 @@
       const f=state.search.trim().toLowerCase();
       return (!f||[x.title,x.id,x.type,x.identifier||''].join(' ').toLowerCase().includes(f))&&
         (!state.status||x.stage===state.status)&&(!state.kindFilter||x.type===state.kindFilter)&&
+        (state.sourceFilter==='all'||(state.sourceFilter==='registered'&&x.live)||(state.sourceFilter==='demo'&&!x.live))&&
         (x.live||(!state.scope.project&&!state.scope.batch));
     }).sort((a,b)=>{
       if(a.live!==b.live)return a.live?-1:1;
@@ -299,7 +310,7 @@
     });
     for(const x of rows){
       const row=el('tr'),idcell=el('td');
-      if(!x.live)row.classList.add('p2-demo-row');
+      row.classList.add(x.live?'p2-registered-row':'p2-demo-row');
       idcell.append(el('strong',x.title),el('div',x.id+' · '+x.v,'p2-id'),
         chip(x.live?'持久化合成记录':'DEMO · 不可用于科研','muted'));
       const status=stages[x.stage]||[x.stage,'muted'],guide=nextStep(x);
@@ -317,7 +328,7 @@
       row.append(idcell,phase,next,qa,scope,action);body.append(row);
     }
     if(!rows.length){
-      const tr=el('tr'),td=el('td','暂无符合条件的版本。可清除筛选或登记新来源。','p2-dim');
+      const tr=el('tr'),td=el('td','当前范围没有符合条件的来源版本。可切换来源层级、清除状态筛选或登记合成来源。','p2-dim');
       td.colSpan=6;tr.append(td);body.append(tr);
     }
   }
@@ -434,6 +445,13 @@
     const doc=state.document,actual=!!(canReview()&&doc?.document&&state.original?.raw_artifact_sha256===doc.document.raw_artifact_sha256);
     root.append(alert(actual?'当前展示已持久化的合成结构化资料，只有 Source Curator 可提交逐单元 QA。':
       '当前为内置的虚构演示片段。Producer 仅查看界面样例，不代表拥有真实来源全文或 Curator 审核权限。','warning'));
+    const context=el('section',null,'p2-reading-context');
+    const stageLabel=stages[chosen?.stage]?.[0]||chosen?.stage||'未选择';
+    append(context,append(el('div',null,'p2-reading-identity'),
+      el('strong',chosen?.live?chosen.title:'未加载受控来源；下方仅显示虚构示例'),
+      el('span',(chosen?.id||'DEMO')+' · '+(chosen?.v||'—')+' · '+stageLabel,'p2-id')),
+      chip(actual?'原文 SHA 一致 · 合成验证':'不具有真实原件核验资格',actual?'teal':'amber'));
+    root.append(context);
     const progressUnits=qaUnits(),progressDone=canReview()&&state.document?.document?state.reviewed.size:0;
     const progress=el('div',null,'p2-qa-progress');
     append(progress,el('strong','核验进度：'+progressDone+' / '+progressUnits.length+' Unit'),
@@ -615,7 +633,7 @@
     const x=selected();const layer=el('div',null,'p2-overlay');layer.addEventListener('click',e=>{if(e.target===layer){state.drawer=false;draw()}});
     const card=el('section',null,'p2-drawer');card.setAttribute('role','dialog');card.setAttribute('aria-label','科学来源版本详情');
     const top=el('div',null,'p2-drawer-top');
-    append(top,el('h2','来源详情 · '+x.id),button('关闭',()=>{state.drawer=false;draw()},'outline'));
+    append(top,append(el('div'),el('span','SOURCE WORKSPACE / '+x.id,'p2-eyebrow'),el('h2','单篇来源工作区')),button('关闭',()=>{state.drawer=false;draw()},'outline'));
     card.append(top,chip(x.live?'受控合成登记':'演示数据 · 非已登记来源',x.live?'teal':'red'),el('h3',x.title));
     const guide=nextStep(x),flow=el('section',null,'p2-detail-workflow');
     append(flow,el('span','当前阶段 · '+(stages[x.stage]?.[0]||x.stage),'p2-detail-eyebrow'),
@@ -628,6 +646,30 @@
       ['资料包',x.live&&x.stage==='PACKAGE_FROZEN']
     ])steps.append(chip((passed?'✓ ':'○ ')+name,passed?'teal':'muted'));
     flow.append(steps);card.append(flow);
+    const guideCards=el('section',null,'p2-source-stage-cards');
+    const stageChecks=[
+      ['01','来源登记 / 用途',x.live&&x.stage!=='RIGHTS_HOLD','查身份、更正撤稿及独立用途记录'],
+      ['02','结构化文档',x.live&&!!x.doc,'Document IR、Parser lineage 与稳定 Unit ID'],
+      ['03','人工证据 QA',x.live&&x.stage==='PACKAGE_FROZEN','原文、表格、数值与证据锚点逐单元核验'],
+      ['04','不可变资料包',x.live&&x.stage==='PACKAGE_FROZEN','冻结之后仍需独立项目引用及专家授权']
+    ];
+    for(const [num,label,passed,help] of stageChecks){
+      const item=el('div',null,'p2-stage-card'+(passed?' passed':''));
+      append(item,el('span',num,'p2-stage-num'),append(el('div'),
+        el('strong',label),el('small',help)),chip(passed?'已具备合成记录':'待验证',passed?'teal':'muted'));
+      guideCards.append(item);
+    }
+    card.append(guideCards);
+    const jump=el('nav',null,'p2-source-jump');jump.setAttribute('aria-label','单篇来源工作区操作导航');
+    jump.append(button('来源登记',()=>{state.drawer=false;view('intake')},'outline'),
+      button('结构化处理',()=>{state.drawer=false;view('convert')},'outline'),
+      button('人工 QA',()=>{
+        state.drawer=false;state.tab='qa';draw();
+        if(canReview()&&x.live)loadSelectedDocument();
+      },'outline'),
+      button('版本资料库',()=>{state.drawer=false;view('versions')},'outline'));
+    card.append(jump);
+    card.append(el('h3','来源凭据与版本信息','p2-facts-heading'));
     const table=el('dl',null,'p2-facts');
     for(const [name,value]of [
       ['Source / Revision',x.id+' / '+x.v],['文献类型',types[x.type]||x.type],['文件类型',x.kind],
@@ -758,13 +800,22 @@
   }
   function reset(){
     state.tab='library';state.selection='P2-DEMO-RCT-001';state.search='';state.status='';
-    state.kindFilter='';state.unitIndex=0;state.highlighted=false;state.display='bilingual';state.drawer=false;
+    state.kindFilter='';state.sourceFilter='all';state.unitIndex=0;state.highlighted=false;state.display='bilingual';state.drawer=false;
     state.wizard=false;state.draft=null;state.intakePreset=null;state.auditResult=null;state.document=null;state.original=null;state.translations=new Map();state.notice='';
     state.reviewed=new Set();state.liveSources=[];state.overview=null;state.scopeExpanded=false;
   }
   window.p2SourceStudio={render,reload,reset,selectTab:view};
   document.addEventListener('DOMContentLoaded',()=>{
     document.getElementById('logoutButton')?.addEventListener('click',reset);
+    document.addEventListener('keydown',event=>{
+      if(event.key!=='Escape'||!root?.isConnected)return;
+      if(state.wizard||state.drawer){
+        event.preventDefault();
+        if(state.wizard)state.wizard=false;else state.drawer=false;
+        draw();
+        root?.querySelector('.p2-tabs [data-p2-tab="'+state.tab+'"]')?.focus({preventScroll:true});
+      }
+    });
     // The only P2 secondary navigation is now the in-content .p2-tabs.
     // Do not reinstall a competing sidebar handler.
   });

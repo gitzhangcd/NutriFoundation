@@ -341,6 +341,10 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(p.locator('#p2ScopeFields')).to_be_hidden()
     # Source-specific responsive kill gates. Local table scrolling is permitted;
     # top-level document and both navigation surfaces must remain bounded.
+    # Capture the corrected desktop overview before responsive kill tests,
+    # so a narrow-screen regression cannot suppress the visual review asset.
+    p.set_viewport_size({'width':1440,'height':1000})
+    p.screenshot(path=str(output/'p2-1-v1-revised-source-overview-1440.png'),full_page=False)
     for width,height in [(390,844),(680,900),(740,900),(768,900),(1024,900),(1440,1000)]:
         p.set_viewport_size({'width':width,'height':height})
         expect(p.locator('.p2-tabs')).to_be_visible()

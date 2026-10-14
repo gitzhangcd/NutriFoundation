@@ -344,6 +344,18 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     for width,height in [(390,844),(680,900),(740,900),(768,900),(1024,900),(1440,1000)]:
         p.set_viewport_size({'width':width,'height':height})
         expect(p.locator('.p2-tabs')).to_be_visible()
+        if width==390:
+            p.screenshot(path=str(output/'p2-1-v1-revised-source-overview-390.png'),full_page=False)
+            offenders=p.evaluate("""() => [...document.querySelectorAll('*')]
+                .filter(e=>e.getBoundingClientRect().width>0 &&
+                    (e.getBoundingClientRect().right>innerWidth+1 ||
+                     e.getBoundingClientRect().left< -1) &&
+                     getComputedStyle(e).position!=='fixed')
+                .slice(0,24).map(e=>({tag:e.tagName,cls:e.className?.toString().slice(0,90),
+                    w:Math.round(e.getBoundingClientRect().width),
+                    l:Math.round(e.getBoundingClientRect().left),
+                    r:Math.round(e.getBoundingClientRect().right)}))""")
+            print('P2_V1_MOBILE_OVERFLOW_DIAGNOSTIC',offenders)
         assert p.evaluate('document.documentElement.scrollWidth <= innerWidth + 1'),width
         if width==390:
             # True phone layout: the source queue becomes readable cards and

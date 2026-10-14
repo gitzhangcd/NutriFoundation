@@ -343,7 +343,11 @@
       const action=el('td');
       action.append(button(guide.button,()=>openNextStep(x),'small'+
         (x.live&&['RIGHTS_ACCEPTED','QA_PENDING'].includes(x.stage)?' primary':'')));
-      row.append(idcell,phase,next,qa,action);body.append(row);
+      row.append(idcell,phase,next,qa,action);
+      ['科学来源','处理资格','下一步','人工 QA','操作'].forEach((name,i)=>{
+        row.children[i].dataset.label=name;
+      });
+      body.append(row);
     }
     if(!rows.length){
       const tr=el('tr'),td=el('td','当前范围没有符合条件的来源版本。可切换来源层级、清除状态筛选或登记合成来源。','p2-dim');

@@ -95,11 +95,21 @@
   function panel(title,description,css=''){const n=el('section',null,'p2-card '+css);
     if(title)n.append(el('h2',title));if(description)n.append(metaP(description));return n;}
   function nav(){
-    const n=el('nav',null,'p2-tabs');n.setAttribute('aria-label','科学资料库二级导航');
-    for(const [key,name]of Object.entries(tabs)){
-      const b=button(name,()=>view(key),'p2-tab '+(state.tab===key?'active':''));b.dataset.p2Tab=key;
-      b.setAttribute('aria-current',state.tab===key?'page':'false');n.append(b);
-    }return n;
+    const n=el('nav',null,'p2-tabs');n.setAttribute('aria-label','科学资料工作台导航');
+    const primary=el('div',null,'p2-primary-tabs');
+    const secondary=el('div',null,'p2-secondary-tabs');
+    const items=[
+      ['library','工作队列',true],['intake','来源登记',true],
+      ['qa','结构化 QA 阅读',true],['versions','版本与资料库',true],
+      ['convert','转换作业',false],['audit','规范审计',false]
+    ];
+    for(const [key,name,isPrimary]of items){
+      const b=button(name,()=>view(key),'p2-tab '+(isPrimary?'p2-primary-tab ':'p2-secondary-tab ')+(state.tab===key?'active':''));
+      b.dataset.p2Tab=key;
+      b.setAttribute('aria-current',state.tab===key?'page':'false');
+      (isPrimary?primary:secondary).append(b);
+    }
+    n.append(primary,secondary);return n;
   }
   function heading(eyebrow,title,description,actions=[]){
     const n=el('div',null,'p2-heading'),left=el('div');

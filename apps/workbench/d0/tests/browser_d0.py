@@ -595,7 +595,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     assert a2ctx.request.get(url+'/v1/p2/sources/'+v2_id+'/r1/original').status==403
     a2.locator('#v2Evidence').fill('SYN-V2-INDEPENDENT-AUDIT')
     a2.locator('[data-act="v2Approve"]').click()
-    expect(a2.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('RIGHTS',timeout=20000)
+    expect(a2.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('合成用途已核准',timeout=20000)
     assert a2ctx.request.get(url+'/v1/p2/sources/'+v2_id+'/r1').json()['status']=='RIGHTS_ACCEPTED'
     a2.locator('#p2v2App [data-page="audit"]').click()
     expect(a2.locator('#p2v2App')).to_contain_text('Auditor 全局 Hash Chain',timeout=20000)

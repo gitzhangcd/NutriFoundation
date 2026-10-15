@@ -559,9 +559,9 @@ action=async function(act,node){
   }
   if(act==='v2ReworkRead'){
     if(!x?.live||!['producer','curator'].includes(role))return;
-    try{flow.rework=await v2Api(sourceUrl(x)+'/rework');render();}
-    catch(err){flow.notice='脱敏返工读取失败：'+err.message;render();}
-    return;
+    // Reuse the gated SourceVersion read path so stale role/selection changes
+    // cannot inject a previous Curator/Producer issue into the next session.
+    await readFlow();return;
   }
   if(act==='openRegister'&&role!=='producer'){
     toast('只有 Producer 可登记合成来源。');return;

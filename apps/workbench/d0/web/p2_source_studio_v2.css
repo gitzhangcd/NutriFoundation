@@ -66,3 +66,46 @@
 #workspace .p2v2 .p2v2-workflow-sidebar{display:flex;flex-direction:column;gap:12px;min-width:0}
 #workspace .p2v2 .p2v2-workflow-sidebar .p2v2-lifecycle{margin:0}
 #workspace .p2v2 .p2v2-workflow-sidebar .detail{min-width:0;max-width:none}
+
+/* V2.2-B4 - Curator continuous scientific reading, exact evidence anchors */
+#workspace .p2v2 .p2v2-continuous-reader{align-items:start}
+#workspace .p2v2 .p2v2-continuous-reader .reader-left,
+#workspace .p2v2 .p2v2-continuous-reader .reader-right{
+  max-height:calc(100vh - 140px);overflow:auto;position:sticky;top:20px
+}
+#workspace .p2v2 .p2v2-continuous-reader .reader-center{min-width:0}
+#workspace .p2v2 .p2v2-continuous-reader .p2v2-science-toolbar{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+#workspace .p2v2 .p2v2-rail-title{display:flex;align-items:center;justify-content:space-between;gap:8px}
+#workspace .p2v2 .p2v2-searchbar{display:flex;gap:8px;padding:8px 12px;border-bottom:1px solid #e1ece6}
+#workspace .p2v2 .p2v2-searchbar .input{flex:1;min-width:100px}
+#workspace .p2v2 .p2v2-continuous-paper{padding:22px 30px;max-width:none}
+#workspace .p2v2 .p2v2-raw-details{padding:12px 14px;background:#f5f9f7;border:1px solid #dfeae4;border-radius:9px}
+#workspace .p2v2 .p2v2-raw-details summary{cursor:pointer;color:#24775a;font-weight:650;font-size:12px;overflow-wrap:anywhere}
+#workspace .p2v2 .p2v2-unit-block{position:relative;padding:16px 17px;margin:0 0 14px;border:1px solid #e2eae6;border-radius:12px;background:#fff;scroll-margin-top:26px}
+#workspace .p2v2 .p2v2-unit-block.selected{border-color:#73b795;background:#fcfefd;box-shadow:0 0 0 2px rgba(22,133,106,.06)}
+#workspace .p2v2 .p2v2-unit-header{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin-bottom:12px;color:#608276;font-size:12px}
+#workspace .p2v2 .p2v2-unit-header .btn{margin-left:auto}
+#workspace .p2v2 .p2v2-source-text{user-select:text;-webkit-user-select:text;color:#223e35;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.9;font-size:14px}
+#workspace .p2v2 .p2v2-evidence-highlight{background:#ffeb95;color:#29261e;padding:2px 0;box-decoration-break:clone;border-radius:2px}
+#workspace .p2v2 .p2v2-translation-unit{border-left:3px solid #a7c8d2;padding:9px 13px;margin-top:12px;background:#f4f9fc;border-radius:0 8px 8px 0}
+#workspace .p2v2 .p2v2-translation-unit p{margin:6px 0 0;white-space:pre-wrap;font-size:13px;line-height:1.75;overflow-wrap:anywhere}
+#workspace .p2v2 .p2v2-more{text-align:center;padding:18px}
+#workspace .p2v2 .p2v2-qa-title{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:9px;margin-bottom:14px}
+#workspace .p2v2 .p2v2-anchor-preview{margin:14px 0;padding:12px;border:1px dashed #9dc7b2;border-radius:10px;background:#f5fbf7;font-size:12px;overflow-wrap:anywhere}
+#workspace .p2v2 .p2v2-anchor-preview>div{margin:6px 0;color:#587669}
+#workspace .p2v2 .p2v2-anchor-preview blockquote{display:block;margin:8px 0;padding:10px;border-left:2px solid #68a786;background:white;white-space:pre-wrap;max-height:125px;overflow:auto;overflow-wrap:anywhere}
+#workspace .p2v2 .p2v2-rework-item{padding:9px;margin:8px 0;border:1px solid #eadcce;border-radius:8px;background:#fffaf5;display:flex;flex-direction:column;gap:4px;overflow-wrap:anywhere}
+#workspace .p2v2 .p2v2-rework-item small{color:#8c6f57;font-family:ui-monospace,monospace}
+@media(max-width:1150px){
+  #workspace .p2v2 .p2v2-continuous-reader{grid-template-columns:minmax(0,1fr)}
+  #workspace .p2v2 .p2v2-continuous-reader .reader-left,
+  #workspace .p2v2 .p2v2-continuous-reader .reader-right{position:static;max-height:none;grid-column:auto}
+  #workspace .p2v2 .p2v2-continuous-reader .reader-left .toc{max-height:170px;overflow:auto}
+}
+@media(max-width:680px){
+  #workspace .p2v2 .p2v2-continuous-paper{padding:12px}
+  #workspace .p2v2 .p2v2-searchbar{flex-wrap:wrap}
+  #workspace .p2v2 .p2v2-searchbar .input{width:100%}
+  #workspace .p2v2 .p2v2-unit-block{padding:12px}
+  #workspace .p2v2 .p2v2-qa-title{align-items:flex-start}
+}

@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       window.p2SourceStudio.render({role:s.role,session:s,projects:[],batchMap:new Map(),scope:{project:'',batch:''}})
     );
     if(s.role==='curator')window.p2SourceStudio.selectTab('qa');
+    else if(s.role==='auditor')window.p2SourceStudio.selectTab('library');
     else window.p2SourceStudio.selectTab('intake');
   }
   at('p2LoginForm').addEventListener('submit',async ev=>{

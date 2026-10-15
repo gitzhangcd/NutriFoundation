@@ -1,0 +1,378 @@
+{
+  "schema_id": "nutrifoundation.doc_gov.canonical_authority_registry/1.0",
+  "date": "2026-10-15",
+  "governance_ref_sha": "7da8202deb0f691c17ba4ca8a496ac0ce00758f9",
+  "engineering_observation_ref_sha": "b3a9ca0f810ca0f5d517fc907c1800d13c24dac0",
+  "rules": [
+    "File found != authority ratified",
+    "Git blob SHA-1 != raw PDF or attached source SHA-256",
+    "Science ownership L0/L1 outranks engineering L2",
+    "Draft PR != main merge != deployed release",
+    "Attachment exact SHA verified != persistently archived approved canonical file",
+    "PARSER_VALID != SOURCE_LOCATOR_VERIFIED != SCIENTIFICALLY_QUALIFIED != GOLD"
+  ],
+  "historical_register": {
+    "file": "docs/governance/Workbench_Document_Register_v0.1.json",
+    "scope": "47 audit records / 46 unique files, historical verified Git snapshot; not overwritten"
+  },
+  "entries": [
+    {
+      "document_id": "SIS-R5",
+      "authority_domain": "SIS",
+      "layer": "L0",
+      "kind": "SCIENTIFIC_MASTER",
+      "status": "TARGET_BYTES_VERIFIED_SIGNOFF_PENDING",
+      "locator": {
+        "type": "user_provided_attachment_verified_in_session",
+        "repository": null,
+        "ref_sha": null,
+        "path": null,
+        "raw_bytes": 181565,
+        "raw_sha256": "3e1da79a14111d2ead7bc49d47665bc05c1879969b9233fdaa060c2f95436a82",
+        "archived_to_approved_authoritative_store": false
+      },
+      "release_gate": "AUTHORITATIVE_PRIVATE_REPO_OR_TAG_AND_OWNER_APPROVAL",
+      "note": "Target identity equals the downstream GOV-0.2 fingerprint; an earlier 149590-byte archival substitute is not this Master."
+    },
+    {
+      "document_id": "SIS-MED-R6-P04",
+      "authority_domain": "SIS-MED",
+      "layer": "L0",
+      "kind": "SCIENTIFIC_MASTER",
+      "status": "TARGET_BYTES_VERIFIED_SIGNOFF_PENDING",
+      "locator": {
+        "type": "user_provided_attachment_verified_in_session",
+        "repository": null,
+        "ref_sha": null,
+        "path": null,
+        "raw_bytes": 61116,
+        "raw_sha256": "f8513b600ea7a2266d56159df7f3cb1a71dd9b6b11d40721d49430da95e4b335",
+        "archived_to_approved_authoritative_store": false
+      },
+      "release_gate": "AUTHORITATIVE_PRIVATE_REPO_OR_TAG_AND_OWNER_APPROVAL",
+      "note": "Clinical reference R6 P0.4; historical R5-L1 cannot be used to assert current R6 conformance."
+    },
+    {
+      "document_id": "NUTRITION-FOUNDATION-V01",
+      "authority_domain": "Nutrition Foundation",
+      "layer": "L0",
+      "kind": "SCIENTIFIC_MASTER",
+      "status": "PRIVATE_ORIGINAL_VERIFIED_OWNER_RELEASE_PENDING",
+      "locator": {
+        "type": "user_provided_attachment_verified_in_session",
+        "repository": null,
+        "ref_sha": null,
+        "path": null,
+        "raw_bytes": 145696,
+        "raw_sha256": "81426a9423f825681a155b748643ebd9f3b6d992b67304d35e94abd9f9ca90ce",
+        "archived_to_approved_authoritative_store": false
+      },
+      "release_gate": "CANONICAL_STORE_PATH_VERSION_PIN_AND_OWNER_APPROVAL",
+      "note": "GOV-0.3 reports private archive, this session independently reproduced bytes/hash of uploaded integrated Master."
+    },
+    {
+      "document_id": "AI-NUTRI-V20",
+      "authority_domain": "AI Nutri",
+      "layer": "L0",
+      "kind": "HISTORICAL_SCIENTIFIC_MASTER",
+      "status": "LOCAL_ATTACHMENT_VERIFIED_NONCURRENT",
+      "locator": {
+        "type": "user_provided_attachment_verified_in_session",
+        "raw_bytes": 62429,
+        "raw_sha256": "d0a9e0c46b2bbbf7bed2b2b3b5901e18a57c434b33f24bc410156548c84b76c8",
+        "archived_to_approved_authoritative_store": false
+      },
+      "release_gate": "MUST_NOT_SILENTLY_PROMOTE_TO_V21",
+      "note": "v2.0 uploaded; scientific successor v2.1 discussed but no exact independently pinned complete file in this audit."
+    },
+    {
+      "document_id": "AI-NUTRI-V21",
+      "authority_domain": "AI Nutri",
+      "layer": "L0",
+      "kind": "RESEARCH_PROGRAM_TARGET",
+      "status": "FILE_AND_NORMATIVE_PIN_UNVERIFIED",
+      "locator": {
+        "type": "missing_authoritative_file",
+        "repository": null,
+        "ref_sha": null,
+        "path": null
+      },
+      "release_gate": "RECOVER_COMPLETE_MASTER_AND_ADAPTER_TO_NDSF",
+      "note": "Prior discussion described v2.1 aligned master; not in verified project source list."
+    },
+    {
+      "document_id": "NDF-ROUTING",
+      "authority_domain": "NDF",
+      "layer": "L1",
+      "kind": "FROZEN_ROUTING",
+      "status": "GIT_FILE_PRESENT",
+      "locator": {
+        "type": "repository_file",
+        "repository": "gitzhangcd/NutriFoundation",
+        "ref_sha": "7da8202deb0f691c17ba4ca8a496ac0ce00758f9",
+        "path": "runs/NDF/D1/A0R/Repository_Program_Routing_Freeze_v0.1.json",
+        "git_blob_sha": "cbd23ec9152da80010101e96879218c5160a87a9",
+        "available_in_doc_gov_base": true
+      },
+      "release_gate": "SCIENTIFIC_OWNER_APPLICABILITY",
+      "note": "Authoritative routing file present; do not treat as a clinical source qualification."
+    },
+    {
+      "document_id": "NDF-D1-SRS",
+      "authority_domain": "NDF",
+      "layer": "L1",
+      "kind": "SCIENTIFIC_REFERENCE_STATE",
+      "status": "R1_READY_CANDIDATE_GOLD_NOT_PROVEN",
+      "locator": {
+        "type": "repository_file",
+        "repository": "gitzhangcd/NutriFoundation",
+        "ref_sha": "7da8202deb0f691c17ba4ca8a496ac0ce00758f9",
+        "path": "runs/NDF/D1/A3R.3/ScientificReferenceState_Bundle_v0.4.json",
+        "git_blob_sha": "90d7f59c941be3c20d26aba3e1a9be57076fba49",
+        "available_in_doc_gov_base": true
+      },
+      "release_gate": "INDEPENDENT_SCIENTIFIC_REVIEW",
+      "note": "Reference state artifact; no automatic Gold promotion."
+    },
+    {
+      "document_id": "NDF-D2-CASE-R3",
+      "authority_domain": "NDF",
+      "layer": "L1",
+      "kind": "CASE_BUNDLE",
+      "status": "BINDING_CONFLICT_OPEN",
+      "locator": {
+        "type": "repository_file",
+        "repository": "gitzhangcd/NutriFoundation",
+        "ref_sha": "7da8202deb0f691c17ba4ca8a496ac0ce00758f9",
+        "path": "runs/NDF/D2/Case_0001/NutritionDecisionCaseBundle_v0.2.json",
+        "git_blob_sha": "6e07a3fe6c2137976da54df02b7cb540c408e032",
+        "available_in_doc_gov_base": true
+      },
+      "release_gate": "RESOLVE_CASE_R3_VS_PROJECTION_R2",
+      "note": "Case artifact reports revision r3; do not silently rewrite frozen file."
+    },
+    {
+      "document_id": "NDF-D2-PROJECTION-R2",
+      "authority_domain": "NDF",
+      "layer": "L1",
+      "kind": "PROJECTION_VIEW",
+      "status": "HISTORICAL_COMPATIBILITY_UNRESOLVED",
+      "locator": {
+        "type": "repository_file",
+        "repository": "gitzhangcd/NutriFoundation",
+        "ref_sha": "7da8202deb0f691c17ba4ca8a496ac0ce00758f9",
+        "path": "runs/NDF/D2/Case_0001/Materialized_Projection_Views_v0.2.json",
+        "git_blob_sha": "426be595f178408cab11191a3720cf12aea7703b",
+        "available_in_doc_gov_base": true
+      },
+      "release_gate": "EXACT_LOSSLESS_ADAPTER_OR_R3_PROJECTION_SIGNOFF",
+      "note": "Projection references r2, distinct from r3 case payload."
+    },
+    {
+      "document_id": "NDS-R1-ROLE",
+      "authority_domain": "NDS",
+      "layer": "L1",
+      "kind": "SCIENTIFIC_CONTRACT",
+      "status": "GIT_FILE_PRESENT",
+      "locator": {
+        "type": "repository_file",
+        "repository": "gitzhangcd/NutriFoundation",
+        "ref_sha": "7da8202deb0f691c17ba4ca8a496ac0ce00758f9",
+        "path": "runs/NDS/R1/P0/Role_Input_Surface_Contract_v0.1.json",
+        "git_blob_sha": "6ff4acdd45ba0d750ad362f41cdf1f817fc1bb47",
+        "available_in_doc_gov_base": true
+      },
+      "release_gate": "STRICT_BLIND_PROTOCOL_REVIEW",
+      "note": "Expert arm allowlists; Workbench cannot widen them."
+    },
+    {
+      "document_id": "NDS-R1-EXPOSURE",
+      "authority_domain": "NDS",
+      "layer": "L1",
+      "kind": "SCIENTIFIC_CONTRACT",
+      "status": "GIT_FILE_PRESENT",
+      "locator": {
+        "type": "repository_file",
+        "repository": "gitzhangcd/NutriFoundation",
+        "ref_sha": "7da8202deb0f691c17ba4ca8a496ac0ce00758f9",
+        "path": "runs/NDS/R1/P0.1/Exposure_Lock_Registry_v0.1.json",
+        "git_blob_sha": "ba43d882ac85bd63c61c008ee8ddddc6f787d36c",
+        "available_in_doc_gov_base": true
+      },
+      "release_gate": "STRICT_BLIND_PROTOCOL_REVIEW",
+      "note": "R0/R1/R2 data exposure isolation must not be relaxed."
+    },
+    {
+      "document_id": "NDS-R1-FREEZE",
+      "authority_domain": "NDS",
+      "layer": "L1",
+      "kind": "SCIENTIFIC_CONTRACT",
+      "status": "V01_WORKPACK_V02_BINDING_PENDING",
+      "locator": {
+        "type": "repository_file",
+        "repository": "gitzhangcd/NutriFoundation",
+        "ref_sha": "7da8202deb0f691c17ba4ca8a496ac0ce00758f9",
+        "path": "runs/NDS/R1/P0.1/Judgment_Freeze_Contract_v0.1.json",
+        "git_blob_sha": "adcf4f3c1a67354bf26438f53b6ab585d941f9d5",
+        "available_in_doc_gov_base": true
+      },
+      "release_gate": "EXPLICIT_COMPATIBILITY_RECEIPT",
+      "note": "v0.1 freeze references workpack v0.1; operational workpacks v0.2 require explicit adapter."
+    },
+    {
+      "document_id": "NDS-R1-R0-WORKPACK",
+      "authority_domain": "NDS",
+      "layer": "L1",
+      "kind": "CURRENT_OPERATIONAL_WORKPACK",
+      "status": "GIT_FILE_PRESENT_EMPIRICAL_PENDING",
+      "locator": {
+        "type": "repository_file",
+        "repository": "gitzhangcd/NutriFoundation",
+        "ref_sha": "7da8202deb0f691c17ba4ca8a496ac0ce00758f9",
+        "path": "runs/NDS/R1/P0.1/R0_Human_DeNovo_Workpack_v0.2.json",
+        "git_blob_sha": "4cbf9830e1f6b02c0414374fd4c964141ea59974",
+        "available_in_doc_gov_base": true
+      },
+      "release_gate": "QUALIFIED_REAL_EXPERT_AND_BINDING",
+      "note": "R0 never receives Agent candidate."
+    },
+    {
+      "document_id": "NDS-R1-R2-WORKPACK",
+      "authority_domain": "NDS",
+      "layer": "L1",
+      "kind": "CURRENT_OPERATIONAL_WORKPACK",
+      "status": "GIT_FILE_PRESENT_EMPIRICAL_PENDING",
+      "locator": {
+        "type": "repository_file",
+        "repository": "gitzhangcd/NutriFoundation",
+        "ref_sha": "7da8202deb0f691c17ba4ca8a496ac0ce00758f9",
+        "path": "runs/NDS/R1/P0.1/R2_PreAI_Workpack_v0.2.json",
+        "git_blob_sha": "3f0a06daa90562b79660d8423e5832caf20ff289",
+        "available_in_doc_gov_base": true
+      },
+      "release_gate": "QUALIFIED_REAL_EXPERT_AND_BINDING",
+      "note": "R2 independent pre-AI judgment must freeze before Agent exposure."
+    },
+    {
+      "document_id": "WB-SYSTEM-MASTER",
+      "authority_domain": "Workbench",
+      "layer": "L2",
+      "kind": "ENGINEERING_DESIGN_MASTER",
+      "status": "DESIGN_FROZEN_IMPLEMENTATION_GATES_OPEN",
+      "locator": {
+        "type": "repository_file",
+        "repository": "gitzhangcd/NutriFoundation",
+        "ref_sha": "7da8202deb0f691c17ba4ca8a496ac0ce00758f9",
+        "path": "docs/workbench/Workbench_System_Master_v0.2.md",
+        "git_blob_sha": "70db014c7fa3998b6431cdae83e6c4682b727fba",
+        "available_in_doc_gov_base": true
+      },
+      "release_gate": "CI_UX_SECURITY_AND_SCIENTIFIC_ADAPTER",
+      "note": "Engineering design is not empirical qualification or production release."
+    },
+    {
+      "document_id": "WB-PAGE-IA",
+      "authority_domain": "Workbench",
+      "layer": "L2",
+      "kind": "ENGINEERING_COMPANION",
+      "status": "DESIGN_FROZEN_IMPLEMENTATION_GATES_OPEN",
+      "locator": {
+        "type": "repository_file",
+        "repository": "gitzhangcd/NutriFoundation",
+        "ref_sha": "7da8202deb0f691c17ba4ca8a496ac0ce00758f9",
+        "path": "docs/workbench/Workbench_Page_IA_and_UX_Contract_v0.2.md",
+        "git_blob_sha": "889bae0c9ad7774759e4e6869d459af79166d1cc",
+        "available_in_doc_gov_base": true
+      },
+      "release_gate": "CI_UX_SECURITY_AND_SCIENTIFIC_ADAPTER",
+      "note": "Engineering design is not empirical qualification or production release."
+    },
+    {
+      "document_id": "WB-SCI-ADAPTER",
+      "authority_domain": "Workbench",
+      "layer": "L2",
+      "kind": "ENGINEERING_COMPANION",
+      "status": "DESIGN_FROZEN_IMPLEMENTATION_GATES_OPEN",
+      "locator": {
+        "type": "repository_file",
+        "repository": "gitzhangcd/NutriFoundation",
+        "ref_sha": "7da8202deb0f691c17ba4ca8a496ac0ce00758f9",
+        "path": "docs/workbench/Workbench_Scientific_Adapter_Matrix_v0.2.md",
+        "git_blob_sha": "d9d4def080dcff7daa9b9da245af2fe94e9404f8",
+        "available_in_doc_gov_base": true
+      },
+      "release_gate": "CI_UX_SECURITY_AND_SCIENTIFIC_ADAPTER",
+      "note": "Engineering design is not empirical qualification or production release."
+    },
+    {
+      "document_id": "WB-DATA-API",
+      "authority_domain": "Workbench",
+      "layer": "L2",
+      "kind": "ENGINEERING_COMPANION",
+      "status": "DESIGN_FROZEN_IMPLEMENTATION_GATES_OPEN",
+      "locator": {
+        "type": "repository_file",
+        "repository": "gitzhangcd/NutriFoundation",
+        "ref_sha": "7da8202deb0f691c17ba4ca8a496ac0ce00758f9",
+        "path": "docs/workbench/Workbench_Data_API_State_Contract_v0.2.md",
+        "git_blob_sha": "3785fda31feb1c0126dd23edc587be609e373e61",
+        "available_in_doc_gov_base": true
+      },
+      "release_gate": "CI_UX_SECURITY_AND_SCIENTIFIC_ADAPTER",
+      "note": "Engineering design is not empirical qualification or production release."
+    },
+    {
+      "document_id": "WB-ACCEPTANCE",
+      "authority_domain": "Workbench",
+      "layer": "L2",
+      "kind": "ENGINEERING_COMPANION",
+      "status": "DESIGN_FROZEN_IMPLEMENTATION_GATES_OPEN",
+      "locator": {
+        "type": "repository_file",
+        "repository": "gitzhangcd/NutriFoundation",
+        "ref_sha": "7da8202deb0f691c17ba4ca8a496ac0ce00758f9",
+        "path": "docs/workbench/Workbench_Acceptance_and_Roadmap_v0.2.md",
+        "git_blob_sha": "a0e9420fcf0e1c80879c94adbe56bb9fd7599fc5",
+        "available_in_doc_gov_base": true
+      },
+      "release_gate": "CI_UX_SECURITY_AND_SCIENTIFIC_ADAPTER",
+      "note": "Engineering design is not empirical qualification or production release."
+    },
+    {
+      "document_id": "WB-P2-V22-B4",
+      "authority_domain": "Workbench",
+      "layer": "L2",
+      "kind": "INCREMENTAL_MODULE_CONTRACT",
+      "status": "DRAFT_PR48_IMPLEMENTATION_UNACCEPTED",
+      "locator": {
+        "type": "pr_head_file",
+        "repository": "gitzhangcd/NutriFoundation",
+        "ref_sha": "b3a9ca0f810ca0f5d517fc907c1800d13c24dac0",
+        "pr": 48,
+        "path": "docs/workbench/WB-P2_V2.2_B4_Continuous_Scientific_Reader_Exact_Anchor_Rework_Contract_v0.1.md",
+        "git_blob_sha": "6e7b1647919198fcb5ec9256dd4269d8e454a301",
+        "available_in_doc_gov_base": false,
+        "permalink": "https://github.com/gitzhangcd/NutriFoundation/blob/b3a9ca0f810ca0f5d517fc907c1800d13c24dac0/docs/workbench/WB-P2_V2.2_B4_Continuous_Scientific_Reader_Exact_Anchor_Rework_Contract_v0.1.md"
+      },
+      "release_gate": "EXACT_HEAD_CI_AND_INDEPENDENT_UX",
+      "note": "Source reader/UTF-16 anchors/immutable rework at PR #48; not in PR #46 nor main."
+    },
+    {
+      "document_id": "WB-GOV-04",
+      "authority_domain": "Workbench Governance",
+      "layer": "L4",
+      "kind": "STATIC_CONFORMANCE_REPORT",
+      "status": "DRAFT_PR46_STATIC_ONLY",
+      "locator": {
+        "type": "repository_file",
+        "repository": "gitzhangcd/NutriFoundation",
+        "ref_sha": "7da8202deb0f691c17ba4ca8a496ac0ce00758f9",
+        "path": "docs/governance/GOV-0.4-P0_Nutrition_Foundation_Three_Master_Conformance_Report_v0.1.md",
+        "git_blob_sha": "1725e4a6c6e44a535bc9fc7056f4c59546b66fb6",
+        "available_in_doc_gov_base": true
+      },
+      "release_gate": "EXACT_R5_R6_REVIEW_AND_NONREGRESSION",
+      "note": "R6 in prior report was NOT_ASSESSED; newly verified attachment identity is not an updated clause-level audit."
+    }
+  ]
+}

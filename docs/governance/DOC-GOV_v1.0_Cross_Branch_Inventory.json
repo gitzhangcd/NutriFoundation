@@ -1,0 +1,1906 @@
+{
+  "schema_id": "nutrifoundation.doc_gov.cross_branch_inventory/1.0",
+  "snapshot_date": "2026-10-15",
+  "scope": "Existing tracked document and science-execution paths from two exact Git tree snapshots; not a full raw-source or rights inventory.",
+  "sources": [
+    {
+      "name": "GOV_PR46",
+      "repository": "gitzhangcd/NutriFoundation",
+      "commit": "7da8202deb0f691c17ba4ca8a496ac0ce00758f9",
+      "pr": 46,
+      "tracked_files": 669
+    },
+    {
+      "name": "WB_PR48",
+      "repository": "gitzhangcd/NutriFoundation",
+      "commit": "b3a9ca0f810ca0f5d517fc907c1800d13c24dac0",
+      "pr": 48,
+      "tracked_files": 666
+    }
+  ],
+  "document_count": 209,
+  "classification_policy": "Each entry is file-presence/blob evidence, not normative approval, scientific validity, or public rights attestation.",
+  "entries": [
+    {
+      "path": "00_Governance/Annotation_Contract.md",
+      "category": "legacy_governance",
+      "gov_blob_sha": "95972ebf60006a954d520d4853fcf14189b33a2b",
+      "wb_blob_sha": "95972ebf60006a954d520d4853fcf14189b33a2b",
+      "gov_bytes": 985,
+      "wb_bytes": 985,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "00_Governance/Data_Lineage_Policy.md",
+      "category": "legacy_governance",
+      "gov_blob_sha": "5d3a6e562d7e3502d88e8262e031af221192d93f",
+      "wb_blob_sha": "5d3a6e562d7e3502d88e8262e031af221192d93f",
+      "gov_bytes": 8351,
+      "wb_bytes": 8351,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "00_Governance/Data_Principles.md",
+      "category": "legacy_governance",
+      "gov_blob_sha": "9895610340b79a1711c824e24c7190f98c96f34e",
+      "wb_blob_sha": "9895610340b79a1711c824e24c7190f98c96f34e",
+      "gov_bytes": 714,
+      "wb_bytes": 714,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "00_Governance/P0.3_Freeze_Record.md",
+      "category": "legacy_governance",
+      "gov_blob_sha": "c4721692fc5d8a82a5fd0fbe3907a0a8a4085e08",
+      "wb_blob_sha": "c4721692fc5d8a82a5fd0fbe3907a0a8a4085e08",
+      "gov_bytes": 530,
+      "wb_bytes": 530,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "00_Governance/Schema_Registry.yaml",
+      "category": "legacy_governance",
+      "gov_blob_sha": "417f7dc274c1e780bca55c263d8aabe2b95155ad",
+      "wb_blob_sha": "417f7dc274c1e780bca55c263d8aabe2b95155ad",
+      "gov_bytes": 5031,
+      "wb_bytes": 5031,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "category": "root",
+      "gov_blob_sha": "2e39b2446335b6f54589c61f1071f4fcae0ace00",
+      "wb_blob_sha": "2e39b2446335b6f54589c61f1071f4fcae0ace00",
+      "gov_bytes": 599,
+      "wb_bytes": 599,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "README.md",
+      "category": "root",
+      "gov_blob_sha": "088a2b0275675588d129e5b59255f76b0b4b9d40",
+      "wb_blob_sha": "088a2b0275675588d129e5b59255f76b0b4b9d40",
+      "gov_bytes": 11427,
+      "wb_bytes": 11427,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "README_ENGINE.md",
+      "category": "root",
+      "gov_blob_sha": "163182f4fc6d6f4d0f600d340ae83a710124b175",
+      "wb_blob_sha": "163182f4fc6d6f4d0f600d340ae83a710124b175",
+      "gov_bytes": 6194,
+      "wb_bytes": 6194,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.1_Executable_Contract.md",
+      "category": "research_reports",
+      "gov_blob_sha": "e8d58092695e70b4a29c16e75bb86a3d5c268e67",
+      "wb_blob_sha": "e8d58092695e70b4a29c16e75bb86a3d5c268e67",
+      "gov_bytes": 2706,
+      "wb_bytes": 2706,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.1_Execution_Report.md",
+      "category": "research_reports",
+      "gov_blob_sha": "ee85036cdc849e4d59d264f962f41834400bec0f",
+      "wb_blob_sha": "ee85036cdc849e4d59d264f962f41834400bec0f",
+      "gov_bytes": 2651,
+      "wb_bytes": 2651,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.2_Executable_Contract.md",
+      "category": "research_reports",
+      "gov_blob_sha": "85ace4f839712476abe953067d244d446e844ed3",
+      "wb_blob_sha": "85ace4f839712476abe953067d244d446e844ed3",
+      "gov_bytes": 4548,
+      "wb_bytes": 4548,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.2_Execution_Report.md",
+      "category": "research_reports",
+      "gov_blob_sha": "0c60943b7ee837a795e4cb524fb57a46c8b0d35b",
+      "wb_blob_sha": "0c60943b7ee837a795e4cb524fb57a46c8b0d35b",
+      "gov_bytes": 3084,
+      "wb_bytes": 3084,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.3.1_Executable_Contract.md",
+      "category": "research_reports",
+      "gov_blob_sha": "827a29e5e9856937444bbfbc1a25f1ac2fb87812",
+      "wb_blob_sha": "827a29e5e9856937444bbfbc1a25f1ac2fb87812",
+      "gov_bytes": 6970,
+      "wb_bytes": 6970,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.3.1_Execution_Report.md",
+      "category": "research_reports",
+      "gov_blob_sha": "0ad563218c1dfbf2730ee1238c40dacccbfa6d84",
+      "wb_blob_sha": "0ad563218c1dfbf2730ee1238c40dacccbfa6d84",
+      "gov_bytes": 5661,
+      "wb_bytes": 5661,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.3_Executable_Contract.md",
+      "category": "research_reports",
+      "gov_blob_sha": "648d0e440c42643b626b1689bbebe8f4fc46f920",
+      "wb_blob_sha": "648d0e440c42643b626b1689bbebe8f4fc46f920",
+      "gov_bytes": 5705,
+      "wb_bytes": 5705,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.3_Execution_Report.md",
+      "category": "research_reports",
+      "gov_blob_sha": "8a08354566f8db3875b396263297ec55aa73c1ab",
+      "wb_blob_sha": "8a08354566f8db3875b396263297ec55aa73c1ab",
+      "gov_bytes": 4478,
+      "wb_bytes": 4478,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.4.1_Executable_Contract.md",
+      "category": "research_reports",
+      "gov_blob_sha": "ca57ec4d62514ee7ffda9954ede5485485d25222",
+      "wb_blob_sha": "ca57ec4d62514ee7ffda9954ede5485485d25222",
+      "gov_bytes": 7244,
+      "wb_bytes": 7244,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.4.1_Execution_Report.md",
+      "category": "research_reports",
+      "gov_blob_sha": "ed078583e46f3760a84864c887fd6659f09c756e",
+      "wb_blob_sha": "ed078583e46f3760a84864c887fd6659f09c756e",
+      "gov_bytes": 5994,
+      "wb_bytes": 5994,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.4.1_Strict_Blind_Handoff.md",
+      "category": "research_reports",
+      "gov_blob_sha": "5de1324960117eb13233979678462e769a0f3642",
+      "wb_blob_sha": "5de1324960117eb13233979678462e769a0f3642",
+      "gov_bytes": 1325,
+      "wb_bytes": 1325,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.4.2-A0_Executable_Contract.md",
+      "category": "research_reports",
+      "gov_blob_sha": "93c6c8aed0a3bded26f8b9c76ba16f15197c73c6",
+      "wb_blob_sha": "93c6c8aed0a3bded26f8b9c76ba16f15197c73c6",
+      "gov_bytes": 2961,
+      "wb_bytes": 2961,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.4.2-A0_Execution_Report.md",
+      "category": "research_reports",
+      "gov_blob_sha": "cbeeaf916cedaeeb1e0dde20ba4e245cb2cac7ae",
+      "wb_blob_sha": "cbeeaf916cedaeeb1e0dde20ba4e245cb2cac7ae",
+      "gov_bytes": 2249,
+      "wb_bytes": 2249,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.4.2-E1_Error_Attribution_Matrix_v1.0.md",
+      "category": "research_reports",
+      "gov_blob_sha": "fbff9bfd4930f65650beb0fc1ef829ae8932e0a3",
+      "wb_blob_sha": "fbff9bfd4930f65650beb0fc1ef829ae8932e0a3",
+      "gov_bytes": 1626,
+      "wb_bytes": 1626,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.4.2-E1_Evaluation_Failure_Taxonomy_v1.0.md",
+      "category": "research_reports",
+      "gov_blob_sha": "e7f327de05b9d69e70addf40263263f059eb5a3d",
+      "wb_blob_sha": "e7f327de05b9d69e70addf40263263f059eb5a3d",
+      "gov_bytes": 1105,
+      "wb_bytes": 1105,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.4.2-E2_Canonical_Scoring_Schema_v1.0.md",
+      "category": "research_reports",
+      "gov_blob_sha": "32a30c53d3585b735a60ea20c2ebbdbcd6c61936",
+      "wb_blob_sha": "32a30c53d3585b735a60ea20c2ebbdbcd6c61936",
+      "gov_bytes": 1451,
+      "wb_bytes": 1451,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.4.2-E2_Evaluation_Contract_Repair_v1.0.md",
+      "category": "research_reports",
+      "gov_blob_sha": "dc59422dade29221cfd1162f51f1567997895591",
+      "wb_blob_sha": "dc59422dade29221cfd1162f51f1567997895591",
+      "gov_bytes": 2310,
+      "wb_bytes": 2310,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.4.2-E3-A2.7_Scientific_Interpretation_Freeze_v1.0.md",
+      "category": "research_reports",
+      "gov_blob_sha": "829d54e84c79077c66a838760a6c05489e0257d7",
+      "wb_blob_sha": "829d54e84c79077c66a838760a6c05489e0257d7",
+      "gov_bytes": 10420,
+      "wb_bytes": 10420,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.4.2-E3-A2.8_Paper_Level_Evidence_Freeze_v1.0.md",
+      "category": "research_reports",
+      "gov_blob_sha": "a0171f36b97ce8ba5b780c30a1c75e4e84b13a32",
+      "wb_blob_sha": "a0171f36b97ce8ba5b780c30a1c75e4e84b13a32",
+      "gov_bytes": 7726,
+      "wb_bytes": 7726,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.4.2_Post_Freeze_Repository_Convergence_v1.0.md",
+      "category": "research_reports",
+      "gov_blob_sha": "f658de8ccda3ee890e3b09a1948ebf2ec20055be",
+      "wb_blob_sha": "f658de8ccda3ee890e3b09a1948ebf2ec20055be",
+      "gov_bytes": 2583,
+      "wb_bytes": 2583,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.4_Executable_Contract.md",
+      "category": "research_reports",
+      "gov_blob_sha": "695cf87e8d4670ea758ae5f7afac3f73276ea9e6",
+      "wb_blob_sha": "695cf87e8d4670ea758ae5f7afac3f73276ea9e6",
+      "gov_bytes": 7568,
+      "wb_bytes": 7568,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/E0.4_Execution_Report.md",
+      "category": "research_reports",
+      "gov_blob_sha": "1e64fa1831944c3c8efb798ec78059e64ac9268e",
+      "wb_blob_sha": "1e64fa1831944c3c8efb798ec78059e64ac9268e",
+      "gov_bytes": 7312,
+      "wb_bytes": 7312,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/NDF-D1-A0R_Latest-Paper-Plan-Conformance-Rebaseline_v0.1.md",
+      "category": "research_reports",
+      "gov_blob_sha": "91f578f6d153a2fd0fa8e7a85a70836ea6317787",
+      "wb_blob_sha": "91f578f6d153a2fd0fa8e7a85a70836ea6317787",
+      "gov_bytes": 3826,
+      "wb_bytes": 3826,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/NDF-D1-A0_E0.4.3_Source-Universe_Migration_Audit_v0.1.md",
+      "category": "research_reports",
+      "gov_blob_sha": "322e0a8cfd6372d3917f0a81944dd95c6803ae96",
+      "wb_blob_sha": "322e0a8cfd6372d3917f0a81944dd95c6803ae96",
+      "gov_bytes": 4162,
+      "wb_bytes": 4162,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/NDF-D1-A1R_Demand-Driven-Scientific-Question-and-First-Thin-Slice_v0.1.md",
+      "category": "research_reports",
+      "gov_blob_sha": "28332e7b39d08b0e2eff505d45041854132e0e30",
+      "wb_blob_sha": "28332e7b39d08b0e2eff505d45041854132e0e30",
+      "gov_bytes": 4250,
+      "wb_bytes": 4250,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/NDF-D1-A2R_First-Thin-Slice-Source-Acquisition-and-Qualification_v0.1.md",
+      "category": "research_reports",
+      "gov_blob_sha": "087e2994dfeabaa82d7d78f908968a54a173a5a3",
+      "wb_blob_sha": "087e2994dfeabaa82d7d78f908968a54a173a5a3",
+      "gov_bytes": 4577,
+      "wb_bytes": 4577,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/NDF-D1-A3R1_D1-G6-Reproducibility-Closure_v0.1.md",
+      "category": "research_reports",
+      "gov_blob_sha": "66de16f85d60342ed010290fceb97da07ee336bb",
+      "wb_blob_sha": "66de16f85d60342ed010290fceb97da07ee336bb",
+      "gov_bytes": 3790,
+      "wb_bytes": 3790,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/NDF-D1-A3R2_Evidence-to-Claim-Epistemic-Appraisal_v0.1.md",
+      "category": "research_reports",
+      "gov_blob_sha": "59d8e7ba7240fb7754bd80c2d9a4e22589ab7851",
+      "wb_blob_sha": "59d8e7ba7240fb7754bd80c2d9a4e22589ab7851",
+      "gov_bytes": 4339,
+      "wb_bytes": 4339,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/NDF-D1-A3R3_D2-Rebind-and-Non-Regression_v0.1.md",
+      "category": "research_reports",
+      "gov_blob_sha": "4f366086b461669a27dcd4835fb88bf8686417ef",
+      "wb_blob_sha": "4f366086b461669a27dcd4835fb88bf8686417ef",
+      "gov_bytes": 2488,
+      "wb_bytes": 2488,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/NDF-D1-A3R_First-ScientificReferenceState_v0.1.md",
+      "category": "research_reports",
+      "gov_blob_sha": "59122b3d73d6802074f2a9e8eeaf4e6866a26c73",
+      "wb_blob_sha": "59122b3d73d6802074f2a9e8eeaf4e6866a26c73",
+      "gov_bytes": 2979,
+      "wb_bytes": 2979,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/NDF-D2_First-Case-Readiness-and-Observation-Completion_v0.1.md",
+      "category": "research_reports",
+      "gov_blob_sha": "9b0791b74ed81e4262fc946c87d9592eaa30c275",
+      "wb_blob_sha": "9b0791b74ed81e4262fc946c87d9592eaa30c275",
+      "gov_bytes": 3080,
+      "wb_bytes": 3080,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/NDF_D0_A2_Repository_Integration.md",
+      "category": "research_reports",
+      "gov_blob_sha": "e7a91937891edceffa0a884e109e2970213cae0e",
+      "wb_blob_sha": "e7a91937891edceffa0a884e109e2970213cae0e",
+      "gov_bytes": 1358,
+      "wb_bytes": 1358,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/NDS-R1-P0.1_Expert-Qualification-and-PreAI-Capture_v0.1.md",
+      "category": "research_reports",
+      "gov_blob_sha": "db5edfd70e41b63aed968e192f165e652900e301",
+      "wb_blob_sha": "db5edfd70e41b63aed968e192f165e652900e301",
+      "gov_bytes": 2862,
+      "wb_bytes": 2862,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/NDS-R1-P0_First-Human-Agent-Reference-Pilot-Intake_v0.1.md",
+      "category": "research_reports",
+      "gov_blob_sha": "0e31cb9db1cb7c0de7e39609dc7eabbee538c62c",
+      "wb_blob_sha": "0e31cb9db1cb7c0de7e39609dc7eabbee538c62c",
+      "gov_bytes": 4011,
+      "wb_bytes": 4011,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/governance/GOV-0.2_Scientific_Authority_Adjudication_Report_v0.1.md",
+      "category": "governance",
+      "gov_blob_sha": "8ffc95e284f419dfbdf67ac7eefb32a672bad53d",
+      "wb_blob_sha": null,
+      "gov_bytes": 14199,
+      "wb_bytes": null,
+      "comparison": "GOV_ONLY"
+    },
+    {
+      "path": "docs/governance/GOV-0.2_Scientific_Authority_Version_Decision_v0.1.json",
+      "category": "governance",
+      "gov_blob_sha": "e7890a67316f3b59ee8b25d5191ced9d8ca47fe0",
+      "wb_blob_sha": null,
+      "gov_bytes": 10923,
+      "wb_bytes": null,
+      "comparison": "GOV_ONLY"
+    },
+    {
+      "path": "docs/governance/GOV-0.3_Controlled_Original_Materials_Manifest_v0.1.json",
+      "category": "governance",
+      "gov_blob_sha": "d8f5af67b0dd1da2176c5064efdbac189413c3f8",
+      "wb_blob_sha": null,
+      "gov_bytes": 14549,
+      "wb_bytes": null,
+      "comparison": "GOV_ONLY"
+    },
+    {
+      "path": "docs/governance/GOV-0.3_Original_Materials_Archive_and_Recovery_Report_v0.1.md",
+      "category": "governance",
+      "gov_blob_sha": "227031315068fcde6829cb70bf5e89d45b1ce421",
+      "wb_blob_sha": null,
+      "gov_bytes": 12471,
+      "wb_bytes": null,
+      "comparison": "GOV_ONLY"
+    },
+    {
+      "path": "docs/governance/GOV-0.3_Scientific_Source_Original_Qualification_Receipt_Template_v0.1.json",
+      "category": "governance",
+      "gov_blob_sha": "3dd2fd69bcba2ce2d6fd5b4a2e377f6cd8de3230",
+      "wb_blob_sha": null,
+      "gov_bytes": 3662,
+      "wb_bytes": null,
+      "comparison": "GOV_ONLY"
+    },
+    {
+      "path": "docs/governance/GOV-0.4-P0_NDSF_Three_Master_Static_Conformance_Matrix_v0.1.json",
+      "category": "governance",
+      "gov_blob_sha": "97aa9ee4cfc44d04e8f738ccc04c01cb1a721741",
+      "wb_blob_sha": null,
+      "gov_bytes": 14406,
+      "wb_bytes": null,
+      "comparison": "GOV_ONLY"
+    },
+    {
+      "path": "docs/governance/GOV-0.4-P0_Nutrition_Foundation_Three_Master_Conformance_Report_v0.1.md",
+      "category": "governance",
+      "gov_blob_sha": "1725e4a6c6e44a535bc9fc7056f4c59546b66fb6",
+      "wb_blob_sha": null,
+      "gov_bytes": 14874,
+      "wb_bytes": null,
+      "comparison": "GOV_ONLY"
+    },
+    {
+      "path": "docs/governance/README.md",
+      "category": "governance",
+      "gov_blob_sha": "e398cc67f8c8d37eba0dcf6d6663b51098f2bad5",
+      "wb_blob_sha": null,
+      "gov_bytes": 5296,
+      "wb_bytes": null,
+      "comparison": "GOV_ONLY"
+    },
+    {
+      "path": "docs/governance/Workbench_Document_Governance_Master_v0.1.md",
+      "category": "governance",
+      "gov_blob_sha": "21b99e12eb239571dc1f59d6621a4acef5a7d8f3",
+      "wb_blob_sha": null,
+      "gov_bytes": 13058,
+      "wb_bytes": null,
+      "comparison": "GOV_ONLY"
+    },
+    {
+      "path": "docs/governance/Workbench_Document_Register_v0.1.json",
+      "category": "governance",
+      "gov_blob_sha": "fe6c2b860a838355c843a6f8fdde380ba3fa7b69",
+      "wb_blob_sha": null,
+      "gov_bytes": 31092,
+      "wb_bytes": null,
+      "comparison": "GOV_ONLY"
+    },
+    {
+      "path": "docs/governance/Workbench_Normative_Conflict_Register_v0.1.md",
+      "category": "governance",
+      "gov_blob_sha": "292fcbad700782fd4ac96868eebc7ab265feb839",
+      "wb_blob_sha": null,
+      "gov_bytes": 9640,
+      "wb_bytes": null,
+      "comparison": "GOV_ONLY"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-09-evidence-review.md",
+      "category": "research_reports",
+      "gov_blob_sha": "7710d4711167ebb118451dd4ae6e8164406606a6",
+      "wb_blob_sha": "7710d4711167ebb118451dd4ae6e8164406606a6",
+      "gov_bytes": 1706,
+      "wb_bytes": 1706,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-09-evidence-review-design.md",
+      "category": "research_reports",
+      "gov_blob_sha": "3d077979c5227639c60af5d492a4b3284c246af2",
+      "wb_blob_sha": "3d077979c5227639c60af5d492a4b3284c246af2",
+      "gov_bytes": 1660,
+      "wb_bytes": 1660,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-EA-P1_D0_54b4c2e_Integration_Remediation_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "371a1be8467a1406689e819ced7759ba9803b9e6",
+      "wb_blob_sha": "371a1be8467a1406689e819ced7759ba9803b9e6",
+      "gov_bytes": 8926,
+      "wb_bytes": 8926,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-EA-P1_D0_Native_Integration_CI_Receipt_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "c15a08a344ff176c936106d6845f99547b8c5260",
+      "wb_blob_sha": "c15a08a344ff176c936106d6845f99547b8c5260",
+      "gov_bytes": 3542,
+      "wb_bytes": 3542,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P0.2-A_Implementation_Report_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "a1fae7ec8d2060eb7011e93c577158832538fe9f",
+      "wb_blob_sha": "a1fae7ec8d2060eb7011e93c577158832538fe9f",
+      "gov_bytes": 3654,
+      "wb_bytes": 3654,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P0.2-B1_Acceptance_Report_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "65319f7d808b43681fd6b4d3958803ac05bb024d",
+      "wb_blob_sha": "65319f7d808b43681fd6b4d3958803ac05bb024d",
+      "gov_bytes": 4562,
+      "wb_bytes": 4562,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P0.2-B_Implementation_Report_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "a5f05454429cb5701f18cbb22915aa141e776b36",
+      "wb_blob_sha": "a5f05454429cb5701f18cbb22915aa141e776b36",
+      "gov_bytes": 4289,
+      "wb_bytes": 4289,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P0.2-C0_Page_Contract_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "44c88a1d625994da32d8ca82a4ff33d2ee500677",
+      "wb_blob_sha": "44c88a1d625994da32d8ca82a4ff33d2ee500677",
+      "gov_bytes": 4305,
+      "wb_bytes": 4305,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P0.2-C1_Implementation_Report_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "c1c849594ab4c6a6f0d1bc644f335fc6184d82df",
+      "wb_blob_sha": "c1c849594ab4c6a6f0d1bc644f335fc6184d82df",
+      "gov_bytes": 3695,
+      "wb_bytes": 3695,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P0.2-C2.1_Secure_Reader_Exposure_Kill_Acceptance_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "788803178e711aa83c429635ace664c807eeb214",
+      "wb_blob_sha": "788803178e711aa83c429635ace664c807eeb214",
+      "gov_bytes": 8656,
+      "wb_bytes": 8656,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P0.2-C2.2_Real_Expert_Readiness_and_Security_Report_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "a63c5214f9bf5ca7b9cf9c98f93b98fdc25f5f89",
+      "wb_blob_sha": "a63c5214f9bf5ca7b9cf9c98f93b98fdc25f5f89",
+      "gov_bytes": 9417,
+      "wb_bytes": 9417,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P0.2-C2_Contract_Controller_Acceptance_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "df50f58556622f060a42c18d114d81648d6233cc",
+      "wb_blob_sha": "df50f58556622f060a42c18d114d81648d6233cc",
+      "gov_bytes": 5531,
+      "wb_bytes": 5531,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P0.2-P0_Scientific-Base-Binding_Contract-Reuse_Repository-Boundary_Non-Regression-Freeze_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "1b9fa110e87747d7963f6abbf36ffbe4c0cf9a2d",
+      "wb_blob_sha": "1b9fa110e87747d7963f6abbf36ffbe4c0cf9a2d",
+      "gov_bytes": 6555,
+      "wb_bytes": 6555,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P1.1-A5_Management_UX_Expert_Handoff_Engineering_Acceptance_Receipt_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "bf2e646973f6d426a56bfd869ab32ae6ce7161e3",
+      "wb_blob_sha": "bf2e646973f6d426a56bfd869ab32ae6ce7161e3",
+      "gov_bytes": 7304,
+      "wb_bytes": 7304,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P1.1-B0_Existing_Workbench_Integration_and_Gap_Audit_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "66bfad68c7a25a8fa3c532be9c5b2f70aab22939",
+      "wb_blob_sha": "66bfad68c7a25a8fa3c532be9c5b2f70aab22939",
+      "gov_bytes": 15131,
+      "wb_bytes": 15131,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P1.1-B1_Scientific_Source_Library_and_Source_Package_Contract_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "465138cfbb59ef3cbaa20c1ab7be4970d76db173",
+      "wb_blob_sha": "465138cfbb59ef3cbaa20c1ab7be4970d76db173",
+      "gov_bytes": 9943,
+      "wb_bytes": 9943,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P1.1-B1_Source_Library_Engineering_Acceptance_Receipt_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "1db3576616659c48d42b49af80135c9ade83ab6c",
+      "wb_blob_sha": "1db3576616659c48d42b49af80135c9ade83ab6c",
+      "gov_bytes": 7676,
+      "wb_bytes": 7676,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P1.1-B2_Synthetic_Agent_Preparation_and_Provenance_Contract_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "21b4e7195c1730eeb010cdaab30638e3c03f02d8",
+      "wb_blob_sha": "21b4e7195c1730eeb010cdaab30638e3c03f02d8",
+      "gov_bytes": 8159,
+      "wb_bytes": 8159,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P1.1-B2_Synthetic_Agent_Provenance_Engineering_Acceptance_Receipt_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "6c80ae81387cb0ba1b772cd55e6cd043eb8a5318",
+      "wb_blob_sha": "6c80ae81387cb0ba1b772cd55e6cd043eb8a5318",
+      "gov_bytes": 9114,
+      "wb_bytes": 9114,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P1.1-B3_Expert_Assignment_Exposure_Handoff_Engineering_Acceptance_Receipt_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "cc3a0c82dbd97936fb502c53dc72d98739ba0981",
+      "wb_blob_sha": "cc3a0c82dbd97936fb502c53dc72d98739ba0981",
+      "gov_bytes": 8991,
+      "wb_bytes": 8991,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P1.1-B3_Synthetic_Expert_Roster_Assignment_Exposure_Handoff_Contract_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "a6c31692141c8022be574315d53c8485e0fa9716",
+      "wb_blob_sha": "a6c31692141c8022be574315d53c8485e0fa9716",
+      "gov_bytes": 6642,
+      "wb_bytes": 6642,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P1.1-B4_Integrated_Acceptance_Failure_Recovery_and_NonRegression_Freeze_Contract_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "4e7059da00199b0c0384c5ebea13e9f9cb8fe6ba",
+      "wb_blob_sha": "4e7059da00199b0c0384c5ebea13e9f9cb8fe6ba",
+      "gov_bytes": 6409,
+      "wb_bytes": 6409,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P1.1-B4_Synthetic_Engineering_Freeze_and_Acceptance_Receipt_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "d33c79817e8934424ad98de11432c3e23ae1387e",
+      "wb_blob_sha": "d33c79817e8934424ad98de11432c3e23ae1387e",
+      "gov_bytes": 7879,
+      "wb_bytes": 7879,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P2_HTML_Demo_PR37_PR38_Scientific_Source_UX_Convergence_Audit_v0.4.md",
+      "category": "workbench",
+      "gov_blob_sha": "942ee149e51b9155771ffc20a56428100b439c99",
+      "wb_blob_sha": "942ee149e51b9155771ffc20a56428100b439c99",
+      "gov_bytes": 8270,
+      "wb_bytes": 8270,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P2_HiFi_Demo_v1_4K_Package_Alignment_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": null,
+      "wb_blob_sha": "c72b4ad2786287481759fed1e73385718d5a554d",
+      "gov_bytes": null,
+      "wb_bytes": 1805,
+      "comparison": "WB_ONLY"
+    },
+    {
+      "path": "docs/workbench/WB-P2_P21A_Navigation_Convergence_Responsive_Fix_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "92f8806d353db8882a3a92b7c8b1e32057946407",
+      "wb_blob_sha": "92f8806d353db8882a3a92b7c8b1e32057946407",
+      "gov_bytes": 5192,
+      "wb_bytes": 5192,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P2_P21B_Source_Centric_Workflow_UX_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "073452d70d1a2449704142fb608c6fbe3ff83775",
+      "wb_blob_sha": "073452d70d1a2449704142fb608c6fbe3ff83775",
+      "gov_bytes": 3702,
+      "wb_bytes": 3702,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P2_P21CD_High_Fidelity_Demo_v1_Source_Workspace_Alignment_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": null,
+      "wb_blob_sha": "99ae6e123c38327ad6f4ba990e79600677dcc6ba",
+      "gov_bytes": null,
+      "wb_bytes": 5448,
+      "comparison": "WB_ONLY"
+    },
+    {
+      "path": "docs/workbench/WB-P2_Scientific_Source_Studio_V2_Design_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": null,
+      "wb_blob_sha": "16233d2643b023e09b61b0f7e1b4a8555f69ca45",
+      "gov_bytes": null,
+      "wb_bytes": 1258,
+      "comparison": "WB_ONLY"
+    },
+    {
+      "path": "docs/workbench/WB-P2_Source_Studio_HTML_Fidelity_and_Scientific_Workflow_Master_v0.3.md",
+      "category": "workbench",
+      "gov_blob_sha": "658b3b2f232cf7c0c8179cdfac7c32b44dfed3c4",
+      "wb_blob_sha": "658b3b2f232cf7c0c8179cdfac7c32b44dfed3c4",
+      "gov_bytes": 11925,
+      "wb_bytes": 11925,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-P2_V2.0_P0_Engineering_Data_Truth_Workflow_Gate_Audit_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": null,
+      "wb_blob_sha": "cdb0264a91f1d1fe38ec4b216e99e77a3a7f28b8",
+      "gov_bytes": null,
+      "wb_bytes": 9278,
+      "comparison": "WB_ONLY"
+    },
+    {
+      "path": "docs/workbench/WB-P2_V2.1_P1_Role_Preserved_Synthetic_Lifecycle_Integration_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": null,
+      "wb_blob_sha": "f54f8d18370fe766fdd435b93d1afa3620a4da11",
+      "gov_bytes": null,
+      "wb_bytes": 6718,
+      "comparison": "WB_ONLY"
+    },
+    {
+      "path": "docs/workbench/WB-P2_V2.2_B4_Continuous_Scientific_Reader_Exact_Anchor_Rework_Contract_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": null,
+      "wb_blob_sha": "6e7b1647919198fcb5ec9256dd4269d8e454a301",
+      "gov_bytes": null,
+      "wb_bytes": 6658,
+      "comparison": "WB_ONLY"
+    },
+    {
+      "path": "docs/workbench/WB-TPA-P0_Design_Freeze_Verification_Receipt_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "bf33bdd5105fffa8bffe9001987fec6304aae8eb",
+      "wb_blob_sha": "bf33bdd5105fffa8bffe9001987fec6304aae8eb",
+      "gov_bytes": 3381,
+      "wb_bytes": 3381,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-TPA-P1.1-A1_Minimal_Operational_Contract_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "b07aa06f285c974e28f446df2cf489627857fbd2",
+      "wb_blob_sha": "b07aa06f285c974e28f446df2cf489627857fbd2",
+      "gov_bytes": 8248,
+      "wb_bytes": 8248,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-TPA-P1.1-A4_Engineering_Freeze_and_Acceptance_Receipt_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "1ac82486893aeeb1a40956bc86564795612bfc91",
+      "wb_blob_sha": "1ac82486893aeeb1a40956bc86564795612bfc91",
+      "gov_bytes": 9933,
+      "wb_bytes": 9933,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-TPA-P1.1-A_Management_Page_Level_Spec_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "31b00f505b43c0d45e380cee7baabf71263d0c0d",
+      "wb_blob_sha": "31b00f505b43c0d45e380cee7baabf71263d0c0d",
+      "gov_bytes": 36497,
+      "wb_bytes": 36497,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-TPA-P1_Synthetic_Management_Engineering_Acceptance_Receipt_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "2c8f35946dde365209aa20cca48486b727dfd50d",
+      "wb_blob_sha": "2c8f35946dde365209aa20cca48486b727dfd50d",
+      "gov_bytes": 4543,
+      "wb_bytes": 4543,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-TPA-v0.1_P0_Task_Production_Assignment_Normative_Design_Freeze.md",
+      "category": "workbench",
+      "gov_blob_sha": "671f21985b73f15eea3709c4ce106f9bfe39c910",
+      "wb_blob_sha": "671f21985b73f15eea3709c4ce106f9bfe39c910",
+      "gov_bytes": 20618,
+      "wb_bytes": 20618,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-v0.3-P1.1_Repository_Integration_and_Synthetic_Pilot_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "a1d1ce8cc40bea3b0622a5815b780835198a9e8c",
+      "wb_blob_sha": "a1d1ce8cc40bea3b0622a5815b780835198a9e8c",
+      "gov_bytes": 9609,
+      "wb_bytes": 9609,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-v0.3-P1.2_Bilingual_Expert_Integration_and_Synthetic_Acceptance_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "772f571aaf131fdd2dbd29e2fc76c0d3960c821a",
+      "wb_blob_sha": "772f571aaf131fdd2dbd29e2fc76c0d3960c821a",
+      "gov_bytes": 10283,
+      "wb_bytes": 10283,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/WB-v0.3-P1_Expert_Walkthrough_Remediation_and_Acceptance_v0.1.md",
+      "category": "workbench",
+      "gov_blob_sha": "0647d4d726c9d333e64d5951695dacab27b78fb7",
+      "wb_blob_sha": "0647d4d726c9d333e64d5951695dacab27b78fb7",
+      "gov_bytes": 7626,
+      "wb_bytes": 7626,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/Workbench_Acceptance_and_Roadmap_v0.2.md",
+      "category": "workbench",
+      "gov_blob_sha": "a0e9420fcf0e1c80879c94adbe56bb9fd7599fc5",
+      "wb_blob_sha": "a0e9420fcf0e1c80879c94adbe56bb9fd7599fc5",
+      "gov_bytes": 9193,
+      "wb_bytes": 9193,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/Workbench_Data_API_State_Contract_v0.2.md",
+      "category": "workbench",
+      "gov_blob_sha": "3785fda31feb1c0126dd23edc587be609e373e61",
+      "wb_blob_sha": "3785fda31feb1c0126dd23edc587be609e373e61",
+      "gov_bytes": 12468,
+      "wb_bytes": 12468,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/Workbench_Page_IA_and_UX_Contract_v0.2.md",
+      "category": "workbench",
+      "gov_blob_sha": "889bae0c9ad7774759e4e6869d459af79166d1cc",
+      "wb_blob_sha": "889bae0c9ad7774759e4e6869d459af79166d1cc",
+      "gov_bytes": 9360,
+      "wb_bytes": 9360,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/Workbench_Scientific_Adapter_Matrix_v0.2.md",
+      "category": "workbench",
+      "gov_blob_sha": "d9d4def080dcff7daa9b9da245af2fe94e9404f8",
+      "wb_blob_sha": "d9d4def080dcff7daa9b9da245af2fe94e9404f8",
+      "gov_bytes": 9054,
+      "wb_bytes": 9054,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/Workbench_System_Master_v0.2.md",
+      "category": "workbench",
+      "gov_blob_sha": "70db014c7fa3998b6431cdae83e6c4682b727fba",
+      "wb_blob_sha": "70db014c7fa3998b6431cdae83e6c4682b727fba",
+      "gov_bytes": 20188,
+      "wb_bytes": 20188,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/contracts/WB-TPA-P0_Negative_Fixtures_v0.1.json",
+      "category": "workbench",
+      "gov_blob_sha": "3b4a0862e9adcd4c26b0f15f2faccf2b77c8f53b",
+      "wb_blob_sha": "3b4a0862e9adcd4c26b0f15f2faccf2b77c8f53b",
+      "gov_bytes": 10287,
+      "wb_bytes": 10287,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/contracts/WB-TPA-P0_v0.1.json",
+      "category": "workbench",
+      "gov_blob_sha": "f000fa653cd24d5748ea5559ba2bc8890250699d",
+      "wb_blob_sha": "f000fa653cd24d5748ea5559ba2bc8890250699d",
+      "gov_bytes": 10543,
+      "wb_bytes": 10543,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/d0-preflight/2026-10-09-acceptance.json",
+      "category": "workbench",
+      "gov_blob_sha": "b2e5ddf0eacb65930afc4884cf00482f2ebde684",
+      "wb_blob_sha": "b2e5ddf0eacb65930afc4884cf00482f2ebde684",
+      "gov_bytes": 3914,
+      "wb_bytes": 3914,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/d0-preflight/2026-10-09-acceptance.md",
+      "category": "workbench",
+      "gov_blob_sha": "3f15b1fa7f0333f7ec48d5430369e18adee7f49b",
+      "wb_blob_sha": "3f15b1fa7f0333f7ec48d5430369e18adee7f49b",
+      "gov_bytes": 5142,
+      "wb_bytes": 5142,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/d0-preflight/2026-10-09-design.md",
+      "category": "workbench",
+      "gov_blob_sha": "13b9950c5da00fbd4c6929e2259a3b9074152cb5",
+      "wb_blob_sha": "13b9950c5da00fbd4c6929e2259a3b9074152cb5",
+      "gov_bytes": 5564,
+      "wb_bytes": 5564,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/d0-preflight/2026-10-09-plan.md",
+      "category": "workbench",
+      "gov_blob_sha": "2262954c6e9634a21112b446dbfb9f89c0cb6a9d",
+      "wb_blob_sha": "2262954c6e9634a21112b446dbfb9f89c0cb6a9d",
+      "gov_bytes": 3273,
+      "wb_bytes": 3273,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/d0-preflight/2026-10-09-server.json",
+      "category": "workbench",
+      "gov_blob_sha": "89bd42a29701e0833f024a68f86280d4adcd0012",
+      "wb_blob_sha": "89bd42a29701e0833f024a68f86280d4adcd0012",
+      "gov_bytes": 1104,
+      "wb_bytes": 1104,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/d0-preflight/2026-10-09-status.json",
+      "category": "workbench",
+      "gov_blob_sha": "41717ac3203210ed08a2c4d4da7875a7e80f7f99",
+      "wb_blob_sha": "41717ac3203210ed08a2c4d4da7875a7e80f7f99",
+      "gov_bytes": 3349,
+      "wb_bytes": 3349,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/d0-preflight/logs/backup-acceptance.log",
+      "category": "workbench",
+      "gov_blob_sha": "5146ea74cb35d646ab07acd57041e86ec9ab8ef1",
+      "wb_blob_sha": "5146ea74cb35d646ab07acd57041e86ec9ab8ef1",
+      "gov_bytes": 1368,
+      "wb_bytes": 1368,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/d0-preflight/logs/deployment.log",
+      "category": "workbench",
+      "gov_blob_sha": "0752ec0361afb346a56b8c89146bf50c2a1e3c50",
+      "wb_blob_sha": "0752ec0361afb346a56b8c89146bf50c2a1e3c50",
+      "gov_bytes": 799,
+      "wb_bytes": 799,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/d0-preflight/logs/populated-restore.log",
+      "category": "workbench",
+      "gov_blob_sha": "29fec76b725dae5223425fff1489bc22a3eb6145",
+      "wb_blob_sha": "29fec76b725dae5223425fff1489bc22a3eb6145",
+      "gov_bytes": 459,
+      "wb_bytes": 459,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/d0-preflight/logs/rollback-acceptance.log",
+      "category": "workbench",
+      "gov_blob_sha": "466e14725798e23c88f996256c8eaddb18483f1d",
+      "wb_blob_sha": "466e14725798e23c88f996256c8eaddb18483f1d",
+      "gov_bytes": 452,
+      "wb_bytes": 452,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "docs/workbench/d0-preflight/logs/server-browser.log",
+      "category": "workbench",
+      "gov_blob_sha": "543a61223a080ef4b6ca3cd7290e80e73fab3c07",
+      "wb_blob_sha": "543a61223a080ef4b6ca3cd7290e80e73fab3c07",
+      "gov_bytes": 676,
+      "wb_bytes": 676,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "paper_c/P0/AB0_AB6_Baseline_Contract_v0.1.yaml",
+      "category": "legacy_publication_program",
+      "gov_blob_sha": "5d4f10e94c60ff858a2d1340e9a6a3483456b72c",
+      "wb_blob_sha": "5d4f10e94c60ff858a2d1340e9a6a3483456b72c",
+      "gov_bytes": 4086,
+      "wb_bytes": 4086,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "paper_c/P0/Endpoint_Statistical_Contract_v0.1.yaml",
+      "category": "legacy_publication_program",
+      "gov_blob_sha": "4fcd74925b97eefa8e5c11867373b9dc4600e3f6",
+      "wb_blob_sha": "4fcd74925b97eefa8e5c11867373b9dc4600e3f6",
+      "gov_bytes": 3754,
+      "wb_bytes": 3754,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "paper_c/P0/Gold100_Corpus_Contract_v0.1.yaml",
+      "category": "legacy_publication_program",
+      "gov_blob_sha": "51b3100f8c6393f3398eca94b3f9e2a5cc1a45fc",
+      "wb_blob_sha": "51b3100f8c6393f3398eca94b3f9e2a5cc1a45fc",
+      "gov_bytes": 2999,
+      "wb_bytes": 2999,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "paper_c/P0/Gold100_Source_Slot_Manifest_v0.1.json",
+      "category": "legacy_publication_program",
+      "gov_blob_sha": "5ee6bb48c345275f3d4f01111a637ac685458c5e",
+      "wb_blob_sha": "5ee6bb48c345275f3d4f01111a637ac685458c5e",
+      "gov_bytes": 33856,
+      "wb_bytes": 33856,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "paper_c/P0/Literature_Positioning_v0.1.md",
+      "category": "legacy_publication_program",
+      "gov_blob_sha": "d4784da609464827a6f57f3072721f7027970020",
+      "wb_blob_sha": "d4784da609464827a6f57f3072721f7027970020",
+      "gov_bytes": 4732,
+      "wb_bytes": 4732,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "paper_c/P0/P0_Execution_Report.md",
+      "category": "legacy_publication_program",
+      "gov_blob_sha": "69c9c88fe6fa7ee2b76471396f26e49b8639c71c",
+      "wb_blob_sha": "69c9c88fe6fa7ee2b76471396f26e49b8639c71c",
+      "gov_bytes": 5356,
+      "wb_bytes": 5356,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "paper_c/P0/Paper_C_P0_Scientific_Evidence_Production_Study_v0.1.md",
+      "category": "legacy_publication_program",
+      "gov_blob_sha": "25f029aa4417101aff54468277dda703c8496831",
+      "wb_blob_sha": "25f029aa4417101aff54468277dda703c8496831",
+      "gov_bytes": 10936,
+      "wb_bytes": 10936,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "paper_c/P0/Publication_Kill_Test_Registry_v0.1.yaml",
+      "category": "legacy_publication_program",
+      "gov_blob_sha": "196bb1fdaadd2d085ab01fcd77de4774b7500efe",
+      "wb_blob_sha": "196bb1fdaadd2d085ab01fcd77de4774b7500efe",
+      "gov_bytes": 2956,
+      "wb_bytes": 2956,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "paper_c/README.md",
+      "category": "legacy_publication_program",
+      "gov_blob_sha": "79ba7fdb772dc4083c64a7ef1b18b6908039b81c",
+      "wb_blob_sha": "79ba7fdb772dc4083c64a7ef1b18b6908039b81c",
+      "gov_bytes": 1527,
+      "wb_bytes": 1527,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D0/A2.1/D0_A2_1_First_Real_D2_Conformance_Report_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "69e564cd704e3213e74fac4422ac66d5e13a6e38",
+      "wb_blob_sha": "69e564cd704e3213e74fac4422ac66d5e13a6e38",
+      "gov_bytes": 3170,
+      "wb_bytes": 3170,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D0/A2.1/D0_A2_1_Selected_Subject_Provenance_Crosscheck_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "6a2da8d64d497a8cc0a2f220ecd92b37e98f30fb",
+      "wb_blob_sha": "6a2da8d64d497a8cc0a2f220ecd92b37e98f30fb",
+      "gov_bytes": 1389,
+      "wb_bytes": 1389,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D0/A2/D0_A2_Runtime_Conformance_Report_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "638dd7f18db583d9ab343d793611c2f99c7ea170",
+      "wb_blob_sha": "638dd7f18db583d9ab343d793611c2f99c7ea170",
+      "gov_bytes": 994,
+      "wb_bytes": 994,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D0/A2/E0.4.3_Legacy_Asset_Migration_Manifest_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "f04dea34ad870cbdc75cd3b8aca7ee9f59d6208c",
+      "wb_blob_sha": "f04dea34ad870cbdc75cd3b8aca7ee9f59d6208c",
+      "gov_bytes": 3178,
+      "wb_bytes": 3178,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A0/D1-A0_Source_Universe_Audit_Report_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "8dcba8789d2c5fb40e4fba2a366b1a3cb04240e7",
+      "wb_blob_sha": "8dcba8789d2c5fb40e4fba2a366b1a3cb04240e7",
+      "gov_bytes": 7504,
+      "wb_bytes": 7504,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A0/E0.4.3_Source_Universe_Migration_Registry_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "bf609389a571b60d7b0ee25c5fe55b70503d35f0",
+      "wb_blob_sha": "bf609389a571b60d7b0ee25c5fe55b70503d35f0",
+      "gov_bytes": 505863,
+      "wb_bytes": 505863,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A0/Thin_Slice_Candidate_Lock_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "12a548e78e1611512e1ce44dfa12c1465e81c17a",
+      "wb_blob_sha": "12a548e78e1611512e1ce44dfa12c1465e81c17a",
+      "gov_bytes": 9658,
+      "wb_bytes": 9658,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A0R/A0R_Conformance_Report_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "3a203777fefb4290932ef5fa79176a42a02b5d21",
+      "wb_blob_sha": "3a203777fefb4290932ef5fa79176a42a02b5d21",
+      "gov_bytes": 1622,
+      "wb_bytes": 1622,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A0R/A0R_Rebaseline_Manifest_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "87560193139b572f01b4deb125f998b444472f61",
+      "wb_blob_sha": "87560193139b572f01b4deb125f998b444472f61",
+      "gov_bytes": 4774,
+      "wb_bytes": 4774,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A0R/Repository_Program_Routing_Freeze_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "cbd23ec9152da80010101e96879218c5160a87a9",
+      "wb_blob_sha": "cbd23ec9152da80010101e96879218c5160a87a9",
+      "gov_bytes": 1787,
+      "wb_bytes": 1787,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A1R/A1R_Conformance_Report_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "4410090421e88d7bc9311e664df8047b2a7d5e0e",
+      "wb_blob_sha": "4410090421e88d7bc9311e664df8047b2a7d5e0e",
+      "gov_bytes": 1909,
+      "wb_bytes": 1909,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A1R/A1R_D1-D2-R1_Coupling_Gate_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "55a5b62e8ad20913e527ae3c35bf33207c7cb70a",
+      "wb_blob_sha": "55a5b62e8ad20913e527ae3c35bf33207c7cb70a",
+      "gov_bytes": 1715,
+      "wb_bytes": 1715,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A1R/First_R1P1_Thin_Slice_Selection_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "67d0612dec4cdc85cb930c5bc012f1ce57596bab",
+      "wb_blob_sha": "67d0612dec4cdc85cb930c5bc012f1ce57596bab",
+      "gov_bytes": 3230,
+      "wb_bytes": 3230,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A1R/Knowledge_Need_Contract_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "bffc18307c3aa3c8f2794500ea160bc12e36c6c6",
+      "wb_blob_sha": "bffc18307c3aa3c8f2794500ea160bc12e36c6c6",
+      "gov_bytes": 5822,
+      "wb_bytes": 5822,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A1R/Scientific_Question_Intake_Registry_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "f6dcf38e7402cabb396e6099b63f59c60cde3497",
+      "wb_blob_sha": "f6dcf38e7402cabb396e6099b63f59c60cde3497",
+      "gov_bytes": 4139,
+      "wb_bytes": 4139,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A2R/A2R_Conformance_Report_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "1190365b1b410983e554c9f3e3f0c1d0c0f53774",
+      "wb_blob_sha": "1190365b1b410983e554c9f3e3f0c1d0c0f53774",
+      "gov_bytes": 2648,
+      "wb_bytes": 2648,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A2R/A2R_Evidence_Cutoff_Lock_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "b68075386f75ef42bb889de6612408dc9ec1d324",
+      "wb_blob_sha": "b68075386f75ef42bb889de6612408dc9ec1d324",
+      "gov_bytes": 961,
+      "wb_bytes": 961,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A2R/A2R_Source_Snapshot_Gap_Register_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "96235afe7a0dce023c0ed4f361af78f60b067d44",
+      "wb_blob_sha": "96235afe7a0dce023c0ed4f361af78f60b067d44",
+      "gov_bytes": 1508,
+      "wb_bytes": 1508,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A2R/Historical_Source_Reuse_Audit_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "4d6e88a47fb0d56467cb998d974dad756aac7009",
+      "wb_blob_sha": "4d6e88a47fb0d56467cb998d974dad756aac7009",
+      "gov_bytes": 3351,
+      "wb_bytes": 3351,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A2R/Source_Span_Qualification_Registry_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "1cf2b96e1fbb591aef8ccf3626afcf060b81c944",
+      "wb_blob_sha": "1cf2b96e1fbb591aef8ccf3626afcf060b81c944",
+      "gov_bytes": 6851,
+      "wb_bytes": 6851,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A2R/Study_Document_Identity_Registry_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "0e7c15c861746f4616f65a6cc1fbcace4af7600a",
+      "wb_blob_sha": "0e7c15c861746f4616f65a6cc1fbcace4af7600a",
+      "gov_bytes": 2577,
+      "wb_bytes": 2577,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A2R/Targeted_Source_Acquisition_Manifest_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "e83a58bc84408d17eede66d972cc90f5f5ee7fe8",
+      "wb_blob_sha": "e83a58bc84408d17eede66d972cc90f5f5ee7fe8",
+      "gov_bytes": 4934,
+      "wb_bytes": 4934,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.1/A3R1_AHA_Correction_Closure_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "416fcd0f833a3a9a841bb2cf98d2f524e19bc1cd",
+      "wb_blob_sha": "416fcd0f833a3a9a841bb2cf98d2f524e19bc1cd",
+      "gov_bytes": 3372,
+      "wb_bytes": 3372,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.1/A3R1_Conformance_Report_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "b7d19f71c0f9e666ab82c0a6868f15e7f1880aa6",
+      "wb_blob_sha": "b7d19f71c0f9e666ab82c0a6868f15e7f1880aa6",
+      "gov_bytes": 2350,
+      "wb_bytes": 2350,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.1/Frozen_Claim_Support_Snapshot_Manifest_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "6cc91ccd2610547e08716d1b70e41672dcb77569",
+      "wb_blob_sha": "6cc91ccd2610547e08716d1b70e41672dcb77569",
+      "gov_bytes": 6645,
+      "wb_bytes": 6645,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.1/Role_Separated_Claim_Audit_Report_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "687aa4b9c239744bb744a0b32776be6241ad451e",
+      "wb_blob_sha": "687aa4b9c239744bb744a0b32776be6241ad451e",
+      "gov_bytes": 3997,
+      "wb_bytes": 3997,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.1/Role_Separated_Claim_Audit_TaskPack_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "e88a503f054162cec9c25708c5cbd70dbab009aa",
+      "wb_blob_sha": "e88a503f054162cec9c25708c5cbd70dbab009aa",
+      "gov_bytes": 2274,
+      "wb_bytes": 2274,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.1/ScientificReferenceState_Bundle_v0.2.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "a0a2bbd8088d311b8508650f26b2bbbeaa76e7dd",
+      "wb_blob_sha": "a0a2bbd8088d311b8508650f26b2bbbeaa76e7dd",
+      "gov_bytes": 5461,
+      "wb_bytes": 5461,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.1/Snapshot_Correction_Closure_Report_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "e99e3446047423fff9427e24ab2607a0be370126",
+      "wb_blob_sha": "e99e3446047423fff9427e24ab2607a0be370126",
+      "gov_bytes": 1854,
+      "wb_bytes": 1854,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.1/Verification_Records_v0.2.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "0abd150cd863f2b57e93b8d79bf2909e8ef42bf8",
+      "wb_blob_sha": "0abd150cd863f2b57e93b8d79bf2909e8ef42bf8",
+      "gov_bytes": 4979,
+      "wb_bytes": 4979,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.2/A3R2_Appraisal_Routing_Contract_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "6f5aeafa42f2885b0a0242295b5af3a7d4820a37",
+      "wb_blob_sha": "6f5aeafa42f2885b0a0242295b5af3a7d4820a37",
+      "gov_bytes": 2637,
+      "wb_bytes": 2637,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.2/A3R2_Conformance_Report_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "0f65b1d090b0f113d07b3298ece23e706ecfb9ad",
+      "wb_blob_sha": "0f65b1d090b0f113d07b3298ece23e706ecfb9ad",
+      "gov_bytes": 2555,
+      "wb_bytes": 2555,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.2/EvidenceBody_and_EvidenceSynthesis_Registry_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "836976ce6c71c744be2adefe37fde5f593e26b8e",
+      "wb_blob_sha": "836976ce6c71c744be2adefe37fde5f593e26b8e",
+      "gov_bytes": 4280,
+      "wb_bytes": 4280,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.2/Evidence_Certainty_Assessment_Registry_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "dc8fb18f787cc4dc44adc91ac719f66e48ab4ac5",
+      "wb_blob_sha": "dc8fb18f787cc4dc44adc91ac719f66e48ab4ac5",
+      "gov_bytes": 6578,
+      "wb_bytes": 6578,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.2/Evidence_to_Claim_Contribution_Assessment_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "9f78b75adf599f9a70a53747ebe402731f21496f",
+      "wb_blob_sha": "9f78b75adf599f9a70a53747ebe402731f21496f",
+      "gov_bytes": 6374,
+      "wb_bytes": 6374,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.2/Methodological_Appraisal_Registry_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "0e4c0a0a06dfe9882bf658c65a80bfc825d800b5",
+      "wb_blob_sha": "0e4c0a0a06dfe9882bf658c65a80bfc825d800b5",
+      "gov_bytes": 5180,
+      "wb_bytes": 5180,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.2/ScientificClaim_Set_v0.2.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "88dfcff44cb73eab661f61f244bb2102f18b1e52",
+      "wb_blob_sha": "88dfcff44cb73eab661f61f244bb2102f18b1e52",
+      "gov_bytes": 10569,
+      "wb_bytes": 10569,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.2/ScientificReferenceState_Bundle_v0.3.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "b504e569909978962b215cf3db0fcefc06bddcc3",
+      "wb_blob_sha": "b504e569909978962b215cf3db0fcefc06bddcc3",
+      "gov_bytes": 7142,
+      "wb_bytes": 7142,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.3/A3R3_Conformance_Report_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "7990da29f01207559197836b603bc6b79d3dc78a",
+      "wb_blob_sha": "7990da29f01207559197836b603bc6b79d3dc78a",
+      "gov_bytes": 2287,
+      "wb_bytes": 2287,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.3/A3R3_Rebind_Delta_Manifest_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "b8a31e71ee2314254d549a82cd87533719306194",
+      "wb_blob_sha": "b8a31e71ee2314254d549a82cd87533719306194",
+      "gov_bytes": 2546,
+      "wb_bytes": 2546,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.3/BP_Applicability_Refresh_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "c6184a5884b9de880f59c8b8a2a71e4d6b571728",
+      "wb_blob_sha": "c6184a5884b9de880f59c8b8a2a71e4d6b571728",
+      "gov_bytes": 2211,
+      "wb_bytes": 2211,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.3/Impacted_Claim_Replay_Audit_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "d1e30985b0cd51458431c70598dfc5e24f6f9dcf",
+      "wb_blob_sha": "d1e30985b0cd51458431c70598dfc5e24f6f9dcf",
+      "gov_bytes": 2549,
+      "wb_bytes": 2549,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.3/Non_Regression_Report_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "f538aff3c8235a58e1272d4e12b41857aae8e654",
+      "wb_blob_sha": "f538aff3c8235a58e1272d4e12b41857aae8e654",
+      "gov_bytes": 2115,
+      "wb_bytes": 2115,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.3/ScientificClaim_Set_v0.3.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "3805b592ddff9d4b099ba947e44d0beb24f17215",
+      "wb_blob_sha": "3805b592ddff9d4b099ba947e44d0beb24f17215",
+      "gov_bytes": 12112,
+      "wb_bytes": 12112,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R.3/ScientificReferenceState_Bundle_v0.4.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "90d7f59c941be3c20d26aba3e1a9be57076fba49",
+      "wb_blob_sha": "90d7f59c941be3c20d26aba3e1a9be57076fba49",
+      "gov_bytes": 8627,
+      "wb_bytes": 8627,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R/A3R_Conformance_Report_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "92f238815b0f44c15e75f079e02ff768729b7ab1",
+      "wb_blob_sha": "92f238815b0f44c15e75f079e02ff768729b7ab1",
+      "gov_bytes": 1209,
+      "wb_bytes": 1209,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R/EvidenceUnit_Set_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "33223ddfffbfcc456ab8b804097e07db9f367644",
+      "wb_blob_sha": "33223ddfffbfcc456ab8b804097e07db9f367644",
+      "gov_bytes": 6659,
+      "wb_bytes": 6659,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R/Knowledge_Snapshot_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "89212917e7773fdb84823e760bdb38c6e3d22f27",
+      "wb_blob_sha": "89212917e7773fdb84823e760bdb38c6e3d22f27",
+      "gov_bytes": 1722,
+      "wb_bytes": 1722,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R/Relation_Conflict_Gap_Registry_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "f7653d74ce6a8c3219f1fa28d8cd9e3f4fbdb553",
+      "wb_blob_sha": "f7653d74ce6a8c3219f1fa28d8cd9e3f4fbdb553",
+      "gov_bytes": 3968,
+      "wb_bytes": 3968,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R/ScientificClaim_Set_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "8acad90b498c1a171fa611f547c549c19d1d5810",
+      "wb_blob_sha": "8acad90b498c1a171fa611f547c549c19d1d5810",
+      "gov_bytes": 5495,
+      "wb_bytes": 5495,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R/ScientificReferenceState_Bundle_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "9c205ed30d451fb48a89f937e055a4df51293ef4",
+      "wb_blob_sha": "9c205ed30d451fb48a89f937e055a4df51293ef4",
+      "gov_bytes": 4622,
+      "wb_bytes": 4622,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/A3R/Verification_Records_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "f7baf969b93342e728923786a773c7f7d3d9670f",
+      "wb_blob_sha": "f7baf969b93342e728923786a773c7f7d3d9670f",
+      "gov_bytes": 3892,
+      "wb_bytes": 3892,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D1/Initialization_Manifest_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "d548d507fb9f121e4b9cf8edf17f9111f129cad6",
+      "wb_blob_sha": "d548d507fb9f121e4b9cf8edf17f9111f129cad6",
+      "gov_bytes": 4643,
+      "wb_bytes": 4643,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D2/Case_0001/D1_Rebind_Impact_Notice_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "36196124fa2866287d85291895ade1c92b8ef5d2",
+      "wb_blob_sha": "36196124fa2866287d85291895ade1c92b8ef5d2",
+      "gov_bytes": 1758,
+      "wb_bytes": 1758,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D2/Case_0001/D2_Conformance_Report_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "c7c89c924ae3b1b4ae6bfef80e5a416dd1a395dc",
+      "wb_blob_sha": "c7c89c924ae3b1b4ae6bfef80e5a416dd1a395dc",
+      "gov_bytes": 2526,
+      "wb_bytes": 2526,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D2/Case_0001/Dependency_Group_Registry_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "01e463f333114067092a2e8c028fdb3459b695db",
+      "wb_blob_sha": "01e463f333114067092a2e8c028fdb3459b695db",
+      "gov_bytes": 1573,
+      "wb_bytes": 1573,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D2/Case_0001/Mask_and_Projection_Policy_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "8f1575c38255bea574c3bdb15cad69ec2bf063b6",
+      "wb_blob_sha": "8f1575c38255bea574c3bdb15cad69ec2bf063b6",
+      "gov_bytes": 4035,
+      "wb_bytes": 4035,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D2/Case_0001/Materialized_Projection_Views_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "36ddbdf2e158831ae99879933586b0c57b7d92ab",
+      "wb_blob_sha": "36ddbdf2e158831ae99879933586b0c57b7d92ab",
+      "gov_bytes": 6791,
+      "wb_bytes": 6791,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D2/Case_0001/Materialized_Projection_Views_v0.2.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "426be595f178408cab11191a3720cf12aea7703b",
+      "wb_blob_sha": "426be595f178408cab11191a3720cf12aea7703b",
+      "gov_bytes": 7028,
+      "wb_bytes": 7028,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D2/Case_0001/NutritionDecisionCaseBundle_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "e7037a3186479fc1309c660318d7e8415a64df6d",
+      "wb_blob_sha": "e7037a3186479fc1309c660318d7e8415a64df6d",
+      "gov_bytes": 3132,
+      "wb_bytes": 3132,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D2/Case_0001/NutritionDecisionCaseBundle_v0.2.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "6e07a3fe6c2137976da54df02b7cb540c408e032",
+      "wb_blob_sha": "6e07a3fe6c2137976da54df02b7cb540c408e032",
+      "gov_bytes": 3382,
+      "wb_bytes": 3382,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D2/Case_0001/Observation_Completion_Record_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "cc8e9aa041650cbd538caab75e4466cd54dd1c2d",
+      "wb_blob_sha": "cc8e9aa041650cbd538caab75e4466cd54dd1c2d",
+      "gov_bytes": 5785,
+      "wb_bytes": 5785,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D2/Case_0001/Source_Fidelity_Audit_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "8ec0ff03b7022ff7f807469cb954b5a2b0523cca",
+      "wb_blob_sha": "8ec0ff03b7022ff7f807469cb954b5a2b0523cca",
+      "gov_bytes": 4658,
+      "wb_bytes": 4658,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDF/D2/Initialization_Manifest_v0.1.json",
+      "category": "scientific_execution_NDF",
+      "gov_blob_sha": "c9374e3af211d1da4189fdb6bcc80d33f877bfb4",
+      "wb_blob_sha": "c9374e3af211d1da4189fdb6bcc80d33f877bfb4",
+      "gov_bytes": 1714,
+      "wb_bytes": 1714,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/Initialization_Manifest_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "7242792a70854f3c5985e128af95dc75ccc31b43",
+      "wb_blob_sha": "7242792a70854f3c5985e128af95dc75ccc31b43",
+      "gov_bytes": 2483,
+      "wb_bytes": 2483,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/Expert_Qualification_Instance_Registry_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "0ddcd6f9672fb78109db4f49fa6e3e3683034e63",
+      "wb_blob_sha": "0ddcd6f9672fb78109db4f49fa6e3e3683034e63",
+      "gov_bytes": 1236,
+      "wb_bytes": 1236,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/Expert_Slot_Binding_Registry_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "2c4eac75204d0a6f9b3283d6561bb82837f680e2",
+      "wb_blob_sha": "2c4eac75204d0a6f9b3283d6561bb82837f680e2",
+      "gov_bytes": 1923,
+      "wb_bytes": 1923,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/Exposure_Lock_Registry_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "ba43d882ac85bd63c61c008ee8ddddc6f787d36c",
+      "wb_blob_sha": "ba43d882ac85bd63c61c008ee8ddddc6f787d36c",
+      "gov_bytes": 2385,
+      "wb_bytes": 2385,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/Human_Baseline_Source_Packet_v0.2.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "a38d000f9962dac35e00d407f1d984721bc031ef",
+      "wb_blob_sha": "a38d000f9962dac35e00d407f1d984721bc031ef",
+      "gov_bytes": 6673,
+      "wb_bytes": 6673,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/Judgment_Freeze_Contract_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "adcf4f3c1a67354bf26438f53b6ab585d941f9d5",
+      "wb_blob_sha": "adcf4f3c1a67354bf26438f53b6ab585d941f9d5",
+      "gov_bytes": 1405,
+      "wb_bytes": 1405,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/P0.1_Conformance_Report_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "01fc118f2bec05b52947bde6c914d18f8b9a4cb9",
+      "wb_blob_sha": "01fc118f2bec05b52947bde6c914d18f8b9a4cb9",
+      "gov_bytes": 2204,
+      "wb_bytes": 2204,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/R0_Human_DeNovo_Workpack_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "eb07b0e0265c333e542292fb8b59124284f6a9a6",
+      "wb_blob_sha": "eb07b0e0265c333e542292fb8b59124284f6a9a6",
+      "gov_bytes": 2455,
+      "wb_bytes": 2455,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/R0_Human_DeNovo_Workpack_v0.2.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "4cbf9830e1f6b02c0414374fd4c964141ea59974",
+      "wb_blob_sha": "4cbf9830e1f6b02c0414374fd4c964141ea59974",
+      "gov_bytes": 2662,
+      "wb_bytes": 2662,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/R1_AgentFirst_Verification_HoldPack_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "02bffb41358666a02f6eb46aaa79c5ca94eaae23",
+      "wb_blob_sha": "02bffb41358666a02f6eb46aaa79c5ca94eaae23",
+      "gov_bytes": 1116,
+      "wb_bytes": 1116,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/R2_PreAI_Workpack_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "ee7a287a414cbfc317054ad7daeae7dff7c7de81",
+      "wb_blob_sha": "ee7a287a414cbfc317054ad7daeae7dff7c7de81",
+      "gov_bytes": 2754,
+      "wb_bytes": 2754,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0.1/R2_PreAI_Workpack_v0.2.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "3f0a06daa90562b79660d8423e5832caf20ff289",
+      "wb_blob_sha": "3f0a06daa90562b79660d8423e5832caf20ff289",
+      "gov_bytes": 2954,
+      "wb_bytes": 2954,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0/Agent_Breadth_Expansion_Contract_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "1bd0f54d67e28461a590de5f81fd15a36e59487b",
+      "wb_blob_sha": "1bd0f54d67e28461a590de5f81fd15a36e59487b",
+      "gov_bytes": 1590,
+      "wb_bytes": 1590,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0/Blind_MetaAudit_Measurement_Shell_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "4de28d9faffc38d33911ad80b75ec2dfe3277926",
+      "wb_blob_sha": "4de28d9faffc38d33911ad80b75ec2dfe3277926",
+      "gov_bytes": 1846,
+      "wb_bytes": 1846,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0/Expert_PreAI_Judgment_Template_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "50ff1558112b21d21f434f2d121a4293a4e8c324",
+      "wb_blob_sha": "50ff1558112b21d21f434f2d121a4293a4e8c324",
+      "gov_bytes": 1957,
+      "wb_bytes": 1957,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0/Expert_Qualification_Exposure_Screen_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "4ecabaee973bae0154a5525417a62044bdac72d0",
+      "wb_blob_sha": "4ecabaee973bae0154a5525417a62044bdac72d0",
+      "gov_bytes": 1036,
+      "wb_bytes": 1036,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0/First_Case_Assignment_Blinding_Plan_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "53455cbdddc407df552236a04bfef03f3cc3745d",
+      "wb_blob_sha": "53455cbdddc407df552236a04bfef03f3cc3745d",
+      "gov_bytes": 1841,
+      "wb_bytes": 1841,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0/Human_Baseline_Source_Packet_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "7b403857d708a71005d11ef1c54b32f7e0280b28",
+      "wb_blob_sha": "7b403857d708a71005d11ef1c54b32f7e0280b28",
+      "gov_bytes": 6128,
+      "wb_bytes": 6128,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0/P0_Conformance_Report_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "69efd8492a69dddd1abdf16f3b8d0d6740ce5853",
+      "wb_blob_sha": "69efd8492a69dddd1abdf16f3b8d0d6740ce5853",
+      "gov_bytes": 1792,
+      "wb_bytes": 1792,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0/P0_Intake_Manifest_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "911b3cadb0ba8b8a0cd3d6a1c10e2a6cb062517d",
+      "wb_blob_sha": "911b3cadb0ba8b8a0cd3d6a1c10e2a6cb062517d",
+      "gov_bytes": 2774,
+      "wb_bytes": 2774,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0/R1_Workflow_Protocol_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "959a4271803ddccac1a7f001c2988e6cb5e3f8c6",
+      "wb_blob_sha": "959a4271803ddccac1a7f001c2988e6cb5e3f8c6",
+      "gov_bytes": 2679,
+      "wb_bytes": 2679,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0/Reconciliation_Exposure_Templates_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "b69d2987f88b073927f21f82ad6685496473f09a",
+      "wb_blob_sha": "b69d2987f88b073927f21f82ad6685496473f09a",
+      "gov_bytes": 1512,
+      "wb_bytes": 1512,
+      "comparison": "SAME_BYTES"
+    },
+    {
+      "path": "runs/NDS/R1/P0/Role_Input_Surface_Contract_v0.1.json",
+      "category": "scientific_execution_NDS",
+      "gov_blob_sha": "6ff4acdd45ba0d750ad362f41cdf1f817fc1bb47",
+      "wb_blob_sha": "6ff4acdd45ba0d750ad362f41cdf1f817fc1bb47",
+      "gov_bytes": 3105,
+      "wb_bytes": 3105,
+      "comparison": "SAME_BYTES"
+    }
+  ]
+}

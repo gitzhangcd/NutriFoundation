@@ -666,6 +666,13 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     checks.append('p2_v2_2_continuous_reader_bilingual_exact_utf16_selection_and_immutable_anchor_readback')
     expect(c2.locator('#p2v2App .reader-meta')).to_contain_text(str(actual_units)+' / '+str(actual_units))
     c2.screenshot(path=str(output/'p2-v2-p1-curator-qa-1440.png'),full_page=False)
+    c2.set_viewport_size({'width':390,'height':844})
+    expect(c2.locator('#p2v2App .p2v2-continuous-reader')).to_be_visible()
+    assert c2.evaluate("""() => document.documentElement.scrollWidth <= window.innerWidth+2"""), \
+       c2.evaluate("() => ({scroll:document.documentElement.scrollWidth,width:innerWidth})")
+    c2.screenshot(path=str(output/'p2-v2-b4-continuous-reader-390.png'),full_page=True)
+    c2.set_viewport_size({'width':1440,'height':950})
+    checks.append('p2_v2_2_390px_native_curator_bilingual_reader_no_horizontal_page_overflow')
     # Logout must remove raw evidence from the DOM, not just hide workspace.
     c2.locator('#p2Logout').click()
     expect(c2.locator('#workspace')).to_be_hidden(timeout=15000)

@@ -539,7 +539,14 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
                    'b1_immutable_package_persist_reload_and_exact_structure_index',
                    'b1_management_never_renders_source_original_text'])
     # P1.1-A: enter a persistent operational project and batch before drafting.
-    assert p.locator('#p11Nav button[data-p11-route]').count()==8
+    # P0: V2 is an additional scoped route, not a replacement for original
+    # management, B1, or the original scientific-source workbench.
+    nav=p.locator('#p11Nav button[data-p11-route]')
+    assert nav.count()==9
+    assert nav.evaluate_all("(items)=>new Set(items.map(x=>x.dataset.p11Route)).size===9")
+    expect(p.locator('#p11Nav [data-p11-route="sources"]')).to_be_hidden()
+    expect(p.locator('#p11Nav [data-p11-route="studio"]')).to_be_visible()
+    expect(p.locator('#p11Nav [data-p11-route="studio-v2"]')).to_be_visible()
     p.locator('[data-p11-route="tasks"]').click()
     p.locator('#p11ProjectsShortcut').click()
     p.get_by_role('button',name='新建项目').click()

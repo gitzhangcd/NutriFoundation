@@ -412,6 +412,37 @@ class SourceStudio:
             ev=self.event(db,self.key(sid,rev),actor,"UNIT_QA_RECORDED",{"unit_id":unitid,"decision":decision,"quote_sha":record["source_quote_sha256"]})
             return {"review":record,"event_hash":ev}
 
+    def rework_handoff(self,role,sid,rev):
+        """Least-privilege immutable QA-rejection handoff.
+
+        Producer may see Unit ID and controlled reason category only, NEVER
+        source_quote, raw document or untrusted free-text Curator findings.
+        This is a derived view of immutable reviews; no mutable issue table.
+        """
+        self.auth(role,("producer","curator"))
+        categories={"STRUCTURE_GAP","NUMERIC_MISMATCH","ANCHOR_MISMATCH",
+                    "OMITTED_CONTENT","TRANSLATION_DISCREPANCY","OTHER"}
+        with self.connect() as db:
+            row=self.row(db,sid,rev)
+            items=db.execute(
+                "SELECT unit_id,record FROM p2_reviews WHERE source_id=? AND revision_id=? ORDER BY unit_id",
+                (sid,rev)).fetchall()
+            issues=[]
+            for item in items:
+                record=json.loads(item["record"])
+                if record["decision"]!="REJECT":continue
+                findings=record.get("findings",{})
+                code=findings.get("rework_reason_code","OTHER")
+                if code not in categories or not isinstance(code,str):code="OTHER"
+                issues.append({"unit_id":item["unit_id"],"reason_code":code,
+                    "issue_ref":sha({"source_id":sid,"revision_id":rev,
+                                     "unit_id":item["unit_id"],"review_record_sha256":sha(record)}),
+                    "resolution":"NEW_REVISION_REQUIRED","immutable":True})
+            return {"source_id":sid,"revision_id":rev,"source_status":row["status"],
+                "issues":issues,"count":len(issues),"synthetic_only":True,
+                "original_text_exposed":False,"findings_text_exposed":False,
+                "gold_qualification":"NOT_ELIGIBLE","expert_exposure_authorized":False}
+
     def translations(self,role,sid,rev):
         """Auxiliary only. No translated quote can replace the original anchor."""
         self.auth(role,("curator",))

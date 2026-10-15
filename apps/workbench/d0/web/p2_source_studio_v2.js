@@ -159,6 +159,188 @@ function referencePanel(){const s=selected();return `<div class="card"><div clas
 function standardsPanel(){return `<div class="card"><div class="card-head between"><div><div class="card-title">${ico('shield')} 规范依赖与适用范围</div><div class="card-description">GOV-0.4-P0 · 静态语义审计，不等于精确合规认证。</div></div>${button('15 项符合性矩阵','matrix','','list')}</div><div class="card-body"><div class="dep-flow"><span class="dep">SIS v0.3.1 R5</span>${ico('chevronright','sm')}<span class="dep purple">Nutrition Foundation v0.1</span>${ico('chevronright','sm')}<span class="dep">AI Nutri v2.1</span></div><div class="banner blue">${ico('info','sm')}AI Nutri v2.1 为下游研究规范，需要版本化 Adapter；它不能替代 SIS 的上游科学权威。</div><div class="small-title">${ico('shield','sm')} 临床营养附加权威</div><div class="resultcard"><h4>SIS-MED v0.3.1 R6 P0.4</h4><p>仅在临床营养场景启用；其规范身份被确认，但完整 R6 原件尚未恢复，因此条款级符合性未评估。</p><div style="margin-top:9px">${tag('R6 SOURCE MISSING','red')}${tag('R6 CONFORMANCE NOT ASSESSED','amber')}</div></div><div class="hstack" style="margin-top:12px"><label class="small" style="color:#637d72"><input type="checkbox" id="historicalToggle" ${state.showHistorical?'checked':''}/> 显示历史版本信息</label></div>${state.showHistorical?`<div class="banner" style="margin-top:10px">${ico('book','sm')}SIS-Med R5-L1 仅可作为历史语义比较，不是当前临床营养规范，不得用于 R6 Conformance。</div>`:''}<div class="small-title">${ico('alert','sm')} 精确来源版本缺口</div><dl class="kv"><dt>SIS R5 pinned</dt><dd class="mono">181,565 B / sha256 3e1da79a…（未恢复）</dd><dt>SIS-MED R6</dt><dd class="mono">61,116 B / sha256 f8513b60…（未恢复）</dd><dt>AI Nutri 绑定</dt><dd>${tag('NDSF Adapter 待签署','amber')}</dd><dt>临床 Profile</dt><dd>${tag('LHDI mapping 待核查','amber')}</dd></dl></div></div>`}
 function matrixPanel(){const rows=governance.filter(x=>!state.matrixFilter||x[3]===state.matrixFilter);return `<div class="card"><div class="card-head between"><div><div class="card-title">${ico('list')} GOV-0.4-P0 · 15 轴静态符合性矩阵</div><div class="card-description">完全按照 PR #46 的分级原则：对齐、待适配、版本阻断、未测试。</div></div><select id="matrixFilter" class="select"><option value="">全部发现</option><option value="aligned" ${state.matrixFilter==='aligned'?'selected':''}>静态对齐</option><option value="pending" ${state.matrixFilter==='pending'?'selected':''}>待适配/待测试</option><option value="blocked" ${state.matrixFilter==='blocked'?'selected':''}>精确版本阻断</option></select></div><div class="card-body" style="overflow:auto;padding-top:3px"><table class="matrix-table"><thead><tr><th>审计 ID</th><th>主题</th><th>当前证据</th><th>判定</th></tr></thead><tbody>${rows.map(([id,l,desc,k])=>`<tr><td class="mono">C${id}</td><td class="bold">${l}</td><td>${desc}</td><td>${tag(k==='aligned'?'文本语义对齐':k==='blocked'?'NOT ASSESSED / BLOCK':'待适配或测试',k==='aligned'?'green':k==='blocked'?'red':'amber')}</td></tr>`).join('')}</tbody></table></div></div>`}
 function auditPage(){const tabs=[['lineage','版本谱系与审计'],['compare','版本差异对比'],['references','引用记录'],['governance','规范依赖与符合性']];const s=selected();return `${s.live?'<div class="banner warn p2v2-live-banner">后端来源的版本谱系与事件尚未接入此 V2 页面；以下为静态样例，不是服务器审计回执。</div>':''}<div class="card reader-meta" style="margin-bottom:12px"<div class="grow"><div class="hstack"><b class="small">选定来源</b><strong>${esc(s.title)}</strong>${tag(s.id+' / '+s.rev,'outline')}${tag('SYNTHETIC ONLY','green')}</div></div>${button('返回列表','queue','small','chevronleft')}</div><div class="card" style="margin-bottom:13px"><div class="tabnav" style="margin:0;padding:0 8px">${tabs.map(([id,l])=>`<button class="${state.versionTab===id?'active':''}" data-versiontab="${id}">${l}</button>`).join('')}</div></div>${state.versionTab==='lineage'?`<div class="versiongrid"><div>${lineage()}<div style="margin-top:14px">${eventsHtml()}</div></div><div>${referencePanel()}<div style="margin-top:14px">${standardsPanel()}</div></div></div>`:state.versionTab==='compare'?`<div class="versiongrid"><div class="card"><div class="card-head"><div class="card-title">${ico('timeline')} 版本差异 · 模拟变更</div></div><div class="card-body"><div class="grid2"><div class="standard-card"><b>r2 / Canonical IR</b><p class="small subtle">UnitIDs 已固定，Parser lineage 已登记；未声明经过全部人工 QA。</p></div><div class="standard-card"><b>r3 / QA Sidecar</b><p class="small subtle">独立 QA 与问题记录；拒绝项要求新版本，不覆盖原始 Unit。</p></div></div><div class="banner warn" style="margin-top:14px">${ico('alert','sm')}Source revision、Canonical Document revision 和 SourcePackage revision 的身份不同，必须单独溯源。</div></div></div>${referencePanel()}</div>`:state.versionTab==='references'?`<div class="versiongrid">${referencePanel()}<div>${standardsPanel()}</div></div>`:`<div class="versiongrid"><div>${matrixPanel()}</div><div>${standardsPanel()}</div></div>`}`}
+
+/* V2.1-P1: signed synthetic lifecycle uses existing server role gates.
+ * D0 /manage=producer|manager; /source-qa=independent curator|auditor. */
+const flow={key:'',detail:null,doc:null,original:null,reviews:null,translations:null,audit:null,
+  notice:'',busy:false,unit:0,token:0,receipts:[]};
+const actorRole=()=>liveMeta.role||liveMeta.session?.role||'';
+const sourceKey=x=>x?.live?x.id+':'+x.rev:'';
+const sourceUrl=x=>'/v1/p2/sources/'+encodeURIComponent(x.id)+'/'+encodeURIComponent(x.rev);
+function flowClear(){++flow.token;flow.key='';flow.detail=flow.doc=flow.original=flow.reviews=
+  flow.translations=flow.audit=null;flow.notice='';flow.unit=0;}
+async function readFlow(){
+  const x=selected(),key=sourceKey(x);
+  if(!key){flowClear();return;}
+  if(flow.key!==key){flowClear();flow.key=key;}
+  const ticket=++flow.token,url=sourceUrl(x);
+  try{
+    const detail=await v2Api(url);
+    if(ticket!==flow.token||sourceKey(selected())!==key)return;
+    flow.detail=detail;
+    if(actorRole()==='curator'&&['QA_PENDING','QA_HOLD','PACKAGE_FROZEN'].includes(detail.status)){
+      const [doc,original,reviews,translations]=await Promise.all([
+        v2Api(url+'/document'),v2Api(url+'/original'),v2Api(url+'/reviews'),v2Api(url+'/translations')]);
+      if(ticket!==flow.token||sourceKey(selected())!==key)return;
+      if(doc.document_sha256!==detail.document_sha256||
+        doc.document.raw_artifact_sha256!==original.raw_artifact_sha256||
+        original.raw_artifact_sha256!==detail.raw_artifact_sha256)
+        throw Error('SOURCE_SHA_OR_DOCUMENT_DRIFT');
+      flow.doc=doc;flow.original=original;flow.reviews=reviews;flow.translations=translations;
+    }else{flow.doc=flow.original=flow.reviews=flow.translations=null;}
+    if(actorRole()==='auditor')flow.audit=await v2Api('/v1/p2/audit');
+    if(ticket===flow.token){flow.notice='';if(app?.isConnected)render();}
+  }catch(err){
+    if(ticket!==flow.token)return;
+    flow.notice='P2 服务端读取/版本校验失败：'+err.message;
+    flow.doc=flow.original=flow.reviews=flow.translations=null;
+    if(app?.isConnected)render();
+  }
+}
+async function flowWrite(action,endpoint,body,ok){
+  const x=selected();if(!x?.live||flow.busy){toast('DEMO 不可写入；或有操作正在执行。');return;}
+  flow.busy=true;flow.notice='正在向 P2 后端写入…';render();
+  try{
+    const result=await v2Api(sourceUrl(x)+endpoint,{method:'POST',body});
+    flow.receipts.unshift({key:sourceKey(x),action,event:result.event_hash||'',
+      at:new Date().toISOString(),server:true});
+    flow.receipts=flow.receipts.slice(0,12);
+    flow.notice='';await reloadLive();await readFlow();render();
+    toast(ok+(result.event_hash?' · Event '+result.event_hash.slice(0,12):''));
+    return result;
+  }catch(err){flow.notice=action+' 被拒绝：'+err.message;render();toast(flow.notice);}
+  finally{flow.busy=false;}
+}
+function handoff(x){return '<p class="small subtle">在独立 Auditor / Curator 页面以对应账户登录。该操作不能自动提升管理账号权限。</p>'+
+  '<a class="btn light" href="/source-qa#/studio-v2?source='+encodeURIComponent(x.id)+
+  '&revision='+encodeURIComponent(x.rev)+'" rel="noopener">'+ico('shield','sm')+'进入独立审核 ↗</a>';}
+function liveFlowPanel(){
+  const x=selected();if(!x?.live)return '';
+  const d=flow.key===sourceKey(x)?flow.detail:null,role=actorRole();
+  let h='<section class="card p2v2-lifecycle"><div class="card-head"><div class="card-title">'+ico('gear')+
+    ' 来源生命周期 · 后端操作</div><div class="card-description">'+esc(x.id)+' / '+esc(x.rev)+
+    ' · 当前角色 '+esc(role)+' · 所有状态均需服务器回执</div></div><div class="card-body">';
+  if(flow.notice)h+='<div class="banner danger" role="alert">'+esc(flow.notice)+'</div>';
+  if(!d){h+='<p>正在读取 SourceVersion 详情；未校验前不能操作。</p>';}
+  else if(x.status==='RIGHTS_HOLD'){
+    h+='<div class="banner warn">独立 Auditor 审核用途。合成核准不是真实版权许可。</div>';
+    if(role==='auditor')h+='<label for="v2Evidence">合成权利审查证据（SYN- 开头）</label>'+
+      '<input id="v2Evidence" class="input width-full" maxlength="160" placeholder="SYN-AUDIT-001"/>'+
+      '<div class="hstack" style="margin-top:10px">'+button('核准合成用途','v2Approve','primary','check')+
+      button('记录独立 HOLD','v2Hold','light','lock')+'</div>';
+    else h+=handoff(x);
+  }else if(x.status==='RIGHTS_ACCEPTED'){
+    h+='<p>合成用途已核准，允许 Producer 发起确定性 Markdown/JATS/HTML 解析。</p>';
+    if(role==='producer')h+=button('执行结构化转换','v2Convert','primary','gear');
+    else h+='<div class="banner">等待 Producer 转换。</div>';
+  }else if(x.status==='QA_PENDING'){
+    h+='<div class="banner">独立签署 '+esc(d.reviewed_units)+' / '+esc(d.unit_count)+' Unit；'+
+      '未覆盖完整及存在 REJECT 时不可冻结。</div>';
+    if(role==='curator')h+=button('进入服务端全文 QA','qa','primary','book');
+    else if(role==='producer'){
+      h+=button('检查并冻结资料包','v2Freeze','primary','lock',
+        d.unit_count&&d.reviewed_units===d.unit_count?'':'disabled');
+      h+=handoff(x);
+    }else h+=handoff(x);
+  }else if(x.status==='QA_HOLD'){
+    h+='<div class="banner danger">当前修订已有不可变 QA 拒绝；必须建立新修订，不能覆写 Unit 或继续冻结。</div>';
+    if(role==='producer')h+=button('基于当前来源建立返工修订','v2Revise','primary','plus');
+    else if(role==='curator')h+=button('查看已签署 QA','qa','light','book');
+    else h+=handoff(x);
+  }else if(x.status==='PACKAGE_FROZEN'){
+    h+='<div class="banner">SourcePackage 冻结：'+esc(d.package_sha256||'未找到回执')+
+       ' · 不代表专家授权或 Gold。</div>';
+    if(role==='producer'){
+      const projects=(liveMeta.projects||[]).filter(y=>y.project_id);
+      const chosen=state.bindProject||projects[0]?.project_id||'';
+      const batches=liveMeta.batchMap?.get(chosen)||[];
+      h+='<div class="grid2"><div><label for="v2BindProject">项目</label><select class="select" id="v2BindProject"><option value="">选择 Project</option>'+
+        projects.map(p=>'<option value="'+esc(p.project_id)+'" '+(p.project_id===chosen?'selected':'')+'>'+
+          esc(p.name||p.project_id)+'</option>').join('')+'</select></div>'+
+        '<div><label for="v2BindBatch">批次</label><select class="select" id="v2BindBatch"><option value="">选择 Batch</option>'+
+        batches.map(b=>'<option value="'+esc(b.batch_id)+'">'+esc(b.label||b.batch_id)+'</option>').join('')+
+        '</select></div></div>'+button('绑定合成使用范围','v2Bind','light','link');
+    }
+  }
+  if(d)h+='<div class="small-title">服务端身份与资格回读</div><dl class="kv">'+
+    '<dt>Rights</dt><dd>'+esc(d.rights_status)+'</dd>'+
+    '<dt>Raw SHA</dt><dd class="mono">'+esc(d.raw_artifact_sha256)+'</dd>'+
+    '<dt>Canonical SHA</dt><dd class="mono">'+esc(d.document_sha256||'未转换')+'</dd>'+
+    '<dt>ParserRun</dt><dd class="mono">'+esc(d.conversion_run_id||'未转换')+'</dd>'+
+    '<dt>Package SHA</dt><dd class="mono">'+esc(d.package_sha256||'未冻结')+'</dd>'+
+    '<dt>已登记使用范围</dt><dd>'+esc((d.scope_refs||[]).map(r=>r.project_id+' / '+r.batch_id).join('；')||'未绑定')+'</dd></dl>';
+  return h+'</div></section>';
+}
+function signedQAPage(x){
+  if(actorRole()!=='curator')return serverQAGate(x);
+  if(flow.key!==sourceKey(x)||!flow.doc||!flow.original||!flow.reviews){
+    return '<div class="card" style="padding:30px"><b>独立 Curator 正在校验服务器 Original / Document / Reviews</b>'+
+      '<div class="banner warn">'+esc(flow.notice||'在完整获取版本一致性证明前禁止 QA。')+'</div>'+
+      button('重新读取 Document','v2Read','primary','book')+'</div>';
+  }
+  const units=flow.doc.document.units||[],ix=Math.max(0,Math.min(flow.unit,units.length-1)),u=units[ix];
+  if(!u)return '<div class="banner danger">Document IR 无有效 Unit。</div>';
+  const reviewed=flow.reviews.reviews||[],record=reviewed.find(r=>r.unit_id===u.unit_id);
+  const translation=flow.translations?.translations?.find(t=>t.unit_id===u.unit_id);
+  const canReview=['QA_PENDING','QA_HOLD'].includes(x.status)&&!record;
+  const toc=units.map((z,i)=>'<button class="p2v2-unit-nav '+(i===ix?'active':'')+
+    '" type="button" data-v2unit="'+i+'">'+esc(z.unit_id)+' · '+esc(z.kind)+
+    (reviewed.some(r=>r.unit_id===z.unit_id)?' ✓':' · 待 QA')+'</button>').join('');
+  return '<div class="banner warn p2v2-live-banner">服务端 SYNTHETIC_ONLY · 独立 Curator 原文读取。'+
+    '不代表真实 PDF 页坐标、临床真实性、Gold 或专家授权。</div>'+
+    '<div class="card reader-meta"><b>'+esc(x.title)+'</b> · '+esc(x.id)+' / '+esc(x.rev)+
+    ' · '+reviewed.length+' / '+units.length+' Unit 人工签署</div>'+
+    '<div class="readergrid p2v2-server-reader">'+
+    '<aside class="card reader-left"><b>Canonical Document IR</b><nav class="toc">'+toc+'</nav></aside>'+
+    '<section class="card reader-center"><div class="reader-toolbar"><strong>'+esc(u.unit_id)+
+    ' · '+esc(u.kind)+'</strong>'+tag(u.pdf_locator_status||'UNRESOLVED','amber')+'</div>'+
+      '<div class="paper-viewport"><article class="paper"><div class="paperlabel">SYNTHETIC ORIGINAL · SHA '+
+        esc(flow.original.raw_artifact_sha256.slice(0,20))+'</div>'+
+        '<h3>只读原文</h3><pre class="p2v2-original">'+esc(flow.original.raw_content)+'</pre>'+
+        '<h3>结构化 Unit · 原文 Anchor</h3><p>'+esc(u.text)+'</p>'+
+        '<div class="translation-block"><strong>人工辅助译文（非权威）</strong><p>'+
+        esc(translation?.translation_zh||'无已保存译文')+'</p></div></article></div></section>'+
+    '<aside class="card reader-right"><strong>'+esc(u.unit_id)+' · 独立判断</strong>'+
+      '<dl class="kv"><dt>Unit SHA</dt><dd class="mono">'+esc(u.unit_text_sha256)+'</dd>'+
+      '<dt>UTF16 Span</dt><dd>[0, '+esc(u.utf16_length)+')</dd>'+
+      '<dt>PDF Locator</dt><dd>'+esc(u.pdf_locator_status||'UNRESOLVED')+'</dd></dl>'+
+      (record?'<div class="banner">已由 '+esc(record.reviewer)+' 签署 '+esc(record.decision)+
+        '，不可重复提交或覆盖。</div>':'<div class="banner warn">尚未提交独立 QA 回执。</div>')+
+      (canReview?'<label for="v2ReviewNote">判断与问题备注</label><textarea id="v2ReviewNote" class="textarea width-full" rows="3" maxlength="1200"></textarea>'+
+        '<div class="hstack">'+button('ACCEPT · 不可变提交','v2Accept','primary','check')+
+        button('REJECT · 返工阻断','v2Reject','light','alert')+'</div>':'')+
+      (translation?'':'<label for="v2TranslateText">人工辅助译文</label>'+
+        '<textarea id="v2TranslateText" class="textarea width-full" rows="3" maxlength="4000"></textarea>'+
+        button('保存辅助译文 Sidecar','v2Translate','light','book'))+'</aside></div>';
+}
+function signedAuditPage(x){
+  const d=flow.key===sourceKey(x)?flow.detail:null;
+  const last=flow.receipts.filter(r=>r.key===sourceKey(x));
+  const audit=actorRole()==='auditor'?flow.audit:null;
+  return '<div class="banner warn p2v2-live-banner">以下 SHA/引用来自服务器；'+
+    '无逐项事件查询接口，因此此处不是服务器事件明细或静态 Demo 时间线。</div>'+
+    '<div class="versiongrid"><section class="card"><div class="card-head"><b>SourceVersion / ParserRun / Package</b></div>'+
+    '<div class="card-body"><dl class="kv"><dt>SourceVersion</dt><dd>'+esc(x.id)+' / '+esc(x.rev)+'</dd>'+
+    '<dt>Raw SHA</dt><dd class="mono">'+esc(d?.raw_artifact_sha256||'未读取')+'</dd>'+
+    '<dt>Doc SHA</dt><dd class="mono">'+esc(d?.document_sha256||'未转换')+'</dd>'+
+    '<dt>ParserRun</dt><dd class="mono">'+esc(d?.conversion_run_id||'未转换')+'</dd>'+
+    '<dt>QA</dt><dd>'+esc(d?.reviewed_units??'—')+' / '+esc(d?.unit_count??'—')+'</dd>'+
+    '<dt>Package SHA</dt><dd class="mono">'+esc(d?.package_sha256||'未冻结')+'</dd></dl>'+
+    '<h4>当前浏览器会话服务端写入回执</h4>'+
+    (last.length?last.map(r=>'<p class="small">'+esc(r.action)+' · '+esc(r.at)+
+      ' · '+esc(r.event||'无事件摘要')+'</p>').join(''):'<p>本会话无写入回执。</p>')+
+    '</div></section><section class="card"><div class="card-head"><b>引用与全局审计</b></div>'+
+    '<div class="card-body"><div class="small-title">实际 Project / Batch Bindings</div>'+
+    ((d?.scope_refs||[]).map(r=>'<p>'+esc(r.project_id)+' / '+esc(r.batch_id)+'</p>').join('')||
+      '<p>尚无服务器引用</p>')+
+    '<div class="banner warn">引用不等于专家 Grant、Gold、真实版权。</div>'+
+    (actorRole()==='auditor'?'<div class="resultcard"><b>Auditor 全局 Hash Chain</b><p>'+
+      esc(audit?audit.valid?'VALID':'INVALID':'尚未校验')+' · events '+esc(audit?.events_checked??'—')+
+      ' · '+esc(audit?.last_hash||'—')+'</p></div>'+button('重新校验全局审计链','v2Audit','primary','shield'):
+      '<p>仅独立 Auditor 能查看全局审计链核验。</p>')+
+    '</div></section></div>'+standardsPanel();
+}
+
 function render(){if(!app)return;document.querySelectorAll('.side-link').forEach(x=>{x.classList.toggle('active',x.dataset.page==='queue'&&['queue','intake','qa','audit'].includes(state.page)&&x.textContent.trim()==='科学资料')});const page=state.page==='queue'?queuePage():state.page==='intake'?intakePage():state.page==='qa'?qaPage():auditPage();app.innerHTML=header()+page;document.title='NutriFoundation · '+names()[0]+'｜交互 Demo';}
 function bindRegister(){state.modal='register';state.wizard=1;state.form={title:'',kind:'系统综述',identifier:'',year:'2026',project:'PRJ-SYN-001',batch:'BATCH-SYN-01',note:'',raw:''};openModal()}
 function openModal(){if(state.modal==='register'){overlay.innerHTML=`<div class="modal-backdrop" data-dismiss="yes"><div class="modal" role="dialog" aria-modal="true" aria-label="合成来源登记"><div class="modal-head"><div><div class="modal-title">${ico('plus')} 登记新来源</div><div class="small subtle">与主页面登记流程同步 · 仅 Producer 可登记合成文本并写入服务器</div></div><button class="btn iconbtn light" data-act="closeModal" aria-label="关闭">${ico('close')}</button></div><div class="modal-content"><div class="wizardstep">${['来源身份','原始内容','用途权限','使用范围'].map((l,i)=>`<div class="wstep ${state.wizard===i+1?'active':''}"><i>${i+1}</i>${l}</div>${i<3?'<div class="rule"></div>':''}`).join('')}</div>${state.wizard===1?formFields():state.wizard===2?`<div class="formgroup"><label class="fieldlabel" for="newRawContent">合成 Markdown 原始文本（必填）</label><textarea class="textarea width-full" id="newRawContent" rows="8" maxlength="190000" placeholder="只粘贴自行编写的虚构实验文本，不得输入真实论文全文或患者资料">${esc(state.form.raw||'')}</textarea><div class="small subtle">原文必须由 Producer 明确提供；系统不自动编造正文或来源 SHA。仅限隔离合成工程。</div></div><div class="banner" style="margin-top:12px">真实 PDF 上传和 MinerU 转换保持 NO-GO；本模态框不读取磁盘文件。</div>`:state.wizard===3?`<div class="banner warn">${ico('alert')}使用授权属于独立审查。真实权利无法通过界面勾选自行批准；本流程仅能生成 SYNTHETIC RIGHTS_HOLD。</div><div class="qual-list">${qualRow('shield','存储许可','存储和版权受控','真实未核准','amber')}${qualRow('book','专家阅读','独立任务授权','DENIED','red')}</div>`:`<div class="grid2"><div class="formgroup"><label class="fieldlabel">拟引用项目</label><select id="newProject" class="select">${['PRJ-SYN-001','PRJ-SYN-002','PRJ-SYN-003'].map(x=>`<option ${state.form.project===x?'selected':''}>${x}</option>`).join('')}</select></div><div class="formgroup"><label class="fieldlabel">拟引用批次</label><select id="newBatch" class="select">${['BATCH-SYN-01','BATCH-SYN-02','BATCH-SYN-03'].map(x=>`<option ${state.form.batch===x?'selected':''}>${x}</option>`).join('')}</select></div></div><div class="banner warn">仅用于建立工作队列演示；不会签发任何 SourcePackage、Gold 或 Expert Grant。</div>`}</div><div class="modal-footer"><span class="tiny subtle">步骤 ${state.wizard} / 4</span><div class="hstack">${button('取消','closeModal','light')}${button('上一步','wizardPrevModal','light','chevronleft',state.wizard===1?'disabled':'')}${state.wizard<4?button('下一步','wizardNextModal','primary','chevronright'):button('提交合成来源','submitRegister','primary','check')}</div></div></div></div>`;return}

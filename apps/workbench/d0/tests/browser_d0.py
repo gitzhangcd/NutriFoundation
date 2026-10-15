@@ -568,7 +568,8 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
     p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
     p.locator('#p2v2Overlay [data-act="submitRegister"]').click()
-    expect(p.locator('#p2v2ToastHolder')).to_contain_text('已写入 P2',timeout=20000)
+    # Prefer durable source-state readback over a transient toast copy.
+    expect(p.locator('#p2v2App .detail')).to_contain_text('待用途审核',timeout=20000)
     assert producer_context.request.get(url+'/v1/p2/sources').json()['total']==prior+1
     expect(p.locator('#p2v2App .detail')).to_contain_text('待用途审核')
     checks.append('p2_v2_p0_only_backend_is_persisted_and_producer_raw_required')

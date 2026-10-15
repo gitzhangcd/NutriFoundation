@@ -677,6 +677,25 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(p.locator('#p11ModalOverlay')).to_be_hidden(timeout=30000)
     assert p.evaluate('location.hash').startswith('#/projects?project=PRJ-SYN-'),p.url
     assert '&batch=BATCH-SYN-' in p.evaluate('location.hash'),p.url
+    # Bind this frozen V2 source to a REAL persisted synthetic project/batch.
+    scope_hash=p.evaluate('location.hash')
+    actual_project=re.search(r'project=(PRJ-SYN-[A-Z0-9-]+)',scope_hash).group(1)
+    actual_batch=re.search(r'batch=(BATCH-SYN-[A-Z0-9-]+)',scope_hash).group(1)
+    p.locator('[data-p11-route="studio-v2"]').click()
+    expect(p.locator('#p2v2App')).to_be_visible(timeout=20000)
+    p.locator('#p2v2App .scopebar [data-act="clearFilters"]').click()
+    expect(p.locator('#p2v2App [data-source="'+v2_id+'"]')).to_be_visible(timeout=25000)
+    p.locator('#p2v2App [data-source="'+v2_id+'"]').click()
+    expect(p.locator('#p2v2App #v2BindProject')).to_be_visible(timeout=25000)
+    p.locator('#p2v2App #v2BindProject').select_option(actual_project)
+    expect(p.locator('#p2v2App #v2BindBatch')).to_be_visible()
+    p.locator('#p2v2App #v2BindBatch').select_option(actual_batch)
+    p.locator('#p2v2App [data-act="v2Bind"]').click()
+    expect(p.locator('#p2v2App .p2v2-lifecycle')).to_contain_text(actual_batch,timeout=25000)
+    bound=producer_context.request.get(url+'/v1/p2/sources/'+v2_id+'/r1').json()
+    assert any(row['project_id']==actual_project and row['batch_id']==actual_batch for row in bound['scope_refs']),bound
+    assert bound['expert_exposure_authorized'] is False
+    checks.append('p2_v2_1_persisted_project_batch_scope_no_expert_grant')
     p.go_back()
     assert 'project=PRJ-SYN-' in p.evaluate('location.hash')
     assert 'batch=' not in p.evaluate('location.hash')

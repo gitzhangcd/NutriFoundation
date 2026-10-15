@@ -634,7 +634,13 @@ action=async function(act,node){
   }
 
   function reset(){
-    flowClear();flow.receipts=[];v2DeepLink=null;state.form={title:'',kind:'系统综述',identifier:'',year:'',project:'',batch:'',note:'',raw:''};state.qaLocal={};state.page='queue';state.selected=DEMO_SEED[0]?.id||'';state.selectedRev=DEMO_SEED[0]?.rev||'';state.search='';state.stage='';
+    // No stale source text, original/IR or signed receipt in hidden DOM after
+    // independent Curator logout or account switching.
+    flowClear();flow.busy=false;flow.receipts=[];v2DeepLink=null;
+    app?.replaceChildren();overlay?.replaceChildren();
+    liveMeta.role='manager';liveMeta.session=null;liveMeta.notice='';
+    state.form={title:'',kind:'系统综述',identifier:'',year:'',project:'',batch:'',note:'',raw:''};state.qaLocal={};
+    state.page='queue';state.selected=DEMO_SEED[0]?.id||'';state.selectedRev=DEMO_SEED[0]?.rev||'';state.search='';state.stage='';
     state.project='';state.batch='';state.filter=false;state.wizard=1;state.modal='';
     state.versionTab='lineage';sources.splice(0,sources.length,...DEMO_SEED.map(x=>({...x})));
   }

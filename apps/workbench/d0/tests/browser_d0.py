@@ -811,6 +811,15 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     assert handoff.status==200 and handoff.json()['count']==1,handoff.text()
     assert handoff.json()['issues'][0]['reason_code']=='NUMERIC_MISMATCH'
     p.evaluate('window.p2SourceStudioV2.reload()')
+    render_state=p.evaluate("""() => ({
+       page:window.__p2v2.state.page,
+       source:window.__p2v2.state.selected,
+       revision:window.__p2v2.state.selectedRev,
+       status:window.__p2v2.sources.find(s=>s.id===window.__p2v2.state.selected &&
+         s.rev===window.__p2v2.state.selectedRev)?.status,
+       alert:document.querySelector('#p2v2App [role="alert"]')?.textContent||''
+    })""")
+    assert render_state['source']==reject_id and render_state['revision']=='r1',render_state
     p.screenshot(path=str(output/'p2-v2-b4-rework-before-assert-1440.png'),full_page=False)
     expect(p.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('不可变 QA 拒绝',timeout=25000)
     expect(p.locator('#p2v2App .p2v2-rework-item')).to_contain_text('NUMERIC_MISMATCH',timeout=25000)

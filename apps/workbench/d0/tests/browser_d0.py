@@ -246,6 +246,23 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
         expect(page.locator('#workspace')).to_be_visible(timeout=30000)
         return ctx,page
     producer_context,p=manager_login('producer')
+    # V2-P0: verify the new route does not inherit fixture provenance as
+    # authoritative persisted source state. All six internal fixtures are DEMO
+    # until independently returned by /v1/p2/sources.
+    p.locator('[data-p11-route="studio-v2"]').click()
+    expect(p.locator('#p2v2App')).to_be_visible(timeout=15000)
+    expect(p.locator('#p2v2App .page-stepper .stepitem')).to_have_count(4)
+    expect(p.locator('#p2v2App .queue-metrics')).to_be_visible()
+    assert p.evaluate("""() => window.__p2v2.sources.every(s =>
+        s.live===true || (s.sourceType==='DEMO' &&
+        s.rights==='NOT_ELIGIBLE' && s.qa===0 &&
+        !s.raw && !s.doc && !s.package))""")
+    assert p.evaluate("""() => window.__p2v2.sources
+        .filter(s=>s.live===true).every(s=>s.id.startsWith('P2-SYN-'))""")
+    assert p.evaluate("""() => window.__p2v2.sources
+        .some(s=>s.sourceType==='DEMO' && s.id==='SYN-GUIDE-026')""")
+    p.screenshot(path=str(output/'p2-v2-p0-provenance-queue-1440.png'),full_page=False)
+    p.locator('[data-p11-route="studio"]').click()
     # B1: operate the existing seven-authoritative-fixture reference library.
     # B1 remains reachable through the unified Scientific Source primary entry.
     p.locator('[data-p11-route="studio"]').click()

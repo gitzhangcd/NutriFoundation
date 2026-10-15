@@ -545,6 +545,35 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
                    'p2_separate_rights_and_no_raw_auditor','p2_curator_original_sha_and_all_units',
                    'p2_immutable_package_freeze_no_expert_grant','p2_auxiliary_translation_has_independent_lineage'])
     p.screenshot(path=str(output/'p2-source-studio-producer-synthetic.png'),full_page=True)
+    # V2-P0 exact existing persisted SourceVersion: no browser-local QA or
+    # unverified lineage may be attached to the backend source.
+    prior=producer_context.request.get(url+'/v1/p2/sources').json()['total']
+    p.locator('[data-p11-route="studio-v2"]').click()
+    expect(p.locator('#p2v2App')).to_be_visible(timeout=15000)
+    expect(p.locator('#p2v2App .table')).to_contain_text(source_id,timeout=15000)
+    expect(p.locator('#p2v2App .detail')).to_contain_text(source_id)
+    p.locator('#p2v2App [data-page="qa"]').click()
+    expect(p.locator('#p2v2App')).to_contain_text('V2 四个视觉演示 Unit 不属于此版本')
+    expect(p.locator('#p2v2App .paper-viewport')).to_have_count(0)
+    p.locator('#p2v2App [data-page="audit"]').click()
+    expect(p.locator('#p2v2App .p2v2-live-banner')).to_contain_text('不是服务器审计回执')
+    p.locator('#p2v2App [data-page="queue"]').click()
+    p.locator('#p2v2App [data-act="openRegister"]').click()
+    expect(p.locator('#p2v2Overlay [role="dialog"]')).to_be_visible()
+    p.locator('#p2v2Overlay #newTitle').fill('Synthetic authored source provenance acceptance')
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
+    expect(p.locator('#p2v2Overlay #newRawContent')).to_be_visible()
+    p.locator('#p2v2Overlay #newRawContent').fill(
+        '# Synthetic authored record\\n\\nThis text was written solely for the synthetic browser check.')
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
+    p.locator('#p2v2Overlay [data-act="submitRegister"]').click()
+    expect(p.locator('#p2v2ToastHolder')).to_contain_text('已写入 P2',timeout=20000)
+    assert producer_context.request.get(url+'/v1/p2/sources').json()['total']==prior+1
+    expect(p.locator('#p2v2App .detail')).to_contain_text('待用途审核')
+    checks.append('p2_v2_p0_only_backend_is_persisted_and_producer_raw_required')
+    p.screenshot(path=str(output/'p2-v2-p0-persisted-producer-1440.png'),full_page=False)
+    p.locator('[data-p11-route="studio"]').click()
     checks.extend(['p2_studio_same_pr36_management_shell','p2_studio_metadata_only_source_preview',
                    'p2_four_step_wizard_synthetic_only_admission','p2_reader_mock_unit_qa_block',
                    'p2_original_b1_source_library_untouched'])

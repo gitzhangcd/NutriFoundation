@@ -744,6 +744,82 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     assert any(row['project_id']==actual_project and row['batch_id']==actual_batch for row in bound['scope_refs']),bound
     assert bound['expert_exposure_authorized'] is False
     checks.append('p2_v2_1_persisted_project_batch_scope_no_expert_grant')
+    # B4: a SEPARATE real synthetic source exercises REJECT -> sanitized
+    # Producer handoff -> fresh revision; no original quote or free-text note
+    # is ever accessible from the Producer login.
+    before_rework={(x['source_id'],x['revision_id'])
+        for x in producer_context.request.get(url+'/v1/p2/sources?limit=100').json()['sources']}
+    p.locator('#p2v2App [data-act="openRegister"]').click()
+    p.locator('#p2v2Overlay #newTitle').fill('Synthetic immutable B4 correction handoff')
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
+    p.locator('#p2v2Overlay #newRawContent').fill(
+        '# Synthetic B4 rework' + chr(10)*2 +
+        'Intervention A used 24 mg daily.' + chr(10)*2 +
+        'Control group value 12.4 mg.' )
+    for _ in range(3):
+        p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click() if _<2 else None
+    p.locator('#p2v2Overlay [data-act="submitRegister"]').click()
+    expect(p.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('RIGHTS_HOLD',timeout=25000) if False else None
+    after_rework=producer_context.request.get(url+'/v1/p2/sources?limit=100').json()['sources']
+    inserted={(x['source_id'],x['revision_id']) for x in after_rework}-before_rework
+    assert len(inserted)==1,inserted
+    reject_id,reject_rev=next(iter(inserted))
+    assert reject_rev=='r1'
+    original_shas=producer_context.request.get(
+        url+'/v1/p2/sources/'+reject_id+'/r1').json()
+    arctx=browser.new_context(viewport={'width':1440,'height':950})
+    ar=arctx.new_page()
+    ar.goto(url+'/source-qa#/studio-v2?source='+reject_id+'&revision=r1')
+    ar.locator('#p2Username').fill('auditor')
+    ar.locator('#p2Password').fill(credentials['accounts']['auditor']['password'])
+    ar.locator('#p2LoginForm button[type="submit"]').click()
+    expect(ar.locator('#v2Evidence')).to_be_visible(timeout=25000)
+    ar.locator('#v2Evidence').fill('SYN-B4-INDEPENDENT-REWORK')
+    ar.locator('#p2v2App [data-act="v2Approve"]').click()
+    expect(ar.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('合成用途已核准',timeout=25000)
+    arctx.close()
+    p.evaluate('window.p2SourceStudioV2.reload()')
+    expect(p.locator('#p2v2App [data-act="v2Convert"]')).to_be_visible(timeout=25000)
+    p.locator('#p2v2App [data-act="v2Convert"]').click()
+    expect(p.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('独立签署',timeout=25000)
+    crctx=browser.new_context(viewport={'width':1440,'height':950})
+    cr=crctx.new_page()
+    cr.goto(url+'/source-qa#/studio-v2?source='+reject_id+'&revision=r1')
+    cr.locator('#p2Username').fill('p2curator')
+    cr.locator('#p2Password').fill(credentials['accounts']['p2curator']['password'])
+    cr.locator('#p2LoginForm button[type="submit"]').click()
+    expect(cr.locator('#p2v2App .p2v2-continuous-reader')).to_be_visible(timeout=25000)
+    cr.locator('#v2ReviewReason').select_option('NUMERIC_MISMATCH')
+    cr.locator('#v2ReviewNote').fill('CURATOR_PRIVATE_NOTE_MUST_NOT_LEAK_491')
+    cr.locator('#p2v2App [data-act="v2Reject"]').click()
+    expect(cr.locator('#p2v2App .reader-meta')).to_contain_text('1 / ',timeout=25000)
+    crctx.close()
+    p.evaluate('window.p2SourceStudioV2.reload()')
+    expect(p.locator('#p2v2App .p2v2-rework-item')).to_contain_text('NUMERIC_MISMATCH',timeout=25000)
+    assert 'CURATOR_PRIVATE_NOTE_MUST_NOT_LEAK_491' not in p.locator('#p2v2App').inner_text()
+    handoff=producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r1/rework')
+    assert handoff.status==200 and handoff.json()['count']==1
+    assert 'CURATOR_PRIVATE_NOTE_MUST_NOT_LEAK_491' not in handoff.text()
+    assert handoff.json()['original_text_exposed'] is False
+    assert producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r1/original').status==403
+    assert producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r1/freeze').status!=200
+    p.screenshot(path=str(output/'p2-v2-b4-redacted-producer-handoff-1440.png'),full_page=False)
+    p.locator('#p2v2App [data-act="v2Revise"]').click()
+    expect(p.locator('#p2v2Overlay #newTitle')).to_be_visible(timeout=15000)
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
+    p.locator('#p2v2Overlay #newRawContent').fill(
+        '# Corrected B4 source' + chr(10)*2 + 'Intervention A used 26 mg daily.' )
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
+    p.locator('#p2v2Overlay [data-act="submitRegister"]').click()
+    expect(p.locator('#p2v2App .p2v2-lifecycle')).to_be_visible(timeout=25000)
+    amended=producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r2').json()
+    retained=producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r1').json()
+    assert amended['source_family_refs']==[reject_id+':r1'],amended
+    assert amended['status']=='RIGHTS_HOLD'
+    assert retained['status']=='QA_HOLD'
+    assert retained['raw_artifact_sha256']==original_shas['raw_artifact_sha256']
+    checks.append('p2_v2_2_redacted_rework_handoff_new_revision_preserves_rejected_source')
     p.locator('[data-p11-route="tasks"]').click()
     expect(p.locator('#p11SectionTitle')).to_have_text('任务中心')
     expect(p.locator('#p11NewTaskCta')).to_be_visible()

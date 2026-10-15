@@ -224,6 +224,59 @@ def test_p2_rejected_qa_cannot_auto_freeze(app):
     assert producer.post(f"/v1/p2/sources/{sid}/r1/scope",headers=ph,json={
         "project_id":"PRJ-SYN-P2-TEST","batch_id":"BATCH-SYN-P2-TEST"}).status_code==409
 
+def test_p2_rejected_unit_rework_is_new_signed_revision_not_mutation(app):
+    """V2.1-P1 rollback/rework never alters r1's immutable rejected evidence."""
+    sid="P2-SYN-REWORK-REVISION"
+    producer,ph,auditor,ah,curator,ch,doc=converted(app,sid)
+    first=doc["document"]["units"][0]
+    original=producer.get(f"/v1/p2/sources/{sid}/r1").json()
+    q=first["text"]
+    rejected={"unit_id":first["unit_id"],"decision":"REJECT",
+        "start_utf16":0,"end_utf16":first["utf16_length"],
+        "source_quote":q,"source_quote_sha256":hashlib.sha256(q.encode()).hexdigest(),
+        "pdf_locator_status":first["pdf_locator_status"],
+        "findings":{"reason":"SYNTHETIC_REWORK_REQUIRED"}}
+    assert curator.post(f"/v1/p2/sources/{sid}/r1/qa",headers=ch,json=rejected).status_code==200
+    assert producer.get(f"/v1/p2/sources/{sid}/r1").json()["status"]=="QA_HOLD"
+    revision={**record(sid), "revision_id":"r2",
+        "raw_content":"# Corrected synthetic source\n\nRevised synthetic evidence has an explicit scope.\n\nNew table value: 13.4.",
+        "source_family_refs":[f"{sid}:r1"]}
+    created=producer.post("/v1/p2/sources",headers=ph,json=revision)
+    assert created.status_code==200,created.text
+    assert created.json()["source"]["status"]=="RIGHTS_HOLD"
+    assert created.json()["source"]["source_family_refs"]==[f"{sid}:r1"]
+    before=producer.get(f"/v1/p2/sources/{sid}/r1").json()
+    assert before["status"]=="QA_HOLD"
+    assert before["raw_artifact_sha256"]==original["raw_artifact_sha256"]
+    assert before["reviewed_units"]==1
+    assert producer.post(f"/v1/p2/sources/{sid}/r1/freeze",headers=ph,
+        json={"expected_document_sha256":doc["document_sha256"]}).status_code==409
+    assert producer.post(f"/v1/p2/sources/{sid}/r2/convert",headers=ph,json={}).status_code==409
+    approved=auditor.post(f"/v1/p2/sources/{sid}/r2/rights",headers=ah,json={
+        **rights_body(),"evidence_ref":"SYN-V2-REWORK-REVIEWED"})
+    assert approved.status_code==200,approved.text
+    moved=producer.post(f"/v1/p2/sources/{sid}/r2/convert",headers=ph,json={})
+    assert moved.status_code==200,moved.text
+    assert moved.json()["document_sha256"]!=doc["document_sha256"]
+    updated=curator.get(f"/v1/p2/sources/{sid}/r2/document").json()
+    for u in updated["document"]["units"]:
+        original_quote=u["text"]
+        res=curator.post(f"/v1/p2/sources/{sid}/r2/qa",headers=ch,json={
+            "unit_id":u["unit_id"],"decision":"ACCEPT","start_utf16":0,
+            "end_utf16":u["utf16_length"],"source_quote":original_quote,
+            "source_quote_sha256":hashlib.sha256(original_quote.encode()).hexdigest(),
+            "pdf_locator_status":u["pdf_locator_status"],
+            "findings":{"checked":"INDEPENDENT_SYNTHETIC_REVIEW"}})
+        assert res.status_code==200,res.text
+    frozen=producer.post(f"/v1/p2/sources/{sid}/r2/freeze",headers=ph,
+        json={"expected_document_sha256":moved.json()["document_sha256"]})
+    assert frozen.status_code==200,frozen.text
+    assert frozen.json()["package"]["expert_exposure_authorized"] is False
+    old=producer.get(f"/v1/p2/sources/{sid}/r1").json()
+    assert old["status"]=="QA_HOLD" and old["package_sha256"] is None
+    assert app.state.p2_source_studio.audit("auditor")["valid"] is True
+
+
 def test_p2_audit_chain_corruption_rejected_and_manager_readonly(app):
     sid="P2-SYN-SECURE-001";producer,ph,auditor,ah=prepare(app,sid)
     manager,mh=login(app,"manager")

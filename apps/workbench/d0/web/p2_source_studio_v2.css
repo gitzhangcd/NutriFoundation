@@ -109,3 +109,15 @@
   #workspace .p2v2 .p2v2-unit-block{padding:12px}
   #workspace .p2v2 .p2v2-qa-title{align-items:flex-start}
 }
+
+/* B4 private reviewer portal only: preserve 390px header and document width. */
+@media(max-width:680px){
+  body.tpa-page:has(#p2PortalMount .p2v2) .tpa-header{flex-wrap:wrap;align-items:flex-start}
+  body.tpa-page:has(#p2PortalMount .p2v2) .tpa-brand{min-width:0;max-width:100%}
+  body.tpa-page:has(#p2PortalMount .p2v2) .tpa-brand>div{min-width:0;overflow-wrap:anywhere}
+  body.tpa-page:has(#p2PortalMount .p2v2) .tpa-header-actions{justify-content:flex-start;max-width:100%}
+  body.tpa-page:has(#p2PortalMount .p2v2) #p2PortalMount,
+  body.tpa-page:has(#p2PortalMount .p2v2) .p11-content,
+  body.tpa-page:has(#p2PortalMount .p2v2) .p2v2{min-width:0;max-width:100%}
+  body.tpa-page:has(#p2PortalMount .p2v2) .p11-top{flex-wrap:wrap}
+}

@@ -804,11 +804,17 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     cr.locator('#p2v2App [data-act="v2Reject"]').click()
     expect(cr.locator('#p2v2App .reader-meta')).to_contain_text('1 / ',timeout=25000)
     crctx.close()
+    # Independently assert the backend state before testing its V2 projection.
+    rejected_detail=producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r1').json()
+    assert rejected_detail['status']=='QA_HOLD',rejected_detail
+    handoff=producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r1/rework')
+    assert handoff.status==200 and handoff.json()['count']==1,handoff.text()
+    assert handoff.json()['issues'][0]['reason_code']=='NUMERIC_MISMATCH'
     p.evaluate('window.p2SourceStudioV2.reload()')
+    p.screenshot(path=str(output/'p2-v2-b4-rework-before-assert-1440.png'),full_page=False)
+    expect(p.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('不可变 QA 拒绝',timeout=25000)
     expect(p.locator('#p2v2App .p2v2-rework-item')).to_contain_text('NUMERIC_MISMATCH',timeout=25000)
     assert 'CURATOR_PRIVATE_NOTE_MUST_NOT_LEAK_491' not in p.locator('#p2v2App').inner_text()
-    handoff=producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r1/rework')
-    assert handoff.status==200 and handoff.json()['count']==1
     assert 'CURATOR_PRIVATE_NOTE_MUST_NOT_LEAK_491' not in handoff.text()
     assert handoff.json()['original_text_exposed'] is False
     assert producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r1/original').status==403

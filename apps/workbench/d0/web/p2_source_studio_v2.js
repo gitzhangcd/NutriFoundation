@@ -527,6 +527,8 @@ action=async function(act,node){
       try{
         await v2Api('/v1/p2/sources',{method:'POST',body});
         state.modal='';if(overlay)overlay.replaceChildren();state.wizard=1;
+        // Never retain authored source text after the server has the exact bytes.
+        state.form.raw='';state.form.parent=null;state.form.newRevision=null;
         state.selected=sid;state.selectedRev=revision;state.page='queue';state.queuePage=1;
         toast('服务端登记 '+sid+' / '+revision+' · RIGHTS_HOLD，需独立审核（旧版本保持不可变）');
         await reloadLive();return;
@@ -629,7 +631,7 @@ action=async function(act,node){
   }
 
   function reset(){
-    flowClear();flow.receipts=[];v2DeepLink=null;state.page='queue';state.selected=DEMO_SEED[0]?.id||'';state.selectedRev=DEMO_SEED[0]?.rev||'';state.search='';state.stage='';
+    flowClear();flow.receipts=[];v2DeepLink=null;state.form={title:'',kind:'系统综述',identifier:'',year:'',project:'',batch:'',note:'',raw:''};state.qaLocal={};state.page='queue';state.selected=DEMO_SEED[0]?.id||'';state.selectedRev=DEMO_SEED[0]?.rev||'';state.search='';state.stage='';
     state.project='';state.batch='';state.filter=false;state.wizard=1;state.modal='';
     state.versionTab='lineage';sources.splice(0,sources.length,...DEMO_SEED.map(x=>({...x})));
   }

@@ -174,11 +174,11 @@ function auditPage(){if(v2DeepLink&&v2DeepLink.status!=='CONFIRMED')return '<div
 /* V2.1-P1: signed synthetic lifecycle uses existing server role gates.
  * D0 /manage=producer|manager; /source-qa=independent curator|auditor. */
 const flow={key:'',detail:null,doc:null,original:null,reviews:null,translations:null,audit:null,
-  notice:'',busy:false,unit:0,token:0,receipts:[],anchor:null,bilingual:true,visible:35,rework:null};
+  notice:'',busy:false,unit:0,token:0,generation:0,receipts:[],anchor:null,bilingual:true,visible:35,rework:null};
 const actorRole=()=>liveMeta.role||liveMeta.session?.role||'';
 const sourceKey=x=>x?.live?x.id+':'+x.rev:'';
 const sourceUrl=x=>'/v1/p2/sources/'+encodeURIComponent(x.id)+'/'+encodeURIComponent(x.rev);
-function flowClear(){++flow.token;flow.key='';flow.detail=flow.doc=flow.original=flow.reviews=
+function flowClear(){++flow.token;++flow.generation;flow.key='';flow.detail=flow.doc=flow.original=flow.reviews=
   flow.translations=flow.audit=flow.rework=null;flow.notice='';flow.unit=0;flow.anchor=null;flow.visible=35;}
 async function readFlow(){
   const x=selected(),key=sourceKey(x);
@@ -200,10 +200,16 @@ async function readFlow(){
       flow.doc=doc;flow.original=original;flow.reviews=reviews;flow.translations=translations;
       if(flow.anchor&&!doc.document.units.some(u=>u.unit_id===flow.anchor.unit_id && u.unit_text_sha256===flow.anchor.unit_sha256)) flow.anchor=null;
     }else{flow.doc=flow.original=flow.reviews=flow.translations=null;}
-    if(['producer','curator'].includes(actorRole())&&detail.status==='QA_HOLD')
-      flow.rework=await v2Api(url+'/rework');
-    else flow.rework=null;
-    if(actorRole()==='auditor')flow.audit=await v2Api('/v1/p2/audit');
+    if(['producer','curator'].includes(actorRole())&&detail.status==='QA_HOLD'){
+      const redacted=await v2Api(url+'/rework');
+      if(ticket!==flow.token||sourceKey(selected())!==key)return;
+      flow.rework=redacted;
+    }else flow.rework=null;
+    if(actorRole()==='auditor'){
+      const integrity=await v2Api('/v1/p2/audit');
+      if(ticket!==flow.token||sourceKey(selected())!==key)return;
+      flow.audit=integrity;
+    }
     if(ticket===flow.token){flow.notice='';if(app?.isConnected)render();}
   }catch(err){
     if(ticket!==flow.token)return;
@@ -216,17 +222,21 @@ async function readFlow(){
 }
 async function flowWrite(action,endpoint,body,ok){
   const x=selected();if(!x?.live||flow.busy){toast('DEMO 不可写入；或有操作正在执行。');return;}
+  const generation=flow.generation,key=sourceKey(x);
   flow.busy=true;flow.notice='正在向 P2 后端写入…';render();
   try{
     const result=await v2Api(sourceUrl(x)+endpoint,{method:'POST',body});
+    if(generation!==flow.generation||sourceKey(selected())!==key)return;
     flow.receipts.unshift({key:sourceKey(x),action,event:result.event_hash||'',
       at:new Date().toISOString(),server:true});
     flow.receipts=flow.receipts.slice(0,12);
     flow.notice='';await reloadLive();await readFlow();render();
     toast(ok+(result.event_hash?' · Event '+result.event_hash.slice(0,12):''));
     return result;
-  }catch(err){flow.notice=action+' 被拒绝：'+err.message;render();toast(flow.notice);}
-  finally{flow.busy=false;}
+  }catch(err){
+    if(generation!==flow.generation)return;
+    flow.notice=action+' 被拒绝：'+err.message;render();toast(flow.notice);
+  }finally{flow.busy=false;}
 }
 function handoff(x){return '<p class="small subtle">在独立 Auditor / Curator 页面以对应账户登录。该操作会明确退出当前管理会话，不会绕过角色隔离。</p>'+
   button('退出当前会话并转到独立审核','v2Handoff','light','shield');}

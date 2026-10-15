@@ -392,9 +392,8 @@ action=async function(act,node){
     return;
   }
   if(act==='openCuratorPortal'){
-    if(!x?.live){toast('请先选择已登记合成版本。');return;}
-    window.open('/source-qa#/studio-v2?source='+encodeURIComponent(x.id)+
-      '&revision='+encodeURIComponent(x.rev),'_blank','noopener');return;
+    // Use the exact same explicit sign-out gate as the lifecycle handoff.
+    return action('v2Handoff',node);
   }
   if(act==='v2Read'){await readFlow();return;}
   if(act==='v2Approve'||act==='v2Hold'){

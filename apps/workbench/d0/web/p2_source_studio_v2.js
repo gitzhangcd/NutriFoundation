@@ -200,7 +200,8 @@ async function readFlow(){
   }catch(err){
     if(ticket!==flow.token)return;
     flow.notice='P2 服务端读取/版本校验失败：'+err.message;
-    flow.doc=flow.original=flow.reviews=flow.translations=null;
+    // A stale detail snapshot must never authorize a new action after read error.
+    flow.detail=flow.audit=flow.doc=flow.original=flow.reviews=flow.translations=null;
     if(app?.isConnected)render();
   }
 }
@@ -530,6 +531,8 @@ action=async function(act,node){
         // Never retain authored source text after the server has the exact bytes.
         state.form.raw='';state.form.parent=null;state.form.newRevision=null;
         state.selected=sid;state.selectedRev=revision;state.page='queue';state.queuePage=1;
+        // A new unbound source cannot appear inside a Project/Batch usage filter.
+        state.project='';state.batch='';state.sourceType='SYNTHETIC';state.stage='';state.kind='';state.search='';
         toast('服务端登记 '+sid+' / '+revision+' · RIGHTS_HOLD，需独立审核（旧版本保持不可变）');
         await reloadLive();return;
       }catch(err){toast('登记被拒绝：'+err.message);return;}

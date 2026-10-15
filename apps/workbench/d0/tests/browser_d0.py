@@ -564,7 +564,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
     expect(p.locator('#p2v2Overlay #newRawContent')).to_be_visible()
     p.locator('#p2v2Overlay #newRawContent').fill(
-        '# Synthetic authored record\\n\\nThis text was written solely for the synthetic browser check.')
+        '# Synthetic authored record' + chr(10)*2 + 'This text was written solely for the synthetic browser check.')
     p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
     p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
     p.locator('#p2v2Overlay [data-act="submitRegister"]').click()

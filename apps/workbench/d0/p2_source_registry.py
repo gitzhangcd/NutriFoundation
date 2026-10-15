@@ -249,16 +249,37 @@ class SourceStudio:
         if method not in ("DEMO_DOI","DEMO_PMID","SYNTHETIC_ID"):error("INVALID_SOURCE_IDENTITY",422)
         ref=body.get("identifier")
         if not isinstance(ref,str) or not 3<=len(ref)<=120:error("INVALID_SOURCE_IDENTITY",422)
+        family=body.get("source_family_refs",[])
+        if not isinstance(family,list) or len(family)>1 or any(not isinstance(x,str) for x in family):
+            error("INVALID_SOURCE_FAMILY_REFS",422)
         metadata={"title":title.strip(),"source_type":kind,"identifier_kind":method,
             "identifier":ref,"available_at":available.isoformat(),"fetched_at":fetched.isoformat(),
             "rights_status":"PENDING_INDEPENDENT_REVIEW","artifact_kind":"SYNTHETIC_FIXTURE",
-            "source_family_refs":body.get("source_family_refs",[]),
+            "source_family_refs":family,
             "correction_status":"UNVERIFIED_DEMO","created_at":now()}
         rawsha=sha(raw.encode("utf-8"))
         with self.lock,self.connect() as db:
             db.execute("BEGIN IMMEDIATE")
             old=db.execute("SELECT 1 FROM p2_sources WHERE source_id=? AND revision_id=?",(sid,rev)).fetchone()
             if old:error("SOURCE_VERSION_ALREADY_REGISTERED")
+            if family:
+                parent_id,parent_rev=(family[0].split(":",1)+[""])[:2]
+                if parent_id!=sid or not parent_rev or parent_rev==rev:
+                    error("REVISION_LINEAGE_MISMATCH")
+                if (re.fullmatch(r"r[0-9]+",rev) and re.fullmatch(r"r[0-9]+",parent_rev) and
+                        int(rev[1:])!=int(parent_rev[1:])+1):
+                    error("REVISION_NOT_SEQUENTIAL")
+                parent=db.execute(
+                    "SELECT status,raw_sha FROM p2_sources WHERE source_id=? AND revision_id=?",
+                    (parent_id,parent_rev)).fetchone()
+                if not parent:error("PARENT_SOURCE_VERSION_NOT_FOUND",404)
+                rights=db.execute(
+                    "SELECT decision FROM p2_rights WHERE source_id=? AND revision_id=?",
+                    (parent_id,parent_rev)).fetchone()
+                blocked=parent["status"]=="QA_HOLD" or (
+                    parent["status"]=="RIGHTS_HOLD" and rights is not None and rights["decision"]=="HOLD")
+                if not blocked:error("PARENT_REWORK_GATE_NOT_SATISFIED")
+                if parent["raw_sha"]==rawsha:error("REWORK_REQUIRES_NEW_RAW_ARTIFACT")
             existing_artifact=db.execute("SELECT raw_format FROM p2_artifacts WHERE raw_sha=?",(rawsha,)).fetchone()
             if existing_artifact and existing_artifact["raw_format"]!=fmt:
                 error("RAW_ARTIFACT_FORMAT_CONFLICT")

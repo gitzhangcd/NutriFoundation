@@ -290,6 +290,34 @@ function liveFlowPanel(){
     '<dt>已登记使用范围</dt><dd>'+esc((d.scope_refs||[]).map(r=>r.project_id+' / '+r.batch_id).join('；')||'未绑定')+'</dd></dl>';
   return h+'</div></section>';
 }
+
+function anchorMarkup(u,record){
+  let a=flow.anchor?.unit_id===u.unit_id&&flow.anchor?.unit_sha256===u.unit_text_sha256?
+    flow.anchor:null;
+  if(!a&&record&&record.canonical_document_sha256===flow.doc?.document_sha256){
+    a={start:record.start_utf16,end:record.end_utf16};
+  }
+  if(!a||!Number.isInteger(a.start)||!Number.isInteger(a.end)||a.start<0||
+      a.end>u.text.length||a.start>=a.end)return esc(u.text);
+  return esc(u.text.slice(0,a.start))+
+    '<mark class="p2v2-evidence-highlight" data-anchor-type="'+(flow.anchor?'DRAFT_OR_SIGNED':'SIGNED')+'">'+
+    esc(u.text.slice(a.start,a.end))+'</mark>'+esc(u.text.slice(a.end));
+}
+function signedUnitBlock(u,i,review,translation){
+  const chosen=flow.unit===i;
+  const label=u.kind==='TABLE_CELL'?'表格单元':u.kind==='HEADING'?'标题':
+    u.kind==='CAPTION'?'图表说明':u.kind==='FOOTNOTE'?'脚注':'段落';
+  return '<section class="p2v2-unit-block '+(chosen?'selected':'')+
+    '" data-v2-block="'+i+'" aria-label="'+esc(u.unit_id)+'">'+
+    '<div class="p2v2-unit-header"><span class="mono">'+esc(u.unit_id)+'</span>'+
+    '<span>'+esc(label)+'</span>'+
+    (review?tag(review.decision,review.decision==='ACCEPT'?'green':'red'):tag('待 QA','amber'))+
+    button(chosen?'当前判断':'定位判断','v2FocusUnit','small','', 'data-v2-index="'+i+'"')+'</div>'+
+    '<div class="p2v2-source-text" data-v2-text="'+i+'">'+anchorMarkup(u,review)+'</div>'+
+    (flow.bilingual?'<div class="p2v2-translation-unit"><span class="tiny subtle">中文辅助层 · 不作为科学原文证据</span><p>'+
+      esc(translation?.translation_zh||'尚无人工译文；保持原文单独可见')+'</p></div>':'')+
+    '</section>';
+}
 function signedQAPage(x){
   if(actorRole()!=='curator')return serverQAGate(x);
   if(flow.key!==sourceKey(x)||!flow.doc||!flow.original||!flow.reviews){
@@ -297,41 +325,87 @@ function signedQAPage(x){
       '<div class="banner warn">'+esc(flow.notice||'在完整获取版本一致性证明前禁止 QA。')+'</div>'+
       button('重新读取 Document','v2Read','primary','book')+'</div>';
   }
-  const units=flow.doc.document.units||[],ix=Math.max(0,Math.min(flow.unit,units.length-1)),u=units[ix];
+  const units=flow.doc.document.units||[];
+  const ix=Math.max(0,Math.min(flow.unit,units.length-1)),u=units[ix];
   if(!u)return '<div class="banner danger">Document IR 无有效 Unit。</div>';
-  const reviewed=flow.reviews.reviews||[],record=reviewed.find(r=>r.unit_id===u.unit_id);
-  const translation=flow.translations?.translations?.find(t=>t.unit_id===u.unit_id);
+  const reviewed=flow.reviews.reviews||[];
+  const translated=flow.translations?.translations||[];
+  const record=reviewed.find(r=>r.unit_id===u.unit_id);
+  const existing=translated.find(t=>t.unit_id===u.unit_id);
   const canReview=['QA_PENDING','QA_HOLD'].includes(x.status)&&!record;
+  const anchor=flow.anchor?.unit_id===u.unit_id&&flow.anchor?.unit_sha256===u.unit_text_sha256?
+    flow.anchor:null;
+  const a=anchor||{start:0,end:u.utf16_length,quote:u.text};
+  const label=anchor?'已选精确文本跨度':'默认当前 Unit 全文锚点';
+  const visible=Math.min(units.length,Math.max(flow.visible,ix+1));
   const toc=units.map((z,i)=>'<button class="p2v2-unit-nav '+(i===ix?'active':'')+
-    '" type="button" data-v2unit="'+i+'">'+esc(z.unit_id)+' · '+esc(z.kind)+
-    (reviewed.some(r=>r.unit_id===z.unit_id)?' ✓':' · 待 QA')+'</button>').join('');
-  return '<div class="banner warn p2v2-live-banner">服务端 SYNTHETIC_ONLY · 独立 Curator 原文读取。'+
-    '不代表真实 PDF 页坐标、临床真实性、Gold 或专家授权。</div>'+
+    '" type="button" data-v2unit="'+i+'" aria-current="'+(i===ix?'true':'false')+'">'+
+    esc(z.unit_id)+' · '+esc(z.kind)+(reviewed.some(r=>r.unit_id===z.unit_id)?' ✓':' · 待 QA')+'</button>').join('');
+  const body=units.slice(0,visible).map((z,i)=>signedUnitBlock(z,i,
+    reviewed.find(r=>r.unit_id===z.unit_id),translated.find(t=>t.unit_id===z.unit_id))).join('');
+  const handoff=flow.rework?.issues||[];
+  const reviewBanner=record?'<div class="banner">不可变判断：'+esc(record.decision)+
+    ' · Span ['+esc(record.start_utf16)+','+esc(record.end_utf16)+') · SHA '+
+    esc(record.source_quote_sha256||'—')+'</div>':
+    '<div class="banner warn">尚未提交独立 QA；选区只是待确认候选。</div>';
+  return '<div class="banner warn p2v2-live-banner">SERVER-SYNTHETIC · 仅授权 Curator 可阅读受控合成原文。'+
+    'Document IR 中的 UTF-16 跨度不等同原始 Markdown 字节偏移，更不是已核验 PDF BBox。'+
+    '译文辅助、未签署选区均不得充当独立科学证据。</div>'+
     '<div class="card reader-meta"><b>'+esc(x.title)+'</b> · '+esc(x.id)+' / '+esc(x.rev)+
     ' · '+reviewed.length+' / '+units.length+' Unit 人工签署</div>'+
-    '<div class="readergrid p2v2-server-reader">'+
-    '<aside class="card reader-left"><b>Canonical Document IR</b><nav class="toc">'+toc+'</nav></aside>'+
-    '<section class="card reader-center"><div class="reader-toolbar"><strong>'+esc(u.unit_id)+
-    ' · '+esc(u.kind)+'</strong>'+tag(u.pdf_locator_status||'UNRESOLVED','amber')+'</div>'+
-      '<div class="paper-viewport"><article class="paper"><div class="paperlabel">SYNTHETIC ORIGINAL · SHA '+
-        esc(flow.original.raw_artifact_sha256.slice(0,20))+'</div>'+
-        '<h3>只读原文</h3><pre class="p2v2-original">'+esc(flow.original.raw_content)+'</pre>'+
-        '<h3>结构化 Unit · 原文 Anchor</h3><p>'+esc(u.text)+'</p>'+
-        '<div class="translation-block"><strong>人工辅助译文（非权威）</strong><p>'+
-        esc(translation?.translation_zh||'无已保存译文')+'</p></div></article></div></section>'+
-    '<aside class="card reader-right"><strong>'+esc(u.unit_id)+' · 独立判断</strong>'+
-      '<dl class="kv"><dt>Unit SHA</dt><dd class="mono">'+esc(u.unit_text_sha256)+'</dd>'+
-      '<dt>UTF16 Span</dt><dd>[0, '+esc(u.utf16_length)+')</dd>'+
+    '<div class="readergrid p2v2-server-reader p2v2-continuous-reader">'+
+    '<aside class="card reader-left"><div class="p2v2-rail-title"><b>Document IR · 全文目录</b>'+
+      '<span class="small subtle">'+units.length+' Units</span></div>'+
+      '<nav class="toc" aria-label="结构化原文目录">'+toc+'</nav></aside>'+
+    '<section class="card reader-center"><div class="reader-toolbar p2v2-science-toolbar">'+
+      '<div class="hstack"><b>连续科学阅读</b>'+tag(visible+' / '+units.length,'outline')+'</div>'+
+      '<div class="hstack">'+button(flow.bilingual?'隐藏辅助译文':'显示辅助译文','v2Bilingual','small','book')+
+        button('重载已签署证据','v2Read','small','shield')+'</div></div>'+
+      '<div class="p2v2-searchbar"><input class="input" id="v2FindText" aria-label="结构化全文检索" '+
+        'placeholder="搜索原文/译文并跳转 Unit" maxlength="180"/>'+
+        button('查找并定位','v2Find','small','search')+'</div>'+
+      '<div class="paper-viewport"><article class="paper p2v2-continuous-paper">'+
+        '<details class="p2v2-raw-details"><summary>查看只读合成原始 Markdown · SHA '+
+          esc(flow.original.raw_artifact_sha256.slice(0,16))+'…</summary>'+
+          '<pre class="p2v2-original">'+esc(flow.original.raw_content)+'</pre></details>'+
+        '<div class="small subtle" style="margin:12px 0">下方按 Document IR 顺序展示全部结构化 Unit。'+
+          '标题、表格单元、数值和单位保留独立检查边界；可连续滚动并在同一 Unit 文本中划选原文。</div>'+
+        body+
+        (visible<units.length?'<div class="p2v2-more">'+button('继续加载后续 35 个 Unit','v2MoreUnits','light','chevronright')+
+          '</div>':'')+
+      '</article></div></section>'+
+    '<aside class="card reader-right"><div class="p2v2-qa-title"><b>证据判断 / '+esc(u.unit_id)+'</b>'+
+      tag(u.pdf_locator_status||'UNRESOLVED','amber')+'</div>'+
+      '<dl class="kv"><dt>Unit SHA-256</dt><dd class="mono">'+esc(u.unit_text_sha256)+'</dd>'+
+      '<dt>Unit UTF-16 长度</dt><dd>'+esc(u.utf16_length)+'</dd>'+
       '<dt>PDF Locator</dt><dd>'+esc(u.pdf_locator_status||'UNRESOLVED')+'</dd></dl>'+
-      (record?'<div class="banner">已由 '+esc(record.reviewer)+' 签署 '+esc(record.decision)+
-        '，不可重复提交或覆盖。</div>':'<div class="banner warn">尚未提交独立 QA 回执。</div>')+
-      (canReview?'<label for="v2ReviewNote">判断与问题备注</label><textarea id="v2ReviewNote" class="textarea width-full" rows="3" maxlength="1200"></textarea>'+
+      reviewBanner+
+      '<div class="p2v2-anchor-preview" aria-live="polite"><b>'+label+'</b>'+
+        '<div>Unit '+esc(u.unit_id)+' · ['+esc(a.start)+', '+esc(a.end)+')</div>'+
+        '<blockquote>'+esc(a.quote.length>240?a.quote.slice(0,240)+'…':a.quote)+'</blockquote>'+
+        '<div class="small subtle">锚点只作用于权威 Canonical Unit 文本；提交时重新校验 SHA、Offset、Quote。</div></div>'+
+      '<div class="hstack">'+button('使用原文选区','v2PickAnchor','light','link')+
+        button('恢复全文跨度','v2FullAnchor','small','book')+'</div>'+
+      (canReview?'<label for="v2ReviewReason">受控问题类别（REJECT 时写入脱敏交接）</label>'+
+        '<select id="v2ReviewReason" class="select width-full">'+
+          [['OTHER','其他问题'],['STRUCTURE_GAP','结构/段落缺失'],['NUMERIC_MISMATCH','数值/单位差异'],
+           ['ANCHOR_MISMATCH','证据锚点不匹配'],['OMITTED_CONTENT','关键内容遗漏'],
+           ['TRANSLATION_DISCREPANCY','译文辅助层差异']].map(a=>
+             '<option value="'+a[0]+'">'+a[1]+'</option>').join('')+'</select>'+
+        '<label for="v2ReviewNote">Curator 内部问题备注（不会交给 Producer）</label>'+
+        '<textarea id="v2ReviewNote" class="textarea width-full" rows="3" maxlength="1200"></textarea>'+
         '<div class="hstack">'+button('ACCEPT · 不可变提交','v2Accept','primary','check')+
-        button('REJECT · 返工阻断','v2Reject','light','alert')+'</div>':'')+
-      (translation?'':'<label for="v2TranslateText">人工辅助译文</label>'+
-        '<textarea id="v2TranslateText" class="textarea width-full" rows="3" maxlength="4000"></textarea>'+
-        button('保存辅助译文 Sidecar','v2Translate','light','book'))+'</aside></div>';
+        button('REJECT · 新修订返工','v2Reject','light','alert')+'</div>':'')+
+      (handoff.length?'<div class="banner danger">'+handoff.length+
+        ' 个 REJECT 已生成不可变脱敏交接；旧版本仍被阻断。</div>':'')+
+      '<div class="small-title">人工辅助译文（绝不替代原文）</div>'+
+      (existing?'<p class="small">'+esc(existing.translation_zh)+'</p>':
+        '<textarea id="v2TranslateText" class="textarea width-full" rows="3" maxlength="4000" '+
+          'placeholder="只由独立 Curator 保存人工辅助翻译"></textarea>'+
+        button('保存翻译 Sidecar','v2Translate','light','book'))+
+    '</aside></div>';
 }
+
 function signedAuditPage(x){
   const d=flow.key===sourceKey(x)?flow.detail:null;
   const last=flow.receipts.filter(r=>r.key===sourceKey(x));

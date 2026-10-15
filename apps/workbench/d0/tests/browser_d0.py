@@ -756,10 +756,9 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
         '# Synthetic B4 rework' + chr(10)*2 +
         'Intervention A used 24 mg daily.' + chr(10)*2 +
         'Control group value 12.4 mg.' )
-    for _ in range(3):
-        p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click() if _<2 else None
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
     p.locator('#p2v2Overlay [data-act="submitRegister"]').click()
-    expect(p.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('RIGHTS_HOLD',timeout=25000) if False else None
     after_rework=producer_context.request.get(url+'/v1/p2/sources?limit=100').json()['sources']
     inserted={(x['source_id'],x['revision_id']) for x in after_rework}-before_rework
     assert len(inserted)==1,inserted
@@ -802,7 +801,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     assert 'CURATOR_PRIVATE_NOTE_MUST_NOT_LEAK_491' not in handoff.text()
     assert handoff.json()['original_text_exposed'] is False
     assert producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r1/original').status==403
-    assert producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r1/freeze').status!=200
+    assert producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r1').json()['package_sha256'] is None
     p.screenshot(path=str(output/'p2-v2-b4-redacted-producer-handoff-1440.png'),full_page=False)
     p.locator('#p2v2App [data-act="v2Revise"]').click()
     expect(p.locator('#p2v2Overlay #newTitle')).to_be_visible(timeout=15000)

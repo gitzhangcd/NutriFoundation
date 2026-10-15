@@ -368,6 +368,106 @@ window.__p2v2={state,sources,units,governance,go:pg,openRegister:bindRegister};
 
 const _actionBare=action;
 action=async function(act,node){
+  const x=selected(),role=actorRole();
+  if(act==='openRegister'&&role!=='producer'){
+    toast('只有 Producer 可登记合成来源。');return;
+  }
+  if(act==='openCuratorPortal'){
+    if(!x?.live){toast('请先选择已登记合成版本。');return;}
+    window.open('/source-qa#/studio-v2?source='+encodeURIComponent(x.id)+
+      '&revision='+encodeURIComponent(x.rev),'_blank','noopener');return;
+  }
+  if(act==='v2Read'){await readFlow();return;}
+  if(act==='v2Approve'||act==='v2Hold'){
+    if(!x?.live||role!=='auditor'||x.status!=='RIGHTS_HOLD')return toast('需要独立 Auditor 会话和 RIGHTS_HOLD 状态。');
+    const evidence=document.getElementById('v2Evidence')?.value.trim();
+    if(!evidence||!/^SYN-[A-Za-z0-9._-]{1,155}$/.test(evidence))
+      return toast('必须填写 SYN- 开头的独立审核证据编号。');
+    await flowWrite('RIGHTS_RECORDED','/rights',{
+      decision:act==='v2Approve'?'APPROVE_SYNTHETIC':'HOLD',
+      evidence_ref:evidence,
+      uses:['INTERNAL_SOURCE_REVIEW','MACHINE_PROCESSING','RETAIN_ORIGINAL']
+    },act==='v2Approve'?'独立 Auditor 已核准合成用途':'独立 Auditor 已记录不可变 HOLD');
+    return;
+  }
+  if(act==='v2Convert'){
+    if(!x?.live||role!=='producer'||x.status!=='RIGHTS_ACCEPTED')
+      return toast('只有 Producer 能转换已获独立合成核准的来源。');
+    await flowWrite('CONVERSION_FROZEN','/convert',{external_payload:null},'结构化 Document IR 与 ParserRun 已保存');
+    return;
+  }
+  if(act==='v2Accept'||act==='v2Reject'){
+    if(!x?.live||role!=='curator'||!flow.doc||!flow.original||!flow.reviews||
+      !['QA_PENDING','QA_HOLD'].includes(x.status))return toast('需要独立 Curator 和受控原件/IR 的精确匹配。');
+    const u=flow.doc.document.units[flow.unit];
+    if(!u||flow.reviews.reviews.some(r=>r.unit_id===u.unit_id))
+      return toast('该 Unit 已有不可变判断，禁止重写。');
+    if(u.utf16_length!==u.text.length)return toast('UTF-16 长度与 Document IR 不一致。');
+    const bytes=new TextEncoder().encode(u.text);
+    const digest=await crypto.subtle.digest('SHA-256',bytes);
+    const sum=[...new Uint8Array(digest)].map(n=>n.toString(16).padStart(2,'0')).join('');
+    if(sum!==u.unit_text_sha256)return toast('Unit SHA 漂移，禁止提交。');
+    const notes=document.getElementById('v2ReviewNote')?.value.trim()||'';
+    if(act==='v2Reject'&&!notes)return toast('REJECT 必须说明问题与返工理由。');
+    const record=await flowWrite('UNIT_QA_RECORDED','/qa',{
+      unit_id:u.unit_id,decision:act==='v2Accept'?'ACCEPT':'REJECT',
+      start_utf16:0,end_utf16:u.utf16_length,source_quote:u.text,
+      source_quote_sha256:sum,pdf_locator_status:u.pdf_locator_status,
+      findings:{ui:'P2_V2_SIGNED_SYNTHETIC_QA',notes:notes.slice(0,1200)}
+    },'Curator 不可变 Unit QA 已由服务器确认');
+    if(record?.review)flow.unit=Math.min(flow.unit+1,(flow.doc?.document.units||[]).length-1);
+    render();return;
+  }
+  if(act==='v2Translate'){
+    if(!x?.live||role!=='curator'||!flow.doc)return toast('辅助译文仅能由独立 Curator 基于 Document IR 保存。');
+    const u=flow.doc.document.units[flow.unit],value=document.getElementById('v2TranslateText')?.value.trim();
+    if(!u||!value||value.length<2)return toast('先输入明确的人工辅助译文。');
+    await flowWrite('AUXILIARY_TRANSLATION_FROZEN','/translations',{
+      unit_id:u.unit_id,translation_zh:value,expected_unit_text_sha256:u.unit_text_sha256,
+      provenance_ref:'SYN-HUMAN-P2V2-'+crypto.randomUUID().replaceAll('-','').slice(0,12).toUpperCase()
+    },'人工辅助译文独立保存（原文保持权威）');
+    return;
+  }
+  if(act==='v2Freeze'){
+    const d=flow.detail;
+    if(!x?.live||role!=='producer'||x.status!=='QA_PENDING'||!d?.document_sha256||
+      !d.unit_count||d.unit_count!==d.reviewed_units)
+      return toast('冻结前需要 Producer 身份、全部独立 Unit QA 与精确 Document SHA。');
+    await flowWrite('SOURCE_PACKAGE_FROZEN','/freeze',{
+      expected_document_sha256:d.document_sha256
+    },'资料包已由服务端不可变冻结（非 Gold / 专家授权）');
+    return;
+  }
+  if(act==='v2Bind'){
+    const project=document.getElementById('v2BindProject')?.value||'';
+    const batch=document.getElementById('v2BindBatch')?.value||'';
+    if(!x?.live||role!=='producer'||x.status!=='PACKAGE_FROZEN'||!project||!batch)
+      return toast('Producer 仅能给已冻结来源绑定已存在的 Project/Batch。');
+    await flowWrite('SOURCE_SCOPE_BOUND','/scope',{
+      project_id:project,batch_id:batch
+    },'合成来源用途范围已持久化（不会签发 Expert Grant）');
+    return;
+  }
+  if(act==='v2Audit'){
+    if(role!=='auditor')return toast('全局 Hash Chain 审计仅独立 Auditor 可查看。');
+    try{flow.audit=await v2Api('/v1/p2/audit');render();
+      toast(flow.audit.valid?'服务端审计链 VALID':'服务端审计链 INVALID，禁止放行');}
+    catch(err){flow.notice='全局 Audit 失败：'+err.message;render();}
+    return;
+  }
+  if(act==='v2Revise'){
+    if(!x?.live||role!=='producer'||x.status!=='QA_HOLD')
+      return toast('只能由 Producer 对 QA_HOLD 建立新修订。');
+    const revisions=sources.filter(s=>s.live&&s.id===x.id).map(s=>/^r[0-9]+$/.test(s.rev)?Number(s.rev.slice(1)):0);
+    const newRev='r'+(Math.max(0,...revisions)+1);
+    state.modal='register';state.wizard=1;
+    state.form={title:x.title,kind:x.kind,identifier:x.identifier||'',year:'',project:'',batch:'',
+      note:'',raw:'',parent:{id:x.id,rev:x.rev},newRevision:newRev};
+    openModal();return;
+  }
+  if(act==='openBind'&&x?.live){
+    toast('持久化合成引用请使用已冻结来源的服务端 Binding 表单。');return;
+  }
   // Never use preview-only local state to impersonate a server QA or audit receipt.
   if(selected()?.live&&['passUnit','passNext','markIssue','commitIssue','commitBind','exportAudit'].includes(act)){
     toast('已登记来源不可通过本地演示按钮核验、引用或导出审计；请进入独立授权工作流。');
@@ -395,19 +495,21 @@ action=async function(act,node){
     }
     if(role==='producer'){
       const capturedAt=new Date().toISOString();
-      const sid='P2-SYN-'+crypto.randomUUID().replaceAll('-','').slice(0,10).toUpperCase();
-      const body={source_id:sid,revision_id:'r1',title:state.form.title.trim(),
+      const parent=state.form.parent||null;
+      const sid=parent?.id||('P2-SYN-'+crypto.randomUUID().replaceAll('-','').slice(0,10).toUpperCase());
+      const revision=parent?state.form.newRevision:'r1';
+      const body={source_id:sid,revision_id:revision,title:state.form.title.trim(),
         source_type:TYPE_TO_API[state.form.kind]||'SYSTEMATIC_REVIEW_META',
         identifier_kind:'SYNTHETIC_ID',identifier:state.form.identifier||('SYN-'+sid.slice(-8)),
         available_at:capturedAt,fetched_at:capturedAt,
         raw_format:'MARKDOWN',
         raw_content:state.form.raw,
-        rights_assertion:'SYNTHETIC_FIXTURE',source_family_refs:[]};
+        rights_assertion:'SYNTHETIC_FIXTURE',source_family_refs:parent?[parent.id+':'+parent.rev]:[]};
       try{
         await v2Api('/v1/p2/sources',{method:'POST',body});
         state.modal='';if(overlay)overlay.replaceChildren();state.wizard=1;
-        state.selected=sid;state.selectedRev='r1';state.page='queue';state.queuePage=1;
-        toast('已写入 P2：'+sid+' · 进入 RIGHTS_HOLD，待独立 Auditor 审核');
+        state.selected=sid;state.selectedRev=revision;state.page='queue';state.queuePage=1;
+        toast('服务端登记 '+sid+' / '+revision+' · RIGHTS_HOLD，需独立审核（旧版本保持不可变）');
         await reloadLive();return;
       }catch(err){toast('登记被拒绝：'+err.message);return;}
     }

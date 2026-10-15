@@ -318,6 +318,43 @@ function signedUnitBlock(u,i,review,translation){
       esc(translation?.translation_zh||'尚无人工译文；保持原文单独可见')+'</p></div>':'')+
     '</section>';
 }
+
+function focusSignedUnit(index,scroll=true){
+  const a=flow.doc?.document?.units||[];
+  if(!Number.isInteger(index)||index<0||index>=a.length)return;
+  if(index!==flow.unit)flow.anchor=null;
+  flow.unit=index;flow.visible=Math.max(flow.visible,index+1);
+  render();
+  if(scroll)window.requestAnimationFrame(()=>{
+    app?.querySelector('[data-v2-block="'+index+'"]')?.scrollIntoView({block:'center'});
+  });
+}
+function captureSignedAnchor(){
+  const x=selected(),a=flow.doc?.document?.units||[];
+  if(!x?.live||actorRole()!=='curator'||!a.length||flow.key!==sourceKey(x))
+    return toast('必须先以 Curator 身份读取确切版本的 Document IR。');
+  const selection=window.getSelection();
+  if(!selection||selection.isCollapsed||selection.rangeCount!==1)return toast('请先在同一 Unit 原文中划选精确文本。');
+  const range=selection.getRangeAt(0),node=range.startContainer;
+  const startElement=(node.nodeType===3?node.parentElement:node)?.closest('[data-v2-text]');
+  if(!startElement||!startElement.contains(range.endContainer)||!app.contains(startElement))
+    return toast('锚点不能跨 Unit、跨译文或包含 UI；请只选择结构化原文。');
+  const ix=Number(startElement.dataset.v2Text),u=a[ix];
+  if(!u||u.utf16_length!==u.text.length)return toast('Unit UTF-16 长度漂移。');
+  const prefix=document.createRange();prefix.selectNodeContents(startElement);
+  prefix.setEnd(range.startContainer,range.startOffset);
+  const start=prefix.toString().length,end=start+range.toString().length;
+  const quote=u.text.slice(start,end);
+  if(!quote||end>u.utf16_length||quote!==range.toString()||
+    startElement.textContent!==u.text)
+    return toast('原文选区与 Canonical Unit 不一致，拒绝创建锚点。');
+  flow.anchor={unit_id:u.unit_id,unit_sha256:u.unit_text_sha256,start,end,quote,
+    source_key:sourceKey(x),doc_sha256:flow.doc.document_sha256};
+  flow.unit=ix;render();
+  window.requestAnimationFrame(()=>{
+    app?.querySelector('[data-v2-block="'+ix+'"]')?.scrollIntoView({block:'center'});
+  });
+}
 function signedQAPage(x){
   if(actorRole()!=='curator')return serverQAGate(x);
   if(flow.key!==sourceKey(x)||!flow.doc||!flow.original||!flow.reviews){
@@ -462,6 +499,41 @@ window.__p2v2={state,sources,units,governance,go:pg,openRegister:bindRegister};
 const _actionBare=action;
 action=async function(act,node){
   const x=selected(),role=actorRole();
+  if(act==='v2FocusUnit'){
+    focusSignedUnit(Number(node.dataset.v2Index));return;
+  }
+  if(act==='v2Bilingual'){
+    if(role!=='curator'||!x?.live)return toast('只在独立 Curator 原文区切换辅助译文。');
+    flow.bilingual=!flow.bilingual;render();return;
+  }
+  if(act==='v2MoreUnits'){
+    if(role!=='curator'||!flow.doc)return;
+    flow.visible=Math.min(flow.doc.document.units.length,flow.visible+35);
+    render();return;
+  }
+  if(act==='v2Find'){
+    if(role!=='curator'||!flow.doc)return;
+    const query=document.getElementById('v2FindText')?.value.trim().toLocaleLowerCase();
+    if(!query)return toast('请输入结构化原文或辅助译文检索词。');
+    const units=flow.doc.document.units,translations=flow.translations?.translations||[];
+    const i=units.findIndex(u=>u.text.toLocaleLowerCase().includes(query)||
+      translations.some(t=>t.unit_id===u.unit_id&&
+        t.translation_zh.toLocaleLowerCase().includes(query)));
+    if(i<0)return toast('没有找到对应 Unit；不会创建或签署证据锚点。');
+    focusSignedUnit(i);
+    toast('已定位 '+units[i].unit_id+' · 检索定位不等同证据签署。');
+    return;
+  }
+  if(act==='v2PickAnchor'){captureSignedAnchor();return;}
+  if(act==='v2FullAnchor'){
+    flow.anchor=null;render();return;
+  }
+  if(act==='v2ReworkRead'){
+    if(!x?.live||!['producer','curator'].includes(role))return;
+    try{flow.rework=await v2Api(sourceUrl(x)+'/rework');render();}
+    catch(err){flow.notice='脱敏返工读取失败：'+err.message;render();}
+    return;
+  }
   if(act==='openRegister'&&role!=='producer'){
     toast('只有 Producer 可登记合成来源。');return;
   }
@@ -509,16 +581,31 @@ action=async function(act,node){
     const digest=await crypto.subtle.digest('SHA-256',bytes);
     const sum=[...new Uint8Array(digest)].map(n=>n.toString(16).padStart(2,'0')).join('');
     if(sum!==u.unit_text_sha256)return toast('Unit SHA 漂移，禁止提交。');
+    const a=flow.anchor;
+    const picked=a&&a.unit_id===u.unit_id&&a.unit_sha256===sum&&
+      a.source_key===sourceKey(x)&&a.doc_sha256===flow.doc.document_sha256?a:null;
+    const start=picked?picked.start:0,end=picked?picked.end:u.utf16_length;
+    const quote=u.text.slice(start,end);
+    if(!quote||u.utf16_length!==u.text.length||
+      picked&&picked.quote!==quote)return toast('选区与当前 Canonical Unit 不一致，禁止提交。');
+    const quoteDigest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(quote));
+    const quoteSha=[...new Uint8Array(quoteDigest)].map(n=>n.toString(16).padStart(2,'0')).join('');
     const notes=document.getElementById('v2ReviewNote')?.value.trim()||'';
+    const reason=document.getElementById('v2ReviewReason')?.value||'OTHER';
     if(act==='v2Reject'&&!notes)return toast('REJECT 必须说明问题与返工理由。');
     const record=await flowWrite('UNIT_QA_RECORDED','/qa',{
       unit_id:u.unit_id,decision:act==='v2Accept'?'ACCEPT':'REJECT',
-      start_utf16:0,end_utf16:u.utf16_length,source_quote:u.text,
-      source_quote_sha256:sum,pdf_locator_status:u.pdf_locator_status,
-      findings:{ui:'P2_V2_SIGNED_SYNTHETIC_QA',notes:notes.slice(0,1200)}
+      start_utf16:start,end_utf16:end,source_quote:quote,
+      source_quote_sha256:quoteSha,pdf_locator_status:u.pdf_locator_status,
+      findings:{ui:'P2_V2_SIGNED_SYNTHETIC_QA',notes:notes.slice(0,1200),
+        rework_reason_code:act==='v2Reject'?reason:'OTHER',
+        anchor_mode:picked?'EXACT_TEXT_SELECTION':'FULL_CANONICAL_UNIT'}
     },'Curator 不可变 Unit QA 已由服务器确认');
-    if(record?.review)flow.unit=Math.min(flow.unit+1,(flow.doc?.document.units||[]).length-1);
-    render();return;
+    if(record?.review){
+      flow.anchor=null;flow.unit=Math.min(flow.unit+1,(flow.doc?.document.units||[]).length-1);
+      render();
+    }
+    return;
   }
   if(act==='v2Translate'){
     if(!x?.live||role!=='curator'||!flow.doc)return toast('辅助译文仅能由独立 Curator 基于 Document IR 保存。');

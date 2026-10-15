@@ -624,14 +624,46 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     assert actual_units>=2,actual_units
     c2.locator('#p2v2App #v2TranslateText').fill('独立 Curator 编写的仅供合成验收的辅助译文。')
     c2.locator('#p2v2App [data-act="v2Translate"]').click()
-    expect(c2.locator('#p2v2App .translation-block')).to_contain_text('独立 Curator 编写',timeout=20000)
+    expect(c2.locator('#p2v2App .p2v2-translation-unit').first).to_contain_text('独立 Curator 编写',timeout=20000)
+    # B4: continuous Unit rendering and bilingual helper, not one isolated excerpt.
+    assert c2.locator('#p2v2App .p2v2-unit-block').count()>=2
+    assert c2.locator('#p2v2App [data-v2-text]').count()>=2
+    c2.locator('#p2v2App [data-act="v2Bilingual"]').click()
+    expect(c2.locator('#p2v2App .p2v2-translation-unit')).to_have_count(0)
+    c2.locator('#p2v2App [data-act="v2Bilingual"]').click()
+    expect(c2.locator('#p2v2App .p2v2-translation-unit').first).to_contain_text('独立 Curator 编写')
+    # Cross-Unit drag is not an evidence anchor: no silently selected pair.
+    c2.evaluate("""() => {
+      const first=document.querySelector('[data-v2-text="0"]').firstChild;
+      const next=document.querySelector('[data-v2-text="1"]').firstChild;
+      const r=document.createRange();r.setStart(first,2);r.setEnd(next,3);
+      const sel=getSelection();sel.removeAllRanges();sel.addRange(r);
+    }""")
+    c2.locator('#p2v2App [data-act="v2PickAnchor"]').click()
+    expect(c2.locator('#p2v2App .p2v2-anchor-preview')).to_contain_text('默认当前 Unit 全文锚点')
+    # A precise intra-Unit selection creates a UTF-16 quote span, distinct
+    # from the full source Unit SHA. The server must persist this exact span.
+    c2.evaluate("""() => {
+      const node=document.querySelector('[data-v2-text="0"]').firstChild;
+      const r=document.createRange();r.setStart(node,2);r.setEnd(node,8);
+      const sel=getSelection();sel.removeAllRanges();sel.addRange(r);
+    }""")
+    c2.locator('#p2v2App [data-act="v2PickAnchor"]').click()
+    expect(c2.locator('#p2v2App .p2v2-anchor-preview')).to_contain_text('已选精确文本跨度')
+    expect(c2.locator('#p2v2App .p2v2-evidence-highlight')).to_have_count(1)
     for idx in range(actual_units):
-        c2.locator('#p2v2App [data-v2unit]').nth(idx).click()
+        c2.locator('#p2v2App [data-v2unit]').nth(idx).click() if idx>0 else None
         expect(c2.locator('#p2v2App [data-act="v2Accept"]')).to_be_visible()
         c2.locator('#p2v2App [data-act="v2Accept"]').click()
         expect(c2.locator('#p2v2App .reader-meta')).to_contain_text(str(idx+1)+' / '+str(actual_units),timeout=25000)
         items=c2ctx.request.get(url+'/v1/p2/sources/'+v2_id+'/r1/reviews').json()
         assert items['total']==idx+1,items
+        if idx==0:
+            review=items['reviews'][0]
+            assert review['start_utf16']==2 and review['end_utf16']==8,review
+            assert review['source_quote_sha256']
+            assert review['canonical_document_sha256']
+    checks.append('p2_v2_2_continuous_reader_bilingual_exact_utf16_selection_and_immutable_anchor_readback')
     expect(c2.locator('#p2v2App .reader-meta')).to_contain_text(str(actual_units)+' / '+str(actual_units))
     c2.screenshot(path=str(output/'p2-v2-p1-curator-qa-1440.png'),full_page=False)
     # Logout must remove raw evidence from the DOM, not just hide workspace.

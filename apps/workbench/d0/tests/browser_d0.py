@@ -663,6 +663,10 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
             assert review['start_utf16']==2 and review['end_utf16']==8,review
             assert review['source_quote_sha256']
             assert review['canonical_document_sha256']
+            c2.evaluate('window.p2SourceStudioV2.reload()')
+            # The saved highlight is reconstructed from Curator-only signed
+            # start/end metadata and canonical Document IR after readback.
+            expect(c2.locator('#p2v2App .p2v2-evidence-highlight')).to_have_count(1,timeout=25000)
     checks.append('p2_v2_2_continuous_reader_bilingual_exact_utf16_selection_and_immutable_anchor_readback')
     expect(c2.locator('#p2v2App .reader-meta')).to_contain_text(str(actual_units)+' / '+str(actual_units))
     c2.screenshot(path=str(output/'p2-v2-p1-curator-qa-1440.png'),full_page=False)

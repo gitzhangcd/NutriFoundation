@@ -292,7 +292,7 @@ function liveFlowPanel(){
         '<p class="small subtle">正在读取脱敏交接；不会向 Producer 暴露原文、选区或自由文本备注。</p>';
       h+=button('刷新脱敏问题清单','v2ReworkRead','light','shield');
     }
-    if(role==='producer')h+=button('基于当前来源建立返工修订','v2Revise','primary','plus');
+    if(role==='producer')h+=flow.rework?.count>0?button('基于不可变 Issue 创建返工新修订','v2Revise','primary','plus'):'<div class="banner warn">返工清单尚未验证，暂不允许进入新修订。</div>';
     else if(role==='curator')h+=button('查看已签署 QA','qa','light','book');
     else h+=handoff(x);
   }else if(stage==='PACKAGE_FROZEN'){
@@ -677,6 +677,9 @@ action=async function(act,node){
     if(!x?.live||role!=='producer'||!(
       x.status==='QA_HOLD'||(x.status==='RIGHTS_HOLD'&&flow.detail?.rights_decision==='HOLD')))
       return toast('只有 QA REJECT 或独立权利 HOLD 的不可变来源可建立新修订。');
+    if(x.status==='QA_HOLD'&&(!flow.rework||flow.rework.count<1||
+      flow.rework.source_id!==x.id||flow.rework.revision_id!==x.rev))
+      return toast('必须先取得同一 SourceVersion 的不可变脱敏 QA Issue，才可创建返工修订。');
     const revisions=sources.filter(s=>s.live&&s.id===x.id).map(s=>/^r[0-9]+$/.test(s.rev)?Number(s.rev.slice(1)):0);
     const newRev='r'+(Math.max(0,...revisions)+1);
     state.modal='register';state.wizard=1;

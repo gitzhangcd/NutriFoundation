@@ -634,6 +634,13 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
         assert items['total']==idx+1,items
     expect(c2.locator('#p2v2App .reader-meta')).to_contain_text(str(actual_units)+' / '+str(actual_units))
     c2.screenshot(path=str(output/'p2-v2-p1-curator-qa-1440.png'),full_page=False)
+    # Logout must remove raw evidence from the DOM, not just hide workspace.
+    c2.locator('#p2Logout').click()
+    expect(c2.locator('#workspace')).to_be_hidden(timeout=15000)
+    assert c2.evaluate("""() => !document.querySelector('#p2v2App')?.textContent
+      .includes('Synthetic authored record')""")
+    assert c2ctx.request.get(url+'/v1/p2/sources/'+v2_id+'/r1/original').status==401
+    checks.append('p2_v2_1_curator_logout_erases_original_dom_and_denies_session')
     c2ctx.close()
     # Producer can now freeze only the exact document SHA; refresh reloads
     # the server state instead of preserving a browser-local success flag.

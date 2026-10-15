@@ -223,7 +223,10 @@ function liveFlowPanel(){
   if(!d){h+='<p>正在读取 SourceVersion 详情；未校验前不能操作。</p>';}
   else if(x.status==='RIGHTS_HOLD'){
     h+='<div class="banner warn">独立 Auditor 审核用途。合成核准不是真实版权许可。</div>';
-    if(role==='auditor')h+='<label for="v2Evidence">合成权利审查证据（SYN- 开头）</label>'+
+    if(d.rights_decision==='HOLD'){
+      h+='<div class="banner danger">Auditor 已签署不可变 HOLD；当前修订不得重复批准，需新修订重新审查。</div>';
+      if(role==='producer')h+=button('以新修订重新提交合成材料','v2Revise','primary','plus');
+    }else if(role==='auditor')h+='<label for="v2Evidence">合成权利审查证据（SYN- 开头）</label>'+
       '<input id="v2Evidence" class="input width-full" maxlength="160" placeholder="SYN-AUDIT-001"/>'+
       '<div class="hstack" style="margin-top:10px">'+button('核准合成用途','v2Approve','primary','check')+
       button('记录独立 HOLD','v2Hold','light','lock')+'</div>';
@@ -465,8 +468,9 @@ action=async function(act,node){
     return;
   }
   if(act==='v2Revise'){
-    if(!x?.live||role!=='producer'||x.status!=='QA_HOLD')
-      return toast('只能由 Producer 对 QA_HOLD 建立新修订。');
+    if(!x?.live||role!=='producer'||!(
+      x.status==='QA_HOLD'||(x.status==='RIGHTS_HOLD'&&flow.detail?.rights_decision==='HOLD')))
+      return toast('只有 QA REJECT 或独立权利 HOLD 的不可变来源可建立新修订。');
     const revisions=sources.filter(s=>s.live&&s.id===x.id).map(s=>/^r[0-9]+$/.test(s.rev)?Number(s.rev.slice(1)):0);
     const newRev='r'+(Math.max(0,...revisions)+1);
     state.modal='register';state.wizard=1;
@@ -618,7 +622,7 @@ action=async function(act,node){
   }
 
   function reset(){
-    flowClear();state.page='queue';state.selected=DEMO_SEED[0]?.id||'';state.selectedRev=DEMO_SEED[0]?.rev||'';state.search='';state.stage='';
+    flowClear();flow.receipts=[];state.page='queue';state.selected=DEMO_SEED[0]?.id||'';state.selectedRev=DEMO_SEED[0]?.rev||'';state.search='';state.stage='';
     state.project='';state.batch='';state.filter=false;state.wizard=1;state.modal='';
     state.versionTab='lineage';sources.splice(0,sources.length,...DEMO_SEED.map(x=>({...x})));
   }

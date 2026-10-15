@@ -200,17 +200,27 @@ async function readFlow(){
       flow.doc=doc;flow.original=original;flow.reviews=reviews;flow.translations=translations;
       if(flow.anchor&&!doc.document.units.some(u=>u.unit_id===flow.anchor.unit_id && u.unit_text_sha256===flow.anchor.unit_sha256)) flow.anchor=null;
     }else{flow.doc=flow.original=flow.reviews=flow.translations=null;}
+    let reworkFailure='';
     if(['producer','curator'].includes(actorRole())&&detail.status==='QA_HOLD'){
-      const redacted=await v2Api(url+'/rework');
-      if(ticket!==flow.token||sourceKey(selected())!==key)return;
-      flow.rework=redacted;
+      try{
+        const redacted=await v2Api(url+'/rework');
+        if(ticket!==flow.token||sourceKey(selected())!==key)return;
+        if(redacted.source_id!==x.id||redacted.revision_id!==x.rev||
+           redacted.source_status!==detail.status||redacted.original_text_exposed!==false||
+           redacted.findings_text_exposed!==false)
+          throw Error('REWORK_PROJECTION_CONTRACT_DRIFT');
+        flow.rework=redacted;
+      }catch(err){
+        if(ticket!==flow.token)return;
+        flow.rework=null;reworkFailure='脱敏返工读取失败（不可假定无问题）：'+err.message;
+      }
     }else flow.rework=null;
     if(actorRole()==='auditor'){
       const integrity=await v2Api('/v1/p2/audit');
       if(ticket!==flow.token||sourceKey(selected())!==key)return;
       flow.audit=integrity;
     }
-    if(ticket===flow.token){flow.notice='';if(app?.isConnected)render();}
+    if(ticket===flow.token){flow.notice=reworkFailure||'';if(app?.isConnected)render();}
   }catch(err){
     if(ticket!==flow.token)return;
     flow.notice='P2 服务端读取/版本校验失败：'+err.message;
@@ -242,13 +252,13 @@ function handoff(x){return '<p class="small subtle">在独立 Auditor / Curator 
   button('退出当前会话并转到独立审核','v2Handoff','light','shield');}
 function liveFlowPanel(){
   const x=selected();if(!x?.live)return '';
-  const d=flow.key===sourceKey(x)?flow.detail:null,role=actorRole();
+  const d=flow.key===sourceKey(x)?flow.detail:null,role=actorRole(),stage=d?.status||x.status;
   let h='<section class="card p2v2-lifecycle"><div class="card-head"><div class="card-title">'+ico('gear')+
     ' 来源生命周期 · 后端操作</div><div class="card-description">'+esc(x.id)+' / '+esc(x.rev)+
     ' · 当前角色 '+esc(role)+' · 所有状态均需服务器回执</div></div><div class="card-body">';
   if(flow.notice)h+='<div class="banner danger" role="alert">'+esc(flow.notice)+'</div>';
   if(!d){h+='<p>正在读取 SourceVersion 详情；未校验前不能操作。</p>';}
-  else if(x.status==='RIGHTS_HOLD'){
+  else if(stage==='RIGHTS_HOLD'){
     h+='<div class="banner warn">独立 Auditor 审核用途。合成核准不是真实版权许可。</div>';
     if(d.rights_decision==='HOLD'){
       h+='<div class="banner danger">Auditor 已签署不可变 HOLD；当前修订不得重复批准，需新修订重新审查。</div>';
@@ -258,11 +268,11 @@ function liveFlowPanel(){
       '<div class="hstack" style="margin-top:10px">'+button('核准合成用途','v2Approve','primary','check')+
       button('记录独立 HOLD','v2Hold','light','lock')+'</div>';
     else h+=handoff(x);
-  }else if(x.status==='RIGHTS_ACCEPTED'){
+  }else if(stage==='RIGHTS_ACCEPTED'){
     h+='<p>合成用途已核准，允许 Producer 发起确定性 Markdown/JATS/HTML 解析。</p>';
     if(role==='producer')h+=button('执行结构化转换','v2Convert','primary','gear');
     else h+='<div class="banner">等待 Producer 转换。</div>';
-  }else if(x.status==='QA_PENDING'){
+  }else if(stage==='QA_PENDING'){
     h+='<div class="banner">独立签署 '+esc(d.reviewed_units)+' / '+esc(d.unit_count)+' Unit；'+
       '未覆盖完整及存在 REJECT 时不可冻结。</div>';
     if(role==='curator')h+=button('进入服务端全文 QA','qa','primary','book');
@@ -271,7 +281,7 @@ function liveFlowPanel(){
         d.unit_count&&d.reviewed_units===d.unit_count?'':'disabled');
       h+=handoff(x);
     }else h+=handoff(x);
-  }else if(x.status==='QA_HOLD'){
+  }else if(stage==='QA_HOLD'){
     h+='<div class="banner danger">当前修订存在独立 Curator 的不可变 REJECT。仅可创建新的 SourceVersion；旧版不可覆盖、不可冻结。</div>';
     if(role==='producer'||role==='curator'){
       const issues=flow.rework?.issues||[];
@@ -285,7 +295,7 @@ function liveFlowPanel(){
     if(role==='producer')h+=button('基于当前来源建立返工修订','v2Revise','primary','plus');
     else if(role==='curator')h+=button('查看已签署 QA','qa','light','book');
     else h+=handoff(x);
-  }else if(x.status==='PACKAGE_FROZEN'){
+  }else if(stage==='PACKAGE_FROZEN'){
     h+='<div class="banner">SourcePackage 冻结：'+esc(d.package_sha256||'未找到回执')+
        ' · 不代表专家授权或 Gold。</div>';
     if(role==='producer'){

@@ -371,9 +371,18 @@ class SourceStudio:
             self.row(db,sid,rev)
             rows=db.execute("SELECT unit_id,actor,record FROM p2_reviews WHERE source_id=? AND revision_id=?",
                             (sid,rev)).fetchall()
+            # Only independently authenticated Curator receives span metadata.
+            # Original text is never echoed by the review-list endpoint;
+            # reconstruction/highlighting uses the separate authorized Document IR.
+            records=[json.loads(r["record"]) for r in rows]
             return {"source_id":sid,"revision_id":rev,
-                    "reviews":[{"unit_id":r["unit_id"],"decision":json.loads(r["record"])["decision"],
-                                "reviewer":r["actor"]} for r in rows],
+                    "reviews":[{"unit_id":r["unit_id"],"decision":v["decision"],
+                                "reviewer":r["actor"],"start_utf16":v["start_utf16"],
+                                "end_utf16":v["end_utf16"],
+                                "source_quote_sha256":v["source_quote_sha256"],
+                                "pdf_locator_status":v["pdf_locator_status"],
+                                "canonical_document_sha256":v["source_ref"]["canonical_document_sha256"]}
+                               for r,v in zip(rows,records)],
                     "total":len(rows),"original_text_exposed":False}
 
     def review(self,role,actor,sid,rev,body):

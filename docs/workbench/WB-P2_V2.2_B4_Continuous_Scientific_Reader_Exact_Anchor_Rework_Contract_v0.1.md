@@ -30,7 +30,7 @@ B3/V2.1 完成受控合成生命周期，B4 只补“可连续读、可精确核
 
 - 仅 **Producer/Curator** 能 GET 返工摘要；Manager、Auditor、EA Expert/Agent 返回 403。Producer 对 `/original`、`/document`、`/reviews` 仍无权。
 - 返工列表从现有不可变 `p2_reviews` 计算，不建立可修改的第二套 Issue 状态机；旧版本 REJECT/QA_HOLD、原 Raw SHA 和 Document SHA 不可覆盖。
-- Producer 必须显式提供**新的合成原文**生成 `r2`，并走独立 Auditor 再审、Parser、Curator 全 Unit QA、Producer Freeze。可选 UnitID 仅用于问题分类定位，不代表 Producer 获得 Curator 原文访问。
+- Producer 必须显式提供**新的合成原文**生成 `r2`，并走独立 Auditor 再审、Parser、Curator 全 Unit QA、Producer Freeze。服务端校验父 SourceVersion 与当前 Source ID 相同、父版本实际存在且处于不可变 QA REJECT 或已签署 Rights HOLD、rN 修订递增一位且新原件 SHA 不等于旧版；伪造父版本、跳号或原样重复注册都会拒绝。可选 UnitID 仅用于问题分类定位，不代表 Producer 获得 Curator 原文访问。
 - Audit 和 `SourcePackage` 仍采用原权威 append-only 事件链及冻结机制。受控类别无法全面表达返工原因是当前刻意的安全边界；复杂情况需要另行签署更细的授权交接通道，不能静默披露自由文本。
 
 ## 3. E2E / Kill Tests

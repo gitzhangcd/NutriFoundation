@@ -224,6 +224,41 @@ def test_p2_rejected_qa_cannot_auto_freeze(app):
     assert producer.post(f"/v1/p2/sources/{sid}/r1/scope",headers=ph,json={
         "project_id":"PRJ-SYN-P2-TEST","batch_id":"BATCH-SYN-P2-TEST"}).status_code==409
 
+def test_p2_utf16_non_bmp_exact_subspan_and_untrusted_rework_reason(app):
+    sid="P2-SYN-UNICODE-ANCHOR"
+    raw="# Synthetic Unicode anchor" + chr(10)*2 + "Dose 😀 12.4 mg/day was reported."
+    producer,ph,auditor,ah,curator,ch,doc=converted(app,sid,raw=raw)
+    u=next(x for x in doc["document"]["units"] if "😀" in x["text"])
+    quote="😀 12.4"
+    start=len("Dose ".encode("utf-16-le"))//2
+    end=start+len(quote.encode("utf-16-le"))//2
+    assert u["text"].index("😀")==start
+    assert end-start>len(quote)  # emoji spans two UTF-16 code units
+    decision={"unit_id":u["unit_id"],"decision":"REJECT",
+        "start_utf16":start,"end_utf16":end,
+        "source_quote":quote,
+        "source_quote_sha256":hashlib.sha256(quote.encode("utf-8")).hexdigest(),
+        "pdf_locator_status":u["pdf_locator_status"],
+        "findings":{"rework_reason_code":["INJECTED","NOT_A_STRING"],
+                    "notes":"Curator private content, never producer projection"}}
+    accepted=curator.post(f"/v1/p2/sources/{sid}/r1/qa",headers=ch,json=decision)
+    assert accepted.status_code==200,accepted.text
+    record=accepted.json()["review"]
+    assert (record["start_utf16"],record["end_utf16"])==(start,end)
+    again=curator.get(f"/v1/p2/sources/{sid}/r1/reviews")
+    assert again.status_code==200
+    rv=next(x for x in again.json()["reviews"] if x["unit_id"]==u["unit_id"])
+    assert rv["start_utf16"]==start and rv["end_utf16"]==end
+    assert rv["source_quote_sha256"]==decision["source_quote_sha256"]
+    assert quote not in again.text
+    handoff=producer.get(f"/v1/p2/sources/{sid}/r1/rework")
+    assert handoff.status_code==200
+    assert handoff.json()["issues"][0]["reason_code"]=="OTHER"
+    assert quote not in handoff.text
+    assert "Curator private content" not in handoff.text
+    assert producer.get(f"/v1/p2/sources/{sid}/r1/reviews").status_code==403
+
+
 def test_p2_rework_handoff_redacts_curator_findings_for_producer(app):
     sid="P2-SYN-REWORK-HANDOFF"
     producer,ph,auditor,ah,curator,ch,doc=converted(app,sid)

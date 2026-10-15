@@ -211,10 +211,8 @@ async function flowWrite(action,endpoint,body,ok){
   }catch(err){flow.notice=action+' 被拒绝：'+err.message;render();toast(flow.notice);}
   finally{flow.busy=false;}
 }
-function handoff(x){return '<p class="small subtle">在独立 Auditor / Curator 页面以对应账户登录。该操作不能自动提升管理账号权限。</p>'+
-  button('退出当前管理会话并进入独立审核','v2Handoff','light','shield')+
-  '<span class="p2v2-handoff-target" hidden data-handoff-source="'+esc(x.id)+'" data-handoff-rev="'+esc(x.rev)+'"></span><!-- /source-qa#/studio-v2?source='+encodeURIComponent(x.id)+
-  '&revision='+encodeURIComponent(x.rev)+' -->';}
+function handoff(x){return '<p class="small subtle">在独立 Auditor / Curator 页面以对应账户登录。该操作会明确退出当前管理会话，不会绕过角色隔离。</p>'+
+  button('退出当前会话并转到独立审核','v2Handoff','light','shield');}
 function liveFlowPanel(){
   const x=selected();if(!x?.live)return '';
   const d=flow.key===sourceKey(x)?flow.detail:null,role=actorRole();

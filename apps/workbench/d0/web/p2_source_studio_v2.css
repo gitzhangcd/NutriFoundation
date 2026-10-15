@@ -63,3 +63,6 @@
   #workspace .p2v2 .p2v2-server-reader .reader-center .paper{padding:16px}
   #workspace .p2v2 .p2v2-lifecycle .hstack{flex-wrap:wrap}
 }
+#workspace .p2v2 .p2v2-workflow-sidebar{display:flex;flex-direction:column;gap:12px;min-width:0}
+#workspace .p2v2 .p2v2-workflow-sidebar .p2v2-lifecycle{margin:0}
+#workspace .p2v2 .p2v2-workflow-sidebar .detail{min-width:0;max-width:none}

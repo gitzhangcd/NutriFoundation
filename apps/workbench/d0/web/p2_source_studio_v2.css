@@ -27,3 +27,39 @@
 #workspace .p2v2 #p2v2Overlay{position:fixed;inset:0;z-index:80;pointer-events:none}
 #workspace .p2v2 #p2v2Overlay:not(:empty){pointer-events:auto}
 #workspace .p2v2 #p2v2ToastHolder{position:fixed;right:18px;bottom:18px;z-index:90;display:grid;gap:8px}
+
+/* WB-P2-V2.1-P1: role-isolated P2 operations and scoped Curator reading. */
+#workspace .p2v2 .p2v2-lifecycle{margin:14px 0}
+#workspace .p2v2 .p2v2-lifecycle .card-body{display:block}
+#workspace .p2v2 .p2v2-lifecycle .kv dd{overflow-wrap:anywhere}
+#workspace .p2v2 .p2v2-server-reader{margin-top:12px}
+#workspace .p2v2 .p2v2-server-reader .reader-left{max-height:710px;overflow-y:auto}
+#workspace .p2v2 .p2v2-server-reader .toc{gap:5px;margin-top:13px}
+#workspace .p2v2 .p2v2-unit-nav{
+  display:block;text-align:left;width:100%;border:1px solid #e0eae6;
+  border-radius:8px;padding:10px;line-height:1.5;background:#f9fcfa;
+  color:#43665a;font-size:12px;overflow-wrap:anywhere;cursor:pointer
+}
+#workspace .p2v2 .p2v2-unit-nav.active{background:#e6f4ec;border-color:#78b99a;font-weight:750;color:#165c46}
+#workspace .p2v2 .p2v2-original{
+  white-space:pre-wrap;overflow-wrap:anywhere;overflow-x:auto;max-height:270px;
+  padding:12px;background:#f5f8f6;border:1px solid #e1eae5;border-radius:8px;
+  color:#314e46;font:12px/1.8 ui-monospace,SFMono-Regular,monospace
+}
+#workspace .p2v2 .p2v2-server-reader .paper{max-width:none;padding:24px 30px}
+#workspace .p2v2 .p2v2-server-reader .reader-right .kv dd{overflow-wrap:anywhere}
+@media(max-width:1520px){
+  /* Eight queue columns must have readable title widths at 1440px;
+     move the details under the list instead of squeezing the title to 1 word. */
+  #workspace .p2v2 .workgrid{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:1150px){
+  #workspace .p2v2 .p2v2-server-reader{grid-template-columns:minmax(160px,.32fr) minmax(0,.68fr)}
+  #workspace .p2v2 .p2v2-server-reader .reader-right{grid-column:1/-1}
+}
+@media(max-width:680px){
+  #workspace .p2v2 .p2v2-server-reader{grid-template-columns:1fr}
+  #workspace .p2v2 .p2v2-server-reader .reader-left{max-height:185px}
+  #workspace .p2v2 .p2v2-server-reader .reader-center .paper{padding:16px}
+  #workspace .p2v2 .p2v2-lifecycle .hstack{flex-wrap:wrap}
+}

@@ -174,12 +174,12 @@ function auditPage(){if(v2DeepLink&&v2DeepLink.status!=='CONFIRMED')return '<div
 /* V2.1-P1: signed synthetic lifecycle uses existing server role gates.
  * D0 /manage=producer|manager; /source-qa=independent curator|auditor. */
 const flow={key:'',detail:null,doc:null,original:null,reviews:null,translations:null,audit:null,
-  notice:'',busy:false,unit:0,token:0,receipts:[]};
+  notice:'',busy:false,unit:0,token:0,receipts:[],anchor:null,bilingual:true,visible:35,rework:null};
 const actorRole=()=>liveMeta.role||liveMeta.session?.role||'';
 const sourceKey=x=>x?.live?x.id+':'+x.rev:'';
 const sourceUrl=x=>'/v1/p2/sources/'+encodeURIComponent(x.id)+'/'+encodeURIComponent(x.rev);
 function flowClear(){++flow.token;flow.key='';flow.detail=flow.doc=flow.original=flow.reviews=
-  flow.translations=flow.audit=null;flow.notice='';flow.unit=0;}
+  flow.translations=flow.audit=flow.rework=null;flow.notice='';flow.unit=0;flow.anchor=null;flow.visible=35;}
 async function readFlow(){
   const x=selected(),key=sourceKey(x);
   if(!key){flowClear();return;}
@@ -198,14 +198,19 @@ async function readFlow(){
         original.raw_artifact_sha256!==detail.raw_artifact_sha256)
         throw Error('SOURCE_SHA_OR_DOCUMENT_DRIFT');
       flow.doc=doc;flow.original=original;flow.reviews=reviews;flow.translations=translations;
+      if(flow.anchor&&!doc.document.units.some(u=>u.unit_id===flow.anchor.unit_id && u.unit_text_sha256===flow.anchor.unit_sha256)) flow.anchor=null;
     }else{flow.doc=flow.original=flow.reviews=flow.translations=null;}
+    if(['producer','curator'].includes(actorRole())&&detail.status==='QA_HOLD')
+      flow.rework=await v2Api(url+'/rework');
+    else flow.rework=null;
     if(actorRole()==='auditor')flow.audit=await v2Api('/v1/p2/audit');
     if(ticket===flow.token){flow.notice='';if(app?.isConnected)render();}
   }catch(err){
     if(ticket!==flow.token)return;
     flow.notice='P2 服务端读取/版本校验失败：'+err.message;
     // A stale detail snapshot must never authorize a new action after read error.
-    flow.detail=flow.audit=flow.doc=flow.original=flow.reviews=flow.translations=null;
+    flow.detail=flow.audit=flow.doc=flow.original=flow.reviews=flow.translations=flow.rework=null;
+    flow.anchor=null;
     if(app?.isConnected)render();
   }
 }

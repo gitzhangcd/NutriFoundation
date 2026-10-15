@@ -224,6 +224,45 @@ def test_p2_rejected_qa_cannot_auto_freeze(app):
     assert producer.post(f"/v1/p2/sources/{sid}/r1/scope",headers=ph,json={
         "project_id":"PRJ-SYN-P2-TEST","batch_id":"BATCH-SYN-P2-TEST"}).status_code==409
 
+def test_p2_rework_handoff_redacts_curator_findings_for_producer(app):
+    sid="P2-SYN-REWORK-HANDOFF"
+    producer,ph,auditor,ah,curator,ch,doc=converted(app,sid)
+    unit=doc["document"]["units"][1]
+    quote=unit["text"]
+    sensitive="NEVER_DISCLOSE_PRIVATE_CURATOR_NOTE_837"
+    body={"unit_id":unit["unit_id"],"decision":"REJECT","start_utf16":0,
+          "end_utf16":unit["utf16_length"],"source_quote":quote,
+          "source_quote_sha256":hashlib.sha256(quote.encode()).hexdigest(),
+          "pdf_locator_status":unit["pdf_locator_status"],
+          "findings":{"rework_reason_code":"NUMERIC_MISMATCH",
+                      "notes":sensitive,"original_excerpt":quote}}
+    sent=curator.post(f"/v1/p2/sources/{sid}/r1/qa",headers=ch,json=body)
+    assert sent.status_code==200,sent.text
+    endpoint=f"/v1/p2/sources/{sid}/r1/rework"
+    handoff=producer.get(endpoint)
+    assert handoff.status_code==200,handoff.text
+    data=handoff.json()
+    assert data["source_status"]=="QA_HOLD"
+    assert data["count"]==1
+    assert data["issues"][0]["unit_id"]==unit["unit_id"]
+    assert data["issues"][0]["reason_code"]=="NUMERIC_MISMATCH"
+    assert data["issues"][0]["resolution"]=="NEW_REVISION_REQUIRED"
+    assert len(data["issues"][0]["issue_ref"])==64
+    assert data["original_text_exposed"] is False
+    assert data["findings_text_exposed"] is False
+    assert sensitive not in handoff.text and quote not in handoff.text
+    assert producer.get(endpoint).json()==data
+    assert curator.get(endpoint).status_code==200
+    assert auditor.get(endpoint).status_code==403
+    manager,_=login(app,"manager")
+    assert manager.get(endpoint).status_code==403
+    expert,_=login(app,"ea1")
+    assert expert.get(endpoint).status_code==403
+    assert producer.get(f"/v1/p2/sources/{sid}/r1/original").status_code==403
+    assert producer.get(f"/v1/p2/sources/{sid}/r1/document").status_code==403
+    assert app.state.p2_source_studio.audit("auditor")["valid"] is True
+
+
 def test_p2_rejected_unit_rework_is_new_signed_revision_not_mutation(app):
     """V2.1-P1 rollback/rework never alters r1's immutable rejected evidence."""
     sid="P2-SYN-REWORK-REVISION"

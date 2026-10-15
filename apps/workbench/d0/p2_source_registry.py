@@ -444,8 +444,11 @@ class SourceStudio:
                 code=findings.get("rework_reason_code","OTHER")
                 if not isinstance(code,str) or code not in categories:code="OTHER"
                 issues.append({"unit_id":item["unit_id"],"reason_code":code,
-                    "issue_ref":sha({"source_id":sid,"revision_id":rev,
-                                     "unit_id":item["unit_id"],"review_record_sha256":sha(record)}),
+                    # Deterministic ID derives only from non-sensitive immutable keys,
+                    # never a digest of private quote or free-text Curator findings.
+                    "issue_ref":sha({"scope":"P2_SYNTHETIC_REJECT_HANDOFF_V1",
+                                     "source_id":sid,"revision_id":rev,
+                                     "unit_id":item["unit_id"],"decision":"REJECT"}),
                     "resolution":"NEW_REVISION_REQUIRED","immutable":True})
             return {"source_id":sid,"revision_id":rev,"source_status":row["status"],
                 "issues":issues,"count":len(issues),"synthetic_only":True,

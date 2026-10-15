@@ -442,7 +442,7 @@ class SourceStudio:
                 if record["decision"]!="REJECT":continue
                 findings=record.get("findings",{})
                 code=findings.get("rework_reason_code","OTHER")
-                if code not in categories or not isinstance(code,str):code="OTHER"
+                if not isinstance(code,str) or code not in categories:code="OTHER"
                 issues.append({"unit_id":item["unit_id"],"reason_code":code,
                     "issue_ref":sha({"source_id":sid,"revision_id":rev,
                                      "unit_id":item["unit_id"],"review_record_sha256":sha(record)}),

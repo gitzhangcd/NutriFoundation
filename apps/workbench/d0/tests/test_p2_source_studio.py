@@ -312,6 +312,19 @@ def test_p2_rejected_unit_rework_is_new_signed_revision_not_mutation(app):
         "findings":{"reason":"SYNTHETIC_REWORK_REQUIRED"}}
     assert curator.post(f"/v1/p2/sources/{sid}/r1/qa",headers=ch,json=rejected).status_code==200
     assert producer.get(f"/v1/p2/sources/{sid}/r1").json()["status"]=="QA_HOLD"
+    # Server-side lineage proofs: no forged parent, no identical raw reuse,
+    # and no hidden overwrite of the rejected r1.
+    forged={**record(sid),"revision_id":"r2",
+            "raw_content":"# Forged line\n\nA non-existent parent is not a rework.",
+            "source_family_refs":["P2-SYN-FAKE-PARENT:r1"]}
+    assert producer.post("/v1/p2/sources",headers=ph,json=forged).status_code==409
+    same_raw={**record(sid),"revision_id":"r2",
+              "source_family_refs":[f"{sid}:r1"]}
+    assert producer.post("/v1/p2/sources",headers=ph,json=same_raw).status_code==409
+    wrong_rank={**record(sid),"revision_id":"r3",
+                "raw_content":"# Invalid rank\n\nNever skip the parent revision.",
+                "source_family_refs":[f"{sid}:r1"]}
+    assert producer.post("/v1/p2/sources",headers=ph,json=wrong_rank).status_code==409
     revision={**record(sid), "revision_id":"r2",
         "raw_content":"# Corrected synthetic source\n\nRevised synthetic evidence has an explicit scope.\n\nNew table value: 13.4.",
         "source_family_refs":[f"{sid}:r1"]}

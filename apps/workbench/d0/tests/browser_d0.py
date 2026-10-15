@@ -573,6 +573,78 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(p.locator('#p2v2App .detail')).to_contain_text('待用途审核')
     checks.append('p2_v2_p0_only_backend_is_persisted_and_producer_raw_required')
     p.screenshot(path=str(output/'p2-v2-p0-persisted-producer-1440.png'),full_page=False)
+    # V2.1-P1: complete a NEW source from the V2 UI with separate real
+    # synthetic accounts. Legacy P2 coverage above must continue to pass.
+    latest=producer_context.request.get(url+'/v1/p2/sources').json()['sources']
+    newer=[item for item in latest if item['source_id']!=source_id]
+    assert len(newer)==1,newer
+    v2_id=newer[0]['source_id']
+    expect(p.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('来源生命周期',timeout=20000)
+    assert producer_context.request.get(url+'/v1/p2/sources/'+v2_id+'/r1/original').status==403
+    # Independent Auditor enters the SAME V2 work surface via /source-qa,
+    # preserving the backend role and never using Manager/Producer privileges.
+    a2ctx=browser.new_context(viewport={'width':1440,'height':950})
+    a2=a2ctx.new_page()
+    a2.on('pageerror',lambda e:errors.append('P2V2AUDITOR: '+str(e)))
+    a2.goto(url+'/source-qa#/studio-v2?source='+v2_id+'&revision=r1')
+    a2.locator('#p2Username').fill('auditor')
+    a2.locator('#p2Password').fill(credentials['accounts']['auditor']['password'])
+    a2.locator('#p2LoginForm button[type="submit"]').click()
+    expect(a2.locator('#p2v2App')).to_be_visible(timeout=20000)
+    expect(a2.locator('#v2Evidence')).to_be_visible(timeout=25000)
+    assert a2ctx.request.get(url+'/v1/p2/sources/'+v2_id+'/r1/original').status==403
+    a2.locator('#v2Evidence').fill('SYN-V2-INDEPENDENT-AUDIT')
+    a2.locator('[data-act="v2Approve"]').click()
+    expect(a2.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('RIGHTS',timeout=20000)
+    assert a2ctx.request.get(url+'/v1/p2/sources/'+v2_id+'/r1').json()['status']=='RIGHTS_ACCEPTED'
+    a2.locator('#p2v2App [data-page="audit"]').click()
+    expect(a2.locator('#p2v2App')).to_contain_text('Auditor 全局 Hash Chain',timeout=20000)
+    expect(a2.locator('#p2v2App')).to_contain_text('VALID')
+    a2.screenshot(path=str(output/'p2-v2-p1-auditor-rights-1440.png'),full_page=False)
+    a2ctx.close()
+    # Producer reads the actual approved revision and converts in V2.
+    p.evaluate('window.p2SourceStudioV2.reload()')
+    expect(p.locator('#p2v2App [data-act="v2Convert"]')).to_be_visible(timeout=20000)
+    p.locator('#p2v2App [data-act="v2Convert"]').click()
+    expect(p.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('独立签署',timeout=20000)
+    assert producer_context.request.get(url+'/v1/p2/sources/'+v2_id+'/r1').json()['status']=='QA_PENDING'
+    # Independent Curator reads original and matching canonical IR in V2;
+    # acceptance hashes/UTF-16 spans are calculated, not mock preview state.
+    c2ctx=browser.new_context(viewport={'width':1440,'height':950})
+    c2=c2ctx.new_page()
+    c2.on('pageerror',lambda e:errors.append('P2V2CURATOR: '+str(e)))
+    c2.goto(url+'/source-qa#/studio-v2?source='+v2_id+'&revision=r1')
+    c2.locator('#p2Username').fill('p2curator')
+    c2.locator('#p2Password').fill(credentials['accounts']['p2curator']['password'])
+    c2.locator('#p2LoginForm button[type="submit"]').click()
+    expect(c2.locator('#p2v2App .p2v2-server-reader')).to_be_visible(timeout=25000)
+    expect(c2.locator('#p2v2App .p2v2-original')).to_contain_text('Synthetic authored record')
+    actual_units=c2.locator('#p2v2App [data-v2unit]').count()
+    assert actual_units>=2,actual_units
+    c2.locator('#p2v2App #v2TranslateText').fill('独立 Curator 编写的仅供合成验收的辅助译文。')
+    c2.locator('#p2v2App [data-act="v2Translate"]').click()
+    expect(c2.locator('#p2v2App .translation-block')).to_contain_text('独立 Curator 编写',timeout=20000)
+    for idx in range(actual_units):
+        c2.locator('#p2v2App [data-v2unit]').nth(idx).click()
+        expect(c2.locator('#p2v2App [data-act="v2Accept"]')).to_be_visible()
+        c2.locator('#p2v2App [data-act="v2Accept"]').click()
+        expect(c2.locator('#p2v2App .reader-meta')).to_contain_text(str(idx+1)+' / '+str(actual_units),timeout=25000)
+        items=c2ctx.request.get(url+'/v1/p2/sources/'+v2_id+'/r1/reviews').json()
+        assert items['total']==idx+1,items
+    expect(c2.locator('#p2v2App .reader-meta')).to_contain_text(str(actual_units)+' / '+str(actual_units))
+    c2.screenshot(path=str(output/'p2-v2-p1-curator-qa-1440.png'),full_page=False)
+    c2ctx.close()
+    # Producer can now freeze only the exact document SHA; refresh reloads
+    # the server state instead of preserving a browser-local success flag.
+    p.evaluate('window.p2SourceStudioV2.reload()')
+    expect(p.locator('#p2v2App [data-act="v2Freeze"]')).to_be_enabled(timeout=25000)
+    p.locator('#p2v2App [data-act="v2Freeze"]').click()
+    expect(p.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('SourcePackage 冻结',timeout=25000)
+    frozen=producer_context.request.get(url+'/v1/p2/sources/'+v2_id+'/r1').json()
+    assert frozen['status']=='PACKAGE_FROZEN' and frozen['package_sha256'],frozen
+    assert frozen['expert_exposure_authorized'] is False
+    checks.append('p2_v2_1_independent_auditor_producer_curator_qa_translation_freeze_exact_server_roundtrip')
+    p.screenshot(path=str(output/'p2-v2-p1-frozen-source-1440.png'),full_page=False)
     p.locator('[data-p11-route="studio"]').click()
     checks.extend(['p2_studio_same_pr36_management_shell','p2_studio_metadata_only_source_preview',
                    'p2_four_step_wizard_synthetic_only_admission','p2_reader_mock_unit_qa_block',

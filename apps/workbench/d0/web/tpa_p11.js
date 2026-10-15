@@ -22,8 +22,8 @@
   let loadingPromise=null,reloadRequested=false;
   // Explicit opt-in allows the original P1 controller to retain its old fallback routes.
   window.opsA5Enabled=true;
-  const routes=['overview','projects','tasks','sources','studio','agent','experts','quality','audit'];
-  const labels={overview:'工作总览',projects:'项目与批次',tasks:'任务中心',sources:'B1 合成来源引用',studio:'科学资料',agent:'Agent 准备',experts:'专家与分配',quality:'进度与质控',audit:'审计与导出'};
+  const routes=['overview','projects','tasks','sources','studio','studio-v2','agent','experts','quality','audit'];
+  const labels={overview:'工作总览',projects:'项目与批次',tasks:'任务中心',sources:'B1 合成来源引用',studio:'科学资料','studio-v2':'科学资料管理 V2',agent:'Agent 准备',experts:'专家与分配',quality:'进度与质控',audit:'审计与导出'};
   const metric={preparing:'准备中',ready:'待分配',assigned:'已分配未发布',published:'已发布',revoked:'已撤销',blocked:'历史阻断'};
   // Demo status copy (P1.1-A Management Demo); English enum retained in DOM for acceptance checks.
   const stateLabel={DRAFT:'草稿待核验',VALIDATED:'定义已验证',DEFINITION_FROZEN:'定义已冻结',READY_FOR_ASSIGNMENT:'工作包已准备',ASSIGNED:'已分配待发布',PUBLISHED:'已发布可访问',REVOKED:'后续访问已撤销'};
@@ -561,7 +561,7 @@
     }
     $p('p11SectionTitle').textContent=labels[active];
     if(active!=='tasks')setWizardOpen(false);
-    if(separate){clear($p('p11View'));$p('p11View').append(active==='overview'?renderOverview():active==='projects'?renderProjects():active==='sources'?renderSourceLibrary():active==='studio'&&window.p2SourceStudio?window.p2SourceStudio.render({role:role(),scope:{project,batch},projects,batchMap}):active==='agent'&&window.opsB2Render?window.opsB2Render():active==='experts'&&window.opsB3Render?window.opsB3Render():renderPlaceholder());}
+    if(separate){clear($p('p11View'));$p('p11View').append(active==='overview'?renderOverview():active==='projects'?renderProjects():active==='sources'?renderSourceLibrary():active==='studio'&&window.p2SourceStudio?window.p2SourceStudio.render({role:role(),scope:{project,batch},projects,batchMap}):active==='studio-v2'&&window.p2SourceStudioV2?window.p2SourceStudioV2.render({role:role(),scope:{project,batch},projects,batchMap}):active==='agent'&&window.opsB2Render?window.opsB2Render():active==='experts'&&window.opsB3Render?window.opsB3Render():renderPlaceholder());}
     else{renderTaskToolbar();renderSelector();renderWizard();}
   }
   function go(view){

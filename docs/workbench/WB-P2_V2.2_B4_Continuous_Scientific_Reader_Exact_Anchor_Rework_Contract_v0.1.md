@@ -25,7 +25,7 @@ B3/V2.1 完成受控合成生命周期，B4 只补“可连续读、可精确核
 | `source_id, revision_id, source_status` | 精确服务器版本状态 | 自动替换其他修订 |
 | `issues[]` | `unit_id`, `reason_code`, `issue_ref`, `resolution=NEW_REVISION_REQUIRED`, `immutable=true` | 原文、quote、自由文本备注、译文正文 |
 | `reason_code` | 受控类别：STRUCTURE_GAP、NUMERIC_MISMATCH、ANCHOR_MISMATCH、OMITTED_CONTENT、TRANSLATION_DISCREPANCY、OTHER | 用户自填自由文本直通 Producer |
-| `issue_ref` | SourceVersion、UnitID、不可变 QA Record 指纹的 SHA-256 | 可还原原文的摘要字段拼接 |
+| `issue_ref` | SourceVersion、UnitID 与固定 REJECT 决策标签等非敏感不可变标识的 SHA-256（不哈希原文或自由备注） | 可还原原文的摘要字段拼接 |
 | 响应资格 | `synthetic_only=true`, `original_text_exposed=false`, `expert_exposure_authorized=false` | 正式证据/Gold/专家授权 |
 
 - 仅 **Producer/Curator** 能 GET 返工摘要；Manager、Auditor、EA Expert/Agent 返回 403。Producer 对 `/original`、`/document`、`/reviews` 仍无权。

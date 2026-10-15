@@ -120,6 +120,11 @@ def install_p2_source_routes(app:FastAPI,studio:SourceStudio):
         p=person(request)
         return studio.review(p["role"],p["actor"],source_id,revision_id,payload(Review,body))
 
+    @app.get("/v1/p2/sources/{source_id}/{revision_id}/rework")
+    def rework(source_id:str,revision_id:str,request:Request):
+        p=person(request)
+        return studio.rework_handoff(p["role"],source_id,revision_id)
+
     @app.get("/v1/p2/sources/{source_id}/{revision_id}/translations")
     def translations(source_id:str,revision_id:str,request:Request):
         p=person(request)

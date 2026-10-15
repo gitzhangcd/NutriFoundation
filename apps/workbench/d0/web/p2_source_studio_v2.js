@@ -39,6 +39,7 @@ const DEMO_SEED=sources.map(x=>({...x,sourceType:'DEMO',live:false,
   rights:'NOT_ELIGIBLE',raw:'',doc:'',package:'',project:'',batch:'',qa:0}));
 sources.splice(0,sources.length,...DEMO_SEED.map(x=>({...x})));
 let liveMeta={role:'manager',session:null,projects:[],batchMap:new Map(),scope:{project:'',batch:''},notice:''};
+let sourcesEpoch=0; // invalidates stale async metadata reads across logout/scope changes
 function v2Api(path,opts={}){
   const headers={'Accept':'application/json'};
   if(opts.body!==undefined)headers['Content-Type']='application/json';
@@ -65,6 +66,7 @@ function mapLive(x){
     raw_format:x.raw_format||'MARKDOWN'};
 }
 async function reloadLive(){
+  const epoch=++sourcesEpoch;
   try{
     const p=new URLSearchParams({limit:'100',offset:'0'});
     if(state.project)p.set('project_id',state.project);
@@ -76,6 +78,7 @@ async function reloadLive(){
       const next=await v2Api('/v1/p2/sources?'+p);if(!next.sources?.length)break;
       rows=rows.concat(next.sources);offset=rows.length;
     }
+    if(epoch!==sourcesEpoch)return;
     const live=rows.map(mapLive);
     const demos=DEMO_SEED.map(x=>({...x}));
     sources.splice(0,sources.length,...live,...demos);
@@ -89,6 +92,7 @@ async function reloadLive(){
     liveMeta.notice=v2DeepLink?.status==='DENIED'?
       'Deep link SourceVersion 不存在或当前角色无权访问；没有选择其他版本替代。':'';
   }catch(err){
+    if(epoch!==sourcesEpoch)return;
     // Fail visibly. Never retain a previously loaded source as if fresh.
     liveMeta.notice='P2 后端读取失败，当前只显示 DEMO：'+err.message;
     if(v2DeepLink)v2DeepLink.status='DENIED';
@@ -97,7 +101,7 @@ async function reloadLive(){
       state.selected=sources[0].id;state.selectedRev=sources[0].rev;
     }
   }
-  if(app?.isConnected){await readFlow();render();}
+  if(epoch===sourcesEpoch&&app?.isConnected){await readFlow();render();}
 }
 
 function tag(text,cls='dark'){return `<span class="tag ${cls}">${esc(text)}</span>`}
@@ -636,7 +640,7 @@ action=async function(act,node){
   function reset(){
     // No stale source text, original/IR or signed receipt in hidden DOM after
     // independent Curator logout or account switching.
-    flowClear();flow.busy=false;flow.receipts=[];v2DeepLink=null;
+    ++sourcesEpoch;flowClear();flow.busy=false;flow.receipts=[];v2DeepLink=null;
     app?.replaceChildren();overlay?.replaceChildren();
     liveMeta.role='manager';liveMeta.session=null;liveMeta.notice='';
     state.form={title:'',kind:'系统综述',identifier:'',year:'',project:'',batch:'',note:'',raw:''};state.qaLocal={};

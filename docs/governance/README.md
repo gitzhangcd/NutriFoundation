@@ -46,3 +46,14 @@
 ### GOV-0.4-P0 权威版本修订 0.1.1｜2026-10-13
 
 **重要裁决：SIS-MED 的当前临床营养权威只能使用 `SIS-MED v0.3.1 R6 P0.4`。** `SIS-Med R5-L1` 只能用于历史对比，不再计入当前临床科学规范符合性。R6 P0.4 的精确原始文件尚未恢复，因此临床 R6 条款级验证标记 `NOT_ASSESSED`，不得以 R5-L1 对照结果声称 R6 PASS。详情见 [修订后的审计报告](GOV-0.4-P0_Nutrition_Foundation_Three_Master_Conformance_Report_v0.1.md) 及 [15 轴矩阵](GOV-0.4-P0_NDSF_Three_Master_Static_Conformance_Matrix_v0.1.json)。
+
+
+---
+
+## DOC-GOV v1.0｜统一导航与权威版本登记（2026-10-15，新候选分支）
+
+[DOC-GOV 规范收敛工作包](DOC-GOV_v1.0_Documentation_Convergence_Master.md) · [机器版本权威登记](DOC-GOV_v1.0_Canonical_Authority_Registry.json) · [PR #46 与 #48 跨分支全路径快照](DOC-GOV_v1.0_Cross_Branch_Inventory.json) · [文档总入口](../README.md)。
+
+**新证据与历史记录需并存**：2026-10-15 对当前会话所提供 SIS R5、SIS-MED R6 P0.4 和 Nutrition Foundation v0.1 Master 进行了独立字节/SHA-256 校验，三个目标值分别匹配 181565/3e1da、61116/f851、145696/81426。早期 GOV-0.2/0.3 报告描述的是 2026-10-13 当时未找回 R5/R6 目标原件的状态；不可改写旧报告，也**不可将对话附件匹配解释为私有权威原件已正式归档、科学 owner 签署、临床条款级符合性 PASS**。
+
+本轮 DOC-GOV 的工程进度独立于 Workbench [Issue #42](https://github.com/gitzhangcd/NutriFoundation/issues/42) 的 7/25：只做入口、机器登记和治理 CI，不改 `runs/**` / `src/**`。

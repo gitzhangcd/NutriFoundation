@@ -1,0 +1,37 @@
+name: DOC-GOV documentation integrity
+on:
+  pull_request:
+    paths:
+      - "README.md"
+      - "docs/**"
+      - "scripts/check_doc_governance.py"
+      - ".github/workflows/doc-governance.yml"
+  push:
+    paths:
+      - "README.md"
+      - "docs/**"
+      - "scripts/check_doc_governance.py"
+      - ".github/workflows/doc-governance.yml"
+jobs:
+  document_integrity:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Registry, sha pins and navigation links
+        run: python3 scripts/check_doc_governance.py
+      - name: Scientific/source paths remain unchanged in this PR
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch origin "$BASE_REF"
+          CHANGED="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
+          printf '%s\n' "$CHANGED"
+          if printf '%s\n' "$CHANGED" | grep -E '^(runs/|src/|apps/|01_Scientific_World/|fixtures/)' ; then
+            echo 'ERROR: DOC-GOV pull request modifies protected scientific/engineering/runtime paths.'
+            exit 1
+          fi

@@ -212,8 +212,9 @@ async function flowWrite(action,endpoint,body,ok){
   finally{flow.busy=false;}
 }
 function handoff(x){return '<p class="small subtle">在独立 Auditor / Curator 页面以对应账户登录。该操作不能自动提升管理账号权限。</p>'+
-  '<a class="btn light" href="/source-qa#/studio-v2?source='+encodeURIComponent(x.id)+
-  '&revision='+encodeURIComponent(x.rev)+'" rel="noopener">'+ico('shield','sm')+'进入独立审核 ↗</a>';}
+  button('退出当前管理会话并进入独立审核','v2Handoff','light','shield')+
+  '<span class="p2v2-handoff-target" hidden data-handoff-source="'+esc(x.id)+'" data-handoff-rev="'+esc(x.rev)+'"></span><!-- /source-qa#/studio-v2?source='+encodeURIComponent(x.id)+
+  '&revision='+encodeURIComponent(x.rev)+' -->';}
 function liveFlowPanel(){
   const x=selected();if(!x?.live)return '';
   const d=flow.key===sourceKey(x)?flow.detail:null,role=actorRole();
@@ -318,7 +319,7 @@ function signedAuditPage(x){
   const last=flow.receipts.filter(r=>r.key===sourceKey(x));
   const audit=actorRole()==='auditor'?flow.audit:null;
   return '<div class="banner warn p2v2-live-banner">以下 SHA/引用来自服务器；'+
-    '无逐项事件查询接口，因此此处不是服务器事件明细或静态 Demo 时间线。</div>'+
+    '无逐项事件查询接口，因此此处不是服务器审计回执的逐项事件明细，也不是静态 Demo 时间线。</div>'+
     '<div class="versiongrid"><section class="card"><div class="card-head"><b>SourceVersion / ParserRun / Package</b></div>'+
     '<div class="card-body"><dl class="kv"><dt>SourceVersion</dt><dd>'+esc(x.id)+' / '+esc(x.rev)+'</dd>'+
     '<dt>Raw SHA</dt><dd class="mono">'+esc(d?.raw_artifact_sha256||'未读取')+'</dd>'+
@@ -371,6 +372,16 @@ action=async function(act,node){
   const x=selected(),role=actorRole();
   if(act==='openRegister'&&role!=='producer'){
     toast('只有 Producer 可登记合成来源。');return;
+  }
+  if(act==='v2Handoff'){
+    if(!x?.live)return toast('仅已登记合成来源可交接独立审核。');
+    const uri='/source-qa#/studio-v2?source='+encodeURIComponent(x.id)+
+      '&revision='+encodeURIComponent(x.rev);
+    if(['curator','auditor'].includes(role)){location.assign(uri);return;}
+    if(!window.confirm('该动作会退出当前管理会话，再由独立 Auditor/Curator 登录。确认继续？'))return;
+    try{await v2Api('/v1/logout',{method:'POST',body:{}});flowClear();location.assign(uri);}
+    catch(err){toast('退出管理会话失败；没有打开独立原文：'+err.message);}
+    return;
   }
   if(act==='openCuratorPortal'){
     if(!x?.live){toast('请先选择已登记合成版本。');return;}
@@ -593,6 +604,8 @@ action=async function(act,node){
     liveMeta.batchMap=options.batchMap||liveMeta.batchMap||new Map();
     liveMeta.scope={project:options.scope?.project||'',batch:options.scope?.batch||''};
     state.project=liveMeta.scope.project;state.batch=liveMeta.scope.batch;
+    if(options.sourceId&&options.revisionId){state.selected=options.sourceId;state.selectedRev=options.revisionId;}
+    if(options.startPage&&['queue','intake','qa','audit'].includes(options.startPage))state.page=options.startPage;
     const host=document.createElement('section');
     host.className='p2v2';
     host.setAttribute('aria-label','科学资料管理 V2');

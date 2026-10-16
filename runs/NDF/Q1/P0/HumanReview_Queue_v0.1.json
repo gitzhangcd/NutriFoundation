@@ -1,0 +1,351 @@
+{
+  "run_id": "NF-Q1-P0-20261016",
+  "protocol": "AI_VISIBLE_CURATION_NOT_BLIND_GOLD",
+  "review_packets": [
+    {
+      "review_packet_id": "R-004-HOMA",
+      "question_refs": [
+        "NF-Q1-004-01",
+        "NF-Q1-004-02"
+      ],
+      "evidence_unit_refs": [
+        "EU-004-HOMA",
+        "EU-004-COMPLETERS",
+        "EU-004-ALLOC"
+      ],
+      "claim_refs": [
+        "SC-004-HOMA"
+      ],
+      "priority": "P0",
+      "expert_prompt_zh": "核查主终点、比较组别、完成者分母、效应方向以及短期人群边界",
+      "review_mode": "AI_VISIBLE_FACT_VERIFICATION_NOT_BLIND_GOLD",
+      "expert_status": "PENDING",
+      "allowed_actions": [
+        "ACCEPT",
+        "MODIFY",
+        "REJECT",
+        "NEEDS_EVIDENCE",
+        "NOT_APPLICABLE"
+      ],
+      "required_controls": [
+        "original_anchor",
+        "population_or_measure",
+        "effect_or_estimate",
+        "causal_boundary",
+        "applicability_and_safety",
+        "expert_exposure_record"
+      ],
+      "expert_result": null,
+      "active_review_minutes": null,
+      "revision_history": []
+    },
+    {
+      "review_packet_id": "R-004-MASS",
+      "question_refs": [
+        "NF-Q1-004-03"
+      ],
+      "evidence_unit_refs": [
+        "EU-004-MASS"
+      ],
+      "claim_refs": [
+        "SC-004-MASS"
+      ],
+      "priority": "P0",
+      "expert_prompt_zh": "核查体重变化以及从短期组间差异到个体保证的越界",
+      "review_mode": "AI_VISIBLE_FACT_VERIFICATION_NOT_BLIND_GOLD",
+      "expert_status": "PENDING",
+      "allowed_actions": [
+        "ACCEPT",
+        "MODIFY",
+        "REJECT",
+        "NEEDS_EVIDENCE",
+        "NOT_APPLICABLE"
+      ],
+      "required_controls": [
+        "original_anchor",
+        "population_or_measure",
+        "effect_or_estimate",
+        "causal_boundary",
+        "applicability_and_safety",
+        "expert_exposure_record"
+      ],
+      "expert_result": null,
+      "active_review_minutes": null,
+      "revision_history": []
+    },
+    {
+      "review_packet_id": "R-004-FPG",
+      "question_refs": [
+        "NF-Q1-004-04"
+      ],
+      "evidence_unit_refs": [
+        "EU-004-FPG"
+      ],
+      "claim_refs": [
+        "SC-004-FPG"
+      ],
+      "priority": "P0",
+      "expert_prompt_zh": "核查空腹血糖变化与早期/中段组比较",
+      "review_mode": "AI_VISIBLE_FACT_VERIFICATION_NOT_BLIND_GOLD",
+      "expert_status": "PENDING",
+      "allowed_actions": [
+        "ACCEPT",
+        "MODIFY",
+        "REJECT",
+        "NEEDS_EVIDENCE",
+        "NOT_APPLICABLE"
+      ],
+      "required_controls": [
+        "original_anchor",
+        "population_or_measure",
+        "effect_or_estimate",
+        "causal_boundary",
+        "applicability_and_safety",
+        "expert_exposure_record"
+      ],
+      "expert_result": null,
+      "active_review_minutes": null,
+      "revision_history": []
+    },
+    {
+      "review_packet_id": "R-004-SAFETY",
+      "question_refs": [
+        "NF-Q1-004-05"
+      ],
+      "evidence_unit_refs": [
+        "EU-004-SAE"
+      ],
+      "claim_refs": [],
+      "priority": "P0",
+      "expert_prompt_zh": "未报告严重不良事件不等于长期安全性",
+      "review_mode": "AI_VISIBLE_FACT_VERIFICATION_NOT_BLIND_GOLD",
+      "expert_status": "PENDING",
+      "allowed_actions": [
+        "ACCEPT",
+        "MODIFY",
+        "REJECT",
+        "NEEDS_EVIDENCE",
+        "NOT_APPLICABLE"
+      ],
+      "required_controls": [
+        "original_anchor",
+        "population_or_measure",
+        "effect_or_estimate",
+        "causal_boundary",
+        "applicability_and_safety",
+        "expert_exposure_record"
+      ],
+      "expert_result": null,
+      "active_review_minutes": null,
+      "revision_history": []
+    },
+    {
+      "review_packet_id": "R-004-BP",
+      "question_refs": [
+        "NF-Q1-004-06"
+      ],
+      "evidence_unit_refs": [
+        "EU-004-BP-LIPIDS"
+      ],
+      "claim_refs": [],
+      "priority": "P1",
+      "expert_prompt_zh": "核查无统计显著差异的正确解释",
+      "review_mode": "AI_VISIBLE_FACT_VERIFICATION_NOT_BLIND_GOLD",
+      "expert_status": "PENDING",
+      "allowed_actions": [
+        "ACCEPT",
+        "MODIFY",
+        "REJECT",
+        "NEEDS_EVIDENCE",
+        "NOT_APPLICABLE"
+      ],
+      "required_controls": [
+        "original_anchor",
+        "population_or_measure",
+        "effect_or_estimate",
+        "causal_boundary",
+        "applicability_and_safety",
+        "expert_exposure_record"
+      ],
+      "expert_result": null,
+      "active_review_minutes": null,
+      "revision_history": []
+    },
+    {
+      "review_packet_id": "R-004-SCOPE",
+      "question_refs": [
+        "NF-Q1-004-07",
+        "NF-Q1-004-08"
+      ],
+      "evidence_unit_refs": [
+        "EU-004-HOMA",
+        "EU-004-ALLOC"
+      ],
+      "claim_refs": [],
+      "priority": "P0",
+      "expert_prompt_zh": "标注机制证据缺口、糖尿病人群外推边界及临床升级",
+      "review_mode": "AI_VISIBLE_FACT_VERIFICATION_NOT_BLIND_GOLD",
+      "expert_status": "PENDING",
+      "allowed_actions": [
+        "ACCEPT",
+        "MODIFY",
+        "REJECT",
+        "NEEDS_EVIDENCE",
+        "NOT_APPLICABLE"
+      ],
+      "required_controls": [
+        "original_anchor",
+        "population_or_measure",
+        "effect_or_estimate",
+        "causal_boundary",
+        "applicability_and_safety",
+        "expert_exposure_record"
+      ],
+      "expert_result": null,
+      "active_review_minutes": null,
+      "revision_history": []
+    },
+    {
+      "review_packet_id": "R-033-ASSOC",
+      "question_refs": [
+        "NF-Q1-033-01",
+        "NF-Q1-033-02"
+      ],
+      "evidence_unit_refs": [
+        "EU-033-OBESITY",
+        "EU-033-LIMITATION"
+      ],
+      "claim_refs": [
+        "SC-033-QUARTILE"
+      ],
+      "priority": "P0",
+      "expert_prompt_zh": "核查队列关联结论、暴露分类、因果越界",
+      "review_mode": "AI_VISIBLE_FACT_VERIFICATION_NOT_BLIND_GOLD",
+      "expert_status": "PENDING",
+      "allowed_actions": [
+        "ACCEPT",
+        "MODIFY",
+        "REJECT",
+        "NEEDS_EVIDENCE",
+        "NOT_APPLICABLE"
+      ],
+      "required_controls": [
+        "original_anchor",
+        "population_or_measure",
+        "effect_or_estimate",
+        "causal_boundary",
+        "applicability_and_safety",
+        "expert_exposure_record"
+      ],
+      "expert_result": null,
+      "active_review_minutes": null,
+      "revision_history": []
+    },
+    {
+      "review_packet_id": "R-033-MEAS",
+      "question_refs": [
+        "NF-Q1-033-03"
+      ],
+      "evidence_unit_refs": [
+        "EU-033-COHORT"
+      ],
+      "claim_refs": [],
+      "priority": "P1",
+      "expert_prompt_zh": "核查首次24小时膳食回忆测量的语义",
+      "review_mode": "AI_VISIBLE_FACT_VERIFICATION_NOT_BLIND_GOLD",
+      "expert_status": "PENDING",
+      "allowed_actions": [
+        "ACCEPT",
+        "MODIFY",
+        "REJECT",
+        "NEEDS_EVIDENCE",
+        "NOT_APPLICABLE"
+      ],
+      "required_controls": [
+        "original_anchor",
+        "population_or_measure",
+        "effect_or_estimate",
+        "causal_boundary",
+        "applicability_and_safety",
+        "expert_exposure_record"
+      ],
+      "expert_result": null,
+      "active_review_minutes": null,
+      "revision_history": []
+    },
+    {
+      "review_packet_id": "R-033-MODEL",
+      "question_refs": [
+        "NF-Q1-033-04",
+        "NF-Q1-033-05",
+        "NF-Q1-033-07"
+      ],
+      "evidence_unit_refs": [
+        "EU-033-OBESITY",
+        "EU-033-CONTINUOUS-OBESITY",
+        "EU-033-LIMITATION"
+      ],
+      "claim_refs": [
+        "SC-033-QUARTILE",
+        "SC-033-CONTINUOUS-NOT-SIGNIFICANT"
+      ],
+      "priority": "P0",
+      "expert_prompt_zh": "核查分位/连续比较差异、残余混杂和不能推导个人干预效应",
+      "review_mode": "AI_VISIBLE_FACT_VERIFICATION_NOT_BLIND_GOLD",
+      "expert_status": "PENDING",
+      "allowed_actions": [
+        "ACCEPT",
+        "MODIFY",
+        "REJECT",
+        "NEEDS_EVIDENCE",
+        "NOT_APPLICABLE"
+      ],
+      "required_controls": [
+        "original_anchor",
+        "population_or_measure",
+        "effect_or_estimate",
+        "causal_boundary",
+        "applicability_and_safety",
+        "expert_exposure_record"
+      ],
+      "expert_result": null,
+      "active_review_minutes": null,
+      "revision_history": []
+    },
+    {
+      "review_packet_id": "R-033-TRANSFER",
+      "question_refs": [
+        "NF-Q1-033-06",
+        "NF-Q1-033-08"
+      ],
+      "evidence_unit_refs": [
+        "EU-033-COHORT",
+        "EU-033-OBESITY",
+        "EU-033-BMI5"
+      ],
+      "claim_refs": [],
+      "priority": "P0",
+      "expert_prompt_zh": "核查研究人群外推边界、不同肥胖结局的定义",
+      "review_mode": "AI_VISIBLE_FACT_VERIFICATION_NOT_BLIND_GOLD",
+      "expert_status": "PENDING",
+      "allowed_actions": [
+        "ACCEPT",
+        "MODIFY",
+        "REJECT",
+        "NEEDS_EVIDENCE",
+        "NOT_APPLICABLE"
+      ],
+      "required_controls": [
+        "original_anchor",
+        "population_or_measure",
+        "effect_or_estimate",
+        "causal_boundary",
+        "applicability_and_safety",
+        "expert_exposure_record"
+      ],
+      "expert_result": null,
+      "active_review_minutes": null,
+      "revision_history": []
+    }
+  ]
+}

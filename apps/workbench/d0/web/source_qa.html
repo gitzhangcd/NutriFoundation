@@ -2,8 +2,8 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>NutriFoundation · P2 Source Qualification & Human QA</title>
 <link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/tpa_manage.css">
-<link rel="stylesheet" href="/static/tpa_p11.css"><link rel="stylesheet" href="/static/p2_source_studio.css">
-<script src="/static/p2_source_studio.js" defer></script>
+<link rel="stylesheet" href="/static/tpa_p11.css"><link rel="stylesheet" href="/static/p2_source_studio.css"><link rel="stylesheet" href="/static/p2_source_studio_v2.css">
+<script src="/static/p2_source_studio.js" defer></script><script src="/static/p2_source_studio_v2.js" defer></script>
 <script src="/static/p2_source_portal.js" defer></script></head>
 <body class="tpa-page">
 <header class="tpa-header"><div class="tpa-brand"><span class="logo" aria-hidden="true">❧</span>
@@ -18,6 +18,8 @@
 </section><div id="workspace" hidden><div class="p11-layout">
 <aside class="p11-nav" aria-label="科学来源审核模块">
 <div class="p11-nav-header">SCIENTIFIC SOURCE / 独立审核</div>
+<button type="button" id="p2PortalLegacy" aria-pressed="true">原有独立审核台</button>
+<button type="button" id="p2PortalV2" aria-pressed="false">科学资料管理 V2.1</button>
 <div class="p11-nav-footer">P2 SYNTHETIC ONLY<br>审查角色由服务端会话决定，任何来源审核均不签发专家访问。</div>
 </aside>
 <div class="p11-content"><div class="p11-top"><strong>科学资料资格与 Human QA</strong>

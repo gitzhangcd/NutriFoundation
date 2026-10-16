@@ -246,6 +246,23 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
         expect(page.locator('#workspace')).to_be_visible(timeout=30000)
         return ctx,page
     producer_context,p=manager_login('producer')
+    # V2-P0: verify the new route does not inherit fixture provenance as
+    # authoritative persisted source state. All six internal fixtures are DEMO
+    # until independently returned by /v1/p2/sources.
+    p.locator('[data-p11-route="studio-v2"]').click()
+    expect(p.locator('#p2v2App')).to_be_visible(timeout=15000)
+    expect(p.locator('#p2v2App .page-stepper .stepitem')).to_have_count(4)
+    expect(p.locator('#p2v2App .queue-metrics')).to_be_visible()
+    assert p.evaluate("""() => window.__p2v2.sources.every(s =>
+        s.live===true || (s.sourceType==='DEMO' &&
+        s.rights==='NOT_ELIGIBLE' && s.qa===0 &&
+        !s.raw && !s.doc && !s.package))""")
+    assert p.evaluate("""() => window.__p2v2.sources
+        .filter(s=>s.live===true).every(s=>s.id.startsWith('P2-SYN-'))""")
+    assert p.evaluate("""() => window.__p2v2.sources
+        .some(s=>s.sourceType==='DEMO' && s.id==='SYN-GUIDE-026')""")
+    p.screenshot(path=str(output/'p2-v2-p0-provenance-queue-1440.png'),full_page=False)
+    p.locator('[data-p11-route="studio"]').click()
     # B1: operate the existing seven-authoritative-fixture reference library.
     # B1 remains reachable through the unified Scientific Source primary entry.
     p.locator('[data-p11-route="studio"]').click()
@@ -315,15 +332,24 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     # and two distinct supporting operations, without removing legacy routes.
     expect(p.locator('.p2-primary-tabs [data-p2-tab]')).to_have_count(4)
     expect(p.locator('.p2-secondary-tabs [data-p2-tab]')).to_have_count(2)
-    expect(p.locator('.p2-primary-tabs')).to_contain_text('工作队列')
-    expect(p.locator('.p2-primary-tabs')).to_contain_text('结构化 QA 阅读')
+    expect(p.locator('.p2-primary-tabs')).to_contain_text('工作队列总览')
+    expect(p.locator('.p2-primary-tabs')).to_contain_text('QA 阅读与锚点核验')
+    expect(p.locator('.p2-page-stepper')).to_be_visible()
+    expect(p.locator('.p2-workgrid')).to_be_visible()
+    expect(p.locator('.p2-inline-detail')).to_be_visible()
+    expect(p.locator('.p2-qual-list .p2-qual-row')).to_have_count(5)
+    expect(p.locator('.p2-heading h1')).to_have_text('科学资料处理台')
     expect(p.locator('.p2-meta-strip')).to_be_visible()
     expect(p.locator('.p2-meta-strip')).to_contain_text('仅限隔离合成工程')
-    expect(p.locator('#p2TableTarget thead th')).to_have_count(5)
+    expect(p.locator('#p2TableTarget thead th')).to_have_count(8)
+    expect(p.locator('#p2TableTarget thead')).to_contain_text('资料资格')
+    expect(p.locator('#p2TableTarget thead')).to_contain_text('引用范围')
     expect(p.locator('.p2-source-queue .p2-source-title')).to_have_count(6)
     expect(p.locator('.p2-source-queue .p2-row-progress')).to_have_count(6)
-    # Project/Batch usage filter belongs to the source queue, not page chrome.
-    expect(p.locator('.p2-source-queue .p2-context')).to_have_count(1)
+    expect(p.locator('.p2-source-queue .p2-checkcell input')).to_have_count(6)
+    # Demo v1: Project/Batch scope sits under the page stepper as a top bar.
+    expect(p.locator('.p2-studio > .p2-context')).to_have_count(1)
+    expect(p.locator('.p2-source-queue .p2-context')).to_have_count(0)
     expect(p.locator('#p2NavGroup')).to_have_count(0)
     expect(p.locator('#p11Nav [data-p11-route="sources"]')).to_be_hidden()
     expect(p.locator('#p11Nav [data-p11-route="studio"]')).to_be_visible()
@@ -389,7 +415,13 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     assert tabs.evaluate('(e)=>e.scrollLeft')>0
     expect(p.locator('.p2-context')).to_have_count(0)
     expect(p.locator('.p2-heading')).to_contain_text('不受 Project / Batch 筛选影响')
+    expect(p.locator('.p2-primary-tabs')).to_contain_text('版本谱系与审计')
+    expect(p.locator('.p2-lineage .p2-line-node')).to_have_count(4)
+    expect(p.locator('.p2-version-tabs')).to_be_visible()
+    p.locator('.p2-version-tabs').get_by_role('button',name='规范依赖与符合性').click()
+    expect(p.locator('.p2-matrix-table tbody tr')).to_have_count(15)
     p.screenshot(path=str(output/'p2-1-a-audit-no-irrelevant-scope.png'),full_page=False)
+    p.screenshot(path=str(output/'p2-hifi-v1-audit-matrix-390.png'),full_page=False)
     p.set_viewport_size({'width':1440,'height':1000})
     p.locator('.p2-tabs [data-p2-tab="library"]').click()
     # Real keyboard navigation must keep focus after SPA subtree re-render.
@@ -399,6 +431,7 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     expect(p.locator('.p2-tabs [aria-current="page"]')).to_have_count(1)
     p.locator('.p2-tabs [data-p2-tab="library"]').click()
     p.screenshot(path=str(output/'p2-html-v02-aligned-overview-desktop.png'),full_page=True)
+    p.screenshot(path=str(output/'p2-hifi-v1-workqueue-desktop.png'),full_page=False)
     checks.append('p2_1_a_single_nav_responsive_390_680_740_768_1024_1440_keyboard_focus')
     checks.append('p2_1_a_compact_scope_default_collapsed_audit_global_not_project_scoped')
     p.locator('#p2TableTarget tbody tr').first.get_by_role('button',name='查看演示说明').click()
@@ -449,9 +482,10 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     a.locator('#p2LoginForm button[type="submit"]').click()
     expect(a.locator('#workspace')).to_be_visible(timeout=30000)
     assert a_ctx.request.get(url+'/v1/p2/sources/'+source_id+'/r1/original').status==403
-    row=a.locator('.p2-intake-table tbody tr').filter(has_text=source_id)
+    expect(a.locator('.p2-primary-tabs')).to_contain_text('版本谱系与审计')
+    row=a.locator('#p2TableTarget tbody tr').filter(has_text=source_id)
     expect(row).to_be_visible(timeout=20000)
-    row.get_by_role('button',name='查看').click()
+    row.get_by_role('button',name='查看并审核').click()
     a.get_by_role('dialog',name='科学来源版本详情').get_by_role('button',name='记录独立合成使用权').click()
     expect(a.locator('.p2-studio')).to_contain_text('合成用途审查记录已签发',timeout=20000)
     a.screenshot(path=str(output/'p2-rights-review.png'),full_page=True);a_ctx.close()
@@ -506,11 +540,163 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     assert producer_context.request.get(url+'/v1/p2/sources/'+source_id+'/r1').json()['status']=='PACKAGE_FROZEN'
     checks.append('p2_1_b_list_first_next_step_drawer_and_durable_qa_progress')
     checks.append('p2_1_cd_demo_origin_isolation_source_workflow_qa_context')
-    checks.append('p2_1_visual_four_primary_work_areas_five_column_queue_compact_chrome')
+    checks.append('p2_1_visual_four_primary_work_areas_eight_column_queue_compact_chrome')
     checks.extend(['p2_html_fidelity_four_stage_four_intake_six_nav_and_six_example_rows','p2_synthetic_source_persisted_intake',
                    'p2_separate_rights_and_no_raw_auditor','p2_curator_original_sha_and_all_units',
                    'p2_immutable_package_freeze_no_expert_grant','p2_auxiliary_translation_has_independent_lineage'])
     p.screenshot(path=str(output/'p2-source-studio-producer-synthetic.png'),full_page=True)
+    # V2-P0 exact existing persisted SourceVersion: no browser-local QA or
+    # unverified lineage may be attached to the backend source.
+    prior=producer_context.request.get(url+'/v1/p2/sources').json()['total']
+    p.locator('[data-p11-route="studio-v2"]').click()
+    expect(p.locator('#p2v2App')).to_be_visible(timeout=15000)
+    expect(p.locator('#p2v2App .table')).to_contain_text(source_id,timeout=15000)
+    expect(p.locator('#p2v2App .detail')).to_contain_text(source_id)
+    p.locator('#p2v2App [data-page="qa"]').click()
+    expect(p.locator('#p2v2App')).to_contain_text('V2 四个视觉演示 Unit 不属于此版本')
+    expect(p.locator('#p2v2App .paper-viewport')).to_have_count(0)
+    p.locator('#p2v2App [data-page="audit"]').click()
+    expect(p.locator('#p2v2App .p2v2-live-banner')).to_contain_text('不是服务器审计回执')
+    p.locator('#p2v2App [data-page="queue"]').click()
+    p.locator('#p2v2App [data-act="openRegister"]').click()
+    expect(p.locator('#p2v2Overlay [role="dialog"]')).to_be_visible()
+    p.locator('#p2v2Overlay #newTitle').fill('Synthetic authored source provenance acceptance')
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
+    expect(p.locator('#p2v2Overlay #newRawContent')).to_be_visible()
+    p.locator('#p2v2Overlay #newRawContent').fill(
+        '# Synthetic authored record' + chr(10)*2 + 'This text was written solely for the synthetic browser check.')
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
+    p.locator('#p2v2Overlay [data-act="submitRegister"]').click()
+    # Prefer durable source-state readback over a transient toast copy.
+    expect(p.locator('#p2v2App .detail')).to_contain_text('待用途审核',timeout=20000)
+    assert producer_context.request.get(url+'/v1/p2/sources').json()['total']==prior+1
+    expect(p.locator('#p2v2App .detail')).to_contain_text('待用途审核')
+    checks.append('p2_v2_p0_only_backend_is_persisted_and_producer_raw_required')
+    p.screenshot(path=str(output/'p2-v2-p0-persisted-producer-1440.png'),full_page=False)
+    # V2.1-P1: complete a NEW source from the V2 UI with separate real
+    # synthetic accounts. Legacy P2 coverage above must continue to pass.
+    latest=producer_context.request.get(url+'/v1/p2/sources').json()['sources']
+    newer=[item for item in latest if item['source_id']!=source_id]
+    assert len(newer)==1,newer
+    v2_id=newer[0]['source_id']
+    expect(p.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('来源生命周期',timeout=20000)
+    assert producer_context.request.get(url+'/v1/p2/sources/'+v2_id+'/r1/original').status==403
+    # Independent Auditor enters the SAME V2 work surface via /source-qa,
+    # preserving the backend role and never using Manager/Producer privileges.
+    a2ctx=browser.new_context(viewport={'width':1440,'height':950})
+    a2=a2ctx.new_page()
+    a2.on('pageerror',lambda e:errors.append('P2V2AUDITOR: '+str(e)))
+    a2.goto(url+'/source-qa#/studio-v2?source='+v2_id+'&revision=r1')
+    a2.locator('#p2Username').fill('auditor')
+    a2.locator('#p2Password').fill(credentials['accounts']['auditor']['password'])
+    a2.locator('#p2LoginForm button[type="submit"]').click()
+    expect(a2.locator('#p2v2App')).to_be_visible(timeout=20000)
+    expect(a2.locator('#v2Evidence')).to_be_visible(timeout=25000)
+    assert a2ctx.request.get(url+'/v1/p2/sources/'+v2_id+'/r1/original').status==403
+    a2.locator('#v2Evidence').fill('SYN-V2-INDEPENDENT-AUDIT')
+    a2.locator('[data-act="v2Approve"]').click()
+    expect(a2.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('合成用途已核准',timeout=20000)
+    assert a2ctx.request.get(url+'/v1/p2/sources/'+v2_id+'/r1').json()['status']=='RIGHTS_ACCEPTED'
+    a2.locator('#p2v2App [data-page="audit"]').click()
+    expect(a2.locator('#p2v2App')).to_contain_text('Auditor 全局 Hash Chain',timeout=20000)
+    expect(a2.locator('#p2v2App')).to_contain_text('VALID')
+    a2.screenshot(path=str(output/'p2-v2-p1-auditor-rights-1440.png'),full_page=False)
+    a2ctx.close()
+    # Producer reads the actual approved revision and converts in V2.
+    p.evaluate('window.p2SourceStudioV2.reload()')
+    expect(p.locator('#p2v2App [data-act="v2Convert"]')).to_be_visible(timeout=20000)
+    p.locator('#p2v2App [data-act="v2Convert"]').click()
+    expect(p.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('独立签署',timeout=20000)
+    assert producer_context.request.get(url+'/v1/p2/sources/'+v2_id+'/r1').json()['status']=='QA_PENDING'
+    # Independent Curator reads original and matching canonical IR in V2;
+    # acceptance hashes/UTF-16 spans are calculated, not mock preview state.
+    c2ctx=browser.new_context(viewport={'width':1440,'height':950})
+    c2=c2ctx.new_page()
+    c2.on('pageerror',lambda e:errors.append('P2V2CURATOR: '+str(e)))
+    c2.goto(url+'/source-qa#/studio-v2?source='+v2_id+'&revision=r1')
+    c2.locator('#p2Username').fill('p2curator')
+    c2.locator('#p2Password').fill(credentials['accounts']['p2curator']['password'])
+    c2.locator('#p2LoginForm button[type="submit"]').click()
+    expect(c2.locator('#p2v2App .p2v2-server-reader')).to_be_visible(timeout=25000)
+    expect(c2.locator('#p2v2App .p2v2-original')).to_contain_text('Synthetic authored record')
+    actual_units=c2.locator('#p2v2App [data-v2unit]').count()
+    assert actual_units>=2,actual_units
+    c2.locator('#p2v2App #v2TranslateText').fill('独立 Curator 编写的仅供合成验收的辅助译文。')
+    c2.locator('#p2v2App [data-act="v2Translate"]').click()
+    expect(c2.locator('#p2v2App .p2v2-translation-unit').first).to_contain_text('独立 Curator 编写',timeout=20000)
+    # B4: continuous Unit rendering and bilingual helper, not one isolated excerpt.
+    assert c2.locator('#p2v2App .p2v2-unit-block').count()>=2
+    assert c2.locator('#p2v2App [data-v2-text]').count()>=2
+    c2.locator('#p2v2App [data-act="v2Bilingual"]').click()
+    expect(c2.locator('#p2v2App .p2v2-translation-unit')).to_have_count(0)
+    c2.locator('#p2v2App [data-act="v2Bilingual"]').click()
+    expect(c2.locator('#p2v2App .p2v2-translation-unit').first).to_contain_text('独立 Curator 编写')
+    # Cross-Unit drag is not an evidence anchor: no silently selected pair.
+    c2.evaluate("""() => {
+      const first=document.querySelector('[data-v2-text="0"]').firstChild;
+      const next=document.querySelector('[data-v2-text="1"]').firstChild;
+      const r=document.createRange();r.setStart(first,2);r.setEnd(next,3);
+      const sel=getSelection();sel.removeAllRanges();sel.addRange(r);
+    }""")
+    c2.locator('#p2v2App [data-act="v2PickAnchor"]').click()
+    expect(c2.locator('#p2v2App .p2v2-anchor-preview')).to_contain_text('默认当前 Unit 全文锚点')
+    # A precise intra-Unit selection creates a UTF-16 quote span, distinct
+    # from the full source Unit SHA. The server must persist this exact span.
+    c2.evaluate("""() => {
+      const node=document.querySelector('[data-v2-text="0"]').firstChild;
+      const r=document.createRange();r.setStart(node,2);r.setEnd(node,8);
+      const sel=getSelection();sel.removeAllRanges();sel.addRange(r);
+    }""")
+    c2.locator('#p2v2App [data-act="v2PickAnchor"]').click()
+    expect(c2.locator('#p2v2App .p2v2-anchor-preview')).to_contain_text('已选精确文本跨度')
+    expect(c2.locator('#p2v2App .p2v2-evidence-highlight')).to_have_count(1)
+    for idx in range(actual_units):
+        c2.locator('#p2v2App [data-v2unit]').nth(idx).click() if idx>0 else None
+        expect(c2.locator('#p2v2App [data-act="v2Accept"]')).to_be_visible()
+        c2.locator('#p2v2App [data-act="v2Accept"]').click()
+        expect(c2.locator('#p2v2App .reader-meta')).to_contain_text(str(idx+1)+' / '+str(actual_units),timeout=25000)
+        items=c2ctx.request.get(url+'/v1/p2/sources/'+v2_id+'/r1/reviews').json()
+        assert items['total']==idx+1,items
+        if idx==0:
+            review=items['reviews'][0]
+            assert review['start_utf16']==2 and review['end_utf16']==8,review
+            assert review['source_quote_sha256']
+            assert review['canonical_document_sha256']
+            c2.evaluate('window.p2SourceStudioV2.reload()')
+            # The saved highlight is reconstructed from Curator-only signed
+            # start/end metadata and canonical Document IR after readback.
+            expect(c2.locator('#p2v2App .p2v2-evidence-highlight')).to_have_count(1,timeout=25000)
+    checks.append('p2_v2_2_continuous_reader_bilingual_exact_utf16_selection_and_immutable_anchor_readback')
+    expect(c2.locator('#p2v2App .reader-meta')).to_contain_text(str(actual_units)+' / '+str(actual_units))
+    c2.screenshot(path=str(output/'p2-v2-p1-curator-qa-1440.png'),full_page=False)
+    c2.set_viewport_size({'width':390,'height':844})
+    expect(c2.locator('#p2v2App .p2v2-continuous-reader')).to_be_visible()
+    assert c2.evaluate("""() => document.documentElement.scrollWidth <= window.innerWidth+2"""), \
+       c2.evaluate("() => ({scroll:document.documentElement.scrollWidth,width:innerWidth})")
+    c2.screenshot(path=str(output/'p2-v2-b4-continuous-reader-390.png'),full_page=True)
+    c2.set_viewport_size({'width':1440,'height':950})
+    checks.append('p2_v2_2_390px_native_curator_bilingual_reader_no_horizontal_page_overflow')
+    # Logout must remove raw evidence from the DOM, not just hide workspace.
+    c2.locator('#p2Logout').click()
+    expect(c2.locator('#workspace')).to_be_hidden(timeout=15000)
+    assert c2.evaluate("""() => !document.querySelector('#p2v2App')?.textContent
+      .includes('Synthetic authored record')""")
+    assert c2ctx.request.get(url+'/v1/p2/sources/'+v2_id+'/r1/original').status==401
+    checks.append('p2_v2_1_curator_logout_erases_original_dom_and_denies_session')
+    c2ctx.close()
+    # Producer can now freeze only the exact document SHA; refresh reloads
+    # the server state instead of preserving a browser-local success flag.
+    p.evaluate('window.p2SourceStudioV2.reload()')
+    expect(p.locator('#p2v2App [data-act="v2Freeze"]')).to_be_enabled(timeout=25000)
+    p.locator('#p2v2App [data-act="v2Freeze"]').click()
+    expect(p.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('SourcePackage 冻结',timeout=25000)
+    frozen=producer_context.request.get(url+'/v1/p2/sources/'+v2_id+'/r1').json()
+    assert frozen['status']=='PACKAGE_FROZEN' and frozen['package_sha256'],frozen
+    assert frozen['expert_exposure_authorized'] is False
+    checks.append('p2_v2_1_independent_auditor_producer_curator_qa_translation_freeze_exact_server_roundtrip')
+    p.screenshot(path=str(output/'p2-v2-p1-frozen-source-1440.png'),full_page=False)
+    p.locator('[data-p11-route="studio"]').click()
     checks.extend(['p2_studio_same_pr36_management_shell','p2_studio_metadata_only_source_preview',
                    'p2_four_step_wizard_synthetic_only_admission','p2_reader_mock_unit_qa_block',
                    'p2_original_b1_source_library_untouched'])
@@ -522,7 +708,14 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
                    'b1_immutable_package_persist_reload_and_exact_structure_index',
                    'b1_management_never_renders_source_original_text'])
     # P1.1-A: enter a persistent operational project and batch before drafting.
-    assert p.locator('#p11Nav button[data-p11-route]').count()==8
+    # P0: V2 is an additional scoped route, not a replacement for original
+    # management, B1, or the original scientific-source workbench.
+    nav=p.locator('#p11Nav button[data-p11-route]')
+    assert nav.count()==9
+    assert nav.evaluate_all("(items)=>new Set(items.map(x=>x.dataset.p11Route)).size===9")
+    expect(p.locator('#p11Nav [data-p11-route="sources"]')).to_be_hidden()
+    expect(p.locator('#p11Nav [data-p11-route="studio"]')).to_be_visible()
+    expect(p.locator('#p11Nav [data-p11-route="studio-v2"]')).to_be_visible()
     p.locator('[data-p11-route="tasks"]').click()
     p.locator('#p11ProjectsShortcut').click()
     p.get_by_role('button',name='新建项目').click()
@@ -543,6 +736,115 @@ def tpa_management_browser(browser,url,credentials,sign_in,checks,output,errors)
     p.reload()
     expect(p.locator('#workspace')).to_be_visible(timeout=30000)
     expect(p.get_by_role('button',name='在此项目新建批次')).to_be_visible()
+    # Bind this frozen V2 source to a REAL persisted synthetic project/batch.
+    scope_hash=p.evaluate('location.hash')
+    actual_project=re.search(r'project=(PRJ-SYN-[A-Z0-9-]+)',scope_hash).group(1)
+    actual_batch=re.search(r'batch=(BATCH-SYN-[A-Z0-9-]+)',scope_hash).group(1)
+    p.locator('[data-p11-route="studio-v2"]').click()
+    expect(p.locator('#p2v2App')).to_be_visible(timeout=20000)
+    p.locator('#p2v2App .scopebar [data-act="clearFilters"]').click()
+    expect(p.locator('#p2v2App [data-source="'+v2_id+'"]')).to_be_visible(timeout=25000)
+    p.locator('#p2v2App [data-source="'+v2_id+'"]').click()
+    expect(p.locator('#p2v2App #v2BindProject')).to_be_visible(timeout=25000)
+    p.locator('#p2v2App #v2BindProject').select_option(actual_project)
+    expect(p.locator('#p2v2App #v2BindBatch')).to_be_visible()
+    p.locator('#p2v2App #v2BindBatch').select_option(actual_batch)
+    p.locator('#p2v2App [data-act="v2Bind"]').click()
+    expect(p.locator('#p2v2App .p2v2-lifecycle')).to_contain_text(actual_batch,timeout=25000)
+    bound=producer_context.request.get(url+'/v1/p2/sources/'+v2_id+'/r1').json()
+    assert any(row['project_id']==actual_project and row['batch_id']==actual_batch for row in bound['scope_refs']),bound
+    assert bound['expert_exposure_authorized'] is False
+    checks.append('p2_v2_1_persisted_project_batch_scope_no_expert_grant')
+    # B4: a SEPARATE real synthetic source exercises REJECT -> sanitized
+    # Producer handoff -> fresh revision; no original quote or free-text note
+    # is ever accessible from the Producer login.
+    before_rework={(x['source_id'],x['revision_id'])
+        for x in producer_context.request.get(url+'/v1/p2/sources?limit=100').json()['sources']}
+    p.locator('#p2v2App [data-act="openRegister"]').click()
+    p.locator('#p2v2Overlay #newTitle').fill('Synthetic immutable B4 correction handoff')
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
+    p.locator('#p2v2Overlay #newRawContent').fill(
+        '# Synthetic B4 rework' + chr(10)*2 +
+        'Intervention A used 24 mg daily.' + chr(10)*2 +
+        'Control group value 12.4 mg.' )
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
+    p.locator('#p2v2Overlay [data-act="submitRegister"]').click()
+    after_rework=producer_context.request.get(url+'/v1/p2/sources?limit=100').json()['sources']
+    inserted={(x['source_id'],x['revision_id']) for x in after_rework}-before_rework
+    assert len(inserted)==1,inserted
+    reject_id,reject_rev=next(iter(inserted))
+    assert reject_rev=='r1'
+    original_shas=producer_context.request.get(
+        url+'/v1/p2/sources/'+reject_id+'/r1').json()
+    arctx=browser.new_context(viewport={'width':1440,'height':950})
+    ar=arctx.new_page()
+    ar.goto(url+'/source-qa#/studio-v2?source='+reject_id+'&revision=r1')
+    ar.locator('#p2Username').fill('auditor')
+    ar.locator('#p2Password').fill(credentials['accounts']['auditor']['password'])
+    ar.locator('#p2LoginForm button[type="submit"]').click()
+    expect(ar.locator('#v2Evidence')).to_be_visible(timeout=25000)
+    ar.locator('#v2Evidence').fill('SYN-B4-INDEPENDENT-REWORK')
+    ar.locator('#p2v2App [data-act="v2Approve"]').click()
+    expect(ar.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('合成用途已核准',timeout=25000)
+    arctx.close()
+    p.evaluate('window.p2SourceStudioV2.reload()')
+    expect(p.locator('#p2v2App [data-act="v2Convert"]')).to_be_visible(timeout=25000)
+    p.locator('#p2v2App [data-act="v2Convert"]').click()
+    expect(p.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('独立签署',timeout=25000)
+    crctx=browser.new_context(viewport={'width':1440,'height':950})
+    cr=crctx.new_page()
+    cr.goto(url+'/source-qa#/studio-v2?source='+reject_id+'&revision=r1')
+    cr.locator('#p2Username').fill('p2curator')
+    cr.locator('#p2Password').fill(credentials['accounts']['p2curator']['password'])
+    cr.locator('#p2LoginForm button[type="submit"]').click()
+    expect(cr.locator('#p2v2App .p2v2-continuous-reader')).to_be_visible(timeout=25000)
+    cr.locator('#v2ReviewReason').select_option('NUMERIC_MISMATCH')
+    cr.locator('#v2ReviewNote').fill('CURATOR_PRIVATE_NOTE_MUST_NOT_LEAK_491')
+    cr.locator('#p2v2App [data-act="v2Reject"]').click()
+    expect(cr.locator('#p2v2App .reader-meta')).to_contain_text('1 / ',timeout=25000)
+    crctx.close()
+    # Independently assert the backend state before testing its V2 projection.
+    rejected_detail=producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r1').json()
+    assert rejected_detail['status']=='QA_HOLD',rejected_detail
+    handoff=producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r1/rework')
+    assert handoff.status==200 and handoff.json()['count']==1,handoff.text()
+    assert handoff.json()['issues'][0]['reason_code']=='NUMERIC_MISMATCH'
+    p.evaluate('window.p2SourceStudioV2.reload()')
+    render_state=p.evaluate("""() => ({
+       page:window.__p2v2.state.page,
+       source:window.__p2v2.state.selected,
+       revision:window.__p2v2.state.selectedRev,
+       status:window.__p2v2.sources.find(s=>s.id===window.__p2v2.state.selected &&
+         s.rev===window.__p2v2.state.selectedRev)?.status,
+       alert:document.querySelector('#p2v2App [role="alert"]')?.textContent||''
+    })""")
+    assert render_state['source']==reject_id and render_state['revision']=='r1',render_state
+    p.screenshot(path=str(output/'p2-v2-b4-rework-before-assert-1440.png'),full_page=False)
+    expect(p.locator('#p2v2App .p2v2-lifecycle')).to_contain_text('不可变 QA 拒绝',timeout=25000)
+    expect(p.locator('#p2v2App .p2v2-rework-item')).to_contain_text('NUMERIC_MISMATCH',timeout=25000)
+    assert 'CURATOR_PRIVATE_NOTE_MUST_NOT_LEAK_491' not in p.locator('#p2v2App').inner_text()
+    assert 'CURATOR_PRIVATE_NOTE_MUST_NOT_LEAK_491' not in handoff.text()
+    assert handoff.json()['original_text_exposed'] is False
+    assert producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r1/original').status==403
+    assert producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r1').json()['package_sha256'] is None
+    p.screenshot(path=str(output/'p2-v2-b4-redacted-producer-handoff-1440.png'),full_page=False)
+    p.locator('#p2v2App [data-act="v2Revise"]').click()
+    expect(p.locator('#p2v2Overlay #newTitle')).to_be_visible(timeout=15000)
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
+    p.locator('#p2v2Overlay #newRawContent').fill(
+        '# Corrected B4 source' + chr(10)*2 + 'Intervention A used 26 mg daily.' )
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
+    p.locator('#p2v2Overlay [data-act="wizardNextModal"]').click()
+    p.locator('#p2v2Overlay [data-act="submitRegister"]').click()
+    expect(p.locator('#p2v2App .p2v2-lifecycle')).to_be_visible(timeout=25000)
+    amended=producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r2').json()
+    retained=producer_context.request.get(url+'/v1/p2/sources/'+reject_id+'/r1').json()
+    assert amended['source_family_refs']==[reject_id+':r1'],amended
+    assert amended['status']=='RIGHTS_HOLD'
+    assert retained['status']=='QA_HOLD'
+    assert retained['raw_artifact_sha256']==original_shas['raw_artifact_sha256']
+    checks.append('p2_v2_2_redacted_rework_handoff_new_revision_preserves_rejected_source')
     p.locator('[data-p11-route="tasks"]').click()
     expect(p.locator('#p11SectionTitle')).to_have_text('任务中心')
     expect(p.locator('#p11NewTaskCta')).to_be_visible()

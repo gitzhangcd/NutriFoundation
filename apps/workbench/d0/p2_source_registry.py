@@ -249,16 +249,37 @@ class SourceStudio:
         if method not in ("DEMO_DOI","DEMO_PMID","SYNTHETIC_ID"):error("INVALID_SOURCE_IDENTITY",422)
         ref=body.get("identifier")
         if not isinstance(ref,str) or not 3<=len(ref)<=120:error("INVALID_SOURCE_IDENTITY",422)
+        family=body.get("source_family_refs",[])
+        if not isinstance(family,list) or len(family)>1 or any(not isinstance(x,str) for x in family):
+            error("INVALID_SOURCE_FAMILY_REFS",422)
         metadata={"title":title.strip(),"source_type":kind,"identifier_kind":method,
             "identifier":ref,"available_at":available.isoformat(),"fetched_at":fetched.isoformat(),
             "rights_status":"PENDING_INDEPENDENT_REVIEW","artifact_kind":"SYNTHETIC_FIXTURE",
-            "source_family_refs":body.get("source_family_refs",[]),
+            "source_family_refs":family,
             "correction_status":"UNVERIFIED_DEMO","created_at":now()}
         rawsha=sha(raw.encode("utf-8"))
         with self.lock,self.connect() as db:
             db.execute("BEGIN IMMEDIATE")
             old=db.execute("SELECT 1 FROM p2_sources WHERE source_id=? AND revision_id=?",(sid,rev)).fetchone()
             if old:error("SOURCE_VERSION_ALREADY_REGISTERED")
+            if family:
+                parent_id,parent_rev=(family[0].split(":",1)+[""])[:2]
+                if parent_id!=sid or not parent_rev or parent_rev==rev:
+                    error("REVISION_LINEAGE_MISMATCH")
+                if (re.fullmatch(r"r[0-9]+",rev) and re.fullmatch(r"r[0-9]+",parent_rev) and
+                        int(rev[1:])!=int(parent_rev[1:])+1):
+                    error("REVISION_NOT_SEQUENTIAL")
+                parent=db.execute(
+                    "SELECT status,raw_sha FROM p2_sources WHERE source_id=? AND revision_id=?",
+                    (parent_id,parent_rev)).fetchone()
+                if not parent:error("PARENT_SOURCE_VERSION_NOT_FOUND",404)
+                rights=db.execute(
+                    "SELECT decision FROM p2_rights WHERE source_id=? AND revision_id=?",
+                    (parent_id,parent_rev)).fetchone()
+                blocked=parent["status"]=="QA_HOLD" or (
+                    parent["status"]=="RIGHTS_HOLD" and rights is not None and rights["decision"]=="HOLD")
+                if not blocked:error("PARENT_REWORK_GATE_NOT_SATISFIED")
+                if parent["raw_sha"]==rawsha:error("REWORK_REQUIRES_NEW_RAW_ARTIFACT")
             existing_artifact=db.execute("SELECT raw_format FROM p2_artifacts WHERE raw_sha=?",(rawsha,)).fetchone()
             if existing_artifact and existing_artifact["raw_format"]!=fmt:
                 error("RAW_ARTIFACT_FORMAT_CONFLICT")
@@ -371,9 +392,18 @@ class SourceStudio:
             self.row(db,sid,rev)
             rows=db.execute("SELECT unit_id,actor,record FROM p2_reviews WHERE source_id=? AND revision_id=?",
                             (sid,rev)).fetchall()
+            # Only independently authenticated Curator receives span metadata.
+            # Original text is never echoed by the review-list endpoint;
+            # reconstruction/highlighting uses the separate authorized Document IR.
+            records=[json.loads(r["record"]) for r in rows]
             return {"source_id":sid,"revision_id":rev,
-                    "reviews":[{"unit_id":r["unit_id"],"decision":json.loads(r["record"])["decision"],
-                                "reviewer":r["actor"]} for r in rows],
+                    "reviews":[{"unit_id":r["unit_id"],"decision":v["decision"],
+                                "reviewer":r["actor"],"start_utf16":v["start_utf16"],
+                                "end_utf16":v["end_utf16"],
+                                "source_quote_sha256":v["source_quote_sha256"],
+                                "pdf_locator_status":v["pdf_locator_status"],
+                                "canonical_document_sha256":v["source_ref"]["canonical_document_sha256"]}
+                               for r,v in zip(rows,records)],
                     "total":len(rows),"original_text_exposed":False}
 
     def review(self,role,actor,sid,rev,body):
@@ -411,6 +441,40 @@ class SourceStudio:
                 db.execute("UPDATE p2_sources SET status='QA_HOLD' WHERE source_id=? AND revision_id=?",(sid,rev))
             ev=self.event(db,self.key(sid,rev),actor,"UNIT_QA_RECORDED",{"unit_id":unitid,"decision":decision,"quote_sha":record["source_quote_sha256"]})
             return {"review":record,"event_hash":ev}
+
+    def rework_handoff(self,role,sid,rev):
+        """Least-privilege immutable QA-rejection handoff.
+
+        Producer may see Unit ID and controlled reason category only, NEVER
+        source_quote, raw document or untrusted free-text Curator findings.
+        This is a derived view of immutable reviews; no mutable issue table.
+        """
+        self.auth(role,("producer","curator"))
+        categories={"STRUCTURE_GAP","NUMERIC_MISMATCH","ANCHOR_MISMATCH",
+                    "OMITTED_CONTENT","TRANSLATION_DISCREPANCY","OTHER"}
+        with self.connect() as db:
+            row=self.row(db,sid,rev)
+            items=db.execute(
+                "SELECT unit_id,record FROM p2_reviews WHERE source_id=? AND revision_id=? ORDER BY unit_id",
+                (sid,rev)).fetchall()
+            issues=[]
+            for item in items:
+                record=json.loads(item["record"])
+                if record["decision"]!="REJECT":continue
+                findings=record.get("findings",{})
+                code=findings.get("rework_reason_code","OTHER")
+                if not isinstance(code,str) or code not in categories:code="OTHER"
+                issues.append({"unit_id":item["unit_id"],"reason_code":code,
+                    # Deterministic ID derives only from non-sensitive immutable keys,
+                    # never a digest of private quote or free-text Curator findings.
+                    "issue_ref":sha({"scope":"P2_SYNTHETIC_REJECT_HANDOFF_V1",
+                                     "source_id":sid,"revision_id":rev,
+                                     "unit_id":item["unit_id"],"decision":"REJECT"}),
+                    "resolution":"NEW_REVISION_REQUIRED","immutable":True})
+            return {"source_id":sid,"revision_id":rev,"source_status":row["status"],
+                "issues":issues,"count":len(issues),"synthetic_only":True,
+                "original_text_exposed":False,"findings_text_exposed":False,
+                "gold_qualification":"NOT_ELIGIBLE","expert_exposure_authorized":False}
 
     def translations(self,role,sid,rev):
         """Auxiliary only. No translated quote can replace the original anchor."""

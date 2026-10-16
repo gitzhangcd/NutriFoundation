@@ -224,6 +224,146 @@ def test_p2_rejected_qa_cannot_auto_freeze(app):
     assert producer.post(f"/v1/p2/sources/{sid}/r1/scope",headers=ph,json={
         "project_id":"PRJ-SYN-P2-TEST","batch_id":"BATCH-SYN-P2-TEST"}).status_code==409
 
+def test_p2_utf16_non_bmp_exact_subspan_and_untrusted_rework_reason(app):
+    sid="P2-SYN-UNICODE-ANCHOR"
+    raw="# Synthetic Unicode anchor" + chr(10)*2 + "Dose 😀 12.4 mg/day was reported."
+    producer,ph,auditor,ah,curator,ch,doc=converted(app,sid,raw=raw)
+    u=next(x for x in doc["document"]["units"] if "😀" in x["text"])
+    quote="😀 12.4"
+    start=len("Dose ".encode("utf-16-le"))//2
+    end=start+len(quote.encode("utf-16-le"))//2
+    assert u["text"].index("😀")==start
+    assert end-start>len(quote)  # emoji spans two UTF-16 code units
+    decision={"unit_id":u["unit_id"],"decision":"REJECT",
+        "start_utf16":start,"end_utf16":end,
+        "source_quote":quote,
+        "source_quote_sha256":hashlib.sha256(quote.encode("utf-8")).hexdigest(),
+        "pdf_locator_status":u["pdf_locator_status"],
+        "findings":{"rework_reason_code":["INJECTED","NOT_A_STRING"],
+                    "notes":"Curator private content, never producer projection"}}
+    accepted=curator.post(f"/v1/p2/sources/{sid}/r1/qa",headers=ch,json=decision)
+    assert accepted.status_code==200,accepted.text
+    record=accepted.json()["review"]
+    assert (record["start_utf16"],record["end_utf16"])==(start,end)
+    again=curator.get(f"/v1/p2/sources/{sid}/r1/reviews")
+    assert again.status_code==200
+    rv=next(x for x in again.json()["reviews"] if x["unit_id"]==u["unit_id"])
+    assert rv["start_utf16"]==start and rv["end_utf16"]==end
+    assert rv["source_quote_sha256"]==decision["source_quote_sha256"]
+    assert quote not in again.text
+    handoff=producer.get(f"/v1/p2/sources/{sid}/r1/rework")
+    assert handoff.status_code==200
+    assert handoff.json()["issues"][0]["reason_code"]=="OTHER"
+    assert quote not in handoff.text
+    assert "Curator private content" not in handoff.text
+    assert producer.get(f"/v1/p2/sources/{sid}/r1/reviews").status_code==403
+
+
+def test_p2_rework_handoff_redacts_curator_findings_for_producer(app):
+    sid="P2-SYN-REWORK-HANDOFF"
+    producer,ph,auditor,ah,curator,ch,doc=converted(app,sid)
+    unit=doc["document"]["units"][1]
+    quote=unit["text"]
+    sensitive="NEVER_DISCLOSE_PRIVATE_CURATOR_NOTE_837"
+    body={"unit_id":unit["unit_id"],"decision":"REJECT","start_utf16":0,
+          "end_utf16":unit["utf16_length"],"source_quote":quote,
+          "source_quote_sha256":hashlib.sha256(quote.encode()).hexdigest(),
+          "pdf_locator_status":unit["pdf_locator_status"],
+          "findings":{"rework_reason_code":"NUMERIC_MISMATCH",
+                      "notes":sensitive,"original_excerpt":quote}}
+    sent=curator.post(f"/v1/p2/sources/{sid}/r1/qa",headers=ch,json=body)
+    assert sent.status_code==200,sent.text
+    endpoint=f"/v1/p2/sources/{sid}/r1/rework"
+    handoff=producer.get(endpoint)
+    assert handoff.status_code==200,handoff.text
+    data=handoff.json()
+    assert data["source_status"]=="QA_HOLD"
+    assert data["count"]==1
+    assert data["issues"][0]["unit_id"]==unit["unit_id"]
+    assert data["issues"][0]["reason_code"]=="NUMERIC_MISMATCH"
+    assert data["issues"][0]["resolution"]=="NEW_REVISION_REQUIRED"
+    assert len(data["issues"][0]["issue_ref"])==64
+    assert data["original_text_exposed"] is False
+    assert data["findings_text_exposed"] is False
+    assert sensitive not in handoff.text and quote not in handoff.text
+    assert producer.get(endpoint).json()==data
+    assert curator.get(endpoint).status_code==200
+    assert auditor.get(endpoint).status_code==403
+    manager,_=login(app,"manager")
+    assert manager.get(endpoint).status_code==403
+    expert,_=login(app,"ea1")
+    assert expert.get(endpoint).status_code==403
+    assert producer.get(f"/v1/p2/sources/{sid}/r1/original").status_code==403
+    assert producer.get(f"/v1/p2/sources/{sid}/r1/document").status_code==403
+    assert app.state.p2_source_studio.audit("auditor")["valid"] is True
+
+
+def test_p2_rejected_unit_rework_is_new_signed_revision_not_mutation(app):
+    """V2.1-P1 rollback/rework never alters r1's immutable rejected evidence."""
+    sid="P2-SYN-REWORK-REVISION"
+    producer,ph,auditor,ah,curator,ch,doc=converted(app,sid)
+    first=doc["document"]["units"][0]
+    original=producer.get(f"/v1/p2/sources/{sid}/r1").json()
+    q=first["text"]
+    rejected={"unit_id":first["unit_id"],"decision":"REJECT",
+        "start_utf16":0,"end_utf16":first["utf16_length"],
+        "source_quote":q,"source_quote_sha256":hashlib.sha256(q.encode()).hexdigest(),
+        "pdf_locator_status":first["pdf_locator_status"],
+        "findings":{"reason":"SYNTHETIC_REWORK_REQUIRED"}}
+    assert curator.post(f"/v1/p2/sources/{sid}/r1/qa",headers=ch,json=rejected).status_code==200
+    assert producer.get(f"/v1/p2/sources/{sid}/r1").json()["status"]=="QA_HOLD"
+    # Server-side lineage proofs: no forged parent, no identical raw reuse,
+    # and no hidden overwrite of the rejected r1.
+    forged={**record(sid),"revision_id":"r2",
+            "raw_content":"# Forged line\n\nA non-existent parent is not a rework.",
+            "source_family_refs":["P2-SYN-FAKE-PARENT:r1"]}
+    assert producer.post("/v1/p2/sources",headers=ph,json=forged).status_code==409
+    same_raw={**record(sid),"revision_id":"r2",
+              "source_family_refs":[f"{sid}:r1"]}
+    assert producer.post("/v1/p2/sources",headers=ph,json=same_raw).status_code==409
+    wrong_rank={**record(sid),"revision_id":"r3",
+                "raw_content":"# Invalid rank\n\nNever skip the parent revision.",
+                "source_family_refs":[f"{sid}:r1"]}
+    assert producer.post("/v1/p2/sources",headers=ph,json=wrong_rank).status_code==409
+    revision={**record(sid), "revision_id":"r2",
+        "raw_content":"# Corrected synthetic source\n\nRevised synthetic evidence has an explicit scope.\n\nNew table value: 13.4.",
+        "source_family_refs":[f"{sid}:r1"]}
+    created=producer.post("/v1/p2/sources",headers=ph,json=revision)
+    assert created.status_code==200,created.text
+    assert created.json()["source"]["status"]=="RIGHTS_HOLD"
+    assert created.json()["source"]["source_family_refs"]==[f"{sid}:r1"]
+    before=producer.get(f"/v1/p2/sources/{sid}/r1").json()
+    assert before["status"]=="QA_HOLD"
+    assert before["raw_artifact_sha256"]==original["raw_artifact_sha256"]
+    assert before["reviewed_units"]==1
+    assert producer.post(f"/v1/p2/sources/{sid}/r1/freeze",headers=ph,
+        json={"expected_document_sha256":doc["document_sha256"]}).status_code==409
+    assert producer.post(f"/v1/p2/sources/{sid}/r2/convert",headers=ph,json={}).status_code==409
+    approved=auditor.post(f"/v1/p2/sources/{sid}/r2/rights",headers=ah,json={
+        **rights_body(),"evidence_ref":"SYN-V2-REWORK-REVIEWED"})
+    assert approved.status_code==200,approved.text
+    moved=producer.post(f"/v1/p2/sources/{sid}/r2/convert",headers=ph,json={})
+    assert moved.status_code==200,moved.text
+    assert moved.json()["document_sha256"]!=doc["document_sha256"]
+    updated=curator.get(f"/v1/p2/sources/{sid}/r2/document").json()
+    for u in updated["document"]["units"]:
+        original_quote=u["text"]
+        res=curator.post(f"/v1/p2/sources/{sid}/r2/qa",headers=ch,json={
+            "unit_id":u["unit_id"],"decision":"ACCEPT","start_utf16":0,
+            "end_utf16":u["utf16_length"],"source_quote":original_quote,
+            "source_quote_sha256":hashlib.sha256(original_quote.encode()).hexdigest(),
+            "pdf_locator_status":u["pdf_locator_status"],
+            "findings":{"checked":"INDEPENDENT_SYNTHETIC_REVIEW"}})
+        assert res.status_code==200,res.text
+    frozen=producer.post(f"/v1/p2/sources/{sid}/r2/freeze",headers=ph,
+        json={"expected_document_sha256":moved.json()["document_sha256"]})
+    assert frozen.status_code==200,frozen.text
+    assert frozen.json()["package"]["expert_exposure_authorized"] is False
+    old=producer.get(f"/v1/p2/sources/{sid}/r1").json()
+    assert old["status"]=="QA_HOLD" and old["package_sha256"] is None
+    assert app.state.p2_source_studio.audit("auditor")["valid"] is True
+
+
 def test_p2_audit_chain_corruption_rejected_and_manager_readonly(app):
     sid="P2-SYN-SECURE-001";producer,ph,auditor,ah=prepare(app,sid)
     manager,mh=login(app,"manager")

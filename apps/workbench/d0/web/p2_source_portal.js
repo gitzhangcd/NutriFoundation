@@ -13,20 +13,41 @@ document.addEventListener('DOMContentLoaded',()=>{
     if(!res.ok)throw new Error(data.detail?.code||String(data.detail||res.status));
     return data;
   }
+  function independentV2(){return location.hash.startsWith('#/studio-v2')}
+  function portalReference(){
+    const q=new URLSearchParams((location.hash.split('?')[1]||''));
+    return {sourceId:q.get('source')||'',revisionId:q.get('revision')||''};
+  }
   function display(s){
     if(!s||!['curator','auditor'].includes(s.role)){
-      session=null;window.p2StudioSession=null;window.p2SourceStudio?.reset();
+      session=null;window.p2StudioSession=null;
+      window.p2SourceStudio?.reset();window.p2SourceStudioV2?.reset();
       at('p2Login').hidden=false;at('workspace').hidden=true;at('p2Logout').hidden=true;return;
     }
     session=s;window.p2StudioSession=s;
     at('p2Account').textContent=s.username+' · '+s.role;
     at('p2Login').hidden=true;at('workspace').hidden=false;at('p2Logout').hidden=false;
-    const host=at('p2PortalMount');host.replaceChildren(
-      window.p2SourceStudio.render({role:s.role,session:s,projects:[],batchMap:new Map(),scope:{project:'',batch:''}})
-    );
-    if(s.role==='curator')window.p2SourceStudio.selectTab('qa');
-    else window.p2SourceStudio.selectTab('intake');
+    const v2=independentV2();
+    at('p2PortalLegacy').setAttribute('aria-pressed',v2?'false':'true');
+    at('p2PortalV2').setAttribute('aria-pressed',v2?'true':'false');
+    const host=at('p2PortalMount');
+    if(v2){
+      const ref=portalReference();
+      host.replaceChildren(window.p2SourceStudioV2.render({
+        role:s.role,session:s,projects:[],batchMap:new Map(),
+        scope:{project:'',batch:''},sourceId:ref.sourceId,revisionId:ref.revisionId,
+        startPage:s.role==='curator'?'qa':'queue'
+      }));
+    }else{
+      host.replaceChildren(window.p2SourceStudio.render({
+        role:s.role,session:s,projects:[],batchMap:new Map(),scope:{project:'',batch:''}
+      }));
+      window.p2SourceStudio.selectTab(s.role==='curator'?'qa':'library');
+    }
   }
+  at('p2PortalLegacy').addEventListener('click',()=>{location.hash='#/studio';});
+  at('p2PortalV2').addEventListener('click',()=>{location.hash='#/studio-v2';});
+  window.addEventListener('hashchange',()=>{if(session)display(session)});
   at('p2LoginForm').addEventListener('submit',async ev=>{
     ev.preventDefault();at('p2LoginError').textContent='';
     try{

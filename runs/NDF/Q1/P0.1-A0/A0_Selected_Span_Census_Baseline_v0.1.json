@@ -1,0 +1,533 @@
+{
+  "contract": "NF-Q1-P0.1-A0-v0.1",
+  "purpose": "CURATION_DEV",
+  "upstream": {
+    "branch": "research/ndf-d1-a2-pilot-two-source-20261011",
+    "commit": "5d581e636164de7c959a2be15fabf9e01fdbcc76",
+    "evidence_cutoff": "2026-10-07"
+  },
+  "provenance": "Derived mechanically from the upstream A2 source/StudyIdentity/EvidenceUnit/ScientificClaim/SourceAnchor registries. All entries are selected anchors, not a complete full-paper census.",
+  "sources": [
+    {
+      "source_id": "CAND-G100-004",
+      "source_artifact_id": "SA-CAND-G100-004",
+      "study_identity_id": "STUDY-CHICTR2000029797",
+      "doi": "10.1038/s41467-022-28662-5",
+      "pmid": "35194047",
+      "upstream_source_sha256": "b505d4afae1ab346a7d9d411dedbb81312ab9a66cb1e3d1bcb500bc8fbc6cfcf",
+      "upstream_rights": "RELEASE_FOR_EXTRACTION_ONLY",
+      "full_text_bytes_in_this_A0_run": "NOT_PRESENT",
+      "document_surfaces": {
+        "BODY": {
+          "status": "NOT_ASSESSED",
+          "source_inventory_ref": null
+        },
+        "METHODS": {
+          "status": "NOT_ASSESSED",
+          "source_inventory_ref": null
+        },
+        "RESULTS": {
+          "status": "NOT_ASSESSED",
+          "source_inventory_ref": null
+        },
+        "TABLES": {
+          "status": "NOT_ASSESSED",
+          "source_inventory_ref": null
+        },
+        "FIGURES": {
+          "status": "NOT_ASSESSED",
+          "source_inventory_ref": null
+        },
+        "SUPPLEMENT": {
+          "status": "NOT_ASSESSED",
+          "source_inventory_ref": null
+        }
+      },
+      "result_census": {
+        "methods_outcome_ledger_status": "NOT_ASSESSED",
+        "result_inventory_status": "NOT_ASSESSED",
+        "all_results_denominator": "UNKNOWN",
+        "independent_coverage_audit": "NOT_EXECUTED"
+      },
+      "existing_evidence_units": [
+        {
+          "evidence_unit_id": "EU-004-ALLOC",
+          "anchor_refs": [
+            "A-004-ALLOC",
+            "A-004-REGISTRY"
+          ],
+          "status": "SOURCE_SPAN_VERIFIED_IN_A2"
+        },
+        {
+          "evidence_unit_id": "EU-004-COMPLETERS",
+          "anchor_refs": [
+            "A-004-COMPLETERS",
+            "A-004-EXCLUDED",
+            "A-004-BASELINE-N"
+          ],
+          "status": "SOURCE_SPAN_VERIFIED_IN_A2"
+        },
+        {
+          "evidence_unit_id": "EU-004-HOMA",
+          "anchor_refs": [
+            "A-004-PRIMARY-NAME",
+            "A-004-WINDOWS",
+            "A-004-HOMA",
+            "A-004-ALPHA"
+          ],
+          "status": "SOURCE_SPAN_VERIFIED_IN_A2"
+        },
+        {
+          "evidence_unit_id": "EU-004-FPG",
+          "anchor_refs": [
+            "A-004-FPG",
+            "A-004-FPG-MTRF"
+          ],
+          "status": "SOURCE_SPAN_VERIFIED_IN_A2"
+        },
+        {
+          "evidence_unit_id": "EU-004-MASS",
+          "anchor_refs": [
+            "A-004-MASS",
+            "A-004-MASS-ETRF",
+            "A-004-MASS-CONTROL"
+          ],
+          "status": "SOURCE_SPAN_VERIFIED_IN_A2"
+        },
+        {
+          "evidence_unit_id": "EU-004-ENERGY",
+          "anchor_refs": [
+            "A-004-ENERGY"
+          ],
+          "status": "SOURCE_SPAN_VERIFIED_IN_A2"
+        },
+        {
+          "evidence_unit_id": "EU-004-SAE",
+          "anchor_refs": [
+            "A-004-SAE"
+          ],
+          "status": "SOURCE_SPAN_VERIFIED_IN_A2"
+        },
+        {
+          "evidence_unit_id": "EU-004-BP-LIPIDS",
+          "anchor_refs": [
+            "A-004-BP"
+          ],
+          "status": "SOURCE_SPAN_VERIFIED_IN_A2"
+        }
+      ],
+      "existing_scientific_claims": [
+        {
+          "claim_id": "SC-004-HOMA",
+          "evidence_unit_refs": [
+            "EU-004-HOMA",
+            "EU-004-COMPLETERS",
+            "EU-004-ALLOC"
+          ],
+          "causal_semantics": "RANDOMIZED_ARM_COMPARISON_WITHIN_THIS_TRIAL",
+          "status": "HUMAN_REVIEW_REQUIRED"
+        },
+        {
+          "claim_id": "SC-004-FPG",
+          "evidence_unit_refs": [
+            "EU-004-FPG"
+          ],
+          "causal_semantics": "RANDOMIZED_ARM_COMPARISON_WITHIN_THIS_TRIAL",
+          "status": "HUMAN_REVIEW_REQUIRED"
+        },
+        {
+          "claim_id": "SC-004-MASS",
+          "evidence_unit_refs": [
+            "EU-004-MASS"
+          ],
+          "causal_semantics": "RANDOMIZED_ARM_COMPARISON_WITHIN_THIS_TRIAL",
+          "status": "HUMAN_REVIEW_REQUIRED"
+        }
+      ],
+      "existing_selected_anchors": [
+        {
+          "anchor_id": "A-004-ALLOC",
+          "evidence_unit_id": "EU-004-ALLOC",
+          "page": 1,
+          "role": "allocation",
+          "literal_text": "eTRF (n=30), mTRF (n=30), or control groups (n=30)"
+        },
+        {
+          "anchor_id": "A-004-REGISTRY",
+          "evidence_unit_id": "EU-004-ALLOC",
+          "page": 1,
+          "role": "registry",
+          "literal_text": "ChiCTR2000029797"
+        },
+        {
+          "anchor_id": "A-004-COMPLETERS",
+          "evidence_unit_id": "EU-004-COMPLETERS",
+          "page": 1,
+          "role": "analysis_population",
+          "literal_text": "analyzed (28 in eTRF, 26 in mTRF, 28 in control groups)"
+        },
+        {
+          "anchor_id": "A-004-PRIMARY-NAME",
+          "evidence_unit_id": "EU-004-HOMA",
+          "page": 1,
+          "role": "outcome_name",
+          "literal_text": "primary outcome was the\nchange in insulin resistance"
+        },
+        {
+          "anchor_id": "A-004-WINDOWS",
+          "evidence_unit_id": "EU-004-HOMA",
+          "page": 2,
+          "role": "intervention",
+          "literal_text": "eating during a period of no more than 8 h\nbetween 06:00 and 15:00"
+        },
+        {
+          "anchor_id": "A-004-HOMA",
+          "evidence_unit_id": "EU-004-HOMA",
+          "page": 2,
+          "role": "estimate",
+          "literal_text": "HOMA-IR\n(Δ = −1.08 ± 1.59) than either the mTRF group (Δ = 0.39 ± 0.71,\np < 0.001) or the control group (Δ = −0.05 ± 0.75, p = 0.002)"
+        },
+        {
+          "anchor_id": "A-004-FPG",
+          "evidence_unit_id": "EU-004-FPG",
+          "page": 2,
+          "role": "estimate",
+          "literal_text": "eTRF group (Δ = −0.59 ± 0.84\nmmol/L) and control group (Δ = 0.16 ± 0.38 mmol/L, p = 0.005)"
+        },
+        {
+          "anchor_id": "A-004-FPG-MTRF",
+          "evidence_unit_id": "EU-004-FPG",
+          "page": 2,
+          "role": "estimate",
+          "literal_text": "mTRF\n(Δ = −0.18 ± 1.17 mmol/L)"
+        },
+        {
+          "anchor_id": "A-004-MASS",
+          "evidence_unit_id": "EU-004-MASS",
+          "page": 2,
+          "role": "estimate",
+          "literal_text": "mTRF (Δ = −0.2 ± 2.2 kg)"
+        },
+        {
+          "anchor_id": "A-004-MASS-ETRF",
+          "evidence_unit_id": "EU-004-MASS",
+          "page": 2,
+          "role": "estimate",
+          "literal_text": "eTRF group (Δ = −1.6 ± 1.4 kg)"
+        },
+        {
+          "anchor_id": "A-004-MASS-CONTROL",
+          "evidence_unit_id": "EU-004-MASS",
+          "page": 2,
+          "role": "estimate",
+          "literal_text": "Δ = 0.3 ± 1.2 kg, p = 0.009"
+        },
+        {
+          "anchor_id": "A-004-ENERGY",
+          "evidence_unit_id": "EU-004-ENERGY",
+          "page": 2,
+          "role": "estimate",
+          "literal_text": "eTRF (Δ = −240 ± 409 kcal/day)"
+        },
+        {
+          "anchor_id": "A-004-SAE",
+          "evidence_unit_id": "EU-004-SAE",
+          "page": 2,
+          "role": "safety",
+          "literal_text": "No serious\nadverse events were reported during the trial."
+        },
+        {
+          "anchor_id": "A-004-BP",
+          "evidence_unit_id": "EU-004-BP-LIPIDS",
+          "page": 2,
+          "role": "null_result",
+          "literal_text": "p = 0.078, p = 0.099, and\np = 0.088"
+        },
+        {
+          "anchor_id": "A-004-EXCLUDED",
+          "evidence_unit_id": "EU-004-COMPLETERS",
+          "page": 8,
+          "role": "analysis_population",
+          "literal_text": "eight\nparticipants who did not complete the trial were excluded"
+        },
+        {
+          "anchor_id": "A-004-ALPHA",
+          "evidence_unit_id": "EU-004-HOMA",
+          "page": 8,
+          "role": "significance_threshold",
+          "literal_text": "P < 0.05 was considered to represent statistical"
+        },
+        {
+          "anchor_id": "A-004-BASELINE-N",
+          "evidence_unit_id": "EU-004-COMPLETERS",
+          "page": 3,
+          "role": "table_population",
+          "literal_text": "28.68 (9.707)"
+        }
+      ],
+      "a0_qualification": "HOLD_FULL_PAPER_CENSUS_NOT_PERFORMED"
+    },
+    {
+      "source_id": "CAND-G100-033",
+      "source_artifact_id": "SA-CAND-G100-033",
+      "study_identity_id": "STUDY-UKB-APP-29239",
+      "doi": "10.1007/s00394-020-02367-1",
+      "pmid": "33070213",
+      "upstream_source_sha256": "f59dff457efa2e97ebe94e9ba7270dae8001807f87596cd07dba10a259c78ea2",
+      "upstream_rights": "RELEASE_FOR_EXTRACTION_ONLY",
+      "full_text_bytes_in_this_A0_run": "NOT_PRESENT",
+      "document_surfaces": {
+        "BODY": {
+          "status": "NOT_ASSESSED",
+          "source_inventory_ref": null
+        },
+        "METHODS": {
+          "status": "NOT_ASSESSED",
+          "source_inventory_ref": null
+        },
+        "RESULTS": {
+          "status": "NOT_ASSESSED",
+          "source_inventory_ref": null
+        },
+        "TABLES": {
+          "status": "NOT_ASSESSED",
+          "source_inventory_ref": null
+        },
+        "FIGURES": {
+          "status": "NOT_ASSESSED",
+          "source_inventory_ref": null
+        },
+        "SUPPLEMENT": {
+          "status": "NOT_ASSESSED",
+          "source_inventory_ref": null
+        }
+      },
+      "result_census": {
+        "methods_outcome_ledger_status": "NOT_ASSESSED",
+        "result_inventory_status": "NOT_ASSESSED",
+        "all_results_denominator": "UNKNOWN",
+        "independent_coverage_audit": "NOT_EXECUTED"
+      },
+      "existing_evidence_units": [
+        {
+          "evidence_unit_id": "EU-033-COHORT",
+          "anchor_refs": [
+            "A-033-N",
+            "A-033-APP",
+            "A-033-EXPOSURE",
+            "A-033-PUBLISHED"
+          ],
+          "status": "SOURCE_SPAN_VERIFIED_IN_A2"
+        },
+        {
+          "evidence_unit_id": "EU-033-OBESITY",
+          "anchor_refs": [
+            "A-033-DENOM",
+            "A-033-CASES",
+            "A-033-OB-HR",
+            "A-033-TABLE-OB"
+          ],
+          "status": "SOURCE_SPAN_VERIFIED_IN_A2"
+        },
+        {
+          "evidence_unit_id": "EU-033-ABDOMINAL",
+          "anchor_refs": [
+            "A-033-ABD-HR",
+            "A-033-TABLE-ABD"
+          ],
+          "status": "SOURCE_SPAN_VERIFIED_IN_A2"
+        },
+        {
+          "evidence_unit_id": "EU-033-BMI5",
+          "anchor_refs": [
+            "A-033-BMI5",
+            "A-033-TABLE-BMI"
+          ],
+          "status": "SOURCE_SPAN_VERIFIED_IN_A2"
+        },
+        {
+          "evidence_unit_id": "EU-033-WC5",
+          "anchor_refs": [
+            "A-033-WC5",
+            "A-033-TABLE-WC"
+          ],
+          "status": "SOURCE_SPAN_VERIFIED_IN_A2"
+        },
+        {
+          "evidence_unit_id": "EU-033-BF5",
+          "anchor_refs": [
+            "A-033-BF5",
+            "A-033-TABLE-BF"
+          ],
+          "status": "SOURCE_SPAN_VERIFIED_IN_A2"
+        },
+        {
+          "evidence_unit_id": "EU-033-CONTINUOUS-OBESITY",
+          "anchor_refs": [
+            "A-033-CONT"
+          ],
+          "status": "SOURCE_SPAN_VERIFIED_IN_A2"
+        },
+        {
+          "evidence_unit_id": "EU-033-LIMITATION",
+          "anchor_refs": [
+            "A-033-CONFOUNDING"
+          ],
+          "status": "SOURCE_SPAN_VERIFIED_IN_A2"
+        }
+      ],
+      "existing_scientific_claims": [
+        {
+          "claim_id": "SC-033-QUARTILE",
+          "evidence_unit_refs": [
+            "EU-033-OBESITY",
+            "EU-033-ABDOMINAL",
+            "EU-033-BMI5",
+            "EU-033-WC5",
+            "EU-033-BF5",
+            "EU-033-LIMITATION"
+          ],
+          "causal_semantics": "OBSERVATIONAL_ASSOCIATION_NOT_A_CAUSAL_EFFECT",
+          "status": "HUMAN_REVIEW_REQUIRED"
+        },
+        {
+          "claim_id": "SC-033-CONTINUOUS-NOT-SIGNIFICANT",
+          "evidence_unit_refs": [
+            "EU-033-CONTINUOUS-OBESITY"
+          ],
+          "causal_semantics": "OBSERVATIONAL_ASSOCIATION_NOT_A_CAUSAL_EFFECT",
+          "status": "HUMAN_REVIEW_REQUIRED"
+        }
+      ],
+      "existing_selected_anchors": [
+        {
+          "anchor_id": "A-033-N",
+          "evidence_unit_id": "EU-033-COHORT",
+          "page": 1,
+          "role": "population",
+          "literal_text": "22,659"
+        },
+        {
+          "anchor_id": "A-033-APP",
+          "evidence_unit_id": "EU-033-COHORT",
+          "page": 2,
+          "role": "cohort_dependency",
+          "literal_text": "Application Number 29239"
+        },
+        {
+          "anchor_id": "A-033-EXPOSURE",
+          "evidence_unit_id": "EU-033-COHORT",
+          "page": 2,
+          "role": "exposure",
+          "literal_text": "first 24-h dietary recall"
+        },
+        {
+          "anchor_id": "A-033-DENOM",
+          "evidence_unit_id": "EU-033-OBESITY",
+          "page": 5,
+          "role": "denominator",
+          "literal_text": "18,218 and 17,113"
+        },
+        {
+          "anchor_id": "A-033-CASES",
+          "evidence_unit_id": "EU-033-OBESITY",
+          "page": 5,
+          "role": "cases",
+          "literal_text": "947 cases of obesity and 1900 cases"
+        },
+        {
+          "anchor_id": "A-033-OB-HR",
+          "evidence_unit_id": "EU-033-OBESITY",
+          "page": 5,
+          "role": "estimate",
+          "literal_text": "1.79; 95% CI 1.06–3.03"
+        },
+        {
+          "anchor_id": "A-033-ABD-HR",
+          "evidence_unit_id": "EU-033-ABDOMINAL",
+          "page": 5,
+          "role": "estimate",
+          "literal_text": "1.30; 95% CI 1.14–1.48"
+        },
+        {
+          "anchor_id": "A-033-BMI5",
+          "evidence_unit_id": "EU-033-BMI5",
+          "page": 5,
+          "role": "estimate",
+          "literal_text": "1.31; 95% CI 1.20–1.43"
+        },
+        {
+          "anchor_id": "A-033-WC5",
+          "evidence_unit_id": "EU-033-WC5",
+          "page": 5,
+          "role": "estimate",
+          "literal_text": "1.35; 95% CI 1.25–1.45"
+        },
+        {
+          "anchor_id": "A-033-BF5",
+          "evidence_unit_id": "EU-033-BF5",
+          "page": 5,
+          "role": "estimate",
+          "literal_text": "1.14; 95% CI 1.03–1.25"
+        },
+        {
+          "anchor_id": "A-033-CONT",
+          "evidence_unit_id": "EU-033-CONTINUOUS-OBESITY",
+          "page": 5,
+          "role": "estimate",
+          "literal_text": "1.10; 95% CI \n0.99–1.22"
+        },
+        {
+          "anchor_id": "A-033-TABLE-OB",
+          "evidence_unit_id": "EU-033-OBESITY",
+          "page": 8,
+          "role": "table_cell",
+          "literal_text": "1.79 (1.06–3.03)"
+        },
+        {
+          "anchor_id": "A-033-TABLE-ABD",
+          "evidence_unit_id": "EU-033-ABDOMINAL",
+          "page": 8,
+          "role": "table_cell",
+          "literal_text": "1.30 (1.14–1.48)"
+        },
+        {
+          "anchor_id": "A-033-TABLE-BMI",
+          "evidence_unit_id": "EU-033-BMI5",
+          "page": 8,
+          "role": "table_cell",
+          "literal_text": "1.31 (1.20–1.43)"
+        },
+        {
+          "anchor_id": "A-033-TABLE-WC",
+          "evidence_unit_id": "EU-033-WC5",
+          "page": 8,
+          "role": "table_cell",
+          "literal_text": "1.35 (1.25–1.45)"
+        },
+        {
+          "anchor_id": "A-033-TABLE-BF",
+          "evidence_unit_id": "EU-033-BF5",
+          "page": 8,
+          "role": "table_cell",
+          "literal_text": "1.14 (1.03–1.25)"
+        },
+        {
+          "anchor_id": "A-033-CONFOUNDING",
+          "evidence_unit_id": "EU-033-LIMITATION",
+          "page": 10,
+          "role": "limitation",
+          "literal_text": "residual confounding \ncannot be completely ruled out"
+        },
+        {
+          "anchor_id": "A-033-PUBLISHED",
+          "evidence_unit_id": "EU-033-COHORT",
+          "page": 1,
+          "role": "publication_date",
+          "literal_text": "Published online: 18 October 2020"
+        }
+      ],
+      "a0_qualification": "HOLD_FULL_PAPER_CENSUS_NOT_PERFORMED"
+    }
+  ]
+}

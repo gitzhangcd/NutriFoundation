@@ -1,0 +1,128 @@
+{
+  "title": "NF-Q1-P0.1-A0 Omission Kill Matrix",
+  "purpose": "CURATION_DEV",
+  "run_date": "2026-10-17",
+  "source": "local Python contract_guard.py against A2-derived restricted fixture",
+  "test_rows": [
+    {
+      "test_id": "KT01_OMIT_PRIMARY",
+      "target_id": "EU-004-HOMA",
+      "expected_issue": "MISSING_SENTINEL_RESULT",
+      "local_deterministic_result": "PASS",
+      "evaluation_scope": "MUTATED_SELECTED_SPAN_FIXTURE_ONLY"
+    },
+    {
+      "test_id": "KT02_OMIT_NULL",
+      "target_id": "EU-004-BP-LIPIDS",
+      "expected_issue": "MISSING_SENTINEL_RESULT",
+      "local_deterministic_result": "PASS",
+      "evaluation_scope": "MUTATED_SELECTED_SPAN_FIXTURE_ONLY"
+    },
+    {
+      "test_id": "KT03_OMIT_CONTINUOUS",
+      "target_id": "EU-033-CONTINUOUS-OBESITY",
+      "expected_issue": "MISSING_SENTINEL_RESULT",
+      "local_deterministic_result": "PASS",
+      "evaluation_scope": "MUTATED_SELECTED_SPAN_FIXTURE_ONLY"
+    },
+    {
+      "test_id": "KT04_OMIT_CONFOUNDING",
+      "target_id": "EU-033-LIMITATION",
+      "expected_issue": "MISSING_SENTINEL_RESULT",
+      "local_deterministic_result": "PASS",
+      "evaluation_scope": "MUTATED_SELECTED_SPAN_FIXTURE_ONLY"
+    },
+    {
+      "test_id": "KT05_NUMERIC_CORRUPTION",
+      "target_id": "A-033-OB-HR",
+      "expected_issue": "SENTINEL_LITERAL_MISMATCH",
+      "local_deterministic_result": "PASS",
+      "evaluation_scope": "MUTATED_SELECTED_SPAN_FIXTURE_ONLY"
+    },
+    {
+      "test_id": "KT06_CROSS_SOURCE",
+      "target_id": "A-033-OB-HR",
+      "expected_issue": "CROSS_SOURCE_ANCHOR",
+      "local_deterministic_result": "PASS",
+      "evaluation_scope": "MUTATED_SELECTED_SPAN_FIXTURE_ONLY"
+    },
+    {
+      "test_id": "KT07_CAUSAL_ESCALATION",
+      "target_id": "SC-033-QUARTILE",
+      "expected_issue": "OBSERVATIONAL_CAUSAL_ESCALATION",
+      "local_deterministic_result": "PASS",
+      "evaluation_scope": "MUTATED_SELECTED_SPAN_FIXTURE_ONLY"
+    },
+    {
+      "test_id": "KT08_POPULATION_DRIFT",
+      "target_id": "SC-004-HOMA",
+      "expected_issue": "POPULATION_SCOPE_DRIFT",
+      "local_deterministic_result": "PASS",
+      "evaluation_scope": "MUTATED_SELECTED_SPAN_FIXTURE_ONLY"
+    },
+    {
+      "test_id": "KT09_AGENT_GOLD",
+      "target_id": "SC-004-HOMA",
+      "expected_issue": "PREMATURE_SCIENTIFIC_PROMOTION",
+      "local_deterministic_result": "PASS",
+      "evaluation_scope": "MUTATED_SELECTED_SPAN_FIXTURE_ONLY"
+    },
+    {
+      "test_id": "KT10_FALSE_COMPLETE",
+      "target_id": "CAND-G100-004",
+      "expected_issue": "FALSE_COMPLETE_CLAIM",
+      "local_deterministic_result": "PASS",
+      "evaluation_scope": "MUTATED_SELECTED_SPAN_FIXTURE_ONLY"
+    },
+    {
+      "test_id": "KT11_METHODS_OUTCOME_OMITTED",
+      "target_id": "SECONDARY-SBP",
+      "expected_issue": "METHOD_RESULT_GAP",
+      "local_deterministic_result": "PASS",
+      "evaluation_scope": "MUTATED_SELECTED_SPAN_FIXTURE_ONLY"
+    },
+    {
+      "test_id": "KT12_CLAIM_WITHOUT_EU",
+      "target_id": "SC-004-HOMA",
+      "expected_issue": "CLAIM_WITHOUT_EVIDENCE",
+      "local_deterministic_result": "PASS",
+      "evaluation_scope": "MUTATED_SELECTED_SPAN_FIXTURE_ONLY"
+    },
+    {
+      "test_id": "KT13_FIGURE_FALSE_AUDIT",
+      "target_id": "FIGURES",
+      "expected_issue": "ASSESSMENT_WITHOUT_EVIDENCE",
+      "local_deterministic_result": "PASS",
+      "evaluation_scope": "MUTATED_SELECTED_SPAN_FIXTURE_ONLY"
+    },
+    {
+      "test_id": "KT14_MISSING_TABLE_ANCHOR",
+      "target_id": "A-033-TABLE-OB",
+      "expected_issue": "SENTINEL_LINK_BROKEN",
+      "local_deterministic_result": "PASS",
+      "evaluation_scope": "MUTATED_SELECTED_SPAN_FIXTURE_ONLY"
+    },
+    {
+      "test_id": "KT15_NUMERIC_EXTRACTION_CORRUPTION",
+      "target_id": "EU-033-OBESITY",
+      "expected_issue": "NUMERIC_LITERAL_UNSUPPORTED",
+      "local_deterministic_result": "PASS",
+      "evaluation_scope": "MUTATED_SELECTED_SPAN_FIXTURE_ONLY"
+    },
+    {
+      "test_id": "KT16_AI_EXPOSURE_LOG_OMITTED",
+      "target_id": "EU-004-HOMA",
+      "expected_issue": "AI_EXPOSURE_LOG_MISSING",
+      "local_deterministic_result": "PASS",
+      "evaluation_scope": "MUTATED_SELECTED_SPAN_FIXTURE_ONLY"
+    }
+  ],
+  "local_assertion_counts": {
+    "basic_unit_tests_passed": 6,
+    "basic_unit_tests_total": 6,
+    "targeted_kills_passed": 16,
+    "targeted_kills_total": 16
+  },
+  "scientific_caveat": "Tests detect fixed mutations of A2 selected anchors and candidate structures. Not a measured full-paper extraction recall, not clinical expert validation, not A/B/C independent full-text comparison.",
+  "full_paper_census_status": "HOLD"
+}

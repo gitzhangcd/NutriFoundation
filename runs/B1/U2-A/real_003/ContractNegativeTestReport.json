@@ -1,0 +1,287 @@
+{
+  "run_id": "B1-U2A-NEGATIVE-001",
+  "contract_version": "UDF-B1-NATIVE-DRAFT-0.1",
+  "tests": [
+    {
+      "name": "real private typed collections validate",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "lexical zero remains value; unknown Tr is not zero",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "source-native pending orphan retained",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "structural allowlist projection",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "all current real records restricted to curation",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "valid explicit unit/state comparison guard",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "native link evidence can be structural candidate",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "same-name recipe and image promoted to instance",
+      "expected": "INSTANCE_IDENTITY_NOT_PROVED",
+      "observed": "INSTANCE_IDENTITY_NOT_PROVED",
+      "pass": true
+    },
+    {
+      "name": "perceptual hash similarity promoted to instance",
+      "expected": "INSTANCE_IDENTITY_NOT_PROVED",
+      "observed": "INSTANCE_IDENTITY_NOT_PROVED",
+      "pass": true
+    },
+    {
+      "name": "unknown or missing numeric slot with hidden value",
+      "expected": "SLOT_UNAVAILABLE_INVALID",
+      "observed": "SLOT_UNAVAILABLE_INVALID",
+      "pass": true
+    },
+    {
+      "name": "Tr silently changed to measured zero",
+      "expected": "MEASUREMENT_VALUE_DRIFT",
+      "observed": "MEASUREMENT_VALUE_DRIFT",
+      "pass": true
+    },
+    {
+      "name": "unmarked oil given arbitrary default amount",
+      "expected": "RECIPE_QUANTITY_DRIFT",
+      "observed": "RECIPE_QUANTITY_DRIFT",
+      "pass": true
+    },
+    {
+      "name": "unqualified recipe note converted to grams",
+      "expected": "RECIPE_NOTE_UNIT_BASIS_HOLD",
+      "observed": "RECIPE_NOTE_UNIT_BASIS_HOLD",
+      "pass": true
+    },
+    {
+      "name": "raw and cooked values compared as equal",
+      "expected": "FOOD_STATE_INCOMPARABLE",
+      "observed": "FOOD_STATE_INCOMPARABLE",
+      "pass": true
+    },
+    {
+      "name": "mL to g without density",
+      "expected": "DENSITY_REQUIRED",
+      "observed": "DENSITY_REQUIRED",
+      "pass": true
+    },
+    {
+      "name": "serving to g without portion mass",
+      "expected": "PORTION_MASS_REQUIRED",
+      "observed": "PORTION_MASS_REQUIRED",
+      "pass": true
+    },
+    {
+      "name": "same source family double counting",
+      "expected": "SOURCE_DEPENDENCE",
+      "observed": "SOURCE_DEPENDENCE",
+      "pass": true
+    },
+    {
+      "name": "N5k360 unknown absolute scale",
+      "expected": "GEOMETRY_OR_GROUP_HOLD",
+      "observed": "GEOMETRY_OR_GROUP_HOLD",
+      "pass": true
+    },
+    {
+      "name": "incremental scans treated independent",
+      "expected": "GEOMETRY_OR_GROUP_HOLD",
+      "observed": "GEOMETRY_OR_GROUP_HOLD",
+      "pass": true
+    },
+    {
+      "name": "SNAPMe aggregation before grain qualified",
+      "expected": "AGGREGATION_NOT_QUALIFIED",
+      "observed": "AGGREGATION_NOT_QUALIFIED",
+      "pass": true
+    },
+    {
+      "name": "replicated whole meal contribution even if grain declared",
+      "expected": "DUPLICATE_AGGREGATION",
+      "observed": "DUPLICATE_AGGREGATION",
+      "pass": true
+    },
+    {
+      "name": "daily record relabeled habitual",
+      "expected": "DIETARY_STATE_INFLATION",
+      "observed": "DIETARY_STATE_INFLATION",
+      "pass": true
+    },
+    {
+      "name": "system or evaluator view requested outside scope",
+      "expected": "PROJECTION_NOT_AUTHORIZED",
+      "observed": "PROJECTION_NOT_AUTHORIZED",
+      "pass": true
+    },
+    {
+      "name": "hidden gold added to allowlist projection",
+      "expected": "PROJECTION_CLOSURE",
+      "observed": "PROJECTION_CLOSURE",
+      "pass": true
+    },
+    {
+      "name": "source hash nested in field list",
+      "expected": "PROJECTION_CLOSURE",
+      "observed": "PROJECTION_CLOSURE",
+      "pass": true
+    },
+    {
+      "name": "agent-only reference promoted to Gold",
+      "expected": "REFERENCE_NOT_QUALIFIED",
+      "observed": "REFERENCE_NOT_QUALIFIED",
+      "pass": true
+    },
+    {
+      "name": "mutated immutable revision",
+      "expected": "REVISION_INTEGRITY",
+      "observed": "REVISION_INTEGRITY",
+      "pass": true
+    },
+    {
+      "name": "missing instance_class",
+      "expected": "ENVELOPE_FIELDS",
+      "observed": "ENVELOPE_FIELDS",
+      "pass": true
+    },
+    {
+      "name": "mixed instance in real-source only ingest",
+      "expected": "REAL_ONLY_PROFILE",
+      "observed": "REAL_ONLY_PROFILE",
+      "pass": true
+    },
+    {
+      "name": "synthetic source promoted to real",
+      "expected": "REAL_WITH_SYNTHETIC_SOURCE",
+      "observed": "REAL_WITH_SYNTHETIC_SOURCE",
+      "pass": true
+    },
+    {
+      "name": "source document referenced as study identity",
+      "expected": "REF_KIND_MISMATCH",
+      "observed": "REF_KIND_MISMATCH",
+      "pass": true
+    },
+    {
+      "name": "evidence/claim type conflation cannot pass grounding validator",
+      "expected": "REF_KIND_MISMATCH",
+      "observed": "REF_KIND_MISMATCH",
+      "pass": true
+    },
+    {
+      "name": "same database calculation claimed chemical assay",
+      "expected": "REFERENCE_PROFILE_MISMATCH",
+      "observed": "REFERENCE_PROFILE_MISMATCH",
+      "pass": true
+    },
+    {
+      "name": "unknown denominator passed to calculation",
+      "expected": "MEASUREMENT_NOT_QUALIFIED",
+      "observed": "MEASUREMENT_NOT_QUALIFIED",
+      "pass": true
+    },
+    {
+      "name": "canonical normalized value invented",
+      "expected": "UNQUALIFIED_NORMALIZATION",
+      "observed": "UNQUALIFIED_NORMALIZATION",
+      "pass": true
+    },
+    {
+      "name": "unqualified source basis fabricated",
+      "expected": "SOURCE_BASIS_HOLD",
+      "observed": "SOURCE_BASIS_HOLD",
+      "pass": true
+    },
+    {
+      "name": "public exposed data promoted to locked probe",
+      "expected": "PROBE_NOT_INDEPENDENT",
+      "observed": "PROBE_NOT_INDEPENDENT",
+      "pass": true
+    },
+    {
+      "name": "development data requested for locked release",
+      "expected": "RELEASE_BLOCKED",
+      "observed": "RELEASE_BLOCKED",
+      "pass": true
+    },
+    {
+      "name": "unqualified development reference requested for training",
+      "expected": "RELEASE_BLOCKED",
+      "observed": "RELEASE_BLOCKED",
+      "pass": true
+    },
+    {
+      "name": "evidence-backed field changed despite valid revision digest",
+      "expected": "CANONICAL_SOURCE_DRIFT",
+      "observed": "CANONICAL_SOURCE_DRIFT",
+      "pass": true
+    },
+    {
+      "name": "source anchor raw record hash mismatch",
+      "expected": "NATIVE_RAW_DIGEST",
+      "observed": "NATIVE_RAW_DIGEST",
+      "pass": true
+    },
+    {
+      "name": "source record has invalid anchor locator",
+      "expected": "ANCHOR_MISMATCH",
+      "observed": "ANCHOR_MISMATCH",
+      "pass": true
+    },
+    {
+      "name": "duplicated native record locator",
+      "expected": "DUPLICATE_NATIVE_LOCATOR",
+      "observed": "DUPLICATE_NATIVE_LOCATOR",
+      "pass": true
+    },
+    {
+      "name": "wrong NutriData parent ID despite plausible name",
+      "expected": "BUSINESS_KEY_CODE_MISMATCH",
+      "observed": "BUSINESS_KEY_CODE_MISMATCH",
+      "pass": true
+    },
+    {
+      "name": "unqualified link promoted to same physical instance",
+      "expected": "LINK_PROMOTION",
+      "observed": "LINK_PROMOTION",
+      "pass": true
+    },
+    {
+      "name": "future release flag or frozen record inserted into draft",
+      "expected": "DEV_ONLY",
+      "observed": "DEV_ONLY",
+      "pass": true
+    }
+  ],
+  "total": 46,
+  "passed": 46,
+  "failed": 0,
+  "scope": "B1 implemented rules and real-object mutations; not full UDF section 35 experiment/temporal/E2H validation",
+  "scientific_release_authorized": false
+}

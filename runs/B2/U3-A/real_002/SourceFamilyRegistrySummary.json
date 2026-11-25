@@ -1,0 +1,77 @@
+{
+  "family_declarations": 26,
+  "potential_families": 11,
+  "record_bindings": 51406,
+  "families": [
+    {
+      "potential_family": "CHINA_FOOD_COMPOSITION_TABLE",
+      "declarations": 4,
+      "record_bindings": 2493,
+      "independent_measurement_status": "NOT_QUALIFIED"
+    },
+    {
+      "potential_family": "CN_CHENGDU_TEST_INSTITUTE",
+      "declarations": 1,
+      "record_bindings": 1,
+      "independent_measurement_status": "NOT_QUALIFIED"
+    },
+    {
+      "potential_family": "CN_FUNCTIONAL_INGREDIENT_TABLE",
+      "declarations": 1,
+      "record_bindings": 111,
+      "independent_measurement_status": "NOT_QUALIFIED"
+    },
+    {
+      "potential_family": "COMMERCIAL_OR_ORGANIZATION_DECLARED",
+      "declarations": 7,
+      "record_bindings": 118,
+      "independent_measurement_status": "NOT_QUALIFIED"
+    },
+    {
+      "potential_family": "MENU_LABEL_SOURCE",
+      "declarations": 1,
+      "record_bindings": 41,
+      "independent_measurement_status": "NOT_QUALIFIED"
+    },
+    {
+      "potential_family": "NUTRIDATA_INTERNAL_UNRESOLVED",
+      "declarations": 1,
+      "record_bindings": 487,
+      "independent_measurement_status": "NOT_QUALIFIED"
+    },
+    {
+      "potential_family": "NUTRIDATA_RECIPE_LINEAGE_UNRESOLVED",
+      "declarations": 1,
+      "record_bindings": 22180,
+      "independent_measurement_status": "NOT_QUALIFIED"
+    },
+    {
+      "potential_family": "PRODUCT_LABEL_CARRIER",
+      "declarations": 2,
+      "record_bindings": 11,
+      "independent_measurement_status": "NOT_QUALIFIED"
+    },
+    {
+      "potential_family": "REGIONAL_COMPOSITION_JAPAN",
+      "declarations": 1,
+      "record_bindings": 82,
+      "independent_measurement_status": "NOT_QUALIFIED"
+    },
+    {
+      "potential_family": "REGIONAL_COMPOSITION_TAIWAN",
+      "declarations": 1,
+      "record_bindings": 119,
+      "independent_measurement_status": "NOT_QUALIFIED"
+    },
+    {
+      "potential_family": "USDA_COMPOSITION",
+      "declarations": 6,
+      "record_bindings": 25763,
+      "independent_measurement_status": "NOT_QUALIFIED"
+    }
+  ],
+  "nutridata_ingredient_source_labels": 17,
+  "nutridata_ingredient_usda_reported_rows": 35,
+  "nutridata_dish_source_label_empty_rows": 22180,
+  "governance": "potential dependency only, not exact underlying sample identity; same family or unresolved lineage cannot be counted as independent evidence; same-release FNDDS carriers dependent"
+}

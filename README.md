@@ -1,5 +1,16 @@
 # AI Nutri Data Foundation v0.1
 
+## Current UDF execution baseline (v2.1, 2026-11-25)
+
+For new unified nutrition data foundation work, use **[AI Nutri Unified Data Foundation v2.1](docs/AI_Nutri_Unified_Data_Foundation_v2.1.md)** as the governing implementation plan for NutriFM, nutrition decision intelligence, E2H nutrition science communication, and SIS controlled experiments.
+
+- Next execution package: **B0 / U1-A — Real Asset Inventory, Native Schema Profiling & Grounding Feasibility Audit** (22 public datasets + NutriData CSV collection).
+- Inspect actual source files before freezing B1 physical schemas. Respect the task-specific qualification, provenance, information boundary, independent-reference, private-probe, and non-regression gates in v2.1.
+- The adopted planning baseline is not a claim of empirical validation: the master document retains its design-candidate status and open real-data/experimental gates.
+- SIS, SIS-MED (where applicable), Nutrition Foundation and NDF-D0–D2 retain upstream scientific authority. Existing frozen experiments, tags, reference/scoring artifacts and historical reports remain unchanged; reconcile any conflicts explicitly rather than silently rewriting them.
+
+Every new UDF work package should cite the version and relevant section of this document, record the current milestone, actual evidence and unresolved gates, and identify decisions requiring PI confirmation.
+
 ## Purpose
 
 AI Nutri Data Foundation is the scientific data infrastructure for evidence-grounded, applicability-aware, state-aware, safety-constrained nutrition decision intelligence.

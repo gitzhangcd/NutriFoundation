@@ -1,0 +1,2603 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nutrifoundation:udf:b1:native-object:0.1",
+  "title": "UDF B1 source-native and canonical draft object schema",
+  "description": "Development-only structural schema. Runtime contract.py additionally validates SHA256, typed endpoint namespaces, provenance, source record bindings, measurement and release guards. Separate collection per kind; not a frozen production or D0 interchange schema.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/SourceArtifact"
+    },
+    {
+      "$ref": "#/$defs/SourceAnchor"
+    },
+    {
+      "$ref": "#/$defs/NativeRecord"
+    },
+    {
+      "$ref": "#/$defs/FoodLabelDraft"
+    },
+    {
+      "$ref": "#/$defs/FoodEntityDraft"
+    },
+    {
+      "$ref": "#/$defs/FoodInstanceDraft"
+    },
+    {
+      "$ref": "#/$defs/RecipeDraft"
+    },
+    {
+      "$ref": "#/$defs/RecipeIngredientDraft"
+    },
+    {
+      "$ref": "#/$defs/NutrientMeasurementDraft"
+    },
+    {
+      "$ref": "#/$defs/DietaryObservationDraft"
+    },
+    {
+      "$ref": "#/$defs/MediaObservationDraft"
+    },
+    {
+      "$ref": "#/$defs/ProcessObservationDraft"
+    },
+    {
+      "$ref": "#/$defs/ProcessVocabularyDraft"
+    },
+    {
+      "$ref": "#/$defs/VideoMetadataDraft"
+    },
+    {
+      "$ref": "#/$defs/QARecordDraft"
+    },
+    {
+      "$ref": "#/$defs/ProductVersionDraft"
+    },
+    {
+      "$ref": "#/$defs/NativeLinkDraft"
+    }
+  ],
+  "$defs": {
+    "ref": {
+      "type": "string",
+      "pattern": "^[^@]+@[a-f0-9]{64}$"
+    },
+    "slot": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "VALUE"
+            },
+            "value": {
+              "not": {
+                "type": "null"
+              }
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "UNAVAILABLE"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            },
+            "detail": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason",
+            "detail"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "NOT_APPLICABLE"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            },
+            "policy_ref": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason",
+            "policy_ref"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "locator": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "sheet": {
+              "type": "string",
+              "minLength": 1
+            },
+            "excel_row": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "sheet",
+            "excel_row"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "csv_record": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "csv_record"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "line": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "line"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "json_pointer": {
+              "type": "string",
+              "pattern": "^/"
+            }
+          },
+          "required": [
+            "json_pointer"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "binding": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^(/.*)?$"
+        },
+        "raw_value": {},
+        "origin_mode": {
+          "const": "OBSERVED"
+        },
+        "knowledge_state": {
+          "enum": [
+            "KNOWN",
+            "UNKNOWN"
+          ]
+        },
+        "construction_class": {
+          "const": "OBS"
+        },
+        "visibility_overlay": {
+          "const": "ROLE_RESTRICTED"
+        },
+        "role": {
+          "const": "SOURCE_REPRESENTATION"
+        }
+      },
+      "required": [
+        "path",
+        "raw_value",
+        "origin_mode",
+        "knowledge_state",
+        "construction_class",
+        "visibility_overlay",
+        "role"
+      ],
+      "additionalProperties": false
+    },
+    "SourceArtifact": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "const": "REAL_SOURCE_GROUNDED"
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "kind": {
+          "const": "SourceArtifact"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "namespace": {
+              "type": "string",
+              "minLength": 1
+            },
+            "file_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "bytes": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "source_role": {
+              "type": "string",
+              "minLength": 1
+            },
+            "version_status": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "namespace",
+            "file_sha256",
+            "bytes",
+            "source_role",
+            "version_status"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "kind",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "SourceAnchor": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "const": "REAL_SOURCE_GROUNDED"
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "kind": {
+          "const": "SourceAnchor"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "source_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "locator": {
+              "$ref": "#/$defs/locator"
+            },
+            "integrity": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "content": {
+              "$ref": "#/$defs/slot"
+            },
+            "source_class": {
+              "enum": [
+                "REAL_DATA",
+                "REAL_DOCUMENT",
+                "NATIVE_JUDGMENT"
+              ]
+            }
+          },
+          "required": [
+            "source_ref",
+            "locator",
+            "integrity",
+            "content",
+            "source_class"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "kind",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "NativeRecord": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "const": "REAL_SOURCE_GROUNDED"
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "kind": {
+          "const": "NativeRecord"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "artifact_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "anchor_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "locator": {
+              "$ref": "#/$defs/locator"
+            },
+            "raw": {
+              "type": "object"
+            },
+            "raw_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "native_format": {
+              "type": "string",
+              "minLength": 1
+            },
+            "grain": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "artifact_ref",
+            "anchor_ref",
+            "locator",
+            "raw",
+            "raw_sha256",
+            "native_format",
+            "grain"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "kind",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "FoodLabelDraft": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "const": "REAL_SOURCE_GROUNDED"
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "kind": {
+          "const": "FoodLabelDraft"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "native_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/binding"
+              }
+            },
+            "label_namespace": {
+              "type": "string",
+              "minLength": 1
+            },
+            "label_role": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "native_ref",
+            "bindings",
+            "label_namespace",
+            "label_role"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "kind",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "FoodEntityDraft": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "const": "REAL_SOURCE_GROUNDED"
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "kind": {
+          "const": "FoodEntityDraft"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "native_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/binding"
+              }
+            },
+            "entity_type": {
+              "type": "string",
+              "minLength": 1
+            },
+            "identity_scope": {
+              "const": "SOURCE_SCOPED_ONLY"
+            }
+          },
+          "required": [
+            "native_ref",
+            "bindings",
+            "entity_type",
+            "identity_scope"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "kind",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "FoodInstanceDraft": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "const": "REAL_SOURCE_GROUNDED"
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "kind": {
+          "const": "FoodInstanceDraft"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "native_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/binding"
+              }
+            },
+            "instance_scope": {
+              "const": "NUTRITION5K_SCAN"
+            },
+            "identity_status": {
+              "const": "NATIVE_SCAN_ONLY_GROUP_UNRESOLVED"
+            }
+          },
+          "required": [
+            "native_ref",
+            "bindings",
+            "instance_scope",
+            "identity_status"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "kind",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "RecipeDraft": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "const": "REAL_SOURCE_GROUNDED"
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "kind": {
+          "const": "RecipeDraft"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "native_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/binding"
+              }
+            },
+            "recipe_scope": {
+              "type": "string",
+              "minLength": 1
+            },
+            "quantity_semantics": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "native_ref",
+            "bindings",
+            "recipe_scope",
+            "quantity_semantics"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "kind",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "RecipeIngredientDraft": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "const": "REAL_SOURCE_GROUNDED"
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "kind": {
+          "const": "RecipeIngredientDraft"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "native_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/binding"
+              }
+            },
+            "recipe_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "quantity": {
+              "$ref": "#/$defs/slot"
+            },
+            "unit": {
+              "$ref": "#/$defs/slot"
+            },
+            "basis": {
+              "$ref": "#/$defs/slot"
+            },
+            "parent_ref": {
+              "$ref": "#/$defs/slot"
+            },
+            "link_status": {
+              "enum": [
+                "CANDIDATE_ID_AND_CODE",
+                "HOLD_UNMATCHED_OR_CONFLICT"
+              ]
+            }
+          },
+          "required": [
+            "native_ref",
+            "bindings",
+            "recipe_ref",
+            "quantity",
+            "unit",
+            "basis",
+            "parent_ref",
+            "link_status"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "kind",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "NutrientMeasurementDraft": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "const": "REAL_SOURCE_GROUNDED"
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "kind": {
+          "const": "NutrientMeasurementDraft"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "native_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/binding"
+              }
+            },
+            "subject_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "component_key": {
+              "type": "string",
+              "minLength": 1
+            },
+            "original_value": {
+              "$ref": "#/$defs/slot"
+            },
+            "original_unit": {
+              "$ref": "#/$defs/slot"
+            },
+            "original_basis": {
+              "$ref": "#/$defs/slot"
+            },
+            "normalized_value": {
+              "$ref": "#/$defs/slot"
+            },
+            "preparation": {
+              "$ref": "#/$defs/slot"
+            },
+            "source_method": {
+              "$ref": "#/$defs/slot"
+            },
+            "reference_profile": {
+              "enum": [
+                "Q-COMPOSITION_SOURCE_UNQUALIFIED",
+                "Q-COMMON-CALC_CANDIDATE",
+                "Q-MASS_CANDIDATE",
+                "Q-RECALL_CANDIDATE",
+                "Q-LABEL_CANDIDATE",
+                "Q-MENU_CANDIDATE"
+              ]
+            },
+            "qualification": {
+              "$ref": "#/$defs/slot"
+            }
+          },
+          "required": [
+            "native_ref",
+            "bindings",
+            "subject_ref",
+            "component_key",
+            "original_value",
+            "original_unit",
+            "original_basis",
+            "normalized_value",
+            "preparation",
+            "source_method",
+            "reference_profile",
+            "qualification"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "kind",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "DietaryObservationDraft": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "const": "REAL_SOURCE_GROUNDED"
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "kind": {
+          "const": "DietaryObservationDraft"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "native_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/binding"
+              }
+            },
+            "identity_scope": {
+              "const": "SOURCE_PRIVATE_NAMESPACE_ONLY"
+            },
+            "observation_window": {
+              "const": "SOURCE_REPORTED_DAY_NOT_HABITUAL"
+            },
+            "measurement_role": {
+              "type": "string",
+              "minLength": 1
+            },
+            "aggregation_status": {
+              "const": "HOLD_DUPLICATE_GRAIN_UNRESOLVED"
+            }
+          },
+          "required": [
+            "native_ref",
+            "bindings",
+            "identity_scope",
+            "observation_window",
+            "measurement_role",
+            "aggregation_status"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "kind",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "MediaObservationDraft": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "const": "REAL_SOURCE_GROUNDED"
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "kind": {
+          "const": "MediaObservationDraft"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "native_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/binding"
+              }
+            },
+            "annotation_kind": {
+              "type": "string",
+              "minLength": 1
+            },
+            "media_identity_status": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "native_ref",
+            "bindings",
+            "annotation_kind",
+            "media_identity_status"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "kind",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "ProcessObservationDraft": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "const": "REAL_SOURCE_GROUNDED"
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "kind": {
+          "const": "ProcessObservationDraft"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "native_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/binding"
+              }
+            },
+            "event_role": {
+              "type": "string",
+              "minLength": 1
+            },
+            "time_basis": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "native_ref",
+            "bindings",
+            "event_role",
+            "time_basis"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "kind",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "ProcessVocabularyDraft": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "const": "REAL_SOURCE_GROUNDED"
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "kind": {
+          "const": "ProcessVocabularyDraft"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "native_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/binding"
+              }
+            },
+            "label_namespace": {
+              "type": "string",
+              "minLength": 1
+            },
+            "vocabulary_role": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "native_ref",
+            "bindings",
+            "label_namespace",
+            "vocabulary_role"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "kind",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "VideoMetadataDraft": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "const": "REAL_SOURCE_GROUNDED"
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "kind": {
+          "const": "VideoMetadataDraft"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "native_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/binding"
+              }
+            },
+            "media_scope": {
+              "type": "string",
+              "minLength": 1
+            },
+            "time_basis": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "native_ref",
+            "bindings",
+            "media_scope",
+            "time_basis"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "kind",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "QARecordDraft": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "const": "REAL_SOURCE_GROUNDED"
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "kind": {
+          "const": "QARecordDraft"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "native_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/binding"
+              }
+            },
+            "exposure_status": {
+              "const": "DEVELOPMENT_EXPOSED"
+            }
+          },
+          "required": [
+            "native_ref",
+            "bindings",
+            "exposure_status"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "kind",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "ProductVersionDraft": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "const": "REAL_SOURCE_GROUNDED"
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "kind": {
+          "const": "ProductVersionDraft"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "native_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/binding"
+              }
+            },
+            "product_identity_status": {
+              "type": "string",
+              "minLength": 1
+            },
+            "nutrition_basis": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "native_ref",
+            "bindings",
+            "product_identity_status",
+            "nutrition_basis"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "kind",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "NativeLinkDraft": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-B1-NATIVE-DRAFT-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "const": "REAL_SOURCE_GROUNDED"
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "kind": {
+          "const": "NativeLinkDraft"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "native_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/binding"
+              }
+            },
+            "relation_type": {
+              "const": "NATIVE_CANDIDATE_LINK"
+            },
+            "left_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "right_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "status": {
+              "const": "STRUCTURALLY_MATCHED"
+            },
+            "semantic_qualification": {
+              "const": "PENDING"
+            }
+          },
+          "required": [
+            "native_ref",
+            "bindings",
+            "relation_type",
+            "left_ref",
+            "right_ref",
+            "status",
+            "semantic_qualification"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "kind",
+        "payload"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

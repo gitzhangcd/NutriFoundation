@@ -1,0 +1,42 @@
+{
+  "run_id": "B1-U2A-SCHEMA-001",
+  "contract_version": "UDF-B1-NATIVE-DRAFT-0.1",
+  "checker": "independent stdlib check of the exact used JSON Schema keyword subset; not a general standards-conformance checker",
+  "schema_sha256": "c68d73c77bd3530ba4a84114a822914085dc3a767c3b8b26b5a5b5d5bd3dfea8",
+  "bridge_sha256": "5cb0b73c1b6a4471593a6e08e364f602f1a6a28927e5a8f5246c7f73ae3a1f8a",
+  "schema_kind_count": 17,
+  "objects_shape_validated": 5699,
+  "scientific_collection_declarations": 11,
+  "shared_scientific_types_instantiated": 2,
+  "delegated_uninstantiated_scientific_kinds": 9,
+  "negative_checks": [
+    {
+      "name": "missing instance_class",
+      "observed": "REQUIRED",
+      "rejected": true
+    },
+    {
+      "name": "unexpected payload field",
+      "observed": "ADDITIONAL_PROPERTIES",
+      "rejected": true
+    },
+    {
+      "name": "pending slot with hidden value",
+      "observed": "ONE_OF",
+      "rejected": true
+    },
+    {
+      "name": "malformed immutable ref",
+      "observed": "PATTERN",
+      "rejected": true
+    },
+    {
+      "name": "fake release",
+      "observed": "CONST",
+      "rejected": true
+    }
+  ],
+  "negative_rejected": 5,
+  "status": "PASS_DRAFT_STRUCTURE_ONLY",
+  "d0_interchange_validated": false
+}

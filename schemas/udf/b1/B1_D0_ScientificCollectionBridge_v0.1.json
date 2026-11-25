@@ -1,0 +1,197 @@
+{
+  "version": "B1-D0-BRIDGE-DRAFT-0.1",
+  "status": "DRAFT_NOT_EXECUTABLE_INTERCHANGE",
+  "authority": {
+    "udf_master_blob": "9e3169814f8800e1b6eba6fd94a4097c57a00488",
+    "ndsf": "Nutrition Foundation v0.1 Part III §§2.2-3.2",
+    "ndf_d0": "NDF-D0 §§5-9",
+    "repo_runtime": "src/nutrifoundation/ndf/d0",
+    "existing_d0_commit": "6b2559eb10037149c605921c09423453c8b1d821",
+    "inspected_structural_validator_blob": "a9ccb4c1e081e1e6e3cdf2c5f40d9731cd2516c5",
+    "inspected_real_d1_fixture_blob": "3902f58bd136f76f99c34989ebc97c3ce7b8a368"
+  },
+  "scientific_collections": [
+    {
+      "kind": "SourceArtifact",
+      "logical_collection": "source_artifacts",
+      "status": "B1_IMPLEMENTED_SHARED_DRAFT",
+      "required_relation_semantics": [
+        "source/version identity"
+      ],
+      "physical_file_for_current_run": "private/typed_collections/SourceArtifact.jsonl",
+      "authority": "NDF-D0/NDSF; B1 local draft"
+    },
+    {
+      "kind": "SourceAnchor",
+      "logical_collection": "source_anchors",
+      "status": "B1_IMPLEMENTED_SHARED_DRAFT",
+      "required_relation_semantics": [
+        "SourceArtifact"
+      ],
+      "physical_file_for_current_run": "private/typed_collections/SourceAnchor.jsonl",
+      "authority": "NDF-D0/NDSF; B1 local draft"
+    },
+    {
+      "kind": "StudyIdentity",
+      "logical_collection": "study_identities",
+      "status": "DELEGATED_NDF_D0",
+      "required_relation_semantics": [
+        "SourceArtifact"
+      ],
+      "physical_file_for_current_run": "NOT_INSTANTIATED_THIS_RUN",
+      "authority": "existing NDF-D0 plus upstream spec"
+    },
+    {
+      "kind": "EvidenceUnit",
+      "logical_collection": "evidence_units",
+      "status": "DELEGATED_NDF_D0",
+      "required_relation_semantics": [
+        "StudyIdentity",
+        "SourceArtifact",
+        "SourceAnchor"
+      ],
+      "physical_file_for_current_run": "NOT_INSTANTIATED_THIS_RUN",
+      "authority": "existing NDF-D0 plus upstream spec"
+    },
+    {
+      "kind": "ScientificClaim",
+      "logical_collection": "scientific_claims",
+      "status": "DELEGATED_NDF_D0",
+      "required_relation_semantics": [
+        "EvidenceUnit",
+        "ScientificRelation"
+      ],
+      "physical_file_for_current_run": "NOT_INSTANTIATED_THIS_RUN",
+      "authority": "existing NDF-D0 plus upstream spec"
+    },
+    {
+      "kind": "ScientificRelation",
+      "logical_collection": "scientific_relations",
+      "status": "DELEGATED_NDF_D0",
+      "required_relation_semantics": [
+        "typed endpoints per D0"
+      ],
+      "physical_file_for_current_run": "NOT_INSTANTIATED_THIS_RUN",
+      "authority": "existing NDF-D0 plus upstream spec"
+    },
+    {
+      "kind": "EvidenceConflict",
+      "logical_collection": "evidence_conflicts",
+      "status": "DELEGATED_NDF_D0",
+      "required_relation_semantics": [
+        "EvidenceUnit",
+        "ScientificClaim"
+      ],
+      "physical_file_for_current_run": "NOT_INSTANTIATED_THIS_RUN",
+      "authority": "existing NDF-D0 plus upstream spec"
+    },
+    {
+      "kind": "EvidenceGap",
+      "logical_collection": "evidence_gaps",
+      "status": "DELEGATED_NDF_D0",
+      "required_relation_semantics": [
+        "question/claim and source basis"
+      ],
+      "physical_file_for_current_run": "NOT_INSTANTIATED_THIS_RUN",
+      "authority": "existing NDF-D0 plus upstream spec"
+    },
+    {
+      "kind": "VerificationRecord",
+      "logical_collection": "verification_records",
+      "status": "DELEGATED_NDF_D0",
+      "required_relation_semantics": [
+        "typed verified target/version"
+      ],
+      "physical_file_for_current_run": "NOT_INSTANTIATED_THIS_RUN",
+      "authority": "existing NDF-D0 plus upstream spec"
+    },
+    {
+      "kind": "KnowledgeSnapshot",
+      "logical_collection": "knowledge_snapshots",
+      "status": "DELEGATED_NDF_D0",
+      "required_relation_semantics": [
+        "qualified typed object revisions"
+      ],
+      "physical_file_for_current_run": "NOT_INSTANTIATED_THIS_RUN",
+      "authority": "existing NDF-D0 plus upstream spec"
+    },
+    {
+      "kind": "ScientificReferenceState",
+      "logical_collection": "scientific_reference_states",
+      "status": "DELEGATED_NDF_D0",
+      "required_relation_semantics": [
+        "KnowledgeSnapshot",
+        "ScientificClaim",
+        "task/applicability/uncertainty"
+      ],
+      "physical_file_for_current_run": "NOT_INSTANTIATED_THIS_RUN",
+      "authority": "existing NDF-D0 plus upstream spec"
+    }
+  ],
+  "no_generic_multitype_truth_table": true,
+  "instance_classes": [
+    "REAL_SOURCE_GROUNDED",
+    "MIXED_CONSTRUCTED",
+    "SYNTHETIC",
+    "SIMULATED"
+  ],
+  "b1_profile_instance_allowlist": [
+    "REAL_SOURCE_GROUNDED"
+  ],
+  "mapping": [
+    {
+      "field": "object_id/revision_id",
+      "legacy": "object_id, revision_id and historical reference conventions",
+      "b1": "stable source-snapshot object_id, revision_id=content SHA256, immutable id@revision refs",
+      "status": "EXPLICIT_VERSION_RESOLVER_REQUIRED"
+    },
+    {
+      "field": "instance_class",
+      "legacy": "not present in inspected legacy D0 REQUIRED_ENVELOPE_FIELDS / real D1 fixture",
+      "b1": "required and independently validated",
+      "status": "LEGACY_UNRESOLVED_DO_NOT_DEFAULT_REAL"
+    },
+    {
+      "field": "source_class",
+      "legacy": "legacy taxonomy e.g. PRIMARY_STUDY",
+      "b1": "NDSF source class plus retained native source_role",
+      "status": "TYPED_MAPPING_REQUIRED_NO_FLATTENING"
+    },
+    {
+      "field": "purpose_release_ref",
+      "legacy": "purpose enum string in validator e.g. CURATION_DEV",
+      "b1": "tagged pending actual release reference + separate purpose enum CURATION_DEV",
+      "status": "EXPLICIT_ADAPTER_REQUIRED_NO_IMPLIED_RELEASE"
+    },
+    {
+      "field": "supersedes_ref",
+      "legacy": "null in existing fixture",
+      "b1": "NOT_APPLICABLE slot for first draft",
+      "status": "ADAPTER_REQUIRED_NO_HISTORICAL_REWRITE"
+    },
+    {
+      "field": "created_time",
+      "legacy": "D0 processing time",
+      "b1": "timezone ISO timestamp with explicit AUDIT_UTC clock axis",
+      "status": "PRESERVE_ORIGINAL_CLOCK_AND_SOURCE_EVENT_TIME"
+    },
+    {
+      "field": "payload",
+      "legacy": "flat kind-specific fields",
+      "b1": "typed nested payload and field-path binding",
+      "status": "EXPLICIT_KIND_SPECIFIC_PROJECTION_REQUIRED"
+    },
+    {
+      "field": "source_ref/anchor",
+      "legacy": "source_ref and source_version/locator/integrity",
+      "b1": "immutable artifact ref, locator, file hash, content withheld slot",
+      "status": "MAP_SHARED_IDENTITY_AFTER_VALIDATION"
+    }
+  ],
+  "unresolved": [
+    "No production D0/B1 interchange adapter was run.",
+    "Nine scientific kinds are independently declared and delegated, not real instantiated objects in this grounding slice.",
+    "Existing D0 runtime and real D1/D2 fixtures remain unchanged. No claim of full D0 or section 35 E2H/temporal/experiment validation.",
+    "Physical freeze, role projections with scientific task data, measurement qualification, licensing and release remain open."
+  ]
+}

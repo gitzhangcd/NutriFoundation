@@ -4,7 +4,9 @@
 
 For new unified nutrition data foundation work, use **[AI Nutri Unified Data Foundation v2.1](docs/AI_Nutri_Unified_Data_Foundation_v2.1.md)** as the governing implementation plan for NutriFM, nutrition decision intelligence, E2H nutrition science communication, and SIS controlled experiments.
 
-- Next execution package: **B0 / U1-A — Real Asset Inventory, Native Schema Profiling & Grounding Feasibility Audit** (22 public datasets + NutriData CSV collection).
+- B0/U1-A: [NutriData native audit](docs/udf/B0_U1-A_NutriData_Real_Asset_Audit_v0.1.md) and [public sample exploration](docs/udf/B0_U1-A_Public_Sample_Exploration_v0.1.md) are bounded development receipts; original 22 archives and scientific qualification remain open.
+- B1/U2-A: [real source-native contract and round-trip audit](docs/udf/B1_U2-A_Source_Native_Contract_and_Real_Roundtrip_v0.1.md) has passed the bounded real draft gate (23 input files, 747 records, 5,699 typed objects, 46 contract checks); global B1 freeze and production release remain HOLD. [Machine-readable receipt](runs/B1/U2-A/real_003/B1AdmissionReceipt.json).
+- Next proposed package: **B1 / U2-B — Measurement Semantics, Namespace Qualification & D0 Bridge Conformance**. Follow task-specific B0 remainder and B1 qualification; B2 vocabulary work may proceed only within admitted scope.
 - Inspect actual source files before freezing B1 physical schemas. Respect the task-specific qualification, provenance, information boundary, independent-reference, private-probe, and non-regression gates in v2.1.
 - The adopted planning baseline is not a claim of empirical validation: the master document retains its design-candidate status and open real-data/experimental gates.
 - SIS, SIS-MED (where applicable), Nutrition Foundation and NDF-D0–D2 retain upstream scientific authority. Existing frozen experiments, tags, reference/scoring artifacts and historical reports remain unchanged; reconcile any conflicts explicitly rather than silently rewriting them.

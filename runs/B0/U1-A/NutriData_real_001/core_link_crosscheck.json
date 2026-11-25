@@ -1,0 +1,88 @@
+{
+  "method": "Full two-core-workbook re-read. Numeric equality only, no inferred denominator. Raw identifier strings matched against unique item_id and code cross-check. Name differences are not forced aliases.",
+  "counts": {
+    "ingredient_rows": 3446,
+    "dish_rows": 22180,
+    "lines": 152531,
+    "note_positive": 152531,
+    "note_unit_field_present": 0,
+    "matched_lines": 152324,
+    "code_exact": 152324,
+    "name_exact": 84024,
+    "dishes_all_lines_linked_code_consistent": 21973,
+    "unmatched_lines": 207
+  },
+  "unmatched_distinct_ingrIds": 9,
+  "unmatched_distinct_codes": 9,
+  "unmatched_largest_key_frequency": 185,
+  "quantity_types": {
+    "float": 152531
+  },
+  "nutrient_metadata_hints": {
+    "ingredient_core_nutrient_entries": 30362,
+    "ingredient_nonempty_description": 5113,
+    "dish_core_nutrient_entries": 176425,
+    "dish_description_100g_hint": 0,
+    "dish_nonempty_description": 0,
+    "dish_unit_missing": 0
+  },
+  "wide_nested": {
+    "ingredient": {
+      "calorie": {
+        "numeric_equal": 3417,
+        "non_numeric_pair": 29,
+        "non_numeric_raw_exact": 29
+      },
+      "protein": {
+        "numeric_equal": 3337,
+        "non_numeric_pair": 109,
+        "non_numeric_raw_exact": 109
+      },
+      "fat": {
+        "numeric_equal": 3277,
+        "non_numeric_pair": 169,
+        "non_numeric_raw_exact": 169
+      },
+      "carbohydrate": {
+        "numeric_equal": 3331,
+        "non_numeric_pair": 115,
+        "non_numeric_raw_exact": 115
+      },
+      "na": {
+        "numeric_equal": 3189,
+        "non_numeric_pair": 257,
+        "non_numeric_raw_exact": 257
+      },
+      "dietary_fiber": {
+        "numeric_equal": 2749,
+        "non_numeric_pair": 696,
+        "non_numeric_raw_exact": 696,
+        "nested_absent": 1
+      },
+      "vitamin_a": {
+        "numeric_equal": 1998,
+        "non_numeric_pair": 1314,
+        "non_numeric_raw_exact": 1314,
+        "nested_absent": 134
+      },
+      "folic_acid": {
+        "numeric_equal": 1150,
+        "non_numeric_pair": 2212,
+        "non_numeric_raw_exact": 2212,
+        "nested_absent": 84
+      },
+      "carbs_used": {
+        "numeric_equal": 2706,
+        "non_numeric_pair": 307,
+        "non_numeric_raw_exact": 307,
+        "nested_absent": 433
+      }
+    },
+    "dish": {
+      "calorie": {
+        "numeric_equal": 22180
+      }
+    }
+  },
+  "source_hashes_match": true
+}

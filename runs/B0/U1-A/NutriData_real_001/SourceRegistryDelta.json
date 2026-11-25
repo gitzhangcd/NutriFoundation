@@ -1,0 +1,654 @@
+{
+  "registry_id": "B0-SourceRegistryDelta-20261125-001",
+  "authority": "AI Nutri UDF v2.1",
+  "run_time_utc": "2026-11-25T10:25:16.104344+00:00",
+  "status": "PARTIAL_REAL_SOURCE_INVENTORY",
+  "top_level_sources_reported": 23,
+  "top_level_sources_locally_profiled": 1,
+  "reported_downloads_not_located_in_project": 22,
+  "source_data_file_format": "XLSX (observed), not CSV (prior report)",
+  "datasets": [
+    {
+      "dataset_id": "NDF-G001",
+      "name": "Food-101",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G002",
+      "name": "UEC-Food100",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G003",
+      "name": "UEC-Food256",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G004",
+      "name": "SNAPMe",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G005",
+      "name": "ISIA Food-500",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G006",
+      "name": "Food-11",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G007",
+      "name": "iFood 2019 / FoodX-251",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G008",
+      "name": "Food-101N",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G009",
+      "name": "Fruits-360",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G010",
+      "name": "Food2K",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G011",
+      "name": "VIREO Food-172",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G012",
+      "name": "XiaChuFang",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G013",
+      "name": "Pre-NeRF 360 / N5k360",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G014",
+      "name": "Food-5K",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G015",
+      "name": "FoodieQA",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G016",
+      "name": "Open Food Facts",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G017",
+      "name": "Menu-Match",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G018",
+      "name": "RecipeNLG",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G019",
+      "name": "eButton",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G020",
+      "name": "RecipeQA",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G021",
+      "name": "UNIMIB2016",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    },
+    {
+      "dataset_id": "NDF-G022",
+      "name": "EPIC-KITCHENS-100",
+      "reported_downloaded": true,
+      "local_location_status": "NOT_LOCATED_IN_AUTHORIZED_PROJECT_SCOPE",
+      "source_version": "UNRESOLVED",
+      "qualification": "HOLD_UNQUALIFIED"
+    }
+  ],
+  "nutridata": {
+    "dataset_id": "NDF-G023",
+    "name": "NutriData",
+    "actual_file_count": 25,
+    "actual_sheet_count": 25,
+    "actual_nonempty_native_rows": 94667,
+    "bytes": 37478213,
+    "source_version": "UNRESOLVED (snapshot integrity local; no vendor release ID established)",
+    "license_status": "UNRESOLVED",
+    "native_file_numbers_observed": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "26",
+      "27"
+    ],
+    "children": [
+      {
+        "asset_id": "NDF-G023-01",
+        "filename": "01-食物成分库.xlsx",
+        "sheet": "nutridata_ingredient",
+        "native_rows": 3446,
+        "native_columns": 59,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 3446
+        },
+        "detail_json": {
+          "object": 3446
+        },
+        "scope": "CORE_THIN_SLICE_CANDIDATE",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-02",
+        "filename": "02-菜肴库.xlsx",
+        "sheet": "nutridata_dish",
+        "native_rows": 22180,
+        "native_columns": 10,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 22180
+        },
+        "detail_json": {
+          "object": 22180
+        },
+        "scope": "CORE_THIN_SLICE_CANDIDATE",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-03",
+        "filename": "03-婴幼儿配方奶粉.xlsx",
+        "sheet": "nutridata_baby_formula",
+        "native_rows": 2455,
+        "native_columns": 12,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 2455
+        },
+        "detail_json": {
+          "object": 2455
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-04",
+        "filename": "04-特医食品.xlsx",
+        "sheet": "nutridata_special_formula",
+        "native_rows": 365,
+        "native_columns": 13,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 365
+        },
+        "detail_json": {
+          "object": 365
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-05",
+        "filename": "05-营养素补充剂.xlsx",
+        "sheet": "nutridata_supplement",
+        "native_rows": 22902,
+        "native_columns": 12,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 22902
+        },
+        "detail_json": {
+          "object": 22902
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-07",
+        "filename": "07-GI食品库.xlsx",
+        "sheet": "nutridata_gi_food",
+        "native_rows": 6840,
+        "native_columns": 17,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 6840
+        },
+        "detail_json": {
+          "object": 6840
+        },
+        "scope": "CONDITIONAL_GI",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-08",
+        "filename": "08-保健食品.xlsx",
+        "sheet": "nutridata_health_food",
+        "native_rows": 29383,
+        "native_columns": 13,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 29383
+        },
+        "detail_json": {
+          "object": 29383
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-09",
+        "filename": "09-功能食品原料.xlsx",
+        "sheet": "nutridata_functional_food",
+        "native_rows": 533,
+        "native_columns": 81,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 533
+        },
+        "detail_json": {
+          "object": 533
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-10",
+        "filename": "10-氨基酸库.xlsx",
+        "sheet": "nutridata_amino_acid",
+        "native_rows": 1002,
+        "native_columns": 28,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 1002
+        },
+        "detail_json": {
+          "object": 1002
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-11",
+        "filename": "11-脂肪酸库.xlsx",
+        "sheet": "nutridata_fatty_acid",
+        "native_rows": 1100,
+        "native_columns": 52,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 1100
+        },
+        "detail_json": {
+          "object": 1100
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-12",
+        "filename": "12-大豆异黄酮.xlsx",
+        "sheet": "nutridata_isoflavone",
+        "native_rows": 273,
+        "native_columns": 12,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 273
+        },
+        "detail_json": {
+          "object": 273
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-13",
+        "filename": "13-植物甾醇.xlsx",
+        "sheet": "nutridata_phytosterol",
+        "native_rows": 91,
+        "native_columns": 15,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 91
+        },
+        "detail_json": {
+          "object": 91
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-14",
+        "filename": "14-胡萝卜素.xlsx",
+        "sheet": "nutridata_carotene",
+        "native_rows": 91,
+        "native_columns": 13,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 91
+        },
+        "detail_json": {
+          "object": 91
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-15",
+        "filename": "15-USDA胆碱.xlsx",
+        "sheet": "nutridata_choline",
+        "native_rows": 271,
+        "native_columns": 15,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 271
+        },
+        "detail_json": {
+          "object": 271
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-16",
+        "filename": "16-类黄酮.xlsx",
+        "sheet": "nutridata_flavonoid",
+        "native_rows": 275,
+        "native_columns": 13,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 275
+        },
+        "detail_json": {
+          "object": 275
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-17",
+        "filename": "17-花青素.xlsx",
+        "sheet": "nutridata_anthocyanin",
+        "native_rows": 141,
+        "native_columns": 11,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 141
+        },
+        "detail_json": {
+          "object": 141
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-18",
+        "filename": "18-白藜芦醇.xlsx",
+        "sheet": "nutridata_resveratrol",
+        "native_rows": 204,
+        "native_columns": 10,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 204
+        },
+        "detail_json": {
+          "object": 204
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-19",
+        "filename": "19-叶黄素.xlsx",
+        "sheet": "nutridata_lutein",
+        "native_rows": 302,
+        "native_columns": 9,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 302
+        },
+        "detail_json": {
+          "object": 302
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-20",
+        "filename": "20-番茄红素.xlsx",
+        "sheet": "nutridata_lycopene",
+        "native_rows": 51,
+        "native_columns": 8,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 51
+        },
+        "detail_json": {
+          "object": 51
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-21",
+        "filename": "21-代餐食品.xlsx",
+        "sheet": "nutridata_meal_replacement",
+        "native_rows": 287,
+        "native_columns": 38,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 287
+        },
+        "detail_json": {
+          "object": 287
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-22",
+        "filename": "22-咖啡因.xlsx",
+        "sheet": "nutridata_caffeine",
+        "native_rows": 546,
+        "native_columns": 12,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 546
+        },
+        "detail_json": {
+          "object": 540,
+          "blank": 6
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-23",
+        "filename": "23-碘.xlsx",
+        "sheet": "nutridata_iodine",
+        "native_rows": 1443,
+        "native_columns": 10,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 1443
+        },
+        "detail_json": {
+          "blank": 1443
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-24",
+        "filename": "24-快餐库.xlsx",
+        "sheet": "nutridata_fast_food",
+        "native_rows": 162,
+        "native_columns": 11,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 162
+        },
+        "detail_json": {
+          "object": 162
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-26",
+        "filename": "26-水产库.xlsx",
+        "sheet": "nutridata_aquatic",
+        "native_rows": 204,
+        "native_columns": 33,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 204
+        },
+        "detail_json": {
+          "object": 204
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      },
+      {
+        "asset_id": "NDF-G023-27",
+        "filename": "27-奶茶库.xlsx",
+        "sheet": "nutridata_milk_tea",
+        "native_rows": 120,
+        "native_columns": 19,
+        "id_key_unique_nonblank": true,
+        "item_id_key_unique_nonblank": true,
+        "list_json": {
+          "object": 120
+        },
+        "detail_json": {
+          "object": 119,
+          "blank": 1
+        },
+        "scope": "REGISTERED_DEFER_TRANSFORMATION",
+        "qualification": "PROFILED_NOT_SCIENTIFICALLY_QUALIFIED"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1309 @@
+{
+  "schema": "B0-NUTRIDATA-PROFILE-0.1",
+  "method": "full nonempty OOXML row scan, first nonempty row header; no formula recalculation; exact text keys; no unit inference",
+  "run_time_utc": "2026-11-25T10:25:16.104344+00:00",
+  "script_sha256": "46f3bba99d8a90e74aaf138b7fe65cff0d97e9cd3745c999e37eb9649acb9eaa",
+  "workbooks_found": 25,
+  "workbooks_crc_pass": 25,
+  "workbooks_unchanged": 25,
+  "total_file_bytes": 37478213,
+  "sheets_profiled": 25,
+  "nonempty_data_rows": 94667,
+  "errors": [],
+  "tables": [
+    {
+      "asset_id": "NDF-G023-01",
+      "file": "01-食物成分库.xlsx",
+      "sheet": "nutridata_ingredient",
+      "rows": 3446,
+      "columns": 59,
+      "header_row": 1,
+      "last_row": 3447,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 3446,
+        "missing": 0,
+        "distinct_nonblank": 3446,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 3446,
+        "missing": 0,
+        "distinct_nonblank": 3446,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 3446
+        },
+        "detail_json": {
+          "object": 3446
+        }
+      },
+      "macro_tokens": {
+        "edible": {
+          "numeric_nonzero": 3425,
+          "other": 18,
+          "token:未知": 3
+        },
+        "water_rate": {
+          "numeric_nonzero": 3055,
+          "numeric_zero": 391
+        },
+        "calorie": {
+          "numeric_nonzero": 3399,
+          "token:—": 24,
+          "other": 5,
+          "numeric_zero": 18
+        },
+        "protein": {
+          "numeric_nonzero": 3300,
+          "token:—": 50,
+          "other": 17,
+          "token:Tr": 42,
+          "numeric_zero": 37
+        },
+        "fat": {
+          "numeric_nonzero": 3176,
+          "token:Tr": 34,
+          "token:—": 35,
+          "numeric_zero": 101,
+          "other": 94,
+          "token:tr": 4,
+          "token:-": 2
+        },
+        "carbohydrate": {
+          "numeric_nonzero": 3076,
+          "token:—": 23,
+          "numeric_zero": 255,
+          "other": 71,
+          "token:Tr": 21
+        },
+        "vitamin_a": {
+          "numeric_nonzero": 1795,
+          "token:—": 826,
+          "token:Tr": 219,
+          "numeric_zero": 203,
+          "other": 223,
+          "whitespace": 2,
+          "token:-": 32,
+          "token:tr": 12,
+          "blank": 134
+        },
+        "folic_acid": {
+          "numeric_nonzero": 1083,
+          "other": 1710,
+          "token:—": 208,
+          "token:Tr": 44,
+          "token:-": 248,
+          "numeric_zero": 67,
+          "whitespace": 2,
+          "blank": 84
+        },
+        "na": {
+          "numeric_nonzero": 3141,
+          "token:—": 201,
+          "token:Tr": 9,
+          "numeric_zero": 48,
+          "other": 18,
+          "token:-": 29
+        },
+        "dietary_fiber": {
+          "numeric_zero": 1026,
+          "numeric_nonzero": 1723,
+          "token:Tr": 23,
+          "token:—": 536,
+          "other": 128,
+          "token:-": 8,
+          "token:tr": 1,
+          "blank": 1
+        },
+        "gi": {
+          "other": 2934,
+          "numeric_nonzero": 131,
+          "token:-": 160,
+          "blank": 221
+        }
+      }
+    },
+    {
+      "asset_id": "NDF-G023-02",
+      "file": "02-菜肴库.xlsx",
+      "sheet": "nutridata_dish",
+      "rows": 22180,
+      "columns": 10,
+      "header_row": 1,
+      "last_row": 22181,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 22180,
+        "missing": 0,
+        "distinct_nonblank": 22180,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 22180,
+        "missing": 0,
+        "distinct_nonblank": 22180,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 22180
+        },
+        "detail_json": {
+          "object": 22180
+        }
+      },
+      "macro_tokens": {
+        "calorie": {
+          "numeric_nonzero": 22180
+        }
+      }
+    },
+    {
+      "asset_id": "NDF-G023-03",
+      "file": "03-婴幼儿配方奶粉.xlsx",
+      "sheet": "nutridata_baby_formula",
+      "rows": 2455,
+      "columns": 12,
+      "header_row": 1,
+      "last_row": 2456,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 2455,
+        "missing": 0,
+        "distinct_nonblank": 2455,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 2455,
+        "missing": 0,
+        "distinct_nonblank": 2455,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 2455
+        },
+        "detail_json": {
+          "object": 2455
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-04",
+      "file": "04-特医食品.xlsx",
+      "sheet": "nutridata_special_formula",
+      "rows": 365,
+      "columns": 13,
+      "header_row": 1,
+      "last_row": 366,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 365,
+        "missing": 0,
+        "distinct_nonblank": 365,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 365,
+        "missing": 0,
+        "distinct_nonblank": 365,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 365
+        },
+        "detail_json": {
+          "object": 365
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-05",
+      "file": "05-营养素补充剂.xlsx",
+      "sheet": "nutridata_supplement",
+      "rows": 22902,
+      "columns": 12,
+      "header_row": 1,
+      "last_row": 22903,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 22902,
+        "missing": 0,
+        "distinct_nonblank": 22902,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 22902,
+        "missing": 0,
+        "distinct_nonblank": 22902,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 22902
+        },
+        "detail_json": {
+          "object": 22902
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-07",
+      "file": "07-GI食品库.xlsx",
+      "sheet": "nutridata_gi_food",
+      "rows": 6840,
+      "columns": 17,
+      "header_row": 1,
+      "last_row": 6841,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 6840,
+        "missing": 0,
+        "distinct_nonblank": 6840,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 6840,
+        "missing": 0,
+        "distinct_nonblank": 6840,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 6840
+        },
+        "detail_json": {
+          "object": 6840
+        }
+      },
+      "macro_tokens": {
+        "gi": {
+          "numeric_nonzero": 6840
+        },
+        "gl": {
+          "numeric_nonzero": 6212,
+          "numeric_zero": 7,
+          "other": 621
+        }
+      }
+    },
+    {
+      "asset_id": "NDF-G023-08",
+      "file": "08-保健食品.xlsx",
+      "sheet": "nutridata_health_food",
+      "rows": 29383,
+      "columns": 13,
+      "header_row": 1,
+      "last_row": 29384,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 29383,
+        "missing": 0,
+        "distinct_nonblank": 29383,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 29383,
+        "missing": 0,
+        "distinct_nonblank": 29383,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 29383
+        },
+        "detail_json": {
+          "object": 29383
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-09",
+      "file": "09-功能食品原料.xlsx",
+      "sheet": "nutridata_functional_food",
+      "rows": 533,
+      "columns": 81,
+      "header_row": 1,
+      "last_row": 534,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 533,
+        "missing": 0,
+        "distinct_nonblank": 533,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 533,
+        "missing": 0,
+        "distinct_nonblank": 533,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 533
+        },
+        "detail_json": {
+          "object": 533
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-10",
+      "file": "10-氨基酸库.xlsx",
+      "sheet": "nutridata_amino_acid",
+      "rows": 1002,
+      "columns": 28,
+      "header_row": 1,
+      "last_row": 1003,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 1002,
+        "missing": 0,
+        "distinct_nonblank": 1002,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 1002,
+        "missing": 0,
+        "distinct_nonblank": 1002,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 1002
+        },
+        "detail_json": {
+          "object": 1002
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-11",
+      "file": "11-脂肪酸库.xlsx",
+      "sheet": "nutridata_fatty_acid",
+      "rows": 1100,
+      "columns": 52,
+      "header_row": 1,
+      "last_row": 1101,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 1100,
+        "missing": 0,
+        "distinct_nonblank": 1100,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 1100,
+        "missing": 0,
+        "distinct_nonblank": 1100,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 1100
+        },
+        "detail_json": {
+          "object": 1100
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-12",
+      "file": "12-大豆异黄酮.xlsx",
+      "sheet": "nutridata_isoflavone",
+      "rows": 273,
+      "columns": 12,
+      "header_row": 1,
+      "last_row": 274,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 273,
+        "missing": 0,
+        "distinct_nonblank": 273,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 273,
+        "missing": 0,
+        "distinct_nonblank": 273,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 273
+        },
+        "detail_json": {
+          "object": 273
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-13",
+      "file": "13-植物甾醇.xlsx",
+      "sheet": "nutridata_phytosterol",
+      "rows": 91,
+      "columns": 15,
+      "header_row": 1,
+      "last_row": 92,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 91,
+        "missing": 0,
+        "distinct_nonblank": 91,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 91,
+        "missing": 0,
+        "distinct_nonblank": 91,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 91
+        },
+        "detail_json": {
+          "object": 91
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-14",
+      "file": "14-胡萝卜素.xlsx",
+      "sheet": "nutridata_carotene",
+      "rows": 91,
+      "columns": 13,
+      "header_row": 1,
+      "last_row": 92,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 91,
+        "missing": 0,
+        "distinct_nonblank": 91,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 91,
+        "missing": 0,
+        "distinct_nonblank": 91,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 91
+        },
+        "detail_json": {
+          "object": 91
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-15",
+      "file": "15-USDA胆碱.xlsx",
+      "sheet": "nutridata_choline",
+      "rows": 271,
+      "columns": 15,
+      "header_row": 1,
+      "last_row": 272,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 271,
+        "missing": 0,
+        "distinct_nonblank": 271,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 271,
+        "missing": 0,
+        "distinct_nonblank": 271,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 271
+        },
+        "detail_json": {
+          "object": 271
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-16",
+      "file": "16-类黄酮.xlsx",
+      "sheet": "nutridata_flavonoid",
+      "rows": 275,
+      "columns": 13,
+      "header_row": 1,
+      "last_row": 276,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 275,
+        "missing": 0,
+        "distinct_nonblank": 275,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 275,
+        "missing": 0,
+        "distinct_nonblank": 275,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 275
+        },
+        "detail_json": {
+          "object": 275
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-17",
+      "file": "17-花青素.xlsx",
+      "sheet": "nutridata_anthocyanin",
+      "rows": 141,
+      "columns": 11,
+      "header_row": 1,
+      "last_row": 142,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 141,
+        "missing": 0,
+        "distinct_nonblank": 141,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 141,
+        "missing": 0,
+        "distinct_nonblank": 141,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 141
+        },
+        "detail_json": {
+          "object": 141
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-18",
+      "file": "18-白藜芦醇.xlsx",
+      "sheet": "nutridata_resveratrol",
+      "rows": 204,
+      "columns": 10,
+      "header_row": 1,
+      "last_row": 205,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 204,
+        "missing": 0,
+        "distinct_nonblank": 204,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 204,
+        "missing": 0,
+        "distinct_nonblank": 204,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 204
+        },
+        "detail_json": {
+          "object": 204
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-19",
+      "file": "19-叶黄素.xlsx",
+      "sheet": "nutridata_lutein",
+      "rows": 302,
+      "columns": 9,
+      "header_row": 1,
+      "last_row": 303,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 302,
+        "missing": 0,
+        "distinct_nonblank": 302,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 302,
+        "missing": 0,
+        "distinct_nonblank": 302,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 302
+        },
+        "detail_json": {
+          "object": 302
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-20",
+      "file": "20-番茄红素.xlsx",
+      "sheet": "nutridata_lycopene",
+      "rows": 51,
+      "columns": 8,
+      "header_row": 1,
+      "last_row": 52,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 51,
+        "missing": 0,
+        "distinct_nonblank": 51,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 51,
+        "missing": 0,
+        "distinct_nonblank": 51,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 51
+        },
+        "detail_json": {
+          "object": 51
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-21",
+      "file": "21-代餐食品.xlsx",
+      "sheet": "nutridata_meal_replacement",
+      "rows": 287,
+      "columns": 38,
+      "header_row": 1,
+      "last_row": 288,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 287,
+        "missing": 0,
+        "distinct_nonblank": 287,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 287,
+        "missing": 0,
+        "distinct_nonblank": 287,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 287
+        },
+        "detail_json": {
+          "object": 287
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-22",
+      "file": "22-咖啡因.xlsx",
+      "sheet": "nutridata_caffeine",
+      "rows": 546,
+      "columns": 12,
+      "header_row": 1,
+      "last_row": 547,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 546,
+        "missing": 0,
+        "distinct_nonblank": 546,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 546,
+        "missing": 0,
+        "distinct_nonblank": 546,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 546
+        },
+        "detail_json": {
+          "object": 540,
+          "blank": 6
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-23",
+      "file": "23-碘.xlsx",
+      "sheet": "nutridata_iodine",
+      "rows": 1443,
+      "columns": 10,
+      "header_row": 1,
+      "last_row": 1444,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 1443,
+        "missing": 0,
+        "distinct_nonblank": 1443,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 1443,
+        "missing": 0,
+        "distinct_nonblank": 1443,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 1443
+        },
+        "detail_json": {
+          "blank": 1443
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-24",
+      "file": "24-快餐库.xlsx",
+      "sheet": "nutridata_fast_food",
+      "rows": 162,
+      "columns": 11,
+      "header_row": 1,
+      "last_row": 163,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 162,
+        "missing": 0,
+        "distinct_nonblank": 162,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 162,
+        "missing": 0,
+        "distinct_nonblank": 162,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 162
+        },
+        "detail_json": {
+          "object": 162
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-26",
+      "file": "26-水产库.xlsx",
+      "sheet": "nutridata_aquatic",
+      "rows": 204,
+      "columns": 33,
+      "header_row": 1,
+      "last_row": 205,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 204,
+        "missing": 0,
+        "distinct_nonblank": 204,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 204,
+        "missing": 0,
+        "distinct_nonblank": 204,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 204
+        },
+        "detail_json": {
+          "object": 204
+        }
+      },
+      "macro_tokens": {}
+    },
+    {
+      "asset_id": "NDF-G023-27",
+      "file": "27-奶茶库.xlsx",
+      "sheet": "nutridata_milk_tea",
+      "rows": 120,
+      "columns": 19,
+      "header_row": 1,
+      "last_row": 121,
+      "duplicate_header_count": 0,
+      "outside_header_nonempty_cells": 0,
+      "key_id": {
+        "rows": 120,
+        "missing": 0,
+        "distinct_nonblank": 120,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "key_item_id": {
+        "rows": 120,
+        "missing": 0,
+        "distinct_nonblank": 120,
+        "duplicate_rows": 0,
+        "duplicate_excess": 0,
+        "unique_nonblank": true
+      },
+      "json_status": {
+        "list_json": {
+          "object": 120
+        },
+        "detail_json": {
+          "object": 119,
+          "blank": 1
+        }
+      },
+      "macro_tokens": {}
+    }
+  ],
+  "core": {
+    "ingredient": {
+      "counts": {
+        "rows_with_nutritionMap": 3446,
+        "nutrition_entries": 166691,
+        "rows_with_portion_list": 2338,
+        "rows_with_source": 3446,
+        "rows_with_nonempty_history": 1
+      },
+      "distinct_source_strings": 17,
+      "nutrient_units": {
+        "膳食纤维 | g": 3445,
+        "胆固醇 | mg": 3313,
+        "饱和脂肪酸 | g": 3281,
+        "单不饱和脂肪酸 | g": 3296,
+        "多不饱和脂肪酸 | g": 3296,
+        "GI | ": 3225,
+        "DHA | mg": 3225,
+        "总嘌呤 | mg": 3225,
+        "异亮氨酸 | mg": 3265,
+        "亮氨酸 | mg": 3265,
+        "赖氨酸 | mg": 3265,
+        "蛋氨酸 | mg": 3265,
+        "胱氨酸 | mg": 3265,
+        "蛋氨酸+胱氨酸 | mg": 3265,
+        "苯丙氨酸 | mg": 3265,
+        "酪氨酸 | mg": 3265,
+        "苯丙氨酸+酪氨酸 | mg": 3265,
+        "苏氨酸 | mg": 3259,
+        "色氨酸 | mg": 3265,
+        "缬氨酸 | mg": 3265,
+        "钠 | mg": 3446,
+        "钾 | mg": 3431,
+        "镁 | mg": 3431,
+        "铁 | mg": 3446,
+        "锌 | mg": 3446,
+        "钙 | mg": 3446,
+        "磷 | mg": 3431,
+        "硒 | μg": 3312,
+        "碘 | μg": 3307,
+        "铜 | mg": 3334,
+        "锰 | mg": 3314,
+        "维生素A | μg RAE": 3312,
+        "维生素D | μg": 3318,
+        "维生素E | mg α-TE": 3422,
+        "维生素K | μg": 3318,
+        "硫胺素 | mg": 3446,
+        "核黄素 | mg": 3431,
+        "维生素B6 | mg": 3423,
+        "维生素B12 | μg": 3337,
+        "烟酸 | mg": 3431,
+        "叶酸 | μg": 3362,
+        "泛酸 | mg": 3307,
+        "维生素C | mg": 3431,
+        "生物素 | μg": 3307,
+        "总胆碱 | mg": 3225,
+        "能量 | kcal": 3446,
+        "蛋白质 | g": 3446,
+        "脂肪 | g": 3446,
+        "碳水化合物 | g": 3446,
+        "可利用碳水 | g": 3013
+      },
+      "nutrient_attr": {
+        "膳食纤维": 3445,
+        "胆固醇": 3313,
+        "饱和脂肪酸": 3281,
+        "单不饱和脂肪酸": 3296,
+        "多不饱和脂肪酸": 3296,
+        "GI": 3225,
+        "DHA": 3225,
+        "总嘌呤": 3225,
+        "异亮氨酸": 3265,
+        "亮氨酸": 3265,
+        "赖氨酸": 3265,
+        "蛋氨酸": 3265,
+        "胱氨酸": 3265,
+        "蛋氨酸+胱氨酸": 3265,
+        "苯丙氨酸": 3265,
+        "酪氨酸": 3265,
+        "苯丙氨酸+酪氨酸": 3265,
+        "苏氨酸": 3259,
+        "色氨酸": 3265,
+        "缬氨酸": 3265,
+        "钠": 3446,
+        "钾": 3431,
+        "镁": 3431,
+        "铁": 3446,
+        "锌": 3446,
+        "钙": 3446,
+        "磷": 3431,
+        "硒": 3312,
+        "碘": 3307,
+        "铜": 3334,
+        "锰": 3314,
+        "维生素A": 3312,
+        "维生素D": 3318,
+        "维生素E": 3422,
+        "维生素K": 3318,
+        "硫胺素": 3446,
+        "核黄素": 3431,
+        "维生素B6": 3423,
+        "维生素B12": 3337,
+        "烟酸": 3431,
+        "叶酸": 3362,
+        "泛酸": 3307,
+        "维生素C": 3431,
+        "生物素": 3307,
+        "总胆碱": 3225,
+        "能量": 3446,
+        "蛋白质": 3446,
+        "脂肪": 3446,
+        "碳水化合物": 3446,
+        "可利用碳水": 3013
+      }
+    },
+    "dish": {
+      "counts": {
+        "rows_with_nutritionMap": 22180,
+        "nutrition_entries": 959692,
+        "rows_with_portion_list": 21794,
+        "rows_with_steps": 22136,
+        "rows_with_nonempty_major": 22180,
+        "major_entries": 152531,
+        "note_numeric": 152531
+      },
+      "distinct_source_strings": 0,
+      "nutrient_units": {
+        "膳食纤维 | g": 22130,
+        "胆固醇 | mg": 22158,
+        "饱和脂肪酸 | g": 21163,
+        "单不饱和脂肪酸 | g": 21151,
+        "多不饱和脂肪酸 | g": 21164,
+        "总嘌呤 | mg": 21248,
+        "异亮氨酸 | mg": 21733,
+        "亮氨酸 | mg": 21705,
+        "赖氨酸 | mg": 21744,
+        "蛋氨酸 | mg": 21546,
+        "胱氨酸 | mg": 20993,
+        "蛋氨酸+胱氨酸 | mg": 21755,
+        "苯丙氨酸 | mg": 21747,
+        "酪氨酸 | mg": 21725,
+        "苯丙氨酸+酪氨酸 | mg": 21656,
+        "苏氨酸 | mg": 21764,
+        "色氨酸 | mg": 21782,
+        "缬氨酸 | mg": 21868,
+        "钠 | mg": 22179,
+        "钾 | mg": 22179,
+        "镁 | mg": 22172,
+        "铁 | mg": 22179,
+        "锌 | mg": 22174,
+        "钙 | mg": 22173,
+        "磷 | mg": 22179,
+        "硒 | μg": 22151,
+        "碘 | μg": 21278,
+        "铜 | mg": 22171,
+        "锰 | mg": 22164,
+        "维生素A | μg RAE": 21887,
+        "维生素E | mg α-TE": 22104,
+        "硫胺素 | mg": 22157,
+        "核黄素 | mg": 22171,
+        "维生素B6 | mg": 16746,
+        "维生素B12 | μg": 15963,
+        "烟酸 | mg": 22162,
+        "叶酸 | μg": 21510,
+        "维生素C | mg": 20995,
+        "生物素 | μg": 19468,
+        "总胆碱 | mg": 14475,
+        "能量 | kcal": 22180,
+        "蛋白质 | g": 22180,
+        "脂肪 | g": 22179,
+        "碳水化合物 | g": 22180,
+        "DHA | mg": 5268,
+        "维生素D | μg": 6493,
+        "维生素K | μg": 7300,
+        "泛酸 | mg": 243
+      },
+      "nutrient_attr": {
+        "膳食纤维": 22130,
+        "胆固醇": 22158,
+        "饱和脂肪酸": 21163,
+        "单不饱和脂肪酸": 21151,
+        "多不饱和脂肪酸": 21164,
+        "总嘌呤": 21248,
+        "异亮氨酸": 21733,
+        "亮氨酸": 21705,
+        "赖氨酸": 21744,
+        "蛋氨酸": 21546,
+        "胱氨酸": 20993,
+        "蛋氨酸+胱氨酸": 21755,
+        "苯丙氨酸": 21747,
+        "酪氨酸": 21725,
+        "苯丙氨酸+酪氨酸": 21656,
+        "苏氨酸": 21764,
+        "色氨酸": 21782,
+        "缬氨酸": 21868,
+        "钠": 22179,
+        "钾": 22179,
+        "镁": 22172,
+        "铁": 22179,
+        "锌": 22174,
+        "钙": 22173,
+        "磷": 22179,
+        "硒": 22151,
+        "碘": 21278,
+        "铜": 22171,
+        "锰": 22164,
+        "维生素A": 21887,
+        "维生素E": 22104,
+        "硫胺素": 22157,
+        "核黄素": 22171,
+        "维生素B6": 16746,
+        "维生素B12": 15963,
+        "烟酸": 22162,
+        "叶酸": 21510,
+        "维生素C": 20995,
+        "生物素": 19468,
+        "总胆碱": 14475,
+        "能量": 22180,
+        "蛋白质": 22180,
+        "脂肪": 22179,
+        "碳水化合物": 22180,
+        "DHA": 5268,
+        "维生素D": 6493,
+        "维生素K": 7300,
+        "泛酸": 243
+      }
+    }
+  },
+  "joins": {
+    "major.ingrId -> ingredient.id": {
+      "child_rows": 152531,
+      "missing_child_key": 0,
+      "zero_matches": 8027,
+      "one_match": 144504,
+      "multiple_matches": 0,
+      "inner_join_rows": 144504,
+      "left_join_rows": 152531,
+      "code_different": 142006,
+      "name_different": 144312,
+      "code_exact_equal": 2498,
+      "name_exact_equal": 192,
+      "dishes_with_all_lines_one_match": 15273,
+      "dishes_with_lines": 22180,
+      "parent_distinct_nonblank_keys": 3446,
+      "parent_duplicate_keys": 0
+    },
+    "major.ingrId -> ingredient.item_id": {
+      "child_rows": 152531,
+      "missing_child_key": 0,
+      "zero_matches": 207,
+      "one_match": 152324,
+      "multiple_matches": 0,
+      "inner_join_rows": 152324,
+      "left_join_rows": 152531,
+      "code_exact_equal": 152324,
+      "name_different": 68300,
+      "name_exact_equal": 84024,
+      "dishes_with_all_lines_one_match": 21973,
+      "dishes_with_lines": 22180,
+      "parent_distinct_nonblank_keys": 3446,
+      "parent_duplicate_keys": 0
+    },
+    "major.ingrId -> ingredient.detail_id": {
+      "child_rows": 152531,
+      "missing_child_key": 0,
+      "zero_matches": 207,
+      "one_match": 152324,
+      "multiple_matches": 0,
+      "inner_join_rows": 152324,
+      "left_join_rows": 152531,
+      "code_exact_equal": 152324,
+      "name_different": 68300,
+      "name_exact_equal": 84024,
+      "dishes_with_all_lines_one_match": 21973,
+      "dishes_with_lines": 22180,
+      "parent_distinct_nonblank_keys": 3446,
+      "parent_duplicate_keys": 0
+    },
+    "major.code -> ingredient.code": {
+      "child_rows": 152531,
+      "missing_child_key": 0,
+      "zero_matches": 207,
+      "one_match": 152324,
+      "multiple_matches": 0,
+      "inner_join_rows": 152324,
+      "left_join_rows": 152531,
+      "code_exact_equal": 152324,
+      "name_different": 68300,
+      "name_exact_equal": 84024,
+      "dishes_with_all_lines_one_match": 21973,
+      "dishes_with_lines": 22180,
+      "parent_distinct_nonblank_keys": 3446,
+      "parent_duplicate_keys": 0
+    }
+  }
+}

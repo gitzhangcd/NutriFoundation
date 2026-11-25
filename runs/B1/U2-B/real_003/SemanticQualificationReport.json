@@ -1,0 +1,84 @@
+{
+  "run_id": "B1-U2B-real_003",
+  "contract_version": "UDF-B1-SEMANTICS-DRAFT-0.1",
+  "utc": "2026-11-25T15:10:55.699574+00:00",
+  "status": "PASS_BOUNDED_SEMANTIC_INTERPRETATION_AND_SHARED_BRIDGE",
+  "upstream_u2a_objects": 5699,
+  "source_files_verified_before_after": 23,
+  "measurement_drafts_checked": 2851,
+  "measurement_status_counts": {
+    "HOLD_SOURCE_SEMANTICS": 881,
+    "SOURCE_FIELD_CONTRACT_SUPPORTED": 1915,
+    "SOURCE_NUMERATOR_CONTRACT_SUPPORTED_BASIS_HOLD": 55
+  },
+  "missingness_counts": {
+    "REPORTED_NUMERIC_NONZERO": 2543,
+    "DASH_TOKEN_UNRESOLVED": 6,
+    "REPORTED_NUMERIC_ZERO": 284,
+    "ELLIPSIS_TOKEN_UNRESOLVED": 7,
+    "TRACE_TOKEN_UNRESOLVED": 7,
+    "SLASH_TOKEN_UNRESOLVED": 4
+  },
+  "component_concepts": 19,
+  "measurement_definitions": 43,
+  "definitions_with_real_selected_values": 37,
+  "dictionary_only_definitions": 6,
+  "authority_records": 11,
+  "asa24_dictionary_fields_verified": 12,
+  "quantity_interpretations": {
+    "recipe_note_hold": 226,
+    "snapme_food_amount_reported_grams": 40,
+    "snapme_duplicate_amount_fields_exact_equal": 40
+  },
+  "representation_conversions": {
+    "SAME_SOURCE_DENOMINATOR_SCALE_1G_TO_100G": 480,
+    "SAME_SOURCE_NUMERATOR_MG_TO_G": 40
+  },
+  "off_row_check": {
+    "ROW_NUMERATOR_CONSISTENT": 55
+  },
+  "off_unit_discriminating_rows": 0,
+  "native_namespaces": 19,
+  "namespace_native_records": 747,
+  "source_key_bindings": 611,
+  "same_namespace_key_duplicate_groups": 0,
+  "cross_namespace_identical_key_value_groups": 13,
+  "namespace_link_checks": {
+    "PADDED_INGREDIENT_ID": 214,
+    "MENU_LABEL_KEY": 48,
+    "EPIC_VERB_KEY": 32,
+    "EPIC_NOUN_KEY": 32,
+    "EPIC_VIDEO_KEY": 32,
+    "BUSINESS_ID_AND_CODE": 220,
+    "nutridata_unmatched_hold": 6
+  },
+  "namespace_link_candidate_total": 578,
+  "namespace_equivalence_mappings_accepted": 0,
+  "new_typed_collections": {
+    "AuthoritySnapshot": 11,
+    "ComponentConcept": 19,
+    "MeasurementDefinition": 43,
+    "MeasurementInterpretation": 2851,
+    "NamespaceBinding": 747,
+    "NamespaceKeyBinding": 611,
+    "NamespaceLinkQualification": 578,
+    "NativeNamespace": 19,
+    "QuantityInterpretation": 266,
+    "RepresentationConversion": 520
+  },
+  "new_typed_objects": 5665,
+  "new_object_roundtrips": 5665,
+  "d0_shared_bridge_roundtrips": 770,
+  "d0_historical_regressions_passed": 12,
+  "research_measurements_qualified": 0,
+  "research_releases": 0,
+  "global_b0_pass": false,
+  "global_b1_frozen": false,
+  "blockers": [
+    "NutriData original field dictionary, denominator, note unit and source-family evidence",
+    "OFF denominator per 100g vs 100mL; documentation conflict not empirically distinguished by selected rows",
+    "SNAPMe item grain and duplicate link semantics; do not aggregate",
+    "Nutrition5k independent incremental scan groups, food state, independent assay; N5k360 geometry held",
+    "external semantic mappings, unimplemented native adapters, full D0 migration and release qualification"
+  ]
+}

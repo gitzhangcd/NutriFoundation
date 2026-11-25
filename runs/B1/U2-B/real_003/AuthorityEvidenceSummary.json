@@ -1,0 +1,178 @@
+[
+  {
+    "authority_key": "ND_PUBLIC",
+    "source": "https://www.nutridata.cn/",
+    "sha256": "2899d21ecb1700116351b9847bcc88b90ca06bf41cfba2894220dd6c7a66f6ca",
+    "locator": "public ingredient and dish library descriptions; not a field dictionary",
+    "bytes": 7275,
+    "verification": "LOCAL_SOURCE_BYTES_VERIFIED"
+  },
+  {
+    "authority_key": "OFF_SCHEMA",
+    "source": "https://openfoodfacts.github.io/documentation/docs/Product-Opener/schemas/schemas/product_nutrition/",
+    "sha256": "d5f62e897990d8ba76671aa7de2281f48757b108fbd513f90be2c6f07ef456b0",
+    "locator": "nutriments patternProperties: _100g, _value, _unit; carbohydrates and carbohydrates-total",
+    "bytes": 416957,
+    "verification": "LOCAL_SOURCE_BYTES_VERIFIED"
+  },
+  {
+    "authority_key": "OFF_CONFLICT",
+    "source": "https://openfoodfacts.github.io/documentation/docs/Product-Opener/dev/explain-nutrition-data/",
+    "sha256": "7e9112acb5ea8c877b6eab1db692834aa5c2a198ee577f2b6f85ee456004347a",
+    "locator": "developer explanation of _100g conflicts with detailed schema",
+    "bytes": 214001,
+    "verification": "LOCAL_SOURCE_BYTES_VERIFIED"
+  },
+  {
+    "authority_key": "SN_PAPER",
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10708545/",
+    "sha256": "7eeb15a90ffb5f3a27f059833e188a34c30fbfae830760a0da7cee6cc7ff7867",
+    "locator": "study methods, ASA24 version 2020 and photo-to-item linkage",
+    "bytes": 225853,
+    "verification": "LOCAL_SOURCE_BYTES_VERIFIED"
+  },
+  {
+    "authority_key": "ASA_VERSION",
+    "source": "https://epi.grants.cancer.gov/asa24/respondent/2020.html",
+    "sha256": "584e97a6a8b272d0c2ba3207ece35a2cab2e1bcee454384b5943574acac40b93",
+    "locator": "ASA24-2020 version documentation; FNDDS and FPED 2015-16",
+    "bytes": 52207,
+    "verification": "LOCAL_SOURCE_BYTES_VERIFIED"
+  },
+  {
+    "authority_key": "ASA_ITEMS",
+    "source": "https://epi.grants.cancer.gov/asa24/researcher/ASA24_2020.zip#2020Record/DataDictionary_ITEMS_2020Record.xls",
+    "sha256": "86f1492650d409427223615616d9dcd47ab1013258fad987ff7b08cf293201e5",
+    "locator": "2020Record/DataDictionary_ITEMS_2020Record.xls; DATADICTIONARY field rows",
+    "bytes": 200871,
+    "verification": "LOCAL_SOURCE_BYTES_VERIFIED",
+    "zip_member": "2020Record/DataDictionary_ITEMS_2020Record.xls",
+    "member_sha256": "cda58233f16258132dd10744ed472b820632bdd63e99b3ff79e83da6c1ce3758",
+    "worksheet": "DATADICTIONARY",
+    "verified_field_rows": [
+      {
+        "field": "FOODAMT",
+        "row": 27,
+        "description": "Amount of food in grams; calculated using HOWMANY, SUBCODE, and PORTIONCODE data",
+        "data_type": "Numeric",
+        "unit_interpretation": "g"
+      },
+      {
+        "field": "KCAL",
+        "row": 28,
+        "description": "Energy (kcal)",
+        "data_type": "Numeric",
+        "unit_interpretation": "kcal"
+      },
+      {
+        "field": "PROT",
+        "row": 29,
+        "description": "Protein (g)",
+        "data_type": "Numeric",
+        "unit_interpretation": "g"
+      },
+      {
+        "field": "TFAT",
+        "row": 30,
+        "description": "Total Fat (g)",
+        "data_type": "Numeric",
+        "unit_interpretation": "g"
+      },
+      {
+        "field": "CARB",
+        "row": 31,
+        "description": "Carbohydrate (g)",
+        "data_type": "Numeric",
+        "unit_interpretation": "g"
+      },
+      {
+        "field": "FIBE",
+        "row": 37,
+        "description": "Fiber, total dietary (g)",
+        "data_type": "Numeric",
+        "unit_interpretation": "g"
+      },
+      {
+        "field": "SODI",
+        "row": 43,
+        "description": "Sodium (mg)",
+        "data_type": "Numeric",
+        "unit_interpretation": "mg"
+      },
+      {
+        "field": "FOLA",
+        "row": 52,
+        "description": "Folate, total (mcg)",
+        "data_type": "Numeric",
+        "unit_interpretation": "ug"
+      },
+      {
+        "field": "FA",
+        "row": 53,
+        "description": "Folic acid (mcg)",
+        "data_type": "Numeric",
+        "unit_interpretation": "ug"
+      },
+      {
+        "field": "FF",
+        "row": 54,
+        "description": "Folate, food (mcg)",
+        "data_type": "Numeric",
+        "unit_interpretation": "ug"
+      },
+      {
+        "field": "FDFE",
+        "row": 55,
+        "description": "Folate, DFE (mcg_DFE)",
+        "data_type": "Numeric",
+        "unit_interpretation": "ug_DFE"
+      },
+      {
+        "field": "VARA",
+        "row": 57,
+        "description": "Vitamin A, RAE (mcg_RAE)",
+        "data_type": "Numeric",
+        "unit_interpretation": "ug_RAE"
+      }
+    ],
+    "reader": "xlrd==2.0.2 local dependency"
+  },
+  {
+    "authority_key": "N5_README",
+    "source": "https://github.com/google-research-datasets/Nutrition5k",
+    "sha256": "4c77ceab6dfcaf7b23019fae6c323f237f93ecd4213ebe44b36b8f8583c84ae0",
+    "locator": "Ingredient Metadata; Dish Metadata; Train/Test Splits; actual 6+7n row layout established in B0",
+    "bytes": 7400,
+    "verification": "LOCAL_SOURCE_BYTES_VERIFIED"
+  },
+  {
+    "authority_key": "MENU_README",
+    "source": "https://neelj.com/projects/menumatch/data/",
+    "sha256": "9a8d02f9f642197084e67d124d324fb9e62c1c17bc9cc27b8e1c43e982f0b046",
+    "locator": "source items_info and labels file description",
+    "bytes": 234,
+    "verification": "LOCAL_SOURCE_BYTES_VERIFIED"
+  },
+  {
+    "authority_key": "UDF",
+    "source": "AI Nutri UDF v2.1 sections 11,15-22,34-37",
+    "sha256": "3c0ef69f9ecff2178830c0b4d43253dae5c161d7308c86bc2b6be5e6a68b26ed",
+    "locator": "sections 11,15-22,34-37,41",
+    "bytes": 141835,
+    "verification": "LOCAL_SOURCE_BYTES_VERIFIED"
+  },
+  {
+    "authority_key": "NDSF",
+    "source": "Nutrition Foundation v0.1 Part III 2.2-3.2",
+    "sha256": "81426a9423f825681a155b748643ebd9f3b6d992b67304d35e94abd9f9ca90ce",
+    "locator": "Part III.2.2-III.3.2: envelope, Slot, axes, measurement definition",
+    "verification": "PROJECT_UPSTREAM_DOCUMENT_HASH_RECORDED_CLOUD"
+  },
+  {
+    "authority_key": "NDF_D0_SPEC",
+    "source": "NDF-D0-D2 + NDS-R1 integrated execution protocol",
+    "sha256": "bade6cdad0199e29bbf29471d078d32e5fcb8bc6b03a5d9f800d986c7103ada7",
+    "locator": "D0 §§5-10",
+    "verification": "PROJECT_UPSTREAM_DOCUMENT_HASH_RECORDED_CLOUD"
+  }
+]

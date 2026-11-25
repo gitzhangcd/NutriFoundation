@@ -1,0 +1,39 @@
+{
+  "receipt_id": "B0-PUBLIC-SAMPLES-20261125-001",
+  "authority": "AI Nutri UDF v2.1",
+  "purpose": "CURATION_DEV_ONLY",
+  "status": "PARTIAL_PASS_PUBLIC_SAMPLE_EXPLORATION / GLOBAL_B0_OPEN",
+  "sources_attempted": 22,
+  "target_sample_or_metadata_sources": 17,
+  "official_fallback_sources": 1,
+  "hold_sources": 4,
+  "files_verified": 104,
+  "bytes_saved": 58567784,
+  "byte_integrity_issues": 0,
+  "original_user_archive_version_verified": 0,
+  "qualified_release_assets": 0,
+  "local_raw_snapshot_roots": [
+    "source_data/public_samples/20261125_run001",
+    "source_data/public_samples/20261125_run002"
+  ],
+  "hold_originals": [
+    "NDF-G008",
+    "NDF-G010",
+    "NDF-G015",
+    "NDF-G019"
+  ],
+  "additional_core_native_requirements": [
+    "NDF-G011 original food/ingredient vocab, 353-dimensional labels and image keys",
+    "NDF-G013 actual N5k360 scene mapping and scale evidence if geometry research is activated",
+    "NDF-G012 original snapshot/version comparison"
+  ],
+  "gate": {
+    "B0_a": "PUBLIC SAMPLE INVENTORY COMPLETE; ORIGINAL USER ARCHIVES UNVERIFIED",
+    "B0_b": "PUBLIC SAMPLE STRUCTURE PROFILED; SOURCE-SPECIFIC LIMITATIONS RETAINED",
+    "B0_c": "PARTIAL; MEASUREMENT SEMANTICS AND MISSINGNESS NOT SCIENTIFICALLY QUALIFIED",
+    "B0_d": "SELECTED NATIVE LINK CHECKS COMPLETED; NO AUTOMATIC CROSS-DATASET ENTITY OR SAMPLE MERGE",
+    "B0_e": "NUTRITION5K FALLBACK AVAILABLE; N5K360 EXACT SCENE AND SCALE HOLD",
+    "B0_f": "LOCAL DEVELOPMENT SAMPLES AVAILABLE; NOT A LOCKED EVALUATION OR GOLD SET"
+  },
+  "next": "B1 Native Core Draft based on real NutriData and public thin slices; B0 remainder only as required by task. No full physical schema freeze or scientific claim."
+}

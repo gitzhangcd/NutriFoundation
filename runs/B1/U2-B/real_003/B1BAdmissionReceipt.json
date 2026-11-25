@@ -1,0 +1,89 @@
+{
+  "receipt_id": "B1-U2B-REAL-003-ADMISSION-0.1",
+  "authority": {
+    "master": "docs/AI_Nutri_Unified_Data_Foundation_v2.1.md",
+    "master_git_blob": "9e3169814f8800e1b6eba6fd94a4097c57a00488",
+    "base_u2a": "runs/B1/U2-A/real_003/B1AdmissionReceipt.json",
+    "base_commit": "09e854dced620645c49b72f5c4040610f162ef59",
+    "ndsf_sections": "Part III.2.2–III.3.2",
+    "ndf_d0_sections": "§5–10"
+  },
+  "run_id": "B1-U2B-real_003",
+  "utc": "2026-11-25T15:10:55.699574+00:00",
+  "contract_version": "UDF-B1-SEMANTICS-DRAFT-0.1",
+  "status": "PASS_BOUNDED_U2B_SEMANTICS_NAMESPACE_SHARED_BRIDGE / GLOBAL_B1_FREEZE_HOLD",
+  "purpose": "CURATION_DEV_ONLY",
+  "actual": {
+    "u2a_input_objects": 5699,
+    "unchanged_source_files": 23,
+    "verified_authorities": 11,
+    "component_concepts": 19,
+    "measurement_definitions": 43,
+    "real_used_definitions": 37,
+    "dictionary_only_definitions": 6,
+    "measurement_interpretations": 2851,
+    "field_semantics_supported": 1915,
+    "numerator_only_basis_hold": 55,
+    "source_semantics_hold": 881,
+    "quantity_interpretations": 266,
+    "representation_conversions": 520,
+    "native_namespaces": 19,
+    "native_record_bindings": 747,
+    "source_key_bindings": 611,
+    "cross_namespace_equal_key_groups": 13,
+    "native_candidate_links": 578,
+    "equivalence_mappings_accepted": 0,
+    "new_typed_objects": 5665,
+    "typed_collections": 10,
+    "persisted_roundtrips": 5665,
+    "d0_shared_bridge_objects": 770,
+    "d0_historical_regressions": 12,
+    "contract_tests_passed": 49,
+    "contract_tests_total": 49,
+    "nutrition5k": {
+      "dish_rows": 5006,
+      "ingredient_lines": 28455,
+      "ingredient_arithmetic_exact_checks": 113820,
+      "dish_rows_with_total_conflict": 681,
+      "selected_total_conflict_measurements": 65,
+      "selected_total_measurements": 165,
+      "threshold": "0.01 exploratory field-specific source units, not scientific eligibility threshold"
+    },
+    "snapme": {
+      "rows": 4761,
+      "full_candidate_key_distinct": 4761,
+      "food_code_8_digit_candidates": 4640,
+      "food_code_non_8_digit_hold": 121,
+      "external_join_validated": false
+    },
+    "research_measurements_qualified": 0,
+    "research_releases": 0
+  },
+  "gates": {
+    "G0": "HOLD_RIGHTS_AND_RESEARCH_SCOPE",
+    "G1": "PASS_SELECTED_INPUT_FENCE",
+    "G2": "PASS_BOUNDED_SOURCE_INTERPRETATION_AND_VALIDATION; HOLD_FULL_SEMANTIC_FREEZE",
+    "G3": "PARTIAL_SOURCE_NATIVE_LINKS_AND_ARITHMETIC; CONFLICTED_TOTALS_HOLD",
+    "G4": "HOLD_INDEPENDENT_REFERENCE_QUALIFICATION",
+    "G5": "CURATION_DEV_ONLY; NO_RELEASE",
+    "G6_G7_G_PROBE": "NOT_ACTIVATED"
+  },
+  "d0": {
+    "shared_artifact_anchor_interchange": "PASS_BOUNDED_CURATOR_VIEW_EXACT_REVERSE",
+    "historical_runtime_nonregression": "PASS_12_OF_12_PINNED_FIXTURES",
+    "delegated_scientific_types": 9,
+    "legacy_instance_class_migration": "HOLD",
+    "production_interchange": false,
+    "full_engine_ci": "NOT_YET_RUN_AT_LOCAL_RECEIPT_CREATION"
+  },
+  "open": [
+    "NutriData field dictionary and denominators/recipe amount, actual food state and source lineage",
+    "N5k total conflicts and scan dependency, no independent assay; N5k360 geometry held",
+    "SNAPMe non-8-digit code domain, actual FNDDS 2015-16 reference join and intake grain",
+    "OFF 100g versus 100mL, documentation conflict, independent evidence",
+    "Original remaining public source versions, external concept alignments, full D0 migration and qualified releases"
+  ],
+  "next": "B2 / U3-A | Canonical Food & Component Vocabulary, Source-Family Registry & Candidate Alignment (CURATION_DEV; unresolved B1 contracts remain HOLD in parallel)",
+  "private_local": "runs/B1/U2-B/real_003/private/",
+  "prior_runs": "real_001: semantic pass then source audit stopped on non-8-digit FoodCode; real_002: source audit pass, 48/49 exact contract outcomes; both retained; real_003 final pass"
+}

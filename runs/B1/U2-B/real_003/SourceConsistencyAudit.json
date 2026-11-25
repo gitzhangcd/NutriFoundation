@@ -1,0 +1,366 @@
+{
+  "run_id": "B1-U2B-SOURCE-CONSISTENCY-001",
+  "nutrition5k": {
+    "source": "Nutrition5k original fallback; no N5k360 geometry qualification",
+    "source_layout": "6 fixed columns + 7 fields per ingredient; source README layout wording differs",
+    "exploratory_thresholds": [
+      "0.000001",
+      "0.01",
+      "0.1"
+    ],
+    "threshold_boundary": "0.01 in field-specific source units used to flag conflicts only; not a scientific accuracy threshold",
+    "dish_rows": 5006,
+    "ingredient_rows": 28455,
+    "ingredient_reference_count": 555,
+    "ingredient_arithmetic": {
+      "energy": {
+        "comparisons": 28455,
+        "exact": 28455,
+        "within_exploratory_thresholds": {
+          "0.000001": 28455,
+          "0.01": 28455,
+          "0.1": 28455
+        },
+        "max_abs_difference": "0E-9"
+      },
+      "fat": {
+        "comparisons": 28455,
+        "exact": 28455,
+        "within_exploratory_thresholds": {
+          "0.000001": 28455,
+          "0.01": 28455,
+          "0.1": 28455
+        },
+        "max_abs_difference": "0E-9"
+      },
+      "carb": {
+        "comparisons": 28455,
+        "exact": 28455,
+        "within_exploratory_thresholds": {
+          "0.000001": 28455,
+          "0.01": 28455,
+          "0.1": 28455
+        },
+        "max_abs_difference": "0E-9"
+      },
+      "protein": {
+        "comparisons": 28455,
+        "exact": 28455,
+        "within_exploratory_thresholds": {
+          "0.000001": 28455,
+          "0.01": 28455,
+          "0.1": 28455
+        },
+        "max_abs_difference": "0E-9"
+      }
+    },
+    "dish_total_vs_line_sum": {
+      "energy": {
+        "comparisons": 5006,
+        "exact": 739,
+        "within_exploratory_thresholds": {
+          "0.000001": 1429,
+          "0.01": 4768,
+          "0.1": 4768
+        },
+        "max_abs_difference": "814.762771055"
+      },
+      "mass": {
+        "comparisons": 5006,
+        "exact": 2946,
+        "within_exploratory_thresholds": {
+          "0.000001": 3381,
+          "0.01": 4563,
+          "0.1": 4563
+        },
+        "max_abs_difference": "7935.000000"
+      },
+      "fat": {
+        "comparisons": 5006,
+        "exact": 2623,
+        "within_exploratory_thresholds": {
+          "0.000001": 4178,
+          "0.01": 4771,
+          "0.1": 4771
+        },
+        "max_abs_difference": "60.630000"
+      },
+      "carb": {
+        "comparisons": 5006,
+        "exact": 2147,
+        "within_exploratory_thresholds": {
+          "0.000001": 3944,
+          "0.01": 4768,
+          "0.1": 4768
+        },
+        "max_abs_difference": "96.338841073"
+      },
+      "protein": {
+        "comparisons": 5006,
+        "exact": 2467,
+        "within_exploratory_thresholds": {
+          "0.000001": 3954,
+          "0.01": 4768,
+          "0.1": 4769
+        },
+        "max_abs_difference": "55.607078191"
+      }
+    },
+    "cafe_stratification": {
+      "cafe1": {
+        "dish_rows": 4768,
+        "any_total_conflict": 443,
+        "all_totals_within_0.01": 4325,
+        "field_comparisons": {
+          "energy": {
+            "comparisons": 4768,
+            "exact": 739,
+            "within_exploratory_thresholds": {
+              "0.000001": 1429,
+              "0.01": 4768,
+              "0.1": 4768
+            },
+            "max_abs_difference": "0.000570",
+            "conflict_directions": {}
+          },
+          "mass": {
+            "comparisons": 4768,
+            "exact": 2818,
+            "within_exploratory_thresholds": {
+              "0.000001": 3213,
+              "0.01": 4325,
+              "0.1": 4325
+            },
+            "max_abs_difference": "7935.000000",
+            "conflict_directions": {
+              "total_lt_sum": 413,
+              "total_gt_sum": 30
+            }
+          },
+          "fat": {
+            "comparisons": 4768,
+            "exact": 2621,
+            "within_exploratory_thresholds": {
+              "0.000001": 4176,
+              "0.01": 4768,
+              "0.1": 4768
+            },
+            "max_abs_difference": "0.000018",
+            "conflict_directions": {}
+          },
+          "carb": {
+            "comparisons": 4768,
+            "exact": 2147,
+            "within_exploratory_thresholds": {
+              "0.000001": 3944,
+              "0.01": 4768,
+              "0.1": 4768
+            },
+            "max_abs_difference": "0.000088222",
+            "conflict_directions": {}
+          },
+          "protein": {
+            "comparisons": 4768,
+            "exact": 2467,
+            "within_exploratory_thresholds": {
+              "0.000001": 3954,
+              "0.01": 4768,
+              "0.1": 4768
+            },
+            "max_abs_difference": "0.000019957",
+            "conflict_directions": {}
+          }
+        },
+        "pattern_counts": {
+          "ALL_WITHIN_0.01": 4325,
+          "mass": 443
+        }
+      },
+      "cafe2": {
+        "dish_rows": 238,
+        "any_total_conflict": 238,
+        "all_totals_within_0.01": 0,
+        "field_comparisons": {
+          "energy": {
+            "comparisons": 238,
+            "exact": 0,
+            "within_exploratory_thresholds": {
+              "0.000001": 0,
+              "0.01": 0,
+              "0.1": 0
+            },
+            "max_abs_difference": "814.762771055",
+            "conflict_directions": {
+              "total_lt_sum": 238
+            }
+          },
+          "mass": {
+            "comparisons": 238,
+            "exact": 128,
+            "within_exploratory_thresholds": {
+              "0.000001": 168,
+              "0.01": 238,
+              "0.1": 238
+            },
+            "max_abs_difference": "0.000019",
+            "conflict_directions": {}
+          },
+          "fat": {
+            "comparisons": 238,
+            "exact": 2,
+            "within_exploratory_thresholds": {
+              "0.000001": 2,
+              "0.01": 3,
+              "0.1": 3
+            },
+            "max_abs_difference": "60.630000",
+            "conflict_directions": {
+              "total_lt_sum": 235
+            }
+          },
+          "carb": {
+            "comparisons": 238,
+            "exact": 0,
+            "within_exploratory_thresholds": {
+              "0.000001": 0,
+              "0.01": 0,
+              "0.1": 0
+            },
+            "max_abs_difference": "96.338841073",
+            "conflict_directions": {
+              "total_lt_sum": 238
+            }
+          },
+          "protein": {
+            "comparisons": 238,
+            "exact": 0,
+            "within_exploratory_thresholds": {
+              "0.000001": 0,
+              "0.01": 0,
+              "0.1": 1
+            },
+            "max_abs_difference": "55.607078191",
+            "conflict_directions": {
+              "total_lt_sum": 238
+            }
+          }
+        },
+        "pattern_counts": {
+          "energy,fat,carb,protein": 235,
+          "energy,carb,protein": 3
+        }
+      }
+    },
+    "dish_rows_any_total_conflict": 681,
+    "selected_u2a_total_measurement_flags": {
+      "WITHIN_EXPLORATORY_TOLERANCE_NOT_QUALIFIED": 100,
+      "HOLD_SOURCE_TOTAL_CONFLICT": 65
+    },
+    "selected_total_measurements": 165,
+    "record_level_hold_policy": "flagged totals not accepted as reference or automatically corrected; preserve source totals and ingredient sums separately",
+    "scope": "source-internal arithmetic only; no independent chemical truth, mass acquisition validation or scan group validation"
+  },
+  "snapme": {
+    "rows": 4761,
+    "exact_full_row_distinct": 4761,
+    "food_amount_duplicate_columns_equal_rows": 4761,
+    "key_profiles": [
+      {
+        "fields": [
+          "subject_id",
+          "snapme_study_day",
+          "Occ_No",
+          "FoodNum1"
+        ],
+        "distinct": 3493,
+        "duplicate_groups": 298,
+        "max_multiplicity": 17,
+        "blank_key_rows": 0
+      },
+      {
+        "fields": [
+          "subject_id",
+          "snapme_study_day",
+          "Occ_No",
+          "FoodNum1",
+          "FoodCode"
+        ],
+        "distinct": 4754,
+        "duplicate_groups": 5,
+        "max_multiplicity": 3,
+        "blank_key_rows": 0
+      },
+      {
+        "fields": [
+          "subject_id",
+          "snapme_study_day",
+          "Occ_No",
+          "FoodNum1",
+          "FoodCode",
+          "CodeNum",
+          "ModCode"
+        ],
+        "distinct": 4761,
+        "duplicate_groups": 0,
+        "max_multiplicity": 1,
+        "blank_key_rows": 0
+      }
+    ],
+    "code_lexical_8_digit_rows": 4640,
+    "code_invalid_lexical_rows": 121,
+    "distinct_nonblank_food_codes": 1153,
+    "source_code_namespace_candidate": "FNDDS_2015_16_DECLARED_BY_ASA24_2020",
+    "external_target_join": "HOLD_NO_ACTUAL_FNDDS_2015_16_TARGET_AUDITED",
+    "foodnum1_vs_foodnum": "rename/derivation semantics not proven",
+    "selected_code_records": 40,
+    "selected_code_candidates": 39,
+    "selected_code_hold": 1,
+    "non8_digit_code_length_counts": {
+      "5": 62,
+      "4": 59
+    },
+    "distinct_non8_digit_codes": 36,
+    "non8_digit_code_policy": "Preserve raw token; no zero padding, no assumed supplement identity, no FNDDS join.",
+    "official_field_dictionary_rows_verified": [
+      {
+        "field": "OCC_NO",
+        "worksheet": "DATADICTIONARY",
+        "row": 12,
+        "description": "System assigned sequence number for this eating occasion; eating occasions (meals) are sorted chronologically based on the times reported by respondent."
+      },
+      {
+        "field": "FOODNUM",
+        "worksheet": "DATADICTIONARY",
+        "row": 18,
+        "description": "FoodListTerm (FLT) or Supplement Sequence number within the recall"
+      },
+      {
+        "field": "FOODTYPE",
+        "worksheet": "DATADICTIONARY",
+        "row": 19,
+        "description": "Type of food reported"
+      },
+      {
+        "field": "CODENUM",
+        "worksheet": "DATADICTIONARY",
+        "row": 21,
+        "description": "Food code sequence number within a meal"
+      },
+      {
+        "field": "FOODCODE",
+        "worksheet": "DATADICTIONARY",
+        "row": 22,
+        "description": "USDA Food and Nutrient Database for Dietary Studies (FNDDS) Food code"
+      },
+      {
+        "field": "MODCODE",
+        "worksheet": "DATADICTIONARY",
+        "row": 23,
+        "description": "Recipe Modification Code from FNDDS"
+      }
+    ],
+    "interpretation": "full-key unique in current file only, not proved intake-event identity; no aggregation or long-term state inference"
+  },
+  "source_files_unchanged": true,
+  "research_reference_qualified": false
+}

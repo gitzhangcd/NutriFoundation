@@ -1,0 +1,1982 @@
+[
+  {
+    "measurement_definition_id": "mdef:41691f3347eb90fd69faa4208bfb2161",
+    "concept_key": "fallback:Nutrition5k:dish:carb",
+    "component_ref": "cc:CARBOHYDRATE_UNSPECIFIED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_SCAN_TOTAL"
+    },
+    "method": "Source-reported USDA-based composition total, not independent assay.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_SCAN",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "N5_README"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "SCAN_DEPENDENCY_GROUP_UNVERIFIED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:c91c54f9e2c2d29fd9761401bbff2cf9",
+    "concept_key": "fallback:Nutrition5k:dish:energy",
+    "component_ref": "cc:ENERGY",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "kcal"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_SCAN_TOTAL"
+    },
+    "method": "Source-reported USDA-based composition total, not independent assay.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_SCAN",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "N5_README"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "SCAN_DEPENDENCY_GROUP_UNVERIFIED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:87917f5e3cd06b351f276641f2111654",
+    "concept_key": "fallback:Nutrition5k:dish:fat",
+    "component_ref": "cc:FAT_DECLARED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_SCAN_TOTAL"
+    },
+    "method": "Source-reported USDA-based composition total, not independent assay.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_SCAN",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "N5_README"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "SCAN_DEPENDENCY_GROUP_UNVERIFIED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:6fb29805ec721c85322032d6d6140192",
+    "concept_key": "fallback:Nutrition5k:dish:ingredient:carb",
+    "component_ref": "cc:CARBOHYDRATE_UNSPECIFIED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_INGREDIENT_LINE_TOTAL"
+    },
+    "method": "Source-reported USDA-based composition total, not independent assay.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_SCAN_INGREDIENT_LINE",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "N5_README"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "SCAN_DEPENDENCY_GROUP_UNVERIFIED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:19b14e4032514059b11a6e9b0548236b",
+    "concept_key": "fallback:Nutrition5k:dish:ingredient:energy",
+    "component_ref": "cc:ENERGY",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "kcal"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_INGREDIENT_LINE_TOTAL"
+    },
+    "method": "Source-reported USDA-based composition total, not independent assay.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_SCAN_INGREDIENT_LINE",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "N5_README"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "SCAN_DEPENDENCY_GROUP_UNVERIFIED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:660b356fcdd78c41959f9b46acdcc40e",
+    "concept_key": "fallback:Nutrition5k:dish:ingredient:fat",
+    "component_ref": "cc:FAT_DECLARED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_INGREDIENT_LINE_TOTAL"
+    },
+    "method": "Source-reported USDA-based composition total, not independent assay.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_SCAN_INGREDIENT_LINE",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "N5_README"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "SCAN_DEPENDENCY_GROUP_UNVERIFIED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:c1daf7e72a808e781e80c4a16f14d646",
+    "concept_key": "fallback:Nutrition5k:dish:ingredient:mass",
+    "component_ref": "cc:FOOD_MASS",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_INGREDIENT_LINE_TOTAL"
+    },
+    "method": "Source-reported weighed mass candidate.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_SCAN_INGREDIENT_LINE",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "N5_README"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "SCAN_DEPENDENCY_GROUP_UNVERIFIED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:07904aa4b08580ddd2753edbe17c96e2",
+    "concept_key": "fallback:Nutrition5k:dish:ingredient:protein",
+    "component_ref": "cc:PROTEIN_DECLARED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_INGREDIENT_LINE_TOTAL"
+    },
+    "method": "Source-reported USDA-based composition total, not independent assay.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_SCAN_INGREDIENT_LINE",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "N5_README"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "SCAN_DEPENDENCY_GROUP_UNVERIFIED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:784db36fea4763c1eac40fc1ceacd628",
+    "concept_key": "fallback:Nutrition5k:dish:mass",
+    "component_ref": "cc:FOOD_MASS",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_SCAN_TOTAL"
+    },
+    "method": "Source-reported weighed mass candidate.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_SCAN",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "N5_README"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "SCAN_DEPENDENCY_GROUP_UNVERIFIED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:071a06352603ea752b7068f603d3809b",
+    "concept_key": "fallback:Nutrition5k:dish:protein",
+    "component_ref": "cc:PROTEIN_DECLARED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_SCAN_TOTAL"
+    },
+    "method": "Source-reported USDA-based composition total, not independent assay.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_SCAN",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "N5_README"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "SCAN_DEPENDENCY_GROUP_UNVERIFIED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:fbb136e6e6984ecfaf33e16740fc9d38",
+    "concept_key": "fallback:Nutrition5k:ingredient:cal/g",
+    "component_ref": "cc:ENERGY",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "kcal"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "PER_GRAM_SOURCE_INGREDIENT"
+    },
+    "method": "USDA-based per-gram source composition; not independently measured chemical value.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_INGREDIENT_REFERENCE",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "N5_README"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "FOOD_STATE_UNQUALIFIED",
+      "SOURCE_FAMILY_UNRESOLVED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:d577d7f6b46af397b4a573e95e80c7ff",
+    "concept_key": "fallback:Nutrition5k:ingredient:carb(g)",
+    "component_ref": "cc:CARBOHYDRATE_UNSPECIFIED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "PER_GRAM_SOURCE_INGREDIENT"
+    },
+    "method": "USDA-based per-gram source composition; not independently measured chemical value.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_INGREDIENT_REFERENCE",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "N5_README"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "FOOD_STATE_UNQUALIFIED",
+      "SOURCE_FAMILY_UNRESOLVED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:44fcb695165e8b3093e9adbd6523111c",
+    "concept_key": "fallback:Nutrition5k:ingredient:fat(g)",
+    "component_ref": "cc:FAT_DECLARED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "PER_GRAM_SOURCE_INGREDIENT"
+    },
+    "method": "USDA-based per-gram source composition; not independently measured chemical value.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_INGREDIENT_REFERENCE",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "N5_README"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "FOOD_STATE_UNQUALIFIED",
+      "SOURCE_FAMILY_UNRESOLVED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:38d1a809182fdef29eb8bd1c5a973457",
+    "concept_key": "fallback:Nutrition5k:ingredient:protein(g)",
+    "component_ref": "cc:PROTEIN_DECLARED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "PER_GRAM_SOURCE_INGREDIENT"
+    },
+    "method": "USDA-based per-gram source composition; not independently measured chemical value.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_INGREDIENT_REFERENCE",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "N5_README"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "FOOD_STATE_UNQUALIFIED",
+      "SOURCE_FAMILY_UNRESOLVED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:072af71940d49298d53ee46b891e96df",
+    "concept_key": "menumatch:menu:calories",
+    "component_ref": "cc:ENERGY",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "kcal"
+    },
+    "basis": {
+      "tag": "PENDING",
+      "reason": "denominator unresolved"
+    },
+    "method": "Menu-listed energy reference; portion denominator not established.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "MENU_ITEM_REFERENCE",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "MENU_README"
+    ],
+    "qualification": "HOLD_SOURCE_SEMANTICS",
+    "blockers": [
+      "MENU_PORTION_DENOMINATOR_UNCONFIRMED",
+      "NOT_INTAKE",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:f50ec8f717c583c3148d04ab20be7f85",
+    "concept_key": "nutridata:dish:major.note",
+    "component_ref": "cc:RECIPE_AMOUNT_UNSPECIFIED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "PENDING",
+      "reason": "source unit unresolved"
+    },
+    "basis": {
+      "tag": "PENDING",
+      "reason": "denominator unresolved"
+    },
+    "method": "Recipe note is numeric but unit, denominator and edible/cooked meaning unresolved.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_RECIPE_LINE",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "ND_PUBLIC"
+    ],
+    "qualification": "HOLD_SOURCE_SEMANTICS",
+    "blockers": [
+      "NOTE_UNIT_UNCONFIRMED",
+      "INPUT_OUTPUT_BASIS_UNCONFIRMED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:50eb02a47e551fd2fe494cfe4872cf01",
+    "concept_key": "nutridata:dish:碳水化合物",
+    "component_ref": "cc:CARBOHYDRATE_UNSPECIFIED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "PENDING",
+      "reason": "denominator unresolved"
+    },
+    "method": "Published platform attribute; original analytical or recipe calculation method unresolved.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_RECIPE_RECORD",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "ND_PUBLIC"
+    ],
+    "qualification": "HOLD_SOURCE_SEMANTICS",
+    "blockers": [
+      "NUTRIDATA_DENOMINATOR_UNCONFIRMED",
+      "FOOD_STATE_UNQUALIFIED",
+      "SOURCE_METHOD_UNQUALIFIED",
+      "SOURCE_FAMILY_UNRESOLVED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:217fe5f92fa7508d8e84be840213d1a9",
+    "concept_key": "nutridata:dish:能量",
+    "component_ref": "cc:ENERGY",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "kcal"
+    },
+    "basis": {
+      "tag": "PENDING",
+      "reason": "denominator unresolved"
+    },
+    "method": "Published platform attribute; original analytical or recipe calculation method unresolved.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_RECIPE_RECORD",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "ND_PUBLIC"
+    ],
+    "qualification": "HOLD_SOURCE_SEMANTICS",
+    "blockers": [
+      "NUTRIDATA_DENOMINATOR_UNCONFIRMED",
+      "FOOD_STATE_UNQUALIFIED",
+      "SOURCE_METHOD_UNQUALIFIED",
+      "SOURCE_FAMILY_UNRESOLVED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:d1abd05620deed7a71b4e19600417d6d",
+    "concept_key": "nutridata:dish:脂肪",
+    "component_ref": "cc:FAT_DECLARED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "PENDING",
+      "reason": "denominator unresolved"
+    },
+    "method": "Published platform attribute; original analytical or recipe calculation method unresolved.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_RECIPE_RECORD",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "ND_PUBLIC"
+    ],
+    "qualification": "HOLD_SOURCE_SEMANTICS",
+    "blockers": [
+      "NUTRIDATA_DENOMINATOR_UNCONFIRMED",
+      "FOOD_STATE_UNQUALIFIED",
+      "SOURCE_METHOD_UNQUALIFIED",
+      "SOURCE_FAMILY_UNRESOLVED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:7f1c76399b319699f6572129b169a252",
+    "concept_key": "nutridata:dish:蛋白质",
+    "component_ref": "cc:PROTEIN_DECLARED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "PENDING",
+      "reason": "denominator unresolved"
+    },
+    "method": "Published platform attribute; original analytical or recipe calculation method unresolved.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_RECIPE_RECORD",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "ND_PUBLIC"
+    ],
+    "qualification": "HOLD_SOURCE_SEMANTICS",
+    "blockers": [
+      "NUTRIDATA_DENOMINATOR_UNCONFIRMED",
+      "FOOD_STATE_UNQUALIFIED",
+      "SOURCE_METHOD_UNQUALIFIED",
+      "SOURCE_FAMILY_UNRESOLVED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:88ebfe21f8d1b14e1fd710f308bc917d",
+    "concept_key": "nutridata:dish:钠",
+    "component_ref": "cc:SODIUM",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "mg"
+    },
+    "basis": {
+      "tag": "PENDING",
+      "reason": "denominator unresolved"
+    },
+    "method": "Published platform attribute; original analytical or recipe calculation method unresolved.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_RECIPE_RECORD",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "ND_PUBLIC"
+    ],
+    "qualification": "HOLD_SOURCE_SEMANTICS",
+    "blockers": [
+      "NUTRIDATA_DENOMINATOR_UNCONFIRMED",
+      "FOOD_STATE_UNQUALIFIED",
+      "SOURCE_METHOD_UNQUALIFIED",
+      "SOURCE_FAMILY_UNRESOLVED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:c3d665cdbb8ae713c88682a1de59afbb",
+    "concept_key": "nutridata:ingredient:碳水化合物",
+    "component_ref": "cc:CARBOHYDRATE_UNSPECIFIED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "PENDING",
+      "reason": "denominator unresolved"
+    },
+    "method": "Published platform attribute; original analytical or recipe calculation method unresolved.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_COMPOSITION_RECORD",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "ND_PUBLIC"
+    ],
+    "qualification": "HOLD_SOURCE_SEMANTICS",
+    "blockers": [
+      "NUTRIDATA_DENOMINATOR_UNCONFIRMED",
+      "FOOD_STATE_UNQUALIFIED",
+      "SOURCE_METHOD_UNQUALIFIED",
+      "SOURCE_FAMILY_UNRESOLVED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:6e77ed7460b4679b7c337d9a9a818c2d",
+    "concept_key": "nutridata:ingredient:能量",
+    "component_ref": "cc:ENERGY",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "kcal"
+    },
+    "basis": {
+      "tag": "PENDING",
+      "reason": "denominator unresolved"
+    },
+    "method": "Published platform attribute; original analytical or recipe calculation method unresolved.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_COMPOSITION_RECORD",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "ND_PUBLIC"
+    ],
+    "qualification": "HOLD_SOURCE_SEMANTICS",
+    "blockers": [
+      "NUTRIDATA_DENOMINATOR_UNCONFIRMED",
+      "FOOD_STATE_UNQUALIFIED",
+      "SOURCE_METHOD_UNQUALIFIED",
+      "SOURCE_FAMILY_UNRESOLVED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:57a4f75d2dc4376d0124c13fcfbca35b",
+    "concept_key": "nutridata:ingredient:脂肪",
+    "component_ref": "cc:FAT_DECLARED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "PENDING",
+      "reason": "denominator unresolved"
+    },
+    "method": "Published platform attribute; original analytical or recipe calculation method unresolved.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_COMPOSITION_RECORD",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "ND_PUBLIC"
+    ],
+    "qualification": "HOLD_SOURCE_SEMANTICS",
+    "blockers": [
+      "NUTRIDATA_DENOMINATOR_UNCONFIRMED",
+      "FOOD_STATE_UNQUALIFIED",
+      "SOURCE_METHOD_UNQUALIFIED",
+      "SOURCE_FAMILY_UNRESOLVED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:24c6b1f9e63b93a778a2691d36a35ea4",
+    "concept_key": "nutridata:ingredient:蛋白质",
+    "component_ref": "cc:PROTEIN_DECLARED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "PENDING",
+      "reason": "denominator unresolved"
+    },
+    "method": "Published platform attribute; original analytical or recipe calculation method unresolved.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_COMPOSITION_RECORD",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "ND_PUBLIC"
+    ],
+    "qualification": "HOLD_SOURCE_SEMANTICS",
+    "blockers": [
+      "NUTRIDATA_DENOMINATOR_UNCONFIRMED",
+      "FOOD_STATE_UNQUALIFIED",
+      "SOURCE_METHOD_UNQUALIFIED",
+      "SOURCE_FAMILY_UNRESOLVED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:a3989dceddd9ae8bd3f1d40446ff9d20",
+    "concept_key": "nutridata:ingredient:钠",
+    "component_ref": "cc:SODIUM",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "mg"
+    },
+    "basis": {
+      "tag": "PENDING",
+      "reason": "denominator unresolved"
+    },
+    "method": "Published platform attribute; original analytical or recipe calculation method unresolved.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "SOURCE_COMPOSITION_RECORD",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "ND_PUBLIC"
+    ],
+    "qualification": "HOLD_SOURCE_SEMANTICS",
+    "blockers": [
+      "NUTRIDATA_DENOMINATOR_UNCONFIRMED",
+      "FOOD_STATE_UNQUALIFIED",
+      "SOURCE_METHOD_UNQUALIFIED",
+      "SOURCE_FAMILY_UNRESOLVED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:854081f0d87c45ec93279db1946947ea",
+    "concept_key": "off:api_snapshot:carbohydrates",
+    "component_ref": "cc:CARBOHYDRATE_AVAILABLE",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "PENDING",
+      "reason": "OFF suffix may denote per 100 g or 100 mL; specific denominator unresolved"
+    },
+    "method": "OFF product-nutrition schema standard numerator; developer note disagrees; verify row against native entered amount when possible.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "AS_SOLD_PRODUCT_LABEL_API_VALUE",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "OFF_SCHEMA",
+      "OFF_CONFLICT"
+    ],
+    "qualification": "SOURCE_NUMERATOR_CONTRACT_SUPPORTED_BASIS_HOLD",
+    "blockers": [
+      "PER_100G_VS_100ML_UNRESOLVED",
+      "DOC_CONFLICT_REQUIRES_ROW_CHECK",
+      "LABEL_REFERENCE_NOT_ASSAY",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:77909abce97e3b10b3adaa63a884b6fd",
+    "concept_key": "off:api_snapshot:energy-kcal",
+    "component_ref": "cc:ENERGY",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "kcal"
+    },
+    "basis": {
+      "tag": "PENDING",
+      "reason": "OFF suffix may denote per 100 g or 100 mL; specific denominator unresolved"
+    },
+    "method": "OFF product-nutrition schema standard numerator; developer note disagrees; verify row against native entered amount when possible.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "AS_SOLD_PRODUCT_LABEL_API_VALUE",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "OFF_SCHEMA",
+      "OFF_CONFLICT"
+    ],
+    "qualification": "SOURCE_NUMERATOR_CONTRACT_SUPPORTED_BASIS_HOLD",
+    "blockers": [
+      "PER_100G_VS_100ML_UNRESOLVED",
+      "DOC_CONFLICT_REQUIRES_ROW_CHECK",
+      "LABEL_REFERENCE_NOT_ASSAY",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:e9a645a14fc003dceaa144936795737e",
+    "concept_key": "off:api_snapshot:fat",
+    "component_ref": "cc:FAT_DECLARED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "PENDING",
+      "reason": "OFF suffix may denote per 100 g or 100 mL; specific denominator unresolved"
+    },
+    "method": "OFF product-nutrition schema standard numerator; developer note disagrees; verify row against native entered amount when possible.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "AS_SOLD_PRODUCT_LABEL_API_VALUE",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "OFF_SCHEMA",
+      "OFF_CONFLICT"
+    ],
+    "qualification": "SOURCE_NUMERATOR_CONTRACT_SUPPORTED_BASIS_HOLD",
+    "blockers": [
+      "PER_100G_VS_100ML_UNRESOLVED",
+      "DOC_CONFLICT_REQUIRES_ROW_CHECK",
+      "LABEL_REFERENCE_NOT_ASSAY",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:778d3f530a754c5f710b73e44317c342",
+    "concept_key": "off:api_snapshot:proteins",
+    "component_ref": "cc:PROTEIN_DECLARED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "PENDING",
+      "reason": "OFF suffix may denote per 100 g or 100 mL; specific denominator unresolved"
+    },
+    "method": "OFF product-nutrition schema standard numerator; developer note disagrees; verify row against native entered amount when possible.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "AS_SOLD_PRODUCT_LABEL_API_VALUE",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "OFF_SCHEMA",
+      "OFF_CONFLICT"
+    ],
+    "qualification": "SOURCE_NUMERATOR_CONTRACT_SUPPORTED_BASIS_HOLD",
+    "blockers": [
+      "PER_100G_VS_100ML_UNRESOLVED",
+      "DOC_CONFLICT_REQUIRES_ROW_CHECK",
+      "LABEL_REFERENCE_NOT_ASSAY",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:8eef8d1cf46ac9220cf2bac485f91c2e",
+    "concept_key": "off:api_snapshot:sodium",
+    "component_ref": "cc:SODIUM",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "PENDING",
+      "reason": "OFF suffix may denote per 100 g or 100 mL; specific denominator unresolved"
+    },
+    "method": "OFF product-nutrition schema standard numerator; developer note disagrees; verify row against native entered amount when possible.",
+    "reference_window": "SOURCE_SNAPSHOT_OR_SCAN_NOT_LONGITUDINAL",
+    "aggregation": "AS_SOLD_PRODUCT_LABEL_API_VALUE",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "OFF_SCHEMA",
+      "OFF_CONFLICT"
+    ],
+    "qualification": "SOURCE_NUMERATOR_CONTRACT_SUPPORTED_BASIS_HOLD",
+    "blockers": [
+      "PER_100G_VS_100ML_UNRESOLVED",
+      "DOC_CONFLICT_REQUIRES_ROW_CHECK",
+      "LABEL_REFERENCE_NOT_ASSAY",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:a5e2d2ff9af63d29b1808dbab35cb5fc",
+    "concept_key": "snapme:linkfile:CARB",
+    "component_ref": "cc:CARBOHYDRATE_UNSPECIFIED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_REPORTED_ITEM_LINK_ROW"
+    },
+    "method": "ASA24-2020 food record and database-derived amount/nutrient attribute; photo linkage not unique intake event.",
+    "reference_window": "SOURCE_REPORTED_DAY_NOT_HABITUAL",
+    "aggregation": "PHOTO_LINKED_ASA24_ITEM_ROW",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "SN_PAPER",
+      "ASA_VERSION",
+      "ASA_ITEMS"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "INTAKE_EVENT_KEY_UNQUALIFIED",
+      "NO_AGGREGATION",
+      "REPORTED_NOT_WEIGHED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:20822fd6d46b0eff9624427b6e4087ff",
+    "concept_key": "snapme:linkfile:FA",
+    "component_ref": "cc:FOLIC_ACID",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "ug"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_REPORTED_ITEM_LINK_ROW"
+    },
+    "method": "ASA24-2020 food record and database-derived amount/nutrient attribute; photo linkage not unique intake event.",
+    "reference_window": "SOURCE_REPORTED_DAY_NOT_HABITUAL",
+    "aggregation": "PHOTO_LINKED_ASA24_ITEM_ROW",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "SN_PAPER",
+      "ASA_VERSION",
+      "ASA_ITEMS"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "INTAKE_EVENT_KEY_UNQUALIFIED",
+      "NO_AGGREGATION",
+      "REPORTED_NOT_WEIGHED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:020f133ba1a4751d363dabcc43a39456",
+    "concept_key": "snapme:linkfile:FDFE",
+    "component_ref": "cc:FOLATE_DFE",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "ug_DFE"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_REPORTED_ITEM_LINK_ROW"
+    },
+    "method": "ASA24-2020 food record and database-derived amount/nutrient attribute; photo linkage not unique intake event.",
+    "reference_window": "SOURCE_REPORTED_DAY_NOT_HABITUAL",
+    "aggregation": "PHOTO_LINKED_ASA24_ITEM_ROW",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "SN_PAPER",
+      "ASA_VERSION",
+      "ASA_ITEMS"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "INTAKE_EVENT_KEY_UNQUALIFIED",
+      "NO_AGGREGATION",
+      "REPORTED_NOT_WEIGHED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:da24816f725573e047aa68ac53bb9b8d",
+    "concept_key": "snapme:linkfile:FF",
+    "component_ref": "cc:FOLATE_FOOD",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "ug"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_REPORTED_ITEM_LINK_ROW"
+    },
+    "method": "ASA24-2020 food record and database-derived amount/nutrient attribute; photo linkage not unique intake event.",
+    "reference_window": "SOURCE_REPORTED_DAY_NOT_HABITUAL",
+    "aggregation": "PHOTO_LINKED_ASA24_ITEM_ROW",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "SN_PAPER",
+      "ASA_VERSION",
+      "ASA_ITEMS"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "INTAKE_EVENT_KEY_UNQUALIFIED",
+      "NO_AGGREGATION",
+      "REPORTED_NOT_WEIGHED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:7b3c48874ef700cda19cf773d412c914",
+    "concept_key": "snapme:linkfile:FIBE",
+    "component_ref": "cc:DIETARY_FIBER",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_REPORTED_ITEM_LINK_ROW"
+    },
+    "method": "ASA24-2020 food record and database-derived amount/nutrient attribute; photo linkage not unique intake event.",
+    "reference_window": "SOURCE_REPORTED_DAY_NOT_HABITUAL",
+    "aggregation": "PHOTO_LINKED_ASA24_ITEM_ROW",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "SN_PAPER",
+      "ASA_VERSION",
+      "ASA_ITEMS"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "INTAKE_EVENT_KEY_UNQUALIFIED",
+      "NO_AGGREGATION",
+      "REPORTED_NOT_WEIGHED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:8afa7f761e8c614c9b6ef9e00e88c3a1",
+    "concept_key": "snapme:linkfile:FOLA",
+    "component_ref": "cc:FOLATE_TOTAL",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "ug"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_REPORTED_ITEM_LINK_ROW"
+    },
+    "method": "ASA24-2020 food record and database-derived amount/nutrient attribute; photo linkage not unique intake event.",
+    "reference_window": "SOURCE_REPORTED_DAY_NOT_HABITUAL",
+    "aggregation": "PHOTO_LINKED_ASA24_ITEM_ROW",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "SN_PAPER",
+      "ASA_VERSION",
+      "ASA_ITEMS"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "INTAKE_EVENT_KEY_UNQUALIFIED",
+      "NO_AGGREGATION",
+      "REPORTED_NOT_WEIGHED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:70ea7dfd6b0cd67b975addec41fa79b1",
+    "concept_key": "snapme:linkfile:FOODAMT",
+    "component_ref": "cc:FOOD_MASS",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_REPORTED_ITEM_LINK_ROW"
+    },
+    "method": "ASA24-2020 food record and database-derived amount/nutrient attribute; photo linkage not unique intake event.",
+    "reference_window": "SOURCE_REPORTED_DAY_NOT_HABITUAL",
+    "aggregation": "PHOTO_LINKED_ASA24_ITEM_ROW",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "SN_PAPER",
+      "ASA_VERSION",
+      "ASA_ITEMS"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "INTAKE_EVENT_KEY_UNQUALIFIED",
+      "NO_AGGREGATION",
+      "REPORTED_NOT_WEIGHED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:3d20a31d877fe0f64520de4f0b8513e2",
+    "concept_key": "snapme:linkfile:KCAL",
+    "component_ref": "cc:ENERGY",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "kcal"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_REPORTED_ITEM_LINK_ROW"
+    },
+    "method": "ASA24-2020 food record and database-derived amount/nutrient attribute; photo linkage not unique intake event.",
+    "reference_window": "SOURCE_REPORTED_DAY_NOT_HABITUAL",
+    "aggregation": "PHOTO_LINKED_ASA24_ITEM_ROW",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "SN_PAPER",
+      "ASA_VERSION",
+      "ASA_ITEMS"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "INTAKE_EVENT_KEY_UNQUALIFIED",
+      "NO_AGGREGATION",
+      "REPORTED_NOT_WEIGHED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:df0042680f00f3e6cea8f36d1446f41b",
+    "concept_key": "snapme:linkfile:PROT",
+    "component_ref": "cc:PROTEIN_DECLARED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_REPORTED_ITEM_LINK_ROW"
+    },
+    "method": "ASA24-2020 food record and database-derived amount/nutrient attribute; photo linkage not unique intake event.",
+    "reference_window": "SOURCE_REPORTED_DAY_NOT_HABITUAL",
+    "aggregation": "PHOTO_LINKED_ASA24_ITEM_ROW",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "SN_PAPER",
+      "ASA_VERSION",
+      "ASA_ITEMS"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "INTAKE_EVENT_KEY_UNQUALIFIED",
+      "NO_AGGREGATION",
+      "REPORTED_NOT_WEIGHED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:422175d06f1537cb3f0e7fec985ef9a2",
+    "concept_key": "snapme:linkfile:SODI",
+    "component_ref": "cc:SODIUM",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "mg"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_REPORTED_ITEM_LINK_ROW"
+    },
+    "method": "ASA24-2020 food record and database-derived amount/nutrient attribute; photo linkage not unique intake event.",
+    "reference_window": "SOURCE_REPORTED_DAY_NOT_HABITUAL",
+    "aggregation": "PHOTO_LINKED_ASA24_ITEM_ROW",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "SN_PAPER",
+      "ASA_VERSION",
+      "ASA_ITEMS"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "INTAKE_EVENT_KEY_UNQUALIFIED",
+      "NO_AGGREGATION",
+      "REPORTED_NOT_WEIGHED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:c95fec19cc4f90313c3d27ba658ad903",
+    "concept_key": "snapme:linkfile:TFAT",
+    "component_ref": "cc:TOTAL_FAT_DECLARED",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "g"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_REPORTED_ITEM_LINK_ROW"
+    },
+    "method": "ASA24-2020 food record and database-derived amount/nutrient attribute; photo linkage not unique intake event.",
+    "reference_window": "SOURCE_REPORTED_DAY_NOT_HABITUAL",
+    "aggregation": "PHOTO_LINKED_ASA24_ITEM_ROW",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "SN_PAPER",
+      "ASA_VERSION",
+      "ASA_ITEMS"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "INTAKE_EVENT_KEY_UNQUALIFIED",
+      "NO_AGGREGATION",
+      "REPORTED_NOT_WEIGHED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  },
+  {
+    "measurement_definition_id": "mdef:9a47bcb11084cea38fa002448ac45263",
+    "concept_key": "snapme:linkfile:VARA",
+    "component_ref": "cc:VITAMIN_A_RAE",
+    "value_type": "NUMBER",
+    "unit": {
+      "tag": "VALUE",
+      "value": "ug_RAE"
+    },
+    "basis": {
+      "tag": "VALUE",
+      "value": "SOURCE_REPORTED_ITEM_LINK_ROW"
+    },
+    "method": "ASA24-2020 food record and database-derived amount/nutrient attribute; photo linkage not unique intake event.",
+    "reference_window": "SOURCE_REPORTED_DAY_NOT_HABITUAL",
+    "aggregation": "PHOTO_LINKED_ASA24_ITEM_ROW",
+    "error_model": {
+      "tag": "PENDING",
+      "reason": "no independent error model"
+    },
+    "reliability": {
+      "tag": "PENDING",
+      "reason": "not empirically estimated"
+    },
+    "validity": {
+      "tag": "PENDING",
+      "reason": "field interpretation not scientific measurement validity"
+    },
+    "cost_definition": {
+      "tag": "NOT_APPLICABLE",
+      "reason": "measurement-cost task not activated",
+      "policy_ref": "UDF-B1-NATIVE-DRAFT-0.1"
+    },
+    "leakage_risk": "development exposed; no locked evaluation or future training",
+    "authority_keys": [
+      "SN_PAPER",
+      "ASA_VERSION",
+      "ASA_ITEMS"
+    ],
+    "qualification": "SOURCE_FIELD_CONTRACT_SUPPORTED",
+    "blockers": [
+      "INTAKE_EVENT_KEY_UNQUALIFIED",
+      "NO_AGGREGATION",
+      "REPORTED_NOT_WEIGHED",
+      "REFERENCE_NOT_QUALIFIED"
+    ],
+    "reference_status": "NOT_QUALIFIED"
+  }
+]

@@ -1,0 +1,313 @@
+{
+  "run_id": "B1-U2B-VALIDATION-002",
+  "persisted_semantics_replayed": 2851,
+  "representation_conversions_replayed": 520,
+  "quantity_interpretations_replayed": 266,
+  "namespace_bindings_replayed": 747,
+  "source_key_bindings_replayed": 611,
+  "namespace_links_replayed": 578,
+  "bridge_persisted_exact_reverse": 770,
+  "new_typed_objects_validated": 5665,
+  "tests": [
+    {
+      "name": "real measurement definition revalidated",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "all persisted measurement/quantity/namespace bindings replayed",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "decimal numerator conversion",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "known reported zero is a value, not measured zero",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "declared source key relation",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "same source key structural equality",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "actual shared D0 artifacts and anchors exact reverse",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "8-digit lexical FoodCode candidate only",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "OFF synthetic mg input converted to standard g",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "actual Tr replaced with numeric zero",
+      "expected": "MISSINGNESS_PROMOTION",
+      "observed": "MISSINGNESS_PROMOTION",
+      "pass": true
+    },
+    {
+      "name": "unknown NutriData basis invented",
+      "expected": "DEFINITION_POLICY_DRIFT",
+      "observed": "DEFINITION_POLICY_DRIFT",
+      "pass": true
+    },
+    {
+      "name": "measurement unit changed despite valid source key",
+      "expected": "DEFINITION_POLICY_DRIFT",
+      "observed": "DEFINITION_POLICY_DRIFT",
+      "pass": true
+    },
+    {
+      "name": "source field definition promoted to scientific measurement",
+      "expected": "SCIENCE_QUALIFICATION_INFLATION",
+      "observed": "SCIENCE_QUALIFICATION_INFLATION",
+      "pass": true
+    },
+    {
+      "name": "source semantics used as qualified calculation",
+      "expected": "MEASUREMENT_CALCULATION_HOLD",
+      "observed": "MEASUREMENT_CALCULATION_HOLD",
+      "pass": true
+    },
+    {
+      "name": "real persisted interpretation altered",
+      "expected": "INTERPRETATION_DRIFT",
+      "observed": "INTERPRETATION_DRIFT",
+      "pass": true
+    },
+    {
+      "name": "available vs unspecified carbohydrate",
+      "expected": "COMPONENT_DEFINITION_MISMATCH",
+      "observed": "COMPONENT_DEFINITION_MISMATCH",
+      "pass": true
+    },
+    {
+      "name": "available vs total carbohydrate",
+      "expected": "COMPONENT_DEFINITION_MISMATCH",
+      "observed": "COMPONENT_DEFINITION_MISMATCH",
+      "pass": true
+    },
+    {
+      "name": "RAE vs RE",
+      "expected": "COMPONENT_DEFINITION_MISMATCH",
+      "observed": "COMPONENT_DEFINITION_MISMATCH",
+      "pass": true
+    },
+    {
+      "name": "folate vs DFE",
+      "expected": "COMPONENT_DEFINITION_MISMATCH",
+      "observed": "COMPONENT_DEFINITION_MISMATCH",
+      "pass": true
+    },
+    {
+      "name": "folic acid vs food folate",
+      "expected": "COMPONENT_DEFINITION_MISMATCH",
+      "observed": "COMPONENT_DEFINITION_MISMATCH",
+      "pass": true
+    },
+    {
+      "name": "sodium vs salt",
+      "expected": "COMPONENT_DEFINITION_MISMATCH",
+      "observed": "COMPONENT_DEFINITION_MISMATCH",
+      "pass": true
+    },
+    {
+      "name": "GI vs carbohydrate",
+      "expected": "COMPONENT_DEFINITION_MISMATCH",
+      "observed": "COMPONENT_DEFINITION_MISMATCH",
+      "pass": true
+    },
+    {
+      "name": "NRV ratio vs energy",
+      "expected": "COMPONENT_DEFINITION_MISMATCH",
+      "observed": "COMPONENT_DEFINITION_MISMATCH",
+      "pass": true
+    },
+    {
+      "name": "100 mL to 100 g without density",
+      "expected": "DENSITY_REQUIRED",
+      "observed": "DENSITY_REQUIRED",
+      "pass": true
+    },
+    {
+      "name": "serving to 100g without portion mass",
+      "expected": "SERVING_MASS_REQUIRED",
+      "observed": "SERVING_MASS_REQUIRED",
+      "pass": true
+    },
+    {
+      "name": "raw to cooked not unit conversion",
+      "expected": "STATE_OR_PREPARATION_UNQUALIFIED",
+      "observed": "STATE_OR_PREPARATION_UNQUALIFIED",
+      "pass": true
+    },
+    {
+      "name": "unknown preparation passed to comparison",
+      "expected": "STATE_OR_PREPARATION_UNQUALIFIED",
+      "observed": "STATE_OR_PREPARATION_UNQUALIFIED",
+      "pass": true
+    },
+    {
+      "name": "incompatible numerator unit",
+      "expected": "INCOMPATIBLE_NUMERATOR_UNIT",
+      "observed": "INCOMPATIBLE_NUMERATOR_UNIT",
+      "pass": true
+    },
+    {
+      "name": "actual equal raw key in two namespaces",
+      "expected": "CROSS_NAMESPACE_IDENTITY",
+      "observed": "CROSS_NAMESPACE_IDENTITY",
+      "pass": true
+    },
+    {
+      "name": "same namespace category treated as physical item",
+      "expected": "INSTANCE_EQUIVALENCE_NOT_AUTHORIZED",
+      "observed": "INSTANCE_EQUIVALENCE_NOT_AUTHORIZED",
+      "pass": true
+    },
+    {
+      "name": "N5k parent edge pointed to unrelated NutriData namespace",
+      "expected": "CROSS_NAMESPACE_RELATION_UNQUALIFIED",
+      "observed": "CROSS_NAMESPACE_RELATION_UNQUALIFIED",
+      "pass": true
+    },
+    {
+      "name": "wrong EPIC key type",
+      "expected": "CROSS_NAMESPACE_RELATION_UNQUALIFIED",
+      "observed": "CROSS_NAMESPACE_RELATION_UNQUALIFIED",
+      "pass": true
+    },
+    {
+      "name": "5-digit code padded or accepted as FNDDS",
+      "expected": "FNDDS_CODE_LEXICAL",
+      "observed": "FNDDS_CODE_LEXICAL",
+      "pass": true
+    },
+    {
+      "name": "cross-cycle FNDDS code join",
+      "expected": "FNDDS_VERSION_MISMATCH",
+      "observed": "FNDDS_VERSION_MISMATCH",
+      "pass": true
+    },
+    {
+      "name": "unknown recipe note converted into grams",
+      "expected": "RECIPE_NOTE_UNIT_BASIS_HOLD",
+      "observed": "RECIPE_NOTE_UNIT_BASIS_HOLD",
+      "pass": true
+    },
+    {
+      "name": "conflicted total used as reference candidate",
+      "expected": "SOURCE_TOTAL_CONFLICT",
+      "observed": "SOURCE_TOTAL_CONFLICT",
+      "pass": true
+    },
+    {
+      "name": "unknown total flag treated as reference",
+      "expected": "SOURCE_TOTAL_FLAG_UNRESOLVED",
+      "observed": "SOURCE_TOTAL_FLAG_UNRESOLVED",
+      "pass": true
+    },
+    {
+      "name": "bridge promoted to SYSTEM purpose",
+      "expected": "D0_BRIDGE_PURPOSE_OR_LIFECYCLE",
+      "observed": "D0_BRIDGE_PURPOSE_OR_LIFECYCLE",
+      "pass": true
+    },
+    {
+      "name": "bridge source_class changed",
+      "expected": "D0_BRIDGE_SOURCE_INSTANCE",
+      "observed": "D0_BRIDGE_SOURCE_INSTANCE",
+      "pass": true
+    },
+    {
+      "name": "bridge instance_class removed",
+      "expected": "D0_BRIDGE_FIELDS",
+      "observed": "D0_BRIDGE_FIELDS",
+      "pass": true
+    },
+    {
+      "name": "bridge source hash tampered",
+      "expected": "D0_BRIDGE_SOURCE_HASH",
+      "observed": "D0_BRIDGE_SOURCE_HASH",
+      "pass": true
+    },
+    {
+      "name": "anchor referenced as artifact",
+      "expected": "D0_BRIDGE_TYPED_SOURCE",
+      "observed": "D0_BRIDGE_TYPED_SOURCE",
+      "pass": true
+    },
+    {
+      "name": "hidden content inserted",
+      "expected": "D0_BRIDGE_CONTENT_OR_SOURCE",
+      "observed": "D0_BRIDGE_CONTENT_OR_SOURCE",
+      "pass": true
+    },
+    {
+      "name": "bridge source made qualified reference",
+      "expected": "D0_BRIDGE_ARTIFACT_PROMOTION",
+      "observed": "D0_BRIDGE_ARTIFACT_PROMOTION",
+      "pass": true
+    },
+    {
+      "name": "duplicate sidecar entry",
+      "expected": "D0_BRIDGE_ONE_TO_ONE",
+      "observed": "D0_BRIDGE_ONE_TO_ONE",
+      "pass": true
+    },
+    {
+      "name": "sidecar synthetic release ref",
+      "expected": "D0_BRIDGE_SOURCE_RELEASE_OR_SUPERSESSION",
+      "observed": "D0_BRIDGE_SOURCE_RELEASE_OR_SUPERSESSION",
+      "pass": true
+    },
+    {
+      "name": "resealed locator differs from immutable B1 revision",
+      "expected": "REVISION_INTEGRITY",
+      "observed": "REVISION_INTEGRITY",
+      "pass": true
+    },
+    {
+      "name": "bridge artifact type StudyIdentity",
+      "expected": "D0_BRIDGE_KIND_UNAUTHORIZED",
+      "observed": "D0_BRIDGE_KIND_UNAUTHORIZED",
+      "pass": true
+    },
+    {
+      "name": "missing legacy instance class stays unresolved",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    }
+  ],
+  "total": 49,
+  "positive": 10,
+  "negative": 39,
+  "passed": 49,
+  "failed": 0,
+  "qualification": "DEVELOPMENT_ONLY"
+}

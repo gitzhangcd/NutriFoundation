@@ -1,0 +1,211 @@
+[
+  {
+    "component_id": "cc:ENERGY",
+    "kind_family": "ENERGY",
+    "definition": "Declared food energy; method/source retained.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:FOOD_MASS",
+    "kind_family": "PHYSICAL_QUANTITY",
+    "definition": "Food mass, distinct from nutrient content, portion volume, or ingested amount.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:PROTEIN_DECLARED",
+    "kind_family": "NUTRIENT_AGGREGATE",
+    "definition": "Declared protein; analytical/calculation method not presumed equivalent.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:FAT_DECLARED",
+    "kind_family": "NUTRIENT_AGGREGATE",
+    "definition": "Declared fat, without assuming method or total-fat definition.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:TOTAL_FAT_DECLARED",
+    "kind_family": "NUTRIENT_AGGREGATE",
+    "definition": "Explicitly declared total fat.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:CARBOHYDRATE_UNSPECIFIED",
+    "kind_family": "NUTRIENT_AGGREGATE",
+    "definition": "Carbohydrate definition not established as available versus total.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:CARBOHYDRATE_AVAILABLE",
+    "kind_family": "NUTRIENT_AGGREGATE",
+    "definition": "Available carbohydrate excluding fibre according to source definition.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:CARBOHYDRATE_TOTAL",
+    "kind_family": "NUTRIENT_AGGREGATE",
+    "definition": "Total carbohydrate; definition and method must be qualified.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:SODIUM",
+    "kind_family": "CHEMICAL_ELEMENT_ATTRIBUTE",
+    "definition": "Sodium content; not salt mass.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:DIETARY_FIBER",
+    "kind_family": "NUTRIENT_AGGREGATE",
+    "definition": "Declared dietary fiber; analytical method retained.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:VITAMIN_A_RAE",
+    "kind_family": "BIOLOGICAL_EQUIVALENT",
+    "definition": "Retinol activity equivalents; not RE or retinol mass.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:VITAMIN_A_RE",
+    "kind_family": "BIOLOGICAL_EQUIVALENT",
+    "definition": "Retinol equivalents; not RAE.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:FOLATE_TOTAL",
+    "kind_family": "NUTRIENT_AGGREGATE",
+    "definition": "Total folate; not dietary folate equivalents.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:FOLIC_ACID",
+    "kind_family": "CHEMICAL_FORM",
+    "definition": "Folic acid, distinct from food folate.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:FOLATE_FOOD",
+    "kind_family": "NUTRIENT_AGGREGATE",
+    "definition": "Food folate, not folic acid or DFE.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:FOLATE_DFE",
+    "kind_family": "BIOLOGICAL_EQUIVALENT",
+    "definition": "Dietary folate equivalents; no generic microgram conversion.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:GI",
+    "kind_family": "FUNCTIONAL_MEASUREMENT",
+    "definition": "Glycaemic index; comparator/method required, not nutrient mass.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:NRV_PERCENT",
+    "kind_family": "LABEL_REFERENCE_RATIO",
+    "definition": "Percentage of a versioned label reference value; not individual requirement.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  },
+  {
+    "component_id": "cc:RECIPE_AMOUNT_UNSPECIFIED",
+    "kind_family": "SOURCE_QUANTITY",
+    "definition": "Recipe note quantity; original unit and basis not established.",
+    "identity_scope": "LOCAL_DECLARED_ATTRIBUTE_FAMILY",
+    "external_mapping": {
+      "tag": "PENDING",
+      "reason": "no external exact concept mapping"
+    },
+    "qualification": "CANDIDATE_NOT_EQUIVALENCE"
+  }
+]

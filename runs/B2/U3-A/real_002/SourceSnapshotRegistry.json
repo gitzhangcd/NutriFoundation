@@ -1,0 +1,226 @@
+[
+  {
+    "scope": "nutridata:ingredient",
+    "file": "01-食物成分库.xlsx",
+    "sha256": "3a0759d1343c3a7adc9fb1dc5090ed072e953c5427c53123c885592ddefe1e19",
+    "bytes": 3619255,
+    "snapshot_id": "nutridata:ingredient@sha256:3a0759d1343c3a7adc9fb1dc5090ed072e953c5427c53123c885592ddefe1e19",
+    "source_role": "NUTRIDATA_NATIVE",
+    "version": "LOCAL_SNAPSHOT_VENDOR_VERSION_UNRESOLVED",
+    "source_url": null
+  },
+  {
+    "scope": "nutridata:dish",
+    "file": "02-菜肴库.xlsx",
+    "sha256": "b98354f2f6c9fba8b5c6f71fb246c28a7547e563ddd52724eb94172a7eacc48d",
+    "bytes": 17470210,
+    "snapshot_id": "nutridata:dish@sha256:b98354f2f6c9fba8b5c6f71fb246c28a7547e563ddd52724eb94172a7eacc48d",
+    "source_role": "NUTRIDATA_NATIVE",
+    "version": "LOCAL_SNAPSHOT_VENDOR_VERSION_UNRESOLVED",
+    "source_url": null
+  },
+  {
+    "scope": "foodon:2026-09-20:food_product",
+    "file": "FoodOn.owl",
+    "sha256": "b897bf64c1b265c422db9ee01e1235c10c0b809e7f02326ef810a52068347edf",
+    "bytes": 40779019,
+    "snapshot_id": "foodon:2026-09-20:food_product@sha256:b897bf64c1b265c422db9ee01e1235c10c0b809e7f02326ef810a52068347edf",
+    "source_role": "OFFICIAL_STANDARD_SNAPSHOT",
+    "version": [
+      "http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl",
+      "2026-02-02",
+      "2026-09-20"
+    ],
+    "source_url": "https://purl.obolibrary.org/obo/foodon.owl"
+  },
+  {
+    "scope": "fdc:sr_legacy:2018-04",
+    "file": "FDC_SR_2018.zip",
+    "sha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+    "bytes": 6074592,
+    "snapshot_id": "fdc:sr_legacy:2018-04@sha256:b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+    "source_role": "OFFICIAL_STANDARD_SNAPSHOT",
+    "version": "SR Legacy 2018-04",
+    "source_url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"
+  },
+  {
+    "scope": "fndds:2015-16:fdc_carrier",
+    "file": "FNDDS_2015_16.zip",
+    "sha256": "9be942b9d181acb62f37ee2f4c259dae642b586b2e4fe29039cfa1847f4d5dd0",
+    "bytes": 5237138,
+    "snapshot_id": "fndds:2015-16:fdc_carrier@sha256:9be942b9d181acb62f37ee2f4c259dae642b586b2e4fe29039cfa1847f4d5dd0",
+    "source_role": "OFFICIAL_STANDARD_SNAPSHOT",
+    "version": "FNDDS 2015-2016 CSV historical FDC release",
+    "source_url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_survey_food_csv_2020-03-31.zip"
+  },
+  {
+    "scope": "fndds:2015-16:ars_carrier",
+    "file": "FNDDS_ARS_foods_2015_16.xlsx",
+    "sha256": "a3289f72a032d9453e4f5dcb51e922ff476c07c71b79d32db378070f95af55d9",
+    "bytes": 423537,
+    "snapshot_id": "fndds:2015-16:ars_carrier@sha256:a3289f72a032d9453e4f5dcb51e922ff476c07c71b79d32db378070f95af55d9",
+    "source_role": "OFFICIAL_STANDARD_SNAPSHOT",
+    "version": "FNDDS 2015-2016 ARS quick-view foods",
+    "source_url": "https://www.ars.usda.gov/ARSUserFiles/80400530/apps/2015-2016%20FNDDS%20At%20A%20Glance%20-%20Foods%20and%20Beverages.xlsx"
+  },
+  {
+    "scope": "food101:class",
+    "file": "dataset_infos.json",
+    "sha256": "2a18a40ccccb320138e46c75ac2c26c89b5a5d38d92198a66db846c48f65f132",
+    "bytes": 5560,
+    "snapshot_id": "food101:class@sha256:2a18a40ccccb320138e46c75ac2c26c89b5a5d38d92198a66db846c48f65f132",
+    "source_role": "NATIVE_METADATA",
+    "version": "B0_PUBLIC_SNAPSHOT_ORIGINAL_VERSION_UNVERIFIED",
+    "source_url": "https://huggingface.co/datasets/ethz/food101/resolve/ce7ff16231a85be196133cfd01d570e64a41dad0/dataset_infos.json"
+  },
+  {
+    "scope": "uec2:mirror:class",
+    "file": "zip_02_category.txt",
+    "sha256": "d3c824571b3e6660285857748a17ac1abbfd98d1ac5f3176d993bd5005ee4915",
+    "bytes": 1821,
+    "snapshot_id": "uec2:mirror:class@sha256:d3c824571b3e6660285857748a17ac1abbfd98d1ac5f3176d993bd5005ee4915",
+    "source_role": "MIRROR_NATIVE_MEMBERS",
+    "version": "B0_PUBLIC_SNAPSHOT_ORIGINAL_VERSION_UNVERIFIED",
+    "source_url": "https://huggingface.co/datasets/kng-research/uecfood256/resolve/5dd3860447882fa13e5150af0037fe672c9dbe4d/dataset100.zip"
+  },
+  {
+    "scope": "uec3:mirror:class",
+    "file": "zip_01_category.txt",
+    "sha256": "3df3a9e834bf87112bd752d4308367954db1b886de4992c6570474051517a2e8",
+    "bytes": 4698,
+    "snapshot_id": "uec3:mirror:class@sha256:3df3a9e834bf87112bd752d4308367954db1b886de4992c6570474051517a2e8",
+    "source_role": "MIRROR_NATIVE_MEMBERS",
+    "version": "B0_PUBLIC_SNAPSHOT_ORIGINAL_VERSION_UNVERIFIED",
+    "source_url": "https://huggingface.co/datasets/kng-research/uecfood256/resolve/5dd3860447882fa13e5150af0037fe672c9dbe4d/dataset256.zip"
+  },
+  {
+    "scope": "isia500:class",
+    "file": "zip_01_ISIAFood500_classLabel.txt",
+    "sha256": "7eb8a33b97327f88c7363340b9261360c165a28f1f753d76526bd75b88197a54",
+    "bytes": 8863,
+    "snapshot_id": "isia500:class@sha256:7eb8a33b97327f88c7363340b9261360c165a28f1f753d76526bd75b88197a54",
+    "source_role": "NATIVE_ARCHIVE_SAMPLE",
+    "version": "B0_PUBLIC_SNAPSHOT_ORIGINAL_VERSION_UNVERIFIED",
+    "source_url": "http://123.57.42.89/Dataset_ict/ISIA_Food500_Dir/dataset/metadata_ISIAFood_500.zip"
+  },
+  {
+    "scope": "food11:corrected_mirror",
+    "file": "archive_class_index.json",
+    "sha256": "d5a6755d3f741dc3c7f941e507065d9cd5dd5f118376f2b1fd8db94b3ec544ad",
+    "bytes": 939,
+    "snapshot_id": "food11:corrected_mirror@sha256:d5a6755d3f741dc3c7f941e507065d9cd5dd5f118376f2b1fd8db94b3ec544ad",
+    "source_role": "NATIVE_METADATA",
+    "version": "B0_PUBLIC_SNAPSHOT_ORIGINAL_VERSION_UNVERIFIED",
+    "source_url": "https://www.kaggle.com/api/v1/datasets/download/trolukovich/food11-image-dataset"
+  },
+  {
+    "scope": "food5k:corrected_mirror",
+    "file": "archive_class_index.json",
+    "sha256": "3c572276de8e99b01c271a469129d0d145bd6b6b0411135693aa03351f54974a",
+    "bytes": 198,
+    "snapshot_id": "food5k:corrected_mirror@sha256:3c572276de8e99b01c271a469129d0d145bd6b6b0411135693aa03351f54974a",
+    "source_role": "NATIVE_METADATA",
+    "version": "B0_PUBLIC_SNAPSHOT_ORIGINAL_VERSION_UNVERIFIED",
+    "source_url": "https://www.kaggle.com/api/v1/datasets/download/trolukovich/food5k-image-dataset"
+  },
+  {
+    "scope": "fruits360:current_directory",
+    "file": "training_categories.json",
+    "sha256": "eb26900b3d7942b1393614ef583849d71c20053fbf1a8b7b917c9c160d65d3fe",
+    "bytes": 224187,
+    "snapshot_id": "fruits360:current_directory@sha256:eb26900b3d7942b1393614ef583849d71c20053fbf1a8b7b917c9c160d65d3fe",
+    "source_role": "NATIVE_METADATA",
+    "version": "B0_PUBLIC_SNAPSHOT_ORIGINAL_VERSION_UNVERIFIED",
+    "source_url": "https://api.github.com/repos/fruits-360/fruits-360-100x100/contents/Training"
+  },
+  {
+    "scope": "nutrition5k:ingredient",
+    "file": "ingredients_metadata.csv",
+    "sha256": "87a9bbd1fd2e28f09f16305a04946ddbe31eb7d9d03686d7e2fb3d8f19f3effb",
+    "bytes": 21540,
+    "snapshot_id": "nutrition5k:ingredient@sha256:87a9bbd1fd2e28f09f16305a04946ddbe31eb7d9d03686d7e2fb3d8f19f3effb",
+    "source_role": "NUTRITION5K_FALLBACK_METADATA",
+    "version": "B0_PUBLIC_SNAPSHOT_ORIGINAL_VERSION_UNVERIFIED",
+    "source_url": "https://storage.googleapis.com/nutrition5k_dataset/nutrition5k_dataset/metadata/ingredients_metadata.csv"
+  },
+  {
+    "scope": "menumatch:menu",
+    "file": "zip_02_items_info.txt",
+    "sha256": "824c5b4a7182f4ee38eb4148264330fd1ca5a85fa9330b52f5a09e6aa3b80123",
+    "bytes": 2890,
+    "snapshot_id": "menumatch:menu@sha256:824c5b4a7182f4ee38eb4148264330fd1ca5a85fa9330b52f5a09e6aa3b80123",
+    "source_role": "NATIVE_ARCHIVE_SAMPLE",
+    "version": "B0_PUBLIC_SNAPSHOT_ORIGINAL_VERSION_UNVERIFIED",
+    "source_url": "https://neelj.com/projects/menumatch/data/menu_match_dataset.zip"
+  },
+  {
+    "scope": "xiachufang:mirror",
+    "file": "hf_rows.json",
+    "sha256": "0d27aa7b3406ab1b2e9540b2c9c0460f5a18f185973aef0b0eff0c99160a0fa6",
+    "bytes": 18541,
+    "snapshot_id": "xiachufang:mirror@sha256:0d27aa7b3406ab1b2e9540b2c9c0460f5a18f185973aef0b0eff0c99160a0fa6",
+    "source_role": "MIRROR_SAMPLE",
+    "version": "B0_PUBLIC_SNAPSHOT_ORIGINAL_VERSION_UNVERIFIED",
+    "source_url": "https://datasets-server.huggingface.co/rows"
+  },
+  {
+    "scope": "recipenlg:alternative_mirror",
+    "file": "hf_rows.json",
+    "sha256": "6ccfa51d6e00cb4ee6c70a2cec52258b71d6540441267c622048fcbb8f7725aa",
+    "bytes": 10769,
+    "snapshot_id": "recipenlg:alternative_mirror@sha256:6ccfa51d6e00cb4ee6c70a2cec52258b71d6540441267c622048fcbb8f7725aa",
+    "source_role": "MIRROR_SAMPLE",
+    "version": "B0_PUBLIC_SNAPSHOT_ORIGINAL_VERSION_UNVERIFIED",
+    "source_url": "https://datasets-server.huggingface.co/rows"
+  },
+  {
+    "scope": "off:single",
+    "file": "product_737628064502.json",
+    "sha256": "e96f5256c8fd57e15ebb81deacfcd317c464e598a3f6dd5b035c1f3514849015",
+    "bytes": 3038,
+    "snapshot_id": "off:single@sha256:e96f5256c8fd57e15ebb81deacfcd317c464e598a3f6dd5b035c1f3514849015",
+    "source_role": "NATIVE_RECORDS",
+    "version": "B0_PUBLIC_SNAPSHOT_ORIGINAL_VERSION_UNVERIFIED",
+    "source_url": "https://world.openfoodfacts.org/api/v2/product/737628064502.json"
+  },
+  {
+    "scope": "off:search",
+    "file": "search_breakfast_cereals.json",
+    "sha256": "9b5321fd0e7d4b9ab35fbed27dab586bbd7abda54cad399daee05c57cc3b24d0",
+    "bytes": 31194,
+    "snapshot_id": "off:search@sha256:9b5321fd0e7d4b9ab35fbed27dab586bbd7abda54cad399daee05c57cc3b24d0",
+    "source_role": "NATIVE_RECORDS",
+    "version": "B0_PUBLIC_SNAPSHOT_ORIGINAL_VERSION_UNVERIFIED",
+    "source_url": "https://world.openfoodfacts.org/api/v2/search"
+  },
+  {
+    "scope": "epic100:noun",
+    "file": "EPIC_100_noun_classes.csv",
+    "sha256": "40f0a81c5bd06b33050df9f0bd17cd3c2fccd759f9581e4e5e04fec7562be893",
+    "bytes": 49357,
+    "snapshot_id": "epic100:noun@sha256:40f0a81c5bd06b33050df9f0bd17cd3c2fccd759f9581e4e5e04fec7562be893",
+    "source_role": "NATIVE_METADATA",
+    "version": "B0_PUBLIC_SNAPSHOT_ORIGINAL_VERSION_UNVERIFIED",
+    "source_url": "https://raw.githubusercontent.com/epic-kitchens/epic-kitchens-100-annotations/master/EPIC_100_noun_classes.csv"
+  },
+  {
+    "scope": "foodx251:mirror_class_ids",
+    "file": "train_info_dirty.csv",
+    "sha256": "e478cc9154f3b973f4fcb5ebf9786481c79345d18f1548a1f7e9e8eb7e08ebaf",
+    "bytes": 2434957,
+    "snapshot_id": "foodx251:mirror_class_ids@sha256:e478cc9154f3b973f4fcb5ebf9786481c79345d18f1548a1f7e9e8eb7e08ebaf",
+    "source_role": "MIRROR_SAMPLE",
+    "version": "B0_PUBLIC_SNAPSHOT_ORIGINAL_VERSION_UNVERIFIED",
+    "source_url": "https://raw.githubusercontent.com/SandroErba/FoodX-251/main/dataset/train_info_dirty.csv"
+  },
+  {
+    "scope": "snapme:linkfile:2015-16",
+    "file": "master_SNAPME_linkfile.csv",
+    "sha256": "80fc24e41c4a989441c2cf6843eb5e0e105722a5d19bfe75e7370eb4a45934ec",
+    "bytes": 2710352,
+    "snapshot_id": "snapme:linkfile:2015-16@sha256:80fc24e41c4a989441c2cf6843eb5e0e105722a5d19bfe75e7370eb4a45934ec",
+    "source_role": "NATIVE_RECORDS",
+    "version": "B0_PUBLIC_SNAPSHOT_ORIGINAL_VERSION_UNVERIFIED",
+    "source_url": "https://ndownloader.figshare.com/files/44532971"
+  }
+]

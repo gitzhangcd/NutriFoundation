@@ -1,0 +1,33 @@
+{
+  "run_id": "B2-U3A-REVIEW-QUEUE-AUDIT-001",
+  "baseline": "B2-U3A-real_002",
+  "status": "PASS_QUEUE_SUPPLEMENT_ONLY",
+  "original_queue_sources": 40,
+  "original_unmatched_sources": 5,
+  "rule_red_sources_total": 4,
+  "original_queue_red_sources": 0,
+  "supplement_sources": 4,
+  "combined_queue_sources": 44,
+  "combined_red_sources": 4,
+  "review_completed": 0,
+  "candidate_precision_recall": "NOT_MEASURED",
+  "mapping_release_count": 0,
+  "candidate_query_method_counts": {
+    "RAW_NON_ZH_LEXICAL": 15861,
+    "AUTHORED_BILINGUAL_REVERSE_SURFACE": 229,
+    "RAW_ZH_LEXICAL": 35,
+    "AUTHORED_BILINGUAL_HEAD_WITH_QUALIFIER_RETAINED": 729,
+    "AUTHORED_BILINGUAL_EXACT_SURFACE": 225
+  },
+  "max_candidates_per_query": 15,
+  "scope_limit": "Rule-red coverage is not coverage of all semantic conflicts. No independent human/critic review. Files separated locally, not a proven blind access-control system.",
+  "input_hashes": {
+    "B2RunReport.json": "efd361dcf3b53bc5f5de99e0a51bf5df062aa29b7f301bb0b8df7e31ae7bfb3a",
+    "ContractValidationReport.json": "d7fa4f8fadc1870c9053a2b3a3a8a9b2686768a94af17c590460a7f7a85da668"
+  },
+  "upstream_files_unchanged": true,
+  "private_outputs": [
+    "ReviewSourceOnlyRedSupplement.json",
+    "ReviewCandidatesHiddenRedSupplement.json"
+  ]
+}

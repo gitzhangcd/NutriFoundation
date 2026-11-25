@@ -1,0 +1,102 @@
+{
+  "queries": 2066,
+  "queries_with_candidate": 1972,
+  "candidate_edges": 17079,
+  "source_coverage": {
+    "food101:class": {
+      "queries": 101,
+      "queries_with_candidate": 101,
+      "queries_with_exact_surface_candidate": 41,
+      "queries_without_candidate": 0
+    },
+    "uec2:mirror:class": {
+      "queries": 100,
+      "queries_with_candidate": 100,
+      "queries_with_exact_surface_candidate": 23,
+      "queries_without_candidate": 0
+    },
+    "uec3:mirror:class": {
+      "queries": 256,
+      "queries_with_candidate": 256,
+      "queries_with_exact_surface_candidate": 51,
+      "queries_without_candidate": 0
+    },
+    "isia500:class": {
+      "queries": 500,
+      "queries_with_candidate": 499,
+      "queries_with_exact_surface_candidate": 107,
+      "queries_without_candidate": 1
+    },
+    "food11:corrected_mirror": {
+      "queries": 11,
+      "queries_with_candidate": 11,
+      "queries_with_exact_surface_candidate": 2,
+      "queries_without_candidate": 0
+    },
+    "fruits360:current_directory": {
+      "queries": 279,
+      "queries_with_candidate": 279,
+      "queries_with_exact_surface_candidate": 0,
+      "queries_without_candidate": 0
+    },
+    "nutrition5k:ingredient": {
+      "queries": 555,
+      "queries_with_candidate": 555,
+      "queries_with_exact_surface_candidate": 246,
+      "queries_without_candidate": 0
+    },
+    "menumatch:menu": {
+      "queries": 41,
+      "queries_with_candidate": 41,
+      "queries_with_exact_surface_candidate": 7,
+      "queries_without_candidate": 0
+    },
+    "xiachufang:mirror": {
+      "queries": 12,
+      "queries_with_candidate": 12,
+      "queries_with_exact_surface_candidate": 1,
+      "queries_without_candidate": 0
+    },
+    "recipenlg:alternative_mirror": {
+      "queries": 12,
+      "queries_with_candidate": 12,
+      "queries_with_exact_surface_candidate": 0,
+      "queries_without_candidate": 0
+    },
+    "nutridata:ingredient": {
+      "queries": 135,
+      "queries_with_candidate": 90,
+      "queries_with_exact_surface_candidate": 64,
+      "queries_without_candidate": 45
+    },
+    "nutridata:dish": {
+      "queries": 64,
+      "queries_with_candidate": 16,
+      "queries_with_exact_surface_candidate": 4,
+      "queries_without_candidate": 48
+    }
+  },
+  "review_route_counts": {
+    "AMBER": 17075,
+    "RED": 4
+  },
+  "proposed_relation_counts": {
+    "AMBIGUOUS": 12294,
+    "RELATED": 4080,
+    "CLOSE": 611,
+    "BROADER_TARGET": 94
+  },
+  "review_queue_size": 40,
+  "review_completed": 0,
+  "excluded_source_vocab_counts": {
+    "food5k:corrected_mirror": 2,
+    "foodx251:mirror_class_ids": 251,
+    "off:single": 1,
+    "off:search": 10,
+    "epic100:noun": 300
+  },
+  "canonical_anchor_candidates": 2876,
+  "accepted_semantic_equivalence": 0,
+  "precision_recall_status": "NOT_ESTIMABLE_WITHOUT_INDEPENDENT_REFERENCE; retrieval coverage is not recall",
+  "query_selection": "all eligible small vocabularies and bounded ND source slice with curated surface seeds; not representative"
+}

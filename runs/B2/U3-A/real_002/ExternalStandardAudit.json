@@ -1,0 +1,382 @@
+{
+  "foodon": {
+    "version": [
+      "http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl",
+      "2026-02-02",
+      "2026-09-20"
+    ],
+    "named_classes": 40107,
+    "labeled_named_classes": 39707,
+    "asserted_descendants_including_root": 12375,
+    "active_foodon_food_product_classes": 12362,
+    "named_edges_in_selected_subgraph": 13858,
+    "scope": "asserted named subclass closure; excludes other/imported classes and deprecated entries; no reasoning"
+  },
+  "fdc_sr": {
+    "food_rows": 7793,
+    "ndb_crosswalk_rows": 7793,
+    "distinct_ndb_numbers": 7793,
+    "nutrient_dictionary_rows": 474,
+    "food_nutrient_rows": 644125,
+    "distinct_measured_or_reported_nutrient_ids": 149,
+    "orphan_counts": {},
+    "derivation_counts": [
+      {
+        "derivation_id": "",
+        "rows": 181743,
+        "source_code": null,
+        "description": "UNRESOLVED_OR_MISSING"
+      },
+      {
+        "derivation_id": "1",
+        "rows": 155838,
+        "source_code": "1",
+        "description": "Analytical"
+      },
+      {
+        "derivation_id": "10",
+        "rows": 11429,
+        "source_code": "4",
+        "description": "Based on another form of the food or similar food; Concentration adjustment; Fat; Retention factors not used"
+      },
+      {
+        "derivation_id": "11",
+        "rows": 8,
+        "source_code": "4",
+        "description": "Based on another form of the food or similar food; Concentration adjustment; Fat; Retention factors used"
+      },
+      {
+        "derivation_id": "12",
+        "rows": 3701,
+        "source_code": "4",
+        "description": "Based on another form of the food or similar food; Concentration adjustment; Non-fat solids; Retention factors not used"
+      },
+      {
+        "derivation_id": "13",
+        "rows": 40,
+        "source_code": "4",
+        "description": "Based on another form of the food or similar food; Concentration adjustment; Non-fat solids; Retentions factors used"
+      },
+      {
+        "derivation_id": "14",
+        "rows": 6301,
+        "source_code": "4",
+        "description": "Based on another form of the food or similar food; Concentration adjustment; Protein; Retention factors not used"
+      },
+      {
+        "derivation_id": "15",
+        "rows": 42,
+        "source_code": "4",
+        "description": "Based on another form of the food or similar food; Concentration adjustment; Protein; Retention factors used"
+      },
+      {
+        "derivation_id": "16",
+        "rows": 9346,
+        "source_code": "4",
+        "description": "Based on another form of the food or similar food; Concentration adjustment; Solids; Retention factors not used"
+      },
+      {
+        "derivation_id": "17",
+        "rows": 486,
+        "source_code": "4",
+        "description": "Based on another form of the food or similar food; Concentration adjustment; Solids; Retention factors used"
+      },
+      {
+        "derivation_id": "18",
+        "rows": 2732,
+        "source_code": "4",
+        "description": "Based on another form of the food or similar food; Concentration adjustment; Yield; Retention factors not used"
+      },
+      {
+        "derivation_id": "19",
+        "rows": 11,
+        "source_code": "4",
+        "description": "Based on another form of the food or similar food; Concentration adjustment; Yield; Retention factors used"
+      },
+      {
+        "derivation_id": "2",
+        "rows": 1075,
+        "source_code": "13",
+        "description": "Analytical data; from the literature or  government;  incomplete documentation"
+      },
+      {
+        "derivation_id": "20",
+        "rows": 11775,
+        "source_code": "4",
+        "description": "Based on another form of the food or similar food; Concentration adjustment; No adjustment; Retention factors not used"
+      },
+      {
+        "derivation_id": "21",
+        "rows": 32,
+        "source_code": "4",
+        "description": "Based on another form of the food or similar food; Concentration adjustment; No adjustment; Retention factors used"
+      },
+      {
+        "derivation_id": "22",
+        "rows": 896,
+        "source_code": "4",
+        "description": "Based on another form of the same food or similar food: constituents normalized to total; vitamin A"
+      },
+      {
+        "derivation_id": "23",
+        "rows": 1,
+        "source_code": "4",
+        "description": "Calculated from different food; From average values for food category; Ash; Retention factors not used"
+      },
+      {
+        "derivation_id": "27",
+        "rows": 3,
+        "source_code": "4",
+        "description": "Calculated from different food; From average values for food category; Fat; Retention factors not used"
+      },
+      {
+        "derivation_id": "3",
+        "rows": 24543,
+        "source_code": "1",
+        "description": "Analytical data; derived by linear regression"
+      },
+      {
+        "derivation_id": "33",
+        "rows": 55,
+        "source_code": "4",
+        "description": "Calculated from different food; From average values for food category; Solids; Retention factors not used"
+      },
+      {
+        "derivation_id": "35",
+        "rows": 604,
+        "source_code": "4",
+        "description": "Calculated from different food; From average values for food category; No adjustment; Retention factors not used"
+      },
+      {
+        "derivation_id": "37",
+        "rows": 209,
+        "source_code": "1",
+        "description": "Concentration adjustment using factor; derived from analytical data"
+      },
+      {
+        "derivation_id": "38",
+        "rows": 18,
+        "source_code": "4",
+        "description": "Concentration adjustment using factor; derived from imputed data"
+      },
+      {
+        "derivation_id": "39",
+        "rows": 14713,
+        "source_code": "4",
+        "description": "Estimated formulation based on ingredient list; Linear program used to estimate ingredients; Analytical data"
+      },
+      {
+        "derivation_id": "40",
+        "rows": 18888,
+        "source_code": "4",
+        "description": "Estimated formulation based on ingredient list; Linear program used to estimate ingredients; Claim on label/serving"
+      },
+      {
+        "derivation_id": "41",
+        "rows": 5703,
+        "source_code": "4",
+        "description": "Estimated formulation based on ingredient list; Linear program used to estimate ingredients; Manuf. Calc. data/100"
+      },
+      {
+        "derivation_id": "42",
+        "rows": 1929,
+        "source_code": "6",
+        "description": "Aggregated data involving combinations of data with only source codes 1 and 12 and/or 13"
+      },
+      {
+        "derivation_id": "43",
+        "rows": 817,
+        "source_code": "11",
+        "description": "Aggregated data involving combinations of data with different source codes when at least one code is not 1, 6, 12, or 13"
+      },
+      {
+        "derivation_id": "44",
+        "rows": 5080,
+        "source_code": "8",
+        "description": "Label claim (back calculated from label by NDL staff; Calculated from label claim/serving (g or %RDI)"
+      },
+      {
+        "derivation_id": "46",
+        "rows": 4513,
+        "source_code": "12",
+        "description": "Manufacturer supplied(industry or trade association), Analytical data, incomplete documentation"
+      },
+      {
+        "derivation_id": "47",
+        "rows": 10607,
+        "source_code": "9",
+        "description": "Manufacturer supplied; Calculated by manufacturer or unknown if analytical or calculated"
+      },
+      {
+        "derivation_id": "48",
+        "rows": 138,
+        "source_code": "5",
+        "description": "Manufacturer supplied; Value upon which manufacturer based label claim for fortified/enriched nutrient"
+      },
+      {
+        "derivation_id": "49",
+        "rows": 41132,
+        "source_code": "4",
+        "description": "Calculated"
+      },
+      {
+        "derivation_id": "5",
+        "rows": 158,
+        "source_code": "4",
+        "description": "Based on same food; Drained solids from solids and liquids or vice versa (canned fruits and vegetables)"
+      },
+      {
+        "derivation_id": "50",
+        "rows": 70,
+        "source_code": "4",
+        "description": "Nutrient that is based on other nutrient/s; calculated by difference or summed (with or without activity factors) Ex. Proximate component other than CHO by difference. Vitamin A calculated from components when one of the component values is not source code 1 or 7"
+      },
+      {
+        "derivation_id": "51",
+        "rows": 5548,
+        "source_code": "4",
+        "description": "Nutrient that is based on other nutrient/s; value used directly, ex. Nut.#204 from Nut.#298"
+      },
+      {
+        "derivation_id": "52",
+        "rows": 1960,
+        "source_code": "4",
+        "description": "Other procedure used from imputing"
+      },
+      {
+        "derivation_id": "53",
+        "rows": 6075,
+        "source_code": "4",
+        "description": "Based on physical composition; Derived from analytical data; Estimated physical composition"
+      },
+      {
+        "derivation_id": "54",
+        "rows": 23879,
+        "source_code": "1",
+        "description": "Based on physical composition; Derived from analytical data; Known physical composition"
+      },
+      {
+        "derivation_id": "55",
+        "rows": 310,
+        "source_code": "4",
+        "description": "Based on physical composition; Derived from imputed data; Estimated physical composition"
+      },
+      {
+        "derivation_id": "56",
+        "rows": 11190,
+        "source_code": "4",
+        "description": "Based on physical composition; Derived from imputed data; Known physical composition"
+      },
+      {
+        "derivation_id": "57",
+        "rows": 7465,
+        "source_code": "4",
+        "description": "Recipe; Approximate ingredient proportions (ex. combination of several recipes)"
+      },
+      {
+        "derivation_id": "58",
+        "rows": 2347,
+        "source_code": "4",
+        "description": "Recipe; Cookbook"
+      },
+      {
+        "derivation_id": "59",
+        "rows": 32,
+        "source_code": "4",
+        "description": "Recipe; Formulary of standard products (formulary or standards of identity)"
+      },
+      {
+        "derivation_id": "6",
+        "rows": 22,
+        "source_code": "4",
+        "description": "Based on another form of the food or similar food; Concentration adjustment; Ash; Retention factors not used"
+      },
+      {
+        "derivation_id": "60",
+        "rows": 593,
+        "source_code": "4",
+        "description": "Recipe; Known formulation (dissection data or proprietary formulation)"
+      },
+      {
+        "derivation_id": "61",
+        "rows": 2369,
+        "source_code": "1",
+        "description": "Recipe; Known formulation; No adjustments applied, combination of source codes 1, 12, and/or 6."
+      },
+      {
+        "derivation_id": "62",
+        "rows": 1152,
+        "source_code": "6",
+        "description": "Recipe;Known formulation;No adjustments applied, combination of source codes which includes codes other than 1,12,or 6"
+      },
+      {
+        "derivation_id": "63",
+        "rows": 1900,
+        "source_code": "4",
+        "description": "Recipe; Per package directions (ex. refrigerated dough, toast, cake mix)"
+      },
+      {
+        "derivation_id": "64",
+        "rows": 1696,
+        "source_code": "1",
+        "description": "Recipe; Per package directions; No adjustments applied, combination of source codes 1, 12, and/or 6."
+      },
+      {
+        "derivation_id": "65",
+        "rows": 4180,
+        "source_code": "6",
+        "description": "Recipe;Per package directions;No adjustments applied, combination of source codes which incl codes other than 1,12,or 6"
+      },
+      {
+        "derivation_id": "66",
+        "rows": 29,
+        "source_code": "4",
+        "description": "Product standard, such as enrichment level specified in CFR or AMS commodity standard"
+      },
+      {
+        "derivation_id": "67",
+        "rows": 997,
+        "source_code": "4",
+        "description": "Taken from another source--other tables of food composition"
+      },
+      {
+        "derivation_id": "68",
+        "rows": 57711,
+        "source_code": "7",
+        "description": "Assumed zero (Insignificant amount or not naturally occurring in a food, such as fiber in meat)"
+      },
+      {
+        "derivation_id": "8",
+        "rows": 34,
+        "source_code": "4",
+        "description": "Based on another form of the food or similar food; Concentration adjustment; Carbohydrate; Retention factors not used"
+      }
+    ],
+    "source_independence": "not determined from derivation codes"
+  },
+  "fndds": {
+    "fdc_rows": 8690,
+    "ars_rows": 8690,
+    "common_codes": 8690,
+    "common_code_name_raw_exact": 8626,
+    "common_code_name_trimmed_exact": 8690,
+    "whitespace_only_differences": 64,
+    "fdc_only_codes": 0,
+    "ars_only_codes": 0,
+    "version": "2015-16",
+    "same_release_carriers_not_independent": true
+  },
+  "snapme": {
+    "records": 4761,
+    "distinct_code_tokens": 1153,
+    "status_rows": {
+      "SAME_CYCLE_CODE_MATCH_CANDIDATE": 4640,
+      "HOLD_CODE_DOMAIN_UNRESOLVED": 121
+    },
+    "distinct_ars_orphans": 0,
+    "distinct_fdc_missing": 0,
+    "source_description_not_exact_ars_rows": 0,
+    "aggregation": "HOLD",
+    "source_cycle_basis": "U2-B ASA24-2020; FNDDS 2015-16"
+  }
+}

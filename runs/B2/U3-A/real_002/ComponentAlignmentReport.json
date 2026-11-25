@@ -1,0 +1,16 @@
+{
+  "native_fields_with_fdc_candidate": 90,
+  "native_fields_without_fdc_candidate": 8,
+  "fdc_dictionary_records": 474,
+  "nd_native_attribute_fields": 98,
+  "local_component_candidates": 98,
+  "candidate_edges": 112,
+  "accepted_equivalence": 0,
+  "review_route_counts": {
+    "AMBER": 80,
+    "RED": 32
+  },
+  "target_ids_present_in_sr_values": 98,
+  "scientific_calculation_qualified": 0,
+  "unresolved_definition_reason": "native component name and unit do not establish analyte definition or denominator equivalence"
+}

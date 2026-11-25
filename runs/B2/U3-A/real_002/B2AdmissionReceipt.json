@@ -1,0 +1,93 @@
+{
+  "receipt_id": "B2-U3A-REAL-002-ADMISSION-0.1",
+  "authority": {
+    "master": "docs/AI_Nutri_Unified_Data_Foundation_v2.1.md",
+    "master_git_blob": "9e3169814f8800e1b6eba6fd94a4097c57a00488",
+    "sections": [
+      15,
+      16,
+      17,
+      18,
+      20,
+      21,
+      35,
+      41
+    ],
+    "base_commit": "adc257715f70b35b8af5110a9c836d729af10f42",
+    "base_u2b": "runs/B1/U2-B/real_003/B1BAdmissionReceipt.json"
+  },
+  "run_id": "B2-U3A-real_002",
+  "execution_utc": "2026-11-25T15:43:04.740406+00:00",
+  "contract_version": "UDF-B2-VOCAB-DRAFT-0.1",
+  "status": "PASS_BOUNDED_U3A_VOCABULARY_AND_CANDIDATE_GENERATION / MAPPING_RELEASE_HOLD",
+  "purpose": "CURATION_DEV_ONLY",
+  "actual": {
+    "native_vocab_records": 65592,
+    "source_snapshots": 22,
+    "vocabulary_scopes": 21,
+    "native_anchors": 65592,
+    "foodon_food_product_classes": 12362,
+    "foodon_asserted_edges": 13858,
+    "fdc_sr_food_records": 7793,
+    "fdc_nutrient_dictionary_records": 474,
+    "fdc_food_nutrient_rows": 644125,
+    "fndds_same_cycle_codes": 8690,
+    "fndds_description_raw_exact": 8626,
+    "fndds_description_trimmed_exact": 8690,
+    "snapme_native_code_links": 4761,
+    "snapme_same_cycle_8_digit_match": 4640,
+    "snapme_short_code_hold": 121,
+    "source_family_declarations": 26,
+    "potential_families": 11,
+    "family_bindings": 51406,
+    "query_sources": 2066,
+    "query_sources_with_candidate": 1972,
+    "candidate_food_edges": 17079,
+    "canonical_candidate_anchors": 2876,
+    "component_fields": 572,
+    "local_component_field_candidates": 98,
+    "component_alignment_edges": 112,
+    "objects": 216827,
+    "typed_collections": 13,
+    "persisted_roundtrips": 216827,
+    "native_source_replays": 65592,
+    "rank_edges_replayed": 60,
+    "contract_checks": {
+      "positive": 10,
+      "negative": 24,
+      "passed": 34,
+      "total": 34
+    },
+    "review_queue": {
+      "base": 40,
+      "red_supplement": 4,
+      "total": 44,
+      "rule_red_sources_covered": 4,
+      "completed": 0
+    },
+    "accepted_cross_source_equivalence": 0,
+    "mapping_releases": 0,
+    "science_qualified_measurements": 0,
+    "research_releases": 0
+  },
+  "gates": {
+    "G0": "HOLD_RESEARCH_RIGHTS_AND_PURPOSE",
+    "G1": "PASS_SELECTED_SNAPSHOTS_AND_NATIVE_REPLAY",
+    "G2": "PASS_BOUNDED_VOCABULARY_AND_CONTRACT; GLOBAL_B1_FREEZE_HOLD",
+    "G3": "PARTIAL_CANDIDATE_STRUCTURE_AND_SAME_CYCLE_CODE_JOIN; NO_SEMANTIC_EQUIVALENCE",
+    "G4": "HOLD_INDEPENDENT_REFERENCE_AND_REVIEW",
+    "G5": "CURATION_DEV_ONLY; NO_RELEASE",
+    "G6_G7_G_PROBE": "NOT_ACTIVATED"
+  },
+  "limitations": [
+    "95.5% candidate coverage is not precision/recall; 12,294 AMBIGUOUS proposals; bilingual surface seeds and asymmetric blocking limit Chinese retrieval; no embedding or LLM reranking run",
+    "Review queue 44 not reviewed, file split only not proven access control; RED detector incomplete",
+    "FNDDS 2 carriers are same release; 64 raw descriptions differ by surrounding whitespace; no independent evidence inflation",
+    "Food2K and VIREO original labels still unavailable; remaining B0/B1 holds continue",
+    "No source measurement/recipe denominator resolution or independent scientific qualification; all original archive versions pending"
+  ],
+  "next": "B2 / U3-B | Bilingual Semantic Expansion, Independent Candidate Review & Alignment Qualification Pilot; prioritize Chinese ingredient/dish retrieval and source-only 44-case review; require independently adjudicated reference before any MappingRelease.",
+  "private_local": "runs/B2/U3-A/real_002/private/",
+  "supplement": "runs/B2/U3-A/review_queue_audit_001/ReviewQueueAudit.json",
+  "history": "real_001 stopped before persistence due to raw label equality check across FNDDS carriers; real_002 applied exact trim-only comparison with original strings retained; separate review queue audit added missing rule-RED sources."
+}

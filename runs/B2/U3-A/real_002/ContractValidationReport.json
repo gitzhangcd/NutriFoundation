@@ -1,0 +1,222 @@
+{
+  "run_id": "B2-U3A-VALIDATION",
+  "new_objects_validated": 216827,
+  "native_source_records_replayed": 65592,
+  "stratified_rank_edges_replayed": 60,
+  "fndds_crosswalks_rechecked": 8690,
+  "snapme_code_links_rechecked": 4761,
+  "review_queue_source_only_pairs_checked": 40,
+  "total": 34,
+  "positive": 10,
+  "negative": 24,
+  "passed": 34,
+  "failed": 0,
+  "tests": [
+    {
+      "test": "all persisted records, anchors, refs and candidates validate",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "fresh source-native vocabulary replay",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "source-aware ranked subset replay",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "real mapping remains unreviewed candidate",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "real component remains unreviewed candidate",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "native FNDDS links and short-code quarantine",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "synthetic lexical exact surface query",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "synthetic qualifiers retained",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "FoodOn asserted graph is acyclic in selected nodes",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "review queue source-only fields, candidate list separate",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "lexical match promoted to exact",
+      "expected": "UNREVIEWED_EQUIVALENCE",
+      "observed": "UNREVIEWED_EQUIVALENCE",
+      "pass": true
+    },
+    {
+      "test": "candidate directional relation promoted in secondary field",
+      "expected": "UNREVIEWED_EQUIVALENCE",
+      "observed": "UNREVIEWED_EQUIVALENCE",
+      "pass": true
+    },
+    {
+      "test": "direction swapped without contract",
+      "expected": "RELATION_DIRECTION",
+      "observed": "RELATION_DIRECTION",
+      "pass": true
+    },
+    {
+      "test": "score treated as probability",
+      "expected": "UNQUALIFIED_RELEASE_OR_SCORE",
+      "observed": "UNQUALIFIED_RELEASE_OR_SCORE",
+      "pass": true
+    },
+    {
+      "test": "invalid rank score",
+      "expected": "INVALID_RANK_SCORE",
+      "observed": "INVALID_RANK_SCORE",
+      "pass": true
+    },
+    {
+      "test": "same name promotes physical instance",
+      "expected": "INSTANCE_PROMOTION",
+      "observed": "INSTANCE_PROMOTION",
+      "pass": true
+    },
+    {
+      "test": "state conflict not routed RED",
+      "expected": "HARD_CONFLICT_NOT_HELD",
+      "observed": "HARD_CONFLICT_NOT_HELD",
+      "pass": true
+    },
+    {
+      "test": "candidate admitted training without review",
+      "expected": "UNQUALIFIED_RELEASE_OR_SCORE",
+      "observed": "UNQUALIFIED_RELEASE_OR_SCORE",
+      "pass": true
+    },
+    {
+      "test": "component equivalence without authority",
+      "expected": "COMPONENT_EQUIVALENCE_NOT_QUALIFIED",
+      "observed": "COMPONENT_EQUIVALENCE_NOT_QUALIFIED",
+      "pass": true
+    },
+    {
+      "test": "component unit conversion without basis",
+      "expected": "COMPONENT_CONVERSION_HOLD",
+      "observed": "COMPONENT_CONVERSION_HOLD",
+      "pass": true
+    },
+    {
+      "test": "component unit conflict not held",
+      "expected": "UNIT_CONFLICT_NOT_HELD",
+      "observed": "UNIT_CONFLICT_NOT_HELD",
+      "pass": true
+    },
+    {
+      "test": "same source family counted twice",
+      "expected": "DEPENDENT_SOURCE_FAMILY",
+      "observed": "DEPENDENT_SOURCE_FAMILY",
+      "pass": true
+    },
+    {
+      "test": "unknown source lineage counted independently",
+      "expected": "INDEPENDENCE_NOT_QUALIFIED",
+      "observed": "INDEPENDENCE_NOT_QUALIFIED",
+      "pass": true
+    },
+    {
+      "test": "short code padded into FNDDS foreign key",
+      "expected": "SHORT_CODE_JOIN",
+      "observed": "SHORT_CODE_JOIN",
+      "pass": true
+    },
+    {
+      "test": "cross-cycle FNDDS join",
+      "expected": "FNDDS_CYCLE_OR_GRAIN",
+      "observed": "FNDDS_CYCLE_OR_GRAIN",
+      "pass": true
+    },
+    {
+      "test": "same survey food code used as physical intake identity",
+      "expected": "FNDDS_CYCLE_OR_GRAIN",
+      "observed": "FNDDS_CYCLE_OR_GRAIN",
+      "pass": true
+    },
+    {
+      "test": "candidate native code releases intake aggregation",
+      "expected": "FNDDS_CYCLE_OR_GRAIN",
+      "observed": "FNDDS_CYCLE_OR_GRAIN",
+      "pass": true
+    },
+    {
+      "test": "hierarchy circular dependency",
+      "expected": "ONTOLOGY_CYCLE",
+      "observed": "ONTOLOGY_CYCLE",
+      "pass": true
+    },
+    {
+      "test": "unsealed candidate revision change",
+      "expected": "REVISION_MISMATCH",
+      "observed": "REVISION_MISMATCH",
+      "pass": true
+    },
+    {
+      "test": "resealed released candidate",
+      "expected": "RELEASE_BLOCKED",
+      "observed": "RELEASE_BLOCKED",
+      "pass": true
+    },
+    {
+      "test": "resealed source/target grain mismatch",
+      "expected": "MAPPING_NAMESPACE_GRAIN",
+      "observed": "MAPPING_NAMESPACE_GRAIN",
+      "pass": true
+    },
+    {
+      "test": "resealed candidate made real observation",
+      "expected": "REAL_CONSTRUCTION_INFLATION",
+      "observed": "REAL_CONSTRUCTION_INFLATION",
+      "pass": true
+    },
+    {
+      "test": "source anchor locator forged and resealed",
+      "expected": "VOCAB_ANCHOR_MISMATCH",
+      "observed": "VOCAB_ANCHOR_MISMATCH",
+      "pass": true
+    },
+    {
+      "test": "same-release carriers claimed independent",
+      "expected": "CARRIER_INDEPENDENCE_INFLATION",
+      "observed": "CARRIER_INDEPENDENCE_INFLATION",
+      "pass": true
+    }
+  ],
+  "scientific_mapping_precision_recall": "NOT_MEASURED",
+  "qualification": "DEVELOPMENT_ONLY"
+}

@@ -1,0 +1,74 @@
+{
+  "receipt_id": "B0-U1A-REAL-001",
+  "master_git_blob": "9e3169814f8800e1b6eba6fd94a4097c57a00488",
+  "run_time_utc": "2026-11-25T10:25:16.104344+00:00",
+  "status": "PARTIAL_PASS_B0_NUTRIDATA_NATIVE_PROFILE_ONLY",
+  "global_B0_pass": false,
+  "global_B1_schema_frozen": false,
+  "raw_source_unchanged": true,
+  "workbook_crc_pass": 25,
+  "workbooks_found": 25,
+  "actual_top_level_sources_profiled": 1,
+  "total_top_level_sources_reported": 23,
+  "gates": {
+    "B0-a": "PARTIAL: G023 located and hashed; G001-G022 not located in authorized workspace; upstream version unresolved",
+    "B0-b": "PASS_PROFILE: all 25 XLSX sheets, exact nonempty rows and JSON structural profiles; CSV decoder not exercised",
+    "B0-c": "PARTIAL: native tokens/units counted; denominator, note unit and token semantics unresolved",
+    "B0-d": "PASS_STATISTICAL_CORE_KEY_CHECK: item_id + code candidate; unresolved names and orphan lines quarantined; not qualified semantic reference",
+    "B0-e": "HOLD_NOT_OBSERVED: N5k360 unavailable in current workspace",
+    "B0-f": "PARTIAL: six local core examples retained; public core metadata not located"
+  },
+  "candidate_key_link": {
+    "candidate": "dish.detail_json.major[].ingrId -> ingredient.item_id; cross-check code against ingredient.detail_json.code",
+    "lines": 152531,
+    "matched_one": 152324,
+    "code_exact": 152324,
+    "unmatched": 207,
+    "unmatched_distinct_ingrIds": 9,
+    "exact_name": 84024,
+    "all_lines_linked_code_consistent_dishes": 21973,
+    "semantic_qualification": "PENDING",
+    "prohibited": "Use internal row id as FK; assign unknown note unit; treat names/weak links as measured truth"
+  },
+  "K5RouteDecision": {
+    "status": "HOLD_NOT_OBSERVED",
+    "reason": "No N5k360/Nutrition5k local path in authorized NutriOne source directory; absence here is not evidence of dataset corruption.",
+    "next": "Bind actual NDF-G013 path and inspect ID/scale/mass/grouping. If unrecoverable after bounded check, use original Nutrition5k necessary metadata/media, then CN-NutriGround pilot per UDF section 18."
+  },
+  "CoreSliceSelection": {
+    "assets": [
+      "NDF-G023-01",
+      "NDF-G023-02"
+    ],
+    "actual_local_development_examples": 6,
+    "selection": "first three source rows per core table, deterministic engineering examples only",
+    "candidate_permission": "B1 native-ingestion draft and round-trip fixtures only; canonical nutrient calculation/Gold/locked evaluation held pending basis, units, provenance and task qualification",
+    "GI": "conditional, not mandatory"
+  },
+  "blocking": [
+    "Bind locations or approved read-only metadata access for G001-G022",
+    "Establish source definitions and measurement denominators, note units, missing token semantics, preparation state and yield",
+    "Resolve/quarantine 207 missing recipe links and classify 68,300 exact-name mismatches",
+    "Version/authorization/source-family review",
+    "Independent probe and subsequent scientific validation not executed"
+  ],
+  "validation": {
+    "script_smoke_assertions": 8,
+    "full_profile_exit_code": 0,
+    "core_crosscheck_exit_code": 0,
+    "real_rows_profiled": 94667,
+    "qualified_research_assets": 0
+  },
+  "private_artifacts": [
+    "NativeFileManifest.json",
+    "NativeTableProfiles.json",
+    "CoreRawSamples.json",
+    "CoreLinkAudit.json"
+  ],
+  "public_artifacts": [
+    "summary_shareable.json",
+    "core_link_crosscheck.json",
+    "SourceRegistryDelta.json",
+    "B0AdmissionReceipt.json"
+  ]
+}

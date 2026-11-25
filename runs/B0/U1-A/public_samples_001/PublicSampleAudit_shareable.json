@@ -1,0 +1,1780 @@
+{
+  "run_id": "B0-public-samples-20261125-001",
+  "authority": "AI Nutri UDF v2.1",
+  "purpose": "CURATION_DEV_ONLY",
+  "utc": "2026-11-25T13:59:58.189192+00:00",
+  "source_count": 22,
+  "actual_target_sample_or_metadata_sources": 17,
+  "fallback_sources": 1,
+  "hold_sources": 4,
+  "files": 104,
+  "bytes": 58567784,
+  "file_integrity_issues": [],
+  "records": [
+    {
+      "asset_id": "NDF-G001",
+      "name": "Food-101",
+      "status": "OFFICIAL_NATIVE_SAMPLE",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 6,
+      "saved_bytes": 1587258,
+      "files": [
+        {
+          "asset_id": "NDF-G001",
+          "run": "20261125_run001",
+          "file": "dataset_infos.json",
+          "source_url_no_query": "https://huggingface.co/datasets/ethz/food101/resolve/ce7ff16231a85be196133cfd01d570e64a41dad0/dataset_infos.json",
+          "role": "NATIVE_METADATA",
+          "bytes": 5560,
+          "sha256": "2a18a40ccccb320138e46c75ac2c26c89b5a5d38d92198a66db846c48f65f132"
+        },
+        {
+          "asset_id": "NDF-G001",
+          "run": "20261125_run001",
+          "file": "train.txt",
+          "source_url_no_query": "https://s3.amazonaws.com/datasets.huggingface.co/food101/meta/train.txt",
+          "role": "NATIVE_METADATA",
+          "bytes": 1468812,
+          "sha256": "2920f7d55473974492b41a01241ccfd71df1b74d29d27b617337f840f58f77ab"
+        },
+        {
+          "asset_id": "NDF-G001",
+          "run": "20261125_run001",
+          "file": "hf_README.md",
+          "source_url_no_query": "https://huggingface.co/datasets/ethz/food101/resolve/83488de741c1bd1ce27aa6a2b33e19c7bdf92ca9/README.md",
+          "role": "SOURCE_DESCRIPTION",
+          "bytes": 16391,
+          "sha256": "ba23e41a76544c8ce47f565614129f9f9f3aa03752751354fe1142efd6e5e733"
+        },
+        {
+          "asset_id": "NDF-G001",
+          "run": "20261125_run001",
+          "file": "hf_rows.json",
+          "source_url_no_query": "https://datasets-server.huggingface.co/rows",
+          "role": "NATIVE_RECORDS",
+          "bytes": 9311,
+          "sha256": "621ed9fac3e4bc35ee0a8b335d38004679c5080ca57e74d7a8afe41190f200ac"
+        },
+        {
+          "asset_id": "NDF-G001",
+          "run": "20261125_run001",
+          "file": "sample_image_0.jpg",
+          "source_url_no_query": "https://datasets-server.huggingface.co/rows",
+          "role": "SAMPLE_MEDIA",
+          "bytes": 41139,
+          "sha256": "381b7f49cbda1865a51004443700cddfb9882aed6d1e16e849f061ad70b9f360"
+        },
+        {
+          "asset_id": "NDF-G001",
+          "run": "20261125_run001",
+          "file": "sample_image_1.jpg",
+          "source_url_no_query": "https://datasets-server.huggingface.co/rows",
+          "role": "SAMPLE_MEDIA",
+          "bytes": 46045,
+          "sha256": "83cbb3fa7a2e37513dc11e08428e450251018d4b4e46afc262249c0df8d58d75"
+        }
+      ],
+      "profile": {
+        "train_index_rows": 75750,
+        "train_index_unique": 75750,
+        "class_vocabulary": 101,
+        "published_train_sha256_match": true,
+        "viewer": {
+          "rows": 12,
+          "fields": [
+            "image",
+            "label"
+          ],
+          "viewer_total_reported": 75750,
+          "class_label_count": [
+            101
+          ]
+        }
+      },
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G002",
+      "name": "UEC-Food100",
+      "status": "MIRROR_ARCHIVE_PROVISIONAL",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 8,
+      "saved_bytes": 327588,
+      "files": [
+        {
+          "asset_id": "NDF-G002",
+          "run": "20261125_run001",
+          "file": "zip_00_multiple_food.txt",
+          "source_url_no_query": "https://huggingface.co/datasets/kng-research/uecfood256/resolve/5dd3860447882fa13e5150af0037fe672c9dbe4d/dataset100.zip",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 17620,
+          "sha256": "24966ae161ae62e0c2920596bbb1976afb13b4458f945f10a83751934ba2ced7"
+        },
+        {
+          "asset_id": "NDF-G002",
+          "run": "20261125_run001",
+          "file": "zip_01_category_ja_utf8.txt",
+          "source_url_no_query": "https://huggingface.co/datasets/kng-research/uecfood256/resolve/5dd3860447882fa13e5150af0037fe672c9dbe4d/dataset100.zip",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 1908,
+          "sha256": "007c0d0cfbd35a1e2fa26248e5e418c93268d34ba0e997df811eb7f396316871"
+        },
+        {
+          "asset_id": "NDF-G002",
+          "run": "20261125_run001",
+          "file": "zip_02_category.txt",
+          "source_url_no_query": "https://huggingface.co/datasets/kng-research/uecfood256/resolve/5dd3860447882fa13e5150af0037fe672c9dbe4d/dataset100.zip",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 1821,
+          "sha256": "d3c824571b3e6660285857748a17ac1abbfd98d1ac5f3176d993bd5005ee4915"
+        },
+        {
+          "asset_id": "NDF-G002",
+          "run": "20261125_run001",
+          "file": "zip_03_README.txt",
+          "source_url_no_query": "https://huggingface.co/datasets/kng-research/uecfood256/resolve/5dd3860447882fa13e5150af0037fe672c9dbe4d/dataset100.zip",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 2894,
+          "sha256": "2ecb7212052b46b39248f41e961ff43302e7867504f6ab7f4536fadb3beef398"
+        },
+        {
+          "asset_id": "NDF-G002",
+          "run": "20261125_run001",
+          "file": "zip_04_bb_info.txt",
+          "source_url_no_query": "https://huggingface.co/datasets/kng-research/uecfood256/resolve/5dd3860447882fa13e5150af0037fe672c9dbe4d/dataset100.zip",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 2280,
+          "sha256": "b8917db540e3293d4dcc2c1375857a2ebddcb67d032a814e7570871a05aa5988"
+        },
+        {
+          "asset_id": "NDF-G002",
+          "run": "20261125_run001",
+          "file": "zip_05_bb_info.txt",
+          "source_url_no_query": "https://huggingface.co/datasets/kng-research/uecfood256/resolve/5dd3860447882fa13e5150af0037fe672c9dbe4d/dataset100.zip",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 2074,
+          "sha256": "8a4ed6f86970497ad9568ba88168a00a2b43b3fc9351ca11643c7e3a37c14c52"
+        },
+        {
+          "asset_id": "NDF-G002",
+          "run": "20261125_run001",
+          "file": "zip_06_13522.jpg",
+          "source_url_no_query": "https://huggingface.co/datasets/kng-research/uecfood256/resolve/5dd3860447882fa13e5150af0037fe672c9dbe4d/dataset100.zip",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 231389,
+          "sha256": "def6336b3332d2699c56905ef89b82afce28e004e04f85f74044005d29c93813"
+        },
+        {
+          "asset_id": "NDF-G002",
+          "run": "20261125_run001",
+          "file": "zip_07_15647.jpg",
+          "source_url_no_query": "https://huggingface.co/datasets/kng-research/uecfood256/resolve/5dd3860447882fa13e5150af0037fe672c9dbe4d/dataset100.zip",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 67602,
+          "sha256": "d62329b28bd77cc95e9d73ab25ba08fcd45986c4679bbaa178185d6518ee2637"
+        }
+      ],
+      "profile": {
+        "category_rows_excluding_header": 100,
+        "distinct_category_ids": 100,
+        "bbox_file_profiles": [
+          {
+            "rows": 114,
+            "numeric_ordered_nonnegative": 114
+          },
+          {
+            "rows": 107,
+            "numeric_ordered_nonnegative": 107
+          }
+        ],
+        "sample_images": 2,
+        "identity": "mirror archive, local original version not compared"
+      },
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G003",
+      "name": "UEC-Food256",
+      "status": "MIRROR_ARCHIVE_PROVISIONAL",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 6,
+      "saved_bytes": 389010,
+      "files": [
+        {
+          "asset_id": "NDF-G003",
+          "run": "20261125_run001",
+          "file": "zip_00_README.txt",
+          "source_url_no_query": "https://huggingface.co/datasets/kng-research/uecfood256/resolve/5dd3860447882fa13e5150af0037fe672c9dbe4d/dataset256.zip",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 1597,
+          "sha256": "7e3c400d1e10416d12601d54d131c6fb7b061c74caf947619fa63f98900cd0b1"
+        },
+        {
+          "asset_id": "NDF-G003",
+          "run": "20261125_run001",
+          "file": "zip_01_category.txt",
+          "source_url_no_query": "https://huggingface.co/datasets/kng-research/uecfood256/resolve/5dd3860447882fa13e5150af0037fe672c9dbe4d/dataset256.zip",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 4698,
+          "sha256": "3df3a9e834bf87112bd752d4308367954db1b886de4992c6570474051517a2e8"
+        },
+        {
+          "asset_id": "NDF-G003",
+          "run": "20261125_run001",
+          "file": "zip_02_bb_info.txt",
+          "source_url_no_query": "https://huggingface.co/datasets/kng-research/uecfood256/resolve/5dd3860447882fa13e5150af0037fe672c9dbe4d/dataset256.zip",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 1917,
+          "sha256": "65476b0c624357069fd254bc8b897e34b2f9c0e3c5c936befd0accf7e2ad42c5"
+        },
+        {
+          "asset_id": "NDF-G003",
+          "run": "20261125_run001",
+          "file": "zip_03_bb_info.txt",
+          "source_url_no_query": "https://huggingface.co/datasets/kng-research/uecfood256/resolve/5dd3860447882fa13e5150af0037fe672c9dbe4d/dataset256.zip",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 12460,
+          "sha256": "08724e6d843c795d64312b9c711d3d76a1015fbf435ef4e47240f3f6fb614a87"
+        },
+        {
+          "asset_id": "NDF-G003",
+          "run": "20261125_run001",
+          "file": "zip_04_67916.jpg",
+          "source_url_no_query": "https://huggingface.co/datasets/kng-research/uecfood256/resolve/5dd3860447882fa13e5150af0037fe672c9dbe4d/dataset256.zip",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 178215,
+          "sha256": "1b07e4e869547a539da16769bfb6893104cb0a62a6a9dbefe82f78c509d91ce1"
+        },
+        {
+          "asset_id": "NDF-G003",
+          "run": "20261125_run001",
+          "file": "zip_05_4877.jpg",
+          "source_url_no_query": "https://huggingface.co/datasets/kng-research/uecfood256/resolve/5dd3860447882fa13e5150af0037fe672c9dbe4d/dataset256.zip",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 190123,
+          "sha256": "bdb3a737bd33581747d9aa08313caf4ce5e7118bba69b34d354d9705144fef7d"
+        }
+      ],
+      "profile": {
+        "category_rows_excluding_header": 256,
+        "distinct_category_ids": 256,
+        "bbox_file_profiles": [
+          {
+            "rows": 100,
+            "numeric_ordered_nonnegative": 100
+          },
+          {
+            "rows": 626,
+            "numeric_ordered_nonnegative": 626
+          }
+        ],
+        "sample_images": 2,
+        "identity": "mirror archive, local original version not compared"
+      },
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G004",
+      "name": "SNAPMe",
+      "status": "OFFICIAL_NATIVE_LINKFILE",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 6,
+      "saved_bytes": 2745285,
+      "files": [
+        {
+          "asset_id": "NDF-G004",
+          "run": "20261125_run001",
+          "file": "figshare_article.json",
+          "source_url_no_query": "https://api.figshare.com/v2/articles/24856449",
+          "role": "SOURCE_DESCRIPTION",
+          "bytes": 19159,
+          "sha256": "b377db27b7971fe00f6a3319546be9f716ea905b611fded23c8147c436ea86a5"
+        },
+        {
+          "asset_id": "NDF-G004",
+          "run": "20261125_run001",
+          "file": "tar_0_README.txt",
+          "source_url_no_query": "https://ndownloader.figshare.com/files/44532971",
+          "role": "NATIVE_ARCHIVE_SAMPLE",
+          "bytes": 3068,
+          "sha256": "b581131778470ad1cb22697839f040da116cf4128bcfed7f30116b2c476559a8"
+        },
+        {
+          "asset_id": "NDF-G004",
+          "run": "20261125_run001",
+          "file": "tar_1_._NAlist.txt",
+          "source_url_no_query": "https://ndownloader.figshare.com/files/44532971",
+          "role": "NATIVE_ARCHIVE_SAMPLE",
+          "bytes": 176,
+          "sha256": "1f161518ee7322d1c3057209598695e697406936f0c7179b72aaa62aecc20a43"
+        },
+        {
+          "asset_id": "NDF-G004",
+          "run": "20261125_run001",
+          "file": "tar_2_NAlist.txt",
+          "source_url_no_query": "https://ndownloader.figshare.com/files/44532971",
+          "role": "NATIVE_ARCHIVE_SAMPLE",
+          "bytes": 3286,
+          "sha256": "9fe806b390a6d978fbc11e1e9addcce620dc243e6ce6fb40c9d710ac97a4c040"
+        },
+        {
+          "asset_id": "NDF-G004",
+          "run": "20261125_run001",
+          "file": "tar_prefix_member_index.json",
+          "source_url_no_query": "https://ndownloader.figshare.com/files/44532971",
+          "role": "ARCHIVE_INDEX_ONLY",
+          "bytes": 9244,
+          "sha256": "80ede6fb36e0b8461308e7783efe0ed27bd2df692809b269a41dc9295f5bf74f"
+        },
+        {
+          "asset_id": "NDF-G004",
+          "run": "20261125_run002",
+          "file": "master_SNAPME_linkfile.csv",
+          "source_url_no_query": "https://ndownloader.figshare.com/files/44532971",
+          "role": "NATIVE_RECORDS",
+          "bytes": 2710352,
+          "sha256": "80fc24e41c4a989441c2cf6843eb5e0e105722a5d19bfe75e7370eb4a45934ec"
+        }
+      ],
+      "profile": {
+        "rows": 4761,
+        "fields": 121,
+        "width_hist": {
+          "121": 4761
+        },
+        "subjects": 95,
+        "subject_days": 275,
+        "distinct_nonblank_raw_filename_strings": 1678,
+        "food_codes": 1153,
+        "candidate_keys": {
+          "subject_id+snapme_study_day+FoodNum1": {
+            "unique": 3481,
+            "missing_key_rows": 0
+          },
+          "subject_id+snapme_study_day+Occ_No+FoodNum1": {
+            "unique": 3493,
+            "missing_key_rows": 0
+          }
+        },
+        "field_names": [
+          "subject_id",
+          "snapme_study_day",
+          "filename",
+          "packaged_food",
+          "FoodCode",
+          "Food_Description",
+          "FoodAmt",
+          "Location",
+          "FoodNum1",
+          "FoodType",
+          "Occ_No",
+          "Occ_Name",
+          "CodeNum",
+          "ModCode",
+          "HowMany",
+          "SubCode",
+          "PortionCode",
+          "FoodAmt.1",
+          "KCAL",
+          "PROT",
+          "TFAT",
+          "CARB",
+          "MOIS",
+          "ALC",
+          "CAFF",
+          "THEO",
+          "SUGR",
+          "FIBE",
+          "CALC",
+          "IRON",
+          "MAGN",
+          "PHOS",
+          "POTA",
+          "SODI",
+          "ZINC",
+          "COPP",
+          "SELE",
+          "VC",
+          "VB1",
+          "VB2",
+          "NIAC",
+          "VB6",
+          "FOLA",
+          "FA",
+          "FF",
+          "FDFE",
+          "VB12",
+          "VARA",
+          "RET",
+          "BCAR",
+          "ACAR",
+          "CRYP",
+          "LYCO",
+          "LZ",
+          "ATOC",
+          "VK",
+          "CHOLE",
+          "SFAT",
+          "S040",
+          "S060",
+          "S080",
+          "S100",
+          "S120",
+          "S140",
+          "S160",
+          "S180",
+          "MFAT",
+          "M161",
+          "M181",
+          "M201",
+          "M221",
+          "PFAT",
+          "P182",
+          "P183",
+          "P184",
+          "P204",
+          "P205",
+          "P225",
+          "P226",
+          "VITD",
+          "CHOLN",
+          "VITE_ADD",
+          "B12_ADD",
+          "F_TOTAL",
+          "F_CITMLB",
+          "F_OTHER",
+          "F_JUICE",
+          "V_TOTAL",
+          "V_DRKGR",
+          "V_REDOR_TOTAL",
+          "V_REDOR_TOMATO",
+          "V_REDOR_OTHER",
+          "V_STARCHY_TOTAL",
+          "V_STARCHY_POTATO",
+          "V_STARCHY_OTHER",
+          "V_OTHER",
+          "V_LEGUMES",
+          "G_TOTAL",
+          "G_WHOLE",
+          "G_REFINED",
+          "PF_TOTAL",
+          "PF_MPS_TOTAL",
+          "PF_MEAT",
+          "PF_CUREDMEAT",
+          "PF_ORGAN",
+          "PF_POULT",
+          "PF_SEAFD_HI",
+          "PF_SEAFD_LOW",
+          "PF_EGGS",
+          "PF_SOY",
+          "PF_NUTSDS",
+          "PF_LEGUMES",
+          "D_TOTAL",
+          "D_MILK",
+          "D_YOGURT",
+          "D_CHEESE",
+          "OILS",
+          "SOLID_FATS",
+          "ADD_SUGARS",
+          "A_DRINKS",
+          "FoodComp"
+        ],
+        "foodamt_numeric_rows": 4761,
+        "foodamt1_numeric_rows": 4761,
+        "foodamt_equal_raw_rows": 4761
+      },
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G005",
+      "name": "ISIA Food-500",
+      "status": "OFFICIAL_NATIVE_METADATA",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 10,
+      "saved_bytes": 13600425,
+      "files": [
+        {
+          "asset_id": "NDF-G005",
+          "run": "20261125_run001",
+          "file": "zip_00_check_ok_lzd_new20200401.txt",
+          "source_url_no_query": "http://123.57.42.89/Dataset_ict/ISIA_Food500_Dir/dataset/metadata_ISIAFood_500.zip",
+          "role": "NATIVE_ARCHIVE_SAMPLE",
+          "bytes": 1725,
+          "sha256": "950e9c2bd15f56eea2bc20e215ec6af8bd70fdd0ef8a6ffe2f5e0e694e10b4c3"
+        },
+        {
+          "asset_id": "NDF-G005",
+          "run": "20261125_run001",
+          "file": "zip_01_ISIAFood500_classLabel.txt",
+          "source_url_no_query": "http://123.57.42.89/Dataset_ict/ISIA_Food500_Dir/dataset/metadata_ISIAFood_500.zip",
+          "role": "NATIVE_ARCHIVE_SAMPLE",
+          "bytes": 8863,
+          "sha256": "7eb8a33b97327f88c7363340b9261360c165a28f1f753d76526bd75b88197a54"
+        },
+        {
+          "asset_id": "NDF-G005",
+          "run": "20261125_run001",
+          "file": "zip_02_ISIA_Food_500_classNum20200401.txt",
+          "source_url_no_query": "http://123.57.42.89/Dataset_ict/ISIA_Food500_Dir/dataset/metadata_ISIAFood_500.zip",
+          "role": "NATIVE_ARCHIVE_SAMPLE",
+          "bytes": 38091,
+          "sha256": "8620a1630440c4e544c0df463819b4a6cd63a1f154aec5bd87f89de1d43f91d8"
+        },
+        {
+          "asset_id": "NDF-G005",
+          "run": "20261125_run001",
+          "file": "zip_03_val_finetune.txt",
+          "source_url_no_query": "http://123.57.42.89/Dataset_ict/ISIA_Food500_Dir/dataset/metadata_ISIAFood_500.zip",
+          "role": "NATIVE_ARCHIVE_SAMPLE",
+          "bytes": 1551848,
+          "sha256": "42641e6d8d0f59d0399b89fe6cef4a7bd70c2da1f49c254b996e31e4029b9094"
+        },
+        {
+          "asset_id": "NDF-G005",
+          "run": "20261125_run001",
+          "file": "zip_04_test_public_prefix.txt",
+          "source_url_no_query": "http://123.57.42.89/Dataset_ict/ISIA_Food500_Dir/dataset/metadata_ISIAFood_500.zip",
+          "role": "NATIVE_ARCHIVE_SAMPLE",
+          "bytes": 1999996,
+          "sha256": "e03011d6e3862454976791d41240daf5cc1a521b9c69d57488e45c93d8a00684"
+        },
+        {
+          "asset_id": "NDF-G005",
+          "run": "20261125_run001",
+          "file": "zip_05_test_private_prefix.txt",
+          "source_url_no_query": "http://123.57.42.89/Dataset_ict/ISIA_Food500_Dir/dataset/metadata_ISIAFood_500.zip",
+          "role": "NATIVE_ARCHIVE_SAMPLE",
+          "bytes": 1999974,
+          "sha256": "f774ceca16277b2128d9bce389dd17aedd54928e4035733b10de52049705006a"
+        },
+        {
+          "asset_id": "NDF-G005",
+          "run": "20261125_run001",
+          "file": "zip_06_test_feature_prefix.txt",
+          "source_url_no_query": "http://123.57.42.89/Dataset_ict/ISIA_Food500_Dir/dataset/metadata_ISIAFood_500.zip",
+          "role": "NATIVE_ARCHIVE_SAMPLE",
+          "bytes": 1999975,
+          "sha256": "a41b779380e5adfff163d785dd3eb120dbcde6c80679dc4890b81ea0e5ec766d"
+        },
+        {
+          "asset_id": "NDF-G005",
+          "run": "20261125_run001",
+          "file": "zip_07_test_finetune_prefix.txt",
+          "source_url_no_query": "http://123.57.42.89/Dataset_ict/ISIA_Food500_Dir/dataset/metadata_ISIAFood_500.zip",
+          "role": "NATIVE_ARCHIVE_SAMPLE",
+          "bytes": 1999986,
+          "sha256": "0def5c47794e0145032dae103f435b9b93b413a570e5d566c42333be8a963552"
+        },
+        {
+          "asset_id": "NDF-G005",
+          "run": "20261125_run001",
+          "file": "zip_08_train_feature_prefix.txt",
+          "source_url_no_query": "http://123.57.42.89/Dataset_ict/ISIA_Food500_Dir/dataset/metadata_ISIAFood_500.zip",
+          "role": "NATIVE_ARCHIVE_SAMPLE",
+          "bytes": 1999989,
+          "sha256": "1a720fa7dda27a62945425f9ea0713352058f700072e219e8d0e8c8b10b6f4cf"
+        },
+        {
+          "asset_id": "NDF-G005",
+          "run": "20261125_run001",
+          "file": "zip_09_train_finetune_prefix.txt",
+          "source_url_no_query": "http://123.57.42.89/Dataset_ict/ISIA_Food500_Dir/dataset/metadata_ISIAFood_500.zip",
+          "role": "NATIVE_ARCHIVE_SAMPLE",
+          "bytes": 1999978,
+          "sha256": "3fc68750c9ba869443571f2a43561dc82f52c672c18dae9eaf010150e37997f4"
+        }
+      ],
+      "profile": {
+        "class_rows": 500,
+        "unique_last_field_ids": 500,
+        "val_finetune_rows": 40204,
+        "note": "native metadata; validation rows exposed for development; not an independent evaluation release"
+      },
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G006",
+      "name": "Food-11",
+      "status": "CORRECTED_MIRROR_ARCHIVE",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 7,
+      "saved_bytes": 201435,
+      "files": [
+        {
+          "asset_id": "NDF-G006",
+          "run": "20261125_run001",
+          "file": "hf_README.md",
+          "source_url_no_query": "https://huggingface.co/datasets/cv-talks/food-11/resolve/e6865a1fe30f827efe796144a523e6ae6aa0c3a3/README.md",
+          "role": "SOURCE_DESCRIPTION",
+          "bytes": 635,
+          "sha256": "c07c49456f3c15f8ef480fcca5299f360b703debe155b888361be2abffdbb949"
+        },
+        {
+          "asset_id": "NDF-G006",
+          "run": "20261125_run001",
+          "file": "hf_rows.json",
+          "source_url_no_query": "https://datasets-server.huggingface.co/rows",
+          "role": "MIRROR_SAMPLE",
+          "bytes": 8120,
+          "sha256": "12377a713579dc1ad57429881e676dff1d506f09ceab0f4012f2f6174233df8f"
+        },
+        {
+          "asset_id": "NDF-G006",
+          "run": "20261125_run001",
+          "file": "sample_image_0.jpg",
+          "source_url_no_query": "https://datasets-server.huggingface.co/rows",
+          "role": "SAMPLE_MEDIA",
+          "bytes": 59361,
+          "sha256": "cc88208ede7d1602cf8e8bc95c88ef8a4716b2bc91cfb42fb68ca44d3713886e"
+        },
+        {
+          "asset_id": "NDF-G006",
+          "run": "20261125_run001",
+          "file": "sample_image_1.jpg",
+          "source_url_no_query": "https://datasets-server.huggingface.co/rows",
+          "role": "SAMPLE_MEDIA",
+          "bytes": 29384,
+          "sha256": "60de66c80c554c720dcc2d60ec4bde180c51a5fe1912f17e10d2f26606a04427"
+        },
+        {
+          "asset_id": "NDF-G006",
+          "run": "20261125_run002",
+          "file": "archive_class_index.json",
+          "source_url_no_query": "https://www.kaggle.com/api/v1/datasets/download/trolukovich/food11-image-dataset",
+          "role": "NATIVE_METADATA",
+          "bytes": 939,
+          "sha256": "d5a6755d3f741dc3c7f941e507065d9cd5dd5f118376f2b1fd8db94b3ec544ad"
+        },
+        {
+          "asset_id": "NDF-G006",
+          "run": "20261125_run002",
+          "file": "image_0.jpg",
+          "source_url_no_query": "https://www.kaggle.com/api/v1/datasets/download/trolukovich/food11-image-dataset",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 67564,
+          "sha256": "324d5ca69eba0423d422c27ecc02236bb440575b4346d498920f1c59cbb8fb9e"
+        },
+        {
+          "asset_id": "NDF-G006",
+          "run": "20261125_run002",
+          "file": "image_1.jpg",
+          "source_url_no_query": "https://www.kaggle.com/api/v1/datasets/download/trolukovich/food11-image-dataset",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 35432,
+          "sha256": "661ab8663ac1840ed0d2df25218033ba57aa0ab1a3ee55367fd60253bc6dba09"
+        }
+      ],
+      "profile": {
+        "rejected_first_viewer": {
+          "rows": 12,
+          "fields": [
+            "image",
+            "label"
+          ],
+          "viewer_total_reported": 8250,
+          "class_label_count": [
+            11
+          ]
+        },
+        "corrected_archive_images": 16643,
+        "matches_published_image_count": true,
+        "group_hist": {
+          "evaluation/Bread": 368,
+          "evaluation/Dairy product": 148,
+          "evaluation/Dessert": 500,
+          "evaluation/Egg": 335,
+          "evaluation/Fried food": 287,
+          "evaluation/Meat": 432,
+          "evaluation/Noodles-Pasta": 147,
+          "evaluation/Rice": 96,
+          "evaluation/Seafood": 303,
+          "evaluation/Soup": 500,
+          "evaluation/Vegetable-Fruit": 231,
+          "training/Bread": 994,
+          "training/Dairy product": 429,
+          "training/Dessert": 1500,
+          "training/Egg": 986,
+          "training/Fried food": 848,
+          "training/Meat": 1325,
+          "training/Noodles-Pasta": 440,
+          "training/Rice": 280,
+          "training/Seafood": 855,
+          "training/Soup": 1500,
+          "training/Vegetable-Fruit": 709,
+          "validation/Bread": 362,
+          "validation/Dairy product": 144,
+          "validation/Dessert": 500,
+          "validation/Egg": 327,
+          "validation/Fried food": 326,
+          "validation/Meat": 449,
+          "validation/Noodles-Pasta": 147,
+          "validation/Rice": 96,
+          "validation/Seafood": 347,
+          "validation/Soup": 500,
+          "validation/Vegetable-Fruit": 232
+        },
+        "corrected_media_samples": 2
+      },
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G007",
+      "name": "iFood 2019 / FoodX-251",
+      "status": "MIRROR_ANNOTATION_PROVISIONAL",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 2,
+      "saved_bytes": 2438990,
+      "files": [
+        {
+          "asset_id": "NDF-G007",
+          "run": "20261125_run001",
+          "file": "train_info_dirty.csv",
+          "source_url_no_query": "https://raw.githubusercontent.com/SandroErba/FoodX-251/main/dataset/train_info_dirty.csv",
+          "role": "MIRROR_SAMPLE",
+          "bytes": 2434957,
+          "sha256": "e478cc9154f3b973f4fcb5ebf9786481c79345d18f1548a1f7e9e8eb7e08ebaf"
+        },
+        {
+          "asset_id": "NDF-G007",
+          "run": "20261125_run001",
+          "file": "README.md",
+          "source_url_no_query": "https://raw.githubusercontent.com/SandroErba/FoodX-251/main/README.md",
+          "role": "SOURCE_DESCRIPTION",
+          "bytes": 4033,
+          "sha256": "2e4002ca974e4ab271028f03fc060ad77617d314b05125d9b90da4ce3c99d5d7"
+        }
+      ],
+      "profile": {
+        "mirror_rows": 118475,
+        "width_hist": {
+          "2": 118475
+        },
+        "unique_first_column": 118475,
+        "numeric_second_column": 118475,
+        "provisional": true
+      },
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G008",
+      "name": "Food-101N",
+      "status": "HOLD_TERMS_OR_NATIVE_FILES",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 1,
+      "saved_bytes": 8716,
+      "files": [
+        {
+          "asset_id": "NDF-G008",
+          "run": "20261125_run001",
+          "file": "official.html",
+          "source_url_no_query": "https://kuanghuei.github.io/Food-101N/",
+          "role": "SOURCE_DESCRIPTION",
+          "bytes": 8716,
+          "sha256": "37894ca05655c52b239b05635287d4d57bc4489265d986d0b9163bb8f69a9b9e"
+        }
+      ],
+      "profile": {},
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G009",
+      "name": "Fruits-360",
+      "status": "OFFICIAL_NATIVE_SAMPLE",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 6,
+      "saved_bytes": 454066,
+      "files": [
+        {
+          "asset_id": "NDF-G009",
+          "run": "20261125_run001",
+          "file": "training_categories.json",
+          "source_url_no_query": "https://api.github.com/repos/fruits-360/fruits-360-100x100/contents/Training",
+          "role": "NATIVE_METADATA",
+          "bytes": 224187,
+          "sha256": "eb26900b3d7942b1393614ef583849d71c20053fbf1a8b7b917c9c160d65d3fe"
+        },
+        {
+          "asset_id": "NDF-G009",
+          "run": "20261125_run001",
+          "file": "first_category_files.json",
+          "source_url_no_query": "https://api.github.com/repos/fruits-360/fruits-360-100x100/contents/Training/Almonds%201",
+          "role": "NATIVE_METADATA",
+          "bytes": 224924,
+          "sha256": "420590cbe1625c3b2844b587fee3d483af86a19b5b5462507c683a9c5589d312"
+        },
+        {
+          "asset_id": "NDF-G009",
+          "run": "20261125_run001",
+          "file": "fruit_0.jpg",
+          "source_url_no_query": "https://raw.githubusercontent.com/fruits-360/fruits-360-100x100/main/Training/Almonds%201/r0_0_100.jpg",
+          "role": "SAMPLE_MEDIA",
+          "bytes": 1857,
+          "sha256": "027b4933da878841c729fc83f81456dfee2ab3d7a54bbeea7433c2e94ea5cae5"
+        },
+        {
+          "asset_id": "NDF-G009",
+          "run": "20261125_run001",
+          "file": "fruit_1.jpg",
+          "source_url_no_query": "https://raw.githubusercontent.com/fruits-360/fruits-360-100x100/main/Training/Almonds%201/r0_100_100.jpg",
+          "role": "SAMPLE_MEDIA",
+          "bytes": 1944,
+          "sha256": "0bb2a25f042288ac65ff87cc8051ec791a42ede3b062bb5aeaf566225be0bdf7"
+        },
+        {
+          "asset_id": "NDF-G009",
+          "run": "20261125_run001",
+          "file": "meta_dictionary.txt",
+          "source_url_no_query": "https://raw.githubusercontent.com/fruits-360/fruits-360-meta/main/dictionary.txt",
+          "role": "NATIVE_METADATA",
+          "bytes": 897,
+          "sha256": "5cc7414a06781dd29d3ba849f1ba2b9208d0e8a143d5b9f497d5db1325e32abd"
+        },
+        {
+          "asset_id": "NDF-G009",
+          "run": "20261125_run001",
+          "file": "meta_apple_golden_1.txt",
+          "source_url_no_query": "https://raw.githubusercontent.com/fruits-360/fruits-360-meta/main/Meta/Apple%20Golden%201/info.txt",
+          "role": "NATIVE_RECORDS",
+          "bytes": 257,
+          "sha256": "af72b1b5449f3d3447acc9cca3a2e71fb8ba0bee0e133f555409d6ac8c247d5f"
+        }
+      ],
+      "profile": {
+        "training_directories": 279,
+        "casefold_unique": 278,
+        "sample_images": 2,
+        "note": "image/metadata releases not proven paired"
+      },
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G010",
+      "name": "Food2K",
+      "status": "HOLD_NATIVE_FILES_NOT_FOUND",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 2,
+      "saved_bytes": 17285,
+      "files": [
+        {
+          "asset_id": "NDF-G010",
+          "run": "20261125_run001",
+          "file": "official.html",
+          "source_url_no_query": "http://123.57.42.89/FoodProject.html",
+          "role": "SOURCE_DESCRIPTION",
+          "bytes": 13154,
+          "sha256": "c90ec6ccead102326da242508f93bb6a51e3d8ab7481796ec687992807636f55"
+        },
+        {
+          "asset_id": "NDF-G010",
+          "run": "20261125_run001",
+          "file": "author_README.md",
+          "source_url_no_query": "https://raw.githubusercontent.com/Liuyuxinict/prenet/master/README.md",
+          "role": "SOURCE_DESCRIPTION",
+          "bytes": 4131,
+          "sha256": "abde57b7e9363991079da75e210c33d7f3ce54a19a7f2f5c52b3547de1fa25d5"
+        }
+      ],
+      "profile": {},
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G011",
+      "name": "VIREO Food-172",
+      "status": "AUTHOR_PROCESSED_TOY_SAMPLE",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 9,
+      "saved_bytes": 921659,
+      "files": [
+        {
+          "asset_id": "NDF-G011",
+          "run": "20261125_run001",
+          "file": "author_README.md",
+          "source_url_no_query": "https://raw.githubusercontent.com/PublicRelease/FoodRecog/master/README.md",
+          "role": "SOURCE_DESCRIPTION",
+          "bytes": 1012,
+          "sha256": "f5bad3f94f29b69f0f3e78257b118d33b05fb11d8351b4f9808b2a22b2ee0331"
+        },
+        {
+          "asset_id": "NDF-G011",
+          "run": "20261125_run001",
+          "file": "author_format.txt",
+          "source_url_no_query": "https://raw.githubusercontent.com/PublicRelease/FoodRecog/master/VireoFood-172/readMe",
+          "role": "SOURCE_DESCRIPTION",
+          "bytes": 3543,
+          "sha256": "b85e28d55a0c75f649b5b43c91b85fb59abf32893a2c993c9afd60372b7179b0"
+        },
+        {
+          "asset_id": "NDF-G011",
+          "run": "20261125_run001",
+          "file": "train_label.mat",
+          "source_url_no_query": "https://raw.githubusercontent.com/PublicRelease/FoodRecog/master/VireoFood-172/Data/train_label.mat",
+          "role": "AUTHOR_TOY_SAMPLE",
+          "bytes": 456,
+          "sha256": "c3db75194b254521767aaf4c21e6f5c1d637e7adf8b0dca32a61cb9f16cb5d88"
+        },
+        {
+          "asset_id": "NDF-G011",
+          "run": "20261125_run001",
+          "file": "test_label.mat",
+          "source_url_no_query": "https://raw.githubusercontent.com/PublicRelease/FoodRecog/master/VireoFood-172/Data/test_label.mat",
+          "role": "AUTHOR_TOY_SAMPLE",
+          "bytes": 456,
+          "sha256": "73632939d2b411d5335a76bafd11d942522482cc3d2fc1761742efa3b3e0160b"
+        },
+        {
+          "asset_id": "NDF-G011",
+          "run": "20261125_run001",
+          "file": "indexVector_train.mat",
+          "source_url_no_query": "https://raw.githubusercontent.com/PublicRelease/FoodRecog/master/VireoFood-172/Data/indexVector_train.mat",
+          "role": "AUTHOR_TOY_SAMPLE",
+          "bytes": 7888,
+          "sha256": "648824d3a2cdbc301d3791f7109ef9faba95847019ca6387a22bf46db83e9bef"
+        },
+        {
+          "asset_id": "NDF-G011",
+          "run": "20261125_run001",
+          "file": "indexVector_test.mat",
+          "source_url_no_query": "https://raw.githubusercontent.com/PublicRelease/FoodRecog/master/VireoFood-172/Data/indexVector_test.mat",
+          "role": "AUTHOR_TOY_SAMPLE",
+          "bytes": 7880,
+          "sha256": "4449d8c0b3430a148b67331eab1c5acd5bd7d6e5f99aabe158b3bbeb09e27d24"
+        },
+        {
+          "asset_id": "NDF-G011",
+          "run": "20261125_run001",
+          "file": "wordIndicator_train.mat",
+          "source_url_no_query": "https://raw.githubusercontent.com/PublicRelease/FoodRecog/master/VireoFood-172/Data/wordIndicator_train.mat",
+          "role": "AUTHOR_TOY_SAMPLE",
+          "bytes": 79312,
+          "sha256": "a43ae42510ac38e6a3a90199b3fab21f99a7bbe865e44f96dfab6de0d4f8be12"
+        },
+        {
+          "asset_id": "NDF-G011",
+          "run": "20261125_run001",
+          "file": "wordIndicator_test.mat",
+          "source_url_no_query": "https://raw.githubusercontent.com/PublicRelease/FoodRecog/master/VireoFood-172/Data/wordIndicator_test.mat",
+          "role": "AUTHOR_TOY_SAMPLE",
+          "bytes": 79312,
+          "sha256": "4f21b0bb7786363f6d258f54aa55f8ee1d266d97effa8cd9fbb037305a2dbf0f"
+        },
+        {
+          "asset_id": "NDF-G011",
+          "run": "20261125_run001",
+          "file": "wordVector.mat",
+          "source_url_no_query": "https://raw.githubusercontent.com/PublicRelease/FoodRecog/master/VireoFood-172/Data/wordVector.mat",
+          "role": "NATIVE_METADATA",
+          "bytes": 741800,
+          "sha256": "b1039a0baa3d266694a78eb51a66ed692840d6011868d405aa6ced43883b3b7a"
+        }
+      ],
+      "profile": {
+        "author_processed_files": [
+          {
+            "file": "train_label.mat",
+            "variables": [
+              {
+                "variable": "train_label",
+                "shape": [
+                  1,
+                  32
+                ]
+              }
+            ]
+          },
+          {
+            "file": "test_label.mat",
+            "variables": [
+              {
+                "variable": "test_label",
+                "shape": [
+                  1,
+                  32
+                ]
+              }
+            ]
+          },
+          {
+            "file": "indexVector_train.mat",
+            "variables": [
+              {
+                "variable": "indexVector_train",
+                "shape": [
+                  32,
+                  30
+                ]
+              }
+            ]
+          },
+          {
+            "file": "indexVector_test.mat",
+            "variables": [
+              {
+                "variable": "indexVector_test",
+                "shape": [
+                  32,
+                  30
+                ]
+              }
+            ]
+          },
+          {
+            "file": "wordIndicator_train.mat",
+            "variables": [
+              {
+                "variable": "wordIndicator_train",
+                "shape": [
+                  32,
+                  309
+                ]
+              }
+            ]
+          },
+          {
+            "file": "wordIndicator_test.mat",
+            "variables": [
+              {
+                "variable": "wordIndicator_test",
+                "shape": [
+                  32,
+                  309
+                ]
+              }
+            ]
+          },
+          {
+            "file": "wordVector.mat",
+            "variables": [
+              {
+                "variable": "wordVector",
+                "shape": [
+                  309,
+                  300
+                ]
+              }
+            ]
+          }
+        ],
+        "raw_353_ingredient_labels": "NOT_ACQUIRED"
+      },
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G012",
+      "name": "XiaChuFang",
+      "status": "MIRROR_SAMPLE_PROVISIONAL",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 2,
+      "saved_bytes": 18951,
+      "files": [
+        {
+          "asset_id": "NDF-G012",
+          "run": "20261125_run001",
+          "file": "hf_README.md",
+          "source_url_no_query": "https://huggingface.co/datasets/xzm1999/XiaChuFang_Recipe_Corpus/resolve/413b15ea4e70e0cc9effb4b7ad65aaee646a4964/README.md",
+          "role": "SOURCE_DESCRIPTION",
+          "bytes": 410,
+          "sha256": "3453c19a62404747ebda8db2b19888c6914029c8b3ba661b8ebc6f90f5d72c2e"
+        },
+        {
+          "asset_id": "NDF-G012",
+          "run": "20261125_run001",
+          "file": "hf_rows.json",
+          "source_url_no_query": "https://datasets-server.huggingface.co/rows",
+          "role": "MIRROR_SAMPLE",
+          "bytes": 18541,
+          "sha256": "0d27aa7b3406ab1b2e9540b2c9c0460f5a18f185973aef0b0eff0c99160a0fa6"
+        }
+      ],
+      "profile": {
+        "rows": 12,
+        "fields": [
+          "name",
+          "dish",
+          "description",
+          "recipeIngredient",
+          "recipeInstructions",
+          "author",
+          "keywords"
+        ],
+        "viewer_total_reported": 1550151,
+        "class_label_count": []
+      },
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G013",
+      "name": "Pre-NeRF 360 / N5k360",
+      "status": "FALLBACK_NUTRITION5K_NATIVE_N5K360_HOLD",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 12,
+      "saved_bytes": 3346127,
+      "files": [
+        {
+          "asset_id": "NDF-G013",
+          "run": "20261125_run001",
+          "file": "dish_metadata_cafe1.csv",
+          "source_url_no_query": "https://storage.googleapis.com/nutrition5k_dataset/nutrition5k_dataset/metadata/dish_metadata_cafe1.csv",
+          "role": "NUTRITION5K_FALLBACK_METADATA",
+          "bytes": 2206282,
+          "sha256": "881df31f27c2343d0ce219964527e0796f6ddadd60701ce6840fa801e8c2a960"
+        },
+        {
+          "asset_id": "NDF-G013",
+          "run": "20261125_run001",
+          "file": "dish_metadata_cafe2.csv",
+          "source_url_no_query": "https://storage.googleapis.com/nutrition5k_dataset/nutrition5k_dataset/metadata/dish_metadata_cafe2.csv",
+          "role": "NUTRITION5K_FALLBACK_METADATA",
+          "bytes": 101817,
+          "sha256": "ef9f800d7b9c2e7e9a9e7cda5cbb4cfe51c760a8c1af4c05786ccf051bf5d77d"
+        },
+        {
+          "asset_id": "NDF-G013",
+          "run": "20261125_run001",
+          "file": "ingredients_metadata.csv",
+          "source_url_no_query": "https://storage.googleapis.com/nutrition5k_dataset/nutrition5k_dataset/metadata/ingredients_metadata.csv",
+          "role": "NUTRITION5K_FALLBACK_METADATA",
+          "bytes": 21540,
+          "sha256": "87a9bbd1fd2e28f09f16305a04946ddbe31eb7d9d03686d7e2fb3d8f19f3effb"
+        },
+        {
+          "asset_id": "NDF-G013",
+          "run": "20261125_run001",
+          "file": "rgb_train_ids.txt",
+          "source_url_no_query": "https://storage.googleapis.com/nutrition5k_dataset/nutrition5k_dataset/dish_ids/splits/rgb_train_ids.txt",
+          "role": "NUTRITION5K_FALLBACK_METADATA",
+          "bytes": 64944,
+          "sha256": "efd34a682b5483b01e6bd0a7c1267efec28440a8194985f9d3817d8ebc8169bd"
+        },
+        {
+          "asset_id": "NDF-G013",
+          "run": "20261125_run001",
+          "file": "rgb_test_ids.txt",
+          "source_url_no_query": "https://storage.googleapis.com/nutrition5k_dataset/nutrition5k_dataset/dish_ids/splits/rgb_test_ids.txt",
+          "role": "NUTRITION5K_FALLBACK_METADATA",
+          "bytes": 11344,
+          "sha256": "560ff0eedb1a2027c21f5da3a4c38a53fa201c87d108e76b11cceaa1d956ac8e"
+        },
+        {
+          "asset_id": "NDF-G013",
+          "run": "20261125_run001",
+          "file": "depth_train_ids.txt",
+          "source_url_no_query": "https://storage.googleapis.com/nutrition5k_dataset/nutrition5k_dataset/dish_ids/splits/depth_train_ids.txt",
+          "role": "NUTRITION5K_FALLBACK_METADATA",
+          "bytes": 44128,
+          "sha256": "d9702b71ade32b012fcb272f1f58b1d19178acd4536eccc651857760eab4bc30"
+        },
+        {
+          "asset_id": "NDF-G013",
+          "run": "20261125_run001",
+          "file": "depth_test_ids.txt",
+          "source_url_no_query": "https://storage.googleapis.com/nutrition5k_dataset/nutrition5k_dataset/dish_ids/splits/depth_test_ids.txt",
+          "role": "NUTRITION5K_FALLBACK_METADATA",
+          "bytes": 8112,
+          "sha256": "6e43a5334a72bd06fa9c0d4b3bc86e2f57e5342b0b260d3fa003a76f7e39eca2"
+        },
+        {
+          "asset_id": "NDF-G013",
+          "run": "20261125_run001",
+          "file": "n5k360_author_README.md",
+          "source_url_no_query": "https://raw.githubusercontent.com/amughrabi/N5k360/main/README.md",
+          "role": "SOURCE_DESCRIPTION",
+          "bytes": 4617,
+          "sha256": "2a818a22c7f1aa3ac7e0b17971dc0be1dee717177b171d479fd5bd544695b3f2"
+        },
+        {
+          "asset_id": "NDF-G013",
+          "run": "20261125_run001",
+          "file": "nutrition5k_README.md",
+          "source_url_no_query": "https://raw.githubusercontent.com/google-research-datasets/Nutrition5k/main/README.md",
+          "role": "SOURCE_DESCRIPTION",
+          "bytes": 7400,
+          "sha256": "4c77ceab6dfcaf7b23019fae6c323f237f93ecd4213ebe44b36b8f8583c84ae0"
+        },
+        {
+          "asset_id": "NDF-G013",
+          "run": "20261125_run001",
+          "file": "fallback_dish_1558641037_rgb.png",
+          "source_url_no_query": "https://storage.googleapis.com/nutrition5k_dataset/nutrition5k_dataset/imagery/realsense_overhead/dish_1558641037/rgb.png",
+          "role": "NUTRITION5K_FALLBACK_MEDIA",
+          "bytes": 400759,
+          "sha256": "2fe3d4f8475fdd720584e515b9d526cdecb67d45d4c9b3ab7552b5287f14387b"
+        },
+        {
+          "asset_id": "NDF-G013",
+          "run": "20261125_run001",
+          "file": "fallback_dish_1558641037_depth_raw.png",
+          "source_url_no_query": "https://storage.googleapis.com/nutrition5k_dataset/nutrition5k_dataset/imagery/realsense_overhead/dish_1558641037/depth_raw.png",
+          "role": "NUTRITION5K_FALLBACK_MEDIA",
+          "bytes": 185261,
+          "sha256": "63dc7a0e04fed2420e123b900fd0e5e33221f56345c5d7589045d438d2fdf6d1"
+        },
+        {
+          "asset_id": "NDF-G013",
+          "run": "20261125_run001",
+          "file": "fallback_dish_1558641037_depth_color.png",
+          "source_url_no_query": "https://storage.googleapis.com/nutrition5k_dataset/nutrition5k_dataset/imagery/realsense_overhead/dish_1558641037/depth_color.png",
+          "role": "NUTRITION5K_FALLBACK_MEDIA",
+          "bytes": 289923,
+          "sha256": "c58b1d24236938fe450839f21b6f08bd7ea8cbf96d2b4f00e33a68632dade4ab"
+        }
+      ],
+      "profile": {
+        "fallback_source": "official Nutrition5k",
+        "native_N5k360_scene_data": "NOT_ACQUIRED",
+        "dish_rows": 5006,
+        "unique_dishes": 5006,
+        "shape_mismatch": 0,
+        "ingredient_metadata_rows": 555,
+        "ingredient_parent_ids": 555,
+        "ingredient_line_count": 28455,
+        "ingredient_id_match_after_explicit_zero_pad": 28455,
+        "ingredient_id_unmatched": 0,
+        "splits": {
+          "rgb": {
+            "train": 4059,
+            "test": 709,
+            "overlap": 0,
+            "unknown": 0
+          },
+          "depth": {
+            "train": 2758,
+            "test": 507,
+            "overlap": 0,
+            "unknown": 0
+          }
+        },
+        "sample_media": 3
+      },
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G014",
+      "name": "Food-5K",
+      "status": "CORRECTED_MIRROR_ARCHIVE",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 7,
+      "saved_bytes": 236102,
+      "files": [
+        {
+          "asset_id": "NDF-G014",
+          "run": "20261125_run001",
+          "file": "hf_README.md",
+          "source_url_no_query": "https://huggingface.co/datasets/marwanatef4444/food_5k/resolve/f81678004d5673b44de9b62f5234bd5a42a8e59d/README.md",
+          "role": "SOURCE_DESCRIPTION",
+          "bytes": 3132,
+          "sha256": "e8125298cd58d7d89581a39e7803754eda3f2a06ab7abbcc3d5f7be661d3c379"
+        },
+        {
+          "asset_id": "NDF-G014",
+          "run": "20261125_run001",
+          "file": "hf_rows.json",
+          "source_url_no_query": "https://datasets-server.huggingface.co/rows",
+          "role": "MIRROR_SAMPLE",
+          "bytes": 9430,
+          "sha256": "69ca97733bacf7d3343ea52e296ba1cafd48b988729cc4ae0f56a61333c7d6b9"
+        },
+        {
+          "asset_id": "NDF-G014",
+          "run": "20261125_run001",
+          "file": "sample_image_0.jpg",
+          "source_url_no_query": "https://datasets-server.huggingface.co/rows",
+          "role": "SAMPLE_MEDIA",
+          "bytes": 41139,
+          "sha256": "381b7f49cbda1865a51004443700cddfb9882aed6d1e16e849f061ad70b9f360"
+        },
+        {
+          "asset_id": "NDF-G014",
+          "run": "20261125_run001",
+          "file": "sample_image_1.jpg",
+          "source_url_no_query": "https://datasets-server.huggingface.co/rows",
+          "role": "SAMPLE_MEDIA",
+          "bytes": 46045,
+          "sha256": "83cbb3fa7a2e37513dc11e08428e450251018d4b4e46afc262249c0df8d58d75"
+        },
+        {
+          "asset_id": "NDF-G014",
+          "run": "20261125_run002",
+          "file": "archive_class_index.json",
+          "source_url_no_query": "https://www.kaggle.com/api/v1/datasets/download/trolukovich/food5k-image-dataset",
+          "role": "NATIVE_METADATA",
+          "bytes": 198,
+          "sha256": "3c572276de8e99b01c271a469129d0d145bd6b6b0411135693aa03351f54974a"
+        },
+        {
+          "asset_id": "NDF-G014",
+          "run": "20261125_run002",
+          "file": "image_0.jpg",
+          "source_url_no_query": "https://www.kaggle.com/api/v1/datasets/download/trolukovich/food5k-image-dataset",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 44899,
+          "sha256": "dfaf15c3826b812cbf01c13b03de84d327bdcd34825652985c0f8a82b7e0b5f8"
+        },
+        {
+          "asset_id": "NDF-G014",
+          "run": "20261125_run002",
+          "file": "image_1.jpg",
+          "source_url_no_query": "https://www.kaggle.com/api/v1/datasets/download/trolukovich/food5k-image-dataset",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 91259,
+          "sha256": "de640601317c61996d9748f94b9a2c8a20d4790289d374e3267e13213fb5c99c"
+        }
+      ],
+      "profile": {
+        "rejected_first_viewer": {
+          "rows": 12,
+          "fields": [
+            "image",
+            "label"
+          ],
+          "viewer_total_reported": 5000,
+          "class_label_count": [
+            101
+          ]
+        },
+        "corrected_archive_images": 5000,
+        "matches_published_image_count": true,
+        "group_hist": {
+          "evaluation/food": 500,
+          "evaluation/non_food": 500,
+          "training/food": 1500,
+          "training/non_food": 1500,
+          "validation/food": 500,
+          "validation/non_food": 500
+        },
+        "corrected_media_samples": 2
+      },
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G015",
+      "name": "FoodieQA",
+      "status": "HOLD_GATED",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 1,
+      "saved_bytes": 7402,
+      "files": [
+        {
+          "asset_id": "NDF-G015",
+          "run": "20261125_run001",
+          "file": "author_README.md",
+          "source_url_no_query": "https://raw.githubusercontent.com/lyan62/FoodieQA/main/README.md",
+          "role": "SOURCE_DESCRIPTION",
+          "bytes": 7402,
+          "sha256": "dbf42f79a71e86da74b4386bf74a1356f63ab44f3e3062c55e6c2f1ddc4a5b32"
+        }
+      ],
+      "profile": {},
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G016",
+      "name": "Open Food Facts",
+      "status": "OFFICIAL_CURRENT_API_SAMPLE",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 2,
+      "saved_bytes": 34232,
+      "files": [
+        {
+          "asset_id": "NDF-G016",
+          "run": "20261125_run001",
+          "file": "product_737628064502.json",
+          "source_url_no_query": "https://world.openfoodfacts.org/api/v2/product/737628064502.json",
+          "role": "NATIVE_RECORDS",
+          "bytes": 3038,
+          "sha256": "e96f5256c8fd57e15ebb81deacfcd317c464e598a3f6dd5b035c1f3514849015"
+        },
+        {
+          "asset_id": "NDF-G016",
+          "run": "20261125_run001",
+          "file": "search_breakfast_cereals.json",
+          "source_url_no_query": "https://world.openfoodfacts.org/api/v2/search",
+          "role": "NATIVE_RECORDS",
+          "bytes": 31194,
+          "sha256": "9b5321fd0e7d4b9ab35fbed27dab586bbd7abda54cad399daee05c57cc3b24d0"
+        }
+      ],
+      "profile": {
+        "records": 11,
+        "distinct_codes": 11,
+        "nutriments_object_count": 11,
+        "basis_strings": {
+          "100g": 11
+        }
+      },
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G017",
+      "name": "Menu-Match",
+      "status": "OFFICIAL_NATIVE_METADATA",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 3,
+      "saved_bytes": 34904,
+      "files": [
+        {
+          "asset_id": "NDF-G017",
+          "run": "20261125_run001",
+          "file": "zip_00_labels.txt",
+          "source_url_no_query": "https://neelj.com/projects/menumatch/data/menu_match_dataset.zip",
+          "role": "NATIVE_ARCHIVE_SAMPLE",
+          "bytes": 31780,
+          "sha256": "1469a9fc9497513cfbc22b67bcf800f22f5e8f71da76e5a38e76ccf31c9d1988"
+        },
+        {
+          "asset_id": "NDF-G017",
+          "run": "20261125_run001",
+          "file": "zip_01_readme.txt",
+          "source_url_no_query": "https://neelj.com/projects/menumatch/data/menu_match_dataset.zip",
+          "role": "NATIVE_ARCHIVE_SAMPLE",
+          "bytes": 234,
+          "sha256": "9a8d02f9f642197084e67d124d324fb9e62c1c17bc9cc27b8e1c43e982f0b046"
+        },
+        {
+          "asset_id": "NDF-G017",
+          "run": "20261125_run001",
+          "file": "zip_02_items_info.txt",
+          "source_url_no_query": "https://neelj.com/projects/menumatch/data/menu_match_dataset.zip",
+          "role": "NATIVE_ARCHIVE_SAMPLE",
+          "bytes": 2890,
+          "sha256": "824c5b4a7182f4ee38eb4148264330fd1ca5a85fa9330b52f5a09e6aa3b80123"
+        }
+      ],
+      "profile": {
+        "image_label_records": 646,
+        "unique_image_keys": 646,
+        "menu_rows": 41,
+        "label_occurrences": 1386,
+        "matched_label_occurrences": 1386,
+        "distinct_menu_labels": 41
+      },
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G018",
+      "name": "RecipeNLG",
+      "status": "ALTERNATIVE_MIRROR_PROVISIONAL",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 4,
+      "saved_bytes": 42501,
+      "files": [
+        {
+          "asset_id": "NDF-G018",
+          "run": "20261125_run001",
+          "file": "hf_README.md",
+          "source_url_no_query": "https://huggingface.co/datasets/Zappandy/recipe_nlg/resolve/2195b28c860447cbb3f61e21422654ae37216e41/README.md",
+          "role": "SOURCE_DESCRIPTION",
+          "bytes": 27,
+          "sha256": "113cc30c2dc2a4cd85db7f2a2a10bd3c353b19378cfc440c75ac7f1d2195299e"
+        },
+        {
+          "asset_id": "NDF-G018",
+          "run": "20261125_run001",
+          "file": "hf_rows.json",
+          "source_url_no_query": "https://datasets-server.huggingface.co/rows",
+          "role": "MIRROR_SAMPLE",
+          "bytes": 31214,
+          "sha256": "aecb58b874c220f98d8dcac0f63b91ceda1b8e881dbc4e70dc4d6a8727307c79"
+        },
+        {
+          "asset_id": "NDF-G018",
+          "run": "20261125_run002",
+          "file": "hf_README.md",
+          "source_url_no_query": "https://huggingface.co/datasets/Schmitz005/recipe_nlg_dataset_sample/resolve/d5f7da38054d832ced2c4e532ae6e821d3901aa9/README.md",
+          "role": "SOURCE_DESCRIPTION",
+          "bytes": 491,
+          "sha256": "d6fa0dd138b742129b20343e0645b5ed6f1da8c1fe29f0a3be99c74c8916e8f2"
+        },
+        {
+          "asset_id": "NDF-G018",
+          "run": "20261125_run002",
+          "file": "hf_rows.json",
+          "source_url_no_query": "https://datasets-server.huggingface.co/rows",
+          "role": "MIRROR_SAMPLE",
+          "bytes": 10769,
+          "sha256": "6ccfa51d6e00cb4ee6c70a2cec52258b71d6540441267c622048fcbb8f7725aa"
+        }
+      ],
+      "profile": {
+        "rejected_for_native_schema_first": {
+          "rows": 12,
+          "fields": [
+            "title",
+            "ingredients",
+            "directions",
+            "NER",
+            "input_ids",
+            "attention_mask",
+            "labels"
+          ],
+          "viewer_total_reported": 400000,
+          "class_label_count": []
+        },
+        "alternative": {
+          "rows": 12,
+          "fields": [
+            "Unnamed: 0",
+            "title",
+            "ingredients",
+            "directions",
+            "link",
+            "source",
+            "NER"
+          ],
+          "viewer_total_reported": 1000,
+          "class_label_count": []
+        },
+        "version_equivalence": "UNRESOLVED"
+      },
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G019",
+      "name": "eButton",
+      "status": "HOLD_NO_PUBLIC_NATIVE_RECORDS",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 1,
+      "saved_bytes": 1478200,
+      "files": [
+        {
+          "asset_id": "NDF-G019",
+          "run": "20261125_run001",
+          "file": "publication.html",
+          "source_url_no_query": "https://www.cambridge.org/core/journals/public-health-nutrition/article/automatic-food-detection-in-egocentric-images-using-artificial-intelligence-technology/CAE3262B945CC45E4B14C06C83A68F42",
+          "role": "SOURCE_DESCRIPTION",
+          "bytes": 1478200,
+          "sha256": "d7655397520db53d9d5367553a84ec9ffdf391c84c018ce5b59378297a3f7bd7"
+        }
+      ],
+      "profile": {},
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G020",
+      "name": "RecipeQA",
+      "status": "OFFICIAL_NATIVE_VALIDATION_EXPOSED",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 1,
+      "saved_bytes": 19501603,
+      "files": [
+        {
+          "asset_id": "NDF-G020",
+          "run": "20261125_run001",
+          "file": "official_val.json",
+          "source_url_no_query": "https://vision.cs.hacettepe.edu.tr/files/recipeqa/val.json",
+          "role": "NATIVE_RECORDS",
+          "bytes": 19501603,
+          "sha256": "cca6c2c7a3f5516251a8eb86e6c26548a56cebff871a8fba330b51bc788c4e04"
+        }
+      ],
+      "profile": {
+        "validation_questions": 3562,
+        "qid_unique": 3562,
+        "recipe_ids": 983,
+        "task_counts": {
+          "visual_coherence": 830,
+          "visual_cloze": 842,
+          "textual_cloze": 961,
+          "visual_ordering": 929
+        },
+        "field_names": [
+          "recipe_id",
+          "context_modality",
+          "split",
+          "context",
+          "choice_list",
+          "answer",
+          "qid",
+          "question_modality",
+          "question",
+          "task",
+          "question_text"
+        ],
+        "purpose": "CURATION_DEV; validation exposure"
+      },
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G021",
+      "name": "UNIMIB2016",
+      "status": "MIRROR_ANNOTATION_PROVISIONAL",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 4,
+      "saved_bytes": 2669693,
+      "files": [
+        {
+          "asset_id": "NDF-G021",
+          "run": "20261125_run001",
+          "file": "zip_00_annotation.json",
+          "source_url_no_query": "https://www.kaggle.com/api/v1/datasets/download/dangvanthuc0209/unimib2016",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 60725,
+          "sha256": "7bdae6cd1caf1fa3d7d18b85f486becda82388028490ec7b3f55ebead528fe4a"
+        },
+        {
+          "asset_id": "NDF-G021",
+          "run": "20261125_run001",
+          "file": "zip_01_annotation.json",
+          "source_url_no_query": "https://www.kaggle.com/api/v1/datasets/download/dangvanthuc0209/unimib2016",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 242181,
+          "sha256": "50d90c446e069da3ef88ade8aaef923a056ab3efa2c7027664ee738808163d33"
+        },
+        {
+          "asset_id": "NDF-G021",
+          "run": "20261125_run001",
+          "file": "zip_02_annotation.json",
+          "source_url_no_query": "https://www.kaggle.com/api/v1/datasets/download/dangvanthuc0209/unimib2016",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 943931,
+          "sha256": "441cedce8b4b8f02f4ce10799e3363c9bd4e28526392f85fbea9795cad621f1b"
+        },
+        {
+          "asset_id": "NDF-G021",
+          "run": "20261125_run001",
+          "file": "zip_03_annotationtest.json",
+          "source_url_no_query": "https://www.kaggle.com/api/v1/datasets/download/dangvanthuc0209/unimib2016",
+          "role": "MIRROR_NATIVE_MEMBERS",
+          "bytes": 1422856,
+          "sha256": "958edced263e186d38c66148d7fee5ebd2f28cf3b92795d36754187f85f80556"
+        }
+      ],
+      "profile": {
+        "mirror_shapes": [
+          {
+            "file": "zip_00_annotation.json",
+            "format": "image-keyed JSON mirror",
+            "image_keys": 48,
+            "list_item_count": 119
+          },
+          {
+            "file": "zip_01_annotation.json",
+            "format": "image-keyed JSON mirror",
+            "image_keys": 192,
+            "list_item_count": 451
+          },
+          {
+            "file": "zip_02_annotation.json",
+            "format": "image-keyed JSON mirror",
+            "image_keys": 722,
+            "list_item_count": 1798
+          },
+          {
+            "file": "zip_03_annotationtest.json",
+            "format": "COCO-like transformed",
+            "images": 48,
+            "annotations": 48,
+            "categories": 1,
+            "orphan_images": 0,
+            "orphan_categories": 0
+          }
+        ],
+        "original_mat_and_polygon_files": "NOT_QUALIFIED"
+      },
+      "attempt_count": 2,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    },
+    {
+      "asset_id": "NDF-G022",
+      "name": "EPIC-KITCHENS-100",
+      "status": "OFFICIAL_NATIVE_TRAIN_METADATA",
+      "purpose": "CURATION_DEV_ONLY",
+      "saved_files": 4,
+      "saved_bytes": 8506352,
+      "files": [
+        {
+          "asset_id": "NDF-G022",
+          "run": "20261125_run001",
+          "file": "EPIC_100_train.csv",
+          "source_url_no_query": "https://raw.githubusercontent.com/epic-kitchens/epic-kitchens-100-annotations/master/EPIC_100_train.csv",
+          "role": "NATIVE_RECORDS",
+          "bytes": 8415872,
+          "sha256": "a3a7ef2e397bd8af12bd0496b09d61b1f2c1f3f6e1726fa86af50a27f4855e87"
+        },
+        {
+          "asset_id": "NDF-G022",
+          "run": "20261125_run001",
+          "file": "EPIC_100_verb_classes.csv",
+          "source_url_no_query": "https://raw.githubusercontent.com/epic-kitchens/epic-kitchens-100-annotations/master/EPIC_100_verb_classes.csv",
+          "role": "NATIVE_METADATA",
+          "bytes": 13402,
+          "sha256": "aab8bf210d0234b6facb9b191ae402c03a5f8965d123586b4762d3468a85033e"
+        },
+        {
+          "asset_id": "NDF-G022",
+          "run": "20261125_run001",
+          "file": "EPIC_100_noun_classes.csv",
+          "source_url_no_query": "https://raw.githubusercontent.com/epic-kitchens/epic-kitchens-100-annotations/master/EPIC_100_noun_classes.csv",
+          "role": "NATIVE_METADATA",
+          "bytes": 49357,
+          "sha256": "40f0a81c5bd06b33050df9f0bd17cd3c2fccd759f9581e4e5e04fec7562be893"
+        },
+        {
+          "asset_id": "NDF-G022",
+          "run": "20261125_run001",
+          "file": "EPIC_100_video_info.csv",
+          "source_url_no_query": "https://raw.githubusercontent.com/epic-kitchens/epic-kitchens-100-annotations/master/EPIC_100_video_info.csv",
+          "role": "NATIVE_METADATA",
+          "bytes": 27721,
+          "sha256": "75fd040f6662cb407b4ca2eed4811ca94df280a1aba00b6bf8a5cd286deff382"
+        }
+      ],
+      "profile": {
+        "training_rows": 67217,
+        "unique_narration_id": 67217,
+        "participants": 32,
+        "verb_vocab": 97,
+        "noun_vocab": 300,
+        "video_metadata": 700,
+        "orphan_verb": 0,
+        "orphan_noun": 0,
+        "orphan_video": 0,
+        "start_stop_frame_invalid": 0
+      },
+      "attempt_count": 0,
+      "local_original_version_match": "UNRESOLVED",
+      "qualified_for_release": false
+    }
+  ],
+  "warning": "Retrieved data, metadata, and transformed mirrors are not equivalent to the user's original version, qualified research assets or independent evaluation. Raw sample files and private acquisition manifests remain local; no raw record values or signed URLs included."
+}

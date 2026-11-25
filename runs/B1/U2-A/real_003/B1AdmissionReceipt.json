@@ -1,0 +1,91 @@
+{
+  "receipt_id": "B1-U2A-REAL-003-ADMISSION-0.1",
+  "authority": {
+    "master": "docs/AI_Nutri_Unified_Data_Foundation_v2.1.md",
+    "master_git_blob": "9e3169814f8800e1b6eba6fd94a4097c57a00488",
+    "sections": [
+      11,
+      20,
+      34,
+      35,
+      37,
+      41
+    ],
+    "b0_receipts": [
+      "runs/B0/U1-A/NutriData_real_001/B0AdmissionReceipt.json",
+      "runs/B0/U1-A/public_samples_001/PublicSampleAdmissionReceipt.json"
+    ]
+  },
+  "contract_version": "UDF-B1-NATIVE-DRAFT-0.1",
+  "run_id": "B1-U2A-real_003",
+  "audit_time_utc": "2026-11-25T14:37:46.230478+00:00",
+  "status": "PASS_U2_A_BOUNDED_REAL_DRAFT / B1_GLOBAL_FREEZE_HOLD",
+  "purpose": "CURATION_DEV_ONLY",
+  "actual": {
+    "source_files_verified_before_after": 23,
+    "source_scopes": 14,
+    "original_public_target_scopes": 11,
+    "official_fallback_scopes": 1,
+    "nutridata_core_subassets": 2,
+    "native_records": 747,
+    "source_anchors": 747,
+    "typed_objects": 5699,
+    "typed_collections": 17,
+    "canonical_bound_fields": 10975,
+    "serialization_replayed_objects": 5699,
+    "same_clock_replay_objects": 5699,
+    "cross_clock_stable_object_ids": 5699,
+    "contract_checks": {
+      "positive": 7,
+      "negative": 39,
+      "total": 46,
+      "passed": 46
+    },
+    "schema_checks": {
+      "objects_validated": 5699,
+      "negative_rejected": 5,
+      "negative_total": 5
+    },
+    "scientific_side": {
+      "independent_collection_declarations": 11,
+      "instantiated_shared_types": 2,
+      "delegated_uninstantiated_types": 9,
+      "d0_interchange_validated": false
+    },
+    "release_assets": 0
+  },
+  "gate_decisions": {
+    "G0": "HOLD_RESEARCH_RELEASE_RIGHTS_AND_SCOPE",
+    "G1": "PASS_SELECTED_INPUT_FILES_AND_ANCHORS_ONLY",
+    "G2": "PASS_NATIVE_DRAFT_ROUNDTRIP_AND_IMPLEMENTED_GUARDS; semantic qualification open",
+    "G3": "PARTIAL_SELECTED_STRUCTURAL_LINKS; orphan, alias, grain, units, measurement semantics pending",
+    "G4": "HOLD_REFERENCE_QUALIFICATION",
+    "G5": "PASS_CURATION_STRUCTURAL_PROJECTION_ONLY; RELEASE_HOLD",
+    "G6": "NOT_ACTIVATED",
+    "G7": "NOT_ACTIVATED",
+    "G_PROBE": "NOT_ACTIVATED"
+  },
+  "remaining": {
+    "global_B0_pass": false,
+    "global_B1_frozen": false,
+    "unimplemented_public_targets": [
+      "NDF-G006",
+      "NDF-G007",
+      "NDF-G008",
+      "NDF-G009",
+      "NDF-G010",
+      "NDF-G011",
+      "NDF-G014",
+      "NDF-G015",
+      "NDF-G019",
+      "NDF-G021"
+    ],
+    "N5k360_native": "HOLD; Nutrition5k separate fallback only",
+    "scientific_bridge": "11 separate declarations; 9 delegated; no production interchange or migration",
+    "measurement": "native lexemes/units/suffixes preserved; no qualified conversion, no RecipePrior, no independent assay",
+    "canonical": "source-scoped draft; no cross-dataset exact entity or physical instance identity; full MeasurementDefinition/ComponentConcept/DependencyGroup and formal release not yet implemented",
+    "evaluation": "no independent probe, no locked evaluation, no human reference, no model training"
+  },
+  "private_local": "runs/B1/U2-A/real_003/private/",
+  "next": "B1 / U2-B | Measurement Semantics, Namespace Qualification & D0 Bridge Conformance; proceed with source-native field dictionary and B2 vocabulary work only where admitted. No user intervention requested now."
+}

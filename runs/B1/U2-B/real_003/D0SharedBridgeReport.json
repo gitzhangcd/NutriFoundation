@@ -1,0 +1,154 @@
+{
+  "bridge_version": "UDF-B1-D0-SHARED-BRIDGE-0.1",
+  "projection_objects": 770,
+  "source_artifact_count": 23,
+  "source_anchor_count": 747,
+  "reverse_exact": 770,
+  "sidecar_count": 770,
+  "scope": "SourceArtifact/SourceAnchor only; CURATION_DEV read-only, not SYSTEM_VIEW",
+  "production_interchange": false,
+  "delegated_scientific_kinds": 9,
+  "bridge_runtime_status": "PASS",
+  "pinned_commit": "09e854dced620645c49b72f5c4040610f162ef59",
+  "verified_snapshot_files": 12,
+  "historical_tests": [
+    {
+      "test": "FX-A1-001",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "expected_codes": [
+        "PROJECTION_LEAKAGE"
+      ],
+      "observed_codes": [
+        "PROJECTION_LEAKAGE"
+      ],
+      "pass": true
+    },
+    {
+      "test": "FX-A1-002",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "expected_codes": [
+        "TEMPORAL_DEPENDENCY_ERROR"
+      ],
+      "observed_codes": [
+        "TEMPORAL_DEPENDENCY_ERROR"
+      ],
+      "pass": true
+    },
+    {
+      "test": "FX-A1-003",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "expected_codes": [
+        "TEMPORAL_DEPENDENCY_ERROR"
+      ],
+      "observed_codes": [
+        "TEMPORAL_DEPENDENCY_ERROR"
+      ],
+      "pass": true
+    },
+    {
+      "test": "FX-A1-004",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "expected_codes": [
+        "PROJECTION_LEAKAGE"
+      ],
+      "observed_codes": [
+        "PROJECTION_LEAKAGE"
+      ],
+      "pass": true
+    },
+    {
+      "test": "FX-A1-005",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "expected_codes": [
+        "CONDITION_COLLAPSE",
+        "FABRICATED_OBSERVATION"
+      ],
+      "observed_codes": [
+        "CONDITION_COLLAPSE",
+        "FABRICATED_OBSERVATION"
+      ],
+      "pass": true
+    },
+    {
+      "test": "FX-A1-006",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "expected_codes": [
+        "EPISTEMIC_COLLAPSE",
+        "SOURCE_CLASS_INFLATION"
+      ],
+      "observed_codes": [
+        "EPISTEMIC_COLLAPSE",
+        "SOURCE_CLASS_INFLATION"
+      ],
+      "pass": true
+    },
+    {
+      "test": "FX-A1-007",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "expected_codes": [
+        "SUBJECT_JOIN_ERROR"
+      ],
+      "observed_codes": [
+        "SUBJECT_JOIN_ERROR"
+      ],
+      "pass": true
+    },
+    {
+      "test": "FX-A1-008",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "expected_codes": [
+        "REVISION_IMMUTABILITY_VIOLATION"
+      ],
+      "observed_codes": [
+        "REVISION_IMMUTABILITY_VIOLATION"
+      ],
+      "pass": true
+    },
+    {
+      "test": "PF-A1-001",
+      "expected": "PASS",
+      "observed": "PASS",
+      "expected_codes": [],
+      "observed_codes": [],
+      "pass": true
+    },
+    {
+      "test": "PF-A1-002",
+      "expected": "PASS",
+      "observed": "PASS",
+      "expected_codes": [],
+      "observed_codes": [],
+      "pass": true
+    },
+    {
+      "test": "historical_real_D1",
+      "expected": "PASS",
+      "observed": "PASS",
+      "observed_codes": [],
+      "pass": true,
+      "legacy_missing_instance_class": 3,
+      "legacy_object_count": 3,
+      "migration": "NOT_EXECUTED"
+    },
+    {
+      "test": "historical_real_D2",
+      "expected": "PASS",
+      "observed": "PASS",
+      "observed_codes": [],
+      "pass": true,
+      "legacy_missing_instance_class": 10,
+      "legacy_object_count": 10,
+      "migration": "NOT_EXECUTED"
+    }
+  ],
+  "historical_test_count": 12,
+  "historical_test_passed": 12
+}

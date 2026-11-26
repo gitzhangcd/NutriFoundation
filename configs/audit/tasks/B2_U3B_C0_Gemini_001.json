@@ -1,0 +1,205 @@
+{
+  "task_id": "B2-U3B-C0-GEMINI-001",
+  "title": "Independent Semantic Critic & Blind Development Review",
+  "protocol": "configs/audit/IndependentAuditProtocol_v0.1.md",
+  "protocol_version": "0.1",
+  "audit_type": "INDEPENDENT_SEMANTIC_REVIEW",
+  "reviewer": "Gemini",
+  "status": "READY_FOR_PI_DISPATCH",
+  "root": "/Users/zhangcd/Codes/NutriOne/",
+  "baseline": {
+    "commit": "58d206f16eaf3c3f1c2cc769715974306259a12a",
+    "pr": 59,
+    "upstream": "U3-A real_002 + review_queue_audit_001",
+    "scope": "original 44 development cases only; U3-B new 44 are excluded"
+  },
+  "timing": {
+    "reason": "U3-B generator is frozen; independent C0 results are required for C1 verification and explicitly authorized comparison",
+    "blocks": [
+      "C1 development disagreement comparison",
+      "scientific mapping qualification"
+    ],
+    "may_parallel": [
+      "unrelated permitted development work"
+    ]
+  },
+  "allowed_inputs": [
+    {
+      "path": "docs/AI_Nutri_Unified_Data_Foundation_v2.1.md",
+      "sha256": "3c0ef69f9ecff2178830c0b4d43253dae5c161d7308c86bc2b6be5e6a68b26ed",
+      "role": "normative sections 15–21"
+    },
+    {
+      "path": "configs/udf/u3b/U3B_ReviewQualificationProtocol_v0.1.json",
+      "sha256": "6762800302188e7160102aa98dc8317804d53a348d1f4fb1e73b4c83e6afd85a",
+      "role": "qualification boundary"
+    },
+    {
+      "path": "runs/B2/U3-A/real_002/private/ReviewSourceOnlyQueue.json",
+      "sha256": "c70eaa53b7582af9ed92aebdd83d74f9241b2cf345270c819a1e0dd1498a0b00",
+      "role": "source-only base",
+      "expected_rows": 40
+    },
+    {
+      "path": "runs/B2/U3-A/review_queue_audit_001/private/ReviewSourceOnlyRedSupplement.json",
+      "sha256": "29ad65e17212d0c80505ff5aa8232cb5b63ebbed8a319c08e031d15d4c720050",
+      "role": "source-only supplement",
+      "expected_rows": 4
+    },
+    {
+      "path": "runs/B2/U3-A/inputs/FoodOn.owl",
+      "sha256": "b897bf64c1b265c422db9ee01e1235c10c0b809e7f02326ef810a52068347edf",
+      "role": "FoodOn original ontology",
+      "version": "2026-09-20"
+    },
+    {
+      "path": "runs/B2/U3-A/inputs/FDC_SR_2018.zip",
+      "sha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+      "role": "FDC original SR Legacy",
+      "version": "2018-04"
+    },
+    {
+      "path": "runs/B2/U3-A/inputs/FNDDS_2015_16.zip",
+      "sha256": "9be942b9d181acb62f37ee2f4c259dae642b586b2e4fe29039cfa1847f4d5dd0",
+      "role": "FNDDS FDC carrier",
+      "version": "2015–16"
+    },
+    {
+      "path": "runs/B2/U3-A/inputs/FNDDS_ARS_foods_2015_16.xlsx",
+      "sha256": "a3289f72a032d9453e4f5dcb51e922ff476c07c71b79d32db378070f95af55d9",
+      "role": "FNDDS ARS same-cycle carrier",
+      "version": "2015–16"
+    }
+  ],
+  "external_sources": "Official public standard documentation only. No private raw names or records sent to unapproved third-party services. Record URL/version and evidence locator. Target IDs must exist in allowed local standard bytes.",
+  "forbidden_inputs": [
+    "all non-allowlisted files except this protocol and configuration",
+    "all hidden candidate/score/rank files including ReviewCandidatesHidden.json and ReviewCandidatesHiddenRedSupplement.json",
+    "AlignmentRecord.jsonl, CandidateQueryRoutes.jsonl, CanonicalFoodConceptCandidate.jsonl, CandidateAlignmentReport.json, BilingualSeedDictionary.json",
+    "U3-B generator results, candidate pools, source code or output reports",
+    "new U3-B 44-case review packet",
+    "other critic outputs, unblinding artifacts, Gold, indirect logs and recursive searches"
+  ],
+  "review_task": {
+    "total_cases": 44,
+    "unique_review_ids": 44,
+    "unique_source_refs": 44,
+    "batches": "suggested 4 batches of 11; no case dropped",
+    "tasks": [
+      "Source semantic reconstruction: base food, entity grain, food state, preparation, ingredients/composition, variety/species/edible part, region and unresolved dimensions; distinguish explicit source, semantic inference, external support and unresolved.",
+      "Bilingual expansion: Chinese/English preferred labels and aliases, broader concepts and required qualifiers; do not assert equivalent just from translation.",
+      "Independent target retrieval: up to 3 actually verified candidates per target standard; if no reliable candidate, retain unresolved. FNDDS carriers are the same cycle, not independent.",
+      "Directional judgment SOURCE_RELATION_TO_TARGET with reason, conditions, conflicts and evidence. Do not conflate food concept, recipe, product, measured instance or nutrient measurement.",
+      "Hard negative discovery: raw/cooked, fresh/frozen/dried, sweetened/unsweetened, salted/unsalted, peeled/unpeeled, processing, grain, regional variation, composition; retain relevant conflicting candidates.",
+      "Risk routing GREEN/AMBER/RED/HOLD as critic suggestion only; no formal acceptance."
+    ],
+    "relation_values": [
+      "EXACT",
+      "CLOSE",
+      "BROADER_TARGET",
+      "NARROWER_TARGET",
+      "RELATED",
+      "CONDITIONAL",
+      "AMBIGUOUS",
+      "UNRESOLVED"
+    ],
+    "evidence_status": [
+      "SOURCE_EXPLICIT",
+      "SEMANTIC_INFERENCE",
+      "EXTERNAL_SUPPORTED",
+      "UNRESOLVED"
+    ],
+    "evidence_required": "Target system/version/native ID, native label, definition if available, source file/member/row or RDF locator and any authoritative supporting evidence. Do not invent IDs or target definitions.",
+    "record_fields": {
+      "review_id": "exact queue value",
+      "source_ref": "exact queue value",
+      "source_scope": "exact queue value",
+      "source_native_label": "exact queue value",
+      "source_native_kind": "exact queue native_kind",
+      "semantic_reconstruction": [
+        "base_food",
+        "entity_grain",
+        "food_state",
+        "processing_method",
+        "composition_constraints",
+        "regional_constraints",
+        "unresolved_dimensions",
+        "field_evidence"
+      ],
+      "bilingual_expansion": [
+        "zh_preferred_label",
+        "en_preferred_label",
+        "zh_aliases",
+        "en_aliases",
+        "broader_concepts"
+      ],
+      "independent_candidates": [
+        "target_system",
+        "target_version",
+        "target_native_id",
+        "target_native_label",
+        "target_source_locator",
+        "target_definition",
+        "source_relation_to_target",
+        "relation_reason",
+        "required_conditions",
+        "semantic_conflicts",
+        "evidence_refs",
+        "review_route"
+      ],
+      "hard_negative_candidates": "array",
+      "overall_review_route": "GREEN/AMBER/RED/HOLD",
+      "unresolved_reasons": "array",
+      "recommended_expert_review": "boolean",
+      "review_status": "CRITIC_DRAFT",
+      "accepted_equivalence": false,
+      "mapping_release_authorized": false,
+      "purpose": "CURATION_DEV_ONLY"
+    },
+    "exposure": "Gemini previously audited U3-A implementation; declare possible historical exposure. Do not claim confirmatory strict blindness or scientific independence."
+  },
+  "output": {
+    "directory": "runs/B2/U3-B/CriticPilot_Gemini_001/",
+    "mode": "NEW_DIRECTORY_ONLY; if already exists report status without overwrite",
+    "required": [
+      {
+        "file": "ExecutionManifest.json",
+        "requirements": "task_id, model/version or UNAVAILABLE, actual execution UTC, exact input paths and SHA256, actual access log, methods and exposure/violations"
+      },
+      {
+        "file": "IndependentReviewRecords.jsonl",
+        "requirements": "44 unique source-bound ReviewRecords, retain unresolved; validate output fields against review_task.record_fields"
+      },
+      {
+        "file": "IndependentCandidateRegistry.json",
+        "requirements": "all actual candidates with verified native IDs, versions and locators"
+      },
+      {
+        "file": "HardNegativeRegistry.json",
+        "requirements": "document actual conflicts, conditions and rationale; do not invent"
+      },
+      {
+        "file": "CriticReviewReport.md",
+        "requirements": "Chinese Obsidian Markdown, counts and denominators, unresolved, risks, expert questions and limits; no independent accuracy/recall without independent reference"
+      },
+      {
+        "file": "CriticFreezeReceipt.json",
+        "requirements": "task_id, status, completion counts, SHA256 of other five files, input identities, model/version, unresolved/limitations, no unblinding and no release. Do not hash itself."
+      }
+    ]
+  },
+  "acceptance": {
+    "completed_cases": 44,
+    "unique_sources": 44,
+    "target_ids_verified": "ALL proposed targets",
+    "unresolved_retained": "ALL",
+    "direction": "SOURCE_RELATION_TO_TARGET",
+    "forbidden_access": 0,
+    "existing_files_modified": 0,
+    "accepted_equivalence": 0,
+    "formal_mapping_release": 0,
+    "research_release": 0
+  },
+  "stop": "Freeze only, stop, no unblinding or merge, no code change. On missing/mismatched inputs or failure record actual status HOLD and do not declare PASS.",
+  "controller_next": "PI confirms frozen completion and separately authorizes C1 comparison; controller verifies first."
+}

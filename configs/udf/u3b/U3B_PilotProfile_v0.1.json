@@ -1,0 +1,62 @@
+{
+  "version": "UDF-U3B-PILOT-0.1",
+  "authority": {
+    "commit": "622c8e472348ec037d82d5d05f5eacf9927f4e14",
+    "master_blob": "9e3169814f8800e1b6eba6fd94a4097c57a00488"
+  },
+  "baseline": {
+    "manifest": "runs/B1/U2-C/manifest_001.json",
+    "manifest_sha256": "861d4866dddeeae8b7dbb6db66a70cde0403530b72d88787d55e3a6af2ce4a2f",
+    "run": "runs/B1/U2-C/real_001",
+    "receipt": "runs/B1/U2-C/U2CAdmissionReceipt.json",
+    "receipt_sha256": "9bd5d1ebfaabb0cde1a0aa31113076f60a602cbbfe3ad5675c9a1624d00fc705",
+    "execution_sha256": "5ff04043fbf8e33a91baca5e15893c5396fbf94bb8eddac606fb500b8b3ab97c",
+    "partition_manifest_sha256": "305341af924c55d6945ac7bd8aeecf7043137756f5bd128761122ce0dc06bbb3",
+    "integration": "runs/B1/U2-C/validation_001/U2CIntegrationReport.json",
+    "integration_sha256": "b4cf3ecb1a5b9b294eeb72b13a923f6f4b127fc65f9d69b8e38ed98dc8f7aabb"
+  },
+  "old_routes": {
+    "path": "runs/B2/U3-A/real_002/private/CandidateQueryRoutes.jsonl",
+    "sha256": "4f27636a68a06b07b7edd07c945333b78a7ea97cf63d5b43028811a985dc1175"
+  },
+  "excluded_queues": [
+    {
+      "path": "runs/B2/U3-A/real_002/private/ReviewSourceOnlyQueue.json",
+      "sha256": "c70eaa53b7582af9ed92aebdd83d74f9241b2cf345270c819a1e0dd1498a0b00"
+    },
+    {
+      "path": "runs/B2/U3-A/review_queue_audit_001/private/ReviewSourceOnlyRedSupplement.json",
+      "sha256": "29ad65e17212d0c80505ff5aa8232cb5b63ebbed8a319c08e031d15d4c720050"
+    }
+  ],
+  "target_scopes": [
+    "foodon:2026-09-20:food_product",
+    "fdc:sr_legacy:2018-04",
+    "fndds:2015-16:fdc_carrier"
+  ],
+  "query_scopes": [
+    "nutridata:ingredient",
+    "nutridata:dish"
+  ],
+  "fresh_per_scope": 48,
+  "selection_salt": "U3B-development-20261126-v1",
+  "max_tokens": 64,
+  "batch_size": 128,
+  "threads": 4,
+  "pre_rank_top_k_per_form_per_scope": 20,
+  "output_top_k_per_scope": 3,
+  "context_ingredient_name_limit": 5,
+  "score_interpretation": "uncalibrated_cosine_retrieval_only; fixed top-k generates neighbors even if irrelevant",
+  "review_queue": {
+    "prior_new_red_sources": "ALL",
+    "high_score_amber_sources": 12,
+    "fresh_query_sources_per_scope": 7,
+    "red_priority": true
+  },
+  "model_dir": "runs/B2/U3-B/inputs/e5-small-xenova",
+  "model_revision": "761b726dd34fb83930e26aab4e9ac3899aa1fa78",
+  "critique_dir": "runs/B2/U3-B/CriticPilot_Gemini_001",
+  "purpose": "CURATION_DEV",
+  "release_authorized": false,
+  "model_manifest_sha256": "2b052d7fc06fdd4de5505b4e1cd7b11be9a6a6be109781ed12c07402f3949ca9"
+}

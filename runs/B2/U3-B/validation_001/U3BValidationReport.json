@@ -1,0 +1,207 @@
+{
+  "status": "PASS_BOUNDED_GENERATOR_CONFORMANCE / INDEPENDENT_REVIEW_HOLD",
+  "object_replays": 29366,
+  "native_query_context_replays": 284,
+  "candidate_edges_validated": 29081,
+  "all_scope_pool_rank_replays": 852,
+  "onnx_spot_pairs": 36,
+  "onnx_score_comparisons": 72,
+  "onnx_tolerance": 0.02,
+  "onnx_max_abs_score_difference": 0.013045191764831543,
+  "tests_total": 24,
+  "tests_passed": 24,
+  "tests": [
+    {
+      "name": "all persisted records and revision refs validated",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "all U2-C endpoint views admitted and pinned",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "real native context re-read for every query",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "pre-ranking label and context pools retained",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "all shortlist ranks exactly replayed",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "real local ONNX score replay within explicit numeric tolerance",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "new queue excludes original 44",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "new candidates remain HOLD, not equivalent",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "forged exact semantic equivalence",
+      "expected": "U3B_SCHEMA",
+      "actual": "U3B_SCHEMA:const:payload/source_relation_to_target",
+      "pass": true
+    },
+    {
+      "name": "candidate promoted into physical instance",
+      "expected": "U3B_SCHEMA",
+      "actual": "U3B_SCHEMA:const:payload/physical_instance_link",
+      "pass": true
+    },
+    {
+      "name": "training purpose inserted",
+      "expected": "U3B_SCHEMA",
+      "actual": "U3B_SCHEMA:const:payload/permitted_purposes",
+      "pass": true
+    },
+    {
+      "name": "false calibrated score",
+      "expected": "U3B_SCHEMA",
+      "actual": "U3B_SCHEMA:const:payload/score_interpretation",
+      "pass": true
+    },
+    {
+      "name": "missing source dependency despite valid hash",
+      "expected": "U3B_REQUIRED_DEPENDENCY",
+      "actual": "U3B_REQUIRED_DEPENDENCY",
+      "pass": true
+    },
+    {
+      "name": "wrong target source anchor",
+      "expected": "U3B_ANCHOR_MISMATCH",
+      "actual": "U3B_ANCHOR_MISMATCH",
+      "pass": true
+    },
+    {
+      "name": "wrong source grain",
+      "expected": "U3B_ENDPOINT_MISMATCH",
+      "actual": "U3B_ENDPOINT_MISMATCH",
+      "pass": true
+    },
+    {
+      "name": "rights dependency stripped",
+      "expected": "U3B_RIGHTS_DEPENDENCY",
+      "actual": "U3B_RIGHTS_DEPENDENCY",
+      "pass": true
+    },
+    {
+      "name": "extra unregistered payload field",
+      "expected": "U3B_SCHEMA",
+      "actual": "U3B_SCHEMA:additionalProperties:payload",
+      "pass": true
+    },
+    {
+      "name": "raw label changed despite seal",
+      "expected": "U3B_QUERY_SOURCE",
+      "actual": "U3B_QUERY_SOURCE",
+      "pass": true
+    },
+    {
+      "name": "actual rule conflict removed from pre-rank evidence",
+      "expected": "U3B_CONFLICT_OMITTED",
+      "actual": "U3B_CONFLICT_OMITTED",
+      "pass": true
+    },
+    {
+      "name": "actual rule conflict promoted to shortlist",
+      "expected": "U3B_CONFLICT_SHORTLISTED",
+      "actual": "U3B_CONFLICT_SHORTLISTED",
+      "pass": true
+    },
+    {
+      "name": "explicit Chinese hard negative raw/cooked",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "explicit Chinese fresh/frozen",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "avoid raw substring in 花生/生菜",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "name": "U2-C mapping release entry HOLD",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    }
+  ],
+  "paired_comparison": {
+    "nutridata:ingredient": {
+      "queries": 128,
+      "baseline_any_candidate": 85,
+      "new_any_shortlist": 128,
+      "old_external_candidate_edges": 765,
+      "old_edges_retrieved_in_new_pool": 117,
+      "old_edges_in_new_shortlist": 29,
+      "new_neighbor_for_previously_unmatched": 43
+    },
+    "nutridata:dish": {
+      "queries": 60,
+      "baseline_any_candidate": 14,
+      "new_any_shortlist": 60,
+      "old_external_candidate_edges": 126,
+      "old_edges_retrieved_in_new_pool": 15,
+      "old_edges_in_new_shortlist": 4,
+      "new_neighbor_for_previously_unmatched": 46
+    }
+  },
+  "context_ablation": {
+    "scope_pairs": 852,
+    "top1_changed": 729,
+    "label_top1_red": 11,
+    "context_top1_red": 29,
+    "fused_top1_red_before_screen": 21
+  },
+  "new_review_queue_sources": 44,
+  "old_review_queue_unchanged": true,
+  "critic_receipt_present_at_verification": false,
+  "independent_reviews_completed": 0,
+  "independent_reference_count": 0,
+  "mapping_releases": 0,
+  "precision_recall": "NOT_ESTIMABLE",
+  "qualification_gate": {
+    "structure": "PASS",
+    "local_model_retrieval": "PASS",
+    "pre_rank_conflict_retention": "PASS",
+    "independent_semantic_reference": "HOLD",
+    "scientific_mapping_release": "HOLD"
+  },
+  "limitations": [
+    "rank-only fixed top-k; no independent accuracy",
+    "spot re-encoding not full independent model rerun",
+    "risk detection is partial explicit lexical-state checking",
+    "no verified access-control isolation; packets separated",
+    "independent Critic freeze must be validated before unblinding"
+  ]
+}

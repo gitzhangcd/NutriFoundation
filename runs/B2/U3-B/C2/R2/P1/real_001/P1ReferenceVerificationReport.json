@@ -1,0 +1,76 @@
+{
+  "status": "PASS_DEVELOPMENT_REFERENCE_IDENTITY_WITH_CONTROLLER_LOCATOR_ADDENDUM / ORIGINAL_COMPOSITE_LOCATOR_CONFORMANCE_NOT_PASS",
+  "reviewer": "Gemini",
+  "model_identity": "Gemini 4 Neon (Medium) (exact internal build string UNAVAILABLE)",
+  "frozen_utc": "2026-11-26T18:15:17.310541+00:00",
+  "allowed_inputs_verified": 7,
+  "frozen_outputs_verified": 3,
+  "review_records_verified": 44,
+  "target_references_verified": 243,
+  "candidate_references": 112,
+  "hard_negative_references": 131,
+  "original_strict_cases_passed": 1,
+  "original_strict_cases_failed": 43,
+  "original_composite_locator_deviations": 83,
+  "controller_same_cycle_addenda": 83,
+  "raw_standard_counts": {
+    "FoodOn_named_labeled_classes": 39707,
+    "FDC_food_records": 7793,
+    "FNDDS_food_codes": 8690,
+    "FNDDS_ARS_same_cycle_records": 8690,
+    "FoodOn_version": [
+      "http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl",
+      "2026-02-02",
+      "2026-09-20"
+    ]
+  },
+  "critic_reported_counts_recomputed": {
+    "allowed_inputs_verified": 7,
+    "total_accessed_files": 9,
+    "completed_cases": 44,
+    "unique_review_ids": 44,
+    "total_candidates": 112,
+    "candidates_by_system": {
+      "FoodOn": 41,
+      "FNDDS": 41,
+      "FDC_SR_Legacy": 30
+    },
+    "candidates_by_relation": {
+      "BROADER_TARGET": 18,
+      "CONDITIONAL": 56,
+      "RELATED": 17,
+      "NARROWER_TARGET": 5,
+      "EXACT": 7,
+      "CLOSE": 8,
+      "UNRESOLVED": 1
+    },
+    "total_hard_negatives": 131,
+    "hard_negatives_by_system": {
+      "FoodOn": 46,
+      "FDC_SR_Legacy": 43,
+      "FNDDS": 42
+    },
+    "hard_negatives_by_conflict_type": {
+      "EXPLICIT_CONFLICT": 47,
+      "TARGET_SPECIFIC_CONDITION": 20,
+      "GRAIN_OR_ROLE_DIFFERENCE": 22,
+      "COMPOSITION_OR_SPECIES_DIFFERENCE": 42
+    },
+    "case_dispositions": {
+      "CONDITIONAL_OR_AMBIGUOUS": 36,
+      "CANDIDATE_CONCEPT_ONLY": 7,
+      "NO_SUPPORTED_TARGET_IN_REVIEWED_MATERIAL": 1
+    },
+    "local_concept_extension": {
+      "NOT_PROPOSED": 25,
+      "CANDIDATE_FOR_LOCAL_CONCEPT_REVIEW": 19
+    },
+    "total_reviewer_minutes": 66.0
+  },
+  "reported_review_elapsed_seconds": 538.159492,
+  "reviewer_minutes_interpretation": "self-reported by model; not observed human labor or independent measured cost",
+  "historical_exposure": true,
+  "access_independently_proven": false,
+  "original_semantic_decisions_unchanged": true,
+  "scientific_reference_qualified": false
+}

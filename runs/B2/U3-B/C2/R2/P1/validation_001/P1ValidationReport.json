@@ -1,0 +1,114 @@
+{
+  "status": "PASS_P1_READ_ONLY_REPLAY_AND_LOCATOR_REGRESSIONS / SCIENTIFIC_QUALIFICATION_HOLD",
+  "tests_total": 23,
+  "tests_passed": 23,
+  "tests": [
+    {
+      "test": "all 7 allowed inputs and 3 critic outputs byte matched",
+      "pass": true
+    },
+    {
+      "test": "44 actual unique case records and 243 raw target references",
+      "pass": true
+    },
+    {
+      "test": "original strict locator deviation retained",
+      "pass": true
+    },
+    {
+      "test": "83 controller addenda never attribute ARS citation to reviewer",
+      "pass": true
+    },
+    {
+      "test": "FNDDS same-cycle raw counts",
+      "pass": true
+    },
+    {
+      "test": "111 supported source-target proposals not equal to gold",
+      "pass": true
+    },
+    {
+      "test": "19 current and 25 old-only not merged",
+      "pass": true
+    },
+    {
+      "test": "current 46 references exhaustive 4+39+3 partition",
+      "pass": true
+    },
+    {
+      "test": "four retrieved references were held by R1, all R2 question-only",
+      "pass": true
+    },
+    {
+      "test": "old-only 223 targets partition 28+27+168",
+      "pass": true
+    },
+    {
+      "test": "all primary arms use fixed 18 in-universe query references",
+      "pass": true
+    },
+    {
+      "test": "extension no positive reference denominator stays null",
+      "pass": true
+    },
+    {
+      "test": "top-k results monotone within arms and same denominator",
+      "pass": true
+    },
+    {
+      "test": "unreviewed candidate edges excluded from precision",
+      "pass": true
+    },
+    {
+      "test": "reserved32 not compared",
+      "pass": true
+    },
+    {
+      "test": "wrong CSV row not repairable",
+      "pass": true
+    },
+    {
+      "test": "wrong cycle not repairable",
+      "pass": true
+    },
+    {
+      "test": "wrong native label not repairable",
+      "pass": true
+    },
+    {
+      "test": "fabricated ID not repairable",
+      "pass": true
+    },
+    {
+      "test": "missing actual CSV evidence not repairable",
+      "pass": true
+    },
+    {
+      "test": "evidence index out of range rejected",
+      "pass": true
+    },
+    {
+      "test": "forged scientific qualification rejected",
+      "pass": true
+    },
+    {
+      "test": "127 pinned inputs and 8 frozen outputs unchanged",
+      "pass": true
+    }
+  ],
+  "review_records_replayed": 44,
+  "native_target_references_replayed": 243,
+  "carrier_addenda_replayed": 83,
+  "case_comparisons_replayed": 44,
+  "gap_attributions_replayed": 111,
+  "input_fences_unchanged": 127,
+  "frozen_output_files_rechecked": 8,
+  "reserved32_outcomes_read": 0,
+  "expert_gold_count": 0,
+  "mapping_release_count": 0,
+  "limitations": [
+    "same-code replay plus independent arithmetic checks; no independent semantic Gold",
+    "carrier resolution is controller provenance, not original strict format acceptance",
+    "explicit unblind authorization required; prior exposure and access declaration retained"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "status": "PASS_R2_P1_DEVELOPMENT_COMPARISON / ORIGINAL_LOCATOR_FORMAT_DEVIATION_RESOLVED_BY_CONTROLLER / SCIENTIFIC_QUALIFICATION_HOLD",
+  "utc": "2026-11-26T18:42:10.462245+00:00",
+  "profile_sha256": "0906d84e3ba0d0efbb5a1123c3b13a792aff82340017aaa861780d1ca0abfee3",
+  "critic_receipt_sha256": "f085072ab0905edba3f9903b75d0554c38b53b0c5da897310703b81a28278ddf",
+  "generator_receipt_sha256": "6b2afe8524c50edc9bb861141fbe720302aa92e466f0c3604695b52334666901",
+  "input_fence_count": 127,
+  "output_file_hashes": {
+    "P1ReferenceVerificationReport.json": "564b7628de87c8f47a5552bdaeaa9f72d04df6e1822cb71646911c56757c1900",
+    "P1ComparisonReport.json": "fcb66c74f897c07595b133c95cd1f73b3fe94bdbb4cf101a6b27959587604ef5",
+    "private/OldRiskNegativeOverlap.jsonl": "9521060c5ddbfc627af74dd1d4ae3ffcf6507cdae676ff81ed51476490b9a9dd",
+    "private/ReferenceComparisonRecords.jsonl": "722350581e726c406db96ee1e9e6205ace679403381df345f0700973d5a7f690",
+    "private/ReferenceGapAttribution.jsonl": "d3f80e13fc6ee1bf444dcae4f6d0049e60662d69e077ebe34a0d11c190dd9cd5",
+    "private/InputFence.json": "21d46d1a7684ee4e255af9b2774218a292dcf5ecca785c16df8bdd9fdf5b680f",
+    "private/NativeTargetChecks.jsonl": "ca3900a2deb29ed7d41a61da2719b661a8d76fcb6a1fca6f56c0d66975354605",
+    "private/CarrierLocatorAddenda.jsonl": "c470fdb0994c92b87426039bbbea2533cfcdc46097f3a87dda23daaa7b6e0c10"
+  },
+  "reviewed_cases": 44,
+  "target_references_verified": 243,
+  "controller_locator_addenda": 83,
+  "current_model_cases": 19,
+  "old_only_cases": 25,
+  "reserved32_outcomes_read": 0,
+  "original_inputs_unchanged": true,
+  "mapping_release_authorized": false,
+  "scientific_reference_qualified": false
+}

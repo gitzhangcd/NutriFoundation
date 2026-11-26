@@ -1,0 +1,16 @@
+{
+  "status": "PASS_BOUNDED_AUDIT_SLICE_PREPARATION",
+  "exposed_c1_cases": 44,
+  "exposed_prior_edges": 355,
+  "scope_probe_records": 125,
+  "c1_negative_overlap": 23,
+  "amber_with_specific_additional_flags": 18,
+  "amber_grain_only": 1,
+  "new_blind_cases_disclosed": 0,
+  "new_blind_hidden_candidate_records_disclosed": 0,
+  "slice_hashes": {
+    "Exposed44RiskAuditSlice.json": "a0dc31d774210a6f47ab2a6bd34f7cb0190c89e87bef33ae0c89b36d59105c12",
+    "FoodOnScopeAuditSlice.json": "e74d96ca2280a52732ee52b032e1dd21cdd426f5ec0613c0406a3f278cb4c3cf"
+  },
+  "scope_limit": "Engineering audit of previously unblinded C1 records, code and public ontology. No independent audit of hidden new cohort, no expert Gold."
+}

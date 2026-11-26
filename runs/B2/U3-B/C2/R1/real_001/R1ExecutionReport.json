@@ -1,0 +1,188 @@
+{
+  "status": "PASS_BOUNDED_R1_EXECUTION / EXPERT_AND_RELEASE_HOLD",
+  "utc": "2026-11-26T17:30:32.391223+00:00",
+  "profile_sha256": "80085d447e633b97833b03932b7e8e3e389105d5c336dd1f7f0be1d23994bb8a",
+  "policy_sha256": "485412bf6594c3120a1e129e4dda78277fa42640773f1ec64101a97d16726275",
+  "typed_objects": 76473,
+  "kind_counts": {
+    "VerifiedScopeOverlay": 40107,
+    "VerifiedRiskOverlay": 35710,
+    "VerifiedQueryOverlay": 656
+  },
+  "input_fences": 128,
+  "rights_partitions": 19,
+  "partition_manifest_sha256": "d79bac87f825bdeebb15e74575d1f7ccdeb83a3905d898e6a68a2e7addb0677a",
+  "scope_and_risk": {
+    "scope": {
+      "syntax_audit": {
+        "nested_anonymous_conjunct_not_inferred": 205
+      },
+      "scope_status_counts": {
+        "HOLD_NON_FOODON_OR_UNLABELED_OR_DEPRECATED": 11423,
+        "HOLD_SCOPE_UNRESOLVED": 12062,
+        "HOLD_NONFOOD_OR_NONIDENTITY_ROLE": 3086,
+        "CORE_RETAINED_DEV": 12252,
+        "EXTENSION_TYPED_RETRIEVAL_ONLY": 1174,
+        "DUAL_ROLE_ORGANISM_REVIEW_ONLY": 103,
+        "HOLD_EXCLUSION_BRANCH_OVERLAP": 7
+      },
+      "core_overlap_organism_role_review": 103,
+      "foodon_prefix_exclusion_probes": [
+        {
+          "root": "http://purl.obolibrary.org/obo/FOODON_00004325",
+          "iri": "http://purl.obolibrary.org/obo/FOODON_00004325",
+          "label": "animal feed",
+          "scope_status": "HOLD_NONFOOD_OR_NONIDENTITY_ROLE"
+        },
+        {
+          "root": "http://purl.obolibrary.org/obo/FOODON_00003368",
+          "iri": "http://purl.obolibrary.org/obo/FOODON_00003365",
+          "label": "food processing contact surface",
+          "scope_status": "HOLD_NONFOOD_OR_NONIDENTITY_ROLE"
+        },
+        {
+          "root": "http://purl.obolibrary.org/obo/FOODON_03490100",
+          "iri": "http://purl.obolibrary.org/obo/FOODON_03490100",
+          "label": "food packaging",
+          "scope_status": "HOLD_NONFOOD_OR_NONIDENTITY_ROLE"
+        },
+        {
+          "root": "http://purl.obolibrary.org/obo/FOODON_03412972",
+          "iri": "http://purl.obolibrary.org/obo/FOODON_00002396",
+          "label": "synthetic vanilla extract",
+          "scope_status": "HOLD_NONFOOD_OR_NONIDENTITY_ROLE"
+        },
+        {
+          "root": "http://purl.obolibrary.org/obo/FOODON_03411041",
+          "iri": "http://purl.obolibrary.org/obo/FOODON_00001618",
+          "label": "artificial sweetener",
+          "scope_status": "HOLD_NONFOOD_OR_NONIDENTITY_ROLE"
+        },
+        {
+          "root": "http://purl.obolibrary.org/obo/COB_0000022",
+          "iri": "http://purl.obolibrary.org/obo/FOODON_00000015",
+          "label": "cattle bull",
+          "scope_status": "HOLD_NONFOOD_OR_NONIDENTITY_ROLE"
+        }
+      ],
+      "old_scope_statistics": {
+        "named_classes": 40107,
+        "named_labeled_classes": 39707,
+        "asserted_root_closure": 12375,
+        "asserted_active_core": 12362,
+        "bounded_root_closure": 12376,
+        "bounded_active_root_members": 12363,
+        "extra_named_axiom_edges": 5290,
+        "core_negative_overlap": 110,
+        "scope_status_counts": {
+          "HOLD_NON_FOODON_OR_UNLABELED_OR_DEPRECATED": 11423,
+          "HOLD_SCOPE_UNRESOLVED": 12062,
+          "HOLD_NONFOOD_OR_NONIDENTITY_ROLE": 3086,
+          "CORE_RETAINED_DEV": 12252,
+          "EXTENSION_TYPED_RETRIEVAL_ONLY": 1174,
+          "HOLD_EXCLUSION_BRANCH_OVERLAP": 110
+        },
+        "lane_memberships_nonexclusive": {
+          "PROCESS_QUALIFIED_FOOD_CATEGORY": 1365,
+          "MEAL_OR_FOOD_CATEGORY": 1850,
+          "LIPID_FOOD_COMPONENT_CATEGORY": 228,
+          "EGG_MATERIAL_OR_COMPONENT_CATEGORY": 91,
+          "POULTRY_EGG_REFERENCE_CATEGORY": 15,
+          "RETAIL_CUT_REFERENCE_CATEGORY": 328,
+          "AGENCY_COMPOSITE_CLASSIFICATION_CATEGORY": 205
+        },
+        "full_owl_reasoning": false
+      },
+      "full_owl_reasoning": false
+    },
+    "cohorts": {
+      "C2_EXTENSION_C1_44": {
+        "queries": 44,
+        "pool_edges": 589,
+        "eligible_edges": 0,
+        "shortlist_edges": 0,
+        "queries_with_review": 0,
+        "abstentions": 44,
+        "HOLD_UNRESOLVED_CONDITIONS": 482,
+        "HOLD_SCOPE_OR_UNREGISTERED_ROLE": 107
+      },
+      "U3A_EXPOSED_44": {
+        "queries": 44,
+        "pool_edges": 355,
+        "eligible_edges": 7,
+        "shortlist_edges": 7,
+        "queries_with_review": 7,
+        "abstentions": 37,
+        "COMPLETE_SURFACE_REVIEW_ONLY": 2,
+        "HOLD_UNRESOLVED_CONDITIONS": 266,
+        "BLOCK_EXPLICIT_CONFLICT": 4,
+        "HOLD_SCOPE_OR_UNREGISTERED_ROLE": 78,
+        "CONDITIONAL_RELATION_REVIEW_ONLY": 5
+      },
+      "C2_EXTENSION_U3B_284": {
+        "queries": 284,
+        "pool_edges": 5685,
+        "eligible_edges": 0,
+        "shortlist_edges": 0,
+        "queries_with_review": 0,
+        "abstentions": 284,
+        "HOLD_UNRESOLVED_CONDITIONS": 5671,
+        "BLOCK_EXPLICIT_CONFLICT": 14
+      },
+      "U3B_FROZEN_284": {
+        "queries": 284,
+        "pool_edges": 29081,
+        "eligible_edges": 0,
+        "shortlist_edges": 0,
+        "queries_with_review": 0,
+        "abstentions": 284,
+        "HOLD_UNRESOLVED_CONDITIONS": 28989,
+        "BLOCK_EXPLICIT_CONFLICT": 75,
+        "HOLD_SCOPE_OR_UNREGISTERED_ROLE": 17
+      }
+    },
+    "eligible_by_target_scope": [
+      {
+        "cohort": "U3A_EXPOSED_44",
+        "scope": "fndds:2015-16:fdc_carrier",
+        "review_mode": "CONDITIONAL_RELATION_REVIEW_ONLY",
+        "count": 1
+      },
+      {
+        "cohort": "U3A_EXPOSED_44",
+        "scope": "foodon:2026-09-20:food_product",
+        "review_mode": "COMPLETE_SURFACE_REVIEW_ONLY",
+        "count": 2
+      },
+      {
+        "cohort": "U3A_EXPOSED_44",
+        "scope": "foodon:2026-09-20:food_product",
+        "review_mode": "CONDITIONAL_RELATION_REVIEW_ONLY",
+        "count": 4
+      }
+    ],
+    "old_exposed_eligible": 11,
+    "old_exposed_eligible_still_reviewable": 6,
+    "five_audit_mismatches_held": 5,
+    "c1_critic_negative_routes": [
+      {
+        "old_route": "AMBER",
+        "new_disposition": "HOLD_SCOPE_OR_UNREGISTERED_ROLE",
+        "count": 2
+      },
+      {
+        "old_route": "AMBER",
+        "new_disposition": "HOLD_UNRESOLVED_CONDITIONS",
+        "count": 17
+      },
+      {
+        "old_route": "RED",
+        "new_disposition": "BLOCK_EXPLICIT_CONFLICT",
+        "count": 4
+      }
+    ]
+  },
+  "audit_findings_count": 12,
+  "new_embedding_run": false,
+  "scientific_release": false
+}

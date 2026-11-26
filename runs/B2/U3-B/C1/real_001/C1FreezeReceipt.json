@@ -1,0 +1,25 @@
+{
+  "status": "PASS_C1_DEVELOPMENT_COMPARISON / SCIENTIFIC_QUALIFICATION_HOLD",
+  "utc": "2026-11-26T16:10:49.016071+00:00",
+  "profile_sha256": "859979f9634cf9dbbe14d43314d2efa7258efc0adb778f7051c1ddd68d73b1d4",
+  "verified_input_files": 31,
+  "output_file_hashes": {
+    "CriticFreezeVerificationReport.json": "780ab0d85dfb33d40776d0c13728b1e6c5af36e2922171ebe6e277996942edfe",
+    "DevelopmentComparisonReport.json": "1fd6e1d208517d64370975a06b6012a4840cf3f0557b3a8beeb41281d23542ec",
+    "private/CriticNativeTargetChecks.jsonl": "aa2ec624f177425257b153d94a6fe92f69310e3bf8d20784b85177a0f1118a07",
+    "private/CriticOutsideTargetUniverse.json": "4aed6bf471135f818f4a9d63ab45876038a0e2584c2a5333a6ca819556e579de",
+    "private/CriticTargetIssues.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "private/DevelopmentDisagreementRecords.jsonl": "979f9922700f7a8a3277aa6520aeb40196d0916835a90b2b358f9120ec7442f7",
+    "private/ExpertReviewQueue.json": "7ecfc977fcc9f6dcea8e6838e93057469b6363fc9a583479fbb1a3de92dc21ce",
+    "private/InputFence.json": "8540023af8ad934fe7a6938b2d22ee7401be5a73ef32c0026c0908228207ad7a",
+    "private/LiteralAbsenceProbe.json": "978062383db541f43652e131680a4566100ad30cbcf4a93185a03435abed3fae"
+  },
+  "critic_frozen_cases": 44,
+  "case_comparisons": 44,
+  "priority_expert_cases": 36,
+  "accepted_equivalence": 0,
+  "mapping_release_authorized": false,
+  "unblinding_authorized_by_pi": true,
+  "prior_exposure_declared": true,
+  "original_inputs_unchanged": true
+}

@@ -1,0 +1,54 @@
+{
+  "version": "UDF-U3B-C1-DEV-COMPARISON-0.1",
+  "authority": {
+    "commit": "354267b1a15c879038c1ba8d2d2eae59eba2d94d",
+    "pr": 60,
+    "master_blob": "9e3169814f8800e1b6eba6fd94a4097c57a00488",
+    "qualification_protocol": "configs/udf/u3b/U3B_ReviewQualificationProtocol_v0.1.json"
+  },
+  "task_config": {
+    "path": "configs/audit/tasks/B2_U3B_C0_Gemini_001.json",
+    "sha256": "11a657e0050fdfe149a66fc4e96d86312dd2228a6fc73dcd400c1c34d81a4991"
+  },
+  "protocol": {
+    "path": "configs/audit/IndependentAuditProtocol_v0.1.md",
+    "sha256": "93abd373e58a0666dc4b58009a1fb2c96e25ad31f4124f2704153730f7c33789"
+  },
+  "critic": {
+    "run": "runs/B2/U3-B/CriticPilot_Gemini_001",
+    "receipt_sha256": "b881216d3e99254d7d084b7998bbcc1b6852bf99e15a85993bdea6c175ce9d9c"
+  },
+  "generator": {
+    "run": "runs/B2/U3-A/real_002",
+    "manifest_sha256": "f192c7bde06afa66ba0633c9f947d3d989358593237e907c06f21c5e6b2b406e",
+    "receipt_sha256": "b89549ada0f739266217c485a73c399f3a8395dd054f61a6bc79a2a62d32a8c1",
+    "routes_sha256": "4f27636a68a06b07b7edd07c945333b78a7ea97cf63d5b43028811a985dc1175",
+    "hidden": [
+      {
+        "path": "runs/B2/U3-A/real_002/private/ReviewCandidatesHidden.json",
+        "sha256": "ccf7865fd4daf661616ed2a05b85cd670e26970775d0c5377467abe11642b89a"
+      },
+      {
+        "path": "runs/B2/U3-A/review_queue_audit_001/private/ReviewCandidatesHiddenRedSupplement.json",
+        "sha256": "83ae19263e10e245984ac7c430e1d4a64073401b1e30ab4f2a9d7e2aff9dc35a"
+      }
+    ]
+  },
+  "u2c": {
+    "run": "runs/B1/U2-C/real_001",
+    "partition_manifest_sha256": "305341af924c55d6945ac7bd8aeecf7043137756f5bd128761122ce0dc06bbb3",
+    "receipt_path": "runs/B1/U2-C/U2CAdmissionReceipt.json",
+    "receipt_sha256": "9bd5d1ebfaabb0cde1a0aa31113076f60a602cbbfe3ad5675c9a1624d00fc705"
+  },
+  "u3b_frozen_receipt": {
+    "path": "runs/B2/U3-B/freeze_001/GeneratorFreezeReceipt.json",
+    "sha256": "0b916d85234a0a4634b5f0dd296afa43a53d983d85474228d5b742d2c8fe317e"
+  },
+  "pi_authorization": "User explicitly confirmed Gemini completed and frozen, authorizes C1 on 2026-11-27 local date.",
+  "scope": "Original 44 only; U3-A comparison. U3-B 284-query generation and new 44 queue excluded. C0 prior exposure disclosed.",
+  "comparison_unit": "source_review_id x versioned native target key; FoodOn IRI, FDC fdc_id, FNDDS 2015-16 food_code. FNDDS two carriers deduplicated. Other generator target scopes retained separately.",
+  "gate": "Frozen identity and file fingerprints + raw target ID/label/locator verification before development comparison. Expert scientific adjudication and release remain HOLD.",
+  "purpose": "CURATION_DEV_ONLY",
+  "mapping_release_authorized": false,
+  "nonclaim": "No accuracy, recall, independence or expert truth from model agreement."
+}

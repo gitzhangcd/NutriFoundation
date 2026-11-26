@@ -1,0 +1,150 @@
+{
+  "status": "PASS_C1_READ_ONLY_REPLAY_AND_DEVELOPMENT_RISK_ROUTING",
+  "utc": "2026-11-26T16:13:29.020997+00:00",
+  "tests_passed": 16,
+  "tests_total": 16,
+  "tests": [
+    {
+      "test": "frozen output hash closure",
+      "pass": true,
+      "expected": "ACCEPT"
+    },
+    {
+      "test": "input fence closure before and after replay",
+      "pass": true,
+      "expected": "ACCEPT"
+    },
+    {
+      "test": "all C0 case identities and raw target citations replay",
+      "pass": true,
+      "expected": "ACCEPT"
+    },
+    {
+      "test": "both candidate registry and negative registry verified",
+      "pass": true,
+      "expected": "ACCEPT"
+    },
+    {
+      "test": "all private comparison records and aggregate replay",
+      "pass": true,
+      "expected": "ACCEPT"
+    },
+    {
+      "test": "source-side target comparison disjoint and exhaustive",
+      "pass": true,
+      "expected": "ACCEPT"
+    },
+    {
+      "test": "critic candidate membership partitions",
+      "pass": true,
+      "expected": "ACCEPT"
+    },
+    {
+      "test": "FNDDS carrier key deduplication",
+      "pass": true,
+      "expected": "ACCEPT"
+    },
+    {
+      "test": "ontology scope diagnosis from actual parent graph",
+      "pass": true,
+      "expected": "ACCEPT"
+    },
+    {
+      "test": "four explicit state conflicts remain held",
+      "pass": true,
+      "expected": "ACCEPT"
+    },
+    {
+      "test": "review priorities reconcile actual union",
+      "pass": true,
+      "expected": "ACCEPT"
+    },
+    {
+      "test": "input hash tamper rejected",
+      "pass": true,
+      "expected": "PINNED_INPUT_CHANGED",
+      "actual": "PINNED_INPUT_CHANGED:configs/audit/tasks/B2_U3B_C0_Gemini_001.json"
+    },
+    {
+      "test": "duplicate native target key rejected",
+      "pass": true,
+      "expected": "DUPLICATE_NATIVE_KEY",
+      "actual": "DUPLICATE_NATIVE_KEY"
+    },
+    {
+      "test": "newer FNDDS cycle blocked",
+      "pass": true,
+      "expected": "WRONG_CYCLE",
+      "actual": "WRONG_CYCLE"
+    },
+    {
+      "test": "invented target ID blocked",
+      "pass": true,
+      "expected": "TARGET_MISSING",
+      "actual": "TARGET_MISSING"
+    },
+    {
+      "test": "write outside new U3B C1 scope blocked",
+      "pass": true,
+      "expected": "NEW_VALIDATION_DIRECTORY",
+      "actual": "NEW_VALIDATION_DIRECTORY"
+    }
+  ],
+  "frozen_output_files_rechecked": 9,
+  "input_fences_rechecked": 31,
+  "critics_cases_replayed": 44,
+  "target_checks_replayed": 195,
+  "comparison_cases_replayed": 44,
+  "priority_expert_cases": 36,
+  "risk_attribution": {
+    "UNDECLARED_FORMULATION_OR_PROCESS": 7,
+    "SPECIES_OR_COMPOSITION_CHANGE": 5,
+    "COMPONENT_WHOLE_OR_DISH_FORM": 4,
+    "PREPARED_STATE_INFERENCE": 3,
+    "EXPLICIT_STATE_CONTRADICTION": 4
+  },
+  "risk_routes": [
+    {
+      "risk_family": "COMPONENT_WHOLE_OR_DISH_FORM",
+      "u2c_route": "AMBER",
+      "count": 4
+    },
+    {
+      "risk_family": "EXPLICIT_STATE_CONTRADICTION",
+      "u2c_route": "RED",
+      "count": 4
+    },
+    {
+      "risk_family": "PREPARED_STATE_INFERENCE",
+      "u2c_route": "AMBER",
+      "count": 3
+    },
+    {
+      "risk_family": "SPECIES_OR_COMPOSITION_CHANGE",
+      "u2c_route": "AMBER",
+      "count": 5
+    },
+    {
+      "risk_family": "UNDECLARED_FORMULATION_OR_PROCESS",
+      "u2c_route": "AMBER",
+      "count": 7
+    }
+  ],
+  "outside_universe_edges": 7,
+  "outside_universe_unique_foodon_classes": 6,
+  "asserted_named_root_reachable_count": 0,
+  "fences_unchanged": true,
+  "frozen_run_unchanged": true,
+  "original_c1_script_sha256": "c763808f9e7a07ec0dec6cd9e56a1e97f532f369851c33e46510e30442c1ba3b",
+  "validation_script_sha256": "fc8f70502ac719ea3c4c5ae02fc09c7b9767bec577c37bad366458350eb34479",
+  "profile_sha256": "859979f9634cf9dbbe14d43314d2efa7258efc0adb778f7051c1ddd68d73b1d4",
+  "limitations": [
+    "same-code replay plus independent aggregations, not independent scientific validity",
+    "risk-family grouping is a controller development triage, not expert rejection",
+    "only the asserted named subclass closure was tested, no ontology reasoning",
+    "no reviewer access-control proof",
+    "no formal accuracy or recall, no release"
+  ],
+  "accepted_equivalence": 0,
+  "mapping_release_authorized": false
+}

@@ -1,0 +1,200 @@
+{
+  "status": "PASS_FROZEN_DEVELOPMENT_COMPARISON / EXPERT_ADJUDICATION_HOLD",
+  "cases": 44,
+  "comparison_scope": "U3-A original 44; no U3-B new query evaluation",
+  "candidate_counts": {
+    "generator_all": 355,
+    "generator_external": 325,
+    "generator_other_scope": 30,
+    "critic_candidates": 88,
+    "critic_hard_negatives": 107,
+    "critic_candidates_in_generator_target_universe": 81,
+    "critic_candidates_outside_generator_target_universe": 7,
+    "shared_candidate_ids": 32,
+    "generator_hits_critic_hard_negative": 23,
+    "generator_not_reviewed_by_critic": 270,
+    "critic_only_candidate_ids": 56,
+    "critic_only_in_generator_universe": 49,
+    "cases_with_generator": 39,
+    "cases_with_generator_external": 37,
+    "cases_with_critic_candidate": 40,
+    "cases_with_shared_candidate": 17,
+    "cases_with_hard_negative_overlap": 17,
+    "cases_with_both_external_candidates": 34,
+    "cases_with_both_but_no_shared_id": 17,
+    "cases_with_critic_only_in_generator_universe": 31,
+    "cases_with_critic_no_candidate_generator_external": 3,
+    "shared_proposed_relation_exact_string_match": 9,
+    "hard_negative_overlap_old_amber": 19,
+    "hard_negative_overlap_u2c_amber": 19,
+    "hard_negative_overlap_u2c_red": 4,
+    "hard_negative_overlap_old_score_ge_0_9": 2
+  },
+  "generator_critic_case_presence": [
+    {
+      "generator_any": false,
+      "critic_any": false,
+      "cases": 1
+    },
+    {
+      "generator_any": false,
+      "critic_any": true,
+      "cases": 4
+    },
+    {
+      "generator_any": true,
+      "critic_any": false,
+      "cases": 3
+    },
+    {
+      "generator_any": true,
+      "critic_any": true,
+      "cases": 36
+    }
+  ],
+  "shared_proposal_relation_pairs": [
+    {
+      "generator_proposed_relation": "AMBIGUOUS",
+      "critic_relation": "BROADER_TARGET",
+      "count": 1
+    },
+    {
+      "generator_proposed_relation": "AMBIGUOUS",
+      "critic_relation": "CLOSE",
+      "count": 3
+    },
+    {
+      "generator_proposed_relation": "AMBIGUOUS",
+      "critic_relation": "CONDITIONAL",
+      "count": 5
+    },
+    {
+      "generator_proposed_relation": "AMBIGUOUS",
+      "critic_relation": "NARROWER_TARGET",
+      "count": 2
+    },
+    {
+      "generator_proposed_relation": "BROADER_TARGET",
+      "critic_relation": "BROADER_TARGET",
+      "count": 1
+    },
+    {
+      "generator_proposed_relation": "CLOSE",
+      "critic_relation": "BROADER_TARGET",
+      "count": 2
+    },
+    {
+      "generator_proposed_relation": "CLOSE",
+      "critic_relation": "CLOSE",
+      "count": 5
+    },
+    {
+      "generator_proposed_relation": "RELATED",
+      "critic_relation": "BROADER_TARGET",
+      "count": 1
+    },
+    {
+      "generator_proposed_relation": "RELATED",
+      "critic_relation": "CLOSE",
+      "count": 6
+    },
+    {
+      "generator_proposed_relation": "RELATED",
+      "critic_relation": "CONDITIONAL",
+      "count": 2
+    },
+    {
+      "generator_proposed_relation": "RELATED",
+      "critic_relation": "NARROWER_TARGET",
+      "count": 1
+    },
+    {
+      "generator_proposed_relation": "RELATED",
+      "critic_relation": "RELATED",
+      "count": 3
+    }
+  ],
+  "hard_negative_overlap_routes": [
+    {
+      "original_route": "AMBER",
+      "u2c_route": "AMBER",
+      "count": 19
+    },
+    {
+      "original_route": "RED",
+      "u2c_route": "RED",
+      "count": 4
+    }
+  ],
+  "hard_negative_overlap_types": {
+    "SWEETENER_MODIFIER": 1,
+    "SPECIAL_DIETARY_MODIFIER": 1,
+    "SPECIFIC_SUBTYPE": 1,
+    "BLANCHING_PROCESSING": 1,
+    "COOKING_METHOD_CONFLICT": 1,
+    "PROCESSING_STATE_CONFLICT": 1,
+    "ADDED_INGREDIENT_CONFLICT": 1,
+    "FAT_TIER_ASSUMPTION": 1,
+    "DISH_FORM_CONFLICT": 1,
+    "RAW_VS_COOKED_CONFLICT": 5,
+    "UNPREPARED_DRY_MIX": 1,
+    "MISSING_EGG_WRAP": 1,
+    "MISSING_CARB_BASE": 1,
+    "SPECIFIC_PROTEIN_ASSUMPTION": 1,
+    "PROTEIN_ADDITION_CONFLICT": 1,
+    "RAW_DISH_CONFLICT": 1,
+    "COMPONENT_DRESSING_ONLY": 1,
+    "SPECIES_CONFLICT": 1,
+    "ADDED_FAT_ASSUMPTION": 1
+  },
+  "priority_expert_cases": 36,
+  "critic_only_outside_universe": 7,
+  "literal_absence_probes": [
+    {
+      "review_id": "B2-DEV-032",
+      "hit_count": 0,
+      "interpretation": "NO_LITERAL_HIT_NOT_PROOF_OF_ABSENCE"
+    },
+    {
+      "review_id": "B2-DEV-033",
+      "hit_count": 0,
+      "interpretation": "NO_LITERAL_HIT_NOT_PROOF_OF_ABSENCE"
+    },
+    {
+      "review_id": "B2-DEV-036",
+      "hit_count": 0,
+      "interpretation": "NO_LITERAL_HIT_NOT_PROOF_OF_ABSENCE"
+    },
+    {
+      "review_id": "B2-DEV-019",
+      "hit_count": 0,
+      "interpretation": "NO_LITERAL_HIT_NOT_PROOF_OF_ABSENCE"
+    },
+    {
+      "review_id": "B2-DEV-031",
+      "hit_count": 4,
+      "interpretation": "POTENTIAL_COUNTEREXAMPLES_REVIEW_REQUIRED"
+    },
+    {
+      "review_id": "B2-DEV-010",
+      "hit_count": 1,
+      "interpretation": "POTENTIAL_COUNTEREXAMPLES_REVIEW_REQUIRED"
+    },
+    {
+      "review_id": "B2-RED-SUP-003",
+      "hit_count": 14,
+      "interpretation": "POTENTIAL_COUNTEREXAMPLES_REVIEW_REQUIRED"
+    }
+  ],
+  "independent_accuracy_recall": "NOT_ESTIMABLE",
+  "adjudicated_reference_count": 0,
+  "accepted_equivalence": 0,
+  "mapping_releases": 0,
+  "scientific_releases": 0,
+  "remaining": [
+    "Critic suggestions and negatives not expert truth",
+    "Generator candidates unreviewed by Critic are neither accepted nor rejected",
+    "No U3-B dense retrieval quality estimate from these 44",
+    "High-risk semantics, target applicability, source rights and independent expert adjudication remain HOLD"
+  ]
+}

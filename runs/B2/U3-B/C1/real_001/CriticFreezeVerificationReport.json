@@ -1,0 +1,79 @@
+{
+  "status": "PASS_CRITIC_FREEZE_AND_NATIVE_TARGET_VERIFICATION",
+  "task_id": "B2-U3B-C0-GEMINI-001",
+  "frozen_outputs_verified": 5,
+  "allowed_inputs_verified": 8,
+  "source_only_identity_verified": 44,
+  "registry_rows_verified": 195,
+  "critic_candidates": 88,
+  "critic_hard_negatives": 107,
+  "critic_counts": {
+    "completed_cases": 44,
+    "unique_review_ids": 44,
+    "unique_source_refs": 44,
+    "cases_with_candidates": 40,
+    "cases_without_candidates_retained_unresolved": 4,
+    "independent_candidates_total": 88,
+    "hard_negatives_total": 107,
+    "route_counts": {
+      "AMBER": 16,
+      "HOLD": 17,
+      "RED": 11
+    },
+    "recommended_expert_review_count": 27
+  },
+  "candidate_relations": {
+    "CLOSE": 23,
+    "CONDITIONAL": 27,
+    "NARROWER_TARGET": 6,
+    "BROADER_TARGET": 22,
+    "RELATED": 8,
+    "AMBIGUOUS": 2
+  },
+  "candidate_target_systems": {
+    "FoodOn": 39,
+    "FDC_SR_Legacy": 22,
+    "FNDDS": 27
+  },
+  "hard_negative_target_systems": {
+    "FoodOn": 30,
+    "FNDDS": 33,
+    "FDC_SR_Legacy": 44
+  },
+  "native_target_checks": {
+    "candidate_id_exists": 88,
+    "candidate_label_trim_matches": 88,
+    "candidate_locator_matches": 88,
+    "candidate_active_class": 88,
+    "NOT_SUPPLIED": 124,
+    "SOURCE_ADDITIONAL_DESCRIPTION_NOT_DEFINITION": 34,
+    "VERBATIM_SOURCE_DEFINITION": 37,
+    "hard_negative_id_exists": 107,
+    "hard_negative_label_trim_matches": 107,
+    "hard_negative_locator_matches": 107,
+    "hard_negative_active_class": 107
+  },
+  "target_identity_issues": 0,
+  "raw_standard_counts": {
+    "FoodOn_named_labeled_classes": 39707,
+    "FDC_food_records": 7793,
+    "FNDDS_food_codes": 8690,
+    "FNDDS_ARS_same_cycle_records": 8690,
+    "FoodOn_version": [
+      "http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl",
+      "2026-02-02",
+      "2026-09-20"
+    ]
+  },
+  "previous_prompt_type_differences": {
+    "composition_constraints_not_array": 44,
+    "regional_constraints_not_array": 44,
+    "field_evidence_not_array": 44
+  },
+  "reported_forbidden_access": 0,
+  "access_independently_proven": false,
+  "historical_exposure": true,
+  "model_version": "UNAVAILABLE_EXACT_BUILD",
+  "independent_reference_count": 0,
+  "scientific_release_authorized": false
+}

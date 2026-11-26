@@ -1,0 +1,33 @@
+{
+  "version": "UDF-U3C2-EXECUTION-0.1",
+  "baseline": {
+    "commit": "d95d9dea810efc1dd80576669f195f765a8e77ff",
+    "master_blob": "9e3169814f8800e1b6eba6fd94a4097c57a00488"
+  },
+  "pins": {
+    "docs/AI_Nutri_Unified_Data_Foundation_v2.1.md": "3c0ef69f9ecff2178830c0b4d43253dae5c161d7308c86bc2b6be5e6a68b26ed",
+    "runs/B2/U3-B/C1/C1AdmissionReceipt.json": "077c508c98c8eb8debc43378b07806c0762a48bacd66bb724230d8a745c0a7bb",
+    "runs/B2/U3-B/C1/real_001/C1FreezeReceipt.json": "718ca1c67ef6d3b38496a687accc30a194044dc5af49ed82d875c82f05ce6a84",
+    "runs/B2/U3-B/C1/validation_001/C1ValidationReport.json": "163c36859056aa73ff2de4e0f936f718a7c8f596418f407908bd550a614983a5",
+    "runs/B2/U3-B/C1/validation_001/private/FoodOnScopeDiagnosis.json": "286cb867251226a40696aba2acfb7f666f072a930f29263f3d176439c01e1436",
+    "runs/B2/U3-B/C1/validation_001/private/RiskAttributionRecords.jsonl": "2b6f03c37e3ab3c68599773df65c909a2df485ad417f073e457a7f1ffcd6887a",
+    "runs/B2/U3-B/C1/real_001/private/ExpertReviewQueue.json": "7ecfc977fcc9f6dcea8e6838e93057469b6363fc9a583479fbb1a3de92dc21ce",
+    "runs/B2/U3-B/C1/real_001/private/DevelopmentDisagreementRecords.jsonl": "979f9922700f7a8a3277aa6520aeb40196d0916835a90b2b358f9120ec7442f7",
+    "runs/B2/U3-B/freeze_001/GeneratorFreezeReceipt.json": "0b916d85234a0a4634b5f0dd296afa43a53d983d85474228d5b742d2c8fe317e",
+    "runs/B2/U3-B/real_001/U3BGeneratorReport.json": "affb94c25fca7f009a1f15dca88783a6375632b01ebaaa06e6066c1a3a975fe3",
+    "configs/udf/u3b/U3B_PilotProfile_v0.1.json": "b8b8f8df3c6affa348ad459cbfb3c638eb67c504e654a6edd90ac51e017fcece",
+    "runs/B1/U2-C/real_001/private/partition_manifest.json": "305341af924c55d6945ac7bd8aeecf7043137756f5bd128761122ce0dc06bbb3",
+    "runs/B2/U3-A/inputs/FoodOn.owl": "b897bf64c1b265c422db9ee01e1235c10c0b809e7f02326ef810a52068347edf",
+    "runs/B2/U3-B/real_001/private/partition_manifest.json": "2c2f27f1a505539bf97457c9472e027714ef39bcc874390ae96fb031616ec96c",
+    "runs/B2/U3-B/real_001/private/ReviewSourceOnlyQueue.json": "5d60068281b4ca5a33484e65058566bab5603aaad439d9efec6e650bd8041993",
+    "runs/B2/U3-B/real_001/private/ReviewCandidatesHidden.json": "51c6499ca5b776f926e0a54ee0717e8c6054b7b86c67d5fe7bedf6c090560edc",
+    "src/u2c/core.py": "1be5915bc89e4a98d7807b626d86289e36fb75ebcdbb3bb92c9dfb0cb749cf6b",
+    "src/u3b/run_u3b.py": "90dfbb79db0c3c202eb69ef0b3aafe259626f7526b1117e2a4a131454e629308"
+  },
+  "policy": "configs/udf/u3c2/C2_Policy_v0.1.json",
+  "u2c_manifest": "runs/B1/U2-C/manifest_001.json",
+  "u2c_manifest_sha256": "861d4866dddeeae8b7dbb6db66a70cde0403530b72d88787d55e3a6af2ce4a2f",
+  "u2c_run": "runs/B1/U2-C/real_001",
+  "purpose": "CURATION_DEV_ONLY",
+  "release_authorized": false
+}

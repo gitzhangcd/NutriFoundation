@@ -1,0 +1,86 @@
+{
+  "profile_id": "U2C-PR57-HISTORICAL-BASELINE-0.1",
+  "base_commit": "7e861fdf35a1f8d5bde0b35d6f98920276798c3d",
+  "master_blob": "9e3169814f8800e1b6eba6fd94a4097c57a00488",
+  "stages": [
+    {
+      "stage": "U2-A",
+      "run": "runs/B1/U2-A/real_003",
+      "collection_manifest_sha256": "0d5fde43d7629810bec085c659fedfe77846dcd774e160e82f2b491d2c154507",
+      "receipt": "B1AdmissionReceipt.json",
+      "receipt_git_blob": "83944e09f48bd2d37edf18759c2df49aa2c0d3f9",
+      "expected_objects": 5699,
+      "expected_kinds": 17
+    },
+    {
+      "stage": "U2-B",
+      "run": "runs/B1/U2-B/real_003",
+      "collection_manifest_sha256": "4a4b0ec12251d29e5fa20c7617a7404c1930f4dedb663ab9fefa50103d5cf0fc",
+      "receipt": "B1BAdmissionReceipt.json",
+      "receipt_git_blob": "6302a500486fd2fd5d34ad1f13979266da74b2df",
+      "expected_objects": 5665,
+      "expected_kinds": 10
+    },
+    {
+      "stage": "U3-A",
+      "run": "runs/B2/U3-A/real_002",
+      "collection_manifest_sha256": "f192c7bde06afa66ba0633c9f947d3d989358593237e907c06f21c5e6b2b406e",
+      "receipt": "B2AdmissionReceipt.json",
+      "receipt_git_blob": "a289af7a3463a4da6a59061a49b78a7d018205cd",
+      "expected_objects": 216827,
+      "expected_kinds": 13
+    }
+  ],
+  "private_inputs": {
+    "source_resolver": {
+      "path": "runs/B1/U2-A/real_003/private/source_resolver.json",
+      "sha256": "1365ca2b1d719ad450d6e11c2f5c10e8ec90dd9cac470aaab81abf6c338f3b7e"
+    },
+    "selected_quality_flags": {
+      "path": "runs/B1/U2-B/real_003/private/N5kSelectedTotalFlags.jsonl",
+      "sha256": "9c62bcaee5f65990cf29dd4eb065f62c9e8eb51b5d2c3ec093ef2e7b4fefc26d"
+    },
+    "all_conflict_flags": {
+      "path": "runs/B1/U2-B/real_003/private/N5kTotalConflictFlags.jsonl",
+      "sha256": "46fb5f0b1e713ab46e8bba19973566e54d983376c2ac49840ff55812ee0e2738"
+    },
+    "off_acquisition": {
+      "path": "runs/B1/U2-C/inputs/OFFAcquisitionManifest.json",
+      "sha256": "f6faf2f64aa13cafce6e8ece92c2d4246ba9766287c123453607b0c79f1ee96e"
+    }
+  },
+  "authority_paths": {
+    "ND_PUBLIC": "runs/B1/U2-B/inputs/NutriData_Public.html",
+    "OFF_SCHEMA": "runs/B1/U2-B/inputs/OFF_ProductNutrition.html",
+    "OFF_CONFLICT": "runs/B1/U2-B/inputs/OFF_ExplainNutrition.html",
+    "SN_PAPER": "runs/B1/U2-B/inputs/SNAPMe_Study.html",
+    "ASA_VERSION": "runs/B1/U2-B/inputs/ASA24_2020_Version.html",
+    "ASA_ITEMS": "runs/B1/U2-B/inputs/ASA24_2020.zip",
+    "N5_README": "source_data/public_samples/20261125_run001/NDF-G013/nutrition5k_README.md",
+    "MENU_README": "source_data/public_samples/20261125_run001/NDF-G017/zip_01_readme.txt",
+    "UDF": "docs/AI_Nutri_Unified_Data_Foundation_v2.1.md"
+  },
+  "historical_expectations": {
+    "selected_source_files": 23,
+    "selected_n5k_measurements": 165,
+    "selected_n5k_conflicts": 65,
+    "n5k_dishes": 5006,
+    "n5k_dish_conflicts": 681,
+    "all_legacy_objects": 228191,
+    "all_legacy_kinds": 40,
+    "old_u2a_tests": 46,
+    "old_u2b_tests": 49,
+    "old_u3a_tests": 34,
+    "old_d0_tests": 12
+  },
+  "legacy_code_blobs": {
+    "src/b1/contract.py": "fb53ac29fd94ec3a9d6ea7052439da4ca98f41c3",
+    "src/b1/run_b1.py": "60e5bcc1be973acee32a54f7cf3a56f3cee4477d",
+    "src/b1b/semantics.py": "58a16dce8aa21909d1a8f7d37077b1b6a6c38217",
+    "src/b1b/run_b1b.py": "1df00173e4e261341d13e2d79a5f9931eda026c1",
+    "src/b2/vocabulary.py": "c9adca5d1025986af2a5aeebdc01814698c207be",
+    "src/b2/alignment.py": "506d624931f345d5289a0b2db7f098d34f214e91",
+    "src/b2/run_b2.py": "99c1cfc3cfd4b84c76bd12de88a301927db1dd0f",
+    "src/b2/test_b2.py": "c97e19ecce69c2de8aac18fcc26533b174bd1682"
+  }
+}

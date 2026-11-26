@@ -1,0 +1,3266 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nutrifoundation:udf:u2c:unified:0.1",
+  "title": "UDF U2-C unified development envelope and typed payloads",
+  "description": "40 legacy kinds through explicit version projection plus 2 new quality/record-semantic kinds. Raw source nested fields remain raw; external semantic validation and exact immutable reference closure mandatory. No release.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/SourceArtifact"
+    },
+    {
+      "$ref": "#/$defs/SourceAnchor"
+    },
+    {
+      "$ref": "#/$defs/NativeRecord"
+    },
+    {
+      "$ref": "#/$defs/FoodLabelDraft"
+    },
+    {
+      "$ref": "#/$defs/FoodEntityDraft"
+    },
+    {
+      "$ref": "#/$defs/FoodInstanceDraft"
+    },
+    {
+      "$ref": "#/$defs/RecipeDraft"
+    },
+    {
+      "$ref": "#/$defs/RecipeIngredientDraft"
+    },
+    {
+      "$ref": "#/$defs/NutrientMeasurementDraft"
+    },
+    {
+      "$ref": "#/$defs/DietaryObservationDraft"
+    },
+    {
+      "$ref": "#/$defs/MediaObservationDraft"
+    },
+    {
+      "$ref": "#/$defs/ProcessObservationDraft"
+    },
+    {
+      "$ref": "#/$defs/ProcessVocabularyDraft"
+    },
+    {
+      "$ref": "#/$defs/VideoMetadataDraft"
+    },
+    {
+      "$ref": "#/$defs/QARecordDraft"
+    },
+    {
+      "$ref": "#/$defs/ProductVersionDraft"
+    },
+    {
+      "$ref": "#/$defs/NativeLinkDraft"
+    },
+    {
+      "$ref": "#/$defs/AuthoritySnapshot"
+    },
+    {
+      "$ref": "#/$defs/ComponentConcept"
+    },
+    {
+      "$ref": "#/$defs/MeasurementDefinition"
+    },
+    {
+      "$ref": "#/$defs/MeasurementInterpretation"
+    },
+    {
+      "$ref": "#/$defs/NamespaceBinding"
+    },
+    {
+      "$ref": "#/$defs/NamespaceKeyBinding"
+    },
+    {
+      "$ref": "#/$defs/NamespaceLinkQualification"
+    },
+    {
+      "$ref": "#/$defs/NativeNamespace"
+    },
+    {
+      "$ref": "#/$defs/QuantityInterpretation"
+    },
+    {
+      "$ref": "#/$defs/RepresentationConversion"
+    },
+    {
+      "$ref": "#/$defs/AlignmentRecord"
+    },
+    {
+      "$ref": "#/$defs/CanonicalFoodConceptCandidate"
+    },
+    {
+      "$ref": "#/$defs/ComponentAlignmentCandidate"
+    },
+    {
+      "$ref": "#/$defs/ComponentConceptCandidate"
+    },
+    {
+      "$ref": "#/$defs/ComponentNativeField"
+    },
+    {
+      "$ref": "#/$defs/FNDDSCarrierCrosswalk"
+    },
+    {
+      "$ref": "#/$defs/MappingMethod"
+    },
+    {
+      "$ref": "#/$defs/NativeCodeLinkCandidate"
+    },
+    {
+      "$ref": "#/$defs/NativeVocabularyRecord"
+    },
+    {
+      "$ref": "#/$defs/SourceFamily"
+    },
+    {
+      "$ref": "#/$defs/SourceFamilyBinding"
+    },
+    {
+      "$ref": "#/$defs/SourceSnapshotDraft"
+    },
+    {
+      "$ref": "#/$defs/VocabularyAnchorDraft"
+    },
+    {
+      "$ref": "#/$defs/MeasurementQualityRecord"
+    },
+    {
+      "$ref": "#/$defs/OFFRecordQualification"
+    }
+  ],
+  "$defs": {
+    "ref": {
+      "type": "string",
+      "pattern": "^[^@]+@[a-f0-9]{64}$"
+    },
+    "slot": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "VALUE"
+            },
+            "value": {
+              "not": {
+                "type": "null"
+              }
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "UNAVAILABLE"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            },
+            "detail": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason",
+            "detail"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "NOT_APPLICABLE"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            },
+            "policy_ref": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason",
+            "policy_ref"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "locator": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "sheet": {
+              "type": "string",
+              "minLength": 1
+            },
+            "excel_row": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "sheet",
+            "excel_row"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "csv_record": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "csv_record"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "line": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "line"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "json_pointer": {
+              "type": "string",
+              "pattern": "^/"
+            }
+          },
+          "required": [
+            "json_pointer"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "binding": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^(/.*)?$"
+        },
+        "raw_value": {},
+        "origin_mode": {
+          "const": "OBSERVED"
+        },
+        "knowledge_state": {
+          "enum": [
+            "KNOWN",
+            "UNKNOWN"
+          ]
+        },
+        "construction_class": {
+          "const": "OBS"
+        },
+        "visibility_overlay": {
+          "const": "ROLE_RESTRICTED"
+        },
+        "role": {
+          "const": "SOURCE_REPRESENTATION"
+        }
+      },
+      "required": [
+        "path",
+        "raw_value",
+        "origin_mode",
+        "knowledge_state",
+        "construction_class",
+        "visibility_overlay",
+        "role"
+      ],
+      "additionalProperties": false
+    },
+    "CommonEnvelope": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "kind": {
+          "enum": [
+            "SourceArtifact",
+            "SourceAnchor",
+            "NativeRecord",
+            "FoodLabelDraft",
+            "FoodEntityDraft",
+            "FoodInstanceDraft",
+            "RecipeDraft",
+            "RecipeIngredientDraft",
+            "NutrientMeasurementDraft",
+            "DietaryObservationDraft",
+            "MediaObservationDraft",
+            "ProcessObservationDraft",
+            "ProcessVocabularyDraft",
+            "VideoMetadataDraft",
+            "QARecordDraft",
+            "ProductVersionDraft",
+            "NativeLinkDraft",
+            "AuthoritySnapshot",
+            "ComponentConcept",
+            "MeasurementDefinition",
+            "MeasurementInterpretation",
+            "NamespaceBinding",
+            "NamespaceKeyBinding",
+            "NamespaceLinkQualification",
+            "NativeNamespace",
+            "QuantityInterpretation",
+            "RepresentationConversion",
+            "AlignmentRecord",
+            "CanonicalFoodConceptCandidate",
+            "ComponentAlignmentCandidate",
+            "ComponentConceptCandidate",
+            "ComponentNativeField",
+            "FNDDSCarrierCrosswalk",
+            "MappingMethod",
+            "NativeCodeLinkCandidate",
+            "NativeVocabularyRecord",
+            "SourceFamily",
+            "SourceFamilyBinding",
+            "SourceSnapshotDraft",
+            "VocabularyAnchorDraft",
+            "MeasurementQualityRecord",
+            "OFFRecordQualification"
+          ]
+        },
+        "schema_version": {
+          "const": "UDF-U2C-ENVELOPE-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-U2C-ENVELOPE-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "enum": [
+            "REAL_SOURCE_GROUNDED",
+            "MIXED_CONSTRUCTED"
+          ]
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "payload": {
+          "type": "object"
+        },
+        "governance": {
+          "type": "object",
+          "properties": {
+            "legacy_ref": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/ref"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "legacy_schema_version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "stage": {
+              "enum": [
+                "U2-A",
+                "U2-B",
+                "U3-A",
+                "U2-C"
+              ]
+            },
+            "construction_class": {
+              "enum": [
+                "OBS",
+                "CON",
+                "DRV",
+                "UNDECLARED_AT_OBJECT_LEVEL"
+              ]
+            },
+            "verification_scope": {
+              "type": "string"
+            },
+            "rights_domains": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "release_status": {
+              "const": "HOLD"
+            },
+            "policy_version": {
+              "const": "UDF-U2C-POLICY-0.1"
+            },
+            "semantic_overlay": {
+              "type": "object",
+              "properties": {
+                "declared_component_ref": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "effective_component_ref": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "record_definition_status": {
+                  "type": "string"
+                },
+                "source_quantity_kind": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "target_quantity_kind": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "unit_relation": {
+                  "type": "string"
+                },
+                "value_availability": {
+                  "type": "string"
+                },
+                "measurement_equivalence": {
+                  "const": "NOT_QUALIFIED"
+                }
+              },
+              "required": [
+                "measurement_equivalence"
+              ],
+              "additionalProperties": false
+            },
+            "quality_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "quality_status": {
+              "enum": [
+                "HOLD_SOURCE_TOTAL_CONFLICT",
+                "WITHIN_EXPLORATORY_TOLERANCE_NOT_QUALIFIED"
+              ]
+            },
+            "candidate_risk": {
+              "type": "object",
+              "properties": {
+                "flags": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "rule_version": {
+                  "type": "string"
+                },
+                "legacy_review_route": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "flags",
+                "rule_version",
+                "legacy_review_route"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "legacy_ref",
+            "legacy_schema_version",
+            "stage",
+            "construction_class",
+            "verification_scope",
+            "rights_domains",
+            "release_status",
+            "policy_version"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "kind",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "payload",
+        "governance"
+      ],
+      "additionalProperties": false
+    },
+    "SourceArtifact": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "SourceArtifact"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "namespace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "file_sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "source_role": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "version_status": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "namespace",
+                "file_sha256",
+                "bytes",
+                "source_role",
+                "version_status"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "SourceAnchor": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "SourceAnchor"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "source_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "locator": {
+                  "$ref": "#/$defs/locator"
+                },
+                "integrity": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "content": {
+                  "$ref": "#/$defs/slot"
+                },
+                "source_class": {
+                  "enum": [
+                    "REAL_DATA",
+                    "REAL_DOCUMENT",
+                    "NATIVE_JUDGMENT"
+                  ]
+                }
+              },
+              "required": [
+                "source_ref",
+                "locator",
+                "integrity",
+                "content",
+                "source_class"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "NativeRecord": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "NativeRecord"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "artifact_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "anchor_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "locator": {
+                  "$ref": "#/$defs/locator"
+                },
+                "raw": {
+                  "type": "object"
+                },
+                "raw_sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "native_format": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "grain": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "artifact_ref",
+                "anchor_ref",
+                "locator",
+                "raw",
+                "raw_sha256",
+                "native_format",
+                "grain"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "FoodLabelDraft": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "FoodLabelDraft"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "native_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "bindings": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "additionalProperties": {
+                    "$ref": "#/$defs/binding"
+                  }
+                },
+                "label_namespace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "label_role": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "native_ref",
+                "bindings",
+                "label_namespace",
+                "label_role"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "FoodEntityDraft": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "FoodEntityDraft"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "native_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "bindings": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "additionalProperties": {
+                    "$ref": "#/$defs/binding"
+                  }
+                },
+                "entity_type": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "identity_scope": {
+                  "const": "SOURCE_SCOPED_ONLY"
+                }
+              },
+              "required": [
+                "native_ref",
+                "bindings",
+                "entity_type",
+                "identity_scope"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "FoodInstanceDraft": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "FoodInstanceDraft"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "native_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "bindings": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "additionalProperties": {
+                    "$ref": "#/$defs/binding"
+                  }
+                },
+                "instance_scope": {
+                  "const": "NUTRITION5K_SCAN"
+                },
+                "identity_status": {
+                  "const": "NATIVE_SCAN_ONLY_GROUP_UNRESOLVED"
+                }
+              },
+              "required": [
+                "native_ref",
+                "bindings",
+                "instance_scope",
+                "identity_status"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "RecipeDraft": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "RecipeDraft"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "native_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "bindings": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "additionalProperties": {
+                    "$ref": "#/$defs/binding"
+                  }
+                },
+                "recipe_scope": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "quantity_semantics": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "native_ref",
+                "bindings",
+                "recipe_scope",
+                "quantity_semantics"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "RecipeIngredientDraft": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "RecipeIngredientDraft"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "native_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "bindings": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "additionalProperties": {
+                    "$ref": "#/$defs/binding"
+                  }
+                },
+                "recipe_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "quantity": {
+                  "$ref": "#/$defs/slot"
+                },
+                "unit": {
+                  "$ref": "#/$defs/slot"
+                },
+                "basis": {
+                  "$ref": "#/$defs/slot"
+                },
+                "parent_ref": {
+                  "$ref": "#/$defs/slot"
+                },
+                "link_status": {
+                  "enum": [
+                    "CANDIDATE_ID_AND_CODE",
+                    "HOLD_UNMATCHED_OR_CONFLICT"
+                  ]
+                }
+              },
+              "required": [
+                "native_ref",
+                "bindings",
+                "recipe_ref",
+                "quantity",
+                "unit",
+                "basis",
+                "parent_ref",
+                "link_status"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "NutrientMeasurementDraft": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "NutrientMeasurementDraft"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "native_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "bindings": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "additionalProperties": {
+                    "$ref": "#/$defs/binding"
+                  }
+                },
+                "subject_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "component_key": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "original_value": {
+                  "$ref": "#/$defs/slot"
+                },
+                "original_unit": {
+                  "$ref": "#/$defs/slot"
+                },
+                "original_basis": {
+                  "$ref": "#/$defs/slot"
+                },
+                "normalized_value": {
+                  "$ref": "#/$defs/slot"
+                },
+                "preparation": {
+                  "$ref": "#/$defs/slot"
+                },
+                "source_method": {
+                  "$ref": "#/$defs/slot"
+                },
+                "reference_profile": {
+                  "enum": [
+                    "Q-COMPOSITION_SOURCE_UNQUALIFIED",
+                    "Q-COMMON-CALC_CANDIDATE",
+                    "Q-MASS_CANDIDATE",
+                    "Q-RECALL_CANDIDATE",
+                    "Q-LABEL_CANDIDATE",
+                    "Q-MENU_CANDIDATE"
+                  ]
+                },
+                "qualification": {
+                  "$ref": "#/$defs/slot"
+                }
+              },
+              "required": [
+                "native_ref",
+                "bindings",
+                "subject_ref",
+                "component_key",
+                "original_value",
+                "original_unit",
+                "original_basis",
+                "normalized_value",
+                "preparation",
+                "source_method",
+                "reference_profile",
+                "qualification"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "DietaryObservationDraft": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "DietaryObservationDraft"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "native_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "bindings": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "additionalProperties": {
+                    "$ref": "#/$defs/binding"
+                  }
+                },
+                "identity_scope": {
+                  "const": "SOURCE_PRIVATE_NAMESPACE_ONLY"
+                },
+                "observation_window": {
+                  "const": "SOURCE_REPORTED_DAY_NOT_HABITUAL"
+                },
+                "measurement_role": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "aggregation_status": {
+                  "const": "HOLD_DUPLICATE_GRAIN_UNRESOLVED"
+                }
+              },
+              "required": [
+                "native_ref",
+                "bindings",
+                "identity_scope",
+                "observation_window",
+                "measurement_role",
+                "aggregation_status"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "MediaObservationDraft": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "MediaObservationDraft"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "native_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "bindings": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "additionalProperties": {
+                    "$ref": "#/$defs/binding"
+                  }
+                },
+                "annotation_kind": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "media_identity_status": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "native_ref",
+                "bindings",
+                "annotation_kind",
+                "media_identity_status"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "ProcessObservationDraft": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "ProcessObservationDraft"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "native_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "bindings": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "additionalProperties": {
+                    "$ref": "#/$defs/binding"
+                  }
+                },
+                "event_role": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "time_basis": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "native_ref",
+                "bindings",
+                "event_role",
+                "time_basis"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "ProcessVocabularyDraft": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "ProcessVocabularyDraft"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "native_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "bindings": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "additionalProperties": {
+                    "$ref": "#/$defs/binding"
+                  }
+                },
+                "label_namespace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "vocabulary_role": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "native_ref",
+                "bindings",
+                "label_namespace",
+                "vocabulary_role"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "VideoMetadataDraft": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "VideoMetadataDraft"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "native_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "bindings": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "additionalProperties": {
+                    "$ref": "#/$defs/binding"
+                  }
+                },
+                "media_scope": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "time_basis": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "native_ref",
+                "bindings",
+                "media_scope",
+                "time_basis"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "QARecordDraft": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "QARecordDraft"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "native_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "bindings": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "additionalProperties": {
+                    "$ref": "#/$defs/binding"
+                  }
+                },
+                "exposure_status": {
+                  "const": "DEVELOPMENT_EXPOSED"
+                }
+              },
+              "required": [
+                "native_ref",
+                "bindings",
+                "exposure_status"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "ProductVersionDraft": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "ProductVersionDraft"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "native_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "bindings": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "additionalProperties": {
+                    "$ref": "#/$defs/binding"
+                  }
+                },
+                "product_identity_status": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "nutrition_basis": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "native_ref",
+                "bindings",
+                "product_identity_status",
+                "nutrition_basis"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "NativeLinkDraft": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "NativeLinkDraft"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "native_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "bindings": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "additionalProperties": {
+                    "$ref": "#/$defs/binding"
+                  }
+                },
+                "relation_type": {
+                  "const": "NATIVE_CANDIDATE_LINK"
+                },
+                "left_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "right_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "status": {
+                  "const": "STRUCTURALLY_MATCHED"
+                },
+                "semantic_qualification": {
+                  "const": "PENDING"
+                }
+              },
+              "required": [
+                "native_ref",
+                "bindings",
+                "relation_type",
+                "left_ref",
+                "right_ref",
+                "status",
+                "semantic_qualification"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "AuthoritySnapshot": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "AuthoritySnapshot"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "authority_key": {
+                  "type": "string"
+                },
+                "locator": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "source": {
+                  "type": "string"
+                },
+                "verification": {
+                  "type": "string"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "member_sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "reader": {
+                  "type": "string"
+                },
+                "verified_field_rows": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "field": {
+                        "type": "string"
+                      },
+                      "row": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "data_type": {
+                        "type": "string"
+                      },
+                      "unit_interpretation": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "field",
+                      "row",
+                      "description",
+                      "data_type",
+                      "unit_interpretation"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "worksheet": {
+                  "type": "string"
+                },
+                "zip_member": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "authority_key",
+                "locator",
+                "sha256",
+                "source",
+                "verification"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "ComponentConcept": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "ComponentConcept"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "component_id": {
+                  "type": "string"
+                },
+                "definition": {
+                  "type": "string"
+                },
+                "external_mapping": {
+                  "$ref": "#/$defs/slot"
+                },
+                "identity_scope": {
+                  "type": "string"
+                },
+                "kind_family": {
+                  "type": "string"
+                },
+                "qualification": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "component_id",
+                "definition",
+                "external_mapping",
+                "identity_scope",
+                "kind_family",
+                "qualification"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "MeasurementDefinition": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "MeasurementDefinition"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "aggregation": {
+                  "type": "string"
+                },
+                "authority_keys": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "basis": {
+                  "$ref": "#/$defs/slot"
+                },
+                "blockers": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "component_ref": {
+                  "type": "string"
+                },
+                "concept_key": {
+                  "type": "string"
+                },
+                "cost_definition": {
+                  "$ref": "#/$defs/slot"
+                },
+                "error_model": {
+                  "$ref": "#/$defs/slot"
+                },
+                "leakage_risk": {
+                  "type": "string"
+                },
+                "measurement_definition_id": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": "string"
+                },
+                "qualification": {
+                  "type": "string"
+                },
+                "reference_window": {
+                  "type": "string"
+                },
+                "reliability": {
+                  "$ref": "#/$defs/slot"
+                },
+                "unit": {
+                  "$ref": "#/$defs/slot"
+                },
+                "validity": {
+                  "$ref": "#/$defs/slot"
+                },
+                "value_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "aggregation",
+                "authority_keys",
+                "basis",
+                "blockers",
+                "component_ref",
+                "concept_key",
+                "cost_definition",
+                "error_model",
+                "leakage_risk",
+                "measurement_definition_id",
+                "method",
+                "qualification",
+                "reference_window",
+                "reliability",
+                "unit",
+                "validity",
+                "value_type"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "MeasurementInterpretation": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "MeasurementInterpretation"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "conversion_ref": {
+                  "$ref": "#/$defs/slot"
+                },
+                "field_semantics_status": {
+                  "type": "string"
+                },
+                "interpretation_basis": {
+                  "$ref": "#/$defs/slot"
+                },
+                "interpretation_unit": {
+                  "$ref": "#/$defs/slot"
+                },
+                "measurement_definition_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "missingness": {
+                  "type": "object",
+                  "properties": {
+                    "lexical_class": {
+                      "type": "string"
+                    },
+                    "semantic_state": {
+                      "type": "string"
+                    },
+                    "quantity": {
+                      "$ref": "#/$defs/slot"
+                    },
+                    "measured_zero_proved": {
+                      "const": false
+                    }
+                  },
+                  "required": [
+                    "lexical_class",
+                    "semantic_state",
+                    "quantity",
+                    "measured_zero_proved"
+                  ],
+                  "additionalProperties": false
+                },
+                "normalized_food_value": {
+                  "$ref": "#/$defs/slot"
+                },
+                "off_row_check": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "original_display_unit": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "tolerance": {
+                          "type": "string"
+                        },
+                        "abs_difference": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "original_display_unit"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "purpose": {
+                  "type": "string"
+                },
+                "qualification": {
+                  "type": "string"
+                },
+                "reference_profile": {
+                  "type": "string"
+                },
+                "source_measurement_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "source_native_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "source_raw": {}
+              },
+              "required": [
+                "conversion_ref",
+                "field_semantics_status",
+                "interpretation_basis",
+                "interpretation_unit",
+                "measurement_definition_ref",
+                "missingness",
+                "normalized_food_value",
+                "off_row_check",
+                "purpose",
+                "qualification",
+                "reference_profile",
+                "source_measurement_ref",
+                "source_native_ref",
+                "source_raw"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "NamespaceBinding": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "NamespaceBinding"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "artifact_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "global_entity": {
+                  "const": false
+                },
+                "identity_scope": {
+                  "type": "string"
+                },
+                "key_domain": {
+                  "type": "string"
+                },
+                "key_value": {
+                  "type": "object"
+                },
+                "namespace_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "native_ref": {
+                  "$ref": "#/$defs/ref"
+                }
+              },
+              "required": [
+                "artifact_ref",
+                "global_entity",
+                "identity_scope",
+                "key_domain",
+                "key_value",
+                "namespace_ref",
+                "native_ref"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "NamespaceKeyBinding": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "NamespaceKeyBinding"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "identity_scope": {
+                  "type": "string"
+                },
+                "key_domain": {
+                  "type": "string"
+                },
+                "key_field": {
+                  "type": "string"
+                },
+                "key_value": {
+                  "type": "string"
+                },
+                "namespace_id": {
+                  "type": "string"
+                },
+                "namespace_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "qualification": {
+                  "type": "string"
+                },
+                "source_object_ref": {
+                  "$ref": "#/$defs/ref"
+                }
+              },
+              "required": [
+                "identity_scope",
+                "key_domain",
+                "key_field",
+                "key_value",
+                "namespace_id",
+                "namespace_ref",
+                "qualification",
+                "source_object_ref"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "NamespaceLinkQualification": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "NamespaceLinkQualification"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "left_namespace": {
+                  "type": "string"
+                },
+                "qualification": {
+                  "type": "string"
+                },
+                "right_namespace": {
+                  "type": "string"
+                },
+                "rule": {
+                  "type": "string"
+                },
+                "same_physical_instance": {
+                  "const": false
+                },
+                "source_candidate_ref": {
+                  "$ref": "#/$defs/ref"
+                }
+              },
+              "required": [
+                "left_namespace",
+                "qualification",
+                "right_namespace",
+                "rule",
+                "same_physical_instance",
+                "source_candidate_ref"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "NativeNamespace": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "NativeNamespace"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "cross_source_identity": {
+                  "type": "string"
+                },
+                "namespace_id": {
+                  "type": "string"
+                },
+                "native_namespace": {
+                  "type": "string"
+                },
+                "origin_version_equivalence": {
+                  "type": "string"
+                },
+                "qualification": {
+                  "type": "string"
+                },
+                "scope": {
+                  "type": "string"
+                },
+                "snapshot_artifact_refs": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/ref"
+                  },
+                  "uniqueItems": true
+                },
+                "source_roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "cross_source_identity",
+                "namespace_id",
+                "native_namespace",
+                "origin_version_equivalence",
+                "qualification",
+                "scope",
+                "snapshot_artifact_refs",
+                "source_roles"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "QuantityInterpretation": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "QuantityInterpretation"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "aggregation": {
+                  "type": "string"
+                },
+                "basis": {
+                  "$ref": "#/$defs/slot"
+                },
+                "duplicate_raw_column_retained": {
+                  "type": "string"
+                },
+                "duplicate_raw_equal": {
+                  "type": "boolean"
+                },
+                "measurement_definition_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "missingness": {
+                  "type": "object",
+                  "properties": {
+                    "lexical_class": {
+                      "type": "string"
+                    },
+                    "semantic_state": {
+                      "type": "string"
+                    },
+                    "quantity": {
+                      "$ref": "#/$defs/slot"
+                    },
+                    "measured_zero_proved": {
+                      "const": false
+                    }
+                  },
+                  "required": [
+                    "lexical_class",
+                    "semantic_state",
+                    "quantity",
+                    "measured_zero_proved"
+                  ],
+                  "additionalProperties": false
+                },
+                "qualification": {
+                  "type": "string"
+                },
+                "source_object_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "source_raw": {},
+                "unit": {
+                  "$ref": "#/$defs/slot"
+                }
+              },
+              "required": [
+                "aggregation",
+                "basis",
+                "measurement_definition_ref",
+                "missingness",
+                "qualification",
+                "source_object_ref",
+                "source_raw",
+                "unit"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "RepresentationConversion": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "RepresentationConversion"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "construction_class": {
+                  "type": "string"
+                },
+                "factor": {
+                  "type": "string"
+                },
+                "input": {
+                  "type": "string"
+                },
+                "measurement_definition_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "numerator_unit": {
+                  "type": "string"
+                },
+                "operation": {
+                  "type": "string"
+                },
+                "origin_mode": {
+                  "type": "string"
+                },
+                "output_basis": {
+                  "type": "string"
+                },
+                "qualification": {
+                  "type": "string"
+                },
+                "source_measurement_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "construction_class",
+                "factor",
+                "input",
+                "measurement_definition_ref",
+                "numerator_unit",
+                "operation",
+                "origin_mode",
+                "output_basis",
+                "qualification",
+                "source_measurement_ref",
+                "value"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "AlignmentRecord": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "AlignmentRecord"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "accepted_equivalence": {
+                  "const": false
+                },
+                "conditions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "direction": {
+                  "type": "string"
+                },
+                "hard_conflicts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "input_dependency_refs": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/ref"
+                  },
+                  "uniqueItems": true
+                },
+                "matched_form_type": {
+                  "type": "string"
+                },
+                "matched_target_form": {
+                  "type": "string"
+                },
+                "mechanism": {
+                  "type": "string"
+                },
+                "method_version_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "permitted_purposes": {
+                  "const": [
+                    "CURATION_DEV"
+                  ]
+                },
+                "physical_instance_link": {
+                  "const": false
+                },
+                "prohibited_purposes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "proposed_relation": {
+                  "type": "string"
+                },
+                "query_form": {
+                  "type": "string"
+                },
+                "query_method": {
+                  "type": "string"
+                },
+                "rank": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "ranking_score": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "relation_type": {
+                  "const": "UNRESOLVED"
+                },
+                "review_route": {
+                  "enum": [
+                    "AMBER",
+                    "RED"
+                  ]
+                },
+                "review_status": {
+                  "const": "PENDING"
+                },
+                "scope": {
+                  "type": "string"
+                },
+                "score_interpretation": {
+                  "type": "string"
+                },
+                "source_anchor_refs": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/ref"
+                  },
+                  "uniqueItems": true
+                },
+                "source_grain": {
+                  "type": "string"
+                },
+                "source_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "source_relation_to_target": {
+                  "const": "UNRESOLVED"
+                },
+                "target_grain": {
+                  "type": "string"
+                },
+                "target_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "uncertainty": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "semantic_review": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "semantic_review"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "accepted_equivalence",
+                "conditions",
+                "direction",
+                "hard_conflicts",
+                "input_dependency_refs",
+                "matched_form_type",
+                "matched_target_form",
+                "mechanism",
+                "method_version_ref",
+                "permitted_purposes",
+                "physical_instance_link",
+                "prohibited_purposes",
+                "proposed_relation",
+                "query_form",
+                "query_method",
+                "rank",
+                "ranking_score",
+                "relation_type",
+                "review_route",
+                "review_status",
+                "scope",
+                "score_interpretation",
+                "source_anchor_refs",
+                "source_grain",
+                "source_ref",
+                "source_relation_to_target",
+                "target_grain",
+                "target_ref",
+                "uncertainty"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "CanonicalFoodConceptCandidate": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "CanonicalFoodConceptCandidate"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "equivalence_class": {
+                  "const": "NOT_ASSIGNED"
+                },
+                "food_state": {
+                  "type": "string"
+                },
+                "grain": {
+                  "type": "string"
+                },
+                "identity_scope": {
+                  "type": "string"
+                },
+                "proposed_label": {
+                  "type": "string"
+                },
+                "review_status": {
+                  "const": "PENDING"
+                },
+                "seed_native_ref": {
+                  "$ref": "#/$defs/ref"
+                }
+              },
+              "required": [
+                "equivalence_class",
+                "food_state",
+                "grain",
+                "identity_scope",
+                "proposed_label",
+                "review_status",
+                "seed_native_ref"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "ComponentAlignmentCandidate": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "ComponentAlignmentCandidate"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "accepted_equivalence": {
+                  "const": false
+                },
+                "conversion": {
+                  "const": "NOT_AUTHORIZED"
+                },
+                "direction": {
+                  "type": "string"
+                },
+                "measurement_qualification": {
+                  "const": "HOLD"
+                },
+                "mechanism": {
+                  "type": "string"
+                },
+                "method_version_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "permitted_purposes": {
+                  "const": [
+                    "CURATION_DEV"
+                  ]
+                },
+                "proposed_relation": {
+                  "type": "string"
+                },
+                "relation_type": {
+                  "const": "UNRESOLVED"
+                },
+                "review_route": {
+                  "type": "string"
+                },
+                "review_status": {
+                  "const": "PENDING"
+                },
+                "source_basis": {
+                  "type": "string"
+                },
+                "source_grain": {
+                  "type": "string"
+                },
+                "source_method": {
+                  "type": "string"
+                },
+                "source_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "source_unit": {
+                  "type": "string"
+                },
+                "target_grain": {
+                  "type": "string"
+                },
+                "target_present_in_sr_food_nutrient": {
+                  "type": "boolean"
+                },
+                "target_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "target_unit": {
+                  "type": "string"
+                },
+                "unit_dimension_candidate_match": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "accepted_equivalence",
+                "conversion",
+                "direction",
+                "measurement_qualification",
+                "mechanism",
+                "method_version_ref",
+                "permitted_purposes",
+                "proposed_relation",
+                "relation_type",
+                "review_route",
+                "review_status",
+                "source_basis",
+                "source_grain",
+                "source_method",
+                "source_ref",
+                "source_unit",
+                "target_grain",
+                "target_present_in_sr_food_nutrient",
+                "target_ref",
+                "target_unit",
+                "unit_dimension_candidate_match"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "ComponentConceptCandidate": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "ComponentConceptCandidate"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "declared_label": {
+                  "type": "string"
+                },
+                "global_exact": {
+                  "const": false
+                },
+                "native_unit": {
+                  "type": "string"
+                },
+                "prior_relation": {
+                  "type": "string"
+                },
+                "prior_u2b_component_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "prior_u2b_registry_blob": {
+                  "type": "string"
+                },
+                "review_status": {
+                  "const": "PENDING"
+                },
+                "source_field_ref": {
+                  "$ref": "#/$defs/ref"
+                }
+              },
+              "required": [
+                "declared_label",
+                "global_exact",
+                "native_unit",
+                "prior_relation",
+                "prior_u2b_component_id",
+                "prior_u2b_registry_blob",
+                "review_status",
+                "source_field_ref"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "ComponentNativeField": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "ComponentNativeField"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "native_id": {
+                  "type": "string"
+                },
+                "native_name": {
+                  "type": "string"
+                },
+                "native_namespace": {
+                  "type": "string"
+                },
+                "native_unit": {
+                  "type": "string"
+                },
+                "nutrient_nbr": {
+                  "type": "string"
+                },
+                "observed_food_nutrient_rows": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "occurrences": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "scientific_qualification": {
+                  "type": "string"
+                },
+                "source_locator": {
+                  "type": "object"
+                }
+              },
+              "required": [
+                "native_id",
+                "native_name",
+                "native_namespace",
+                "native_unit",
+                "scientific_qualification",
+                "source_locator"
+              ],
+              "additionalProperties": false,
+              "oneOf": [
+                {
+                  "required": [
+                    "nutrient_nbr",
+                    "observed_food_nutrient_rows"
+                  ],
+                  "not": {
+                    "required": [
+                      "occurrences"
+                    ]
+                  }
+                },
+                {
+                  "required": [
+                    "occurrences"
+                  ],
+                  "not": {
+                    "anyOf": [
+                      {
+                        "required": [
+                          "nutrient_nbr"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "observed_food_nutrient_rows"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "FNDDSCarrierCrosswalk": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "FNDDSCarrierCrosswalk"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "ars_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "cycle": {
+                  "const": "2015-16"
+                },
+                "description_comparison": {
+                  "type": "string"
+                },
+                "fdc_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "food_code": {
+                  "type": "string",
+                  "pattern": "^[0-9]{8}$"
+                },
+                "measurement_qualification": {
+                  "const": "HOLD"
+                },
+                "same_release_not_independent": {
+                  "const": true
+                },
+                "semantic_equivalence_accepted": {
+                  "const": false
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ars_ref",
+                "cycle",
+                "description_comparison",
+                "fdc_ref",
+                "food_code",
+                "measurement_qualification",
+                "same_release_not_independent",
+                "semantic_equivalence_accepted",
+                "status"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "MappingMethod": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "MappingMethod"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "bilingual_seed_status": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": "string"
+                },
+                "min_score": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "normalization": {
+                  "type": "string"
+                },
+                "pool_limit": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "review": {
+                  "type": "string"
+                },
+                "score": {
+                  "type": "string"
+                },
+                "seed_count": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "top_k": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "bilingual_seed_status",
+                "method",
+                "min_score",
+                "normalization",
+                "pool_limit",
+                "review",
+                "score",
+                "seed_count",
+                "top_k"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "NativeCodeLinkCandidate": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "NativeCodeLinkCandidate"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "measurement_and_aggregation": {
+                  "const": "HOLD"
+                },
+                "native_code": {
+                  "type": "string"
+                },
+                "relation_type": {
+                  "type": "string"
+                },
+                "same_physical_instance": {
+                  "const": false
+                },
+                "source_locator": {
+                  "type": "object"
+                },
+                "source_snapshot": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "target_ars_ref": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/ref"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "target_cycle": {
+                  "const": "2015-16"
+                },
+                "target_fdc_ref": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/ref"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "measurement_and_aggregation",
+                "native_code",
+                "relation_type",
+                "same_physical_instance",
+                "source_locator",
+                "source_snapshot",
+                "status",
+                "target_ars_ref",
+                "target_cycle",
+                "target_fdc_ref"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "NativeVocabularyRecord": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "NativeVocabularyRecord"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "artifact_sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "global_concept_identity": {
+                  "type": "string"
+                },
+                "label_language": {
+                  "type": "string"
+                },
+                "metadata": {
+                  "type": "object"
+                },
+                "native_aliases": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "text": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "text",
+                      "type"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "native_key": {
+                  "type": "string"
+                },
+                "native_kind": {
+                  "type": "string"
+                },
+                "native_label": {
+                  "type": "string"
+                },
+                "native_namespace": {
+                  "type": "string"
+                },
+                "qualification": {
+                  "type": "string"
+                },
+                "snapshot_id": {
+                  "type": "string"
+                },
+                "source_anchor_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "source_locator": {
+                  "type": "object"
+                }
+              },
+              "required": [
+                "artifact_sha256",
+                "global_concept_identity",
+                "label_language",
+                "metadata",
+                "native_aliases",
+                "native_key",
+                "native_kind",
+                "native_label",
+                "native_namespace",
+                "qualification",
+                "snapshot_id",
+                "source_anchor_ref",
+                "source_locator"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "SourceFamily": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "SourceFamily"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "carrier_scope": {
+                  "type": "string"
+                },
+                "evidence": {
+                  "type": "object"
+                },
+                "independence_status": {
+                  "enum": [
+                    "POTENTIAL_SHARED_UPSTREAM",
+                    "INDEPENDENCE_UNRESOLVED"
+                  ]
+                },
+                "independent_measurement_claim": {
+                  "const": false
+                },
+                "potential_family": {
+                  "type": "string"
+                },
+                "relation_status": {
+                  "type": "string"
+                },
+                "reported_source_label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "carrier_scope",
+                "evidence",
+                "independence_status",
+                "independent_measurement_claim",
+                "potential_family",
+                "relation_status",
+                "reported_source_label"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "SourceFamilyBinding": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "SourceFamilyBinding"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "native_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "qualification": {
+                  "type": "string"
+                },
+                "source_family_ref": {
+                  "$ref": "#/$defs/ref"
+                }
+              },
+              "required": [
+                "native_ref",
+                "qualification",
+                "source_family_ref"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "SourceSnapshotDraft": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "SourceSnapshotDraft"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "file": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "scope": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "snapshot_id": {
+                  "type": "string"
+                },
+                "source_role": {
+                  "type": "string"
+                },
+                "source_url": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "version": {
+                  "type": [
+                    "string",
+                    "array"
+                  ]
+                }
+              },
+              "required": [
+                "bytes",
+                "file",
+                "path",
+                "scope",
+                "sha256",
+                "snapshot_id",
+                "source_role",
+                "source_url",
+                "version"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "VocabularyAnchorDraft": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "VocabularyAnchorDraft"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "artifact_sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "locator": {
+                  "type": "object"
+                },
+                "native_key": {
+                  "type": "string"
+                },
+                "qualification": {
+                  "type": "string"
+                },
+                "resolution": {
+                  "type": "string"
+                },
+                "scope": {
+                  "type": "string"
+                },
+                "source_snapshot_ref": {
+                  "$ref": "#/$defs/ref"
+                }
+              },
+              "required": [
+                "artifact_sha256",
+                "locator",
+                "native_key",
+                "qualification",
+                "resolution",
+                "scope",
+                "source_snapshot_ref"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "MeasurementQualityRecord": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "MeasurementQualityRecord"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "source_artifact_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "artifact_sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "csv_record": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "field": {
+                  "type": "string"
+                },
+                "unit": {
+                  "type": "string"
+                },
+                "source_total": {
+                  "type": "string"
+                },
+                "ingredient_sum": {
+                  "type": "string"
+                },
+                "absolute_difference": {
+                  "type": "string"
+                },
+                "threshold": {
+                  "type": "string"
+                },
+                "status": {
+                  "enum": [
+                    "HOLD_SOURCE_TOTAL_CONFLICT",
+                    "WITHIN_EXPLORATORY_TOLERANCE_NOT_QUALIFIED"
+                  ]
+                },
+                "policy_ref": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_artifact_ref",
+                "artifact_sha256",
+                "csv_record",
+                "field",
+                "unit",
+                "source_total",
+                "ingredient_sum",
+                "absolute_difference",
+                "threshold",
+                "status",
+                "policy_ref"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "OFFRecordQualification": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "OFFRecordQualification"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "snapshot_sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "source_locator": {
+                  "type": "object"
+                },
+                "native_field": {
+                  "type": "string"
+                },
+                "declared_component_ref": {
+                  "type": "string"
+                },
+                "effective_component_ref": {
+                  "type": "string"
+                },
+                "source_raw": {},
+                "numerator_unit": {
+                  "type": "string"
+                },
+                "basis_declaration": {
+                  "type": "string"
+                },
+                "record_definition_status": {
+                  "type": "string"
+                },
+                "qualification": {
+                  "const": "HOLD"
+                }
+              },
+              "required": [
+                "snapshot_sha256",
+                "source_locator",
+                "native_field",
+                "declared_component_ref",
+                "effective_component_ref",
+                "source_raw",
+                "numerator_unit",
+                "basis_declaration",
+                "record_definition_status",
+                "qualification"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    }
+  }
+}

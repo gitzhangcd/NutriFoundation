@@ -1,0 +1,181 @@
+{
+  "status": "PASS_R2_READ_ONLY_REPLAY_AND_DEVELOPMENT_CONTRACTS",
+  "tests_passed": 33,
+  "tests_total": 33,
+  "tests": [
+    {
+      "test": "R1-A2 32 pinned inputs 3 frozen outputs",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "34766 question rows exact source rederive and strict schema",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "4544 frozen arm lists exact replay",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "44 and reserved 32 source-only projections distinct",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "new cohort 44 includes 19 current and 25 old-only",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "stratified 32 sample all current, four 8-case strata",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "no generator decisions or strata in reviewer packets",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "typed questions never contain prior RED or explicit conflicts",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "all 284 R1 abstentions preserved",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "target universes independently preserved and disjoint",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "peeled regression apple (peeled)",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "peeled regression 苹果(去皮)",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "no current peel assertion from source history",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "negated peel does not trigger peeled",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "implicit alias conditional review signal 米饭",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "implicit alias conditional review signal 炒饭",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "candidate cannot become accepted equivalence",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "candidate cannot become scientific review authorized",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "question route rejects explicit conflict",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "candidate cannot become formal release",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "unresolved retained in reference contract",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "source explicit null cannot pass reference schema",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "reference cannot be expert gold",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "synthetic response binds real native target id and locator",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "conditional candidate needs explicit conditions",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "HOLD cannot assert supported exact candidate",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "reference evidence index out of range rejected",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "fake native target rejected",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "source-only reference hit not called scientific recall",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "zero reference denominator stays null",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "old expert schema accepts HOLD+EXACT, v0.3 rejects",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "old expert schema accepts REJECT+EXACT, v0.3 rejects",
+      "pass": true,
+      "observed": "ACCEPT"
+    },
+    {
+      "test": "expert unresolved response remains structurally valid",
+      "pass": true,
+      "observed": "ACCEPT"
+    }
+  ],
+  "candidate_questions_replayed": 34766,
+  "ranked_arm_groups_replayed": 4544,
+  "review_packets_replayed": 76,
+  "input_fences_unchanged": 101,
+  "independent_reviews_completed": 0,
+  "mapping_release_count": 0,
+  "expert_schema_v0_3_activated": false,
+  "phase_b_per_edge_binding": "HOLD_EA_P0",
+  "note": "Same-code deterministic rederive from frozen inputs plus schema and synthetic regression probes; not independent scientific review."
+}

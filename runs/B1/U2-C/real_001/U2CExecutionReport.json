@@ -1,0 +1,178 @@
+{
+  "status": "PASS_BOUNDED_U2C_PROJECTION_AND_ADMISSION",
+  "legacy_objects": 228191,
+  "legacy_kinds": 40,
+  "source_stage_counts": {
+    "U2-A": 5699,
+    "U2-B": 5665,
+    "U3-A": 216827
+  },
+  "new_objects": 25058,
+  "object_count": 253249,
+  "typed_kinds": {
+    "DietaryObservationDraft": 40,
+    "FoodEntityDraft": 295,
+    "FoodInstanceDraft": 33,
+    "FoodLabelDraft": 112,
+    "MediaObservationDraft": 72,
+    "NativeLinkDraft": 358,
+    "NativeRecord": 747,
+    "NutrientMeasurementDraft": 2851,
+    "ProcessObservationDraft": 32,
+    "ProcessVocabularyDraft": 38,
+    "ProductVersionDraft": 11,
+    "QARecordDraft": 24,
+    "RecipeDraft": 58,
+    "RecipeIngredientDraft": 226,
+    "SourceAnchor": 747,
+    "SourceArtifact": 23,
+    "VideoMetadataDraft": 32,
+    "AuthoritySnapshot": 11,
+    "ComponentConcept": 19,
+    "MeasurementDefinition": 43,
+    "MeasurementInterpretation": 2851,
+    "NamespaceBinding": 747,
+    "NamespaceKeyBinding": 611,
+    "NamespaceLinkQualification": 578,
+    "NativeNamespace": 19,
+    "QuantityInterpretation": 266,
+    "RepresentationConversion": 520,
+    "AlignmentRecord": 17079,
+    "CanonicalFoodConceptCandidate": 2876,
+    "ComponentAlignmentCandidate": 112,
+    "ComponentConceptCandidate": 98,
+    "ComponentNativeField": 572,
+    "FNDDSCarrierCrosswalk": 8690,
+    "MappingMethod": 1,
+    "NativeCodeLinkCandidate": 4761,
+    "NativeVocabularyRecord": 65592,
+    "SourceFamily": 26,
+    "SourceFamilyBinding": 51406,
+    "SourceSnapshotDraft": 24,
+    "VocabularyAnchorDraft": 65592,
+    "MeasurementQualityRecord": 25030,
+    "OFFRecordQualification": 26
+  },
+  "rights_partitions": 19,
+  "partition_counts": {
+    "SNAPME_RESTRICTED_OBSERVATION": 485,
+    "NUTRIDATA_RIGHTS_UNRESOLVED": 79567,
+    "NUTRITION5K_SOURCE_REVIEW": 29610,
+    "OTHER_SOURCE_RIGHTS_UNRESOLVED": 4087,
+    "MIRROR_ORIGINAL_RIGHTS_UNRESOLVED": 1833,
+    "OFF_ODBL_REVIEW": 178,
+    "AUTHORITY_SOURCE_REVIEW": 73,
+    "MIXED_RESTRICTED_d441572159bb63b7": 1066,
+    "MIXED_RESTRICTED_451e5ed274e1353a": 2195,
+    "MIXED_RESTRICTED_297aec72800d75da": 280,
+    "MIXED_RESTRICTED_d55cbb40cb8d4575": 55,
+    "MIXED_RESTRICTED_c59f1996a0707342": 41,
+    "MIXED_RESTRICTED_26a81ce6e11241e6": 7812,
+    "MIXED_RESTRICTED_20ea45709cd5bd53": 3365,
+    "MIXED_RESTRICTED_739ac9868b9afbc0": 4948,
+    "MIXED_RESTRICTED_8b4d0cda839dcd58": 1067,
+    "FOODON_LICENSE_REVIEW": 27258,
+    "USDA_PUBLIC_DOMAIN_CANDIDATE": 84689,
+    "MIXED_RESTRICTED_36fe7ccacdf7f81b": 4640
+  },
+  "quality": {
+    "dish_rows": 5006,
+    "WITHIN_EXPLORATORY_TOLERANCE_NOT_QUALIFIED": 23638,
+    "dish_rows_any_conflict": 681,
+    "HOLD_SOURCE_TOTAL_CONFLICT": 1392,
+    "selected_total": 165,
+    "selected_conflict": 65
+  },
+  "off": {
+    "historical_products": 11,
+    "carbohydrate_fields_interpreted": 26,
+    "field:carbohydrates_100g": 26,
+    "new_products": 20,
+    "new_basis:SOURCE_DECLARED_100ML": 11,
+    "new_basis:SOURCE_DECLARED_100G": 9,
+    "real_nonstandard_unit_pairs": 0,
+    "actual_total_carbohydrate_values_new": 0
+  },
+  "actual_measurement_gate_requests": 2851,
+  "gate_results": [
+    {
+      "decision": "HOLD",
+      "reason": "HOLD_SOURCE_TOTAL_CONFLICT",
+      "count": 65
+    },
+    {
+      "decision": "HOLD",
+      "reason": "MEASUREMENT_NOT_QUALIFIED",
+      "count": 2775
+    },
+    {
+      "decision": "HOLD",
+      "reason": "OFF_RECORD_COMPONENT_DEFINITION_UNRESOLVED",
+      "count": 11
+    }
+  ],
+  "research_measurements_qualified": 0,
+  "mapping_releases": 0,
+  "scientific_releases": 0,
+  "global_b1_frozen": false,
+  "global_u3_frozen": false,
+  "manifest_sha256": "861d4866dddeeae8b7dbb6db66a70cde0403530b72d88787d55e3a6af2ce4a2f",
+  "schema_sha256": "f248612697762d0f27ed534ef1a774b9bef758d6605a6a37fa7651853ece35af",
+  "schema_validator": "jsonschema Draft202012Validator",
+  "schema_validated_objects": 253249,
+  "candidate_risk_route_changes": [
+    {
+      "new": "AMBER",
+      "legacy": "AMBER",
+      "count": 17042
+    },
+    {
+      "new": "RED",
+      "legacy": "AMBER",
+      "count": 33
+    },
+    {
+      "new": "RED",
+      "legacy": "RED",
+      "count": 4
+    }
+  ],
+  "component_route_counts": [
+    {
+      "route": "AMBER",
+      "unit_relation": "SAME_DECLARED_QUANTITY_KIND",
+      "value_availability": "DICTIONARY_ONLY_NO_SOURCE_VALUES",
+      "count": 6
+    },
+    {
+      "route": "AMBER",
+      "unit_relation": "SAME_DECLARED_QUANTITY_KIND",
+      "value_availability": "SOURCE_VALUES_PRESENT",
+      "count": 74
+    },
+    {
+      "route": "RED",
+      "unit_relation": "DIFFERENT_QUANTITY_KIND",
+      "value_availability": "SOURCE_VALUES_PRESENT",
+      "count": 2
+    },
+    {
+      "route": "RED",
+      "unit_relation": "SAME_DECLARED_QUANTITY_KIND",
+      "value_availability": "DICTIONARY_ONLY_NO_SOURCE_VALUES",
+      "count": 8
+    },
+    {
+      "route": "RED",
+      "unit_relation": "SAME_DECLARED_QUANTITY_KIND",
+      "value_availability": "SOURCE_VALUES_PRESENT",
+      "count": 22
+    }
+  ],
+  "authority_verification_counts": {
+    "LOCAL_SOURCE_BYTES_VERIFIED": 9,
+    "CLOUD_HASH_RECORDED_NOT_LOCAL_BYTES_VERIFIED": 2
+  },
+  "input_files_unchanged": true,
+  "partition_manifest_sha256": "305341af924c55d6945ac7bd8aeecf7043137756f5bd128761122ce0dc06bbb3"
+}

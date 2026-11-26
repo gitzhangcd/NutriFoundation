@@ -1,0 +1,36 @@
+{
+  "status": "PASS_HISTORICAL_NON_REGRESSION",
+  "historical_tests": {
+    "U2-A": {
+      "total": 46,
+      "passed": 46,
+      "failed": 0,
+      "test_code_git_blob": "efe85bd48903cdc17faa46275d0e0fc1a427f043",
+      "exit_code": 0
+    },
+    "U2-B": {
+      "total": 49,
+      "passed": 49,
+      "failed": 0,
+      "test_code_git_blob": "e36a1e94eccd5f71d454353309cf6f1a02e0a631",
+      "exit_code": 0
+    },
+    "U3-A": {
+      "total": 34,
+      "passed": 34,
+      "failed": 0,
+      "test_code_git_blob": "c97e19ecce69c2de8aac18fcc26533b174bd1682",
+      "exit_code": 0
+    },
+    "D0": {
+      "passed": 12,
+      "total": 12,
+      "exact_bridge_roundtrip": 770,
+      "pinned_commit": "09e854dced620645c49b72f5c4040610f162ef59"
+    }
+  },
+  "total": 141,
+  "passed": 141,
+  "old_report_files_unchanged": true,
+  "scope": "historical fixture reruns; separate reports, no new scientific reference or independent Critic data"
+}

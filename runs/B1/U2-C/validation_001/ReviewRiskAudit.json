@@ -1,0 +1,21 @@
+{
+  "status": "PASS_READ_ONLY_REVIEW_RISK_AUDIT",
+  "candidate_edges_checked": 17079,
+  "existing_source_queue": 44,
+  "previous_rule_red_sources": 4,
+  "new_rule_red_sources": 22,
+  "new_red_sources_already_queued": 4,
+  "new_red_sources_not_queued": 18,
+  "high_score_amber_sources": 558,
+  "high_score_amber_sources_not_queued": 547,
+  "state_unresolved_sources": 1950,
+  "edge_flags": {
+    "STATE_DIMENSION_UNRESOLVED": 16357,
+    "HIGH_LEXICAL_SCORE_REVIEW": 739,
+    "EXPLICIT_STATE_CONFLICT_CANDIDATE": 37
+  },
+  "source_only_queue_unchanged": true,
+  "review_completed_by_this_audit": 0,
+  "new_review_queue_released": false,
+  "limit": "Persisted candidate risk re-screen only; pre-ranking discarded candidates and independent semantic accuracy remain unmeasured. Existing Gemini review packets untouched."
+}

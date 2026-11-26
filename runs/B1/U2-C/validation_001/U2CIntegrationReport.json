@@ -1,0 +1,376 @@
+{
+  "status": "PASS_U2C_INTEGRATION",
+  "tests": [
+    {
+      "test": "full 40-kind historical projection replay, new 2 kinds",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "current record accepted only through version-bound projection",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "real candidate inspection through consumer entry",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "real authority scopes distinguish bytes from cloud hash",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "audit mutation 1: fabricated family independence resealed",
+      "expected": "FAMILY_INDEPENDENCE_UNQUALIFIED",
+      "actual": "FAMILY_INDEPENDENCE_UNQUALIFIED",
+      "pass": true
+    },
+    {
+      "test": "audit mutation 2: wrong family carrier resealed",
+      "expected": "FAMILY_CARRIER_MISMATCH",
+      "actual": "FAMILY_CARRIER_MISMATCH",
+      "pass": true
+    },
+    {
+      "test": "audit mutation 3: actual RAE prior replaced with RE resealed",
+      "expected": "COMPONENT_PRIOR_UNIT_MISMATCH",
+      "actual": "COMPONENT_PRIOR_UNIT_MISMATCH",
+      "pass": true
+    },
+    {
+      "test": "audit mutation 4: extra field in actual projected candidate resealed",
+      "expected": "SCHEMA_additionalProperties",
+      "actual": "SCHEMA_additionalProperties:payload",
+      "pass": true
+    },
+    {
+      "test": "audit mutation 5: required source endpoint removed resealed",
+      "expected": "REQUIRED_DEPENDENCY_MISSING",
+      "actual": "REQUIRED_DEPENDENCY_MISSING",
+      "pass": true
+    },
+    {
+      "test": "projected family forged independent",
+      "expected": "SCHEMA_",
+      "actual": "SCHEMA_const:payload/independent_measurement_claim",
+      "pass": true
+    },
+    {
+      "test": "projected family carrier swapped",
+      "expected": "CURRENT_PROJECTION_NOT_AUTHORIZED",
+      "actual": "CURRENT_PROJECTION_NOT_AUTHORIZED",
+      "pass": true
+    },
+    {
+      "test": "projected prior changed to RE",
+      "expected": "CURRENT_PROJECTION_NOT_AUTHORIZED",
+      "actual": "CURRENT_PROJECTION_NOT_AUTHORIZED",
+      "pass": true
+    },
+    {
+      "test": "projected candidate dependency removed",
+      "expected": "CURRENT_PROJECTION_NOT_AUTHORIZED",
+      "actual": "CURRENT_PROJECTION_NOT_AUTHORIZED",
+      "pass": true
+    },
+    {
+      "test": "projected mapping promoted EXACT",
+      "expected": "SCHEMA_",
+      "actual": "SCHEMA_const:payload/accepted_equivalence",
+      "pass": true
+    },
+    {
+      "test": "projected candidate scientific release",
+      "expected": "SCHEMA_",
+      "actual": "SCHEMA_const:purpose",
+      "pass": true
+    },
+    {
+      "test": "projected rights domain omitted",
+      "expected": "CURRENT_PROJECTION_NOT_AUTHORIZED",
+      "actual": "CURRENT_PROJECTION_NOT_AUTHORIZED",
+      "pass": true
+    },
+    {
+      "test": "boolean rank rejected by standard schema",
+      "expected": "SCHEMA_",
+      "actual": "SCHEMA_type:payload/rank",
+      "pass": true
+    },
+    {
+      "test": "numeric score outside permitted range",
+      "expected": "SCHEMA_",
+      "actual": "SCHEMA_maximum:payload/ranking_score",
+      "pass": true
+    },
+    {
+      "test": "unverified normalized nutrient value injected",
+      "expected": "CURRENT_PROJECTION_NOT_AUTHORIZED",
+      "actual": "CURRENT_PROJECTION_NOT_AUTHORIZED",
+      "pass": true
+    },
+    {
+      "test": "all real measurement requests remain held",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "all actual selected Nutrition5k conflicts explicitly blocked",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "OFF historical carbohydrates blocked for record-level semantic uncertainty",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "actual conflict measurement request",
+      "expected": "HOLD_SOURCE_TOTAL_CONFLICT",
+      "actual": "HOLD_SOURCE_TOTAL_CONFLICT",
+      "pass": true
+    },
+    {
+      "test": "missing quality record fails closed",
+      "expected": "QUALITY_RECORD_MISSING_OR_UNBOUND",
+      "actual": "QUALITY_RECORD_MISSING_OR_UNBOUND",
+      "pass": true
+    },
+    {
+      "test": "missing quality dependency fails closed",
+      "expected": "QUALITY_RECORD_MISSING_OR_UNBOUND",
+      "actual": "QUALITY_RECORD_MISSING_OR_UNBOUND",
+      "pass": true
+    },
+    {
+      "test": "missing interpretation fails closed",
+      "expected": "MEASUREMENT_INTERPRETATION_MISSING",
+      "actual": "MEASUREMENT_INTERPRETATION_MISSING",
+      "pass": true
+    },
+    {
+      "test": "unknown source families cannot count as independent",
+      "expected": "INDEPENDENCE_NOT_QUALIFIED",
+      "actual": "INDEPENDENCE_NOT_QUALIFIED",
+      "pass": true
+    },
+    {
+      "test": "physical identity never promoted by candidate",
+      "expected": "INSTANCE_EQUIVALENCE_NOT_AUTHORIZED",
+      "actual": "INSTANCE_EQUIVALENCE_NOT_AUTHORIZED",
+      "pass": true
+    },
+    {
+      "test": "unactivated entry denied: clinical_decision",
+      "expected": "TASK_NOT_IMPLEMENTED_OR_AUTHORIZED",
+      "actual": "TASK_NOT_IMPLEMENTED_OR_AUTHORIZED",
+      "pass": true
+    },
+    {
+      "test": "unactivated entry denied: geometry",
+      "expected": "TASK_NOT_IMPLEMENTED_OR_AUTHORIZED",
+      "actual": "TASK_NOT_IMPLEMENTED_OR_AUTHORIZED",
+      "pass": true
+    },
+    {
+      "test": "unactivated entry denied: intake_aggregate",
+      "expected": "TASK_NOT_IMPLEMENTED_OR_AUTHORIZED",
+      "actual": "TASK_NOT_IMPLEMENTED_OR_AUTHORIZED",
+      "pass": true
+    },
+    {
+      "test": "unactivated entry denied: locked_probe",
+      "expected": "TASK_NOT_IMPLEMENTED_OR_AUTHORIZED",
+      "actual": "TASK_NOT_IMPLEMENTED_OR_AUTHORIZED",
+      "pass": true
+    },
+    {
+      "test": "unactivated entry denied: mapping_release",
+      "expected": "TASK_NOT_IMPLEMENTED_OR_AUTHORIZED",
+      "actual": "TASK_NOT_IMPLEMENTED_OR_AUTHORIZED",
+      "pass": true
+    },
+    {
+      "test": "unactivated entry denied: publish",
+      "expected": "TASK_NOT_IMPLEMENTED_OR_AUTHORIZED",
+      "actual": "TASK_NOT_IMPLEMENTED_OR_AUTHORIZED",
+      "pass": true
+    },
+    {
+      "test": "unactivated entry denied: reference_promotion",
+      "expected": "TASK_NOT_IMPLEMENTED_OR_AUTHORIZED",
+      "actual": "TASK_NOT_IMPLEMENTED_OR_AUTHORIZED",
+      "pass": true
+    },
+    {
+      "test": "unactivated entry denied: train",
+      "expected": "TASK_NOT_IMPLEMENTED_OR_AUTHORIZED",
+      "actual": "TASK_NOT_IMPLEMENTED_OR_AUTHORIZED",
+      "pass": true
+    },
+    {
+      "test": "actual FDC 1158 vitamin E dictionary-only, not chemical alpha-tocopherol",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "actual vitamin A RAE source anchored",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "RE and RAE distinct",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "all bogus unknown unit words remain unknown",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "unknown unit pair not admitted as equal",
+      "expected": "COMPONENT_QUANTITY_KIND_UNQUALIFIED",
+      "actual": "COMPONENT_QUANTITY_KIND_UNQUALIFIED",
+      "pass": true
+    },
+    {
+      "test": "RE and RAE not equal",
+      "expected": "COMPONENT_QUANTITY_KIND_UNQUALIFIED",
+      "actual": "COMPONENT_QUANTITY_KIND_UNQUALIFIED",
+      "pass": true
+    },
+    {
+      "test": "alpha-tocopherol mass not alpha-TE",
+      "expected": "COMPONENT_QUANTITY_KIND_UNQUALIFIED",
+      "actual": "COMPONENT_QUANTITY_KIND_UNQUALIFIED",
+      "pass": true
+    },
+    {
+      "test": "100mL/100g without density",
+      "expected": "DENSITY_REQUIRED",
+      "actual": "DENSITY_REQUIRED",
+      "pass": true
+    },
+    {
+      "test": "serving mass absent",
+      "expected": "PORTION_MASS_REQUIRED",
+      "actual": "PORTION_MASS_REQUIRED",
+      "pass": true
+    },
+    {
+      "test": "unknown food state",
+      "expected": "FOOD_STATE_UNQUALIFIED",
+      "actual": "FOOD_STATE_UNQUALIFIED",
+      "pass": true
+    },
+    {
+      "test": "Chinese cooking/frozen conflicts now detected",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "Chinese lexical false positive guards",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "new recipe rule can be selected without core edit",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "unregistered new source rule rejected",
+      "expected": "RECIPE_POLICY_UNREGISTERED",
+      "actual": "RECIPE_POLICY_UNREGISTERED",
+      "pass": true
+    },
+    {
+      "test": "wrong link policy endpoint rejected",
+      "expected": "SOURCE_LINK_POLICY_UNREGISTERED",
+      "actual": "SOURCE_LINK_POLICY_UNREGISTERED",
+      "pass": true
+    },
+    {
+      "test": "stable object id across explicit audit clocks",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "actual OFF total-carbohydrate fields retained",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "generic read-only review audit reentrant without overwriting any run",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "rule red coverage rescreen has more candidates than historical",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "historical regression 141/141 and D0 770 inverse",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    }
+  ],
+  "total": 56,
+  "passed": 56,
+  "failed": 0,
+  "actual_measurement_requests": 2851,
+  "actual_measurement_gate_counts": [
+    {
+      "decision": "HOLD",
+      "reason": "HOLD_SOURCE_TOTAL_CONFLICT",
+      "count": 65
+    },
+    {
+      "decision": "HOLD",
+      "reason": "MEASUREMENT_NOT_QUALIFIED",
+      "count": 2775
+    },
+    {
+      "decision": "HOLD",
+      "reason": "OFF_RECORD_COMPONENT_DEFINITION_UNRESOLVED",
+      "count": 11
+    }
+  ],
+  "historical_tests_passed": 141,
+  "historical_tests_total": 141,
+  "schema_and_replay_objects": 253249,
+  "followup_schema_objects": 12,
+  "new_science_qualification": 0,
+  "release_count": 0,
+  "input_fences_unchanged": true,
+  "guard_scope": "real projected measurement and evidence admissions; unactivated geometry/intake/reference/probe/training/publish operations deny; no future production consumer claimed",
+  "limitations": [
+    "no discriminating real OFF nonstandard-unit pair in bounded attempts",
+    "new source raw parser and production calculation/evidence/geometry consumers not implemented",
+    "no true blind access control or independent Critic judgment",
+    "risk screening only on persisted candidates, not omitted retrieval pool"
+  ]
+}

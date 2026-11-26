@@ -15,7 +15,8 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0"]
+dev = ["pytest>=8.0", "jsonschema==4.25.1"]
+udf = ["jsonschema==4.25.1"]
 
 [project.scripts]
 nutri = "nutrifoundation.cli:app"

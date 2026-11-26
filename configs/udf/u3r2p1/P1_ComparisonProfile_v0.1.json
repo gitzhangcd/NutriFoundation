@@ -1,0 +1,22 @@
+{
+  "version": "UDF-U3R2-P1-0.1",
+  "base_pr": 64,
+  "base_commit": "d28987009665aa8f9dff0e093959ee1f3ec2d7e4",
+  "purpose": "CURATION_DEV_ONLY",
+  "authorization": "PI confirmed R2-P1 completed and frozen, explicitly authorized comparison, and requested resumed execution after reconnect.",
+  "pins": {
+    "configs/audit/tasks/B2_U3R2_REF44_Gemini_001.json": "df26d461794b4ed649ab64b3a5b32a6fadc9df60b795e3c2e38b9790515dde1b",
+    "runs/B2/U3-B/C2/R2/Reference44_Gemini_001/CriticFreezeReceipt.json": "f085072ab0905edba3f9903b75d0554c38b53b0c5da897310703b81a28278ddf",
+    "runs/B2/U3-B/C2/R2/real_001/R2GeneratorFreezeReceipt.json": "6b2afe8524c50edc9bb861141fbe720302aa92e466f0c3604695b52334666901",
+    "runs/B2/U3-B/C2/R2/R2AdmissionReceipt.json": "0669c69e089e7f7ea40c9ef72b657974a761ea50e7d8fb0c18e1903c824ac5cf",
+    "src/u3r2/compare_reference.py": "84daeb34902d2e77d6ae3f94100314a0d98dae80ce9f540f92eb6bbc603be3e4",
+    "src/u3r2/run_r2.py": "49abfc239f5e8565f0092554e1f8fd589ab9fca3a1a7babab7d416e5f8c0a275",
+    "src/u3c1/run_c1.py": "c763808f9e7a07ec0dec6cd9e56a1e97f532f369851c33e46510e30442c1ba3b",
+    "runs/B2/U3-B/C2/R2/validation_001/R2ValidationReport.json": "b03cb7823d826fb50f3e24d51b5a5c880a71abf262f5615d0e6b045b982f1242"
+  },
+  "locator_disposition": "Original required composite FNDDS locator. Direct old comparator stopped. Accept development-only controller locator resolution if supplied exact CSV member row and target evidence hash validate, raw same-cycle crosswalk has unique corresponding ARS row and equal label (trim only). Preserve reviewer evidence and raw output, do not claim reviewer independently cited ARS. Record addendum, strict original task formatting not PASS. Any true ID/label/locator/evidence mismatch blocks comparison.",
+  "primary": "frozen preplanned compare_case/aggregate; supported targets as defined in PR64, includes RELATED; no metric selection after outcomes",
+  "secondary": "non-RELATED subset sensitivity; explicit per-edge target membership and ranking/filter diagnostics; old-only case overlap and routes; no gold or inferred correctness",
+  "reserved_32": "do not compare or inspect reviewer outcomes; frozen byte hashes only; combined controller index filter first44; no case selection, no tuning",
+  "scientific_release_authorized": false
+}

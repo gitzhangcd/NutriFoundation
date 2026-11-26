@@ -1,0 +1,391 @@
+{
+  "version": "UDF-U3C2-POLICY-0.1",
+  "purpose": "CURATION_DEV",
+  "foodon": {
+    "snapshot": "2026-09-20",
+    "root": "FOODON_00001002",
+    "baseline_label": "food product",
+    "extension_lanes": [
+      {
+        "root": "FOODON_00002645",
+        "label": "food material by process",
+        "role": "PROCESS_QUALIFIED_FOOD_CATEGORY"
+      },
+      {
+        "root": "FOODON_00002373",
+        "label": "food by meal type",
+        "role": "MEAL_OR_FOOD_CATEGORY"
+      },
+      {
+        "root": "FOODON_00002664",
+        "label": "lipid food product",
+        "role": "LIPID_FOOD_COMPONENT_CATEGORY"
+      },
+      {
+        "root": "FOODON_00004338",
+        "label": "animal retail cut",
+        "role": "RETAIL_CUT_REFERENCE_CATEGORY"
+      },
+      {
+        "root": "FOODON_03000414",
+        "label": "poultry egg",
+        "role": "POULTRY_EGG_REFERENCE_CATEGORY"
+      },
+      {
+        "root": "FOODON_03315102",
+        "label": "chicken egg material",
+        "role": "EGG_MATERIAL_OR_COMPONENT_CATEGORY"
+      },
+      {
+        "root": "FOODON_03543845",
+        "label": "38450 - composite dishes (efsa foodex2)",
+        "role": "AGENCY_COMPOSITE_CLASSIFICATION_CATEGORY"
+      }
+    ],
+    "exclusion_roots": [
+      {
+        "root": "ENVO_02000055",
+        "label": "plant feed"
+      },
+      {
+        "root": "FOODON_00004325",
+        "label": "animal feed"
+      },
+      {
+        "root": "ONS_1000001",
+        "label": "diet"
+      },
+      {
+        "root": "FOODON_00003368",
+        "label": "food contact material"
+      },
+      {
+        "root": "FOODON_03490100",
+        "label": "food packaging"
+      },
+      {
+        "root": "FOODON_03412972",
+        "label": "food additive"
+      },
+      {
+        "root": "FOODON_03411041",
+        "label": "chemical food component"
+      },
+      {
+        "root": "COB_0000022",
+        "label": "organism"
+      }
+    ],
+    "negative_probe_ids": [
+      "ENVO_02000055",
+      "FOODON_00004325",
+      "ONS_1000001",
+      "FOODON_00003368",
+      "FOODON_03490100",
+      "FOODON_03412972",
+      "FOODON_03411041",
+      "COB_0000022",
+      "BFO_0000040"
+    ],
+    "rule": "Named asserted subclass + named equivalence and top-level named conjunct necessary conditions only; no filler, union membership or OWL entailment completeness. Extensions are scoped candidate lanes, not exact-equivalence or measurement qualification."
+  },
+  "risk": {
+    "identity_lexicon": {
+      "apple": [
+        "apple",
+        "苹果"
+      ],
+      "bread": [
+        "bread",
+        "面包"
+      ],
+      "rice": [
+        "rice",
+        "米饭",
+        "稻米",
+        "大米",
+        "炒饭"
+      ],
+      "egg": [
+        "egg",
+        "eggs",
+        "鸡蛋",
+        "鸡卵",
+        "蛋"
+      ],
+      "potato": [
+        "potato",
+        "potatoes",
+        "马铃薯",
+        "土豆"
+      ],
+      "peanut": [
+        "peanut",
+        "peanuts",
+        "花生"
+      ],
+      "spinach": [
+        "spinach",
+        "菠菜"
+      ],
+      "malabar_spinach": [
+        "malabar spinach",
+        "落葵",
+        "木耳菜"
+      ],
+      "beef": [
+        "beef",
+        "牛肉",
+        "牛排"
+      ],
+      "pork": [
+        "pork",
+        "猪肉",
+        "排骨"
+      ],
+      "chicken": [
+        "chicken",
+        "鸡肉",
+        "鸡丝",
+        "鸡胸",
+        "鸡腿"
+      ],
+      "duck": [
+        "duck",
+        "鸭肉"
+      ],
+      "shrimp": [
+        "shrimp",
+        "prawn",
+        "虾",
+        "大虾"
+      ],
+      "fish": [
+        "fish",
+        "鱼"
+      ],
+      "crab": [
+        "crab",
+        "蟹"
+      ],
+      "tofu": [
+        "tofu",
+        "豆腐"
+      ],
+      "oil": [
+        "oil",
+        "食用油",
+        "植物油",
+        "油"
+      ],
+      "salad": [
+        "salad",
+        "沙拉",
+        "色拉"
+      ],
+      "candy": [
+        "candy",
+        "糖果"
+      ],
+      "almond": [
+        "almond",
+        "almonds",
+        "杏仁"
+      ],
+      "abalone": [
+        "abalone",
+        "鲍鱼"
+      ],
+      "cottage_cheese": [
+        "cottage cheese"
+      ],
+      "waffle": [
+        "waffle",
+        "waffles",
+        "华夫饼"
+      ],
+      "pie": [
+        "pie",
+        "馅饼",
+        "派"
+      ],
+      "omelette": [
+        "omelette",
+        "omelet",
+        "蛋饼"
+      ],
+      "cheese": [
+        "cheese",
+        "奶酪",
+        "芝士"
+      ]
+    },
+    "component_terms": {
+      "dressing": [
+        "salad dressing",
+        "dressing",
+        "沙拉酱"
+      ],
+      "filling": [
+        "pie filling",
+        "filling",
+        "馅料"
+      ],
+      "sauce": [
+        "sauce",
+        "酱汁"
+      ],
+      "ingredient_mix": [
+        "dry mix",
+        "unprepared mix",
+        "预拌粉"
+      ],
+      "white_yolk": [
+        "egg white",
+        "egg yolk",
+        "蛋白",
+        "蛋黄"
+      ]
+    },
+    "process_terms": {
+      "raw": [
+        "raw",
+        "uncooked",
+        "未熟",
+        "生制"
+      ],
+      "boiled": [
+        "boiled",
+        "水煮",
+        "煮"
+      ],
+      "steamed": [
+        "steamed",
+        "清蒸",
+        "蒸"
+      ],
+      "fried": [
+        "fried",
+        "deep fried",
+        "油炸",
+        "炒",
+        "煎",
+        "炸"
+      ],
+      "roasted": [
+        "roasted",
+        "baked",
+        "烤",
+        "焙"
+      ],
+      "canned": [
+        "canned",
+        "罐头"
+      ],
+      "blanched": [
+        "blanched",
+        "焯"
+      ],
+      "dried": [
+        "dried",
+        "dehydrated",
+        "干制",
+        "脱水"
+      ],
+      "frozen": [
+        "frozen",
+        "冷冻",
+        "冰冻"
+      ],
+      "fresh": [
+        "fresh",
+        "新鲜"
+      ],
+      "braised": [
+        "braised",
+        "stewed",
+        "红烧",
+        "炖",
+        "卤",
+        "焖"
+      ]
+    },
+    "modifier_terms": {
+      "diet": [
+        "diet",
+        "sugar-free",
+        "sugar free",
+        "无糖"
+      ],
+      "gluten_free": [
+        "gluten-free",
+        "gluten free",
+        "无麸质"
+      ],
+      "lowfat": [
+        "lowfat",
+        "low-fat",
+        "low fat",
+        "低脂",
+        "1% milkfat"
+      ],
+      "salted": [
+        "salted",
+        "加盐"
+      ],
+      "unsalted": [
+        "unsalted",
+        "无盐"
+      ],
+      "sweetened": [
+        "sweetened",
+        "加糖"
+      ],
+      "unsweetened": [
+        "unsweetened",
+        "无糖"
+      ],
+      "peeled": [
+        "peeled",
+        "peel not eaten",
+        "去皮"
+      ],
+      "unpeeled": [
+        "unpeeled",
+        "peel eaten",
+        "with skin",
+        "带皮"
+      ],
+      "added_oil": [
+        "made with oil",
+        "with oil",
+        "oil added",
+        "加油"
+      ],
+      "added_fruit": [
+        "with fruit",
+        "加水果"
+      ],
+      "rye": [
+        "rye",
+        "黑麦"
+      ]
+    },
+    "eligibility": "For a concept-review shortlist only: explicit no contradiction, base lexical/controlled bilingual anchor, no one-sided target-specific qualifiers, no component/whole mismatch, no unresolved source/target role mismatch except ingredient reference to food concept with no additional conditions. Unknown is not contradiction. All actual equivalence, nutrition transfer, clinical, training and release denied. Nonqualifying retrieved neighbors remain in dev pool.",
+    "shortlist_per_query_scope": 3,
+    "extension_top_k_per_form": 12,
+    "prior_source_probe_cohort": "44 original C1 cases, exposed development only",
+    "numeric_note": "New ontology lane scores computed separately; never silently rerank historical int8 scores across batches."
+  },
+  "expert": {
+    "max_evidence_edges_per_priority_case": 4,
+    "selection": "explicit conflicts then Critic negative overlaps, shared disagreement, critic-only, retain additional full evidence in separate packet; initial source-first judgment before exposure to candidate opinions",
+    "roles": [
+      "food ontology / food science",
+      "nutrition composition / measurement",
+      "regional recipe / taxonomy as appropriate"
+    ],
+    "accepted_equivalence": false,
+    "scientific_release": false
+  }
+}

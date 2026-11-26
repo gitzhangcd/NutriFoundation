@@ -1,0 +1,16 @@
+{
+  "status": "GENERATOR_COMPARATORS_FROZEN / REFERENCE_HOLD",
+  "profile_sha256": "79a7630684afbde2695301e50bd5018cbb41812c944f3e6c41e84eee2b25aaad",
+  "files": {
+    "R2ExecutionReport.json": "20447687d416909ab630be648ab49f8ba333babbb4c5e396abe8671b96d2d3bc",
+    "reviewer_source_only/R2Review44.json": "3cce95a3ffd33ec559744300f7a45e525505be2a4e218f3b42570daa69c5bc4b",
+    "reserved_source_only/R2Calibration32.json": "c8a65e45fe8ae4b2435ff5296889441fbe56f672ea1890a611f9d2057eae6a4a",
+    "controller_private/ProposalManifest.json": "af8fc45d36daeb2b147b3b3a16a46c2b625698684f3cdd7c50031f2300085e59",
+    "controller_private/RankedArms.jsonl": "472592be7f7c8d9a03de95691b33a9fcd2707a62a0168cc8e7e5fdc14aea1e63",
+    "controller_private/ControllerComparisonIndex.json": "6508b8ad210ca6537ffd721a3c1cd03074cb95b8cc3c08846ca910edfa045110",
+    "controller_private/FrozenTargetUniverse.json": "311ce55e814aae9ea473609811b9be621f42d52bf2eedf68fcca610adb6f8163",
+    "controller_private/InputFence.json": "1582bd1a9920f9c235473f49178d20e6b817f9a25a828d201c9f7c8d1d1f18ff"
+  },
+  "reviewer_has_not_received_hidden_comparators": true,
+  "mapping_release_authorized": false
+}

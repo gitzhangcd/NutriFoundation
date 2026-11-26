@@ -1,0 +1,361 @@
+{
+  "status": "PASS_R1_RUNTIME_REPLAY_AND_AUDIT_REGRESSIONS / SCIENTIFIC_AND_EXPERT_DISPATCH_HOLD",
+  "typed_objects_replayed": 76473,
+  "risk_records": 35710,
+  "queries": 656,
+  "tests_total": 52,
+  "tests_passed": 52,
+  "tests": [
+    {
+      "test": "old actual scope self-root forgery reproduced",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "resealed R1 excluded actual scope cannot promote",
+      "expected": "R1_RECOMPUTE_MISMATCH",
+      "actual": "R1_RECOMPUTE_MISMATCH",
+      "pass": true
+    },
+    {
+      "test": "old real RED resealed risk accepted by old structural validator",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "new gate recomputation rejects resealed actual RED",
+      "expected": "R1_RECOMPUTE_MISMATCH",
+      "actual": "R1_RECOMPUTE_MISMATCH",
+      "pass": true
+    },
+    {
+      "test": "scientific release mutation rejected by strict schema",
+      "expected": "R1_SCHEMA",
+      "actual": "R1_SCHEMA:const",
+      "pass": true
+    },
+    {
+      "test": "query shortlist dependency stripping rejected",
+      "expected": "R1_RECOMPUTE_MISMATCH",
+      "actual": "R1_RECOMPUTE_MISMATCH",
+      "pass": true
+    },
+    {
+      "test": "public runtime refuses unknown/forged risk ref",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "all scientific-purpose requests held",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "untrusted execution receipt rejected before derivation",
+      "expected": "UNTRUSTED_EXECUTION_RECEIPT",
+      "actual": "UNTRUSTED_EXECUTION_RECEIPT",
+      "pass": true
+    },
+    {
+      "test": "entire persisted overlay rederived",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "old five actual audit mismatches held",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "old 23 hard-negative overlaps not review admitted",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "six genuine FOODON-prefix exclusion probes",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "103 organism-food overlaps retained as dual-role review-only",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "residual HOLD: 奶油 / 食用油",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "residual HOLD: 酱油 / 植物油",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "residual HOLD: 鱿鱼 / 鱼",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "residual HOLD: 海绵蛋糕 / 鸡蛋",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "residual HOLD: sweet potato / potato",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "residual HOLD: water spinach / spinach",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "residual HOLD: apple / apple juice",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "residual HOLD: egg / egg powder",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "residual HOLD: bread / white bread",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "residual HOLD: crab cakes / Crab cake sandwich, on bun",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "residual HOLD: oil / corn oil",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "residual HOLD: cottage cheese / cottage cheese (dry)",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "negation/origin not explicit contradiction: 不加盐坚果",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "negation/origin not explicit contradiction: 未煮熟马铃薯",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "negation/origin not explicit contradiction: Beans, boiled, from dried",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "non-fried Chinese phrase does not assert frying",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "true explicit raw/boiled blocked",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "complete bilingual phrase supports only review",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "registered cross-role review not direct",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "unregistered cross-role same-name held",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "36 actual tasks with one uniform role set, no candidate opinion fields",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "36 separated phase pairs and 130 stable evidence cards",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "actual source and public target hashes unchanged",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "no real authorization bundle: expert runtime refuses dispatch",
+      "expected": "EXPERT_AUTHORITY_NOT_PROVISIONED",
+      "actual": "EXPERT_AUTHORITY_NOT_PROVISIONED",
+      "pass": true
+    },
+    {
+      "test": "valid synthetic unresolved schema",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "source explicit null without evidence rejected",
+      "expected": "EXPERT_RESPONSE_SCHEMA",
+      "actual": "EXPERT_RESPONSE_SCHEMA",
+      "pass": true
+    },
+    {
+      "test": "unresolved non-null value rejected",
+      "expected": "EXPERT_RESPONSE_SCHEMA",
+      "actual": "EXPERT_RESPONSE_SCHEMA",
+      "pass": true
+    },
+    {
+      "test": "candidate disposition with empty candidate set rejected",
+      "expected": "EXPERT_RESPONSE_SCHEMA",
+      "actual": "EXPERT_RESPONSE_SCHEMA",
+      "pass": true
+    },
+    {
+      "test": "overflow structure alone is syntactically valid",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "actual bound runtime rejects out of range evidence index",
+      "expected": "EVIDENCE_INDEX_OUT_OF_RANGE",
+      "actual": "EVIDENCE_INDEX_OUT_OF_RANGE",
+      "pass": true
+    },
+    {
+      "test": "synthetic structure with real target ID and locator checked",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "conditional relation without conditions rejected",
+      "expected": "EXPERT_RESPONSE_SCHEMA",
+      "actual": "EXPERT_RESPONSE_SCHEMA",
+      "pass": true
+    },
+    {
+      "test": "actual target ID mutation rejected",
+      "expected": "EXPERT_TARGET_ID_UNVERIFIED",
+      "actual": "EXPERT_TARGET_ID_UNVERIFIED",
+      "pass": true
+    },
+    {
+      "test": "actual target locator mutation rejected",
+      "expected": "EXPERT_TARGET_LABEL_LOCATOR",
+      "actual": "EXPERT_TARGET_LABEL_LOCATOR",
+      "pass": true
+    },
+    {
+      "test": "wrong target release rejected",
+      "expected": "EXPERT_TARGET_VERSION",
+      "actual": "EXPERT_TARGET_VERSION",
+      "pass": true
+    },
+    {
+      "test": "post conditional with empty conditions rejected",
+      "expected": "EXPERT_RESPONSE_SCHEMA",
+      "actual": "EXPERT_RESPONSE_SCHEMA",
+      "pass": true
+    },
+    {
+      "test": "unchanged initial with spurious change reason rejected",
+      "expected": "EXPERT_RESPONSE_SCHEMA",
+      "actual": "EXPERT_RESPONSE_SCHEMA",
+      "pass": true
+    },
+    {
+      "test": "old input fences and run output unchanged",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "pass": true
+    }
+  ],
+  "gate_requests": [
+    {
+      "purpose": "CURATION_INSPECT",
+      "decision": "ALLOW",
+      "count": 35710
+    },
+    {
+      "purpose": "DEVELOPMENT_CONCEPT_REVIEW",
+      "decision": "ALLOW",
+      "count": 7
+    },
+    {
+      "purpose": "DEVELOPMENT_CONCEPT_REVIEW",
+      "decision": "HOLD",
+      "count": 35703
+    },
+    {
+      "purpose": "MAPPING_RELEASE",
+      "decision": "HOLD",
+      "count": 35710
+    },
+    {
+      "purpose": "NUTRIENT_TRANSFER",
+      "decision": "HOLD",
+      "count": 35710
+    }
+  ],
+  "old_scope_and_risk_bypass_tests_reproduced": 2,
+  "expert_tasks_prepared": 36,
+  "expert_authority_provisioned": false,
+  "expert_actual_reviews": 0,
+  "mapping_release_count": 0,
+  "limitations": [
+    "whole-label rule deliberately conservative; no U3-B candidate admitted in frozen 284, not scientific accuracy",
+    "no full OWL reasoning or new embedding retrieval",
+    "expert structural/content tests are synthetic with actual source identity, no real authority/qualification or actual response",
+    "same-account directory isolation is not proof of access control",
+    "prior C2 validator vulnerabilities reproduced; new verified application entry must be used by future consumers"
+  ]
+}

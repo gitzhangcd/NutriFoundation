@@ -1,0 +1,69 @@
+{
+  "status": "PASS_EXPERT_TASK_SOURCE_ACCESS_PREPARATION / EXPERT_EXECUTION_HOLD",
+  "source_first_cases": 36,
+  "distinct_source_artifacts": 11,
+  "public_standard_files": 4,
+  "actual_source_hash_verified_cases": 36,
+  "response_schema_tests_passed": 8,
+  "response_schema_tests_total": 8,
+  "tests": [
+    {
+      "test": "initial structure synthetic",
+      "expected_valid": true,
+      "observed_valid": true,
+      "pass": true
+    },
+    {
+      "test": "post structure synthetic",
+      "expected_valid": true,
+      "observed_valid": true,
+      "pass": true
+    },
+    {
+      "test": "release promotion denied",
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true
+    },
+    {
+      "test": "unresolved without reason denied",
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true
+    },
+    {
+      "test": "post missing initial frozen hash",
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true
+    },
+    {
+      "test": "changed initial judgement without reason",
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true
+    },
+    {
+      "test": "fake qualification denied",
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true
+    },
+    {
+      "test": "unexpected candidate opinion in source-first",
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true
+    }
+  ],
+  "assigned_reviewers": 0,
+  "actual_expert_responses": 0,
+  "scientific_reference_count": 0,
+  "source_access_manifest_sha256": "8fef26a9293250d7b7582fe19c256253d83d69a66eb2081d5672ac0ccd59718d",
+  "limitations": [
+    "task-level file and locator manifest, not deployed per-row access control",
+    "synthetic schema tests do not constitute actual expert judgments or verify professional qualification",
+    "source class labels may not resolve preparation, composition or measurement"
+  ],
+  "mapping_release_authorized": false
+}

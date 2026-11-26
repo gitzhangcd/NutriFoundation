@@ -1,0 +1,207 @@
+{
+  "status": "PASS_C2_FULL_REPLAY_AND_DEVELOPMENT_GATE / SCIENTIFIC_QUALIFICATION_HOLD",
+  "tests_total": 26,
+  "tests_passed": 26,
+  "tests": [
+    {
+      "test": "all 40107 real named class assessments replay",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "original named product closure preserved as source membership",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "all C1 six missing classes recovered in typed development lanes",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "all nine real nonfood probes held",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "named intersection necessary consequence only; no union/filler axiom kinds",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "all 355 and 29081 frozen prior candidates retained",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "all new extension top-K groups replay",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "all 656 query abstention groups replay",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "expert source-first and post-initial packets separate, not adjudicated",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "explicit raw vs boiled blocks",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "unknown cooking state is not explicit contradiction",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "generic bread vs rye holds subtype condition not explicit conflict",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "whole salad vs dressing holds component role",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "Malabar spinach not silently identical",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "tartare name not explicit raw assertion",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "fresh input origin not automatically fresh state",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "peanut and lettuce not false raw from Chinese substring",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "no anchor generates abstention evidence",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "forged mapping release blocked by schema",
+      "expected": "C2_SCHEMA",
+      "observed": "C2_SCHEMA:const:payload/mapping_release",
+      "pass": true
+    },
+    {
+      "test": "forged scientific equivalence blocked by schema",
+      "expected": "C2_SCHEMA",
+      "observed": "C2_SCHEMA:const:payload/concept_equivalence",
+      "pass": true
+    },
+    {
+      "test": "forged scope admission on excluded actual class",
+      "expected": "SCOPE_INELIGIBLE",
+      "observed": "SCOPE_INELIGIBLE",
+      "pass": true
+    },
+    {
+      "test": "missing required source dependency",
+      "expected": "REQUIRED_RISK_DEPENDENCY",
+      "observed": "REQUIRED_RISK_DEPENDENCY",
+      "pass": true
+    },
+    {
+      "test": "resealed fabricated eligibility fails real endpoint recomputation",
+      "expected": "RISK_RECOMPUTE_MISMATCH",
+      "observed": "RISK_RECOMPUTE_MISMATCH",
+      "pass": true
+    },
+    {
+      "test": "forged shortlist fails actual candidate pool recomputation",
+      "expected": "QUERY_RECOMPUTE_MISMATCH",
+      "observed": "QUERY_RECOMPUTE_MISMATCH",
+      "pass": true
+    },
+    {
+      "test": "unverified caller record held",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    },
+    {
+      "test": "all actual nutrient transfer and mapping requests held",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true
+    }
+  ],
+  "object_replays": 76509,
+  "risk_records_recomputed": 35710,
+  "query_decisions_replayed": 656,
+  "extension_groups_replayed": 328,
+  "extension_full_model_replay": true,
+  "scope_class_replays": 40107,
+  "expert_packets_replayed": 36,
+  "actual_gate_requests": [
+    {
+      "purpose": "CURATION_INSPECT",
+      "decision": "ALLOW",
+      "count": 35710
+    },
+    {
+      "purpose": "DEVELOPMENT_CONCEPT_REVIEW",
+      "decision": "ALLOW",
+      "count": 78
+    },
+    {
+      "purpose": "DEVELOPMENT_CONCEPT_REVIEW",
+      "decision": "HOLD",
+      "count": 35632
+    },
+    {
+      "purpose": "MAPPING_RELEASE",
+      "decision": "HOLD",
+      "count": 35710
+    },
+    {
+      "purpose": "NUTRIENT_TRANSFER",
+      "decision": "HOLD",
+      "count": 35710
+    }
+  ],
+  "original_input_fences_unchanged": true,
+  "original_run_unchanged": true,
+  "independent_scientific_reference_count": 0,
+  "mapping_release_count": 0,
+  "limitations": [
+    "same-code full replay and actual gate exercise, not independent scientific validity",
+    "rule features are limited lexical evidence, no full OWL reasoner or expert taxonomy",
+    "development gate is exercised here, future consumer integration must use verified records",
+    "file separation not proven access control"
+  ]
+}

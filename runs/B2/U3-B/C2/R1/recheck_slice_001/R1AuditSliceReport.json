@@ -1,0 +1,12 @@
+{
+  "status": "PASS_R1_BOUNDED_RECHECK_PREPARATION",
+  "prior_exposed_edges": 355,
+  "public_scope_probes": 129,
+  "new_independent_queue_records_disclosed": 0,
+  "new_hidden_candidates_disclosed": 0,
+  "slice_hashes": {
+    "Exposed44R1RegressionSlice.json": "58b480a4ddfb803319330938683f70a01d33d787b432fb749e6d6943b4e8e094",
+    "R1ScopeRegressionSlice.json": "11e0fe1d6bd755eacaba97afe043e12de5ca04dccfd5ec2c9fade68129369b7b"
+  },
+  "purpose": "targeted implementation recheck, not a new semantic quality estimate"
+}

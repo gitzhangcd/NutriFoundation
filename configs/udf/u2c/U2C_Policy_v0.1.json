@@ -1,0 +1,305 @@
+{
+  "version": "UDF-U2C-POLICY-0.1",
+  "purpose": "CURATION_DEV",
+  "rights_rules": [
+    {
+      "prefix": "nutridata:",
+      "domain": "NUTRIDATA_RIGHTS_UNRESOLVED"
+    },
+    {
+      "prefix": "off:",
+      "domain": "OFF_ODBL_REVIEW"
+    },
+    {
+      "prefix": "fdc:",
+      "domain": "USDA_PUBLIC_DOMAIN_CANDIDATE"
+    },
+    {
+      "prefix": "fndds:",
+      "domain": "USDA_PUBLIC_DOMAIN_CANDIDATE"
+    },
+    {
+      "prefix": "foodon:",
+      "domain": "FOODON_LICENSE_REVIEW"
+    },
+    {
+      "prefix": "snapme:",
+      "domain": "SNAPME_RESTRICTED_OBSERVATION"
+    },
+    {
+      "prefix": "fallback:Nutrition5k:",
+      "domain": "NUTRITION5K_SOURCE_REVIEW"
+    },
+    {
+      "prefix": "nutrition5k:",
+      "domain": "NUTRITION5K_SOURCE_REVIEW"
+    },
+    {
+      "prefix": "xiachufang:",
+      "domain": "MIRROR_ORIGINAL_RIGHTS_UNRESOLVED"
+    },
+    {
+      "prefix": "recipenlg:",
+      "domain": "MIRROR_ORIGINAL_RIGHTS_UNRESOLVED"
+    },
+    {
+      "prefix": "NDF-G00",
+      "domain": "MIRROR_ORIGINAL_RIGHTS_UNRESOLVED"
+    },
+    {
+      "prefix": "uec",
+      "domain": "MIRROR_ORIGINAL_RIGHTS_UNRESOLVED"
+    },
+    {
+      "prefix": "food11:",
+      "domain": "MIRROR_ORIGINAL_RIGHTS_UNRESOLVED"
+    },
+    {
+      "prefix": "food5k:",
+      "domain": "MIRROR_ORIGINAL_RIGHTS_UNRESOLVED"
+    },
+    {
+      "prefix": "foodx251:",
+      "domain": "MIRROR_ORIGINAL_RIGHTS_UNRESOLVED"
+    }
+  ],
+  "default_rights_domain": "OTHER_SOURCE_RIGHTS_UNRESOLVED",
+  "recipe_rules": [
+    {
+      "source_namespace": "nutridata:dish",
+      "parent_namespace": "nutridata:ingredient",
+      "source_kind": "RecipeIngredientDraft",
+      "parent_kind": "FoodEntityDraft",
+      "quantity_policy": "PENDING_UNIT_AND_BASIS",
+      "child_key": "ingredient_id",
+      "parent_key": "business_id",
+      "crosscheck_key": "code",
+      "transform": "EXACT_TEXT"
+    }
+  ],
+  "link_rules": [
+    {
+      "left_namespace": "fallback:Nutrition5k:dish",
+      "right_namespace": "fallback:Nutrition5k:ingredient",
+      "left_kind": "FoodInstanceDraft",
+      "right_kind": "FoodEntityDraft",
+      "transform": "INGR_PAD_10",
+      "rule": "PADDED_INGREDIENT_ID"
+    },
+    {
+      "left_namespace": "menumatch:labels",
+      "right_namespace": "menumatch:menu",
+      "left_kind": "MediaObservationDraft",
+      "right_kind": "FoodEntityDraft",
+      "transform": "EXACT_TEXT",
+      "rule": "MENU_LABEL_KEY"
+    },
+    {
+      "left_namespace": "epic100:train",
+      "right_namespace": "epic100:verb_class",
+      "left_kind": "ProcessObservationDraft",
+      "right_kind": "ProcessVocabularyDraft",
+      "transform": "EXACT_TEXT",
+      "binding_suffix": "/verb_class",
+      "rule": "EPIC_VERB_KEY"
+    },
+    {
+      "left_namespace": "epic100:train",
+      "right_namespace": "epic100:noun_class",
+      "left_kind": "ProcessObservationDraft",
+      "right_kind": "ProcessVocabularyDraft",
+      "transform": "EXACT_TEXT",
+      "binding_suffix": "/noun_class",
+      "rule": "EPIC_NOUN_KEY"
+    },
+    {
+      "left_namespace": "epic100:train",
+      "right_namespace": "epic100:video_id",
+      "left_kind": "ProcessObservationDraft",
+      "right_kind": "VideoMetadataDraft",
+      "transform": "EXACT_TEXT",
+      "binding_suffix": "/video_id",
+      "rule": "EPIC_VIDEO_KEY"
+    }
+  ],
+  "family_by_namespace": {
+    "fdc:sr_legacy:2018-04": "USDA_COMPOSITION",
+    "fndds:2015-16:fdc_carrier": "USDA_COMPOSITION",
+    "fndds:2015-16:ars_carrier": "USDA_COMPOSITION",
+    "nutrition5k:ingredient": "USDA_COMPOSITION",
+    "snapme:linkfile:2015-16": "USDA_COMPOSITION",
+    "menumatch:menu": "MENU_LABEL_SOURCE",
+    "off:single": "PRODUCT_LABEL_CARRIER",
+    "off:search": "PRODUCT_LABEL_CARRIER",
+    "nutridata:dish": "NUTRIDATA_RECIPE_LINEAGE_UNRESOLVED"
+  },
+  "nutridata_family_exact": {
+    "美国农业部食物营养成分数据": "USDA_COMPOSITION",
+    "内部数据": "NUTRIDATA_INTERNAL_UNRESOLVED",
+    "台湾": "REGIONAL_COMPOSITION_TAIWAN",
+    "日本": "REGIONAL_COMPOSITION_JAPAN",
+    "《中国功能食品原料基本成分数据表》": "CN_FUNCTIONAL_INGREDIENT_TABLE",
+    "成都市食品药品检验研究院": "CN_CHENGDU_TEST_INSTITUTE",
+    "": "UNRESOLVED_SOURCE"
+  },
+  "component_prior": {
+    "能量": {
+      "ENERGY": "cc:ENERGY"
+    },
+    "蛋白质": {
+      "MASS": "cc:PROTEIN_DECLARED"
+    },
+    "脂肪": {
+      "MASS": "cc:FAT_DECLARED"
+    },
+    "碳水化合物": {
+      "MASS": "cc:CARBOHYDRATE_UNSPECIFIED"
+    },
+    "钠": {
+      "MASS": "cc:SODIUM"
+    },
+    "膳食纤维": {
+      "MASS": "cc:DIETARY_FIBER"
+    },
+    "维生素A": {
+      "RAE": "cc:VITAMIN_A_RAE",
+      "RE": "cc:VITAMIN_A_RE"
+    },
+    "GI": {
+      "DIMENSIONLESS_GI": "cc:GI"
+    },
+    "可利用碳水": {
+      "MASS": "cc:CARBOHYDRATE_AVAILABLE"
+    }
+  },
+  "fdc_quantity_kind_overrides": {
+    "1104": "IU",
+    "1106": "RAE",
+    "1156": "RE",
+    "1158": "ALPHA_TE",
+    "1190": "DFE"
+  },
+  "nutrition5k_quality": {
+    "threshold": "0.01",
+    "comparison": "absolute source total minus source ingredient line sum",
+    "units": {
+      "energy": "kcal",
+      "mass": "g",
+      "fat": "g",
+      "carb": "g",
+      "protein": "g"
+    },
+    "fields": {
+      "energy": [
+        1,
+        3
+      ],
+      "mass": [
+        2,
+        2
+      ],
+      "fat": [
+        3,
+        4
+      ],
+      "carb": [
+        4,
+        5
+      ],
+      "protein": [
+        5,
+        6
+      ]
+    },
+    "fixed_columns": 6,
+    "repeat_columns": 7,
+    "scope": "source-internal exploratory diagnostic; never independent reference qualification"
+  },
+  "guard_routes": [
+    {
+      "guard": "b1.validate_relation",
+      "entry": "native_relation / mapping admission",
+      "activation": "ACTIVE_DRAFT"
+    },
+    {
+      "guard": "b1.validate_measurement_use",
+      "entry": "measurement admission",
+      "activation": "ACTIVE_BLOCKING"
+    },
+    {
+      "guard": "b1.conversion_guard",
+      "entry": "unit and basis compatibility / measurement admission",
+      "activation": "ACTIVE_DRAFT_AND_BLOCKING"
+    },
+    {
+      "guard": "b1.independent_sources",
+      "entry": "independent evidence count admission",
+      "activation": "ACTIVE_BLOCKING"
+    },
+    {
+      "guard": "b1.verify_geometry",
+      "entry": "geometry",
+      "activation": "NOT_IMPLEMENTED_DENY"
+    },
+    {
+      "guard": "b1.require_aggregation",
+      "entry": "intake aggregation",
+      "activation": "NOT_IMPLEMENTED_DENY"
+    },
+    {
+      "guard": "b1.require_reference",
+      "entry": "reference promotion",
+      "activation": "NOT_IMPLEMENTED_DENY"
+    },
+    {
+      "guard": "b1.require_locked_probe",
+      "entry": "locked probe",
+      "activation": "NOT_IMPLEMENTED_DENY"
+    },
+    {
+      "guard": "b1b.identity_guard",
+      "entry": "mapping identity admission",
+      "activation": "ACTIVE_BLOCKING"
+    },
+    {
+      "guard": "b1b.exact_component_mapping",
+      "entry": "component interpretation / mapping admission",
+      "activation": "ACTIVE_DRAFT_AND_BLOCKING"
+    },
+    {
+      "guard": "b1b.conversion_guard",
+      "entry": "unit and basis compatibility / measurement admission",
+      "activation": "ACTIVE_DRAFT_AND_BLOCKING"
+    },
+    {
+      "guard": "b1b.qualified_calculation",
+      "entry": "measurement admission",
+      "activation": "ACTIVE_BLOCKING"
+    },
+    {
+      "guard": "b1b.total_guard",
+      "entry": "measurement quality admission",
+      "activation": "ACTIVE_BLOCKING"
+    },
+    {
+      "guard": "b2.independent_guard",
+      "entry": "source family validation / independent evidence admission",
+      "activation": "ACTIVE_DRAFT_AND_BLOCKING"
+    }
+  ],
+  "operation_policy": {
+    "inspect": "CURATION_ONLY",
+    "candidate_inspect": "CURATION_ONLY",
+    "measurement_calculate": "BLOCK_PENDING_QUALIFICATION",
+    "independent_evidence_count": "BLOCK_PENDING_QUALIFICATION",
+    "physical_identity": "BLOCK_PENDING_QUALIFICATION",
+    "mapping_release": "NOT_IMPLEMENTED_DENY",
+    "geometry": "NOT_IMPLEMENTED_DENY",
+    "intake_aggregate": "NOT_IMPLEMENTED_DENY",
+    "reference_promotion": "NOT_IMPLEMENTED_DENY",
+    "locked_probe": "NOT_IMPLEMENTED_DENY",
+    "train": "NOT_IMPLEMENTED_DENY",
+    "publish": "NOT_IMPLEMENTED_DENY",
+    "clinical_decision": "NOT_IMPLEMENTED_DENY"
+  }
+}

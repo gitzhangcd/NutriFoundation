@@ -1,0 +1,1067 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nutrifoundation:udf:u3r2:reference-review:0.1",
+  "title": "R2 source-only developmental reference (not scientific Gold)",
+  "type": "object",
+  "properties": {
+    "review_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_ref": {
+      "type": "string",
+      "pattern": "^[^@]+@[a-f0-9]{64}$"
+    },
+    "source_scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_native_label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "native_kind": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_dimensions": {
+      "type": "object",
+      "properties": {
+        "base_food": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "state": {
+              "enum": [
+                "SOURCE_EXPLICIT",
+                "SEMANTIC_INFERENCE",
+                "EXTERNAL_SUPPORTED",
+                "UNRESOLVED"
+              ]
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "value",
+            "state",
+            "evidence_refs"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "UNRESOLVED"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "const": null
+                  },
+                  "evidence_refs": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "state": {
+                    "enum": [
+                      "SOURCE_EXPLICIT",
+                      "SEMANTIC_INFERENCE",
+                      "EXTERNAL_SUPPORTED"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "evidence_refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "entity_grain": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "state": {
+              "enum": [
+                "SOURCE_EXPLICIT",
+                "SEMANTIC_INFERENCE",
+                "EXTERNAL_SUPPORTED",
+                "UNRESOLVED"
+              ]
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "value",
+            "state",
+            "evidence_refs"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "UNRESOLVED"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "const": null
+                  },
+                  "evidence_refs": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "state": {
+                    "enum": [
+                      "SOURCE_EXPLICIT",
+                      "SEMANTIC_INFERENCE",
+                      "EXTERNAL_SUPPORTED"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "evidence_refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "food_state": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "state": {
+              "enum": [
+                "SOURCE_EXPLICIT",
+                "SEMANTIC_INFERENCE",
+                "EXTERNAL_SUPPORTED",
+                "UNRESOLVED"
+              ]
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "value",
+            "state",
+            "evidence_refs"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "UNRESOLVED"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "const": null
+                  },
+                  "evidence_refs": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "state": {
+                    "enum": [
+                      "SOURCE_EXPLICIT",
+                      "SEMANTIC_INFERENCE",
+                      "EXTERNAL_SUPPORTED"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "evidence_refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "preparation": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "state": {
+              "enum": [
+                "SOURCE_EXPLICIT",
+                "SEMANTIC_INFERENCE",
+                "EXTERNAL_SUPPORTED",
+                "UNRESOLVED"
+              ]
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "value",
+            "state",
+            "evidence_refs"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "UNRESOLVED"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "const": null
+                  },
+                  "evidence_refs": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "state": {
+                    "enum": [
+                      "SOURCE_EXPLICIT",
+                      "SEMANTIC_INFERENCE",
+                      "EXTERNAL_SUPPORTED"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "evidence_refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "species_variety": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "state": {
+              "enum": [
+                "SOURCE_EXPLICIT",
+                "SEMANTIC_INFERENCE",
+                "EXTERNAL_SUPPORTED",
+                "UNRESOLVED"
+              ]
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "value",
+            "state",
+            "evidence_refs"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "UNRESOLVED"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "const": null
+                  },
+                  "evidence_refs": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "state": {
+                    "enum": [
+                      "SOURCE_EXPLICIT",
+                      "SEMANTIC_INFERENCE",
+                      "EXTERNAL_SUPPORTED"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "evidence_refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "edible_part": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "state": {
+              "enum": [
+                "SOURCE_EXPLICIT",
+                "SEMANTIC_INFERENCE",
+                "EXTERNAL_SUPPORTED",
+                "UNRESOLVED"
+              ]
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "value",
+            "state",
+            "evidence_refs"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "UNRESOLVED"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "const": null
+                  },
+                  "evidence_refs": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "state": {
+                    "enum": [
+                      "SOURCE_EXPLICIT",
+                      "SEMANTIC_INFERENCE",
+                      "EXTERNAL_SUPPORTED"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "evidence_refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "composition": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "state": {
+              "enum": [
+                "SOURCE_EXPLICIT",
+                "SEMANTIC_INFERENCE",
+                "EXTERNAL_SUPPORTED",
+                "UNRESOLVED"
+              ]
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "value",
+            "state",
+            "evidence_refs"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "UNRESOLVED"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "const": null
+                  },
+                  "evidence_refs": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "state": {
+                    "enum": [
+                      "SOURCE_EXPLICIT",
+                      "SEMANTIC_INFERENCE",
+                      "EXTERNAL_SUPPORTED"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "evidence_refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "regional_scope": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "state": {
+              "enum": [
+                "SOURCE_EXPLICIT",
+                "SEMANTIC_INFERENCE",
+                "EXTERNAL_SUPPORTED",
+                "UNRESOLVED"
+              ]
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "value",
+            "state",
+            "evidence_refs"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "UNRESOLVED"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "const": null
+                  },
+                  "evidence_refs": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "state": {
+                    "enum": [
+                      "SOURCE_EXPLICIT",
+                      "SEMANTIC_INFERENCE",
+                      "EXTERNAL_SUPPORTED"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "evidence_refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "base_food",
+        "entity_grain",
+        "food_state",
+        "preparation",
+        "species_variety",
+        "edible_part",
+        "composition",
+        "regional_scope"
+      ],
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "artifact_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "observation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "enum": [
+              "SOURCE_EXPLICIT",
+              "TARGET_EXPLICIT",
+              "SEMANTIC_INFERENCE",
+              "EXTERNAL_DOCUMENTATION"
+            ]
+          }
+        },
+        "required": [
+          "artifact_sha256",
+          "locator",
+          "observation",
+          "role"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "independent_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "target_key": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "enum": [
+                  "FoodOn",
+                  "FDC_SR_Legacy",
+                  "FNDDS"
+                ]
+              },
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "string",
+                "minLength": 1
+              }
+            ],
+            "minItems": 3,
+            "maxItems": 3,
+            "items": false
+          },
+          "target_native_label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target_locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "relation": {
+            "enum": [
+              "EXACT",
+              "CLOSE",
+              "BROADER_TARGET",
+              "NARROWER_TARGET",
+              "RELATED",
+              "CONDITIONAL",
+              "AMBIGUOUS",
+              "UNRESOLVED"
+            ]
+          },
+          "direction": {
+            "const": "SOURCE_RELATION_TO_TARGET"
+          },
+          "conditions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "uniqueItems": true
+          },
+          "applicability": {
+            "enum": [
+              "CONCEPT_CANDIDATE_ONLY",
+              "CONDITIONAL_CONCEPT_CANDIDATE",
+              "RELATED_ONLY",
+              "UNRESOLVED"
+            ]
+          },
+          "measurement_transfer": {
+            "const": "HOLD"
+          }
+        },
+        "required": [
+          "target_key",
+          "target_native_label",
+          "target_locator",
+          "relation",
+          "direction",
+          "conditions",
+          "rationale",
+          "evidence_refs",
+          "applicability",
+          "measurement_transfer"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "relation": {
+                  "const": "CONDITIONAL"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "conditions": {
+                  "minItems": 1
+                },
+                "applicability": {
+                  "const": "CONDITIONAL_CONCEPT_CANDIDATE"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "applicability": {
+                  "const": "CONDITIONAL_CONCEPT_CANDIDATE"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "conditions": {
+                  "minItems": 1
+                }
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 9
+    },
+    "hard_negatives": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "target_key": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "enum": [
+                  "FoodOn",
+                  "FDC_SR_Legacy",
+                  "FNDDS"
+                ]
+              },
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "string",
+                "minLength": 1
+              }
+            ],
+            "minItems": 3,
+            "maxItems": 3,
+            "items": false
+          },
+          "target_native_label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target_locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "conflict_type": {
+            "enum": [
+              "EXPLICIT_CONFLICT",
+              "GRAIN_OR_ROLE_DIFFERENCE",
+              "TARGET_SPECIFIC_CONDITION",
+              "COMPOSITION_OR_SPECIES_DIFFERENCE",
+              "UNRESOLVED_OTHER"
+            ]
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "target_key",
+          "target_native_label",
+          "target_locator",
+          "conflict_type",
+          "rationale",
+          "evidence_refs"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 9
+    },
+    "search_attempts": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "properties": {
+          "target_system": {
+            "enum": [
+              "FoodOn",
+              "FDC_SR_Legacy",
+              "FNDDS"
+            ]
+          },
+          "query_terms": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "search_method": {
+            "type": "string",
+            "minLength": 1
+          },
+          "result": {
+            "enum": [
+              "CANDIDATES_FOUND",
+              "NO_SUPPORTED_TARGET_IN_REVIEWED_MATERIAL",
+              "INSUFFICIENT_SOURCE",
+              "SEARCH_INCOMPLETE"
+            ]
+          }
+        },
+        "required": [
+          "target_system",
+          "query_terms",
+          "search_method",
+          "result"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "case_disposition": {
+      "enum": [
+        "CANDIDATE_CONCEPT_ONLY",
+        "CONDITIONAL_OR_AMBIGUOUS",
+        "NO_SUPPORTED_TARGET_IN_REVIEWED_MATERIAL",
+        "HOLD_INSUFFICIENT_EVIDENCE"
+      ]
+    },
+    "local_concept_extension": {
+      "enum": [
+        "NOT_PROPOSED",
+        "CANDIDATE_FOR_LOCAL_CONCEPT_REVIEW"
+      ]
+    },
+    "unresolved_reasons": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "reviewer_minutes": {
+      "type": "number",
+      "minimum": 0
+    },
+    "review_status": {
+      "const": "CRITIC_DRAFT"
+    },
+    "accepted_equivalence": {
+      "const": false
+    },
+    "mapping_release_authorized": {
+      "const": false
+    },
+    "scientific_reference_qualified": {
+      "const": false
+    },
+    "purpose": {
+      "const": "CURATION_DEV_ONLY"
+    }
+  },
+  "required": [
+    "review_id",
+    "source_ref",
+    "source_scope",
+    "source_native_label",
+    "native_kind",
+    "source_dimensions",
+    "evidence",
+    "independent_candidates",
+    "hard_negatives",
+    "search_attempts",
+    "case_disposition",
+    "local_concept_extension",
+    "unresolved_reasons",
+    "reviewer_minutes",
+    "review_status",
+    "accepted_equivalence",
+    "mapping_release_authorized",
+    "scientific_reference_qualified",
+    "purpose"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "case_disposition": {
+            "const": "CANDIDATE_CONCEPT_ONLY"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "independent_candidates": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "case_disposition": {
+            "enum": [
+              "NO_SUPPORTED_TARGET_IN_REVIEWED_MATERIAL",
+              "HOLD_INSUFFICIENT_EVIDENCE"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "unresolved_reasons": {
+            "minItems": 1
+          },
+          "independent_candidates": {
+            "items": {
+              "properties": {
+                "relation": {
+                  "enum": [
+                    "AMBIGUOUS",
+                    "UNRESOLVED"
+                  ]
+                },
+                "applicability": {
+                  "const": "UNRESOLVED"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -43,7 +43,15 @@ def run(root,profile,ph,run,receipt_sha,packet,out):
    for o in a.partition(U2,kind,a.p["pins"][U2+"/private/partition_manifest.json"]):
     if ref(o) in missing:oldreg[ref(o)]=o;missing.remove(ref(o))
    if not missing:break
-  require(not missing,"OLD_PROBE_REF_MISSING")
+  if missing:
+   base=root/"runs/B2/U3-A/real_002/private";mp=base/"collection_manifest.json";m=load(a.pin(str(mp.relative_to(root)),a.p["pins"]["runs/B2/U3-A/real_002/private/collection_manifest.json"]))
+   for k in ("VocabularyAnchorDraft.jsonl","SourceSnapshotDraft.jsonl","NativeVocabularyRecord.jsonl"):
+    if k not in m:continue
+    f=a.pin(str((base/"typed_collections"/k).relative_to(root)),m[k]["sha256"])
+    for o in lines(f):
+     if ref(o) in missing:revision_ok(o);oldreg[ref(o)]=o;missing.remove(ref(o))
+    if not missing:break
+  require(not missing,"OLD_PROBE_REF_MISSING:"+str(sorted(missing)))
  oldscope=next(o for o in a.c2["ScopeAssessment"] if o["payload"]["iri"].endswith("FOODON_00003365"))
  populate_refs(oldscope["dependency_refs"]+oldscope["provenance_refs"])
  forge_scope=mutate(oldscope,lambda o:o["payload"].update(scope_status="CORE_RETAINED_DEV",exclusion_roots=[],witnesses=[{"root":o["payload"]["iri"],"steps":[]}]))

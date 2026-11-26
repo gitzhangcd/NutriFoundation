@@ -1,0 +1,768 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nutrifoundation:udf:u3c2r:0.1",
+  "$defs": {
+    "ref": {
+      "type": "string",
+      "pattern": "^[^@]+@[a-f0-9]{64}$"
+    },
+    "slot": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "VALUE"
+            },
+            "value": {
+              "not": {
+                "type": "null"
+              }
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "UNAVAILABLE"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            },
+            "detail": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason",
+            "detail"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "NOT_APPLICABLE"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            },
+            "policy_ref": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason",
+            "policy_ref"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "CommonEnvelope": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "pattern": "^[^@]+$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "kind": {
+          "enum": [
+            "VerifiedScopeOverlay",
+            "VerifiedRiskOverlay",
+            "VerifiedQueryOverlay"
+          ]
+        },
+        "schema_version": {
+          "const": "UDF-U3C2R-ENVELOPE-0.1"
+        },
+        "contract_version": {
+          "const": "UDF-U3C2R-ENVELOPE-0.1"
+        },
+        "lifecycle": {
+          "const": "DRAFT"
+        },
+        "producer_role": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clock_axis": {
+          "const": "AUDIT_UTC"
+        },
+        "provenance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "source_class": {
+          "enum": [
+            "REAL_DATA",
+            "REAL_DOCUMENT",
+            "NATIVE_JUDGMENT"
+          ]
+        },
+        "instance_class": {
+          "enum": [
+            "REAL_SOURCE_GROUNDED",
+            "MIXED_CONSTRUCTED"
+          ]
+        },
+        "purpose_release_ref": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PENDING"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tag",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "purpose": {
+          "const": "CURATION_DEV"
+        },
+        "supersedes_ref": {
+          "$ref": "#/$defs/slot"
+        },
+        "payload": {
+          "type": "object"
+        },
+        "governance": {
+          "type": "object",
+          "properties": {
+            "legacy_ref": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/ref"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "legacy_schema_version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "stage": {
+              "const": "U3-B-C2-R1"
+            },
+            "construction_class": {
+              "enum": [
+                "OBS",
+                "CON",
+                "DRV",
+                "UNDECLARED_AT_OBJECT_LEVEL"
+              ]
+            },
+            "verification_scope": {
+              "type": "string"
+            },
+            "rights_domains": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "release_status": {
+              "const": "HOLD"
+            },
+            "policy_version": {
+              "const": "UDF-U3C2R-ENVELOPE-0.1"
+            },
+            "semantic_overlay": {
+              "type": "object",
+              "properties": {
+                "declared_component_ref": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "effective_component_ref": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "record_definition_status": {
+                  "type": "string"
+                },
+                "source_quantity_kind": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "target_quantity_kind": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "unit_relation": {
+                  "type": "string"
+                },
+                "value_availability": {
+                  "type": "string"
+                },
+                "measurement_equivalence": {
+                  "const": "NOT_QUALIFIED"
+                }
+              },
+              "required": [
+                "measurement_equivalence"
+              ],
+              "additionalProperties": false
+            },
+            "quality_ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "quality_status": {
+              "enum": [
+                "HOLD_SOURCE_TOTAL_CONFLICT",
+                "WITHIN_EXPLORATORY_TOLERANCE_NOT_QUALIFIED"
+              ]
+            },
+            "candidate_risk": {
+              "type": "object",
+              "properties": {
+                "flags": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "rule_version": {
+                  "type": "string"
+                },
+                "legacy_review_route": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "flags",
+                "rule_version",
+                "legacy_review_route"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "legacy_ref",
+            "legacy_schema_version",
+            "stage",
+            "construction_class",
+            "verification_scope",
+            "rights_domains",
+            "release_status",
+            "policy_version"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_id",
+        "revision_id",
+        "kind",
+        "schema_version",
+        "contract_version",
+        "lifecycle",
+        "producer_role",
+        "created_time",
+        "clock_axis",
+        "provenance_refs",
+        "dependency_refs",
+        "source_class",
+        "instance_class",
+        "purpose_release_ref",
+        "purpose",
+        "supersedes_ref",
+        "payload",
+        "governance"
+      ],
+      "additionalProperties": false
+    },
+    "VerifiedScopeOverlay": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "VerifiedScopeOverlay"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "prior_scope_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "iri": {
+                  "type": "string"
+                },
+                "native_label": {
+                  "type": "string"
+                },
+                "scope_status": {
+                  "enum": [
+                    "CORE_RETAINED_DEV",
+                    "EXTENSION_TYPED_RETRIEVAL_ONLY",
+                    "DUAL_ROLE_ORGANISM_REVIEW_ONLY",
+                    "HOLD_EXCLUSION_BRANCH_OVERLAP",
+                    "HOLD_NONFOOD_OR_NONIDENTITY_ROLE",
+                    "HOLD_SCOPE_UNRESOLVED",
+                    "HOLD_NON_FOODON_OR_UNLABELED_OR_DEPRECATED"
+                  ]
+                },
+                "review_role": {
+                  "type": "string"
+                },
+                "original_scope_status": {
+                  "type": "string"
+                },
+                "original_asserted_core_member": {
+                  "type": "boolean"
+                },
+                "snapshot_sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "mapping_release": {
+                  "const": "HOLD"
+                }
+              },
+              "required": [
+                "prior_scope_ref",
+                "iri",
+                "native_label",
+                "scope_status",
+                "review_role",
+                "original_scope_status",
+                "original_asserted_core_member",
+                "snapshot_sha256",
+                "mapping_release"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "VerifiedRiskOverlay": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "VerifiedRiskOverlay"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "prior_risk_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "source_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "target_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "scope_ref": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/ref"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "prior_candidate_ref": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/ref"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "source_legacy_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "target_legacy_ref": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/ref"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "cohort": {
+                  "type": "string"
+                },
+                "target_scope": {
+                  "type": "string"
+                },
+                "rank_in_frozen_pool": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1
+                },
+                "extension_pool_rank": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1
+                },
+                "source_dimensions": {
+                  "type": "object",
+                  "properties": {
+                    "normalized_complete_label": {
+                      "type": "string"
+                    },
+                    "current_state": {
+                      "enum": [
+                        "RAW_EXPLICIT",
+                        "COOKED_EXPLICIT",
+                        "UNKNOWN",
+                        "AMBIGUOUS"
+                      ]
+                    },
+                    "explicit_mentions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "origin_mentions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "negative_mentions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "unresolved_state": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "form_mentions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "normalized_complete_label",
+                    "current_state",
+                    "explicit_mentions",
+                    "origin_mentions",
+                    "negative_mentions",
+                    "unresolved_state",
+                    "form_mentions"
+                  ],
+                  "additionalProperties": false
+                },
+                "target_dimensions": {
+                  "type": "object",
+                  "properties": {
+                    "normalized_complete_label": {
+                      "type": "string"
+                    },
+                    "current_state": {
+                      "enum": [
+                        "RAW_EXPLICIT",
+                        "COOKED_EXPLICIT",
+                        "UNKNOWN",
+                        "AMBIGUOUS"
+                      ]
+                    },
+                    "explicit_mentions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "origin_mentions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "negative_mentions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "unresolved_state": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "form_mentions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "normalized_complete_label",
+                    "current_state",
+                    "explicit_mentions",
+                    "origin_mentions",
+                    "negative_mentions",
+                    "unresolved_state",
+                    "form_mentions"
+                  ],
+                  "additionalProperties": false
+                },
+                "full_label_evidence": {
+                  "enum": [
+                    "NORMALIZED_COMPLETE_SURFACE",
+                    "AUTHORED_COMPLETE_BILINGUAL_PAIR",
+                    "NONE"
+                  ]
+                },
+                "explicit_conflicts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "unresolved_conditions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "role_conditions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "role_policy_mode": {
+                  "type": "string"
+                },
+                "disposition": {
+                  "enum": [
+                    "BLOCK_EXPLICIT_CONFLICT",
+                    "HOLD_SCOPE_OR_UNREGISTERED_ROLE",
+                    "HOLD_UNRESOLVED_CONDITIONS",
+                    "CONDITIONAL_RELATION_REVIEW_ONLY",
+                    "COMPLETE_SURFACE_REVIEW_ONLY"
+                  ]
+                },
+                "review_eligible": {
+                  "type": "boolean"
+                },
+                "scientific_equivalence": {
+                  "const": "HOLD"
+                },
+                "nutrient_transfer": {
+                  "const": "HOLD"
+                },
+                "physical_identity": {
+                  "const": "HOLD"
+                },
+                "training": {
+                  "const": "HOLD"
+                },
+                "mapping_release": {
+                  "const": "HOLD"
+                },
+                "relation": {
+                  "const": "UNRESOLVED"
+                }
+              },
+              "required": [
+                "prior_risk_ref",
+                "source_ref",
+                "target_ref",
+                "scope_ref",
+                "prior_candidate_ref",
+                "source_legacy_ref",
+                "target_legacy_ref",
+                "cohort",
+                "target_scope",
+                "rank_in_frozen_pool",
+                "extension_pool_rank",
+                "source_dimensions",
+                "target_dimensions",
+                "full_label_evidence",
+                "explicit_conflicts",
+                "unresolved_conditions",
+                "role_conditions",
+                "role_policy_mode",
+                "disposition",
+                "review_eligible",
+                "scientific_equivalence",
+                "nutrient_transfer",
+                "physical_identity",
+                "training",
+                "mapping_release",
+                "relation"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "VerifiedQueryOverlay": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CommonEnvelope"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "VerifiedQueryOverlay"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "prior_query_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "source_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "source_legacy_ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "cohort": {
+                  "type": "string"
+                },
+                "pool_count": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "eligible_count": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "shortlist_refs": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/ref"
+                  },
+                  "uniqueItems": true
+                },
+                "query_status": {
+                  "enum": [
+                    "DEVELOPMENT_REVIEW_AVAILABLE",
+                    "ABSTAIN_NO_ELIGIBLE_CANDIDATE_IN_RETRIEVED_POOL"
+                  ]
+                },
+                "mapping_release": {
+                  "const": "HOLD"
+                }
+              },
+              "required": [
+                "prior_query_ref",
+                "source_ref",
+                "source_legacy_ref",
+                "cohort",
+                "pool_count",
+                "eligible_count",
+                "shortlist_refs",
+                "query_status",
+                "mapping_release"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/VerifiedScopeOverlay"
+    },
+    {
+      "$ref": "#/$defs/VerifiedRiskOverlay"
+    },
+    {
+      "$ref": "#/$defs/VerifiedQueryOverlay"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "status": "PASS_NEUTRAL_PACKET_PREPARATION / EXPERT_DISPATCH_HOLD_ACCESS_CONTROL_AND_QUALIFICATION",
+  "tasks": 36,
+  "uniform_role_sets": 1,
+  "source_files_verified": 11,
+  "reference_files_verified": 4,
+  "priority_cards": 130,
+  "additional_evidence_count": 186,
+  "source_selection": "C1 risk-enriched developer sample; membership itself not blind/confirmatory",
+  "phase_a_queue_sha256": "47607eef0341092ed11fac67c85c242ce4b3f73485623be0cf78e1b308c95268",
+  "phase_a_reference_manifest_sha256": "90a6715e18d55d366c5506ed57fd7097f5955654a6c04bddf37f0f06dbd3139a",
+  "phase_b_packet_sha256": "529a0f4cc1ab82802de6545fe68fa0bdee479a1d6471c8c85028607cd386e6ae",
+  "response_schema_sha256": "29664e901ef85694253361699c6859ddee1bd4ecf66eb2fae8739f510c2518ae",
+  "actual_reviewer_assignment_count": 0,
+  "expert_responses": 0,
+  "acl_isolation_verified": false,
+  "expert_dispatch_authorized": false,
+  "scientific_release": false
+}

@@ -1,0 +1,28 @@
+{
+  "version": "UDF-U3C2R-EXECUTION-0.1",
+  "base_commit": "f79d29dc200d59c1e40f4d97a834696c3bdc68be",
+  "base_pr": 62,
+  "policy": "configs/udf/u3c2r/R1_Policy_v0.1.json",
+  "pins": {
+    "configs/audit/tasks/B2_U3B_C2_Impl_Gemini_001.json": "e051b9707e5bad0dabacf48e3d2917b680ff4cc9077fd75bb339d6a5d07d8ee7",
+    "configs/audit/IndependentAuditProtocol_v0.1.md": "93abd373e58a0666dc4b58009a1fb2c96e25ad31f4124f2704153730f7c33789",
+    "runs/B2/U3-B/C2/CriticAudit_Gemini_001/CriticFreezeReceipt.json": "50ab06764a5eb653a2574e55928f14bddb8ee64812b4ae93882c400f71a76b54",
+    "runs/B2/U3-B/C2/C2AdmissionReceipt.json": "1615c5e364d4d1f8c6a61d824e68527bf33ef50441b7405662ede16cb576bf68",
+    "runs/B2/U3-B/C2/real_001/C2ExecutionReport.json": "35a34287009b7476be2de349be5111dbde0940e65eb1458777af1635fbd088d3",
+    "runs/B2/U3-B/C2/real_001/private/InputFence.json": "3845e3a8d1aac0dad65e57157069c066e66f324876d561a6db10f55a715f160d",
+    "runs/B2/U3-B/C2/real_001/private/ExpertSourceFirstQueue.json": "289a1f22cab4c40c239960b1e261cfc36abc266b5f304a7c26d48b6066512983",
+    "runs/B2/U3-B/C2/real_001/private/ExpertComparisonHidden.json": "dfca4d238fa868e1986541fd842145fe50785f5f01b3807159f1fbd0078357fa",
+    "runs/B2/U3-B/C2/expert_packet_001/private/ExpertSourceAccessManifest.json": "8fef26a9293250d7b7582fe19c256253d83d69a66eb2081d5672ac0ccd59718d",
+    "runs/B2/U3-A/real_002/private/collection_manifest.json": "f192c7bde06afa66ba0633c9f947d3d989358593237e907c06f21c5e6b2b406e",
+    "runs/B1/U2-C/real_001/private/partition_manifest.json": "305341af924c55d6945ac7bd8aeecf7043137756f5bd128761122ce0dc06bbb3",
+    "runs/B2/U3-B/real_001/private/partition_manifest.json": "2c2f27f1a505539bf97457c9472e027714ef39bcc874390ae96fb031616ec96c",
+    "runs/B2/U3-B/C1/real_001/C1FreezeReceipt.json": "718ca1c67ef6d3b38496a687accc30a194044dc5af49ed82d875c82f05ce6a84",
+    "runs/B2/U3-B/C2/validation_001/C2ValidationReport.json": "e4224a84a705a0cbc3270976af3800fff5da800104e4c2f3d2d793751a964f55",
+    "src/u3c2/scope.py": "1170b38c39a98f7fff2fe858d148d81175c55edd2009fd3d26d3065c24b0e94d",
+    "src/u3c2/risk.py": "8b0fbf614b67f4268a7e9356abe4906060bd12f49dd1e9da436ad1ad43c064e6",
+    "src/u3c1/run_c1.py": "c763808f9e7a07ec0dec6cd9e56a1e97f532f369851c33e46510e30442c1ba3b",
+    "schemas/udf/u3c2/ExpertAdjudicationResponse_v0.1.schema.json": "2546096980afcaed38bbb0a44465ff74107cea995c95fb16c2d75b64e28c1231",
+    "runs/B2/U3-B/C2/real_001/C2_Contract.schema.json": "bb3a60855ef72f0f45aefbbc4b66509e24817940ac182150687f7e6539170bfd"
+  },
+  "release_authorized": false
+}

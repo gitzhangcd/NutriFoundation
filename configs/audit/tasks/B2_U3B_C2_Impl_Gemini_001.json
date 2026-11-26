@@ -1,0 +1,206 @@
+{
+  "task_id": "B2-U3B-C2-IMPL-GEMINI-001",
+  "title": "Independent FoodOn Scope & Semantic Risk Runtime Conformance Audit",
+  "protocol": "configs/audit/IndependentAuditProtocol_v0.1.md",
+  "protocol_version": "0.1",
+  "audit_type": "IMPLEMENTATION_CONFORMANCE",
+  "reviewer": "Gemini",
+  "status": "READY_FOR_PI_DISPATCH",
+  "root": "/Users/zhangcd/Codes/NutriOne/",
+  "baseline": {
+    "base_commit": "d95d9dea810efc1dd80576669f195f765a8e77ff",
+    "base_pr": 61,
+    "c2_run": "real_001",
+    "validation": "validation_001",
+    "authority": "exact C2 artifact SHA256 below (local and repository identical); PR61 is pre-C2 baseline"
+  },
+  "timing": {
+    "reason": "C2 local replay and gate tests passed; independent review is required before changing final semantic eligibility or activating C3.",
+    "blocks": [
+      "C3 mapping qualification",
+      "B3 scientific computation"
+    ],
+    "may_parallel": [
+      "qualified expert source-first review preparation; no automatic expert dispatch"
+    ]
+  },
+  "allowed_inputs": [
+    {
+      "path": "docs/AI_Nutri_Unified_Data_Foundation_v2.1.md",
+      "sha256": "3c0ef69f9ecff2178830c0b4d43253dae5c161d7308c86bc2b6be5e6a68b26ed",
+      "role": "configuration or aggregate evidence"
+    },
+    {
+      "path": "runs/B2/U3-A/inputs/FoodOn.owl",
+      "sha256": "b897bf64c1b265c422db9ee01e1235c10c0b809e7f02326ef810a52068347edf",
+      "role": "public ontology original"
+    },
+    {
+      "path": "runs/B2/U3-B/C1/C1AdmissionReceipt.json",
+      "sha256": "077c508c98c8eb8debc43378b07806c0762a48bacd66bb724230d8a745c0a7bb",
+      "role": "configuration or aggregate evidence"
+    },
+    {
+      "path": "runs/B2/U3-B/C1/validation_001/C1ValidationReport.json",
+      "sha256": "163c36859056aa73ff2de4e0f936f718a7c8f596418f407908bd550a614983a5",
+      "role": "configuration or aggregate evidence"
+    },
+    {
+      "path": "src/u3c2/scope.py",
+      "sha256": "1170b38c39a98f7fff2fe858d148d81175c55edd2009fd3d26d3065c24b0e94d",
+      "role": "code inspection; do not execute full pipeline"
+    },
+    {
+      "path": "src/u3c2/risk.py",
+      "sha256": "8b0fbf614b67f4268a7e9356abe4906060bd12f49dd1e9da436ad1ad43c064e6",
+      "role": "code inspection; do not execute full pipeline"
+    },
+    {
+      "path": "src/u3c2/run_c2.py",
+      "sha256": "9d6d40c4f475cb3aa3f598ca071ee6f3a3dc3e54098be46d629b41ae1e7a5e61",
+      "role": "code inspection; do not execute full pipeline"
+    },
+    {
+      "path": "tests/u3c2/gate_c2.py",
+      "sha256": "5a6d9a134e014f3e98dbead7592aa8e68cf9059c58ce507aa3b2809c12a8eaa7",
+      "role": "code inspection; do not execute full pipeline"
+    },
+    {
+      "path": "tests/u3c2/verify_c2.py",
+      "sha256": "ec2cf6d1ed64032313be50b731611eabdda5baf009d7b9cdf26c2f040835a5d0",
+      "role": "code inspection; do not execute full pipeline"
+    },
+    {
+      "path": "tests/u3c2/prepare_expert.py",
+      "sha256": "3b3185b0d585158aa3ff0f4c42ef94f36845814ff413102c4ea9c922369a3c48",
+      "role": "code inspection; do not execute full pipeline"
+    },
+    {
+      "path": "tests/u3c2/prepare_audit_slice.py",
+      "sha256": "cb025fff81e78c1efff9508c5927d7328dd38f4f04b27e834c7ce0ca5945190e",
+      "role": "code inspection; do not execute full pipeline"
+    },
+    {
+      "path": "configs/udf/u3c2/C2_Policy_v0.1.json",
+      "sha256": "ffef17a63f818e8ddeb5b75859d95b2e14eb947c577db7ec0c69c99f721ba503",
+      "role": "configuration or aggregate evidence"
+    },
+    {
+      "path": "configs/udf/u3c2/C2_ExecutionProfile_v0.1.json",
+      "sha256": "5a453676e3b111da2e33a1a5d3bdbcdc59be54472c58f16dc1fec750508eb9aa",
+      "role": "configuration or aggregate evidence"
+    },
+    {
+      "path": "docs/udf/B2_U3-B-C2_FoodOn_Scope_Semantic_Risk_Expert_Preparation_v0.1.md",
+      "sha256": "b6d4d33c9a27cd53c89f9c4e218779a2870fec7e137ebe0cf47b2a0069486927",
+      "role": "configuration or aggregate evidence"
+    },
+    {
+      "path": "docs/udf/U3B_C2_Expert_Adjudication_Protocol_v0.1.md",
+      "sha256": "a11c293ac252b3c7fda89e2058193a52c2ee2bb9b82c7f6375b78e6ec04552ae",
+      "role": "configuration or aggregate evidence"
+    },
+    {
+      "path": "schemas/udf/u3c2/ExpertAdjudicationResponse_v0.1.schema.json",
+      "sha256": "2546096980afcaed38bbb0a44465ff74107cea995c95fb16c2d75b64e28c1231",
+      "role": "configuration or aggregate evidence"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/real_001/C2_Contract.schema.json",
+      "sha256": "bb3a60855ef72f0f45aefbbc4b66509e24817940ac182150687f7e6539170bfd",
+      "role": "configuration or aggregate evidence"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/real_001/C2ExecutionReport.json",
+      "sha256": "35a34287009b7476be2de349be5111dbde0940e65eb1458777af1635fbd088d3",
+      "role": "configuration or aggregate evidence"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/validation_001/C2ValidationReport.json",
+      "sha256": "e4224a84a705a0cbc3270976af3800fff5da800104e4c2f3d2d793751a964f55",
+      "role": "configuration or aggregate evidence"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/expert_packet_001/ExpertPacketPreparationReport.json",
+      "sha256": "39133292d9a0af8a8f42256955201e840dca9299c29de4c5724b78ca25b72416",
+      "role": "configuration or aggregate evidence"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/audit_slice_001/AuditSlicePreparationReport.json",
+      "sha256": "6dfcc8ec73751a9ff94c5258ec742bf585523bf3ff92f4fba5bf098f0167683e",
+      "role": "configuration or aggregate evidence"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/audit_slice_001/private/Exposed44RiskAuditSlice.json",
+      "sha256": "a0dc31d774210a6f47ab2a6bd34f7cb0190c89e87bef33ae0c89b36d59105c12",
+      "role": "bounded previously exposed 44 / public scope probe slice only"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/audit_slice_001/private/FoodOnScopeAuditSlice.json",
+      "sha256": "e74d96ca2280a52732ee52b032e1dd21cdd426f5ec0613c0406a3f278cb4c3cf",
+      "role": "bounded previously exposed 44 / public scope probe slice only"
+    }
+  ],
+  "forbidden_inputs": [
+    "all files not listed except this exact task configuration and general audit protocol",
+    "new U3-B 44-case source-only packet and hidden packet; new Critic outputs",
+    "all full C2 private typed_partitions, expert source-first/comparison packets and responses",
+    "generator hidden data, full source data, unrelated files or recursive discovery",
+    "running run_c2.py, verify_c2.py, prepare_expert.py or prepare_audit_slice.py on the workspace, because they access material outside this task's bounded allowlist"
+  ],
+  "review_task": {
+    "tasks": [
+      "Independently verify file fingerprints, counts and physical output types; scope of actual slice is 355 original C1 exposed edges and 125 FoodOn scope probes, not independent full-pool audit.",
+      "Parse original OWL independently. Check old root closure, named equivalent and top-level named intersection consequences, no illegal union/filler inference. Recompute seven typed lanes and exclusions; verify 6 recovered classes, 9 negative probes and 110 core overlaps. Assess false exclusion risk and unsupported assumptions; do not claim full reasoner.",
+      "Inspect actual risk semantics on exposed slice and targeted in-memory adversarial examples: raw/boiled vs unknown, food state vs ingredient origin, negation, species and product form, generic/subtype and whole/component, Chinese compound terms. Check 4 explicit blocks, 19 holds, 18 specific additional flags and 1 grain-only. Critic negatives not expert truth.",
+      "Inspect rejection/eligibility and actual gate path: distinguish navigation, dev concept review, scientific transfer. Investigate resealed mutation bypass and scope witness validation, typed reference/role compatibility, all FDC/FNDDS held, all new extension candidates held, 250/284 abstention. Do not equate conservative hold with accuracy.",
+      "Check expert preparation and response schema, two-phase identity/qualification/hash/evidence ownership, source-only leakage risk and missing runtime checks. Do not create expert responses or Gold.",
+      "Validate scientific and engineering claims; separate independently reproduced evidence, reported aggregates, limitations and recommendations. Prior exposure must be declared; this is implementation audit only, not independent semantic review of new cohort."
+    ],
+    "allowed_execution": "Read-only parsing of allowlisted files, direct isolated scope/risk function probes or independently written bounded in-memory tests; prevent writes/bytecode outside new output; no full pipeline runs.",
+    "finding_schema": {
+      "finding_id": "unique string",
+      "severity": "RED/AMBER/INFO",
+      "category": "scope/risk/contract/runtime/rights/reproducibility/expert-prep",
+      "location": "exact file and code line or allowed record reference",
+      "expected": "normative condition",
+      "observed": "observed result",
+      "evidence": "source locator or bounded reproduction",
+      "reproduction_status": "REPRODUCED/STATIC_ONLY/REPORTED_NOT_INDEPENDENTLY_VERIFIED",
+      "scientific_impact": "scope and consequence",
+      "recommendation": "specific repair",
+      "qualification_effect": "HOLD or scope-limited"
+    }
+  },
+  "output": {
+    "directory": "runs/B2/U3-B/C2/CriticAudit_Gemini_001/",
+    "mode": "NEW_DIRECTORY_ONLY",
+    "required": [
+      {
+        "file": "ExecutionManifest.json",
+        "requirements": "task_id, exact input hashes, actual accessed paths, model/version or UNAVAILABLE, UTC, exposure and limits, commands and status"
+      },
+      {
+        "file": "AuditFindings.jsonl",
+        "requirements": "one record per actual finding; no fabricated finding count"
+      },
+      {
+        "file": "AuditReport.md",
+        "requirements": "Chinese Obsidian Markdown with reproduced vs unverified claims, severity, counterexamples, scope limits and repair plan"
+      },
+      {
+        "file": "CriticFreezeReceipt.json",
+        "requirements": "task_id, status, exact counts and SHA256 of other three files, input identities, no unblinding/release, unresolved issues, access declaration"
+      }
+    ]
+  },
+  "acceptance": {
+    "allowed_hashes": "ALL",
+    "forbidden_access": 0,
+    "existing_files_modified": 0,
+    "new_blind_cohort_disclosed": 0,
+    "expert_gold": 0,
+    "mapping_release": 0
+  },
+  "stop": "Freeze and stop; do not edit production code, compare new independent queue, or authorize release. Missing inputs or discrepancies -> report HOLD with exact reason."
+}

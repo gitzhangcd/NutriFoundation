@@ -1,0 +1,175 @@
+{
+  "version": "UDF-U3C2R-POLICY-0.1",
+  "purpose": "CURATION_DEV_ONLY",
+  "baseline_c2_policy": "configs/udf/u3c2/C2_Policy_v0.1.json",
+  "scope_rule": "Exact recomputation against pinned OWL and old active core. Retain old typed lanes; organism overlap is dual-role review only, never direct admission. No ontology entailment completeness.",
+  "allow_organism_overlap_role_review": true,
+  "scope_review_probe": "http://purl.obolibrary.org/obo/FOODON_00001668",
+  "identity_rule": "Only complete normalized label equality or explicitly registered whole-label bilingual pair; no substring anchor grants eligibility. All unmatched residual retained. Conditions are not asserted equivalence.",
+  "whole_label_aliases": [
+    [
+      "马铃薯",
+      "potato"
+    ],
+    [
+      "土豆",
+      "potato"
+    ],
+    [
+      "菠菜",
+      "spinach"
+    ],
+    [
+      "鸡蛋",
+      "chicken egg"
+    ],
+    [
+      "花生",
+      "peanut"
+    ],
+    [
+      "苹果",
+      "apple"
+    ],
+    [
+      "面包",
+      "bread"
+    ],
+    [
+      "牛肉",
+      "beef"
+    ],
+    [
+      "豆腐",
+      "tofu"
+    ],
+    [
+      "米饭",
+      "cooked rice"
+    ],
+    [
+      "炒饭",
+      "fried rice"
+    ],
+    [
+      "食用油",
+      "edible oil"
+    ],
+    [
+      "糖果",
+      "candy"
+    ],
+    [
+      "牛排",
+      "beef steak"
+    ],
+    [
+      "菠菜(熟)",
+      "spinach (cooked)"
+    ],
+    [
+      "马铃薯(煮)",
+      "potato (boiled)"
+    ],
+    [
+      "马铃薯(蒸)",
+      "potato (steamed)"
+    ]
+  ],
+  "role_policy": {
+    "same_grain": "COMPLETE_SURFACE_REVIEW",
+    "ingredient_to_foodon": "COMPLETE_SURFACE_REVIEW",
+    "other_pairs": [
+      [
+        "INGREDIENT_REFERENCE",
+        "COMPOSITION_REFERENCE"
+      ],
+      [
+        "INGREDIENT_REFERENCE",
+        "DIETARY_SURVEY_CODE"
+      ],
+      [
+        "RECIPE_REFERENCE",
+        "ONTOLOGY_FOOD_PRODUCT_CLASS"
+      ],
+      [
+        "VISUAL_FOOD_CLASS",
+        "ONTOLOGY_FOOD_PRODUCT_CLASS"
+      ],
+      [
+        "VISUAL_VARIETY_CLASS",
+        "ONTOLOGY_FOOD_PRODUCT_CLASS"
+      ],
+      [
+        "MENU_ITEM_REFERENCE",
+        "ONTOLOGY_FOOD_PRODUCT_CLASS"
+      ],
+      [
+        "RECIPE_VARIANT_LABEL",
+        "ONTOLOGY_FOOD_PRODUCT_CLASS"
+      ],
+      [
+        "COARSE_FOOD_CATEGORY",
+        "ONTOLOGY_FOOD_PRODUCT_CLASS"
+      ],
+      [
+        "RECIPE_REFERENCE",
+        "COMPOSITION_REFERENCE"
+      ],
+      [
+        "RECIPE_REFERENCE",
+        "DIETARY_SURVEY_CODE"
+      ],
+      [
+        "VISUAL_FOOD_CLASS",
+        "COMPOSITION_REFERENCE"
+      ],
+      [
+        "VISUAL_FOOD_CLASS",
+        "DIETARY_SURVEY_CODE"
+      ],
+      [
+        "INGREDIENT_REFERENCE",
+        "ONTOLOGY_TYPED_EXTENSION_CATEGORY"
+      ],
+      [
+        "RECIPE_REFERENCE",
+        "ONTOLOGY_TYPED_EXTENSION_CATEGORY"
+      ],
+      [
+        "VISUAL_FOOD_CLASS",
+        "ONTOLOGY_TYPED_EXTENSION_CATEGORY"
+      ],
+      [
+        "MENU_ITEM_REFERENCE",
+        "ONTOLOGY_TYPED_EXTENSION_CATEGORY"
+      ]
+    ],
+    "other_pairs_mode": "CONDITIONAL_RELATION_REVIEW_ONLY"
+  },
+  "max_review_edges_per_scope": 3,
+  "expert_roles": [
+    "FOOD_ONTOLOGY_OR_FOOD_SCIENCE",
+    "NUTRITION_COMPOSITION_OR_MEASUREMENT_AS_NEEDED",
+    "REGIONAL_RECIPE_EXPERT_AS_NEEDED"
+  ],
+  "expert_target_files": [
+    {
+      "path": "runs/B2/U3-A/inputs/FoodOn.owl",
+      "sha256": "b897bf64c1b265c422db9ee01e1235c10c0b809e7f02326ef810a52068347edf"
+    },
+    {
+      "path": "runs/B2/U3-A/inputs/FDC_SR_2018.zip",
+      "sha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
+    },
+    {
+      "path": "runs/B2/U3-A/inputs/FNDDS_2015_16.zip",
+      "sha256": "9be942b9d181acb62f37ee2f4c259dae642b586b2e4fe29039cfa1847f4d5dd0"
+    },
+    {
+      "path": "runs/B2/U3-A/inputs/FNDDS_ARS_foods_2015_16.xlsx",
+      "sha256": "a3289f72a032d9453e4f5dcb51e922ff476c07c71b79d32db378070f95af55d9"
+    }
+  ],
+  "release_authorized": false
+}

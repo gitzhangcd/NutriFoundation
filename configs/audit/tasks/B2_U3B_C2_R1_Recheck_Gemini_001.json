@@ -1,0 +1,247 @@
+{
+  "task_id": "B2-U3B-C2-R1-RECHECK-GEMINI-001",
+  "title": "Bounded recheck of previously demonstrated C2-A1 findings",
+  "protocol": "configs/audit/IndependentAuditProtocol_v0.1.md",
+  "protocol_version": "0.1",
+  "audit_type": "IMPLEMENTATION_CONFORMANCE",
+  "reviewer": "Gemini",
+  "status": "READY_FOR_PI_DISPATCH",
+  "root": "/Users/zhangcd/Codes/NutriOne/",
+  "baseline": {
+    "pre_r1_pr": 62,
+    "pre_r1_commit": "f79d29dc200d59c1e40f4d97a834696c3bdc68be",
+    "r1_run": "R1/real_001",
+    "r1_validation": "R1/validation_001",
+    "scope": "355 previously exposed edges and 129 public scope probes only"
+  },
+  "timing": {
+    "reason": "Bounded recheck of five original RED and related AMBER defects; do not reopen broad audit unless a concrete new blocker is reproduced.",
+    "blocks": [
+      "C3 mapping qualification",
+      "B3 scientific calculation"
+    ],
+    "may_parallel": [
+      "independent source-only semantic review by a reviewer without new candidate exposure; no expert dispatch before isolation"
+    ]
+  },
+  "allowed_inputs": [
+    {
+      "path": "src/u3c2r/risk_v2.py",
+      "sha256": "b128513c456ba74433980cd0375207a868c93dc6421c14ae6687549e34f0fdbd",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "src/u3c2r/scope_v2.py",
+      "sha256": "40eb18be97425adb991714cd79aaa2268ba7919b352f4bac753572c3b50f6eb2",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "src/u3c2r/runtime_v2.py",
+      "sha256": "f6e66e40a60a2271536f6029b316ffd8a9304a1e37028ff08e9b98326549e641",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "src/u3c2r/prepare_expert_v2.py",
+      "sha256": "8ed89dbf69e87ab2a94562179408dbf229741ba05ed331c9cab3b46cf9e6d796",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "src/u3c2r/expert_gate_v2.py",
+      "sha256": "a00b9e1b1bcf6e3f26fb699a4938b186f962b4250db615ee77897b1e495b7896",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "tests/u3c2r/verify_r1.py",
+      "sha256": "7a9108430dde516912a70a3b66f873ce3e72533b46491579a3adb6af38075d47",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "tests/u3c2r/prepare_recheck_slice.py",
+      "sha256": "c43524e0753d5f17cf614e571c153b7c1314140984de23f18f7eb41955594385",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "configs/udf/u3c2r/R1_Policy_v0.1.json",
+      "sha256": "485412bf6594c3120a1e129e4dda78277fa42640773f1ec64101a97d16726275",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "configs/udf/u3c2r/R1_ExecutionProfile_v0.1.json",
+      "sha256": "80085d447e633b97833b03932b7e8e3e389105d5c336dd1f7f0be1d23994bb8a",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "schemas/udf/u3c2r/ExpertAdjudicationResponse_v0.2.schema.json",
+      "sha256": "29664e901ef85694253361699c6859ddee1bd4ecf66eb2fae8739f510c2518ae",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "docs/udf/B2_U3-B-C2-R1_Verified_Admission_and_Expert_Isolation_v0.1.md",
+      "sha256": "86013c9e622e4ef24c3507e880c4e3dc31323a02953630e967d93c49e30cb7e7",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/R1/real_001/R1_Contract.schema.json",
+      "sha256": "5845a697d0223fc09ec0d10feec8c5a706dc007bbcd798a3878f1c0343347ed6",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/R1/real_001/R1ExecutionReport.json",
+      "sha256": "e32073148d4282b4c4d9b2fb17186b493b312bd0ee0cdedfaa60ca2f9d0869af",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/R1/real_001/R1ExecutionFreezeReceipt.json",
+      "sha256": "8de9e7e7018195133f10f3f5e5b9d19b0786f8ee654138c86d87cf26c625a288",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/R1/validation_001/R1ValidationReport.json",
+      "sha256": "acd6e1cfe7c5fbb4416168ed65e845f87067c7a309113a79feaf1cd00551090d",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/R1/expert_packet_001/ExpertPacketR1Report.json",
+      "sha256": "88809b815271e78735344c0cab3d38cb7da1e574f98206f7cb7ce50bbccb1b6c",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/R1/recheck_slice_001/R1AuditSliceReport.json",
+      "sha256": "cb26896fd5eea78ad704295050655f635741b997a0a8973c0c55c10694ec3ef1",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/R1/R1AdmissionReceipt.json",
+      "sha256": "ec603410df927b3b16b14c05d611eb2966440090fcc42adc79a628c5655645d4",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "src/u3c2/scope.py",
+      "sha256": "1170b38c39a98f7fff2fe858d148d81175c55edd2009fd3d26d3065c24b0e94d",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "src/u3c2/risk.py",
+      "sha256": "8b0fbf614b67f4268a7e9356abe4906060bd12f49dd1e9da436ad1ad43c064e6",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "src/u3c2/run_c2.py",
+      "sha256": "9d6d40c4f475cb3aa3f598ca071ee6f3a3dc3e54098be46d629b41ae1e7a5e61",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "configs/udf/u3c2/C2_Policy_v0.1.json",
+      "sha256": "ffef17a63f818e8ddeb5b75859d95b2e14eb947c577db7ec0c69c99f721ba503",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "runs/B2/U3-A/inputs/FoodOn.owl",
+      "sha256": "b897bf64c1b265c422db9ee01e1235c10c0b809e7f02326ef810a52068347edf",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/real_001/C2_Contract.schema.json",
+      "sha256": "bb3a60855ef72f0f45aefbbc4b66509e24817940ac182150687f7e6539170bfd",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/CriticAudit_Gemini_001/AuditFindings.jsonl",
+      "sha256": "c4f2ee7c176b2bf22e5cc42f243a090e0d433c4857bac439250c518591177eeb",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/CriticAudit_Gemini_001/CriticFreezeReceipt.json",
+      "sha256": "50ab06764a5eb653a2574e55928f14bddb8ee64812b4ae93882c400f71a76b54",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/audit_slice_001/private/Exposed44RiskAuditSlice.json",
+      "sha256": "a0dc31d774210a6f47ab2a6bd34f7cb0190c89e87bef33ae0c89b36d59105c12",
+      "role": "bounded exposed slice"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/audit_slice_001/private/FoodOnScopeAuditSlice.json",
+      "sha256": "e74d96ca2280a52732ee52b032e1dd21cdd426f5ec0613c0406a3f278cb4c3cf",
+      "role": "bounded exposed slice"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/R1/recheck_slice_001/private/Exposed44R1RegressionSlice.json",
+      "sha256": "58b480a4ddfb803319330938683f70a01d33d787b432fb749e6d6943b4e8e094",
+      "role": "bounded exposed slice"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/R1/recheck_slice_001/private/R1ScopeRegressionSlice.json",
+      "sha256": "11e0fe1d6bd755eacaba97afe043e12de5ca04dccfd5ec2c9fade68129369b7b",
+      "role": "bounded exposed slice"
+    },
+    {
+      "path": "docs/AI_Nutri_Unified_Data_Foundation_v2.1.md",
+      "sha256": "3c0ef69f9ecff2178830c0b4d43253dae5c161d7308c86bc2b6be5e6a68b26ed",
+      "role": "pinned implementation or aggregate report / public authority"
+    },
+    {
+      "path": "src/u2c/core.py",
+      "sha256": "1be5915bc89e4a98d7807b626d86289e36fb75ebcdbb3bb92c9dfb0cb749cf6b",
+      "role": "pinned implementation or aggregate report / public authority"
+    }
+  ],
+  "forbidden_inputs": [
+    "all files not explicitly listed, except this configuration and general protocol",
+    "new 44-case review source-only/hidden packets and all new independent Critic results",
+    "full private C2/R1 partitions; expert source-first/comparison packets or actual responses",
+    "unapproved recursive discovery; executing full R1/C2 pipeline or verification scripts that access hidden material"
+  ],
+  "review_task": {
+    "tasks": [
+      "Check five RED findings against the repaired runtime and previously exposed 355 edges; independently run targeted isolated risk/scope counterexamples on allowed inputs. Check that all five specific old mismatches are held and explicit vs missing conditions remain separate.",
+      "Check production VerifiedGate trust boundary and exact recomputation; distinguish actual reproduced failures, static risks and full-gate reported aggregates (full gate cannot be run under this allowlist). Do not claim OS sandbox/security.",
+      "Check 103 dual-role scope routing, 7 other overlap holds, 6 actual FOODON-prefix exclusion probes, parser fail-closed and anonymous axioms not inferred.",
+      "Check uniform expert role construction, v0.2 schema and authorization/phase guards through isolated synthetic probes or code inspection. No expert assignment or authority fabrication. Acknowledge real access isolation is unresolved.",
+      "Assess F-C2-006 to 012 against declared boundaries; recognize 284/284 abstention as a coverage HOLD, not scientific success. Report only new or unresolved material defects, not another generic redesign."
+    ],
+    "allowed_execution": "read-only allowlisted file parsing and isolated in-memory tests only; do not execute full pipeline or access forbidden files. Disable bytecode writes.",
+    "finding_schema": {
+      "finding_id": "unique string",
+      "prior_finding_ids": "array",
+      "severity": "RED/AMBER/INFO",
+      "location": "exact allowed source",
+      "observed": "actual evidence",
+      "expected": "normative condition",
+      "reproduction_status": "REPRODUCED/STATIC_ONLY/REPORTED_NOT_INDEPENDENTLY_VERIFIED",
+      "qualification_effect": "scope-limited/HOLD",
+      "recommendation": "specific repair or explicit residual hold"
+    }
+  },
+  "output": {
+    "directory": "runs/B2/U3-B/C2/R1/CriticRecheck_Gemini_001/",
+    "mode": "NEW_DIRECTORY_ONLY",
+    "required": [
+      {
+        "file": "ExecutionManifest.json",
+        "requirements": "actual model/version, access log, input hashes, prior exposure, reproduction limits"
+      },
+      {
+        "file": "AuditFindings.jsonl",
+        "requirements": "actual findings; empty allowed if no new finding"
+      },
+      {
+        "file": "AuditReport.md",
+        "requirements": "Chinese report, prior 12 dispositions, targeted tests, unresolved boundaries"
+      },
+      {
+        "file": "CriticFreezeReceipt.json",
+        "requirements": "exact task ID, counts, hashes of other files, unresolved status, no scientific release"
+      }
+    ]
+  },
+  "acceptance": {
+    "allowed_hashes": "ALL",
+    "forbidden_access": 0,
+    "existing_files_modified": 0,
+    "new_blind_cohort_disclosed": 0,
+    "expert_gold": 0,
+    "mapping_release": 0
+  },
+  "stop": "Freeze and stop. This audit does not prove scientific accuracy; no unblinding, code edits or release."
+}

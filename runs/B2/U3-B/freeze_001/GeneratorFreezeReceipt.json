@@ -1,0 +1,40 @@
+{
+  "status": "GENERATOR_FROZEN_DEVELOPMENT_ONLY / INDEPENDENT_REVIEW_HOLD",
+  "utc": "2026-11-26T15:18:25.195372+00:00",
+  "generator_run": "runs/B2/U3-B/real_001",
+  "validation_run": "runs/B2/U3-B/validation_001",
+  "profile_sha256": "b8b8f8df3c6affa348ad459cbfb3c638eb67c504e654a6edd90ac51e017fcece",
+  "model_manifest_sha256": "2b052d7fc06fdd4de5505b4e1cd7b11be9a6a6be109781ed12c07402f3949ca9",
+  "output_file_hashes": {
+    "configs/udf/u3b/U3B_PilotProfile_v0.1.json": "b8b8f8df3c6affa348ad459cbfb3c638eb67c504e654a6edd90ac51e017fcece",
+    "configs/udf/u3b/U3B_ReviewQualificationProtocol_v0.1.json": "6762800302188e7160102aa98dc8317804d53a348d1f4fb1e73b4c83e6afd85a",
+    "src/u3b/run_u3b.py": "90dfbb79db0c3c202eb69ef0b3aafe259626f7526b1117e2a4a131454e629308",
+    "tests/u3b/verify_u3b.py": "055e55b8a9e8f87d084819e596ab746ff1129bd32cc55bbd083fdd04eb238072",
+    "tests/u3b/freeze_u3b.py": "fabf0b1a10311df24104371386ff263482b79dde2b56fe90358c6649b06a6238",
+    "runs/B2/U3-B/inputs/e5-small-xenova/ModelManifest.json": "2b052d7fc06fdd4de5505b4e1cd7b11be9a6a6be109781ed12c07402f3949ca9",
+    "runs/B2/U3-B/real_001/U3BGeneratorReport.json": "affb94c25fca7f009a1f15dca88783a6375632b01ebaaa06e6066c1a3a975fe3",
+    "runs/B2/U3-B/real_001/U3B_PilotContract.schema.json": "857d0af0f16cc765c53e21d51aec0c9e67689f77c15850c650682bd8eb0f63d4",
+    "runs/B2/U3-B/validation_001/U3BValidationReport.json": "881424fd9cbeecbfb07517d2f58e819f729a24c365316f298dacd6651c064e41",
+    "runs/B2/U3-B/real_001/private/partition_manifest.json": "2c2f27f1a505539bf97457c9472e027714ef39bcc874390ae96fb031616ec96c",
+    "runs/B2/U3-B/real_001/private/ReviewSourceOnlyQueue.json": "5d60068281b4ca5a33484e65058566bab5603aaad439d9efec6e650bd8041993",
+    "runs/B2/U3-B/real_001/private/ReviewCandidatesHidden.json": "51c6499ca5b776f926e0a54ee0717e8c6054b7b86c67d5fe7bedf6c090560edc"
+  },
+  "typed_objects": 29366,
+  "generator_candidates": 29081,
+  "original_44_unchanged": true,
+  "new_review_queue_sources": 44,
+  "new_review_queue_strata": {
+    "NEW_U2C_RULE_RED": 18,
+    "HIGH_SCORE_AMBER": 12,
+    "FRESH_CHINESE_ingredient": 7,
+    "FRESH_CHINESE_dish": 7
+  },
+  "source_only_and_hidden_pairs_verified": 44,
+  "new_queue_source_overlap_original": 0,
+  "critic_content_read": false,
+  "independent_review_completed": 0,
+  "adjudicated_reference_count": 0,
+  "mapping_release_authorized": false,
+  "scientific_release_authorized": false,
+  "note": "Only verified generator freeze. File separation is not proven access control. No unblinding performed."
+}

@@ -1,0 +1,95 @@
+{
+  "version": "UDF-U3R2-DEV-CALIBRATION-0.1",
+  "base_commit": "5e43df1fe57ff934a0452fc3c0de4f19e44973b0",
+  "base_pr": 63,
+  "purpose": "CURATION_DEV_ONLY",
+  "scientific_release_authorized": false,
+  "pins": {
+    "configs/audit/tasks/B2_U3B_C2_R1_Recheck_Gemini_001.json": "ee1a429a782b508eec96b4e0a1184a0238f5d99f3cb751103f8c9820eef39485",
+    "runs/B2/U3-B/C2/R1/CriticRecheck_Gemini_001/CriticFreezeReceipt.json": "2adced36623b690b1ba60b125da8bb4f494123049f650aa3be3937dc6025a67d",
+    "runs/B2/U3-B/C2/R1/R1AdmissionReceipt.json": "ec603410df927b3b16b14c05d611eb2966440090fcc42adc79a628c5655645d4",
+    "runs/B2/U3-B/C2/R1/real_001/R1ExecutionFreezeReceipt.json": "8de9e7e7018195133f10f3f5e5b9d19b0786f8ee654138c86d87cf26c625a288",
+    "runs/B2/U3-B/C2/R1/real_001/R1ExecutionReport.json": "e32073148d4282b4c4d9b2fb17186b493b312bd0ee0cdedfaa60ca2f9d0869af",
+    "runs/B2/U3-B/C2/R1/real_001/controller_private/partition_manifest.json": "d79bac87f825bdeebb15e74575d1f7ccdeb83a3905d898e6a68a2e7addb0677a",
+    "runs/B2/U3-B/C2/real_001/private/partition_manifest.json": "baefc8b1cb160c22e67acc39b853dcb6f62910de990200d74ed26ca5622ae296",
+    "runs/B2/U3-B/freeze_001/GeneratorFreezeReceipt.json": "0b916d85234a0a4634b5f0dd296afa43a53d983d85474228d5b742d2c8fe317e",
+    "runs/B2/U3-B/real_001/private/partition_manifest.json": "2c2f27f1a505539bf97457c9472e027714ef39bcc874390ae96fb031616ec96c",
+    "runs/B2/U3-B/real_001/private/ReviewSourceOnlyQueue.json": "5d60068281b4ca5a33484e65058566bab5603aaad439d9efec6e650bd8041993",
+    "runs/B2/U3-B/real_001/private/ReviewCandidatesHidden.json": "51c6499ca5b776f926e0a54ee0717e8c6054b7b86c67d5fe7bedf6c090560edc",
+    "runs/B1/U2-C/real_001/private/partition_manifest.json": "305341af924c55d6945ac7bd8aeecf7043137756f5bd128761122ce0dc06bbb3",
+    "configs/udf/u3c2r/R1_Policy_v0.1.json": "485412bf6594c3120a1e129e4dda78277fa42640773f1ec64101a97d16726275",
+    "src/u3c2r/risk_v2.py": "b128513c456ba74433980cd0375207a868c93dc6421c14ae6687549e34f0fdbd",
+    "schemas/udf/u3c2r/ExpertAdjudicationResponse_v0.2.schema.json": "29664e901ef85694253361699c6859ddee1bd4ecf66eb2fae8739f510c2518ae",
+    "docs/AI_Nutri_Unified_Data_Foundation_v2.1.md": "3c0ef69f9ecff2178830c0b4d43253dae5c161d7308c86bc2b6be5e6a68b26ed",
+    "runs/B2/U3-A/real_002/private/ReviewSourceOnlyQueue.json": "c70eaa53b7582af9ed92aebdd83d74f9241b2cf345270c819a1e0dd1498a0b00",
+    "runs/B2/U3-A/review_queue_audit_001/private/ReviewSourceOnlyRedSupplement.json": "29ad65e17212d0c80505ff5aa8232cb5b63ebbed8a319c08e031d15d4c720050"
+  },
+  "review_design": {
+    "existing_queue_count": 44,
+    "existing_queue_overlap_current_model": 19,
+    "supplement_per_stratum": 8,
+    "supplement_total": 32,
+    "selection_salt": "UDF-U3R2-RISK-FREE-DEVELOPMENT-SUPPLEMENT-v0.1",
+    "selection_keys": [
+      "cohort",
+      "source_scope"
+    ],
+    "sampling_rule": "hash ordered by stable source object id, exclude both original queues, no score/label-based selection, select 8 per each of 4 strata; hold out 32 from first review and any subsequent tuning until separate freeze",
+    "first_dispatch": 44,
+    "second_dispatch": 32,
+    "classification": "risk-enriched 44 (25 old-only and 19 current); stratified 32 current-model development holdout. Not a population estimate or confirmatory gold."
+  },
+  "arms": {
+    "LABEL": {
+      "ranks": "stored label_rank",
+      "k": [
+        1,
+        3,
+        5,
+        12
+      ]
+    },
+    "CONTEXT": {
+      "ranks": "stored context_rank",
+      "k": [
+        1,
+        3,
+        5,
+        12
+      ]
+    },
+    "FUSION": {
+      "ranks": "stored pool_rank for original; fixed RRF k60 for extension",
+      "k": [
+        1,
+        3,
+        5,
+        12
+      ]
+    },
+    "TYPED_QUESTION": {
+      "ranks": "exclude prior RED and new explicit conflicts, held scope or unregistered role; prioritize complete source/target surface or authored whole-label bilingual pair, then stored fusion rank; remaining mismatched labels are UNRESOLVED_REVIEW_QUESTION, not accepted relations",
+      "k": [
+        1,
+        3,
+        5,
+        12
+      ]
+    }
+  },
+  "rank_scopes": "per source and target scope; original scopes and extension reported separately; no cross-batch score merge",
+  "residual_patch": {
+    "rice_alias": "registered whole label as candidate-search evidence only; Chinese implicit cooking state remains unconfirmed and yields a question",
+    "peeled": "explicit peeled/unpeeled/去皮/带皮 opposed, negation-aware, new proposal blocks conflict without altering R1",
+    "expert": "v0.3 response schema contradictions, no actual expert assignment; phase-B per-edge binding/ACL remains blocked until EA-P0"
+  },
+  "metric_plan": {
+    "coverage": "proposals per query and scopes; not accuracy",
+    "review_reference_hit": "At least one independently proposed native target in top k among cases with verified target in same frozen target universe; development reference overlap not true recall",
+    "absence": "separate no target found, insufficient source, target outside universe, target in universe but absent pool, in pool but outside shortlist, blocked/unknown; do not prove absence",
+    "precision": "requires independent pair judgment of all sampled proposed edges for a declared relation/purpose, with unresolved separately retained; cannot infer from source-only target list",
+    "thresholds": "fixed top k for development; independent confirmatory protocol needs expert reference and PI-approved margin/sample plan before open"
+  },
+  "reviewer": "prefer separate fresh reviewer not exposed to actual new candidate rows; Gemini if used declares prior method exposure, developmental only; no confirmed ACL",
+  "reference_status": "HOLD_NO_INDEPENDENT_REFERENCE"
+}

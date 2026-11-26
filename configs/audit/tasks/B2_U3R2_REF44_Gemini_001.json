@@ -1,0 +1,145 @@
+{
+  "task_id": "B2-U3R2-REF44-GEMINI-001",
+  "title": "R2 source-only independent developmental semantic reference, first 44 cases",
+  "protocol": "configs/audit/IndependentAuditProtocol_v0.1.md",
+  "protocol_version": "0.1",
+  "protocol_sha256": "93abd373e58a0666dc4b58009a1fb2c96e25ad31f4124f2704153730f7c33789",
+  "audit_type": "INDEPENDENT_SEMANTIC_REVIEW",
+  "reviewer": "Gemini or explicitly assigned alternative reviewer in a fresh context",
+  "status": "READY_FOR_PI_DISPATCH",
+  "root": "/Users/zhangcd/Codes/NutriOne/",
+  "baseline": {
+    "purpose": "R2 developmental reference retrieval only",
+    "source_queue": "original U3-B new 44, projected with native source context; not the C0 previously unblinded 44",
+    "frozen_source_only_sha256": "3cce95a3ffd33ec559744300f7a45e525505be2a4e218f3b42570daa69c5bc4b",
+    "prior_exposure": "Gemini has reviewed the method and exposed C1 cases, not authorized to read these new candidate results; do not claim confirmatory blindness."
+  },
+  "timing": {
+    "blocks": [
+      "R2 reference comparison and semantic method selection",
+      "C3 and B3 scientific qualification"
+    ],
+    "may_parallel": [
+      "EA-P0 workbench design and access-control preparation"
+    ]
+  },
+  "allowed_inputs": [
+    {
+      "path": "docs/AI_Nutri_Unified_Data_Foundation_v2.1.md",
+      "sha256": "3c0ef69f9ecff2178830c0b4d43253dae5c161d7308c86bc2b6be5e6a68b26ed",
+      "role": "NORMATIVE_SPECIFICATION"
+    },
+    {
+      "path": "runs/B2/U3-B/C2/R2/real_001/reviewer_source_only/R2Review44.json",
+      "sha256": "3cce95a3ffd33ec559744300f7a45e525505be2a4e218f3b42570daa69c5bc4b",
+      "role": "SOURCE_ONLY_FIRST44"
+    },
+    {
+      "path": "schemas/udf/u3r2/R2ReferenceReview_v0.1.schema.json",
+      "sha256": "8b79406d0e2b08ca3d86def180e32f3881faaa0e1b38a7e53216861281014076",
+      "role": "EXACT_RESPONSE_SCHEMA"
+    },
+    {
+      "path": "runs/B2/U3-A/inputs/FoodOn.owl",
+      "sha256": "b897bf64c1b265c422db9ee01e1235c10c0b809e7f02326ef810a52068347edf",
+      "role": "FIXED_PUBLIC_STANDARD"
+    },
+    {
+      "path": "runs/B2/U3-A/inputs/FDC_SR_2018.zip",
+      "sha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+      "role": "FIXED_PUBLIC_STANDARD"
+    },
+    {
+      "path": "runs/B2/U3-A/inputs/FNDDS_2015_16.zip",
+      "sha256": "9be942b9d181acb62f37ee2f4c259dae642b586b2e4fe29039cfa1847f4d5dd0",
+      "role": "FIXED_PUBLIC_STANDARD"
+    },
+    {
+      "path": "runs/B2/U3-A/inputs/FNDDS_ARS_foods_2015_16.xlsx",
+      "sha256": "a3289f72a032d9453e4f5dcb51e922ff476c07c71b79d32db378070f95af55d9",
+      "role": "FIXED_PUBLIC_STANDARD"
+    }
+  ],
+  "external_sources": "Use the four pinned public local standards, no external upload of private source data. Public official documentation may be consulted only if no private labels or data are transmitted; local ID/label/locator must be verified. Evidence not contained in allowed input hashes is narrative support only, not authority for accepted candidate identity.",
+  "forbidden_inputs": [
+    "all non-allowlisted files except this exact configuration and the general protocol",
+    "reserved 32-case source-only packet and any reserved 32 outcome",
+    "R2 controller_private, execution report, ranked arms, hidden candidates, comparison index, R1/C2/U3-B candidate outputs, prior C1 disagreement or critic results, source code and scores",
+    "expert comparison packets or responses, full private raw source datasets, recursive search or other agents results",
+    "unapproved external service submission of private source content"
+  ],
+  "review_task": {
+    "total_cases": 44,
+    "unique_review_ids": 44,
+    "response_schema": "schemas/udf/u3r2/R2ReferenceReview_v0.1.schema.json",
+    "tasks": [
+      "Read only the specified source-only packet and actual source labels, native aliases and reference recipe names. Each case identity must be copied exactly. Reconstruct eight semantic dimensions; distinguish explicit source evidence, inference, external support, unknown. Reference recipe names are not verified measured composition. Do not infer source portions, current food state, species, or nutrient amounts.",
+      "Independently search FoodOn 2026-09-20, FDC SR Legacy 2018-04, FNDDS 2015-16. Include up to 3 actually relevant targets per system. For each target use a native ID, exact raw label, evidence locator, direction SOURCE_RELATION_TO_TARGET and conditions. No requirement to find targets. Record search terms and outcome for each of the 3 standards; do not infer absence from failure of a limited search.",
+      "Separate EXACT (same conceptual grain only), BROADER_TARGET, NARROWER_TARGET, CONDITIONAL, CLOSE, RELATED, AMBIGUOUS and UNRESOLVED. Conditional relationships need concrete conditions. Missing facts do not constitute explicit contradictions. Do not assign any target an accepted equivalence or nutrient-transfer qualification.",
+      "Retain up to 3 actual hard negatives per standard with specific rationale and source/target evidence; distinguish explicit opposition from source ambiguity or target specialization. Record local concept extension as a candidate for future review when useful, not a new approved concept.",
+      "Use the exact JSON Schema. Each case retains unresolved reasons, and no-supported-target means no supported target in reviewed material, not proof of nonexistence. Report actual review burden in minutes; no precision or recall without independent adjudicated reference. Finish 44/44 and freeze. No review of reserved 32."
+    ],
+    "canonical_target_identity": {
+      "FoodOn": {
+        "target_key": [
+          "FoodOn",
+          "2026-09-20",
+          "full RDF class IRI"
+        ],
+        "target_locator": "runs/B2/U3-A/inputs/FoodOn.owl#rdf:about=<full IRI>"
+      },
+      "FDC_SR_Legacy": {
+        "target_key": [
+          "FDC_SR_Legacy",
+          "2018-04",
+          "fdc_id string"
+        ],
+        "target_locator": "runs/B2/U3-A/inputs/FDC_SR_2018.zip!<exact member path of food.csv>:row:<1-based CSV logical record number with header = 1>"
+      },
+      "FNDDS": {
+        "target_key": [
+          "FNDDS",
+          "2015-16",
+          "8-digit FoodCode string"
+        ],
+        "target_locator": "runs/B2/U3-A/inputs/FNDDS_2015_16.zip!<exact survey_fndds_food.csv member path>:row:<logical record with header=1> | runs/B2/U3-A/inputs/FNDDS_ARS_foods_2015_16.xlsx!Foods and Beverages:row:<actual Excel row>"
+      }
+    },
+    "evidence_contract": "For SOURCE_EXPLICIT evidence artifact_sha256 is the case artifact_sha256, locator is the compact JSON serialization of source_locator with keys sorted, no spaces, UTF-8 unescaped Unicode; quotation/observation comes only from case source fields. For TARGET_EXPLICIT evidence artifact_sha256 is the actual allowed public standard hash; locator equals candidate target_locator. All referenced evidence indices are zero-based. Each candidate/negative must include actual target explicit evidence. Source-only independent references are opinions, not gold.",
+    "model_and_exposure": "State actual model/build or UNAVAILABLE. Declare prior exposure; no strict confirmatory blind claim. The earlier Gemini C0, A1 and A2 audit exposure remains relevant."
+  },
+  "output": {
+    "directory": "runs/B2/U3-B/C2/R2/Reference44_Gemini_001/",
+    "mode": "NEW_DIRECTORY_ONLY",
+    "required": [
+      {
+        "file": "ExecutionManifest.json",
+        "requirements": "task_id, model_identity, actual UTC, input_hashes mapping with exact allowed paths plus protocol and task config hashes, actual_accessed_paths, prior_exposure_declared=true, confirmatory_blind_claimed=false, forbidden_access_count=0, real execution method and limitations"
+      },
+      {
+        "file": "ReviewRecords.jsonl",
+        "requirements": "44 records, one per source case, exact schema, no omitted unresolved case"
+      },
+      {
+        "file": "ReviewReport.md",
+        "requirements": "Chinese Obsidian Markdown, actual search methods and counts by source/standard/relationship, unresolved and review burden, no claims of independent accuracy or release"
+      },
+      {
+        "file": "CriticFreezeReceipt.json",
+        "requirements": "task_id, status REVIEW_FROZEN if complete else HOLD, completed_cases, output_file_hashes mapping of other three filenames to SHA256, actual counts, model and exposure, mapping_release_authorized=false, scientific_reference_qualified=false. No self hash."
+      }
+    ]
+  },
+  "acceptance": {
+    "allowed_input_hashes": "ALL",
+    "cases": 44,
+    "target_id_and_locator_validation": "ALL",
+    "forbidden_access": 0,
+    "existing_files_modified": 0,
+    "reserved_cases_accessed": 0,
+    "accepted_equivalence": 0,
+    "scientific_reference_qualified": 0,
+    "formal_mapping_release": 0
+  },
+  "stop": "Freeze and stop. No unblinding, no reserved 32, no code changes or release. If inputs mismatch or cases incomplete record HOLD and actual counts. PI will authorize controller comparison later."
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PASS_REAL_OFF_SOURCE_FIELD_SUPPLEMENT_ONLY",
+  "product_records": 5,
+  "basis_counts": {
+    "SOURCE_DECLARED_100G": 5
+  },
+  "actual_field_counts": {
+    "carbohydrates_100g": 5,
+    "carbohydrates-total_100g": 2
+  },
+  "schema_validated_objects": 12,
+  "real_nonstandard_unit_pairs": 0,
+  "record_level_label_semantics_qualified": 0,
+  "measurement_conversion_qualified": 0,
+  "input_manifest_sha256": "2e6cff9fcb3e41f7dac6fb9c186ea9b42aa5e39e4329b64031448d5275a8dc42"
+}

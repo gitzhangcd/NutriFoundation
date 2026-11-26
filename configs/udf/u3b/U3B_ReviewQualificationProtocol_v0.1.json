@@ -1,0 +1,84 @@
+{
+  "version": "UDF-U3B-REVIEW-QUALIFICATION-0.1",
+  "status": "HOLD_NO_INDEPENDENT_ADJUDICATED_REFERENCE",
+  "scope": "development Generator-Critic comparison; no confirmation or release",
+  "allowed_states": [
+    "GENERATOR_FROZEN",
+    "CRITIC_FREEZE_VERIFIED",
+    "UNBLIND_AUTHORIZED",
+    "DEVELOPMENT_DISAGREEMENT_REVIEWED",
+    "INDEPENDENT_EXPERT_REFERENCE_FROZEN",
+    "CONFIRMATORY_PROTOCOL_PRE_REGISTERED",
+    "PURPOSE_QUALIFIED_RELEASE"
+  ],
+  "current_allowed_state": "GENERATOR_FROZEN_ONLY_AFTER_SUCCESSFUL_VALIDATION",
+  "review_sets": [
+    {
+      "id": "U3A-GEMINI-44",
+      "type": "DEVELOPMENT_PREVIOUSLY_AUDITED",
+      "original_unchanged": true,
+      "eligible_for_confirmatory": false
+    },
+    {
+      "id": "U3B-RISK-AND-FRESH",
+      "type": "DEVELOPMENT_RISK_ENRICHED",
+      "separate_from_original": true,
+      "eligible_for_confirmatory": false
+    }
+  ],
+  "unblind_prerequisites": [
+    "exact frozen source-only queue identity and source refs",
+    "CriticFreezeReceipt hash and manifest verify, all supplied output files verified",
+    "review_id/source_ref one-to-one with source-only packet, absent or unresolved retained",
+    "all target native IDs resolve in same pinned target release; no unverified ID or cross-cycle join",
+    "explicit review role and exposure history recorded",
+    "explicit unblinding authorization; no mutation of generator or critic files"
+  ],
+  "adjudication": {
+    "agent_agreement_is_gold": false,
+    "requires_qualified_independent_expert_for_semantic_reference": true,
+    "red_safety_and_measurement": "qualified domain reviewer or HOLD",
+    "relation_direction": "SOURCE_RELATION_TO_TARGET",
+    "relation_values": [
+      "EXACT",
+      "CLOSE",
+      "BROADER_TARGET",
+      "NARROWER_TARGET",
+      "RELATED",
+      "CONDITIONAL",
+      "AMBIGUOUS",
+      "UNRESOLVED"
+    ],
+    "ambiguous": "retain distinct admissible target sets and conditions; no forced single target",
+    "food_instance": false,
+    "measurement_equivalence": false
+  },
+  "evaluation": {
+    "retrieval_coverage": "queries with >=1 generated candidate / all evaluated queries; not recall",
+    "candidate_recall_at_k": "queries with at least one expert-eligible target in top-k / queries with adjudicated eligible target in the fixed target universe",
+    "edge_precision": "adjudicated correct edges for specific directional relation and purpose / adjudicated proposed edges",
+    "unmatched": "report separately source cases with no eligible target, not dropped from coverage",
+    "strata": [
+      "source database",
+      "grain",
+      "language",
+      "state conflict",
+      "high score ambiguous",
+      "unmatched/no eligible target"
+    ],
+    "weighted_metrics": "frequency weighted only with actual sampling probabilities and frequency definitions; macro counts by stratum",
+    "intervals": "pre-specify binomial or design-based interval and clustering before confirmatory audit; zero observed errors not zero risk",
+    "threshold_and_sample_size": "HOLD_PI_AND_EXPERT_PROTOCOL_REQUIRED before independent confirmatory set is opened",
+    "developer_queue_44_or_enriched": "not representative and not confirmatory; report development disagreements and review burden only"
+  },
+  "release_guard": {
+    "mapping_release": "HOLD",
+    "science_reference": "HOLD",
+    "training": "HOLD",
+    "physical_identity": "HOLD",
+    "measurement_calculation": "HOLD",
+    "clinical_decision": "HOLD",
+    "required_next": "independent adjudication, applicability and uncertainty, rights checks, non-regression, purpose-scoped release and explicit authorized owner"
+  },
+  "note": "File separation is not proven access control. Existing Gemini previously audited code; no strict independence claimed. Never read Critic outputs in generator execution."
+}

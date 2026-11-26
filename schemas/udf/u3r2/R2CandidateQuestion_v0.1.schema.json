@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nutrifoundation:udf:u3r2:question:0.1",
+  "type": "object",
+  "properties": {
+    "proposal_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "r1_risk_ref": {
+      "type": "string",
+      "pattern": "^[^@]+@[a-f0-9]{64}$"
+    },
+    "source_ref": {
+      "type": "string",
+      "pattern": "^[^@]+@[a-f0-9]{64}$"
+    },
+    "source_legacy_ref": {
+      "type": "string",
+      "pattern": "^[^@]+@[a-f0-9]{64}$"
+    },
+    "target_ref": {
+      "type": "string",
+      "pattern": "^[^@]+@[a-f0-9]{64}$"
+    },
+    "target_key": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "enum": [
+            "FoodOn",
+            "FDC_SR_Legacy",
+            "FNDDS"
+          ]
+        },
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "string",
+          "minLength": 1
+        }
+      ],
+      "minItems": 3,
+      "maxItems": 3,
+      "items": false
+    },
+    "target_scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_grain": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_grain": {
+      "type": "string",
+      "minLength": 1
+    },
+    "label_rank": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "context_rank": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "frozen_pool_rank": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "fusion_score": {
+      "type": "number",
+      "minimum": 0
+    },
+    "r1_review_eligible": {
+      "const": false
+    },
+    "r1_disposition": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "prior_red": {
+      "type": "boolean"
+    },
+    "explicit_conflicts": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "source_peel": {
+      "enum": [
+        "PEELED",
+        "UNPEELED",
+        "AMBIGUOUS",
+        "UNKNOWN"
+      ]
+    },
+    "target_peel": {
+      "enum": [
+        "PEELED",
+        "UNPEELED",
+        "AMBIGUOUS",
+        "UNKNOWN"
+      ]
+    },
+    "label_evidence": {
+      "enum": [
+        "COMPLETE_SURFACE",
+        "AUTHORED_WHOLE_LABEL_PAIR",
+        "AUTHORED_ALIAS_IMPLICIT_COOKING_REQUIRES_REVIEW",
+        "UNRESOLVED_LABEL_RESIDUAL"
+      ]
+    },
+    "condition_questions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "proposal_route": {
+      "enum": [
+        "HOLD_EXPLICIT_OR_PRIOR_RED",
+        "HOLD_SCOPE",
+        "HOLD_UNREGISTERED_ROLE",
+        "QUESTION_ONLY"
+      ]
+    },
+    "candidate_relation": {
+      "const": "UNRESOLVED"
+    },
+    "question_type": {
+      "const": "ASSESS_DIRECTION_AND_CONDITIONS_OR_UNRESOLVED"
+    },
+    "permitted_purpose": {
+      "const": "CURATION_INSPECT_ONLY"
+    },
+    "development_concept_review_authorized": {
+      "const": false
+    },
+    "accepted_equivalence": {
+      "const": false
+    },
+    "measurement_transfer": {
+      "const": "HOLD"
+    },
+    "mapping_release": {
+      "const": "HOLD"
+    },
+    "rights_domains": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "required": [
+    "proposal_id",
+    "r1_risk_ref",
+    "source_ref",
+    "source_legacy_ref",
+    "target_ref",
+    "target_key",
+    "target_scope",
+    "source_grain",
+    "target_grain",
+    "label_rank",
+    "context_rank",
+    "frozen_pool_rank",
+    "fusion_score",
+    "r1_review_eligible",
+    "r1_disposition",
+    "scope_status",
+    "prior_red",
+    "explicit_conflicts",
+    "source_peel",
+    "target_peel",
+    "label_evidence",
+    "condition_questions",
+    "proposal_route",
+    "candidate_relation",
+    "question_type",
+    "permitted_purpose",
+    "development_concept_review_authorized",
+    "accepted_equivalence",
+    "measurement_transfer",
+    "mapping_release",
+    "rights_domains",
+    "content_sha256"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "proposal_route": {
+            "const": "QUESTION_ONLY"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "prior_red": {
+            "const": false
+          },
+          "explicit_conflicts": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ]
+}

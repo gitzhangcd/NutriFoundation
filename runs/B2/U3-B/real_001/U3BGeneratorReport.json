@@ -1,0 +1,146 @@
+{
+  "status": "PASS_BOUNDED_MULTILINGUAL_GENERATOR_PILOT",
+  "contract_version": "UDF-U3B-PILOT-0.1",
+  "utc": "2026-11-26T15:13:20.748513+00:00",
+  "u2c_replayed_objects": 253249,
+  "u2c_admitted_vocabulary_endpoints": 29129,
+  "query_cohort_counts": [
+    {
+      "cohort": "FRESH_DEV",
+      "source_scope": "nutridata:dish",
+      "queries": 48,
+      "old_has_candidate": 0,
+      "new_has_shortlist": 48,
+      "queries_with_context_expansion": 48,
+      "pool_edges": 5255,
+      "shortlist_edges": 432,
+      "queries_with_red_pool": 19
+    },
+    {
+      "cohort": "FRESH_DEV",
+      "source_scope": "nutridata:ingredient",
+      "queries": 48,
+      "old_has_candidate": 0,
+      "new_has_shortlist": 48,
+      "queries_with_context_expansion": 48,
+      "pool_edges": 4622,
+      "shortlist_edges": 432,
+      "queries_with_red_pool": 6
+    },
+    {
+      "cohort": "PAIRED_DEV",
+      "source_scope": "nutridata:dish",
+      "queries": 60,
+      "old_has_candidate": 14,
+      "new_has_shortlist": 60,
+      "queries_with_context_expansion": 60,
+      "pool_edges": 6628,
+      "shortlist_edges": 540,
+      "queries_with_red_pool": 24
+    },
+    {
+      "cohort": "PAIRED_DEV",
+      "source_scope": "nutridata:ingredient",
+      "queries": 128,
+      "old_has_candidate": 85,
+      "new_has_shortlist": 128,
+      "queries_with_context_expansion": 128,
+      "pool_edges": 12576,
+      "shortlist_edges": 1152,
+      "queries_with_red_pool": 23
+    }
+  ],
+  "paired_queries": 188,
+  "fresh_queries": 96,
+  "excluded_old_queue": 44,
+  "excluded_paired_overlap": 11,
+  "model": {
+    "name": "Xenova/multilingual-e5-small",
+    "revision": "761b726dd34fb83930e26aab4e9ac3899aa1fa78",
+    "dimension": 384,
+    "local_inference": true,
+    "onnxruntime": "1.19.2",
+    "numpy": "2.0.2",
+    "file_hashes": {
+      "model_quantized.onnx": "f80102d3f2a1229f387d3c81909990d8945513e347b0eab049f7de3c6f98c193",
+      "tokenizer.json": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+      "config.json": "cb99455288675345e1a4f411438d5d0adbba5fbd3a67ea4fb03c015433b996c1"
+    },
+    "manifest_sha256": "2b052d7fc06fdd4de5505b4e1cd7b11be9a6a6be109781ed12c07402f3949ca9"
+  },
+  "target_scope_counts": {
+    "foodon:2026-09-20:food_product": 12362,
+    "fdc:sr_legacy:2018-04": 7793,
+    "fndds:2015-16:fdc_carrier": 8690
+  },
+  "query_count": 284,
+  "embedding_query_forms": 568,
+  "target_count": 28845,
+  "scope_retrieval": {
+    "foodon:2026-09-20:food_product": {
+      "query_scope_pairs": 284,
+      "top20_intersection": 1516,
+      "top20_union": 9844,
+      "top1_changed": 238,
+      "pool_edges": 9844,
+      "shortlist_edges": 852,
+      "query_scope_pairs_with_shortlist": 284,
+      "hard_negative_candidates": 188
+    },
+    "fdc:sr_legacy:2018-04": {
+      "query_scope_pairs": 284,
+      "top20_intersection": 1825,
+      "top20_union": 9535,
+      "top1_changed": 246,
+      "pool_edges": 9535,
+      "shortlist_edges": 852,
+      "query_scope_pairs_with_shortlist": 284,
+      "hard_negative_candidates": 304
+    },
+    "fndds:2015-16:fdc_carrier": {
+      "query_scope_pairs": 284,
+      "top20_intersection": 1658,
+      "top20_union": 9702,
+      "top1_changed": 245,
+      "pool_edges": 9702,
+      "shortlist_edges": 852,
+      "query_scope_pairs_with_shortlist": 284,
+      "hard_negative_candidates": 76
+    }
+  },
+  "pre_rank_pool_edges": 29081,
+  "shortlist_edges": 2556,
+  "rule_hard_negative_candidates": 568,
+  "unique_queries_with_shortlist": 284,
+  "typed_objects": 29366,
+  "rights_partitions": 4,
+  "review_queue": {
+    "new_sources": 44,
+    "strata": {
+      "NEW_U2C_RULE_RED": 18,
+      "HIGH_SCORE_AMBER": 12,
+      "FRESH_CHINESE_ingredient": 7,
+      "FRESH_CHINESE_dish": 7
+    },
+    "old_44_unchanged": true,
+    "completed": 0,
+    "independent_critic_freeze_receipt_seen_at_start": false,
+    "no_critic_content_read": true
+  },
+  "mapping_release_count": 0,
+  "accepted_equivalence": 0,
+  "science_qualified": 0,
+  "reference_status": "HOLD_NO_INDEPENDENT_ADJUDICATED_REFERENCE",
+  "metrics_limit": "Fixed top-k neighbors imply coverage, not accuracy/recall. Paired cohort not independent, fresh cohort exploratory. No calibrated confidence.",
+  "profile_sha256": "b8b8f8df3c6affa348ad459cbfb3c638eb67c504e654a6edd90ac51e017fcece",
+  "model_manifest_sha256": "2b052d7fc06fdd4de5505b4e1cd7b11be9a6a6be109781ed12c07402f3949ca9",
+  "partition_manifest_sha256": "2c2f27f1a505539bf97457c9472e027714ef39bcc874390ae96fb031616ec96c",
+  "source_inputs_unchanged": true,
+  "limitations": [
+    "no independent Critic or expert review yet; no actual mapping qualification",
+    "explicit state rules incomplete; grain differences unresolved",
+    "no original Food2K/VIREO raw labels; target universe limited to 3 pinned releases",
+    "reference recipe ingredients used as context only; no physical/quantity truth",
+    "dense retrieval uses primary target labels, no LLM semantic adjudication"
+  ]
+}

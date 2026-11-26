@@ -1,0 +1,137 @@
+{
+  "status": "PASS_BOUNDED_C2_DEVELOPMENT_REMEDIATION / EXPERT_AND_RELEASE_HOLD",
+  "version": "UDF-U3C2-ENVELOPE-0.1",
+  "utc": "2026-11-26T16:35:29.166854+00:00",
+  "u2c_replayed_objects": 253249,
+  "admitted_u2c_views": 6718,
+  "scope": {
+    "named_classes": 40107,
+    "named_labeled_classes": 39707,
+    "asserted_root_closure": 12375,
+    "asserted_active_core": 12362,
+    "bounded_root_closure": 12376,
+    "bounded_active_root_members": 12363,
+    "extra_named_axiom_edges": 5290,
+    "core_negative_overlap": 110,
+    "scope_status_counts": {
+      "HOLD_NON_FOODON_OR_UNLABELED_OR_DEPRECATED": 11423,
+      "HOLD_SCOPE_UNRESOLVED": 12062,
+      "HOLD_NONFOOD_OR_NONIDENTITY_ROLE": 3086,
+      "CORE_RETAINED_DEV": 12252,
+      "EXTENSION_TYPED_RETRIEVAL_ONLY": 1174,
+      "HOLD_EXCLUSION_BRANCH_OVERLAP": 110
+    },
+    "lane_memberships_nonexclusive": {
+      "PROCESS_QUALIFIED_FOOD_CATEGORY": 1365,
+      "MEAL_OR_FOOD_CATEGORY": 1850,
+      "LIPID_FOOD_COMPONENT_CATEGORY": 228,
+      "EGG_MATERIAL_OR_COMPONENT_CATEGORY": 91,
+      "POULTRY_EGG_REFERENCE_CATEGORY": 15,
+      "RETAIL_CUT_REFERENCE_CATEGORY": 328,
+      "AGENCY_COMPOSITE_CLASSIFICATION_CATEGORY": 205
+    },
+    "full_owl_reasoning": false,
+    "c1_excluded_unique_classes": 6,
+    "c1_classes_in_typed_extension": 6,
+    "negative_probes_held": 9,
+    "old_scope_ids_preserved": 12362,
+    "raw_scope_assessments": 40107
+  },
+  "cohort_results": {
+    "C2_EXTENSION_C1_44": {
+      "queries": 44,
+      "pool_edges": 589,
+      "eligible_edges": 0,
+      "shortlist_edges": 0,
+      "queries_abstained": 44,
+      "queries_with_review_candidate": 0,
+      "HOLD_ROLE_OR_SCOPE": 581,
+      "BLOCK_EXPLICIT_CONFLICT": 8
+    },
+    "C2_EXTENSION_U3B_284": {
+      "queries": 284,
+      "pool_edges": 5685,
+      "eligible_edges": 0,
+      "shortlist_edges": 0,
+      "queries_abstained": 284,
+      "queries_with_review_candidate": 0,
+      "HOLD_ROLE_OR_SCOPE": 5594,
+      "BLOCK_EXPLICIT_CONFLICT": 91
+    },
+    "U3A_EXPOSED_44": {
+      "queries": 44,
+      "pool_edges": 355,
+      "eligible_edges": 11,
+      "shortlist_edges": 11,
+      "queries_abstained": 36,
+      "queries_with_review_candidate": 8,
+      "HOLD_ROLE_OR_SCOPE": 327,
+      "REVIEW_ELIGIBLE_DEV_ONLY": 11,
+      "HOLD_MISSING_OR_AMBIGUOUS_CONDITION": 12,
+      "BLOCK_EXPLICIT_CONFLICT": 4,
+      "HOLD_NO_OBSERVABLE_IDENTITY_ANCHOR": 1
+    },
+    "U3B_FROZEN_284": {
+      "queries": 284,
+      "pool_edges": 29081,
+      "eligible_edges": 153,
+      "shortlist_edges": 67,
+      "queries_abstained": 250,
+      "queries_with_review_candidate": 34,
+      "HOLD_ROLE_OR_SCOPE": 22743,
+      "HOLD_MISSING_OR_AMBIGUOUS_CONDITION": 3131,
+      "HOLD_NO_OBSERVABLE_IDENTITY_ANCHOR": 2486,
+      "BLOCK_EXPLICIT_CONFLICT": 568,
+      "REVIEW_ELIGIBLE_DEV_ONLY": 153
+    }
+  },
+  "actual_c1_critic_overlap_routes": [
+    {
+      "old_route": "AMBER",
+      "new_disposition": "HOLD_ROLE_OR_SCOPE",
+      "edges": 19
+    },
+    {
+      "old_route": "RED",
+      "new_disposition": "BLOCK_EXPLICIT_CONFLICT",
+      "edges": 4
+    }
+  ],
+  "c1_excluded_edges_in_extension_topk": 5,
+  "c1_excluded_edges_total": 7,
+  "expert_packet": {
+    "source_first_tasks": 36,
+    "priority_evidence_cards": 130,
+    "additional_evidence_items": 186,
+    "cases_with_more_evidence": 31
+  },
+  "typed_objects": 76509,
+  "typed_kind_counts": {
+    "ScopeAssessment": 40107,
+    "SemanticRiskAssessment": 35710,
+    "QueryAdmissionDecision": 656,
+    "ExpertTaskDraft": 36
+  },
+  "rights_partitions": 19,
+  "schema_validated_objects": 76509,
+  "input_fence_count": 70,
+  "source_inputs_unchanged": true,
+  "partition_manifest_sha256": "baefc8b1cb160c22e67acc39b853dcb6f62910de990200d74ed26ca5622ae296",
+  "profile_sha256": "5a453676e3b111da2e33a1a5d3bdbcdc59be54472c58f16dc1fec750508eb9aa",
+  "policy_sha256": "ffef17a63f818e8ddeb5b75859d95b2e14eb947c577db7ec0c69c99f721ba503",
+  "expert_adjudication_completed": 0,
+  "independent_reference_count": 0,
+  "accepted_equivalence": 0,
+  "mapping_release_count": 0,
+  "science_release_count": 0,
+  "limitations": [
+    "bounded necessary named axiom expansion, no complete OWL reasoner",
+    "candidate-only scope lanes, no ontology equivalence or blanket admission",
+    "lexical mention extraction and conservative rule routing, not verified taxonomy/recipe semantics",
+    "abstention refers only to evidence in retrieved pool, not proof no valid target",
+    "extension separate scores; no reranking historical quantized scores",
+    "C1 original 44 exposed development; U3B new independent queue unchanged, no independent result read",
+    "expert source-first packet prepared, no qualified reviewer judgments or formal blind access control",
+    "no precision, recall, nutritional transfer or B3 calculation"
+  ]
+}

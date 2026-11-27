@@ -1,0 +1,162 @@
+{
+  "status": "PASS_SEGMENT_007_CONTINUATION_AND_ZERO_DISPATCH_RECOVERY",
+  "version": "A2.5-R3.6-EXECUTION-EXCEPTION-v0.1",
+  "parent_pr": 66,
+  "base_head": "801650e65d68d88a617f21252f9988acff8b3424",
+  "prior_segment_006r1_retry_receipt_sha256": "b1fb1a31c3f664de2ff4adc01a57935a387d9e81009b9ae99bba8ff41d44608e",
+  "scientific_method_sha256": "08056819875d23e3c507b72d55eca479319fe737dbf4d7fa45bedc78ad2a6bd8",
+  "retrieval_freeze_sha256": "cc43ec13416ddf6fb35ee960ba937e9606e184ce2e36ea2448fbdfaa524bff26",
+  "provider": "AGY native ACP",
+  "declared_model": "gemini-4-neon-high",
+  "previous_completed_cases": 24,
+  "new_completed_cases": 4,
+  "completed_cases": 28,
+  "remaining_cases": 4,
+  "query_checkpoints": 28,
+  "actual_replayed_cases": 28,
+  "new_dispatch_during_recovery_replay": 0,
+  "segment_new_query_dispatches": 4,
+  "segment_new_review_dispatches": 4,
+  "segment_new_terminal_failures": 0,
+  "segment_additional_terminal_retries": 0,
+  "original_job_terminal_recovered": true,
+  "original_job_exit_code": 0,
+  "new_case_first_attempts": {
+    "case_025": {
+      "query": {
+        "attempt": 1,
+        "prompt_wall_seconds": 37.772,
+        "response_bytes": 383,
+        "stop_reason": "end_turn",
+        "terminal_sha256": "bb66e2b3ebbace4ae26d386a32c53b2144737a1580e3ac2772c5e44c03b5e9f8",
+        "validation": "PASS"
+      },
+      "review": {
+        "attempt": 1,
+        "prompt_wall_seconds": 137.113,
+        "response_bytes": 5036,
+        "stop_reason": "end_turn",
+        "terminal_sha256": "be35f7d2254f8635586ce1cb0d8c092c6fea76c935e742e275f87e82802500a4",
+        "validation": "PASS"
+      }
+    },
+    "case_026": {
+      "query": {
+        "attempt": 1,
+        "prompt_wall_seconds": 69.865,
+        "response_bytes": 308,
+        "stop_reason": "end_turn",
+        "terminal_sha256": "49f3d667c82602823dc003de5d6cb0f50732cc37eeeaac7fa5af99c6e7537de4",
+        "validation": "PASS"
+      },
+      "review": {
+        "attempt": 1,
+        "prompt_wall_seconds": 148.287,
+        "response_bytes": 7296,
+        "stop_reason": "end_turn",
+        "terminal_sha256": "fe048c1ceb6c985cf6f047a0b1d247b070e4f1fca34aeb31fd66df5cee4343d3",
+        "validation": "PASS"
+      }
+    },
+    "case_027": {
+      "query": {
+        "attempt": 1,
+        "prompt_wall_seconds": 20.203,
+        "response_bytes": 327,
+        "stop_reason": "end_turn",
+        "terminal_sha256": "be4c6d263318d166140338dd15c48b40d711e76fae627f64567909b8c6ae81bf",
+        "validation": "PASS"
+      },
+      "review": {
+        "attempt": 1,
+        "prompt_wall_seconds": 138.935,
+        "response_bytes": 7843,
+        "stop_reason": "end_turn",
+        "terminal_sha256": "e1dd9e12f1766a8e961bd2c8af851afc7ba8890242103187ad5b5c0bcbd905c0",
+        "validation": "PASS"
+      }
+    },
+    "case_028": {
+      "query": {
+        "attempt": 1,
+        "prompt_wall_seconds": 33.051,
+        "response_bytes": 287,
+        "stop_reason": "end_turn",
+        "terminal_sha256": "4d503f094603de777bba9286d4186ad2587f7c16373c9a488a628b7efaba9147",
+        "validation": "PASS"
+      },
+      "review": {
+        "attempt": 1,
+        "prompt_wall_seconds": 116.547,
+        "response_bytes": 6896,
+        "stop_reason": "end_turn",
+        "terminal_sha256": "4b076793b5ebc759bb7dc71c624b04df9f4b709b3cd988045dd58808e955f52d",
+        "validation": "PASS"
+      }
+    }
+  },
+  "case_freeze_hashes": {
+    "case_001": "8e57e1dda8b6e25273c97d91ac0cce8be54dc3fc5a0587633740c79abdf47682",
+    "case_002": "0b93c54c54a411ffa1ec188d6b4eaf2249569100e5e69735560584ca0ecb3baf",
+    "case_003": "6c152fb1844a765ac9afdaa35015e773287db6c47df06741b3eccd3e01aa42f8",
+    "case_004": "e3e28fc5f06f5a3cdb1d74f06d6e8992857dbc62fead2249799f4407c0922d6b",
+    "case_005": "a087cb938008fbb5430824f87e04963607afbce62a9966628e8290c1d7488f4a",
+    "case_006": "73a9ac0a746229295d4e6a67a4af645989e33ac2bf49add33cde75c918ba388d",
+    "case_007": "7a444d68899964767749435d9667456ff072711bf80edb0f408be0a4a4fe25b9",
+    "case_008": "230b370190278a3d1e355ff31e183d21deb9f01f3a79a7d6f77bb43174712178",
+    "case_009": "8e3e3166b0c5977b36ebd72298a1331f5104b78ed1720c20490842ba54f79553",
+    "case_010": "191a7af942d1f866add53bf5a1f217cd157caab5eb193a9f2594fe092da5b382",
+    "case_011": "24c774124525f63921f8226c0182e864117399b1537f24b56b15ac496b6a5c64",
+    "case_012": "8e52d96f9bbb06e1e21d9ed8253d90244181a913b4940d0cdfdb841eb8b05ef4",
+    "case_013": "753314ef3010dc4621cab55a455ef7eff203c22ec4d551c6d9e8cb6f825392ab",
+    "case_014": "c285a4e97374ab4c0664602730c3c4492018bb47785f094678ed8d3b9964d1a0",
+    "case_015": "dd3fa56f5e82f9bb64d99286170193ffcdc58e5a66fc377c8173c49f34474878",
+    "case_016": "81ab00a2b965aa500a43cd232a91ee475e85231a11b13d2faaeaa077a93d562d",
+    "case_017": "9ccc844b7feeeed937d2498a523078965f500eda14e3719d24254c58d52055be",
+    "case_018": "1f2002f584f9709792a8bd15acf5bd0510eeba916becaae571489f7b5b35177f",
+    "case_019": "63ed7a4792f29666fde06935e22aeb4cf818e872fd8d8a92ea6d6527675d1ad4",
+    "case_020": "4f772df5a9b9dfe89684c0a298ca1acf521177647bc0475f50463e55ef2454d0",
+    "case_021": "be93bd388e268a9e737e12ad2a19bccf6cc35a6be0118a7927e200170c9dd0c4",
+    "case_022": "99fd8713a09f5ad72da4d1f867f0a4e9ecfe7fd1026563c1c0dee0baa5853df1",
+    "case_023": "9e1db1ccb71b78ad15eeea582a4cfc28f4df4d77d99773a7c08d36bfde5d0129",
+    "case_024": "aa10ff2ab16286a94613514697f6bc49e1d958b61cca540e93160334e6a175c0",
+    "case_025": "be7a7a2c2cd4a93c583f90de820e38bb416d6de0e5213a75cd077fff8224abf7",
+    "case_026": "638f5ecc5167a0b0c9127bb69d6c85eae559a5826f15af0d032abd7c75975851",
+    "case_027": "4ef3791fc8b1d9623aaf3d632114ec0e55f52295cbdf019fab861d84014d5c52",
+    "case_028": "e9901d32c034509c5670abf9d7ae769da8ff67a2022937ea3066a7d907a4c1ec"
+  },
+  "case_024_retry_receipt_sha256": "b1fb1a31c3f664de2ff4adc01a57935a387d9e81009b9ae99bba8ff41d44608e",
+  "case_024_accepted_attempt": 2,
+  "case_024_original_timeout_preserved": true,
+  "case_024_third_attempt_authorized": false,
+  "case_008_recovery_receipt_sha256": "eca3f58981d2be503cd3b8ae6e770ca422b8bf0a23e344da154bd258ad1cea07",
+  "case_008_original_terminal_outcome": "UNKNOWN",
+  "case_016_exception_receipt_sha256": "8778ead1e1e207a4627e71d0b1faa2eca4657427987678cc19ff6b1b7d7c3b42",
+  "case_016_fourth_attempt_authorized": false,
+  "continuation_receipt_sha256": "01c115048063aca2e6a69e5f5756e889aaea59809e7d7a73539b692178c7cd64",
+  "replay_receipt_sha256": "c5ad04363618bcd422d304f53763721851893366534fa0d4a520cf51e4c0a95e",
+  "continuation_summary_sha256": "828f1721ae8be77abdfc989c13337726edaa5825c590de39178c0aa42f629a5c",
+  "replay_summary_sha256": "faf9f0d0cb18f37c8cb677c08a397a4ee71e9891219604ebfffc4b6fac08d9a3",
+  "private_checkpoint_files_unchanged": 424,
+  "runtime_files_unchanged": 228,
+  "private_file_set_sha256": "045906d180e566cc93d69d686371473f8d079c8dd98ced7486c73e867d2b9edf",
+  "runtime_file_set_sha256": "4a8ee445ff979351554d304d7ad12fc572dedfdee67414f4ad5b88215d0e332a",
+  "prior_retry_contract_files_unchanged": 3,
+  "case_024_retry_contract_files_unchanged": 3,
+  "original_code_pins_unchanged": 7,
+  "prior_failure_pins_unchanged": 8,
+  "staging_pins_unchanged": 9,
+  "diagnostic_pins_unchanged": 47,
+  "next_ordinal": 29,
+  "complete_reference_set": false,
+  "scientific_reference_qualified": false,
+  "comparison_executed": false,
+  "unblind_authorized": false,
+  "mapping_release": 0,
+  "generalization_validated": false,
+  "limitations": [
+    "Original authorized continuation 025–028 completed; cases 029–032 not dispatched.",
+    "No model dispatch during recovery and replay; history including all earlier failed attempts preserved.",
+    "All 28 records remain developmental structural/native-locator validated references, not expert Gold. No scientific comparison, generalization, or durable backend access claim."
+  ]
+}

@@ -12,7 +12,6 @@ sys.path.insert(0,str(HERE.parent/"b0"))
 from source_only_retrieval import check_packet, trusted, STANDARDS, SOURCE_FIELDS, SCOPES
 from run_p2_portable_v2 import read,lines,put,putl,sha,dg,require,EXT
 from run_r2 import ref,verify_revision
-from profile_nutridata_core_links import read_core
 B=Path("runs/B2/U3-B/C2/R2");R=B/"real_001";A=B/"P2/A2";A1=B/"P2/A1"
 POL=Path("configs/udf/u3r2p2a1/RetrievalPolicyFreeze_v0.1.json")
 POL_SHA="58c53ab63cf4ac25d030d78e03dcdded8a51fb5a5802e7623ee75bd93af5ddc6"
@@ -51,6 +50,8 @@ def check_sources(src,first):
  require(all(set(x)==SOURCE_FIELDS and x["status"]=="NOT_REVIEWED" for x in src),"SOURCE_SCHEMA")
  require(Counter(x["source_scope"] for x in src)=={"nutridata:ingredient":16,"nutridata:dish":16},"SOURCE_STRATA")
 def raw_check(p,ss,ns,source_objects):
+ # Raw workbook parsing is local-only; synthetic validation must not import it.
+ from profile_nutridata_core_links import read_core
  wanted={x["source_locator"]["excel_row"]:x for x in ss};require(len(wanted)==len(ss),"SOURCE_ROW_DUP")
  seen=set()
  for rn,row,j,_ in read_core(p):

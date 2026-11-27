@@ -1,0 +1,149 @@
+{
+  "status": "PASS_R36_EXCEPTION_AND_BOUNDED_017_020_CONTINUATION",
+  "version": "A2.5-R3.6-EXECUTION-EXCEPTION-v0.1",
+  "parent_pr": 66,
+  "base_head": "9c877639ad30700369cede825f8fbd6ab3daaca2",
+  "scientific_method_sha256": "08056819875d23e3c507b72d55eca479319fe737dbf4d7fa45bedc78ad2a6bd8",
+  "retrieval_freeze_sha256": "cc43ec13416ddf6fb35ee960ba937e9606e184ce2e36ea2448fbdfaa524bff26",
+  "provider": "AGY native ACP",
+  "declared_model": "gemini-4-neon-high",
+  "previous_completed_cases": 15,
+  "new_completed_cases": 5,
+  "completed_cases": 20,
+  "remaining_cases": 12,
+  "query_checkpoints": 20,
+  "actual_replayed_cases": 20,
+  "new_dispatch_during_replay": 0,
+  "new_review_dispatches": 5,
+  "new_query_dispatches": 4,
+  "new_terminal_failures": 0,
+  "case_016_accepted_attempt": 3,
+  "case_016_original_attempts_preserved": 2,
+  "case_016_authorization_consumed": 1,
+  "case_016_fourth_attempt_authorized": false,
+  "case_016_exception_receipt_sha256": "8778ead1e1e207a4627e71d0b1faa2eca4657427987678cc19ff6b1b7d7c3b42",
+  "case_008_recovery_receipt_sha256": "eca3f58981d2be503cd3b8ae6e770ca422b8bf0a23e344da154bd258ad1cea07",
+  "case_008_original_terminal_outcome": "UNKNOWN",
+  "case_016_case_freeze_sha256": "81ab00a2b965aa500a43cd232a91ee475e85231a11b13d2faaeaa077a93d562d",
+  "new_case_first_attempts": {
+    "case_017": {
+      "query": {
+        "attempt": 1,
+        "prompt_wall_seconds": 31.734,
+        "response_bytes": 301,
+        "stop_reason": "end_turn",
+        "terminal_sha256": "e31505243f6e7c7452e0c5c4118caf6625af0cc5a91e26a7808da7af42753dc2",
+        "validation": "PASS"
+      },
+      "review": {
+        "attempt": 1,
+        "prompt_wall_seconds": 120.385,
+        "response_bytes": 4794,
+        "stop_reason": "end_turn",
+        "terminal_sha256": "f819ad7eba67f34ae10b7afbb3b78d308d9664887078f3c192a2759dec979f43",
+        "validation": "PASS"
+      }
+    },
+    "case_018": {
+      "query": {
+        "attempt": 1,
+        "prompt_wall_seconds": 36.417,
+        "response_bytes": 323,
+        "stop_reason": "end_turn",
+        "terminal_sha256": "30ba7a5b7aa40a362c0371c866f31d8d0846ee28dcb5ccca708fe9f9fd6ce362",
+        "validation": "PASS"
+      },
+      "review": {
+        "attempt": 1,
+        "prompt_wall_seconds": 192.619,
+        "response_bytes": 6827,
+        "stop_reason": "end_turn",
+        "terminal_sha256": "f9a6b9469b8cea37f28b2593ab1ab2349a2c59ce5b1a29398ac087cb26f093b4",
+        "validation": "PASS"
+      }
+    },
+    "case_019": {
+      "query": {
+        "attempt": 1,
+        "prompt_wall_seconds": 69.697,
+        "response_bytes": 299,
+        "stop_reason": "end_turn",
+        "terminal_sha256": "df5a7f2525c3a845ec18e470ad60ce45b9e0e24be8c1926994d78c941492943a",
+        "validation": "PASS"
+      },
+      "review": {
+        "attempt": 1,
+        "prompt_wall_seconds": 162.46,
+        "response_bytes": 8580,
+        "stop_reason": "end_turn",
+        "terminal_sha256": "3b4b3ccad22c49d506b55ffe98221acd6ec7613fc8d1f55eebc59d83c7172c57",
+        "validation": "PASS"
+      }
+    },
+    "case_020": {
+      "query": {
+        "attempt": 1,
+        "prompt_wall_seconds": 38.211,
+        "response_bytes": 294,
+        "stop_reason": "end_turn",
+        "terminal_sha256": "4956eb85b852af7a065dec4a4e5a214e17a29bd6b5dad0ad41dfcf0146536b30",
+        "validation": "PASS"
+      },
+      "review": {
+        "attempt": 1,
+        "prompt_wall_seconds": 114.236,
+        "response_bytes": 7418,
+        "stop_reason": "end_turn",
+        "terminal_sha256": "b77dd9b8c955e8242a0ef67438bb896aadbaa076d67f447c07af521a94b319d4",
+        "validation": "PASS"
+      }
+    }
+  },
+  "case_freeze_hashes": {
+    "case_001": "8e57e1dda8b6e25273c97d91ac0cce8be54dc3fc5a0587633740c79abdf47682",
+    "case_002": "0b93c54c54a411ffa1ec188d6b4eaf2249569100e5e69735560584ca0ecb3baf",
+    "case_003": "6c152fb1844a765ac9afdaa35015e773287db6c47df06741b3eccd3e01aa42f8",
+    "case_004": "e3e28fc5f06f5a3cdb1d74f06d6e8992857dbc62fead2249799f4407c0922d6b",
+    "case_005": "a087cb938008fbb5430824f87e04963607afbce62a9966628e8290c1d7488f4a",
+    "case_006": "73a9ac0a746229295d4e6a67a4af645989e33ac2bf49add33cde75c918ba388d",
+    "case_007": "7a444d68899964767749435d9667456ff072711bf80edb0f408be0a4a4fe25b9",
+    "case_008": "230b370190278a3d1e355ff31e183d21deb9f01f3a79a7d6f77bb43174712178",
+    "case_009": "8e3e3166b0c5977b36ebd72298a1331f5104b78ed1720c20490842ba54f79553",
+    "case_010": "191a7af942d1f866add53bf5a1f217cd157caab5eb193a9f2594fe092da5b382",
+    "case_011": "24c774124525f63921f8226c0182e864117399b1537f24b56b15ac496b6a5c64",
+    "case_012": "8e52d96f9bbb06e1e21d9ed8253d90244181a913b4940d0cdfdb841eb8b05ef4",
+    "case_013": "753314ef3010dc4621cab55a455ef7eff203c22ec4d551c6d9e8cb6f825392ab",
+    "case_014": "c285a4e97374ab4c0664602730c3c4492018bb47785f094678ed8d3b9964d1a0",
+    "case_015": "dd3fa56f5e82f9bb64d99286170193ffcdc58e5a66fc377c8173c49f34474878",
+    "case_016": "81ab00a2b965aa500a43cd232a91ee475e85231a11b13d2faaeaa077a93d562d",
+    "case_017": "9ccc844b7feeeed937d2498a523078965f500eda14e3719d24254c58d52055be",
+    "case_018": "1f2002f584f9709792a8bd15acf5bd0510eeba916becaae571489f7b5b35177f",
+    "case_019": "63ed7a4792f29666fde06935e22aeb4cf818e872fd8d8a92ea6d6527675d1ad4",
+    "case_020": "4f772df5a9b9dfe89684c0a298ca1acf521177647bc0475f50463e55ef2454d0"
+  },
+  "exception_outcome_receipt_sha256": "ee38f411c41c27173e269143f98817e70604f8a807b5b9ebd15f0e4fd35037c6",
+  "continuation_receipt_sha256": "cc799d5dd3b9b3289b4b0f0575a1e9e0c78ab088b3c133c9a016fec09e4cbc46",
+  "replay_receipt_sha256": "73194ad8b0b8103eff3cf0eb29c792c58ea3a9a09abd5e32cd0e5b948e063e60",
+  "continuation_summary_sha256": "043275b2ca8cc0fc726c3b12d2a6991d8d957210ea249de9325d80906cbbaf63",
+  "replay_summary_sha256": "f2c0d2d312a54daa4409135747aa2af3b8622564580a5f531174ecbde4a9fef1",
+  "original_private_pins_unchanged": 230,
+  "original_runtime_pins_unchanged": 124,
+  "original_retry_contract_pins_unchanged": 3,
+  "diagnostic_001_pins_unchanged": 14,
+  "diagnostic_002_pins_unchanged": 33,
+  "original_method_code_pins_unchanged": 7,
+  "historical_failure_pins_unchanged": 8,
+  "staging_pins_unchanged": 9,
+  "next_ordinal": 21,
+  "complete_reference_set": false,
+  "scientific_reference_qualified": false,
+  "comparison_executed": false,
+  "unblind_authorized": false,
+  "mapping_release": 0,
+  "generalization_validated": false,
+  "limitations": [
+    "Bounded owner work order: one additional case 016 review, then 017–020. Cases 021–032 not dispatched.",
+    "Historical failed attempts, including case 008 original unknown outcome and both case 016 failed attempts, retained. No remote exactly-once or durable runtime availability claim.",
+    "All 20 references are developmental structural/native-locator validated records, not expert Gold. No scientific comparison or generalization claim."
+  ]
+}

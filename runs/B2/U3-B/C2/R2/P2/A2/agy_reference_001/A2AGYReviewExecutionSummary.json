@@ -1,0 +1,20 @@
+{
+  "status": "HOLD_INCOMPLETE",
+  "completed_cases": 0,
+  "source_cases_transmitted": 4,
+  "model_id": "gemini-4-neon-high",
+  "raw_standard_counts": {
+    "FoodOn": 39097,
+    "FDC_SR_Legacy": 7793,
+    "FNDDS": 8690
+  },
+  "completed_batches": 0,
+  "actual_reference_receipt_sha256": "0c34c871bb9be9c76cf308b83807117dda07faaa02737870083ff157517c923f",
+  "reviewer_method_sha256": "56b060354db262b8981b6e2f5a97deccbd51918d5ba8022425a1f37a73d47993",
+  "failure": "ACP_PROMPT_NOT_COMPLETED",
+  "scientific_reference_qualified": false,
+  "mapping_release": 0,
+  "unblind": false,
+  "generalization_validated": false,
+  "stage_hashes_unchanged": true
+}

@@ -1,0 +1,51 @@
+{
+  "status": "PASS_OWNER_DECLARATION_AND_BOUNDED_OS_ISOLATION_PROBE / HOLD_REVIEWER_RUNTIME_AUTHENTICATION",
+  "parent_pr": 66,
+  "base_head": "8a5c245b3d632bcddfde42c8fa521020e4bd8921",
+  "retrieval_freeze_sha256": "cc43ec13416ddf6fb35ee960ba937e9606e184ce2e36ea2448fbdfaa524bff26",
+  "staging_verified": 9,
+  "owner_declaration_recorded": true,
+  "external_processing_owner_confirmed": true,
+  "local_isolation_selected": true,
+  "independent_legal_license_audit": false,
+  "test_process_isolation": {
+    "allowed_reads": 9,
+    "allowed_read_total": 9,
+    "forbidden_reads_denied": 9,
+    "forbidden_read_total": 9,
+    "forbidden_writes_denied": 2,
+    "forbidden_write_total": 2,
+    "allowed_output_write": true,
+    "child_process_denial": true,
+    "network_denied": true,
+    "actual_reviewer_acl_verified": false
+  },
+  "runtime": {
+    "local_ollama_mlx_llamacpp": "NOT_FOUND",
+    "apple_foundation_model": "DEVICE_NOT_ELIGIBLE",
+    "gemini_local_gemma": "NOT_INSTALLED",
+    "gemini_cli_version": "0.40.1",
+    "gemini_synthetic_bootstrap": "PASS_VERSION_AFTER_METADATA_FIX",
+    "gemini_inference_preflight": "HOLD_NATIVE_OAUTH_FILE_ACCESS_EPERM",
+    "native_original_auth_unchanged_by_design": "NO_WRITE_GRANT; temporary links removed; credential bytes not inspected or copied by controller",
+    "actual_provider_model_identity": "UNAVAILABLE"
+  },
+  "authorization_receipt_sha256": "c5cf1a77c62143ced2aaa830ff0550bd08c638f10a01896d378a7dacca58477b",
+  "offline_probe_receipt_sha256": "52b4cb631112d148aa5b79572cce8b24d685c77ee11c2ac90059f7db9b72a1b1",
+  "broker_probe_receipt_sha256": "a378cd5b26159cbcad10760fabdf3d52c9a4625f475c1933363a1528d1b30b89",
+  "login_launcher_prepared": true,
+  "login_requires_user_native_auth": true,
+  "real_case_data_sent": false,
+  "actual_reviewer_dispatched": false,
+  "review_records": 0,
+  "reference_hit_at12": null,
+  "generalization_validated": false,
+  "scientific_mapping_release": 0,
+  "reserved_outcomes_read": 0,
+  "limitations": [
+    "Test-process sandbox boundary does not prove model process isolation. Strict no-network probe not the hosted-inference configuration.",
+    "Two synthetic provider preflights failed; no source transmitted. One bootstrap issue corrected, later native OAuth file access EPERM. No credential copying or original login write permission granted.",
+    "Independent native login in a dedicated empty CLI home is required before another source-free runtime probe. Do not send raw source before verified actual provider process access boundaries.",
+    "Owner permission declaration is not an independent legal license audit. Actual reviewer designation, model exposure and source-only reference verification remain open."
+  ]
+}

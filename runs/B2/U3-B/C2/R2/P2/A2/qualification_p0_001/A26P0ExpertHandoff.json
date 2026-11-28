@@ -1,0 +1,36 @@
+{
+  "version": "A2.6-P0-EXPERT-HANDOFF-v0.1",
+  "status": "PREPARED_NOT_ASSIGNED_NOT_DISPATCHED",
+  "reference_receipt_sha256": "024d90970fa5f7990952bc702e63b5591c5f01e65881c69f8ef338554e9a6834",
+  "private_queue_sha256": "989c01393a1b7bb2e8970db782906e7bf9f32570733438d647b27dc2b1a18e84",
+  "cases": 32,
+  "dimension_cells": 256,
+  "candidate_edges": 111,
+  "hard_negative_edges": 275,
+  "priority_flag_counts": {
+    "NONRELATED_RELATION_RELATED_ONLY_REVIEW": 3,
+    "SENSITIVE_DIMENSION_INFERENCE_REVIEW": 36,
+    "TARGET_CONDITION_NEGATIVE_REVIEW": 88,
+    "TARGET_SUPPORTED_SOURCE_DIMENSION_REVIEW": 3,
+    "UNRESOLVED_OTHER_COUNTED_AS_NEGATIVE_REVIEW": 1
+  },
+  "priority": "Resolve UNRESOLVED_OTHER negative, non-RELATED/RELATED_ONLY compatibility, explicit support versus missing target conditions, and sensitive source-dimension inferences before deciding comparison scope; retain all original records.",
+  "phase_a": {
+    "reviewer": "PI-appointed qualified food ontology/nutrition expert; independent of evaluated ranker",
+    "inputs": "Source-only packet, pinned three authority versions, original task rules; no AGY reference or tested retrieval/rank output",
+    "required": "Independent judgments and evidence; explicit unresolved; preserve all 32 cases",
+    "status": "NOT_ASSIGNED"
+  },
+  "phase_b": {
+    "reviewer": "Qualified expert(s) independently adjudicate frozen AGY references against source and authority rows; preserve disagreement",
+    "inputs": "Source and authority evidence, immutable AGY reference records and local ordinal queue; no tested retrieval/rank output",
+    "required": "Separate signed/hashed accept, revise, abstain or unresolved decisions; never overwrite AGY record or infer nutrient transfer",
+    "status": "NOT_ASSIGNED"
+  },
+  "gold_requirement": "For scientific Gold, independent qualified human decisions with discrepancy adjudication and rights clearance; not achieved by programmatic checks or model agreement.",
+  "developmental_scope": "The original protocol allows separately authorized developmental overlap without expert Gold. Require PI-documented allowed use, explicit handling of flagged reference semantics and import guard before any actual comparison. Full expert adjudication is a scientific qualification path, not a retroactive alteration of frozen primary metrics.",
+  "new_expert_dispatch": false,
+  "new_model_dispatch": false,
+  "comparison_executed": false,
+  "unblind_authorized": false
+}

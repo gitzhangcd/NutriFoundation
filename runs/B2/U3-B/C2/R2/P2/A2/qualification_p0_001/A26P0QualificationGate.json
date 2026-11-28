@@ -1,0 +1,49 @@
+{
+  "version": "A2.6-P0-COMPARISON-GATE-v0.1",
+  "status": "HOLD_SCIENTIFIC_QUALIFICATION_AND_COMPARISON_AUTHORIZATION",
+  "reference_receipt_sha256": "024d90970fa5f7990952bc702e63b5591c5f01e65881c69f8ef338554e9a6834",
+  "audit_aggregate_sha256": "74565b345d6e526ac3d6d7f35cfe1c06f9b69e684dfe86078f07b286c4179bee",
+  "expert_handoff_sha256": "0740289204d594ce63f059be04d5b19fccbc20b9ca577f362945ba8f939fb58b",
+  "stages": {
+    "P0.1": "PASS_SOURCE_PROVENANCE_AND_NATIVE_CARRIER",
+    "P0.2": "PASS_RULE_SCREENING / HOLD_SUBSTANTIVE_EXPERT_SEMANTIC_QUALIFICATION",
+    "P0.3": "PASS_BOUNDED_LOCAL_SOURCE_FIRST_CONTROLS / HOLD_STRICT_CONFIRMATORY_INDEPENDENCE_AND_RIGHTS",
+    "P0.4": "PASS_FROZEN_SCORING_ARITHMETIC / HOLD_REAL_IMPORT_CONTRACT",
+    "P0.5": "HOLD_NO_COMPARISON_AUTHORIZATION"
+  },
+  "historical_local_execution": {
+    "profile_and_dispatch_bindings": 65,
+    "distinct_dispatch_session_hashes": 65,
+    "known_terminal_no_tool_use": 64,
+    "original_unknown_terminal": 1,
+    "source_free_synthetic_probe_denied_reads_and_writes": true,
+    "actual_per_attempt_denial_inferred_from_frozen_controller_launch_order": true,
+    "independent_historical_OS_access_log_available": false,
+    "provider_backend_attested": false,
+    "prior_exposure_unknown": true
+  },
+  "qualification": {
+    "structural_native_reference": true,
+    "developmental_reference_set_complete": true,
+    "developmental_comparison_gate_passed": false,
+    "scientific_reference_qualified": false,
+    "expert_gold_count": 0,
+    "strict_confirmatory_blindness_proven": false,
+    "external_dataset_validation": false,
+    "rights_unresolved_cases": 32
+  },
+  "pre_unblind_requirements": {
+    "Q1": "PI/data custodian documented rights and purpose-specific authorization for local developmental comparison, expert access if used, and downstream use; prior execution consent is not license.",
+    "Q2": "Freeze adjudication policy for 1 UNRESOLVED_OTHER negative, 88 target-condition negatives, 3 non-RELATED/RELATED_ONLY entries, 3 target-supported source dimensions, 36 sensitive inferences. Retain original scorer/reference definitions; any separate adjudicated overlay/sensitivity must be versioned before ranks exposed, not silently reclassify.",
+    "Q3": "Implement fail-closed comparison importer in separate version; exact immutable 32 expected identities, reference/receipt/policy/score hashes, exact 384 groups (32 x 4 x 3), verified original/extension target universes 28845/1174, disjointness and native versions, trusted per-case/scope pool budget reconstructed from frozen dense hint union, integer and identical across arms; verify both rank output hashes before reading any contents; preserve empty groups and exact order. No data reads in this audit.",
+    "Q4": "PI separately explicitly authorizes a specific immutable comparison run and scope. No generic bool flag substitutes for versioned owner decision and trusted input receipt.",
+    "Q5": "Only after Q1–Q4 pass, compute original predeclared reference overlap; preserve original and extension separate, K per scope, shared supported-reference denominator, all arms, hard-negative/unreviewed/reviewed neither distinction and non-RELATED sensitivity. No precision/recall, causal claim, winner tuning, mapping release or generalization claim."
+  },
+  "scientific_reference_qualified": false,
+  "comparison_authorized": false,
+  "comparison_executed": false,
+  "unblind_authorized": false,
+  "mapping_release": 0,
+  "generalization_validated": false,
+  "next": "A2.6-P1 | Pre-unblind adjudication policy, rights decision & authorized import contract validation"
+}

@@ -1,0 +1,15 @@
+name: R2-P2-A2.6 P2 synthetic comparison readiness
+on:
+  pull_request:
+jobs:
+  synthetic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install jsonschema openpyxl
+      - run: python -B tests/u3r2p2a2/verify_a26_p2.py
+      - run: python -B tests/u3r2p2a2/verify_a26_p1.py
+      - run: python -B tests/u3r2p2a2/verify_a26_p1_expert.py

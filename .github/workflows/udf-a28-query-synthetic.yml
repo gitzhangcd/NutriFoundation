@@ -1,0 +1,13 @@
+name: R2-P2-A2.8 source query synthetic conformance
+on:
+  pull_request:
+jobs:
+  synthetic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -B tests/u3r2p2a2/verify_a28_query.py
+      - run: python -B -m py_compile src/u3r2p2a2/a28_prepare.py src/u3r2p2a2/a28_generate.py src/u3r2p2a2/a28_evaluate.py

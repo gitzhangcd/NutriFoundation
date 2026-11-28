@@ -1,0 +1,55 @@
+{
+  "status": "PASS_BOUNDED_DEVELOPMENT_EXECUTION / METHOD_SELECTION_AND_R1_QUALIFICATION_HOLD",
+  "base_commit": "684ffc221a2c86b1f860f3afa11ecdc9dff1d345",
+  "development_cases": 19,
+  "review_reference_edges_in_original_universe": 43,
+  "reserved32_outcomes_read": 0,
+  "reserved32_dispatch": "HOLD",
+  "candidate_rows_all_arms": 7007,
+  "private_lexicon_entries": 72,
+  "private_lexicon_sha256": "846b8baa30a8bd1782cf93876163bdd37d625e169497fe77b007df240804b778",
+  "replay": {
+    "initial_score_only_drift_rows": 72,
+    "original_rank_groups_identical": 228,
+    "deterministic_hash_seeds": [
+      17,
+      73
+    ],
+    "byte_identical_private_artifacts": 3,
+    "private_artifact_hashes": {
+      "QueryHypotheses.jsonl": "f8d5512fda54106ae928390d4bd1a9de2b3df3289fa08ae0e16b7f3aeecc01de",
+      "CandidateQuestions.jsonl": "0d2c0207d0b9cb2e49c81d4e2111c0cdc4f84c71bd20248a135ad11f6f093abc",
+      "Ranks.jsonl": "c3f825177e0d99285b96f767035d90ea60a0e50ee64df9305bbfd39bf51f7d87"
+    },
+    "original_metrics_reproduced": true,
+    "conditional_report_reproduced": true
+  },
+  "local_tests": {
+    "initial_synthetic": 15,
+    "portable_v2_synthetic": 15,
+    "p1_nonregression": 23,
+    "p1_original_inputs_verified": 127,
+    "p1_original_outputs_verified": 8
+  },
+  "artifact_sha256": {
+    "src/u3r2p2/run_p2_portable_v2.py": "b62d0adc8ca641307bb8ac0e237aa25b60a55d9e746712fe909e34ed2e78f33b",
+    "src/u3r2p2/conditional_p2_portable_v2.py": "472463b47fe0914f18d05cb52db31e3952d6fd6722803c7f8950a144e455e4bf",
+    "tests/u3r2p2/verify_p2_portable_v2.py": "f2e843d937abbfbb82f080a684b0bfb129c9a9a6dab43d395c217dc0a7af40cc",
+    "runs/B2/U3-B/C2/R2/P2/portable_v2_001/P2DevelopmentReport.json": "8b66b25c64e1bed0e2856b0c0229f0e8e28f200be2a1f15801baa3fc6a03ab88",
+    "runs/B2/U3-B/C2/R2/P2/portable_v2_conditional_001/P2ConditionalReport.json": "1d7c5f2ce4bfcc63246fb8dc51cf51cce204de673abdb25229b3e532dd14762a"
+  },
+  "scientific_precision_recall": "NOT_ESTIMABLE",
+  "expert_gold": 0,
+  "mapping_release": 0,
+  "C3": "HOLD",
+  "B3": "HOLD",
+  "EA-P0": "HOLD",
+  "method_final_freeze": false,
+  "limitations": [
+    "Component lexicon authored from exposed source-only development records, not externally verified. No target ID lookup table, no new dense inference.",
+    "Full sparse pool 1868 vs baseline and hybrid 2034; equal caps, not equal realized count.",
+    "Increased difficult-negative overlap, conditional ranking mixed. New candidates did not run full R1 risk admission.",
+    "Reserved review not dispatched. Current candidate method is not frozen for independent validation.",
+    "Public archive contains portable code, synthetic tests and aggregate reports only; actual vocabulary and rows remain local."
+  ]
+}

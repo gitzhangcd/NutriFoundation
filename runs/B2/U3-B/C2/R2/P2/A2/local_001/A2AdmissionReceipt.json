@@ -1,0 +1,74 @@
+{
+  "status": "PASS_LOCAL_SOURCE_VERIFICATION_AND_FROZEN_RETRIEVAL / INDEPENDENT_REFERENCE_AND_GENERALIZATION_HOLD",
+  "base_pr": 66,
+  "base_head": "961f83aa247932bcfee5b16affafdd90841ef236",
+  "policy_sha256": "58c53ab63cf4ac25d030d78e03dcdded8a51fb5a5802e7623ee75bd93af5ddc6",
+  "reserved_source_packet_sha256": "c8a65e45fe8ae4b2435ff5296889441fbe56f672ea1890a611f9d2057eae6a4a",
+  "source_identity_verified": 32,
+  "raw_workbooks_verified": 2,
+  "raw_rows_verified": 32,
+  "development_overlap": 0,
+  "strata": [
+    {
+      "cohort": "FRESH_DEV",
+      "source_scope": "nutridata:dish",
+      "n": 8
+    },
+    {
+      "cohort": "FRESH_DEV",
+      "source_scope": "nutridata:ingredient",
+      "n": 8
+    },
+    {
+      "cohort": "PAIRED_DEV",
+      "source_scope": "nutridata:dish",
+      "n": 8
+    },
+    {
+      "cohort": "PAIRED_DEV",
+      "source_scope": "nutridata:ingredient",
+      "n": 8
+    }
+  ],
+  "dense_hint_rows": 3875,
+  "retrieval_groups": 384,
+  "query_hypotheses": 32,
+  "byte_identical_retrieval_artifacts": 2,
+  "retrieval_freeze_sha256": "cc43ec13416ddf6fb35ee960ba937e9606e184ce2e36ea2448fbdfaa524bff26",
+  "preparation_freeze_sha256": "38b36cd2e44d5c538ad8a18bf560229532cf06e46dc58a36c870c4b9ac1be1f4",
+  "local_input_fences_unchanged": 221,
+  "reviewer_staging_files": 9,
+  "synthetic_tests_passed": 18,
+  "synthetic_tests_total": 18,
+  "rights_status": "NUTRIDATA_RIGHTS_UNRESOLVED",
+  "reviewer_dispatched": false,
+  "reviewer_acl_verified": false,
+  "external_transfer_authorized": false,
+  "independent_reference_count": 0,
+  "reviewer_outcomes_read": 0,
+  "reference_hit_at12": null,
+  "scientific_precision_recall": "NOT_ESTIMABLE",
+  "generalization_validated": false,
+  "actual_authorized_reference_import": "HOLD",
+  "mapping_release": 0,
+  "expert_gold": 0,
+  "C3": "HOLD",
+  "B3": "HOLD",
+  "EA-P0": "HOLD",
+  "artifact_sha256": {
+    "src/u3r2p2a2/prepare_a2.py": "d39ab26516eaa2c25e0e80223a4d9342f94d73fc58abd177debd460917f4380a",
+    "src/u3r2p2a2/score_a2.py": "f5e6ad137257f3a0ff182ee9c176770f0e38ef4a22a74d4ad6eba675af802d29",
+    "tests/u3r2p2a2/verify_a2.py": "558e869a821bee793affdc99a3e4c5bc1b3c12e9ecf13e72a59817b26a61e72e",
+    "docs/udf/B2_U3-B-C2-R2-P2-A2_Reserved32_Source_Only_Retrieval_Freeze_v0.1.md": "334c71b499e7dd211b619bc39771a1845219db2965735e34b37e1dd70d0f3e38",
+    ".github/workflows/udf-r2-p2-a2.yml": "6b010c57be91fb959f962c9634d97691376960cf07747e442784f3c5d3b90859",
+    "runs/B2/U3-B/C2/R2/P2/A2/local_001/A2PreReferenceReport.json": "6c57bed2ab50e9f7e4c4223bb01fc8162e18ad3903d564b35331a40ffc56d529"
+  },
+  "limitations": [
+    "Aggregate candidate coverage is not reference recall or correctness.",
+    "Same NutriData source family and prior 284 baseline universe; reserved sample disjoint by source ID from first44, not externally held-out dataset or proof of all prior model exposure absence.",
+    "Local restricted development only; source rights unresolved. Independent reviewer permissions, ACL and data transfer not established.",
+    "Scoring module tested only on synthetic inputs; actual reference qualification/import pending.",
+    "No independent reviewer results, no release, no tuning after reserved source inspection.",
+    "Local staging owner-only file permissions do not prove independent ACL."
+  ]
+}

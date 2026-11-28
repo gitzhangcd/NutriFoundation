@@ -1,0 +1,24 @@
+{
+  "version": "UDF-R2-P2-A1-0.1",
+  "purpose": "CURATION_DEV_ONLY",
+  "scientific_release_authorized": false,
+  "baseline_pr": 66,
+  "baseline_commit": "3703e0b87f26843dc3feb6cb319e73295c0d65c8",
+  "pins": {
+    "runs/B2/U3-B/C2/R2/P2/P2DevelopmentAdmissionReceipt.json": "bdf10dc4e9a352bf34bff76b92a348916966ee203db0e4c760d3404d07bbd1b2",
+    "runs/B2/U3-B/C2/R2/P2/portable_v2_001/CandidateFreeze.json": "20bbf6e29c34fdc5dbd955b9e7576c2bc36a5f87077176ec3eb6b58295b747b5",
+    "runs/B2/U3-B/C2/R2/P2/portable_v2_conditional_001/ConditionalFreeze.json": "eea236818d968c7e71d4a22f29de51177c417605c77f61e004e57e3abd9bc432",
+    "runs/B2/U3-B/C2/R1/real_001/R1ExecutionFreezeReceipt.json": "8de9e7e7018195133f10f3f5e5b9d19b0786f8ee654138c86d87cf26c625a288",
+    "configs/udf/u3c2r/R1_ExecutionProfile_v0.1.json": "80085d447e633b97833b03932b7e8e3e389105d5c336dd1f7f0be1d23994bb8a",
+    "configs/udf/u3c2r/R1_Policy_v0.1.json": "485412bf6594c3120a1e129e4dda78277fa42640773f1ec64101a97d16726275",
+    "src/u3c2r/risk_v2.py": "b128513c456ba74433980cd0375207a868c93dc6421c14ae6687549e34f0fdbd",
+    "src/u3c2r/runtime_v2.py": "f6e66e40a60a2271536f6029b316ffd8a9304a1e37028ff08e9b98326549e641",
+    "src/u3c2r/scope_v2.py": "40eb18be97425adb991714cd79aaa2268ba7919b352f4bac753572c3b50f6eb2",
+    "src/u3r2p2/run_p2_portable_v2.py": "b62d0adc8ca641307bb8ac0e237aa25b60a55d9e746712fe909e34ed2e78f33b",
+    "src/u3r2p2/conditional_p2_portable_v2.py": "472463b47fe0914f18d05cb52db31e3952d6fd6722803c7f8950a144e455e4bf",
+    "runs/B2/U3-B/C2/R2/P2/private/DevelopmentLexicon_v0.1.json": "846b8baa30a8bd1782cf93876163bdd37d625e169497fe77b007df240804b778"
+  },
+  "source_scope": "First19 exposed development only; original frozen R1 replay covers existing baseline; no reserved32 packet or reference outcomes parsed; digest checks only.",
+  "risk_policy": "Exact original risk_v2.evaluate with original complete labels, grains, scope and prior RED; no new runtime authorization or semantic release.",
+  "comparison": "Same frozen candidate membership and cap; risk-tail stable partition; compare only after frozen candidates; no repeated tuning on reserved32."
+}

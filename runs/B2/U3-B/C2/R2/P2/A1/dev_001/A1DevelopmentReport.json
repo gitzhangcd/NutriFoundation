@@ -1,0 +1,522 @@
+{
+  "status": "PASS_BOUNDED_TYPED_QUALIFIER_AND_R1_POLICY_REEVALUATION / SCIENTIFIC_AND_NEW_RUNTIME_ADMISSION_HOLD",
+  "sources": 19,
+  "distinct_targets": 2999,
+  "all": {
+    "edges": 4500,
+    "r1_policy_dispositions": {
+      "HOLD_UNRESOLVED_CONDITIONS": 4458,
+      "BLOCK_EXPLICIT_CONFLICT": 39,
+      "HOLD_SCOPE_OR_UNREGISTERED_ROLE": 3
+    },
+    "r1_policy_review_eligible": 0,
+    "runtime_review_authorized": 0,
+    "final_dispositions": {
+      "HOLD_R1_UNRESOLVED_CONDITIONS": 4313,
+      "HOLD_R1_EXPLICIT_CONFLICT": 39,
+      "HOLD_TYPED_OR_INHERITED_RISK": 145,
+      "HOLD_R1_SCOPE_OR_ROLE": 3
+    },
+    "typed_flagged": 179,
+    "critic_positive": 34,
+    "critic_negative": 40,
+    "risk_tail_critic_positive": 0,
+    "risk_tail_critic_negative": 7
+  },
+  "new": {
+    "edges": 2073,
+    "r1_policy_dispositions": {
+      "HOLD_UNRESOLVED_CONDITIONS": 2063,
+      "BLOCK_EXPLICIT_CONFLICT": 10
+    },
+    "r1_policy_review_eligible": 0,
+    "runtime_review_authorized": 0,
+    "final_dispositions": {
+      "HOLD_R1_UNRESOLVED_CONDITIONS": 2003,
+      "HOLD_R1_EXPLICIT_CONFLICT": 10,
+      "HOLD_TYPED_OR_INHERITED_RISK": 60
+    },
+    "typed_flagged": 62,
+    "critic_positive": 30,
+    "critic_negative": 37,
+    "risk_tail_critic_positive": 0,
+    "risk_tail_critic_negative": 5
+  },
+  "prior": {
+    "edges": 2427,
+    "r1_policy_dispositions": {
+      "HOLD_UNRESOLVED_CONDITIONS": 2395,
+      "BLOCK_EXPLICIT_CONFLICT": 29,
+      "HOLD_SCOPE_OR_UNREGISTERED_ROLE": 3
+    },
+    "r1_policy_review_eligible": 0,
+    "runtime_review_authorized": 0,
+    "final_dispositions": {
+      "HOLD_R1_UNRESOLVED_CONDITIONS": 2310,
+      "HOLD_R1_EXPLICIT_CONFLICT": 29,
+      "HOLD_TYPED_OR_INHERITED_RISK": 85,
+      "HOLD_R1_SCOPE_OR_ROLE": 3
+    },
+    "typed_flagged": 117,
+    "critic_positive": 4,
+    "critic_negative": 3,
+    "risk_tail_critic_positive": 0,
+    "risk_tail_critic_negative": 2
+  },
+  "source_dimension_status": {
+    "species": {
+      "UNKNOWN": 15,
+      "BILINGUAL_HYPOTHESIS_NOT_VERIFIED": 4
+    },
+    "edible_part": {
+      "UNKNOWN": 17,
+      "BILINGUAL_HYPOTHESIS_NOT_VERIFIED": 2
+    },
+    "processing": {
+      "NATIVE_LABEL_MENTIONS": 3,
+      "UNKNOWN": 16
+    },
+    "cooking_state": {
+      "NATIVE_LABEL_STATE_ONLY": 2,
+      "UNKNOWN": 17
+    },
+    "recipe_components": {
+      "REFERENCE_RECIPE_NOT_PHYSICAL_COMPOSITION": 8,
+      "UNKNOWN": 11
+    },
+    "native_state_metadata": {
+      "AS_RECORDED_NOT_VALIDATED": 19
+    }
+  },
+  "metrics": [
+    {
+      "arm": "BASELINE_FUSION",
+      "k_per_scope": 1,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 0,
+      "reference_edges_hit": 0,
+      "candidate_edges": 57,
+      "critic_negative_overlap": 1,
+      "unjudged": 56,
+      "risk_tail_edges": 0
+    },
+    {
+      "arm": "BASELINE_FUSION",
+      "k_per_scope": 3,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 1,
+      "reference_edges_hit": 1,
+      "candidate_edges": 171,
+      "critic_negative_overlap": 1,
+      "unjudged": 169,
+      "risk_tail_edges": 8
+    },
+    {
+      "arm": "BASELINE_FUSION",
+      "k_per_scope": 5,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 1,
+      "reference_edges_hit": 1,
+      "candidate_edges": 285,
+      "critic_negative_overlap": 1,
+      "unjudged": 283,
+      "risk_tail_edges": 14
+    },
+    {
+      "arm": "BASELINE_FUSION",
+      "k_per_scope": 12,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 3,
+      "reference_edges_hit": 3,
+      "candidate_edges": 684,
+      "critic_negative_overlap": 1,
+      "unjudged": 680,
+      "risk_tail_edges": 30
+    },
+    {
+      "arm": "BASELINE_FUSION",
+      "k_per_scope": "POOL",
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 4,
+      "reference_edges_hit": 4,
+      "candidate_edges": 2034,
+      "critic_negative_overlap": 3,
+      "unjudged": 2027,
+      "risk_tail_edges": 95
+    },
+    {
+      "arm": "HYBRID",
+      "k_per_scope": 1,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 7,
+      "reference_edges_hit": 12,
+      "candidate_edges": 57,
+      "critic_negative_overlap": 5,
+      "unjudged": 40,
+      "risk_tail_edges": 3
+    },
+    {
+      "arm": "HYBRID",
+      "k_per_scope": 3,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 18,
+      "candidate_edges": 171,
+      "critic_negative_overlap": 9,
+      "unjudged": 144,
+      "risk_tail_edges": 6
+    },
+    {
+      "arm": "HYBRID",
+      "k_per_scope": 5,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 20,
+      "candidate_edges": 285,
+      "critic_negative_overlap": 16,
+      "unjudged": 249,
+      "risk_tail_edges": 9
+    },
+    {
+      "arm": "HYBRID",
+      "k_per_scope": 12,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 11,
+      "reference_edges_hit": 26,
+      "candidate_edges": 684,
+      "critic_negative_overlap": 25,
+      "unjudged": 633,
+      "risk_tail_edges": 24
+    },
+    {
+      "arm": "HYBRID",
+      "k_per_scope": "POOL",
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 12,
+      "reference_edges_hit": 28,
+      "candidate_edges": 2034,
+      "critic_negative_overlap": 35,
+      "unjudged": 1971,
+      "risk_tail_edges": 78
+    },
+    {
+      "arm": "HYBRID_A1_RISK_TAIL",
+      "k_per_scope": 1,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 8,
+      "reference_edges_hit": 14,
+      "candidate_edges": 57,
+      "critic_negative_overlap": 5,
+      "unjudged": 38,
+      "risk_tail_edges": 0
+    },
+    {
+      "arm": "HYBRID_A1_RISK_TAIL",
+      "k_per_scope": 3,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 19,
+      "candidate_edges": 171,
+      "critic_negative_overlap": 9,
+      "unjudged": 143,
+      "risk_tail_edges": 0
+    },
+    {
+      "arm": "HYBRID_A1_RISK_TAIL",
+      "k_per_scope": 5,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 20,
+      "candidate_edges": 285,
+      "critic_negative_overlap": 15,
+      "unjudged": 250,
+      "risk_tail_edges": 0
+    },
+    {
+      "arm": "HYBRID_A1_RISK_TAIL",
+      "k_per_scope": 12,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 11,
+      "reference_edges_hit": 26,
+      "candidate_edges": 684,
+      "critic_negative_overlap": 23,
+      "unjudged": 635,
+      "risk_tail_edges": 1
+    },
+    {
+      "arm": "HYBRID_A1_RISK_TAIL",
+      "k_per_scope": "POOL",
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 12,
+      "reference_edges_hit": 28,
+      "candidate_edges": 2034,
+      "critic_negative_overlap": 35,
+      "unjudged": 1971,
+      "risk_tail_edges": 78
+    },
+    {
+      "arm": "HYBRID_CONDITIONAL",
+      "k_per_scope": 1,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 8,
+      "reference_edges_hit": 15,
+      "candidate_edges": 57,
+      "critic_negative_overlap": 6,
+      "unjudged": 36,
+      "risk_tail_edges": 0
+    },
+    {
+      "arm": "HYBRID_CONDITIONAL",
+      "k_per_scope": 3,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 19,
+      "candidate_edges": 171,
+      "critic_negative_overlap": 14,
+      "unjudged": 138,
+      "risk_tail_edges": 0
+    },
+    {
+      "arm": "HYBRID_CONDITIONAL",
+      "k_per_scope": 5,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 20,
+      "candidate_edges": 285,
+      "critic_negative_overlap": 19,
+      "unjudged": 246,
+      "risk_tail_edges": 0
+    },
+    {
+      "arm": "HYBRID_CONDITIONAL",
+      "k_per_scope": 12,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 11,
+      "reference_edges_hit": 26,
+      "candidate_edges": 684,
+      "critic_negative_overlap": 28,
+      "unjudged": 630,
+      "risk_tail_edges": 1
+    },
+    {
+      "arm": "HYBRID_CONDITIONAL",
+      "k_per_scope": "POOL",
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 12,
+      "reference_edges_hit": 28,
+      "candidate_edges": 2034,
+      "critic_negative_overlap": 35,
+      "unjudged": 1971,
+      "risk_tail_edges": 78
+    },
+    {
+      "arm": "SOURCE_SPARSE",
+      "k_per_scope": 1,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 16,
+      "candidate_edges": 54,
+      "critic_negative_overlap": 7,
+      "unjudged": 31,
+      "risk_tail_edges": 1
+    },
+    {
+      "arm": "SOURCE_SPARSE",
+      "k_per_scope": 3,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 19,
+      "candidate_edges": 162,
+      "critic_negative_overlap": 14,
+      "unjudged": 129,
+      "risk_tail_edges": 3
+    },
+    {
+      "arm": "SOURCE_SPARSE",
+      "k_per_scope": 5,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 20,
+      "candidate_edges": 270,
+      "critic_negative_overlap": 20,
+      "unjudged": 230,
+      "risk_tail_edges": 8
+    },
+    {
+      "arm": "SOURCE_SPARSE",
+      "k_per_scope": 12,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 11,
+      "reference_edges_hit": 27,
+      "candidate_edges": 644,
+      "critic_negative_overlap": 27,
+      "unjudged": 590,
+      "risk_tail_edges": 22
+    },
+    {
+      "arm": "SOURCE_SPARSE",
+      "k_per_scope": "POOL",
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 15,
+      "reference_edges_hit": 34,
+      "candidate_edges": 1868,
+      "critic_negative_overlap": 39,
+      "unjudged": 1795,
+      "risk_tail_edges": 76
+    },
+    {
+      "arm": "SOURCE_SPARSE_A1_RISK_TAIL",
+      "k_per_scope": 1,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 16,
+      "candidate_edges": 54,
+      "critic_negative_overlap": 6,
+      "unjudged": 32,
+      "risk_tail_edges": 0
+    },
+    {
+      "arm": "SOURCE_SPARSE_A1_RISK_TAIL",
+      "k_per_scope": 3,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 19,
+      "candidate_edges": 162,
+      "critic_negative_overlap": 13,
+      "unjudged": 130,
+      "risk_tail_edges": 0
+    },
+    {
+      "arm": "SOURCE_SPARSE_A1_RISK_TAIL",
+      "k_per_scope": 5,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 20,
+      "candidate_edges": 270,
+      "critic_negative_overlap": 19,
+      "unjudged": 231,
+      "risk_tail_edges": 2
+    },
+    {
+      "arm": "SOURCE_SPARSE_A1_RISK_TAIL",
+      "k_per_scope": 12,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 11,
+      "reference_edges_hit": 27,
+      "candidate_edges": 644,
+      "critic_negative_overlap": 26,
+      "unjudged": 591,
+      "risk_tail_edges": 9
+    },
+    {
+      "arm": "SOURCE_SPARSE_A1_RISK_TAIL",
+      "k_per_scope": "POOL",
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 15,
+      "reference_edges_hit": 34,
+      "candidate_edges": 1868,
+      "critic_negative_overlap": 39,
+      "unjudged": 1795,
+      "risk_tail_edges": 76
+    },
+    {
+      "arm": "SOURCE_SPARSE_CONDITIONAL",
+      "k_per_scope": 1,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 16,
+      "candidate_edges": 54,
+      "critic_negative_overlap": 6,
+      "unjudged": 32,
+      "risk_tail_edges": 0
+    },
+    {
+      "arm": "SOURCE_SPARSE_CONDITIONAL",
+      "k_per_scope": 3,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 19,
+      "candidate_edges": 162,
+      "critic_negative_overlap": 14,
+      "unjudged": 129,
+      "risk_tail_edges": 0
+    },
+    {
+      "arm": "SOURCE_SPARSE_CONDITIONAL",
+      "k_per_scope": 5,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 20,
+      "candidate_edges": 270,
+      "critic_negative_overlap": 20,
+      "unjudged": 230,
+      "risk_tail_edges": 2
+    },
+    {
+      "arm": "SOURCE_SPARSE_CONDITIONAL",
+      "k_per_scope": 12,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 11,
+      "reference_edges_hit": 28,
+      "candidate_edges": 644,
+      "critic_negative_overlap": 29,
+      "unjudged": 587,
+      "risk_tail_edges": 9
+    },
+    {
+      "arm": "SOURCE_SPARSE_CONDITIONAL",
+      "k_per_scope": "POOL",
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 15,
+      "reference_edges_hit": 34,
+      "candidate_edges": 1868,
+      "critic_negative_overlap": 39,
+      "unjudged": 1795,
+      "risk_tail_edges": 76
+    }
+  ],
+  "reserved32_outcomes_read": 0,
+  "expert_gold": 0,
+  "mapping_releases": 0,
+  "limitations": [
+    "R1 policy invoked unchanged; new edge cannot use original VerifiedGate without separate persisted runtime identity and shortlist contract.",
+    "Typed fields preserve literal mentions or translation hypotheses, not verified taxonomic or physical facts.",
+    "Reference overlap only; critic is incomplete and exposed; no scientific recall/precision.",
+    "Risk-tail order changes navigation only; all edges remain non-admitted."
+  ]
+}

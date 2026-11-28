@@ -1,0 +1,69 @@
+{
+  "version": "A2.6-P1-OWNER-SELECTION-RECORD-v0.1",
+  "record_type": "NON_AUTHORIZING_PI_SELECTION_ARCHIVE",
+  "status": "SELECTIONS_RECORDED_RIGHTS_VERIFICATION_PENDING",
+  "work_package": "B2/U3-B-C2-R2-P2-A2.6-P1-Gate",
+  "recorded_date": "2026-11-28",
+  "baseline_commit": "411e55efbbec4bd2a18a9751adc7585b9d2aae99",
+  "decision_template_git_blob_sha": "3a85371fb96a6e5449218df74c738581c72ae428",
+  "reference_receipt_sha256": "024d90970fa5f7990952bc702e63b5591c5f01e65881c69f8ef338554e9a6834",
+  "governing_plan": {
+    "path": "docs/AI_Nutri_Unified_Data_Foundation_v2.1.md",
+    "sections": [
+      "4. 权威、范围与研究边界",
+      "7. 最小科学基础判定"
+    ]
+  },
+  "pi_submission_text": "确认 A2.6-P1-Gate：D01=A；D02=A；D03=A。数据使用依据补充：暂无补充。本次仅提交 PI 决策，不授权 D04 导入、解盲或评分。",
+  "D01": {
+    "choice": "A",
+    "declaration": "OWNER_REPORTS_DOCUMENTABLE_LOCAL_DEVELOPMENT_USE_BASIS",
+    "supplement": "暂无补充",
+    "scope_to_verify": "32_NUTRIDATA_AND_PINNED_AUTHORITIES",
+    "custodian_id": null,
+    "documentary_basis": null,
+    "rights_evidence_bundle_sha256": null,
+    "documentary_basis_verified_by_custodian": false,
+    "signed_attestation": null,
+    "valid_for_this_run": false,
+    "local_development_import": false,
+    "status": "HOLD_DOCUMENTARY_EVIDENCE_AND_CUSTODIAN_VERIFICATION"
+  },
+  "D02": {
+    "choice": "A",
+    "route": "DEVELOPMENT_RAW_PRIMARY_PLUS_CONSERVATIVE_SECONDARY",
+    "reports": [
+      "RAW_PRIMARY",
+      "RAW_NONRELATED",
+      "CONSERVATIVE_SECONDARY"
+    ],
+    "original_primary_unchanged": true,
+    "conservative_secondary_required": true,
+    "no_gold_claim": true,
+    "status": "PI_SELECTION_CONFIRMED_NOT_EXECUTION_AUTHORIZATION"
+  },
+  "D03": {
+    "choice": "A",
+    "expert_work_deferred": true,
+    "expert_dispatch_authorized": false,
+    "status": "PI_SELECTION_CONFIRMED_EXPERT_QUALIFICATION_HOLD"
+  },
+  "D04": {
+    "choice": null,
+    "import_authorized": false,
+    "unblind_authorized": false,
+    "scoring_authorized": false,
+    "scope_if_separately_granted": "LOCAL_DEVELOPMENT_IMPORT_ONLY",
+    "fixed_import_run": "comparison_import_001",
+    "status": "NOT_AUTHORIZED"
+  },
+  "scientific_reference_qualified": false,
+  "comparison_authorized": false,
+  "comparison_executed": false,
+  "external_transfer_authorized": false,
+  "publication_authorized": false,
+  "commercial_use_authorized": false,
+  "mapping_release": 0,
+  "gate_disposition": "HOLD_RIGHTS_AND_SEPARATE_IMPORT_GRANT",
+  "note": "This record archives choices expressed in chat only. It is not a signed attestation, RightsDecision, RightsEvidenceBundle, SemanticDecision, ImportGrant, or scoring grant; do not copy it into the authorization directory. No protected reference, rank, or universe reads and no real comparison in this recording step. Original templates, policy, and frozen artifacts are not modified."
+}

@@ -1,0 +1,65 @@
+{
+  "version": "UDF-R2-P2-A1-RETRIEVAL-EXPERIMENT-0.1",
+  "status": "FROZEN_BOUNDED_RETRIEVAL_EXPERIMENT_ONLY",
+  "baseline_pr": 66,
+  "baseline_commit": "3703e0b87f26843dc3feb6cb319e73295c0d65c8",
+  "purpose": "CURATION_DEV_PROSPECTIVE_RETRIEVAL_VALIDATION_ONLY",
+  "scientific_release_authorized": false,
+  "scientific_mapping_method_frozen": false,
+  "new_edge_runtime_admission": "HOLD",
+  "reserved32_dispatch_authorized": false,
+  "primary_arm": "SOURCE_SPARSE",
+  "comparators": [
+    "BASELINE_FUSION",
+    "HYBRID"
+  ],
+  "primary_selection_reason": "On exposed first19, sparse recovers 34/43 original-universe Critic reference edges vs hybrid 28/43 and baseline 4/43; source-only runner exactly reproduces original ranks. Selection is development only; no scientific superiority claim.",
+  "ranking_policy": {
+    "sparse": "Exact frozen v2 weighted label/alias/definition overlap; score>0; deterministic sorted fsum; no additional synonym or translation generation.",
+    "hybrid": "Exact frozen v2 RRF from sparse top20 plus original dense label/context ranks; no new embedding inference.",
+    "baseline": "Original frozen fusion ranking.",
+    "cap": "Per case per scope, cap equals number of distinct originally retained pool keys; report realized counts separately. Original dense label/context k20 per original scope and k12 in FoodOn typed extension. No additional target universe.",
+    "unknown": "No source identity/qualifier evidence is invented; no positive sparse score implies no sparse candidate. Preserve empty groups and untranslated residue; do not fill with fabricated mappings.",
+    "risk_tail": "A1_RISK_TAIL and P2_CONDITIONAL remain exposed-development diagnostics, not frozen generalizable retrieval methods. They do not alter membership or grant review permission."
+  },
+  "metrics": {
+    "primary": "Original-universe per-case Reference-Hit@12 among cases with at least one independently reviewed supported in-universe target; K per scope, not global. Compare paired arms.",
+    "secondary": [
+      "Hit@1/3/5",
+      "Supported reference-edge overlap in retained pool",
+      "Negative overlap at each K and pool",
+      "Candidate count and unjudged count",
+      "Out-of-universe supported targets",
+      "Sensitivity excluding RELATED and RELATED_ONLY",
+      "Source lexical coverage and untranslated residue; missing source evidence remains unknown"
+    ],
+    "support_definition": "Use original compare_reference.supported: EXACT, CLOSE, BROADER_TARGET, NARROWER_TARGET, RELATED, CONDITIONAL with applicability not UNRESOLVED. Separate FoodOn extension domain; no reference denominator implies NA.",
+    "interpretation": "Critic reference overlap, not scientific recall/precision. No formal error tolerance or sample power assumed. Report denominators, paired results, limitations and all arms; no winner declaration based on independent-set tuning."
+  },
+  "pins": {
+    "src/u3r2p2/run_p2_portable_v2.py": "b62d0adc8ca641307bb8ac0e237aa25b60a55d9e746712fe909e34ed2e78f33b",
+    "src/u3r2p2a1/source_only_retrieval.py": "d765553df7a795bfcd79da1036dcba9c914d3a65044e4f184f548428b9bc5153",
+    "src/u3r2p2a1/run_a1.py": "273004a002a55ca56472d0333ca16899854f1b2af50bd8daaf9055be5b1bb641",
+    "src/u3r2/compare_reference.py": "84daeb34902d2e77d6ae3f94100314a0d98dae80ce9f540f92eb6bbc603be3e4",
+    "src/u3c2r/risk_v2.py": "b128513c456ba74433980cd0375207a868c93dc6421c14ae6687549e34f0fdbd",
+    "configs/udf/u3c2r/R1_Policy_v0.1.json": "485412bf6594c3120a1e129e4dda78277fa42640773f1ec64101a97d16726275",
+    "runs/B2/U3-B/C2/R2/P2/private/DevelopmentLexicon_v0.1.json": "846b8baa30a8bd1782cf93876163bdd37d625e169497fe77b007df240804b778",
+    "runs/B2/U3-B/C2/R2/real_001/controller_private/FrozenTargetUniverse.json": "311ce55e814aae9ea473609811b9be621f42d52bf2eedf68fcca610adb6f8163",
+    "runs/B2/U3-A/inputs/FoodOn.owl": "b897bf64c1b265c422db9ee01e1235c10c0b809e7f02326ef810a52068347edf",
+    "runs/B2/U3-A/inputs/FDC_SR_2018.zip": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+    "runs/B2/U3-A/inputs/FNDDS_2015_16.zip": "9be942b9d181acb62f37ee2f4c259dae642b586b2e4fe29039cfa1847f4d5dd0",
+    "runs/B2/U3-A/inputs/FNDDS_ARS_foods_2015_16.xlsx": "a3289f72a032d9453e4f5dcb51e922ff476c07c71b79d32db378070f95af55d9"
+  },
+  "reserved32_protocol": {
+    "state": "HOLD_PENDING_SOURCE_ONLY_PROJECTION_AND_INDEPENDENT_REVIEW_AUTHORITY",
+    "steps": [
+      "Controller verifies frozen reserved32 source packet byte identity and source rights; prepare exact retrieval projection after authorization, without reading review outcomes. Reviewer's allowed packet contains source facts and fixed standards only, not dense hints or candidate ranks.",
+      "Execute frozen retrieval and pin output bytes before independent reviewer response exposure.",
+      "Use an independent source-first reviewer with documented model identity, prior exposure, allowed file list and actual access controls. No expert qualification claim from AI.",
+      "Validate native target identity, version, label, exact source locator, and support/negative judgment; FNDDS single-carrier locator exception only by explicit controller same-cycle addendum, never alter reviewer bytes.",
+      "After frozen response and explicit authorized comparison, evaluate all predeclared arms and metrics. Do not revise lexicon, scoring, thresholds, caps or universe using reserved32.",
+      "If retrieval signal absent or hard negatives/unknown qualifiers remain consequential, preserve HOLD and develop native regional concepts or a new independent development cohort. No C3/B3, mapping release, or nutrient transfer from this study."
+    ],
+    "limits": "72 source-derived dev lexical entries may have poor coverage on unseen records; the experiment measures that limitation. Generic retrieval runner tested on first19 only; reserved32 controller projection and verified review/score run not performed. Local process-level field allowlist is not independent OS ACL proof."
+  }
+}

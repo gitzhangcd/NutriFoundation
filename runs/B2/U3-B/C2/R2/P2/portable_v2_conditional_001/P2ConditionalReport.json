@@ -1,0 +1,163 @@
+{
+  "status": "CONDITIONAL_NAVIGATION_DEV_ONLY",
+  "metrics": [
+    {
+      "arm": "SOURCE_SPARSE_CONDITIONAL",
+      "k_per_scope": 1,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 16,
+      "candidate_edges": 54,
+      "critic_negative_overlap": 6,
+      "unjudged_edges": 32
+    },
+    {
+      "arm": "SOURCE_SPARSE_CONDITIONAL",
+      "k_per_scope": 3,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 19,
+      "candidate_edges": 162,
+      "critic_negative_overlap": 14,
+      "unjudged_edges": 129
+    },
+    {
+      "arm": "SOURCE_SPARSE_CONDITIONAL",
+      "k_per_scope": 5,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 20,
+      "candidate_edges": 270,
+      "critic_negative_overlap": 20,
+      "unjudged_edges": 230
+    },
+    {
+      "arm": "SOURCE_SPARSE_CONDITIONAL",
+      "k_per_scope": 12,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 11,
+      "reference_edges_hit": 28,
+      "candidate_edges": 644,
+      "critic_negative_overlap": 29,
+      "unjudged_edges": 587
+    },
+    {
+      "arm": "SOURCE_SPARSE_CONDITIONAL",
+      "k_per_scope": "POOL",
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 15,
+      "reference_edges_hit": 34,
+      "candidate_edges": 1868,
+      "critic_negative_overlap": 39,
+      "unjudged_edges": 1795
+    },
+    {
+      "arm": "HYBRID_CONDITIONAL",
+      "k_per_scope": 1,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 8,
+      "reference_edges_hit": 15,
+      "candidate_edges": 57,
+      "critic_negative_overlap": 6,
+      "unjudged_edges": 36
+    },
+    {
+      "arm": "HYBRID_CONDITIONAL",
+      "k_per_scope": 3,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 19,
+      "candidate_edges": 171,
+      "critic_negative_overlap": 14,
+      "unjudged_edges": 138
+    },
+    {
+      "arm": "HYBRID_CONDITIONAL",
+      "k_per_scope": 5,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 20,
+      "candidate_edges": 285,
+      "critic_negative_overlap": 19,
+      "unjudged_edges": 246
+    },
+    {
+      "arm": "HYBRID_CONDITIONAL",
+      "k_per_scope": 12,
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 11,
+      "reference_edges_hit": 26,
+      "candidate_edges": 684,
+      "critic_negative_overlap": 28,
+      "unjudged_edges": 630
+    },
+    {
+      "arm": "HYBRID_CONDITIONAL",
+      "k_per_scope": "POOL",
+      "reference_cases": 18,
+      "reference_edges": 43,
+      "reference_hit_cases": 12,
+      "reference_edges_hit": 28,
+      "candidate_edges": 2034,
+      "critic_negative_overlap": 35,
+      "unjudged_edges": 1971
+    }
+  ],
+  "conflict_flags": {
+    "SOURCE_SPARSE_CONDITIONAL": {
+      "all_edges": 1868,
+      "flagged_edges": 74,
+      "flagged_critic_negative": 6,
+      "flagged_critic_positive": 0,
+      "flagged_negative_types": {
+        "EXPLICIT_CONFLICT": 4,
+        "COMPOSITION_OR_SPECIES_DIFFERENCE": 2
+      },
+      "question_families": {
+        "COMPONENT_RELATED_QUESTION_NOT_DISH_EQUIVALENCE": 421,
+        "HOLD_CONFLICT_OR_INHERITED_RISK": 74,
+        "IDENTITY_OR_CONDITIONAL_DIRECTION_QUESTION": 569,
+        "UNRESOLVED_IDENTITY_OR_ALIAS": 125,
+        "BROADER_NARROWER_OR_RELATED_QUESTION": 206,
+        "DISH_OR_CONDITIONAL_COMPOSITION_QUESTION": 467,
+        "UNRESOLVED_DISH_OR_COMPONENT": 6
+      }
+    },
+    "HYBRID_CONDITIONAL": {
+      "all_edges": 2034,
+      "flagged_edges": 78,
+      "flagged_critic_negative": 5,
+      "flagged_critic_positive": 0,
+      "flagged_negative_types": {
+        "EXPLICIT_CONFLICT": 3,
+        "COMPOSITION_OR_SPECIES_DIFFERENCE": 2
+      },
+      "question_families": {
+        "COMPONENT_RELATED_QUESTION_NOT_DISH_EQUIVALENCE": 229,
+        "UNRESOLVED_DISH_OR_COMPONENT": 339,
+        "HOLD_CONFLICT_OR_INHERITED_RISK": 78,
+        "IDENTITY_OR_CONDITIONAL_DIRECTION_QUESTION": 367,
+        "UNRESOLVED_IDENTITY_OR_ALIAS": 589,
+        "BROADER_NARROWER_OR_RELATED_QUESTION": 125,
+        "DISH_OR_CONDITIONAL_COMPOSITION_QUESTION": 307
+      }
+    }
+  },
+  "reserved32_outcomes_read": 0,
+  "expert_gold": 0,
+  "mapping_releases": 0,
+  "limitations": [
+    "Surface checks are tentative; candidate sets unchanged; no scientific equivalence or conditional mapping accepted.",
+    "First19 exposed development cases; no independent performance.",
+    "New candidate R1 risk/scope qualification not executed."
+  ]
+}

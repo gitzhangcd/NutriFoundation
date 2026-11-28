@@ -1,0 +1,72 @@
+{
+  "status": "PASS_BOUNDED_A1_DEVELOPMENT / RETRIEVAL_EXPERIMENT_FROZEN / SCIENTIFIC_AND_NEW_RUNTIME_ADMISSION_HOLD",
+  "parent_pr": 66,
+  "parent_head": "3703e0b87f26843dc3feb6cb319e73295c0d65c8",
+  "source_records": 19,
+  "distinct_targets": 2999,
+  "arm_level_candidate_rows": 7007,
+  "distinct_edges": 4500,
+  "prior_r1_exact_recomputed": 2427,
+  "new_r1_policy_evaluated": 2073,
+  "new_policy_review_eligible": 0,
+  "new_runtime_review_authorized": 0,
+  "scientific_release": false,
+  "new_final_dispositions": {
+    "HOLD_R1_UNRESOLVED_CONDITIONS": 2003,
+    "HOLD_R1_EXPLICIT_CONFLICT": 10,
+    "HOLD_TYPED_OR_INHERITED_RISK": 60
+  },
+  "all_final_dispositions": {
+    "HOLD_R1_UNRESOLVED_CONDITIONS": 4313,
+    "HOLD_R1_EXPLICIT_CONFLICT": 39,
+    "HOLD_TYPED_OR_INHERITED_RISK": 145,
+    "HOLD_R1_SCOPE_OR_ROLE": 3
+  },
+  "local_tests": {
+    "A1_synthetic": 24,
+    "R1_inherited": 52,
+    "R1_objects_replayed": 76473,
+    "R1_report_byte_identical": true,
+    "A1_private_files_byte_identical": 4,
+    "A1_input_fences_unchanged": 212,
+    "source_only_outputs_byte_identical": 2,
+    "source_only_rank_groups": 228,
+    "source_only_queries": 19
+  },
+  "A1_freeze_sha256": "ff1ca4b3f86c2cecaff738fc57776bc12ca059b620016642cfd788a22f8ca1f6",
+  "source_only_replay_receipt_sha256": "0de511fe7b673810ec3f8042c2511827e0f1313608cdb05fd9dcc64e30b3dba2",
+  "retrieval_experiment_policy_frozen": true,
+  "primary_arm": "SOURCE_SPARSE",
+  "comparators": [
+    "BASELINE_FUSION",
+    "HYBRID"
+  ],
+  "method_final_scientific_freeze": false,
+  "reserved32_dispatch": "HOLD_PENDING_AUTHORIZED_ISOLATED_SOURCE_ONLY_PREPARATION",
+  "reserved32_outcomes_read": 0,
+  "expert_gold": 0,
+  "mapping_release": 0,
+  "C3": "HOLD",
+  "B3": "HOLD",
+  "EA-P0": "HOLD",
+  "artifact_sha256": {
+    "src/u3r2p2a1/run_a1.py": "273004a002a55ca56472d0333ca16899854f1b2af50bd8daaf9055be5b1bb641",
+    "src/u3r2p2a1/source_only_retrieval.py": "d765553df7a795bfcd79da1036dcba9c914d3a65044e4f184f548428b9bc5153",
+    "tests/u3r2p2a1/verify_a1.py": "3a8c6ddb0187381f8ed6aa7028076cd5f89eb33d4f8e995a2b3d32b5b9e33a94",
+    "configs/udf/u3r2p2a1/A1_Profile_v0.1.json": "d4f65a78a5444e7c3de907f8f0af0a0a262d8a4514f023ae1b87d73aff879bef",
+    "configs/udf/u3r2p2a1/RetrievalPolicyFreeze_v0.1.json": "58c53ab63cf4ac25d030d78e03dcdded8a51fb5a5802e7623ee75bd93af5ddc6",
+    "runs/B2/U3-B/C2/R2/P2/A1/dev_001/A1DevelopmentReport.json": "e5ebf7ad5e3029a2ac7f813dcd4cac5b0dc5dd633012d46ad3fab620fb9fdd4a",
+    "docs/udf/B2_U3-B-C2-R2-P2-A1_Typed_Qualifiers_R1_Admission_Retrieval_Freeze_v0.1.md": "f731642af5862cf4dde6e4126ff9edb51032f10f569185b0a5eee2919bb51910",
+    ".github/workflows/udf-r2-p2-a1.yml": "4cbd99cf0df4414c0cdd9a9ed0dd6cf27367b0c930bd1661ba1e0ebf5f7f5ae8"
+  },
+  "limitations": [
+    "R1 policy invoked unchanged; new edge cannot use original VerifiedGate without separate persisted runtime identity and shortlist contract.",
+    "Typed fields preserve literal mentions or translation hypotheses, not verified taxonomic or physical facts.",
+    "Reference overlap only; critic is incomplete and exposed; no scientific recall/precision.",
+    "Risk-tail order changes navigation only; all edges remain non-admitted.",
+    "72-entry source-derived lexicon is limited; no unseen-set generalization claim.",
+    "No new runtime admission contract promotion; R1 policy evaluation is not R1 verified runtime authorization.",
+    "Risk-tail and conditional ranking remain development diagnostics, not independent-test primary methods.",
+    "No real reviewer authorization, source-rights transfer, or OS isolation proof; source-only retrieval replay used first19."
+  ]
+}

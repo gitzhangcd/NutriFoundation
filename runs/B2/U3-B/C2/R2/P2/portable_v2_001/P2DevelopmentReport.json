@@ -1,0 +1,202 @@
+{
+  "status": "INITIAL_DEVELOPMENT_COMPARISON_ONLY",
+  "method_sha256": "b62d0adc8ca641307bb8ac0e237aa25b60a55d9e746712fe909e34ed2e78f33b",
+  "candidate_freeze_sha256": "20bbf6e29c34fdc5dbd955b9e7576c2bc36a5f87077176ec3eb6b58295b747b5",
+  "metrics": [
+    {
+      "arm": "BASELINE_FUSION",
+      "k_per_scope": 1,
+      "cases": 19,
+      "reference_cases": 18,
+      "reference_hit_cases": 0,
+      "reference_edges_hit": 0,
+      "reference_edges": 43,
+      "candidate_edges": 57,
+      "critic_negative_overlap": 1,
+      "unjudged_edges": 56
+    },
+    {
+      "arm": "BASELINE_FUSION",
+      "k_per_scope": 3,
+      "cases": 19,
+      "reference_cases": 18,
+      "reference_hit_cases": 1,
+      "reference_edges_hit": 1,
+      "reference_edges": 43,
+      "candidate_edges": 171,
+      "critic_negative_overlap": 1,
+      "unjudged_edges": 169
+    },
+    {
+      "arm": "BASELINE_FUSION",
+      "k_per_scope": 5,
+      "cases": 19,
+      "reference_cases": 18,
+      "reference_hit_cases": 1,
+      "reference_edges_hit": 1,
+      "reference_edges": 43,
+      "candidate_edges": 285,
+      "critic_negative_overlap": 1,
+      "unjudged_edges": 283
+    },
+    {
+      "arm": "BASELINE_FUSION",
+      "k_per_scope": 12,
+      "cases": 19,
+      "reference_cases": 18,
+      "reference_hit_cases": 3,
+      "reference_edges_hit": 3,
+      "reference_edges": 43,
+      "candidate_edges": 684,
+      "critic_negative_overlap": 1,
+      "unjudged_edges": 680
+    },
+    {
+      "arm": "BASELINE_FUSION",
+      "k_per_scope": "POOL",
+      "cases": 19,
+      "reference_cases": 18,
+      "reference_hit_cases": 4,
+      "reference_edges_hit": 4,
+      "reference_edges": 43,
+      "candidate_edges": 2034,
+      "critic_negative_overlap": 3,
+      "unjudged_edges": 2027
+    },
+    {
+      "arm": "SOURCE_SPARSE",
+      "k_per_scope": 1,
+      "cases": 19,
+      "reference_cases": 18,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 16,
+      "reference_edges": 43,
+      "candidate_edges": 54,
+      "critic_negative_overlap": 7,
+      "unjudged_edges": 31
+    },
+    {
+      "arm": "SOURCE_SPARSE",
+      "k_per_scope": 3,
+      "cases": 19,
+      "reference_cases": 18,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 19,
+      "reference_edges": 43,
+      "candidate_edges": 162,
+      "critic_negative_overlap": 14,
+      "unjudged_edges": 129
+    },
+    {
+      "arm": "SOURCE_SPARSE",
+      "k_per_scope": 5,
+      "cases": 19,
+      "reference_cases": 18,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 20,
+      "reference_edges": 43,
+      "candidate_edges": 270,
+      "critic_negative_overlap": 20,
+      "unjudged_edges": 230
+    },
+    {
+      "arm": "SOURCE_SPARSE",
+      "k_per_scope": 12,
+      "cases": 19,
+      "reference_cases": 18,
+      "reference_hit_cases": 11,
+      "reference_edges_hit": 27,
+      "reference_edges": 43,
+      "candidate_edges": 644,
+      "critic_negative_overlap": 27,
+      "unjudged_edges": 590
+    },
+    {
+      "arm": "SOURCE_SPARSE",
+      "k_per_scope": "POOL",
+      "cases": 19,
+      "reference_cases": 18,
+      "reference_hit_cases": 15,
+      "reference_edges_hit": 34,
+      "reference_edges": 43,
+      "candidate_edges": 1868,
+      "critic_negative_overlap": 39,
+      "unjudged_edges": 1795
+    },
+    {
+      "arm": "HYBRID",
+      "k_per_scope": 1,
+      "cases": 19,
+      "reference_cases": 18,
+      "reference_hit_cases": 7,
+      "reference_edges_hit": 12,
+      "reference_edges": 43,
+      "candidate_edges": 57,
+      "critic_negative_overlap": 5,
+      "unjudged_edges": 40
+    },
+    {
+      "arm": "HYBRID",
+      "k_per_scope": 3,
+      "cases": 19,
+      "reference_cases": 18,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 18,
+      "reference_edges": 43,
+      "candidate_edges": 171,
+      "critic_negative_overlap": 9,
+      "unjudged_edges": 144
+    },
+    {
+      "arm": "HYBRID",
+      "k_per_scope": 5,
+      "cases": 19,
+      "reference_cases": 18,
+      "reference_hit_cases": 9,
+      "reference_edges_hit": 20,
+      "reference_edges": 43,
+      "candidate_edges": 285,
+      "critic_negative_overlap": 16,
+      "unjudged_edges": 249
+    },
+    {
+      "arm": "HYBRID",
+      "k_per_scope": 12,
+      "cases": 19,
+      "reference_cases": 18,
+      "reference_hit_cases": 11,
+      "reference_edges_hit": 26,
+      "reference_edges": 43,
+      "candidate_edges": 684,
+      "critic_negative_overlap": 25,
+      "unjudged_edges": 633
+    },
+    {
+      "arm": "HYBRID",
+      "k_per_scope": "POOL",
+      "cases": 19,
+      "reference_cases": 18,
+      "reference_hit_cases": 12,
+      "reference_edges_hit": 28,
+      "reference_edges": 43,
+      "candidate_edges": 2034,
+      "critic_negative_overlap": 35,
+      "unjudged_edges": 1971
+    }
+  ],
+  "route_counts": {
+    "QUESTION_ONLY_R1_REVALIDATION_REQUIRED": 3582,
+    "HOLD_INHERITED_R1": 114,
+    "HOLD_NEW_EDGE_R1_NOT_RUN": 3311
+  },
+  "scientific_precision_recall": "NOT_ESTIMABLE",
+  "reserved32_outcomes_read": 0,
+  "expert_gold": 0,
+  "mapping_releases": 0,
+  "limitations": [
+    "19 development exposed cases; not independent validation",
+    "component lexicon author-generated from source terms; no new dense embeddings",
+    "new edge requires full R1 revalidation; no formal conditional mapping",
+    "all raw query and candidate rows local only"
+  ]
+}

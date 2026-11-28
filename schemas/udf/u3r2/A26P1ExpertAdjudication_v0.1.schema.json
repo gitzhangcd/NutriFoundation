@@ -1,0 +1,300 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nutrifoundation:a26:p1:expert-adjudication:0.1",
+  "title": "A2.6 P1 expert adjudication envelope, separate from original AGY reference",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "task_id",
+    "phase",
+    "reviewer_id",
+    "qualification_basis",
+    "conflict_of_interest",
+    "prior_exposure",
+    "source_only_freeze_sha256",
+    "case_ordinal",
+    "source_packet_sha256",
+    "reference_record_sha256",
+    "items",
+    "overall_disposition",
+    "signed_attestation",
+    "no_rank_access",
+    "scientific_release_authorized"
+  ],
+  "properties": {
+    "version": {
+      "const": "A2.6-P1-EXPERT-ADJUDICATION-v0.1"
+    },
+    "task_id": {
+      "const": "B2-U3R2-REF32-A26-P1-EXPERT"
+    },
+    "phase": {
+      "const": "B_REFERENCE_ADJUDICATION"
+    },
+    "reviewer_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "qualification_basis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "conflict_of_interest": {
+      "type": "string",
+      "minLength": 1
+    },
+    "prior_exposure": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_only_freeze_sha256": {
+      "$ref": "#/$defs/sha"
+    },
+    "case_ordinal": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 32
+    },
+    "source_packet_sha256": {
+      "$ref": "#/$defs/sha"
+    },
+    "reference_record_sha256": {
+      "$ref": "#/$defs/sha"
+    },
+    "items": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "$ref": "#/$defs/item"
+      }
+    },
+    "overall_disposition": {
+      "enum": [
+        "ACCEPT_FOR_CONCEPT_RETRIEVAL_ONLY",
+        "REVISE_IN_SEPARATE_OVERLAY",
+        "UNRESOLVED",
+        "ABSTAIN"
+      ]
+    },
+    "signed_attestation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "no_rank_access": {
+      "const": true
+    },
+    "scientific_release_authorized": {
+      "const": false
+    }
+  },
+  "$defs": {
+    "sha": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "anchor": {
+      "type": "object",
+      "required": [
+        "artifact_sha256",
+        "locator",
+        "observation",
+        "role"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "artifact_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "enum": [
+            "SOURCE_EXPLICIT",
+            "TARGET_EXPLICIT",
+            "EXTERNAL_DOCUMENTATION"
+          ]
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "field",
+        "item_key",
+        "decision",
+        "reason_code",
+        "rationale",
+        "evidence",
+        "proposed_judgment",
+        "measurement_transfer"
+      ],
+      "properties": {
+        "field": {
+          "enum": [
+            "source_dimensions",
+            "independent_candidates",
+            "hard_negatives"
+          ]
+        },
+        "item_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decision": {
+          "enum": [
+            "ACCEPT",
+            "REVISE",
+            "UNRESOLVED",
+            "ABSTAIN"
+          ]
+        },
+        "reason_code": {
+          "enum": [
+            "SUPPORTED_BY_BOTH_SIDES",
+            "EXPLICIT_CONFLICT",
+            "UNKNOWN_CONDITION",
+            "GRAIN_ROLE_MISMATCH",
+            "DIRECTION_MISMATCH",
+            "APPLICABILITY_MISMATCH",
+            "INFERENCE_EXCEEDS_EVIDENCE",
+            "TARGET_TO_SOURCE_INFERENCE",
+            "INSUFFICIENT_SOURCE",
+            "OTHER"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/anchor"
+          }
+        },
+        "proposed_judgment": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "state": {
+              "enum": [
+                "SOURCE_EXPLICIT",
+                "SEMANTIC_INFERENCE",
+                "EXTERNAL_SUPPORTED",
+                "UNRESOLVED"
+              ]
+            },
+            "relation": {
+              "enum": [
+                "EXACT",
+                "CLOSE",
+                "BROADER_TARGET",
+                "NARROWER_TARGET",
+                "RELATED",
+                "CONDITIONAL",
+                "AMBIGUOUS",
+                "UNRESOLVED"
+              ]
+            },
+            "applicability": {
+              "enum": [
+                "CONCEPT_CANDIDATE_ONLY",
+                "CONDITIONAL_CONCEPT_CANDIDATE",
+                "RELATED_ONLY",
+                "UNRESOLVED"
+              ]
+            },
+            "conditions": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "conflict_type": {
+              "enum": [
+                "EXPLICIT_CONFLICT",
+                "GRAIN_OR_ROLE_DIFFERENCE",
+                "TARGET_SPECIFIC_CONDITION",
+                "COMPOSITION_OR_SPECIES_DIFFERENCE",
+                "UNRESOLVED_OTHER"
+              ]
+            },
+            "edge_disposition": {
+              "enum": [
+                "SUPPORTED_CANDIDATE",
+                "VERIFIED_NEGATIVE",
+                "REVIEWED_UNRESOLVED"
+              ]
+            }
+          }
+        },
+        "measurement_transfer": {
+          "const": "HOLD"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "decision": {
+                "const": "REVISE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "proposed_judgment": {
+                "type": "object",
+                "minProperties": 1
+              },
+              "evidence": {
+                "minItems": 1
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "proposed_judgment": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "decision": {
+                "const": "ACCEPT"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "evidence": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
